@@ -1386,11 +1386,6 @@ def generate_html(articles, output_file='docs/index.html'):
         </header>
 
         <main class="main-content">
-            <div class="stats">
-                <p>更新时间: {datetime.now().strftime('%Y年%m月%d日 %H:%M')}</p>
-                <p>共收集技术文章 {len(tech_sorted)} 篇，新闻 {len(news_sorted)} 篇</p>
-            </div>
-
             <div class="category-section">
                 <h2 class="section-title">🎯 技术文章 (Technical Articles)</h2>
                 <div class="articles-grid" id="tech-articles">
