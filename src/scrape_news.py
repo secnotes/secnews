@@ -372,8 +372,8 @@ class SecurityNewsAggregator:
                 # If direct connection fails, try using the proxy
                 logger.info("Direct connection to Project Zero failed, trying proxy...")
                 proxy_session.proxies = {
-                    'http': 'http://192.168.36.1:7890',
-                    'https': 'http://192.168.36.1:7890'
+                    'http': 'http://192.168.17.1:7890',  # Updated to match user's proxy address
+                    'https': 'http://192.168.17.1:7890'  # Updated to match user's proxy address
                 }
                 response = proxy_session.get("https://projectzero.google/", timeout=20)
 
@@ -1156,6 +1156,14 @@ def generate_html(articles, output_file='../docs/index.html'):
     tech_sorted = sorted(articles['tech'], key=lambda x: x['date'], reverse=True)
     news_sorted = sorted(articles['news'], key=lambda x: x['date'], reverse=True)
 
+    # Function to truncate description if too long
+    def truncate_description(desc, max_length=500):
+        if not desc:
+            return desc
+        if len(desc) > max_length:
+            return desc[:max_length] + "..."
+        return desc
+
     html_content = f"""<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -1322,7 +1330,7 @@ def generate_html(articles, output_file='../docs/index.html'):
                 <div class="article-card">
                     <div class="article-source">来源: {article['source']}</div>
                     <h3 class="article-title"><a href="{article['url']}" target="_blank">{html.escape(article['title'])}</a></h3>
-                    {f'<p class="article-description">{html.escape(article["description"])}</p>' if article["description"] else ''}
+                    {f'<p class="article-description">{html.escape(truncate_description(article["description"]))}</p>' if article["description"] else ''}
                     <div class="article-date">发布日期: {article['date']}</div>
                 </div>''' for article in tech_sorted])}
             </div>
@@ -1335,7 +1343,7 @@ def generate_html(articles, output_file='../docs/index.html'):
                 <div class="article-card">
                     <div class="article-source">来源: {article['source']}</div>
                     <h3 class="article-title"><a href="{article['url']}" target="_blank">{html.escape(article['title'])}</a></h3>
-                    {f'<p class="article-description">{html.escape(article["description"])}</p>' if article["description"] else ''}
+                    {f'<p class="article-description">{html.escape(truncate_description(article["description"]))}</p>' if article["description"] else ''}
                     <div class="article-date">发布日期: {article['date']}</div>
                 </div>''' for article in news_sorted])}
             </div>
@@ -1366,8 +1374,10 @@ def main():
     # Save raw data
     aggregator.save_articles_json()
 
+    # Create docs directory if it doesn't exist
+    os.makedirs('docs', exist_ok=True)
     # Generate HTML page in docs directory
-    generate_html(aggregator.articles)
+    generate_html(aggregator.articles, output_file='docs/index.html')
 
     print(f"\n完成！共收集到:")
     print(f"- 技术文章: {len(aggregator.articles['tech'])} 篇")
