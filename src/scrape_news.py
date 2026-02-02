@@ -1145,7 +1145,7 @@ class SecurityNewsAggregator:
             self.articles = {'tech': [], 'news': []}
 
 
-def generate_html(articles, output_file='../docs/index.html'):
+def generate_html(articles, output_file='docs/index.html'):
     """Generate HTML page with collected articles"""
 
     # Create docs directory if it doesn't exist
@@ -1163,6 +1163,12 @@ def generate_html(articles, output_file='../docs/index.html'):
         if len(desc) > max_length:
             return desc[:max_length] + "..."
         return desc
+
+    # Get all unique dates for the filter dropdown
+    all_dates = set()
+    for article in articles['tech'] + articles['news']:
+        all_dates.add(article['date'])
+    sorted_dates = sorted(list(all_dates), reverse=True)
 
     html_content = f"""<!DOCTYPE html>
 <html lang="zh-CN">
@@ -1185,9 +1191,27 @@ def generate_html(articles, output_file='../docs/index.html'):
         }}
 
         .container {{
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+        }}
+
+        .main-content {{
+            grid-column: 1;
+        }}
+
+        .sidebar {{
+            grid-column: 2;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            align-self: start;
+            position: sticky;
+            top: 20px;
         }}
 
         header {{
@@ -1208,6 +1232,33 @@ def generate_html(articles, output_file='../docs/index.html'):
         .subtitle {{
             font-size: 1.1rem;
             opacity: 0.9;
+        }}
+
+        .filters {{
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }}
+
+        .filter-group {{
+            margin-bottom: 1rem;
+        }}
+
+        .filter-group label {{
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #495057;
+        }}
+
+        .filter-group select, .filter-group input {{
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
         }}
 
         .stats {{
@@ -1246,6 +1297,10 @@ def generate_html(articles, output_file='../docs/index.html'):
             height: 100%;
             display: flex;
             flex-direction: column;
+        }}
+
+        .article-card[data-date] {{
+            /* Add data attribute for filtering */
         }}
 
         .article-card:hover {{
@@ -1288,12 +1343,24 @@ def generate_html(articles, output_file='../docs/index.html'):
         }}
 
         .footer {{
+            grid-column: 1 / -1;
             text-align: center;
             padding: 2rem 0;
             color: #6c757d;
             font-size: 0.9rem;
             margin-top: 3rem;
             border-top: 1px solid #dee2e6;
+        }}
+
+        @media (max-width: 1100px) {{
+            .container {{
+                grid-template-columns: 1fr;
+            }}
+
+            .sidebar {{
+                grid-column: 1;
+                position: static;
+            }}
         }}
 
         @media (max-width: 768px) {{
@@ -1318,36 +1385,73 @@ def generate_html(articles, output_file='../docs/index.html'):
             <div class="subtitle">Cybersecurity News Aggregator - 汇聚最新安全资讯</div>
         </header>
 
-        <div class="stats">
-            <p>更新时间: {datetime.now().strftime('%Y年%m月%d日 %H:%M')}</p>
-            <p>共收集技术文章 {len(tech_sorted)} 篇，新闻 {len(news_sorted)} 篇</p>
-        </div>
-
-        <div class="category-section">
-            <h2 class="section-title">🎯 技术文章 (Technical Articles)</h2>
-            <div class="articles-grid">
-                {"".join([f'''
-                <div class="article-card">
-                    <div class="article-source">来源: {article['source']}</div>
-                    <h3 class="article-title"><a href="{article['url']}" target="_blank">{html.escape(article['title'])}</a></h3>
-                    {f'<p class="article-description">{html.escape(truncate_description(article["description"]))}</p>' if article["description"] else ''}
-                    <div class="article-date">发布日期: {article['date']}</div>
-                </div>''' for article in tech_sorted])}
+        <main class="main-content">
+            <div class="stats">
+                <p>更新时间: {datetime.now().strftime('%Y年%m月%d日 %H:%M')}</p>
+                <p>共收集技术文章 {len(tech_sorted)} 篇，新闻 {len(news_sorted)} 篇</p>
             </div>
-        </div>
 
-        <div class="category-section">
-            <h2 class="section-title">📰 安全新闻 (Security News)</h2>
-            <div class="articles-grid">
-                {"".join([f'''
-                <div class="article-card">
-                    <div class="article-source">来源: {article['source']}</div>
-                    <h3 class="article-title"><a href="{article['url']}" target="_blank">{html.escape(article['title'])}</a></h3>
-                    {f'<p class="article-description">{html.escape(truncate_description(article["description"]))}</p>' if article["description"] else ''}
-                    <div class="article-date">发布日期: {article['date']}</div>
-                </div>''' for article in news_sorted])}
+            <div class="category-section">
+                <h2 class="section-title">🎯 技术文章 (Technical Articles)</h2>
+                <div class="articles-grid" id="tech-articles">
+                    {"".join([f'''
+                    <div class="article-card" data-date="{article['date']}">
+                        <div class="article-source">来源: {article['source']}</div>
+                        <h3 class="article-title"><a href="{article['url']}" target="_blank">{html.escape(article['title'])}</a></h3>
+                        {f'<p class="article-description">{html.escape(truncate_description(article["description"]))}</p>' if article["description"] else ''}
+                        <div class="article-date">发布日期: {article['date']}</div>
+                    </div>''' for article in tech_sorted])}
+                </div>
             </div>
-        </div>
+
+            <div class="category-section">
+                <h2 class="section-title">📰 安全新闻 (Security News)</h2>
+                <div class="articles-grid" id="news-articles">
+                    {"".join([f'''
+                    <div class="article-card" data-date="{article['date']}">
+                        <div class="article-source">来源: {article['source']}</div>
+                        <h3 class="article-title"><a href="{article['url']}" target="_blank">{html.escape(article['title'])}</a></h3>
+                        {f'<p class="article-description">{html.escape(truncate_description(article["description"]))}</p>' if article["description"] else ''}
+                        <div class="article-date">发布日期: {article['date']}</div>
+                    </div>''' for article in news_sorted])}
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <h3>筛选器</h3>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="date-filter">📅 按日期筛选:</label>
+                    <select id="date-filter" onchange="filterByDate()">
+                        <option value="">全部日期</option>
+                        {''.join([f'<option value="{date}">{date}</option>' for date in sorted_dates])}
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="source-filter">🏢 按来源筛选:</label>
+                    <select id="source-filter" onchange="filterBySource()">
+                        <option value="">全部来源</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="search-input">🔍 搜索关键词:</label>
+                    <input type="text" id="search-input" placeholder="输入关键词搜索..." onkeyup="filterBySearch()">
+                </div>
+
+                <button onclick="clearAllFilters()" style="margin-top: 10px; padding: 8px 16px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">清除筛选</button>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <h4>统计信息</h4>
+                <p>总文章数: {len(tech_sorted) + len(news_sorted)}</p>
+                <p>技术文章: {len(tech_sorted)}</p>
+                <p>安全新闻: {len(news_sorted)}</p>
+                <p>更新日期: {datetime.now().strftime('%Y-%m-%d')}</p>
+            </div>
+        </aside>
 
         <div class="footer">
             <p>© 2026 <a href="https://github.com/secnotes">SecNotes</a> | <a href="https://github.com/secnotes/secnews">站点源码</a></p>
@@ -1356,6 +1460,174 @@ def generate_html(articles, output_file='../docs/index.html'):
             <p>如有侵权，请联系删除</p>
         </div>
     </div>
+
+    <script>
+        // Initialize sources filter
+        window.onload = function() {{
+            const sources = new Set();
+            document.querySelectorAll('.article-card').forEach(card => {{
+                const source = card.querySelector('.article-source').textContent.replace('来源: ', '');
+                sources.add(source);
+            }});
+
+            const sourceFilter = document.getElementById('source-filter');
+            Array.from(sources).sort().forEach(source => {{
+                const option = document.createElement('option');
+                option.value = source;
+                option.textContent = source;
+                sourceFilter.appendChild(option);
+            }});
+
+            // Initialize with all articles shown
+            updateArticleCounts();
+        }};
+
+        function filterByDate() {{
+            const dateFilter = document.getElementById('date-filter').value;
+            const techCards = document.querySelectorAll('#tech-articles .article-card');
+            const newsCards = document.querySelectorAll('#news-articles .article-card');
+            let visibleCount = 0;
+
+            // Show/hide tech articles
+            techCards.forEach(card => {{
+                const cardDate = card.getAttribute('data-date');
+                if (dateFilter === '' || cardDate === dateFilter) {{
+                    card.style.display = 'flex';
+                    visibleCount++;
+                }} else {{
+                    card.style.display = 'none';
+                }}
+            }});
+
+            // Show/hide news articles
+            newsCards.forEach(card => {{
+                const cardDate = card.getAttribute('data-date');
+                if (dateFilter === '' || cardDate === dateFilter) {{
+                    card.style.display = 'flex';
+                    visibleCount++;
+                }} else {{
+                    card.style.display = 'none';
+                }}
+            }});
+
+            updateArticleCounts();
+        }}
+
+        function filterBySource() {{
+            const sourceFilter = document.getElementById('source-filter').value;
+            const techCards = document.querySelectorAll('#tech-articles .article-card');
+            const newsCards = document.querySelectorAll('#news-articles .article-card');
+            let visibleCount = 0;
+
+            // Show/hide tech articles
+            techCards.forEach(card => {{
+                const cardSource = card.querySelector('.article-source').textContent.replace('来源: ', '');
+                if (sourceFilter === '' || cardSource === sourceFilter) {{
+                    if (isVisibleByDateFilter(card)) {{
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    }}
+                }} else {{
+                    card.style.display = 'none';
+                }}
+            }});
+
+            // Show/hide news articles
+            newsCards.forEach(card => {{
+                const cardSource = card.querySelector('.article-source').textContent.replace('来源: ', '');
+                if (sourceFilter === '' || cardSource === sourceFilter) {{
+                    if (isVisibleByDateFilter(card)) {{
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    }}
+                }} else {{
+                    card.style.display = 'none';
+                }}
+            }});
+
+            updateArticleCounts();
+        }}
+
+        function filterBySearch() {{
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const techCards = document.querySelectorAll('#tech-articles .article-card');
+            const newsCards = document.querySelectorAll('#news-articles .article-card');
+            let visibleCount = 0;
+
+            // Show/hide tech articles
+            techCards.forEach(card => {{
+                const title = card.querySelector('.article-title').textContent.toLowerCase();
+                const description = card.querySelector('.article-description') ?
+                    card.querySelector('.article-description').textContent.toLowerCase() : '';
+                const source = card.querySelector('.article-source').textContent.toLowerCase();
+
+                const matches = title.includes(searchTerm) ||
+                               description.includes(searchTerm) ||
+                               source.includes(searchTerm);
+
+                if (matches && isVisibleByDateFilter(card) && isVisibleBySourceFilter(card)) {{
+                    card.style.display = 'flex';
+                    visibleCount++;
+                }} else {{
+                    card.style.display = 'none';
+                }}
+            }});
+
+            // Show/hide news articles
+            newsCards.forEach(card => {{
+                const title = card.querySelector('.article-title').textContent.toLowerCase();
+                const description = card.querySelector('.article-description') ?
+                    card.querySelector('.article-description').textContent.toLowerCase() : '';
+                const source = card.querySelector('.article-source').textContent.toLowerCase();
+
+                const matches = title.includes(searchTerm) ||
+                               description.includes(searchTerm) ||
+                               source.includes(searchTerm);
+
+                if (matches && isVisibleByDateFilter(card) && isVisibleBySourceFilter(card)) {{
+                    card.style.display = 'flex';
+                    visibleCount++;
+                }} else {{
+                    card.style.display = 'none';
+                }}
+            }});
+
+            updateArticleCounts();
+        }}
+
+        function isVisibleByDateFilter(card) {{
+            const dateFilter = document.getElementById('date-filter').value;
+            const cardDate = card.getAttribute('data-date');
+            return dateFilter === '' || cardDate === dateFilter;
+        }}
+
+        function isVisibleBySourceFilter(card) {{
+            const sourceFilter = document.getElementById('source-filter').value;
+            const cardSource = card.querySelector('.article-source').textContent.replace('来源: ', '');
+            return sourceFilter === '' || cardSource === sourceFilter;
+        }}
+
+        function clearAllFilters() {{
+            document.getElementById('date-filter').value = '';
+            document.getElementById('source-filter').value = '';
+            document.getElementById('search-input').value = '';
+
+            // Reset all cards to visible
+            document.querySelectorAll('.article-card').forEach(card => {{
+                card.style.display = 'flex';
+            }});
+
+            updateArticleCounts();
+        }}
+
+        function updateArticleCounts() {{
+            const visibleCards = document.querySelectorAll('.article-card[style*="display: flex"]').length;
+            const totalCount = document.querySelectorAll('.article-card').length;
+
+            // Update stats or provide some visual feedback about filtered results
+            console.log(`Showing ${{visibleCards}} of ${{totalCount}} articles`);
+        }}
+    </script>
 </body>
 </html>"""
 
