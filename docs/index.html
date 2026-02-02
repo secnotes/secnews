@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>安全资讯聚合 - Security News Aggregator</title>
+    <title>网络安全资讯聚合 - Cybersecurity News Aggregator</title>
     <style>
         * {
             margin: 0;
@@ -19,9 +19,27 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+        }
+
+        .main-content {
+            grid-column: 1;
+        }
+
+        .sidebar {
+            grid-column: 2;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            align-self: start;
+            position: sticky;
+            top: 20px;
         }
 
         header {
@@ -42,6 +60,33 @@
         .subtitle {
             font-size: 1.1rem;
             opacity: 0.9;
+        }
+
+        .filters {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .filter-group {
+            margin-bottom: 1rem;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #495057;
+        }
+
+        .filter-group select, .filter-group input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 0.9rem;
         }
 
         .stats {
@@ -80,6 +125,10 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+        }
+
+        .article-card[data-date] {
+            /* Add data attribute for filtering */
         }
 
         .article-card:hover {
@@ -122,12 +171,24 @@
         }
 
         .footer {
+            grid-column: 1 / -1;
             text-align: center;
             padding: 2rem 0;
             color: #6c757d;
             font-size: 0.9rem;
             margin-top: 3rem;
             border-top: 1px solid #dee2e6;
+        }
+
+        @media (max-width: 1100px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                grid-column: 1;
+                position: static;
+            }
         }
 
         @media (max-width: 768px) {
@@ -148,677 +209,877 @@
 <body>
     <div class="container">
         <header>
-            <h1>安全资讯聚合</h1>
-            <div class="subtitle">Cybersecurity News Aggregator - 汇聚最新安全资讯</div>
+            <h1>网络安全资讯聚合</h1>
+            <div class="subtitle">Cybersecurity News Aggregator - 汇聚最新网络安全资讯</div>
         </header>
 
-        <div class="stats">
-            <p>更新时间: 2026年02月02日 06:08</p>
-            <p>共收集技术文章 47 篇，新闻 40 篇</p>
-        </div>
-
-        <div class="category-section">
-            <h2 class="section-title">🎯 技术文章 (Technical Articles)</h2>
-            <div class="articles-grid">
-                
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/fbb3d949-bd7c-4a65-b21a-40212347102c/" target="_blank">SecToday Next</a></h3>
-                    <p class="article-description">SEC Consult 披露了 Dormakaba Kaba exos 9300 物理门禁系统中多个严重漏洞，包括未认证的 SOAP API 访问、硬编码凭证、不安全的密码派生函数以及权限提升漏洞。攻击者可以远程或通过本地访问系统，篡改访问日志、控制门禁控制器，并未经授权访问数据库或重设系统配置。漏洞影响多个固件版本，部分漏洞已分配 CVE 编号，包括 CVE-2025-59090 至 CVE-2025-59096。厂商已发布修复补丁和缓解建议。
+        <main class="main-content">
+            <div class="category-section">
+                <h2 class="section-title">🎯 技术文章 (Technical Articles)</h2>
+                <div class="articles-grid" id="tech-articles">
+                    
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/fbb3d949-bd7c-4a65-b21a-40212347102c/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">SEC Consult 披露了 Dormakaba Kaba exos 9300 物理门禁系统中多个严重漏洞，包括未认证的 SOAP API 访问、硬编码凭证、不安全的密码派生函数以及权限提升漏洞。攻击者可以远程或通过本地访问系统，篡改访问日志、控制门禁控制器，并未经授权访问数据库或重设系统配置。漏洞影响多个固件版本，部分漏洞已分配 CVE 编号，包括 CVE-2025-59090 至 CVE-2025-59096。厂商已发布修复补丁和缓解建议。
                 –
                 
 
                         SecTodayBot
                     
-• 59 minutes ago</p>
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/7ffa74b5-9fc2-44a7-adb4-c712641ef721/" target="_blank">SagaEVM漏洞攻击事件：因EVM预编译漏洞导致700万美元损失</a></h3>
-                    <p class="article-description">本文深入剖析了SagaEVM遭受700万美元黑客攻击的技术根源，揭示了一个因继承自Ethermint EVM的预编译桥漏洞所引发的稳定币无限铸造问题，为DeFi项目在使用分叉代码时的安全性提供了重要警示。
+• 5 hours ago</p>
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/7ffa74b5-9fc2-44a7-adb4-c712641ef721/" target="_blank">SagaEVM漏洞攻击事件：因EVM预编译漏洞导致700万美元损失</a></h3>
+                        <p class="article-description">本文深入剖析了SagaEVM遭受700万美元黑客攻击的技术根源，揭示了一个因继承自Ethermint EVM的预编译桥漏洞所引发的稳定币无限铸造问题，为DeFi项目在使用分叉代码时的安全性提供了重要警示。
                 –
                 
 
                         SecTodayBot
                     
-• 59 minutes ago</p>
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/4ce4617d-66b3-41d9-b083-498ec3af5cfc/" target="_blank">SecToday Next</a></h3>
-                    <p class="article-description">Node.js 沙箱库 vm2 中发现了一个关键的沙箱逃逸漏洞（CVE-2026-22709），攻击者可以利用该漏洞绕过安全限制并执行任意代码。该漏洞源于对全局 Promise 对象处理不当，攻击者能够访问 Function 构造器，从而实现对底层系统的任意代码执行。漏洞影响版本 3.10.0，已在 3.10.2 中修复。由于缺乏替代方案，vm2 仍然被广泛使用，尽管此前曾被弃用并停止维护。此次漏洞再次凸显了 JavaScript 沙箱隔离的困难，维护者建议用户升级版本，并考虑使用如 isolated-vm 或 Docker 等更安全的替代方案。
+• 5 hours ago</p>
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/4ce4617d-66b3-41d9-b083-498ec3af5cfc/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">Node.js 沙箱库 vm2 中发现了一个关键的沙箱逃逸漏洞（CVE-2026-22709），攻击者可以利用该漏洞绕过安全限制并执行任意代码。该漏洞源于对全局 Promise 对象处理不当，攻击者能够访问 Function 构造器，从而实现对底层系统的任意代码执行。漏洞影响版本 3.10.0，已在 3.10.2 中修复。由于缺乏替代方案，vm2 仍然被广泛使用，尽管此前曾被弃用并停止维护。此次漏洞再次凸显了 JavaScript 沙箱隔离的困难，维护者建议用户升级版本，并考虑使用如 isolated-vm 或 Docker 等更安全的替代方案。
                 –
                 
 
                         SecTodayBot
                     
-• 59 minutes ago</p>
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/40a12148-9c56-41df-8ff6-0fb1af211277/" target="_blank">SecToday Next</a></h3>
-                    <p class="article-description">SolarWinds Web Help Desk 被发现存在多个关键漏洞，其中最严重的是 CVE-2025-40551，该漏洞允许未经身份验证的攻击者通过 Java 反序列化实现远程代码执行（RCE）。该漏洞涉及 AjaxProxy 组件中的反序列化缺陷、硬编码凭证、跨站请求伪造（CSRF）及请求过滤器绕过等技术。攻击者可通过修改 URI 并注入恶意 gadget 来绕过安全控制，从而执行任意代码。SolarWinds 已发布修复补丁，建议用户立即升级至 WHD 2026.1 以缓解风险。
+• 5 hours ago</p>
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/40a12148-9c56-41df-8ff6-0fb1af211277/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">SolarWinds Web Help Desk 被发现存在多个关键漏洞，其中最严重的是 CVE-2025-40551，该漏洞允许未经身份验证的攻击者通过 Java 反序列化实现远程代码执行（RCE）。该漏洞涉及 AjaxProxy 组件中的反序列化缺陷、硬编码凭证、跨站请求伪造（CSRF）及请求过滤器绕过等技术。攻击者可通过修改 URI 并注入恶意 gadget 来绕过安全控制，从而执行任意代码。SolarWinds 已发布修复补丁，建议用户立即升级至 WHD 2026.1 以缓解风险。
                 –
                 
 
                         SecTodayBot
                     
-• 59 minutes ago</p>
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/53807ce6-0a20-481f-9905-3185a30898f1/" target="_blank">SecToday Next</a></h3>
-                    <p class="article-description">Grist 电子表格工具中发现一个关键沙箱逃逸漏洞（CVE-2026-24002），CVSS 评分为 9.1。该漏洞允许攻击者通过合法的数据处理路径逃逸 Pyodide 沙箱，实现远程代码执行（RCE）。攻击者可利用恶意公式或脚本执行任意系统命令或 JavaScript，可能导致数据泄露、凭证窃取和横向移动。此漏洞由 Cyera Research Labs 发现，Grist 安全团队已发布修复版本 1.7.9，并默认启用 Deno 运行时以增强安全性。受影响用户应立即升级并避免禁用新沙箱机制。
+• 5 hours ago</p>
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/53807ce6-0a20-481f-9905-3185a30898f1/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">Grist 电子表格工具中发现一个关键沙箱逃逸漏洞（CVE-2026-24002），CVSS 评分为 9.1。该漏洞允许攻击者通过合法的数据处理路径逃逸 Pyodide 沙箱，实现远程代码执行（RCE）。攻击者可利用恶意公式或脚本执行任意系统命令或 JavaScript，可能导致数据泄露、凭证窃取和横向移动。此漏洞由 Cyera Research Labs 发现，Grist 安全团队已发布修复版本 1.7.9，并默认启用 Deno 运行时以增强安全性。受影响用户应立即升级并避免禁用新沙箱机制。
                 –
                 
 
                         SecTodayBot
                     
-• 59 minutes ago</p>
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/f42e2db3-5ca8-4868-87d4-edbce320a124/" target="_blank">SecToday Next</a></h3>
-                    <p class="article-description">在废弃的 Python PLY 库中发现了一个关键的远程代码执行（RCE）漏洞（CVE-2025-56005），该漏洞源于 yacc() 函数中未在文档中说明的 &#x27;picklefile&#x27; 参数，该参数通过 Python 的 pickle 模块反序列化不可信数据。攻击者可在解析器初始化期间执行任意代码。由于该项目已不再维护，因此不会提供官方补丁。建议开发者避免使用 picklefile 参数，并检查代码是否存在注入风险。该漏洞的 CVSS 评分为 9.8，表明其严重性极高。
+• 5 hours ago</p>
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/f42e2db3-5ca8-4868-87d4-edbce320a124/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">在废弃的 Python PLY 库中发现了一个关键的远程代码执行（RCE）漏洞（CVE-2025-56005），该漏洞源于 yacc() 函数中未在文档中说明的 &#x27;picklefile&#x27; 参数，该参数通过 Python 的 pickle 模块反序列化不可信数据。攻击者可在解析器初始化期间执行任意代码。由于该项目已不再维护，因此不会提供官方补丁。建议开发者避免使用 picklefile 参数，并检查代码是否存在注入风险。该漏洞的 CVSS 评分为 9.8，表明其严重性极高。
                 –
                 
 
                         SecTodayBot
                     
-• 59 minutes ago</p>
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/0f3bcc45-6518-4010-91b3-ef196e6c66b9/" target="_blank">SecToday Next</a></h3>
-                    <p class="article-description">Ivanti 披露了其 Endpoint Manager Mobile (EPMM) 中两个关键的零日远程代码执行 (RCE) 漏洞，编号为 CVE-2026-1281 与 CVE-2026-1340。这两个漏洞的 CVSS 评分为 9.8，允许未经身份验证的攻击者远程执行任意代码，从而访问敏感信息、篡改设备配置，甚至控制整个移动设备管理 (MDM) 基础设施。CISA 已将 CVE-2026-1281 加入其已知被利用漏洞 (KEV) 目录，并要求联邦机构在 2026 年 2 月 1 日前完成修复。Ivanti 已发布热补丁和升级版本以缓解风险，并建议用户进行日志分析、网络隔离和配置审查以检测潜在的利用行为。
+• 5 hours ago</p>
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/0f3bcc45-6518-4010-91b3-ef196e6c66b9/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">Ivanti 披露了其 Endpoint Manager Mobile (EPMM) 中两个关键的零日远程代码执行 (RCE) 漏洞，编号为 CVE-2026-1281 与 CVE-2026-1340。这两个漏洞的 CVSS 评分为 9.8，允许未经身份验证的攻击者远程执行任意代码，从而访问敏感信息、篡改设备配置，甚至控制整个移动设备管理 (MDM) 基础设施。CISA 已将 CVE-2026-1281 加入其已知被利用漏洞 (KEV) 目录，并要求联邦机构在 2026 年 2 月 1 日前完成修复。Ivanti 已发布热补丁和升级版本以缓解风险，并建议用户进行日志分析、网络隔离和配置审查以检测潜在的利用行为。
                 –
                 
 
                         SecTodayBot
                     
-• 59 minutes ago</p>
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: XZ Aliyun</div>
-                    <h3 class="article-title"><a href="https://xz.aliyun.com/news/91534" target="_blank">Orval MSW Route Path Injection 漏洞挖掘</a></h3>
-                    <p class="article-description">Orval MSW Route Path Injection 漏洞挖掘Orval MSW Route Path Injection 漏洞挖掘AI专栏1398133550745333发表于 北京· 42浏览 · 2026-01-31 07:19</p>
-                    <div class="article-date">发布日期: 2026-01-31</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: XZ Aliyun</div>
-                    <h3 class="article-title"><a href="https://xz.aliyun.com/news/91533" target="_blank">MindsDB Pickle 反序列化远程代码执行漏洞挖掘</a></h3>
-                    <p class="article-description">MindsDB Pickle 反序列化远程代码执行漏洞挖掘MindsDB Pickle 反序列化远程代码执行漏洞挖掘AI专栏1341025112991831发表于 北京· 50浏览 · 2026-01-31 07:12</p>
-                    <div class="article-date">发布日期: 2026-01-31</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/e4b96168-4f3b-4797-a5a4-ff86bfc09473/" target="_blank">SecToday Next</a></h3>
-                    <p class="article-description">安全研究人员发现Google Gemini人工智能助手存在一个严重的提示注入漏洞，攻击者可通过在Google Calendar会议邀请的描述字段中嵌入恶意指令，绕过隐私控制并操控Gemini执行数据泄露操作。当用户向Gemini询问日程信息时，嵌入的指令会被触发，导致敏感会议信息（如标题、参与者、地点等）被汇总并公开，从而实现数据泄露。该漏洞未涉及系统入侵或密码泄露，而是利用了Gemini对日历内容的信任。此事件揭示了AI系统在语义层面可能面临的新型攻击方式，标志着应用安全从基于语法的防御向基于语义的攻击转变。Google已对该漏洞进行修复，但该事件引发了对AI集成系统安全策略的广泛讨论。
-                –
-                
-
-                        SecTodayBot
-                    
-• 3 days ago</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/2f0cec81-56fe-4df0-94cc-8445c28a22d0/" target="_blank">CVE-2025-58085：通过 CPDF_FormField 在 Foxit Reader 条形码计算中引发的 UAF 漏洞</a></h3>
-                    <p class="article-description">本文深入分析了 Foxit Reader 中与条形码对象处理相关的 UAF 漏洞（CVE-2025-58085），并提供了完整的利用链分析，包括 JavaScript 代码触发流程与内存调试细节。文章展示了漏洞如何导致任意读写，进而可能实现远程代码执行，对 PDF 阅读器安全开发具有重要参考价值。
+• 5 hours ago</p>
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-31">
+                        <div class="article-source">来源: XZ Aliyun</div>
+                        <h3 class="article-title"><a href="https://xz.aliyun.com/news/91534" target="_blank">Orval MSW Route Path Injection 漏洞挖掘</a></h3>
+                        <p class="article-description">Orval MSW Route Path Injection 漏洞挖掘Orval MSW Route Path Injection 漏洞挖掘AI专栏1398133550745333发表于 北京· 126浏览 · 2026-01-31 07:19</p>
+                        <div class="article-date">发布日期: 2026-01-31</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-31">
+                        <div class="article-source">来源: XZ Aliyun</div>
+                        <h3 class="article-title"><a href="https://xz.aliyun.com/news/91533" target="_blank">MindsDB Pickle 反序列化远程代码执行漏洞挖掘</a></h3>
+                        <p class="article-description">MindsDB Pickle 反序列化远程代码执行漏洞挖掘MindsDB Pickle 反序列化远程代码执行漏洞挖掘AI专栏1341025112991831发表于 北京· 118浏览 · 2026-01-31 07:12</p>
+                        <div class="article-date">发布日期: 2026-01-31</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/e4b96168-4f3b-4797-a5a4-ff86bfc09473/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">安全研究人员发现Google Gemini人工智能助手存在一个严重的提示注入漏洞，攻击者可通过在Google Calendar会议邀请的描述字段中嵌入恶意指令，绕过隐私控制并操控Gemini执行数据泄露操作。当用户向Gemini询问日程信息时，嵌入的指令会被触发，导致敏感会议信息（如标题、参与者、地点等）被汇总并公开，从而实现数据泄露。该漏洞未涉及系统入侵或密码泄露，而是利用了Gemini对日历内容的信任。此事件揭示了AI系统在语义层面可能面临的新型攻击方式，标志着应用安全从基于语法的防御向基于语义的攻击转变。Google已对该漏洞进行修复，但该事件引发了对AI集成系统安全策略的广泛讨论。
                 –
                 
 
                         SecTodayBot
                     
 • 3 days ago</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/ecb5d938-2dda-4c5c-887a-c094da243ffd/" target="_blank">CVE-2026-24765：PHPUnit 不安全反序列化漏洞威胁 CI/CD 流水线安全</a></h3>
-                    <p class="article-description">本文深入分析了PHPUnit测试框架中一个高危反序列化漏洞（CVE-2026-24765），揭示了测试流程本身可能成为攻击载体的技术细节，强调了CI/CD环境中配置安全的重要性，是理解现代软件供应链安全风险的关键读物。
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/2f0cec81-56fe-4df0-94cc-8445c28a22d0/" target="_blank">CVE-2025-58085：通过 CPDF_FormField 在 Foxit Reader 条形码计算中引发的 UAF 漏洞</a></h3>
+                        <p class="article-description">本文深入分析了 Foxit Reader 中与条形码对象处理相关的 UAF 漏洞（CVE-2025-58085），并提供了完整的利用链分析，包括 JavaScript 代码触发流程与内存调试细节。文章展示了漏洞如何导致任意读写，进而可能实现远程代码执行，对 PDF 阅读器安全开发具有重要参考价值。
                 –
                 
 
                         SecTodayBot
                     
 • 3 days ago</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/165349f7-8f5f-48c5-a0eb-b748498ba8d4/" target="_blank">SecToday Next</a></h3>
-                    <p class="article-description">OpenSSL 在处理 CMS AuthEnvelopedData 结构中使用 AEAD 密码（如 AES-GCM）时，由于未正确验证 IV 长度，导致堆栈缓冲区溢出，从而引发远程代码执行漏洞（CVE-2025-15467）。该漏洞存在于 OpenSSL 3.0 到 3.6 的版本中，攻击者无需有效凭证或加密密钥即可利用。已有野外利用证据，补丁已在 3.0.19 及更高版本中发布。建议用户立即升级以防止潜在攻击。
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/ecb5d938-2dda-4c5c-887a-c094da243ffd/" target="_blank">CVE-2026-24765：PHPUnit 不安全反序列化漏洞威胁 CI/CD 流水线安全</a></h3>
+                        <p class="article-description">本文深入分析了PHPUnit测试框架中一个高危反序列化漏洞（CVE-2026-24765），揭示了测试流程本身可能成为攻击载体的技术细节，强调了CI/CD环境中配置安全的重要性，是理解现代软件供应链安全风险的关键读物。
                 –
                 
 
                         SecTodayBot
                     
 • 3 days ago</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/2ca1f9d4-6371-4ff1-bb63-288c3b604a64/" target="_blank">SecToday Next</a></h3>
-                    <p class="article-description">谷歌发布了 Chrome 浏览器的安全更新，修复了 Background Fetch API 中的高危漏洞 CVE-2026-1504。该漏洞由安全研究员 Luan Herrera 报告，可能被攻击者用于绕过安全边界或操控后台获取操作。为防止漏洞被滥用，谷歌暂未公开完整细节，直到大多数用户完成更新。最新版本 Chrome 144.0.7559.109/110 已发布，建议用户尽快更新以确保安全。
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/165349f7-8f5f-48c5-a0eb-b748498ba8d4/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">OpenSSL 在处理 CMS AuthEnvelopedData 结构中使用 AEAD 密码（如 AES-GCM）时，由于未正确验证 IV 长度，导致堆栈缓冲区溢出，从而引发远程代码执行漏洞（CVE-2025-15467）。该漏洞存在于 OpenSSL 3.0 到 3.6 的版本中，攻击者无需有效凭证或加密密钥即可利用。已有野外利用证据，补丁已在 3.0.19 及更高版本中发布。建议用户立即升级以防止潜在攻击。
                 –
                 
 
                         SecTodayBot
                     
 • 3 days ago</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/fafa80b9-321c-49ac-99b2-e42cf57381af/" target="_blank">SecToday Next</a></h3>
-                    <p class="article-description">微软近日发布紧急补丁，修复了一个正在被积极利用的Office零日漏洞CVE-2026-21509。该漏洞允许攻击者通过诱导用户打开恶意Office文档，绕过内置的OLE安全缓解机制，从而执行任意代码。该漏洞已被确认用于定向攻击，攻击者主要通过鱼叉式钓鱼邮件分发恶意文件。微软已为受影响的Office版本发布补丁，CISA也已将该漏洞纳入其已知被利用漏洞（KEV）目录，并设定了修复期限。部分旧版Office无法通过常规更新获得修复，0patch组织为此开发了微补丁以缓解风险。该漏洞影响广泛，组织被强烈建议立即更新或采取临时缓解措施。
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/2ca1f9d4-6371-4ff1-bb63-288c3b604a64/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">谷歌发布了 Chrome 浏览器的安全更新，修复了 Background Fetch API 中的高危漏洞 CVE-2026-1504。该漏洞由安全研究员 Luan Herrera 报告，可能被攻击者用于绕过安全边界或操控后台获取操作。为防止漏洞被滥用，谷歌暂未公开完整细节，直到大多数用户完成更新。最新版本 Chrome 144.0.7559.109/110 已发布，建议用户尽快更新以确保安全。
                 –
                 
 
                         SecTodayBot
                     
 • 3 days ago</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/6ba116fb-7f80-4b91-a202-a2a6e5768570/" target="_blank">漏洞预警| CVE-2026-21962 Weblogic RCE漏洞 | CN-SEC 中文网</a></h3>
-                    <p class="article-description">本文详细分析了 Oracle WebLogic 代理插件中的一个高危未认证 RCE 漏洞（CVE-2026-21962），揭示了攻击者如何通过恶意 HTTP 头部和路径穿越技术实现对服务器的 root 权限控制。其最大亮点在于漏洞利用简单、无需用户交互，且影响广泛，是当前企业级中间件安全的重要警示。
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/fafa80b9-321c-49ac-99b2-e42cf57381af/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">微软近日发布紧急补丁，修复了一个正在被积极利用的Office零日漏洞CVE-2026-21509。该漏洞允许攻击者通过诱导用户打开恶意Office文档，绕过内置的OLE安全缓解机制，从而执行任意代码。该漏洞已被确认用于定向攻击，攻击者主要通过鱼叉式钓鱼邮件分发恶意文件。微软已为受影响的Office版本发布补丁，CISA也已将该漏洞纳入其已知被利用漏洞（KEV）目录，并设定了修复期限。部分旧版Office无法通过常规更新获得修复，0patch组织为此开发了微补丁以缓解风险。该漏洞影响广泛，组织被强烈建议立即更新或采取临时缓解措施。
                 –
                 
 
                         SecTodayBot
                     
 • 3 days ago</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: XZ Aliyun</div>
-                    <h3 class="article-title"><a href="https://xz.aliyun.com/news/91527" target="_blank">【AI赋能】MCP+Skill能力下的前端JS逆向自动化落地</a></h3>
-                    <p class="article-description">【AI赋能】MCP+Skill能力下的前端JS逆向自动化落地结合chrome-devtools-mcp的能力并加上Skill的规范，实现JSRPC+Flask+autoDecoder方案的前端JS逆向自动化分析，提升JS逆向的效率AI专栏Fausto发表于 中国· 102浏览 · 2026-01-30 15:58</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: XZ Aliyun</div>
-                    <h3 class="article-title"><a href="https://xz.aliyun.com/news/91524" target="_blank">Dokploy v0.26.6 命令注入漏洞挖掘记录</a></h3>
-                    <p class="article-description">Dokploy v0.26.6 命令注入漏洞挖掘记录Dokploy v0.26.6 命令注入漏洞挖掘记录漏洞分析1398133550745333发表于 北京· 55浏览 · 2026-01-30 13:42</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: XZ Aliyun</div>
-                    <h3 class="article-title"><a href="https://xz.aliyun.com/news/91523" target="_blank">SmarterMain未授权RCE(CVE-2026-24423)漏洞代码分析</a></h3>
-                    <p class="article-description">SmarterMain未授权RCE(CVE-2026-24423)漏洞代码分析漏洞描述这是SmarterMain的一个未授权RCE漏洞，出现RCE的位置为ConnectToHub API method，具体的漏洞描述如下图所示:环境搭建这里我直接用的docker搭建的环境，命令如下:​然后是.net的反编译工具，我使用的是Rider以及dotPeet，这个就凭个人喜好下载了。漏洞代码分析因为.Ne...</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: XZ Aliyun</div>
-                    <h3 class="article-title"><a href="https://xz.aliyun.com/news/91522" target="_blank">一款可实时篡改支付二维码的木马程序分析</a></h3>
-                    <p class="article-description">一款可实时篡改支付二维码的木马程序分析使用相同技术原理，可实现篡改支付宝收款二维码、微信收款二维码的效果二进制安全筱一发表于 四川· 48浏览 · 2026-01-30 11:32</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: XZ Aliyun</div>
-                    <h3 class="article-title"><a href="https://xz.aliyun.com/news/91521" target="_blank">银狐系Winos4远控平台深度剖析：载荷生成、插件驻留与通信模型</a></h3>
-                    <p class="article-description">银狐系Winos4远控平台深度剖析：载荷生成、插件驻留与通信模型Winos4控制平台、木马上线环节、木马控制环节、通信模型分析二进制安全T0daySeeker发表于 四川· 47浏览 · 2026-01-30 11:29</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: XZ Aliyun</div>
-                    <h3 class="article-title"><a href="https://xz.aliyun.com/news/91500" target="_blank">CVE-2026-1470：n8n 原型链沙箱逃逸RCE漏洞详细分析</a></h3>
-                    <p class="article-description">CVE-2026-1470：n8n 原型链沙箱逃逸RCE漏洞详细分析漏洞来源漏洞描述n8n 的工作流表达式求值系统存在严重的远程代码执行 (RCE) 漏洞。已认证用户在工作流配置期间提供的表达式可能会在与底层运行时隔离不足的执行上下文中进行求值。已认证的攻击者可以利用此漏洞，以 n8n 进程的权限执行任意代码。成功利用此漏洞可能导致受影响实例完全被攻陷，包括未经授权访问敏感数据、修改工作流以及执行...</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Project Zero</div>
-                    <h3 class="article-title"><a href="https://projectzero.google/2026/01/sound-barrier-2.html" target="_blank">Breaking the Sound Barrier, Part II: Exploiting CVE-2024-54529</a></h3>
-                    <p class="article-description">In the first part of this series, I detailed my journey into macOS security research, which led to the discovery of a type confusion vulnerability (CVE-2024-54529) and a double-free vulnerability (CVE-2025-31235)  in the coreaudiod system daemon through a process I call knowledge-driven fuzzing. While the first post focused on the process of finding the vulnerabilities, this post dives into the intricate process of exploiting the type confusion vulnerability.</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: XZ Aliyun</div>
-                    <h3 class="article-title"><a href="https://xz.aliyun.com/news/91498" target="_blank">CVE-2026-1470：n8n 原型链沙箱逃逸RCE后端调用链精解</a></h3>
-                    <p class="article-description">CVE-2026-1470：n8n 原型链沙箱逃逸RCE后端调用链精解漏洞简介n8n 在其工作流表达式评估系统中存在一个关键的远程代码执行（RCE）漏洞。经过认证的用户在工作流配置过程中提供的表达式，可以在与底层运行时隔离不足的执行上下文中进行评估。 经过认证的攻击者可能会滥用这种行为，以n8n进程的权限执行任意代码。成功的利用可能导致受影响实例的全面入侵，包括未经授权访问敏感数据、修改工作流程以...</p>
-                    <div class="article-date">发布日期: 2026-01-29</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: XZ Aliyun</div>
-                    <h3 class="article-title"><a href="https://xz.aliyun.com/news/91486" target="_blank">DeepAudit源码深度解析</a></h3>
-                    <p class="article-description">DeepAudit源码深度解析对DeepAudit的架构以及实现进行了分析AI专栏lbz发表于 辽宁原创 · 48浏览 · 2026-01-29 08:19</p>
-                    <div class="article-date">发布日期: 2026-01-29</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: XZ Aliyun</div>
-                    <h3 class="article-title"><a href="https://xz.aliyun.com/news/91465" target="_blank">AI自动化漏洞修复技术探索及实践</a></h3>
-                    <p class="article-description">AI自动化漏洞修复技术探索及实践自动化漏洞检测工具（如模糊测试、静态分析工具）已广泛应用，但漏洞修复仍严重依赖安全专家人工经验，形成“检测快、修复慢”的效率失衡，大量漏洞长期未修复，成为安全防护体系的核心薄弱环节。本文提出一种基于AI Agent及Workflow实现漏洞根源修复的端到端自动化技术，突破传统修复方案瓶颈。AI专栏1660635394122871发表于 广东· 173浏览 · ...</p>
-                    <div class="article-date">发布日期: 2026-01-29</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/8e5a63ac-8510-4a24-a7ea-cb84a1d9b61e/" target="_blank">新型Kerberos中继攻击利用DNS CNAME记录绕过防护措施，PoC已发布 | CN-SEC 中文网</a></h3>
-                    <p class="article-description">本文详细揭示了一种利用DNS CNAME记录绕过Kerberos防护的新型中继攻击技术，成功扩大了Active Directory的攻击面，且PoC工具已公开，具有高度现实威胁和研究价值。
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/6ba116fb-7f80-4b91-a202-a2a6e5768570/" target="_blank">漏洞预警| CVE-2026-21962 Weblogic RCE漏洞 | CN-SEC 中文网</a></h3>
+                        <p class="article-description">本文详细分析了 Oracle WebLogic 代理插件中的一个高危未认证 RCE 漏洞（CVE-2026-21962），揭示了攻击者如何通过恶意 HTTP 头部和路径穿越技术实现对服务器的 root 权限控制。其最大亮点在于漏洞利用简单、无需用户交互，且影响广泛，是当前企业级中间件安全的重要警示。
+                –
+                
+
+                        SecTodayBot
+                    
+• 3 days ago</p>
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: XZ Aliyun</div>
+                        <h3 class="article-title"><a href="https://xz.aliyun.com/news/91527" target="_blank">【AI赋能】MCP+Skill能力下的前端JS逆向自动化落地</a></h3>
+                        <p class="article-description">【AI赋能】MCP+Skill能力下的前端JS逆向自动化落地结合chrome-devtools-mcp的能力并加上Skill的规范，实现JSRPC+Flask+autoDecoder方案的前端JS逆向自动化分析，提升JS逆向的效率AI专栏Fausto发表于 中国· 181浏览 · 2026-01-30 15:58</p>
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: XZ Aliyun</div>
+                        <h3 class="article-title"><a href="https://xz.aliyun.com/news/91524" target="_blank">Dokploy v0.26.6 命令注入漏洞挖掘记录</a></h3>
+                        <p class="article-description">Dokploy v0.26.6 命令注入漏洞挖掘记录Dokploy v0.26.6 命令注入漏洞挖掘记录漏洞分析1398133550745333发表于 北京· 124浏览 · 2026-01-30 13:42</p>
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: XZ Aliyun</div>
+                        <h3 class="article-title"><a href="https://xz.aliyun.com/news/91523" target="_blank">SmarterMain未授权RCE(CVE-2026-24423)漏洞代码分析</a></h3>
+                        <p class="article-description">SmarterMain未授权RCE(CVE-2026-24423)漏洞代码分析漏洞描述这是SmarterMain的一个未授权RCE漏洞，出现RCE的位置为ConnectToHub API method，具体的漏洞描述如下图所示:环境搭建这里我直接用的docker搭建的环境，命令如下:​然后是.net的反编译工具，我使用的是Rider以及dotPeet，这个就凭个人喜好下载了。漏洞代码分析因为.Ne...</p>
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: XZ Aliyun</div>
+                        <h3 class="article-title"><a href="https://xz.aliyun.com/news/91522" target="_blank">一款可实时篡改支付二维码的木马程序分析</a></h3>
+                        <p class="article-description">一款可实时篡改支付二维码的木马程序分析使用相同技术原理，可实现篡改支付宝收款二维码、微信收款二维码的效果二进制安全筱一发表于 四川· 64浏览 · 2026-01-30 11:32</p>
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: XZ Aliyun</div>
+                        <h3 class="article-title"><a href="https://xz.aliyun.com/news/91521" target="_blank">银狐系Winos4远控平台深度剖析：载荷生成、插件驻留与通信模型</a></h3>
+                        <p class="article-description">银狐系Winos4远控平台深度剖析：载荷生成、插件驻留与通信模型Winos4控制平台、木马上线环节、木马控制环节、通信模型分析二进制安全T0daySeeker发表于 四川· 62浏览 · 2026-01-30 11:29</p>
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: XZ Aliyun</div>
+                        <h3 class="article-title"><a href="https://xz.aliyun.com/news/91500" target="_blank">CVE-2026-1470：n8n 原型链沙箱逃逸RCE漏洞详细分析</a></h3>
+                        <p class="article-description">CVE-2026-1470：n8n 原型链沙箱逃逸RCE漏洞详细分析漏洞来源漏洞描述n8n 的工作流表达式求值系统存在严重的远程代码执行 (RCE) 漏洞。已认证用户在工作流配置期间提供的表达式可能会在与底层运行时隔离不足的执行上下文中进行求值。已认证的攻击者可以利用此漏洞，以 n8n 进程的权限执行任意代码。成功利用此漏洞可能导致受影响实例完全被攻陷，包括未经授权访问敏感数据、修改工作流以及执行...</p>
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: Project Zero</div>
+                        <h3 class="article-title"><a href="https://projectzero.google/2026/01/sound-barrier-2.html" target="_blank">Breaking the Sound Barrier, Part II: Exploiting CVE-2024-54529</a></h3>
+                        <p class="article-description">In the first part of this series, I detailed my journey into macOS security research, which led to the discovery of a type confusion vulnerability (CVE-2024-54529) and a double-free vulnerability (CVE-2025-31235)  in the coreaudiod system daemon through a process I call knowledge-driven fuzzing. While the first post focused on the process of finding the vulnerabilities, this post dives into the intricate process of exploiting the type confusion vulnerability.</p>
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-29">
+                        <div class="article-source">来源: XZ Aliyun</div>
+                        <h3 class="article-title"><a href="https://xz.aliyun.com/news/91498" target="_blank">CVE-2026-1470：n8n 原型链沙箱逃逸RCE后端调用链精解</a></h3>
+                        <p class="article-description">CVE-2026-1470：n8n 原型链沙箱逃逸RCE后端调用链精解漏洞简介n8n 在其工作流表达式评估系统中存在一个关键的远程代码执行（RCE）漏洞。经过认证的用户在工作流配置过程中提供的表达式，可以在与底层运行时隔离不足的执行上下文中进行评估。 经过认证的攻击者可能会滥用这种行为，以n8n进程的权限执行任意代码。成功的利用可能导致受影响实例的全面入侵，包括未经授权访问敏感数据、修改工作流程以...</p>
+                        <div class="article-date">发布日期: 2026-01-29</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-29">
+                        <div class="article-source">来源: XZ Aliyun</div>
+                        <h3 class="article-title"><a href="https://xz.aliyun.com/news/91486" target="_blank">DeepAudit源码深度解析</a></h3>
+                        <p class="article-description">DeepAudit源码深度解析对DeepAudit的架构以及实现进行了分析AI专栏lbz发表于 辽宁原创 · 59浏览 · 2026-01-29 08:19</p>
+                        <div class="article-date">发布日期: 2026-01-29</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-29">
+                        <div class="article-source">来源: XZ Aliyun</div>
+                        <h3 class="article-title"><a href="https://xz.aliyun.com/news/91465" target="_blank">AI自动化漏洞修复技术探索及实践</a></h3>
+                        <p class="article-description">AI自动化漏洞修复技术探索及实践自动化漏洞检测工具（如模糊测试、静态分析工具）已广泛应用，但漏洞修复仍严重依赖安全专家人工经验，形成“检测快、修复慢”的效率失衡，大量漏洞长期未修复，成为安全防护体系的核心薄弱环节。本文提出一种基于AI Agent及Workflow实现漏洞根源修复的端到端自动化技术，突破传统修复方案瓶颈。AI专栏1660635394122871发表于 广东· 185浏览 · ...</p>
+                        <div class="article-date">发布日期: 2026-01-29</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-28">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/8e5a63ac-8510-4a24-a7ea-cb84a1d9b61e/" target="_blank">新型Kerberos中继攻击利用DNS CNAME记录绕过防护措施，PoC已发布 | CN-SEC 中文网</a></h3>
+                        <p class="article-description">本文详细揭示了一种利用DNS CNAME记录绕过Kerberos防护的新型中继攻击技术，成功扩大了Active Directory的攻击面，且PoC工具已公开，具有高度现实威胁和研究价值。
                 –
                 
 
                         SecTodayBot
                     
 • 5 days ago</p>
-                    <div class="article-date">发布日期: 2026-01-28</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/c4194f4f-4a8e-4629-9b79-8b358f39feff/" target="_blank">GNU InetUtils 严重漏洞允许通过“-f root”绕过认证获取 root 权限</a></h3>
-                    <p class="article-description">本文揭示了 GNU InetUtils telnetd 服务器中一个十年未被发现的严重远程认证绕过漏洞，攻击者可直接通过恶意环境变量获取 root 权限，技术细节详实且具有高度现实威胁，值得立即关注。
+                        <div class="article-date">发布日期: 2026-01-28</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-28">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/c4194f4f-4a8e-4629-9b79-8b358f39feff/" target="_blank">GNU InetUtils 严重漏洞允许通过“-f root”绕过认证获取 root 权限</a></h3>
+                        <p class="article-description">本文揭示了 GNU InetUtils telnetd 服务器中一个十年未被发现的严重远程认证绕过漏洞，攻击者可直接通过恶意环境变量获取 root 权限，技术细节详实且具有高度现实威胁，值得立即关注。
                 –
                 
 
                         SecTodayBot
                     
 • 5 days ago</p>
-                    <div class="article-date">发布日期: 2026-01-28</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/c3d9b0c4-e494-40d8-bd5b-4e09ce88406a/" target="_blank">维特克斯摄像头严重漏洞允许远程攻击者注入任意代码</a></h3>
-                    <p class="article-description">本文详细披露了Vivotek摄像头固件中的一个关键命令注入漏洞（CVE-2026-22755），该漏洞允许未经身份验证的远程攻击者执行任意代码，且利用条件简单，对数十种型号构成严重威胁，对物联网设备安全开发具有警示意义。
+                        <div class="article-date">发布日期: 2026-01-28</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-28">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/c3d9b0c4-e494-40d8-bd5b-4e09ce88406a/" target="_blank">维特克斯摄像头严重漏洞允许远程攻击者注入任意代码</a></h3>
+                        <p class="article-description">本文详细披露了Vivotek摄像头固件中的一个关键命令注入漏洞（CVE-2026-22755），该漏洞允许未经身份验证的远程攻击者执行任意代码，且利用条件简单，对数十种型号构成严重威胁，对物联网设备安全开发具有警示意义。
                 –
                 
 
                         SecTodayBot
                     
 • 5 days ago</p>
-                    <div class="article-date">发布日期: 2026-01-28</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/a391eba9-8dac-42b7-8bbb-444a527664ac/" target="_blank">SecToday Next</a></h3>
-                    <p class="article-description">研究人员在 Anthropic 的 Model Context Protocol (MCP) Git 服务器 mcp-server-git 中发现了多个安全漏洞，这些漏洞源于路径验证不足、参数注入和提示注入等问题。攻击者可利用这些漏洞远程执行代码、读取或删除任意文件，而无需直接访问目标系统。最严重的漏洞涉及 Git 过滤器配置，攻击者可通过恶意 Git 仓库或修改后的请求触发代码执行。Anthropic 已在 2025.9.25 和 2025.12.18 的版本中修复这些漏洞，建议用户立即升级以避免潜在攻击。
+                        <div class="article-date">发布日期: 2026-01-28</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-28">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/a391eba9-8dac-42b7-8bbb-444a527664ac/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">研究人员在 Anthropic 的 Model Context Protocol (MCP) Git 服务器 mcp-server-git 中发现了多个安全漏洞，这些漏洞源于路径验证不足、参数注入和提示注入等问题。攻击者可利用这些漏洞远程执行代码、读取或删除任意文件，而无需直接访问目标系统。最严重的漏洞涉及 Git 过滤器配置，攻击者可通过恶意 Git 仓库或修改后的请求触发代码执行。Anthropic 已在 2025.9.25 和 2025.12.18 的版本中修复这些漏洞，建议用户立即升级以避免潜在攻击。
                 –
                 
 
                         SecTodayBot
                     
 • 5 days ago</p>
-                    <div class="article-date">发布日期: 2026-01-28</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/f82bc158-b82d-43f0-a46d-73c7160dec92/" target="_blank">SecToday Next</a></h3>
-                    <p class="article-description">2025年10月，FearsOff 安全研究人员发现 Cloudflare 的 ACME 验证逻辑中存在一个漏洞，攻击者可利用该漏洞绕过 Web 应用程序防火墙 (WAF) 保护，通过访问 /.well-known/acme-challenge/ 路径，直接访问后端服务器和敏感文件。该漏洞源于对 HTTP-01 验证令牌的处理不当，导致 WAF 规则被绕过。Cloudflare 已发布修复程序，确保只有合法的 ACME 挑战请求才会导致 WAF 规则被暂时禁用。此漏洞被归类为零日漏洞，尽管未发现被恶意利用的证据，但其潜在风险极高。
+                        <div class="article-date">发布日期: 2026-01-28</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-28">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/f82bc158-b82d-43f0-a46d-73c7160dec92/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">2025年10月，FearsOff 安全研究人员发现 Cloudflare 的 ACME 验证逻辑中存在一个漏洞，攻击者可利用该漏洞绕过 Web 应用程序防火墙 (WAF) 保护，通过访问 /.well-known/acme-challenge/ 路径，直接访问后端服务器和敏感文件。该漏洞源于对 HTTP-01 验证令牌的处理不当，导致 WAF 规则被绕过。Cloudflare 已发布修复程序，确保只有合法的 ACME 挑战请求才会导致 WAF 规则被暂时禁用。此漏洞被归类为零日漏洞，尽管未发现被恶意利用的证据，但其潜在风险极高。
                 –
                 
 
                         SecTodayBot
                     
 • 5 days ago</p>
-                    <div class="article-date">发布日期: 2026-01-28</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Daily Security</div>
-                    <h3 class="article-title"><a href="https://sec.today/pulses/55595137-fb45-4418-a65f-43e41d564445/" target="_blank">Vivotek严重漏洞可导致远程任意代码执行</a></h3>
-                    <p class="article-description">本文揭示了Vivotek物联网摄像头中的一个严重命令注入漏洞（CVE-2026-22755），攻击者可未经认证远程执行任意代码并取得root权限。研究者利用AI驱动的逆向工程发现该漏洞，凸显了物联网设备在安全设计上的严重缺陷，值得立即引起行业重视。
+                        <div class="article-date">发布日期: 2026-01-28</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-28">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/55595137-fb45-4418-a65f-43e41d564445/" target="_blank">Vivotek严重漏洞可导致远程任意代码执行</a></h3>
+                        <p class="article-description">本文揭示了Vivotek物联网摄像头中的一个严重命令注入漏洞（CVE-2026-22755），攻击者可未经认证远程执行任意代码并取得root权限。研究者利用AI驱动的逆向工程发现该漏洞，凸显了物联网设备在安全设计上的严重缺陷，值得立即引起行业重视。
                 –
                 
 
                         SecTodayBot
                     
 • 5 days ago</p>
-                    <div class="article-date">发布日期: 2026-01-28</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: XZ Aliyun</div>
-                    <h3 class="article-title"><a href="https://xz.aliyun.com/news/91472" target="_blank">CVE-2026-24779：vLLM多模态解析不一致SSRF后端调用链精解</a></h3>
-                    <p class="article-description">CVE-2026-24779：vLLM多模态解析不一致SSRF后端调用链精解漏洞简介vLLM 是大型语言模型（LLM）的推理和服务引擎。在 0.14.1 版本之前，vLLM 项目多模态功能集中的“MediaConnector”类别存在SSRF漏洞。load_from_url和load_from_url_async方法通过用户提供的URL获取和处理媒体，在限制目标主机时使用不同的Python解析库。...</p>
-                    <div class="article-date">发布日期: 2026-01-28</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: XZ Aliyun</div>
-                    <h3 class="article-title"><a href="https://xz.aliyun.com/news/91471" target="_blank">记一次某管理服务器审计拿下CNVD高危证书过程</a></h3>
-                    <p class="article-description">记一次某管理服务器审计拿下CNVD高危证书过程记一次某管理服务器审计拿下CNVD高危证书过程漏洞分析caigo发表于 福建· 208浏览 · 2026-01-28 16:08</p>
-                    <div class="article-date">发布日期: 2026-01-28</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: XZ Aliyun</div>
-                    <h3 class="article-title"><a href="https://xz.aliyun.com/news/91468" target="_blank">DeepChat FilePresenter 任意文件读取写入漏洞(可读取明文 key)</a></h3>
-                    <p class="article-description">DeepChat FilePresenter 任意文件读取写入漏洞(可读取明文 key)DeepChat FilePresenter 组件未校验路径参数，导致通过 ../ 路径遍历可读写 userData 目录外任意文件，包括明文存储的 API 密钥。AI专栏1341025112991831发表于 北京· 1146浏览 · 2026-01-28 13:39</p>
-                    <div class="article-date">发布日期: 2026-01-28</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: XZ Aliyun</div>
-                    <h3 class="article-title"><a href="https://xz.aliyun.com/news/91464" target="_blank">AI时代的EICAR病毒：用魔术字符串瘫痪Claude的攻防实验</a></h3>
-                    <p class="article-description">AI时代的EICAR病毒：用魔术字符串瘫痪Claude的攻防实验可用于触发Claude模型拒绝响应的字符串、png图片、docx文档、pdf文档、IDA伪代码、恶意脚本等AI专栏T0daySeeker发表于 四川· 1132浏览 · 2026-01-28 12:01</p>
-                    <div class="article-date">发布日期: 2026-01-28</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Project Zero</div>
-                    <h3 class="article-title"><a href="https://projectzero.google/2026/26/windows-administrator-protection.html" target="_blank">Bypassing Windows Administrator Protection</a></h3>
-                    <p class="article-description">A headline feature introduced in the latest release of Windows 11, 25H2 is Administrator Protection. The goal of this feature is to replace User Account Control (UAC) with a more robust and importantly, securable system to allow a local user to access administrator privileges only when necessary.</p>
-                    <div class="article-date">发布日期: 2026-01-26</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Project Zero</div>
-                    <h3 class="article-title"><a href="https://projectzero.google/2026/01/pixel-0-click-part-3.html" target="_blank">A 0-click exploit chain for the Pixel 9 Part 3: Where do we go from here?</a></h3>
-                    <p class="article-description">While our previous two blog posts provided technical recommendations for increasing the effort required by attackers to develop 0-click exploit chains, our experience finding, reporting and exploiting these vulnerabilities highlighted some broader issues in the Android ecosystem. This post describes the problems we encountered and recommendations for improvement.</p>
-                    <div class="article-date">发布日期: 2026-01-14</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Project Zero</div>
-                    <h3 class="article-title"><a href="https://projectzero.google/2026/01/pixel-0-click-part-2.html" target="_blank">A 0-click exploit chain for the Pixel 9 Part 2: Cracking the Sandbox with a Big Wave</a></h3>
-                    <p class="article-description">With the advent of a potential Dolby Unified Decoder RCE exploit, it seemed prudent to see what kind of Linux kernel drivers might be accessible from the resulting userland context, the mediacodec context. As per the AOSP documentation, the mediacodec SELinux context is intended to be a constrained (a.k.a sandboxed) context where non-secure software decoders are utilized. Nevertheless, using my DriverCartographer tool, I discovered an interesting device driver, /dev/bigwave that was accessible from the mediacodec SELinux context. BigWave is hardware present on the Pixel SOC that accelerates AV1 decoding tasks, which explains why it is accessible from the mediacodec context. As previous research has copiously affirmed, Android drivers for hardware devices are prime places to find powerful local privilege escalation bugs. The BigWave driver was no exception - across a couple hours of auditing the code, I discovered three separate bugs, including one that was powerful enough to escape the mediacodec sandbox and get kernel arbitrary read/write on the Pixel 9.</p>
-                    <div class="article-date">发布日期: 2026-01-14</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Project Zero</div>
-                    <h3 class="article-title"><a href="https://projectzero.google/2026/01/pixel-0-click-part-1.html" target="_blank">A 0-click exploit chain for the Pixel 9 Part 1: Decoding Dolby</a></h3>
-                    <p class="article-description">Over the past few years, several AI-powered features have been added to mobile phones that allow users to better search and understand their messages. One effect of this change is increased 0-click attack surface, as efficient analysis often requires message media to be decoded before the message is opened by the user. One such feature is audio transcription. Incoming SMS and RCS audio attachments received by Google Messages are now automatically decoded with no user interaction. As a result, audio decoders are now in the 0-click attack surface of most Android phones.</p>
-                    <div class="article-date">发布日期: 2026-01-14</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Project Zero</div>
-                    <h3 class="article-title"><a href="https://projectzero.google/2025/12/welcome.html" target="_blank">Welcome to the new Project Zero Blog</a></h3>
-                    <p class="article-description">While on Project Zero, we aim for our research to be leading-edge, our blog design was … not so much. We welcome readers to our shiny new blog!</p>
-                    <div class="article-date">发布日期: 2025-12-16</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Project Zero</div>
-                    <h3 class="article-title"><a href="https://projectzero.google/2025/12/thinking-outside-the-box.html" target="_blank">Thinking Outside The Box [dusted off draft from 2017]</a></h3>
-                    <p class="article-description">Hello from the future!</p>
-                    <div class="article-date">发布日期: 2025-12-16</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Project Zero</div>
-                    <h3 class="article-title"><a href="https://projectzero.google/2025/12/windows-exploitation-techniques.html" target="_blank">Windows Exploitation Techniques: Winning Race Conditions with Path Lookups</a></h3>
-                    <p class="article-description">This post was originally written in 2016 for the Project Zero blog. However, in the end it was published separately in the journal PoC||GTFO issue #13 as well as in the second volume of the printed version. In honor of our new blog we’re republishing it on this blog and included an updated analysis to see if it still works on a modern Windows 11 system.</p>
-                    <div class="article-date">发布日期: 2025-12-16</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Project Zero</div>
-                    <h3 class="article-title"><a href="https://projectzero.google/2025/12/android-itw-dng.html" target="_blank">A look at an Android ITW DNG exploit</a></h3>
-                    <p class="article-description">Between July 2024 and February 2025, 6 suspicious image files were uploaded to VirusTotal. Thanks to a lead from Meta, these samples came to the attention of Google Threat Intelligence Group.</p>
-                    <div class="article-date">发布日期: 2025-12-12</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Project Zero</div>
-                    <h3 class="article-title"><a href="https://projectzero.google/2025/11/defeating-kaslr-by-doing-nothing-at-all.html" target="_blank">Defeating KASLR by Doing Nothing at All</a></h3>
-                    <p class="article-description">I’ve recently been researching Pixel kernel exploitation and as part of this research I found myself with an excellent arbitrary write primitive…but without a KASLR leak. As necessity is the mother of all invention, on a hunch, I started researching the Linux kernel linear mapping.</p>
-                    <div class="article-date">发布日期: 2025-11-03</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Project Zero</div>
-                    <h3 class="article-title"><a href="https://projectzero.google/2025/09/pointer-leaks-through-pointer-keyed.html" target="_blank">Pointer leaks through pointer-keyed data structures</a></h3>
-                    <p class="article-description">Some time in 2024, during a Project Zero team discussion, we were talking about how remote ASLR leaks would be helpful or necessary for exploiting some types of memory corruption bugs, specifically in the context of Apple devices. Coming from the angle of “where would be a good first place to look for a remote ASLR leak”, this led to the discovery of a trick that could potentially be used to leak a pointer remotely, without any memory safety violations or timing attacks, in scenarios where an attack surface can be reached that deserializes attacker-provided data, re-serializes the resulting objects, and sends the re-serialized data back to the attacker.</p>
-                    <div class="article-date">发布日期: 2025-09-26</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Project Zero</div>
-                    <h3 class="article-title"><a href="https://projectzero.google/2025/08/from-chrome-renderer-code-exec-to-kernel.html" target="_blank">From Chrome renderer code exec to kernel with MSG_OOB</a></h3>
-                    <p class="article-description">In early June, I was reviewing a new Linux kernel feature when I learned about the MSG_OOB feature supported by stream-oriented UNIX domain sockets. I reviewed the implementation of MSG_OOB, and discovered a security bug (CVE-2025-38236) affecting Linux &gt;=6.9. I reported the bug to Linux, and it got fixed. Interestingly, while the MSG_OOB feature is not used by Chrome, it was exposed in the Chrome renderer sandbox. (Since then, sending MSG_OOB messages has been blocked in Chrome renderers in response to this issue.)</p>
-                    <div class="article-date">发布日期: 2025-08-08</div>
+                        <div class="article-date">发布日期: 2026-01-28</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-28">
+                        <div class="article-source">来源: XZ Aliyun</div>
+                        <h3 class="article-title"><a href="https://xz.aliyun.com/news/91472" target="_blank">CVE-2026-24779：vLLM多模态解析不一致SSRF后端调用链精解</a></h3>
+                        <p class="article-description">CVE-2026-24779：vLLM多模态解析不一致SSRF后端调用链精解漏洞简介vLLM 是大型语言模型（LLM）的推理和服务引擎。在 0.14.1 版本之前，vLLM 项目多模态功能集中的“MediaConnector”类别存在SSRF漏洞。load_from_url和load_from_url_async方法通过用户提供的URL获取和处理媒体，在限制目标主机时使用不同的Python解析库。...</p>
+                        <div class="article-date">发布日期: 2026-01-28</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-28">
+                        <div class="article-source">来源: XZ Aliyun</div>
+                        <h3 class="article-title"><a href="https://xz.aliyun.com/news/91471" target="_blank">记一次某管理服务器审计拿下CNVD高危证书过程</a></h3>
+                        <p class="article-description">记一次某管理服务器审计拿下CNVD高危证书过程记一次某管理服务器审计拿下CNVD高危证书过程漏洞分析caigo发表于 福建· 240浏览 · 2026-01-28 16:08</p>
+                        <div class="article-date">发布日期: 2026-01-28</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-28">
+                        <div class="article-source">来源: XZ Aliyun</div>
+                        <h3 class="article-title"><a href="https://xz.aliyun.com/news/91468" target="_blank">DeepChat FilePresenter 任意文件读取写入漏洞(可读取明文 key)</a></h3>
+                        <p class="article-description">DeepChat FilePresenter 任意文件读取写入漏洞(可读取明文 key)DeepChat FilePresenter 组件未校验路径参数，导致通过 ../ 路径遍历可读写 userData 目录外任意文件，包括明文存储的 API 密钥。AI专栏1341025112991831发表于 北京· 1150浏览 · 2026-01-28 13:39</p>
+                        <div class="article-date">发布日期: 2026-01-28</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-28">
+                        <div class="article-source">来源: XZ Aliyun</div>
+                        <h3 class="article-title"><a href="https://xz.aliyun.com/news/91464" target="_blank">AI时代的EICAR病毒：用魔术字符串瘫痪Claude的攻防实验</a></h3>
+                        <p class="article-description">AI时代的EICAR病毒：用魔术字符串瘫痪Claude的攻防实验可用于触发Claude模型拒绝响应的字符串、png图片、docx文档、pdf文档、IDA伪代码、恶意脚本等AI专栏T0daySeeker发表于 四川· 1137浏览 · 2026-01-28 12:01</p>
+                        <div class="article-date">发布日期: 2026-01-28</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-26">
+                        <div class="article-source">来源: Project Zero</div>
+                        <h3 class="article-title"><a href="https://projectzero.google/2026/26/windows-administrator-protection.html" target="_blank">Bypassing Windows Administrator Protection</a></h3>
+                        <p class="article-description">A headline feature introduced in the latest release of Windows 11, 25H2 is Administrator Protection. The goal of this feature is to replace User Account Control (UAC) with a more robust and importantly, securable system to allow a local user to access administrator privileges only when necessary.</p>
+                        <div class="article-date">发布日期: 2026-01-26</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-14">
+                        <div class="article-source">来源: Project Zero</div>
+                        <h3 class="article-title"><a href="https://projectzero.google/2026/01/pixel-0-click-part-3.html" target="_blank">A 0-click exploit chain for the Pixel 9 Part 3: Where do we go from here?</a></h3>
+                        <p class="article-description">While our previous two blog posts provided technical recommendations for increasing the effort required by attackers to develop 0-click exploit chains, our experience finding, reporting and exploiting these vulnerabilities highlighted some broader issues in the Android ecosystem. This post describes the problems we encountered and recommendations for improvement.</p>
+                        <div class="article-date">发布日期: 2026-01-14</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-14">
+                        <div class="article-source">来源: Project Zero</div>
+                        <h3 class="article-title"><a href="https://projectzero.google/2026/01/pixel-0-click-part-2.html" target="_blank">A 0-click exploit chain for the Pixel 9 Part 2: Cracking the Sandbox with a Big Wave</a></h3>
+                        <p class="article-description">With the advent of a potential Dolby Unified Decoder RCE exploit, it seemed prudent to see what kind of Linux kernel drivers might be accessible from the resulting userland context, the mediacodec context. As per the AOSP documentation, the mediacodec SELinux context is intended to be a constrained (a.k.a sandboxed) context where non-secure software decoders are utilized. Nevertheless, using my DriverCartographer tool, I discovered an interesting device driver, /dev/bigwave that was accessible f...</p>
+                        <div class="article-date">发布日期: 2026-01-14</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-14">
+                        <div class="article-source">来源: Project Zero</div>
+                        <h3 class="article-title"><a href="https://projectzero.google/2026/01/pixel-0-click-part-1.html" target="_blank">A 0-click exploit chain for the Pixel 9 Part 1: Decoding Dolby</a></h3>
+                        <p class="article-description">Over the past few years, several AI-powered features have been added to mobile phones that allow users to better search and understand their messages. One effect of this change is increased 0-click attack surface, as efficient analysis often requires message media to be decoded before the message is opened by the user. One such feature is audio transcription. Incoming SMS and RCS audio attachments received by Google Messages are now automatically decoded with no user interaction. As a result, au...</p>
+                        <div class="article-date">发布日期: 2026-01-14</div>
+                    </div>
+                    <div class="article-card" data-date="2025-12-16">
+                        <div class="article-source">来源: Project Zero</div>
+                        <h3 class="article-title"><a href="https://projectzero.google/2025/12/welcome.html" target="_blank">Welcome to the new Project Zero Blog</a></h3>
+                        <p class="article-description">While on Project Zero, we aim for our research to be leading-edge, our blog design was … not so much. We welcome readers to our shiny new blog!</p>
+                        <div class="article-date">发布日期: 2025-12-16</div>
+                    </div>
+                    <div class="article-card" data-date="2025-12-16">
+                        <div class="article-source">来源: Project Zero</div>
+                        <h3 class="article-title"><a href="https://projectzero.google/2025/12/thinking-outside-the-box.html" target="_blank">Thinking Outside The Box [dusted off draft from 2017]</a></h3>
+                        <p class="article-description">Hello from the future!</p>
+                        <div class="article-date">发布日期: 2025-12-16</div>
+                    </div>
+                    <div class="article-card" data-date="2025-12-16">
+                        <div class="article-source">来源: Project Zero</div>
+                        <h3 class="article-title"><a href="https://projectzero.google/2025/12/windows-exploitation-techniques.html" target="_blank">Windows Exploitation Techniques: Winning Race Conditions with Path Lookups</a></h3>
+                        <p class="article-description">This post was originally written in 2016 for the Project Zero blog. However, in the end it was published separately in the journal PoC||GTFO issue #13 as well as in the second volume of the printed version. In honor of our new blog we’re republishing it on this blog and included an updated analysis to see if it still works on a modern Windows 11 system.</p>
+                        <div class="article-date">发布日期: 2025-12-16</div>
+                    </div>
+                    <div class="article-card" data-date="2025-12-12">
+                        <div class="article-source">来源: Project Zero</div>
+                        <h3 class="article-title"><a href="https://projectzero.google/2025/12/android-itw-dng.html" target="_blank">A look at an Android ITW DNG exploit</a></h3>
+                        <p class="article-description">Between July 2024 and February 2025, 6 suspicious image files were uploaded to VirusTotal. Thanks to a lead from Meta, these samples came to the attention of Google Threat Intelligence Group.</p>
+                        <div class="article-date">发布日期: 2025-12-12</div>
+                    </div>
+                    <div class="article-card" data-date="2025-11-03">
+                        <div class="article-source">来源: Project Zero</div>
+                        <h3 class="article-title"><a href="https://projectzero.google/2025/11/defeating-kaslr-by-doing-nothing-at-all.html" target="_blank">Defeating KASLR by Doing Nothing at All</a></h3>
+                        <p class="article-description">I’ve recently been researching Pixel kernel exploitation and as part of this research I found myself with an excellent arbitrary write primitive…but without a KASLR leak. As necessity is the mother of all invention, on a hunch, I started researching the Linux kernel linear mapping.</p>
+                        <div class="article-date">发布日期: 2025-11-03</div>
+                    </div>
+                    <div class="article-card" data-date="2025-09-26">
+                        <div class="article-source">来源: Project Zero</div>
+                        <h3 class="article-title"><a href="https://projectzero.google/2025/09/pointer-leaks-through-pointer-keyed.html" target="_blank">Pointer leaks through pointer-keyed data structures</a></h3>
+                        <p class="article-description">Some time in 2024, during a Project Zero team discussion, we were talking about how remote ASLR leaks would be helpful or necessary for exploiting some types of memory corruption bugs, specifically in the context of Apple devices. Coming from the angle of “where would be a good first place to look for a remote ASLR leak”, this led to the discovery of a trick that could potentially be used to leak a pointer remotely, without any memory safety violations or timing attacks, in scenarios where an at...</p>
+                        <div class="article-date">发布日期: 2025-09-26</div>
+                    </div>
+                    <div class="article-card" data-date="2025-08-08">
+                        <div class="article-source">来源: Project Zero</div>
+                        <h3 class="article-title"><a href="https://projectzero.google/2025/08/from-chrome-renderer-code-exec-to-kernel.html" target="_blank">From Chrome renderer code exec to kernel with MSG_OOB</a></h3>
+                        <p class="article-description">In early June, I was reviewing a new Linux kernel feature when I learned about the MSG_OOB feature supported by stream-oriented UNIX domain sockets. I reviewed the implementation of MSG_OOB, and discovered a security bug (CVE-2025-38236) affecting Linux &gt;=6.9. I reported the bug to Linux, and it got fixed. Interestingly, while the MSG_OOB feature is not used by Chrome, it was exposed in the Chrome renderer sandbox. (Since then, sending MSG_OOB messages has been blocked in Chrome renderers in res...</p>
+                        <div class="article-date">发布日期: 2025-08-08</div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="category-section">
-            <h2 class="section-title">📰 安全新闻 (Security News)</h2>
-            <div class="articles-grid">
-                
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/310264" target="_blank">Perplexity AI 与巴蒂电信达成合作，向 3.6 亿印度用户免费提供一年期 Pro 版服务</a></h3>
+            <div class="category-section">
+                <h2 class="section-title">📰 安全新闻 (Security News)</h2>
+                <div class="articles-grid" id="news-articles">
                     
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/309397" target="_blank">闪耀国家级地标，360安全智能体定义安全未来</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/309374" target="_blank">360亮相全球数字经济大会，智能体涌现，安全运营跃升</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/309100" target="_blank">当分公司突遭漏洞通报……如何揪出安全管理“暗礁”？</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/309042" target="_blank">Quest修补了关键的VCE SM缺陷，包括CVSS10身份验证绕过</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/313258" target="_blank">Cloudflare全球服务中断，引发互联网大面积瘫痪——多家主流网络平台无法访问</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/313583" target="_blank">哈维 AI 完成 7.6 亿美元融资 估值达 80 亿美元</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/313554" target="_blank">亚马逊推出基于NVIDIA架构的本地化“AI工厂”解决方案，向竞争对手发起挑战</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/314086" target="_blank">CVE-2025-54322（CVSS 10 分满分）：AI 智能体发现全球网络设备高危零日漏洞</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/313491" target="_blank">Goodword完成400万美元融资，其AI协理产品旨在助力用户拓展职场人脉</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/314023" target="_blank">零点击漏洞攻击元年：2025 年带给现代恶意软件防御的启示</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/314050" target="_blank">“lc” 漏洞泄露事件：LangChain 框架 9.3 级高危漏洞致提示注入沦为机密窃取工具</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/314315" target="_blank">双重严重：Ruckus IoT控制器因硬编码密钥泄露面临root权限远程代码执行</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/314324" target="_blank">高危漏洞CVE-2025-52694：研华设备存在 SQL 注入，可导致 IoT设备被完全攻陷</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/314043" target="_blank">Zimbra 遭攻击：高危本地文件包含漏洞致未授权攻击者可读取内部文件</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/313645" target="_blank">Checkmarx 收购 Tromzo，强化 AI 安全自动化能力</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/313639" target="_blank">Stripe 推出 Tempo 支付区块链并开放公测，万事达卡、瑞银集团已正式接入</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/313590" target="_blank">“PDF陷阱”：Apache Tika核心组件存在严重漏洞（CVE-2025-66516，CVSS 10.0）</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/313587" target="_blank">AI boom 催生全球存储芯片荒 价格将涨三倍至 2027 年</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Anquanke</div>
-                    <h3 class="article-title"><a href="/post/id/314266" target="_blank">XML陷阱：Struts 2高危漏洞CVE-2025-68493致数据泄露</a></h3>
-                    
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87541" target="_blank">泄露超3000万客户个人隐私数据，电信巨头赔偿超8.1亿元</a></h3>
-                    <p class="article-description">未及时打补丁，导致超3000万用户数据泄露，电信巨头康卡斯特预计被迫赔偿超8.1亿元。</p>
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87528" target="_blank">美军利用标准化网络事件分析框架保障关键基础设施安全</a></h3>
-                    <p class="article-description">美国研究机构开发“控制系统行为警报集”网络安全框架。</p>
-                    <div class="article-date">发布日期: 2026-02-02</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87527" target="_blank">发生数据泄露后，什么情况下可以免予处罚？</a></h3>
-                    <p class="article-description">安全是动态，合规是证据。</p>
-                    <div class="article-date">发布日期: 2026-02-01</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87526" target="_blank">英国国家网络安全中心发布“不可原谅”漏洞判定指南</a></h3>
-                    <p class="article-description">英国国家网络安全中心（NCSC）近日发布了一份技术指南，提出将软件漏洞划分为“可原谅”与“不可原谅”。</p>
-                    <div class="article-date">发布日期: 2026-02-01</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87517" target="_blank">国家安全部：NFC“贴贴”也要注意哦</a></h3>
-                    <p class="article-description">NFC这项“一触即通”的技术，也可能在无形中成为信息泄露乃至危害国家安全的潜在渠道。</p>
-                    <div class="article-date">发布日期: 2026-02-01</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87522" target="_blank">iPhone隐私指示灯成摆设？Predator间谍软件通过Hook完美隐身</a></h3>
-                    <p class="article-description">这一技术细节的曝光再次证明：没有任何操作系统是绝对安全的。</p>
-                    <div class="article-date">发布日期: 2026-02-01</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87512" target="_blank">moltbook爆火背后：人类操控？伪造截图？Karpathy发风险提醒</a></h3>
-                    <p class="article-description">狂欢的主角：到底是 AI 还是人类？</p>
-                    <div class="article-date">发布日期: 2026-02-01</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87504" target="_blank">黄道丽：网络犯罪防治的国际趋势与中国制度回应</a></h3>
-                    <p class="article-description">国内外实践均表明，单纯依靠事后刑事打击，难以解决网络犯罪高度依附数字基础设施和网络服务体系运行的现实难...</p>
-                    <div class="article-date">发布日期: 2026-02-01</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87501" target="_blank">国家安全部：拉警报！群组不是安全屋</a></h3>
-                    <p class="article-description">若失去必要边界，这些看似私密的“小包间”，可能成为威胁国家安全的泄密温床。</p>
-                    <div class="article-date">发布日期: 2026-02-01</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87497" target="_blank">《网络犯罪防治法（征求意见稿）》公开征求意见</a></h3>
-                    <p class="article-description">预防、遏制和治理网络犯罪活动，维护国家安全、社会稳定和网络秩序，保护公民和组织的合法权益.</p>
-                    <div class="article-date">发布日期: 2026-01-31</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87478" target="_blank">政府泄露数千万公民求职信息被罚超4100万元</a></h3>
-                    <p class="article-description">4300万民众的求职信息泄露，按法国总人口6800万计算，占比高达63%。</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87474" target="_blank">2026年网络安全等级保护技术学术交流活动在蓉召开</a></h3>
-                    <p class="article-description">活动以“科技赋能·筑基强网”为主题，探讨新时代网络安全等级保护制度的深化实施、技术创新与育才强基新举措。</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87473" target="_blank">工信部：2025年我国信息安全领域收入2235亿元</a></h3>
-                    <p class="article-description">2025年，信息安全产品和服务收入2235亿元，同比增长6.7%。</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87472" target="_blank">欧盟拟向美国提供敏感个人数据权限以换取免签待遇</a></h3>
-                    <p class="article-description">欧盟正计划向美国开放包含其公民种族、信仰及生物识别特征等敏感个人数据的数据库访问权限，以换取维持对美免...</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87470" target="_blank">前美军高官建议加强“金穹”导弹防御系统的网络安全设计</a></h3>
-                    <p class="article-description">前美军高官提出确保“金穹”系统网络安全性的四项建议措施。</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87459" target="_blank">Databricks推出开源AI红队工具箱BlackIce，集成14种AI安全工具</a></h3>
-                    <p class="article-description">该工具箱集成了14种主流AI安全工具，被誉为“AI安全领域的Kali Linux”，有效解决了繁琐的环境配置和依赖冲突问...</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87451" target="_blank">国家安全部：“插”亮眼睛，“件”证安全</a></h3>
-                    <p class="article-description">个别恶意浏览器插件却暗藏“黑手”，以非法收集、后台监控等手段窃取敏感信息，甚至成为境外间谍情报机关渗透窃...</p>
-                    <div class="article-date">发布日期: 2026-01-30</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87452" target="_blank">英国国家网络安全中心发布关基单位严重威胁应对指南</a></h3>
-                    <p class="article-description">英国国家网络安全中心（NCSC）近期发布了一份专门针对关基设施的指南，用于指导组织如何在“严重网络威胁”环境...</p>
-                    <div class="article-date">发布日期: 2026-01-29</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87445" target="_blank">2025年全国IT采购近1300亿元，数据要素是采购热点</a></h3>
-                    <p class="article-description">2025年，全国IT相关采购项目约5.6万个，采购规模1290.1亿元。</p>
-                    <div class="article-date">发布日期: 2026-01-29</div>
-                </div>
-                <div class="article-card">
-                    <div class="article-source">来源: Secrss</div>
-                    <h3 class="article-title"><a href="https://www.secrss.com/articles/87440" target="_blank">以色列情报智能化建设情况研析</a></h3>
-                    <p class="article-description">以色列在情报建设中积极融入人工智能技术，从机构设置、平台搭建、人才培养等维度推动情报工作向智能化转型。</p>
-                    <div class="article-date">发布日期: 2026-01-29</div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/310264" target="_blank">Perplexity AI 与巴蒂电信达成合作，向 3.6 亿印度用户免费提供一年期 Pro 版服务</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/309397" target="_blank">闪耀国家级地标，360安全智能体定义安全未来</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/309374" target="_blank">360亮相全球数字经济大会，智能体涌现，安全运营跃升</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/309100" target="_blank">当分公司突遭漏洞通报……如何揪出安全管理“暗礁”？</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/309042" target="_blank">Quest修补了关键的VCE SM缺陷，包括CVSS10身份验证绕过</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/313258" target="_blank">Cloudflare全球服务中断，引发互联网大面积瘫痪——多家主流网络平台无法访问</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/313583" target="_blank">哈维 AI 完成 7.6 亿美元融资 估值达 80 亿美元</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/313554" target="_blank">亚马逊推出基于NVIDIA架构的本地化“AI工厂”解决方案，向竞争对手发起挑战</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/314086" target="_blank">CVE-2025-54322（CVSS 10 分满分）：AI 智能体发现全球网络设备高危零日漏洞</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/313491" target="_blank">Goodword完成400万美元融资，其AI协理产品旨在助力用户拓展职场人脉</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/314023" target="_blank">零点击漏洞攻击元年：2025 年带给现代恶意软件防御的启示</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/314050" target="_blank">“lc” 漏洞泄露事件：LangChain 框架 9.3 级高危漏洞致提示注入沦为机密窃取工具</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/314315" target="_blank">双重严重：Ruckus IoT控制器因硬编码密钥泄露面临root权限远程代码执行</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/314324" target="_blank">高危漏洞CVE-2025-52694：研华设备存在 SQL 注入，可导致 IoT设备被完全攻陷</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/313645" target="_blank">Checkmarx 收购 Tromzo，强化 AI 安全自动化能力</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/314043" target="_blank">Zimbra 遭攻击：高危本地文件包含漏洞致未授权攻击者可读取内部文件</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/313639" target="_blank">Stripe 推出 Tempo 支付区块链并开放公测，万事达卡、瑞银集团已正式接入</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/313590" target="_blank">“PDF陷阱”：Apache Tika核心组件存在严重漏洞（CVE-2025-66516，CVSS 10.0）</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/313587" target="_blank">AI boom 催生全球存储芯片荒 价格将涨三倍至 2027 年</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Anquanke</div>
+                        <h3 class="article-title"><a href="/post/id/314266" target="_blank">XML陷阱：Struts 2高危漏洞CVE-2025-68493致数据泄露</a></h3>
+                        
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87541" target="_blank">泄露超3000万客户个人隐私数据，电信巨头赔偿超8.1亿元</a></h3>
+                        <p class="article-description">未及时打补丁，导致超3000万用户数据泄露，电信巨头康卡斯特预计被迫赔偿超8.1亿元。</p>
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-02">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87528" target="_blank">美军利用标准化网络事件分析框架保障关键基础设施安全</a></h3>
+                        <p class="article-description">美国研究机构开发“控制系统行为警报集”网络安全框架。</p>
+                        <div class="article-date">发布日期: 2026-02-02</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-01">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87527" target="_blank">发生数据泄露后，什么情况下可以免予处罚？</a></h3>
+                        <p class="article-description">安全是动态，合规是证据。</p>
+                        <div class="article-date">发布日期: 2026-02-01</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-01">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87526" target="_blank">英国国家网络安全中心发布“不可原谅”漏洞判定指南</a></h3>
+                        <p class="article-description">英国国家网络安全中心（NCSC）近日发布了一份技术指南，提出将软件漏洞划分为“可原谅”与“不可原谅”。</p>
+                        <div class="article-date">发布日期: 2026-02-01</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-01">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87517" target="_blank">国家安全部：NFC“贴贴”也要注意哦</a></h3>
+                        <p class="article-description">NFC这项“一触即通”的技术，也可能在无形中成为信息泄露乃至危害国家安全的潜在渠道。</p>
+                        <div class="article-date">发布日期: 2026-02-01</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-01">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87522" target="_blank">iPhone隐私指示灯成摆设？Predator间谍软件通过Hook完美隐身</a></h3>
+                        <p class="article-description">这一技术细节的曝光再次证明：没有任何操作系统是绝对安全的。</p>
+                        <div class="article-date">发布日期: 2026-02-01</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-01">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87512" target="_blank">moltbook爆火背后：人类操控？伪造截图？Karpathy发风险提醒</a></h3>
+                        <p class="article-description">狂欢的主角：到底是 AI 还是人类？</p>
+                        <div class="article-date">发布日期: 2026-02-01</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-01">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87504" target="_blank">黄道丽：网络犯罪防治的国际趋势与中国制度回应</a></h3>
+                        <p class="article-description">国内外实践均表明，单纯依靠事后刑事打击，难以解决网络犯罪高度依附数字基础设施和网络服务体系运行的现实难...</p>
+                        <div class="article-date">发布日期: 2026-02-01</div>
+                    </div>
+                    <div class="article-card" data-date="2026-02-01">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87501" target="_blank">国家安全部：拉警报！群组不是安全屋</a></h3>
+                        <p class="article-description">若失去必要边界，这些看似私密的“小包间”，可能成为威胁国家安全的泄密温床。</p>
+                        <div class="article-date">发布日期: 2026-02-01</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-31">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87497" target="_blank">《网络犯罪防治法（征求意见稿）》公开征求意见</a></h3>
+                        <p class="article-description">预防、遏制和治理网络犯罪活动，维护国家安全、社会稳定和网络秩序，保护公民和组织的合法权益.</p>
+                        <div class="article-date">发布日期: 2026-01-31</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87478" target="_blank">政府泄露数千万公民求职信息被罚超4100万元</a></h3>
+                        <p class="article-description">4300万民众的求职信息泄露，按法国总人口6800万计算，占比高达63%。</p>
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87474" target="_blank">2026年网络安全等级保护技术学术交流活动在蓉召开</a></h3>
+                        <p class="article-description">活动以“科技赋能·筑基强网”为主题，探讨新时代网络安全等级保护制度的深化实施、技术创新与育才强基新举措。</p>
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87473" target="_blank">工信部：2025年我国信息安全领域收入2235亿元</a></h3>
+                        <p class="article-description">2025年，信息安全产品和服务收入2235亿元，同比增长6.7%。</p>
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87472" target="_blank">欧盟拟向美国提供敏感个人数据权限以换取免签待遇</a></h3>
+                        <p class="article-description">欧盟正计划向美国开放包含其公民种族、信仰及生物识别特征等敏感个人数据的数据库访问权限，以换取维持对美免...</p>
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87470" target="_blank">前美军高官建议加强“金穹”导弹防御系统的网络安全设计</a></h3>
+                        <p class="article-description">前美军高官提出确保“金穹”系统网络安全性的四项建议措施。</p>
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87459" target="_blank">Databricks推出开源AI红队工具箱BlackIce，集成14种AI安全工具</a></h3>
+                        <p class="article-description">该工具箱集成了14种主流AI安全工具，被誉为“AI安全领域的Kali Linux”，有效解决了繁琐的环境配置和依赖冲突问...</p>
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-30">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87451" target="_blank">国家安全部：“插”亮眼睛，“件”证安全</a></h3>
+                        <p class="article-description">个别恶意浏览器插件却暗藏“黑手”，以非法收集、后台监控等手段窃取敏感信息，甚至成为境外间谍情报机关渗透窃...</p>
+                        <div class="article-date">发布日期: 2026-01-30</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-29">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87452" target="_blank">英国国家网络安全中心发布关基单位严重威胁应对指南</a></h3>
+                        <p class="article-description">英国国家网络安全中心（NCSC）近期发布了一份专门针对关基设施的指南，用于指导组织如何在“严重网络威胁”环境...</p>
+                        <div class="article-date">发布日期: 2026-01-29</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-29">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87445" target="_blank">2025年全国IT采购近1300亿元，数据要素是采购热点</a></h3>
+                        <p class="article-description">2025年，全国IT相关采购项目约5.6万个，采购规模1290.1亿元。</p>
+                        <div class="article-date">发布日期: 2026-01-29</div>
+                    </div>
+                    <div class="article-card" data-date="2026-01-29">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/87440" target="_blank">以色列情报智能化建设情况研析</a></h3>
+                        <p class="article-description">以色列在情报建设中积极融入人工智能技术，从机构设置、平台搭建、人才培养等维度推动情报工作向智能化转型。</p>
+                        <div class="article-date">发布日期: 2026-01-29</div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
+
+        <aside class="sidebar">
+            <h3>筛选器</h3>
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="date-filter">📅 按日期筛选:</label>
+                    <select id="date-filter" onchange="filterByDate()">
+                        <option value="">全部日期</option>
+                        <option value="2026-02-02">2026-02-02</option><option value="2026-02-01">2026-02-01</option><option value="2026-01-31">2026-01-31</option><option value="2026-01-30">2026-01-30</option><option value="2026-01-29">2026-01-29</option><option value="2026-01-28">2026-01-28</option><option value="2026-01-26">2026-01-26</option><option value="2026-01-14">2026-01-14</option><option value="2025-12-16">2025-12-16</option><option value="2025-12-12">2025-12-12</option><option value="2025-11-03">2025-11-03</option><option value="2025-09-26">2025-09-26</option><option value="2025-08-08">2025-08-08</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="source-filter">🏢 按来源筛选:</label>
+                    <select id="source-filter" onchange="filterBySource()">
+                        <option value="">全部来源</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="search-input">🔍 搜索关键词:</label>
+                    <input type="text" id="search-input" placeholder="输入关键词搜索..." onkeyup="filterBySearch()">
+                </div>
+
+                <button onclick="clearAllFilters()" style="margin-top: 10px; padding: 8px 16px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">清除筛选</button>
+            </div>
+
+            <div style="margin-top: 1.5rem;">
+                <h4>统计信息</h4>
+                <p>总文章数: 87</p>
+                <p>技术文章: 47</p>
+                <p>安全新闻: 40</p>
+                <p>更新日期: 2026-02-02</p>
+            </div>
+        </aside>
 
         <div class="footer">
             <p>© 2026 <a href="https://github.com/secnotes">SecNotes</a> | <a href="https://github.com/secnotes/secnews">站点源码</a></p>
-            <p>安全资讯聚合平台 | 更新时间: 2026-02-02 06:08:42</p>
+            <p>安全资讯聚合平台 | 更新时间: 2026-02-02 10:53:44</p>
             <p>数据来源: Sec-Today, 先知社区, Project Zero, Seebug Paper, 腾讯安全, 安全客, 安全内参</p>
             <p>如有侵权，请联系删除</p>
         </div>
     </div>
+
+    <script>
+        // Initialize sources filter
+        window.onload = function() {
+            const sources = new Set();
+            document.querySelectorAll('.article-card').forEach(card => {
+                const source = card.querySelector('.article-source').textContent.replace('来源: ', '');
+                sources.add(source);
+            });
+
+            const sourceFilter = document.getElementById('source-filter');
+            Array.from(sources).sort().forEach(source => {
+                const option = document.createElement('option');
+                option.value = source;
+                option.textContent = source;
+                sourceFilter.appendChild(option);
+            });
+
+            // Initialize with all articles shown
+            updateArticleCounts();
+        };
+
+        function filterByDate() {
+            const dateFilter = document.getElementById('date-filter').value;
+            const techCards = document.querySelectorAll('#tech-articles .article-card');
+            const newsCards = document.querySelectorAll('#news-articles .article-card');
+            let visibleCount = 0;
+
+            // Show/hide tech articles
+            techCards.forEach(card => {
+                const cardDate = card.getAttribute('data-date');
+                if (dateFilter === '' || cardDate === dateFilter) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide news articles
+            newsCards.forEach(card => {
+                const cardDate = card.getAttribute('data-date');
+                if (dateFilter === '' || cardDate === dateFilter) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            updateArticleCounts();
+        }
+
+        function filterBySource() {
+            const sourceFilter = document.getElementById('source-filter').value;
+            const techCards = document.querySelectorAll('#tech-articles .article-card');
+            const newsCards = document.querySelectorAll('#news-articles .article-card');
+            let visibleCount = 0;
+
+            // Show/hide tech articles
+            techCards.forEach(card => {
+                const cardSource = card.querySelector('.article-source').textContent.replace('来源: ', '');
+                if (sourceFilter === '' || cardSource === sourceFilter) {
+                    if (isVisibleByDateFilter(card)) {
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    }
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide news articles
+            newsCards.forEach(card => {
+                const cardSource = card.querySelector('.article-source').textContent.replace('来源: ', '');
+                if (sourceFilter === '' || cardSource === sourceFilter) {
+                    if (isVisibleByDateFilter(card)) {
+                        card.style.display = 'flex';
+                        visibleCount++;
+                    }
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            updateArticleCounts();
+        }
+
+        function filterBySearch() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const techCards = document.querySelectorAll('#tech-articles .article-card');
+            const newsCards = document.querySelectorAll('#news-articles .article-card');
+            let visibleCount = 0;
+
+            // Show/hide tech articles
+            techCards.forEach(card => {
+                const title = card.querySelector('.article-title').textContent.toLowerCase();
+                const description = card.querySelector('.article-description') ?
+                    card.querySelector('.article-description').textContent.toLowerCase() : '';
+                const source = card.querySelector('.article-source').textContent.toLowerCase();
+
+                const matches = title.includes(searchTerm) ||
+                               description.includes(searchTerm) ||
+                               source.includes(searchTerm);
+
+                if (matches && isVisibleByDateFilter(card) && isVisibleBySourceFilter(card)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Show/hide news articles
+            newsCards.forEach(card => {
+                const title = card.querySelector('.article-title').textContent.toLowerCase();
+                const description = card.querySelector('.article-description') ?
+                    card.querySelector('.article-description').textContent.toLowerCase() : '';
+                const source = card.querySelector('.article-source').textContent.toLowerCase();
+
+                const matches = title.includes(searchTerm) ||
+                               description.includes(searchTerm) ||
+                               source.includes(searchTerm);
+
+                if (matches && isVisibleByDateFilter(card) && isVisibleBySourceFilter(card)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            updateArticleCounts();
+        }
+
+        function isVisibleByDateFilter(card) {
+            const dateFilter = document.getElementById('date-filter').value;
+            const cardDate = card.getAttribute('data-date');
+            return dateFilter === '' || cardDate === dateFilter;
+        }
+
+        function isVisibleBySourceFilter(card) {
+            const sourceFilter = document.getElementById('source-filter').value;
+            const cardSource = card.querySelector('.article-source').textContent.replace('来源: ', '');
+            return sourceFilter === '' || cardSource === sourceFilter;
+        }
+
+        function clearAllFilters() {
+            document.getElementById('date-filter').value = '';
+            document.getElementById('source-filter').value = '';
+            document.getElementById('search-input').value = '';
+
+            // Reset all cards to visible
+            document.querySelectorAll('.article-card').forEach(card => {
+                card.style.display = 'flex';
+            });
+
+            updateArticleCounts();
+        }
+
+        function updateArticleCounts() {
+            const visibleCards = document.querySelectorAll('.article-card[style*="display: flex"]').length;
+            const totalCount = document.querySelectorAll('.article-card').length;
+
+            // Update stats or provide some visual feedback about filtered results
+            console.log(`Showing ${visibleCards} of ${totalCount} articles`);
+        }
+    </script>
 </body>
 </html>

@@ -1175,7 +1175,7 @@ def generate_html(articles, output_file='docs/index.html'):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>安全资讯聚合 - Security News Aggregator</title>
+    <title>网络安全资讯聚合 - Cybersecurity News Aggregator</title>
     <style>
         * {{
             margin: 0;
@@ -1381,8 +1381,8 @@ def generate_html(articles, output_file='docs/index.html'):
 <body>
     <div class="container">
         <header>
-            <h1>安全资讯聚合</h1>
-            <div class="subtitle">Cybersecurity News Aggregator - 汇聚最新安全资讯</div>
+            <h1>网络安全资讯聚合</h1>
+            <div class="subtitle">Cybersecurity News Aggregator - 汇聚最新网络安全资讯</div>
         </header>
 
         <main class="main-content">
