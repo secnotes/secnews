@@ -1,0 +1,702 @@
+{
+  "tech": [
+    {
+      "title": "SecToday Next",
+      "url": "https://sec.today/pulses/e4b96168-4f3b-4797-a5a4-ff86bfc09473/",
+      "source": "Daily Security",
+      "description": "安全研究人员发现Google Gemini人工智能助手存在一个严重的提示注入漏洞，攻击者可通过在Google Calendar会议邀请的描述字段中嵌入恶意指令，绕过隐私控制并操控Gemini执行数据泄露操作。当用户向Gemini询问日程信息时，嵌入的指令会被触发，导致敏感会议信息（如标题、参与者、地点等）被汇总并公开，从而实现数据泄露。该漏洞未涉及系统入侵或密码泄露，而是利用了Gemini对日历内容的信任。此事件揭示了AI系统在语义层面可能面临的新型攻击方式，标志着应用安全从基于语法的防御向基于语义的攻击转变。Google已对该漏洞进行修复，但该事件引发了对AI集成系统安全策略的广泛讨论。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 days ago",
+      "date": "2026-01-31",
+      "category": "tech"
+    },
+    {
+      "title": "CVE-2025-58085：通过 CPDF_FormField 在 Foxit Reader 条形码计算中引发的 UAF 漏洞",
+      "url": "https://sec.today/pulses/2f0cec81-56fe-4df0-94cc-8445c28a22d0/",
+      "source": "Daily Security",
+      "description": "本文深入分析了 Foxit Reader 中与条形码对象处理相关的 UAF 漏洞（CVE-2025-58085），并提供了完整的利用链分析，包括 JavaScript 代码触发流程与内存调试细节。文章展示了漏洞如何导致任意读写，进而可能实现远程代码执行，对 PDF 阅读器安全开发具有重要参考价值。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 days ago",
+      "date": "2026-01-31",
+      "category": "tech"
+    },
+    {
+      "title": "CVE-2026-24765：PHPUnit 不安全反序列化漏洞威胁 CI/CD 流水线安全",
+      "url": "https://sec.today/pulses/ecb5d938-2dda-4c5c-887a-c094da243ffd/",
+      "source": "Daily Security",
+      "description": "本文深入分析了PHPUnit测试框架中一个高危反序列化漏洞（CVE-2026-24765），揭示了测试流程本身可能成为攻击载体的技术细节，强调了CI/CD环境中配置安全的重要性，是理解现代软件供应链安全风险的关键读物。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 days ago",
+      "date": "2026-01-31",
+      "category": "tech"
+    },
+    {
+      "title": "SecToday Next",
+      "url": "https://sec.today/pulses/165349f7-8f5f-48c5-a0eb-b748498ba8d4/",
+      "source": "Daily Security",
+      "description": "OpenSSL 在处理 CMS AuthEnvelopedData 结构中使用 AEAD 密码（如 AES-GCM）时，由于未正确验证 IV 长度，导致堆栈缓冲区溢出，从而引发远程代码执行漏洞（CVE-2025-15467）。该漏洞存在于 OpenSSL 3.0 到 3.6 的版本中，攻击者无需有效凭证或加密密钥即可利用。已有野外利用证据，补丁已在 3.0.19 及更高版本中发布。建议用户立即升级以防止潜在攻击。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 days ago",
+      "date": "2026-01-31",
+      "category": "tech"
+    },
+    {
+      "title": "SecToday Next",
+      "url": "https://sec.today/pulses/2ca1f9d4-6371-4ff1-bb63-288c3b604a64/",
+      "source": "Daily Security",
+      "description": "谷歌发布了 Chrome 浏览器的安全更新，修复了 Background Fetch API 中的高危漏洞 CVE-2026-1504。该漏洞由安全研究员 Luan Herrera 报告，可能被攻击者用于绕过安全边界或操控后台获取操作。为防止漏洞被滥用，谷歌暂未公开完整细节，直到大多数用户完成更新。最新版本 Chrome 144.0.7559.109/110 已发布，建议用户尽快更新以确保安全。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 days ago",
+      "date": "2026-01-31",
+      "category": "tech"
+    },
+    {
+      "title": "SecToday Next",
+      "url": "https://sec.today/pulses/fafa80b9-321c-49ac-99b2-e42cf57381af/",
+      "source": "Daily Security",
+      "description": "微软近日发布紧急补丁，修复了一个正在被积极利用的Office零日漏洞CVE-2026-21509。该漏洞允许攻击者通过诱导用户打开恶意Office文档，绕过内置的OLE安全缓解机制，从而执行任意代码。该漏洞已被确认用于定向攻击，攻击者主要通过鱼叉式钓鱼邮件分发恶意文件。微软已为受影响的Office版本发布补丁，CISA也已将该漏洞纳入其已知被利用漏洞（KEV）目录，并设定了修复期限。部分旧版Office无法通过常规更新获得修复，0patch组织为此开发了微补丁以缓解风险。该漏洞影响广泛，组织被强烈建议立即更新或采取临时缓解措施。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 days ago",
+      "date": "2026-01-31",
+      "category": "tech"
+    },
+    {
+      "title": "漏洞预警| CVE-2026-21962 Weblogic RCE漏洞 | CN-SEC 中文网",
+      "url": "https://sec.today/pulses/6ba116fb-7f80-4b91-a202-a2a6e5768570/",
+      "source": "Daily Security",
+      "description": "本文详细分析了 Oracle WebLogic 代理插件中的一个高危未认证 RCE 漏洞（CVE-2026-21962），揭示了攻击者如何通过恶意 HTTP 头部和路径穿越技术实现对服务器的 root 权限控制。其最大亮点在于漏洞利用简单、无需用户交互，且影响广泛，是当前企业级中间件安全的重要警示。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 days ago",
+      "date": "2026-01-31",
+      "category": "tech"
+    },
+    {
+      "title": "新型Kerberos中继攻击利用DNS CNAME记录绕过防护措施，PoC已发布 | CN-SEC 中文网",
+      "url": "https://sec.today/pulses/8e5a63ac-8510-4a24-a7ea-cb84a1d9b61e/",
+      "source": "Daily Security",
+      "description": "本文详细揭示了一种利用DNS CNAME记录绕过Kerberos防护的新型中继攻击技术，成功扩大了Active Directory的攻击面，且PoC工具已公开，具有高度现实威胁和研究价值。\n                –\n                \n\n                        SecTodayBot\n                    \n• 4 days ago",
+      "date": "2026-01-29",
+      "category": "tech"
+    },
+    {
+      "title": "GNU InetUtils 严重漏洞允许通过“-f root”绕过认证获取 root 权限",
+      "url": "https://sec.today/pulses/c4194f4f-4a8e-4629-9b79-8b358f39feff/",
+      "source": "Daily Security",
+      "description": "本文揭示了 GNU InetUtils telnetd 服务器中一个十年未被发现的严重远程认证绕过漏洞，攻击者可直接通过恶意环境变量获取 root 权限，技术细节详实且具有高度现实威胁，值得立即关注。\n                –\n                \n\n                        SecTodayBot\n                    \n• 4 days ago",
+      "date": "2026-01-29",
+      "category": "tech"
+    },
+    {
+      "title": "维特克斯摄像头严重漏洞允许远程攻击者注入任意代码",
+      "url": "https://sec.today/pulses/c3d9b0c4-e494-40d8-bd5b-4e09ce88406a/",
+      "source": "Daily Security",
+      "description": "本文详细披露了Vivotek摄像头固件中的一个关键命令注入漏洞（CVE-2026-22755），该漏洞允许未经身份验证的远程攻击者执行任意代码，且利用条件简单，对数十种型号构成严重威胁，对物联网设备安全开发具有警示意义。\n                –\n                \n\n                        SecTodayBot\n                    \n• 4 days ago",
+      "date": "2026-01-29",
+      "category": "tech"
+    },
+    {
+      "title": "SecToday Next",
+      "url": "https://sec.today/pulses/a391eba9-8dac-42b7-8bbb-444a527664ac/",
+      "source": "Daily Security",
+      "description": "研究人员在 Anthropic 的 Model Context Protocol (MCP) Git 服务器 mcp-server-git 中发现了多个安全漏洞，这些漏洞源于路径验证不足、参数注入和提示注入等问题。攻击者可利用这些漏洞远程执行代码、读取或删除任意文件，而无需直接访问目标系统。最严重的漏洞涉及 Git 过滤器配置，攻击者可通过恶意 Git 仓库或修改后的请求触发代码执行。Anthropic 已在 2025.9.25 和 2025.12.18 的版本中修复这些漏洞，建议用户立即升级以避免潜在攻击。\n                –\n                \n\n                        SecTodayBot\n                    \n• 4 days ago",
+      "date": "2026-01-29",
+      "category": "tech"
+    },
+    {
+      "title": "SecToday Next",
+      "url": "https://sec.today/pulses/f82bc158-b82d-43f0-a46d-73c7160dec92/",
+      "source": "Daily Security",
+      "description": "2025年10月，FearsOff 安全研究人员发现 Cloudflare 的 ACME 验证逻辑中存在一个漏洞，攻击者可利用该漏洞绕过 Web 应用程序防火墙 (WAF) 保护，通过访问 /.well-known/acme-challenge/ 路径，直接访问后端服务器和敏感文件。该漏洞源于对 HTTP-01 验证令牌的处理不当，导致 WAF 规则被绕过。Cloudflare 已发布修复程序，确保只有合法的 ACME 挑战请求才会导致 WAF 规则被暂时禁用。此漏洞被归类为零日漏洞，尽管未发现被恶意利用的证据，但其潜在风险极高。\n                –\n                \n\n                        SecTodayBot\n                    \n• 4 days ago",
+      "date": "2026-01-29",
+      "category": "tech"
+    },
+    {
+      "title": "Vivotek严重漏洞可导致远程任意代码执行",
+      "url": "https://sec.today/pulses/55595137-fb45-4418-a65f-43e41d564445/",
+      "source": "Daily Security",
+      "description": "本文揭示了Vivotek物联网摄像头中的一个严重命令注入漏洞（CVE-2026-22755），攻击者可未经认证远程执行任意代码并取得root权限。研究者利用AI驱动的逆向工程发现该漏洞，凸显了物联网设备在安全设计上的严重缺陷，值得立即引起行业重视。\n                –\n                \n\n                        SecTodayBot\n                    \n• 4 days ago",
+      "date": "2026-01-29",
+      "category": "tech"
+    },
+    {
+      "title": "SmarterMail 特权账户接管漏洞被利用导致远程代码执行",
+      "url": "https://sec.today/pulses/01766eaf-5a13-4f27-9312-55f15c97ba25/",
+      "source": "Daily Security",
+      "description": "本文详细分析了SmarterMail中的特权账户接管漏洞（CVE-2026-23760）在现实中的利用情况，揭示了攻击者如何通过自动化手段实现远程代码执行，其技术深度和对攻击链的还原极具参考价值。\n                –\n                \n\n                        SecTodayBot\n                    \n• 4 days ago",
+      "date": "2026-01-29",
+      "category": "tech"
+    },
+    {
+      "title": "Flipping one bit leaves AMD CPUs open to VM vuln",
+      "url": "https://sec.today/pulses/27121bd6-444b-460a-b397-9d527f113f5c/",
+      "source": "Daily Security",
+      "description": "本文揭示了AMD CPU中一个关键漏洞StackWarp，攻击者可通过翻转一个未文档化的控制位，绕过SEV-SNP的安全隔离机制，实现密钥泄露和提权攻击，凸显了硬件虚拟化安全设计的脆弱性。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
+      "date": "2026-02-02",
+      "category": "tech"
+    },
+    {
+      "title": "LibreChat MCP Studio 远程命令执行漏洞（CVE-2026-22252）",
+      "url": "https://sec.today/pulses/f9e81517-e9e3-4a96-a926-f133b73cb476/",
+      "source": "Daily Security",
+      "description": "本文详细披露了LibreChat MCP模块中一个严重的远程代码执行漏洞（CVE-2026-22252），攻击者可利用该漏洞以root权限在Docker容器中执行任意命令。文章通过清晰的步骤展示了漏洞利用过程，并强调了其高危性及修复措施，对安全研究人员和系统管理员具有重要参考价值。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
+      "date": "2026-02-02",
+      "category": "tech"
+    },
+    {
+      "title": "Truebit协议攻击事件技术深度分析：TRU代币定价逻辑中的整数溢出漏洞",
+      "url": "https://sec.today/pulses/fe7fb6e5-f0d2-4704-b414-e52c228f5c88/",
+      "source": "Daily Security",
+      "description": "本文深入分析了Truebit协议在2026年1月8日遭遇的2600万美元攻击事件，揭示了一个关键的整数溢出漏洞。该漏洞由于Solidity 0.6.10版本默认不强制进行溢出检查而被利用，导致攻击者能够以极低甚至零成本购买TRU代币并套利。文章亮点在于对智能合约定价逻辑的逆向分析和漏洞触发机制的详细还原，为区块链安全实践提供了重要警示。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
+      "date": "2026-02-02",
+      "category": "tech"
+    },
+    {
+      "title": "微软紧急修复DWM组件0-Day信息泄露漏洞（CVE-2026-20805） | CN-SEC 中文网",
+      "url": "https://sec.today/pulses/2f2e4d3c-5653-4320-80e5-31c4eab32c9a/",
+      "source": "Daily Security",
+      "description": "本文详细披露了微软紧急修复的DWM组件0-Day信息泄露漏洞（CVE-2026-20805），并指出该漏洞已被多组APT组织在野外实际利用，建议系统管理员立即部署补丁并加强监控，以防止权限提升攻击。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
+      "date": "2026-02-02",
+      "category": "tech"
+    },
+    {
+      "title": "BGP Vortex: Internet Routing Vortices Create Outages by Preventing Convergence",
+      "url": "https://sec.today/pulses/75ff38d3-c3ee-4708-8794-9ab08d4f8e73/",
+      "source": "Daily Security",
+      "description": "本文揭示了BGP协议中存在的一个严重漏洞——BGP Vortex，该漏洞可被利用引发大规模路由震荡，导致互联网瘫痪。研究指出，30个最大网络中有21个易受攻击，协调攻击可影响96%的互联网网络，这一发现对提升互联网稳定性和安全性具有重大意义。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
+      "date": "2026-02-02",
+      "category": "tech"
+    },
+    {
+      "title": "SecToday Next",
+      "url": "https://sec.today/pulses/da9acea8-9c48-4394-ba62-4a24679f8879/",
+      "source": "Daily Security",
+      "description": "zlib 压缩库中的 untgz 工具存在一个关键的全局缓冲区溢出漏洞（CVE-2026-22184，CVSS 评分 9.3），该漏洞源于 TGZfname() 函数中对用户提供的归档文件名使用无边界的 strcpy() 操作，导致内存损坏。攻击者可通过构造超长的文件名参数，通过命令行触发该漏洞，进而造成拒绝服务，甚至实现远程代码执行。该漏洞影响 zlib 1.3.1.2 及以下版本，由于其利用门槛低且无需身份验证，构成严重的系统安全威胁。建议用户立即升级 zlib 或采用输入验证等缓解措施。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
+      "date": "2026-02-02",
+      "category": "tech"
+    },
+    {
+      "title": "Dokploy v0.26.6 命令注入漏洞挖掘记录",
+      "url": "https://xz.aliyun.com/news/91524",
+      "source": "XZ Aliyun",
+      "description": "Dokploy v0.26.6 命令注入漏洞挖掘记录Dokploy v0.26.6 命令注入漏洞挖掘记录漏洞分析1398133550745333发表于 北京· 9浏览 · 2026-01-30 13:42",
+      "date": "2026-01-30",
+      "category": "tech"
+    },
+    {
+      "title": "SmarterMain未授权RCE(CVE-2026-24423)漏洞代码分析",
+      "url": "https://xz.aliyun.com/news/91523",
+      "source": "XZ Aliyun",
+      "description": "SmarterMain未授权RCE(CVE-2026-24423)漏洞代码分析漏洞描述这是SmarterMain的一个未授权RCE漏洞，出现RCE的位置为ConnectToHub API method，具体的漏洞描述如下图所示:环境搭建这里我直接用的docker搭建的环境，命令如下:​然后是.net的反编译工具，我使用的是Rider以及dotPeet，这个就凭个人喜好下载了。漏洞代码分析因为.Ne...",
+      "date": "2026-01-30",
+      "category": "tech"
+    },
+    {
+      "title": "一款可实时篡改支付二维码的木马程序分析",
+      "url": "https://xz.aliyun.com/news/91522",
+      "source": "XZ Aliyun",
+      "description": "一款可实时篡改支付二维码的木马程序分析使用相同技术原理，可实现篡改支付宝收款二维码、微信收款二维码的效果二进制安全筱一发表于 四川· 26浏览 · 2026-01-30 11:32",
+      "date": "2026-01-30",
+      "category": "tech"
+    },
+    {
+      "title": "银狐系Winos4远控平台深度剖析：载荷生成、插件驻留与通信模型",
+      "url": "https://xz.aliyun.com/news/91521",
+      "source": "XZ Aliyun",
+      "description": "银狐系Winos4远控平台深度剖析：载荷生成、插件驻留与通信模型Winos4控制平台、木马上线环节、木马控制环节、通信模型分析二进制安全T0daySeeker发表于 四川· 25浏览 · 2026-01-30 11:29",
+      "date": "2026-01-30",
+      "category": "tech"
+    },
+    {
+      "title": "CVE-2026-1470：n8n 原型链沙箱逃逸RCE漏洞详细分析",
+      "url": "https://xz.aliyun.com/news/91500",
+      "source": "XZ Aliyun",
+      "description": "CVE-2026-1470：n8n 原型链沙箱逃逸RCE漏洞详细分析漏洞来源漏洞描述n8n 的工作流表达式求值系统存在严重的远程代码执行 (RCE) 漏洞。已认证用户在工作流配置期间提供的表达式可能会在与底层运行时隔离不足的执行上下文中进行求值。已认证的攻击者可以利用此漏洞，以 n8n 进程的权限执行任意代码。成功利用此漏洞可能导致受影响实例完全被攻陷，包括未经授权访问敏感数据、修改工作流以及执行...",
+      "date": "2026-01-30",
+      "category": "tech"
+    },
+    {
+      "title": "CVE-2026-1470：n8n 原型链沙箱逃逸RCE后端调用链精解",
+      "url": "https://xz.aliyun.com/news/91498",
+      "source": "XZ Aliyun",
+      "description": "CVE-2026-1470：n8n 原型链沙箱逃逸RCE后端调用链精解漏洞简介n8n 在其工作流表达式评估系统中存在一个关键的远程代码执行（RCE）漏洞。经过认证的用户在工作流配置过程中提供的表达式，可以在与底层运行时隔离不足的执行上下文中进行评估。 经过认证的攻击者可能会滥用这种行为，以n8n进程的权限执行任意代码。成功的利用可能导致受影响实例的全面入侵，包括未经授权访问敏感数据、修改工作流程以...",
+      "date": "2026-01-29",
+      "category": "tech"
+    },
+    {
+      "title": "DeepAudit源码深度解析",
+      "url": "https://xz.aliyun.com/news/91486",
+      "source": "XZ Aliyun",
+      "description": "DeepAudit源码深度解析对DeepAudit的架构以及实现进行了分析AI专栏lbz发表于 辽宁原创 · 36浏览 · 2026-01-29 08:19",
+      "date": "2026-01-29",
+      "category": "tech"
+    },
+    {
+      "title": "AI自动化漏洞修复技术探索及实践",
+      "url": "https://xz.aliyun.com/news/91465",
+      "source": "XZ Aliyun",
+      "description": "AI自动化漏洞修复技术探索及实践自动化漏洞检测工具（如模糊测试、静态分析工具）已广泛应用，但漏洞修复仍严重依赖安全专家人工经验，形成“检测快、修复慢”的效率失衡，大量漏洞长期未修复，成为安全防护体系的核心薄弱环节。本文提出一种基于AI Agent及Workflow实现漏洞根源修复的端到端自动化技术，突破传统修复方案瓶颈。AI专栏1660635394122871发表于 广东· 166浏览 · ...",
+      "date": "2026-01-29",
+      "category": "tech"
+    },
+    {
+      "title": "CVE-2026-24779：vLLM多模态解析不一致SSRF后端调用链精解",
+      "url": "https://xz.aliyun.com/news/91472",
+      "source": "XZ Aliyun",
+      "description": "CVE-2026-24779：vLLM多模态解析不一致SSRF后端调用链精解漏洞简介vLLM 是大型语言模型（LLM）的推理和服务引擎。在 0.14.1 版本之前，vLLM 项目多模态功能集中的“MediaConnector”类别存在SSRF漏洞。load_from_url和load_from_url_async方法通过用户提供的URL获取和处理媒体，在限制目标主机时使用不同的Python解析库。...",
+      "date": "2026-01-28",
+      "category": "tech"
+    },
+    {
+      "title": "记一次某管理服务器审计拿下CNVD高危证书过程",
+      "url": "https://xz.aliyun.com/news/91471",
+      "source": "XZ Aliyun",
+      "description": "记一次某管理服务器审计拿下CNVD高危证书过程记一次某管理服务器审计拿下CNVD高危证书过程漏洞分析caigo发表于 福建· 189浏览 · 2026-01-28 16:08",
+      "date": "2026-01-28",
+      "category": "tech"
+    },
+    {
+      "title": "DeepChat FilePresenter 任意文件读取写入漏洞(可读取明文 key)",
+      "url": "https://xz.aliyun.com/news/91468",
+      "source": "XZ Aliyun",
+      "description": "DeepChat FilePresenter 任意文件读取写入漏洞(可读取明文 key)DeepChat FilePresenter 组件未校验路径参数，导致通过 ../ 路径遍历可读写 userData 目录外任意文件，包括明文存储的 API 密钥。AI专栏1341025112991831发表于 北京· 1140浏览 · 2026-01-28 13:39",
+      "date": "2026-01-28",
+      "category": "tech"
+    },
+    {
+      "title": "AI时代的EICAR病毒：用魔术字符串瘫痪Claude的攻防实验",
+      "url": "https://xz.aliyun.com/news/91464",
+      "source": "XZ Aliyun",
+      "description": "AI时代的EICAR病毒：用魔术字符串瘫痪Claude的攻防实验可用于触发Claude模型拒绝响应的字符串、png图片、docx文档、pdf文档、IDA伪代码、恶意脚本等AI专栏T0daySeeker发表于 四川· 1129浏览 · 2026-01-28 12:01",
+      "date": "2026-01-28",
+      "category": "tech"
+    },
+    {
+      "title": "CrewAI SandboxPython 沙箱绕过利用",
+      "url": "https://xz.aliyun.com/news/91460",
+      "source": "XZ Aliyun",
+      "description": "CrewAI SandboxPython 沙箱绕过利用通过继承链访问 catch_warnings.__init__.__globals__，绕过限制获取原始 __builtins__，实现任意代码执行。AI专栏真爱和自由发表于 北京· 875浏览 · 2026-01-28 09:08",
+      "date": "2026-01-28",
+      "category": "tech"
+    },
+    {
+      "title": "MindsDB BYOM 远程代码执行漏洞挖掘",
+      "url": "https://xz.aliyun.com/news/91459",
+      "source": "XZ Aliyun",
+      "description": "MindsDB BYOM 远程代码执行漏洞挖掘MindsDB BYOM接口未认证且直接exec用户上传Python代码，导致无需文件预创建的远程命令执行。AI专栏1341025112991831发表于 北京· 868浏览 · 2026-01-28 09:01",
+      "date": "2026-01-28",
+      "category": "tech"
+    },
+    {
+      "title": "Tomcat Valve/Executor/Upgrade/Adapter内存马分析与思考",
+      "url": "https://xz.aliyun.com/news/91458",
+      "source": "XZ Aliyun",
+      "description": "Tomcat Valve/Executor/Upgrade/Adapter内存马分析与思考关于四种Tomcat内存马的一些学习与思考漏洞分析用户fzFYNYPl6v发表于 江苏· 915浏览 · 2026-01-28 09:00",
+      "date": "2026-01-28",
+      "category": "tech"
+    },
+    {
+      "title": "Breaking the Sound Barrier, Part II: Exploiting CVE-2024-54529",
+      "url": "https://projectzero.google/2026/01/sound-barrier-2.html",
+      "source": "Project Zero",
+      "description": "In the first part of this series, I detailed my journey into macOS security research, which led to the discovery of a type confusion vulnerability (CVE-2024-54529) and a double-free vulnerability (CVE-2025-31235)  in the coreaudiod system daemon through a process I call knowledge-driven fuzzing. While the first post focused on the process of finding the vulnerabilities, this post dives into the intricate process of exploiting the type confusion vulnerability.",
+      "date": "2026-01-30",
+      "category": "tech"
+    },
+    {
+      "title": "Bypassing Windows Administrator Protection",
+      "url": "https://projectzero.google/2026/26/windows-administrator-protection.html",
+      "source": "Project Zero",
+      "description": "A headline feature introduced in the latest release of Windows 11, 25H2 is Administrator Protection. The goal of this feature is to replace User Account Control (UAC) with a more robust and importantly, securable system to allow a local user to access administrator privileges only when necessary.",
+      "date": "2026-01-26",
+      "category": "tech"
+    },
+    {
+      "title": "A 0-click exploit chain for the Pixel 9 Part 3: Where do we go from here?",
+      "url": "https://projectzero.google/2026/01/pixel-0-click-part-3.html",
+      "source": "Project Zero",
+      "description": "While our previous two blog posts provided technical recommendations for increasing the effort required by attackers to develop 0-click exploit chains, our experience finding, reporting and exploiting these vulnerabilities highlighted some broader issues in the Android ecosystem. This post describes the problems we encountered and recommendations for improvement.",
+      "date": "2026-01-14",
+      "category": "tech"
+    },
+    {
+      "title": "A 0-click exploit chain for the Pixel 9 Part 2: Cracking the Sandbox with a Big Wave",
+      "url": "https://projectzero.google/2026/01/pixel-0-click-part-2.html",
+      "source": "Project Zero",
+      "description": "With the advent of a potential Dolby Unified Decoder RCE exploit, it seemed prudent to see what kind of Linux kernel drivers might be accessible from the resulting userland context, the mediacodec context. As per the AOSP documentation, the mediacodec SELinux context is intended to be a constrained (a.k.a sandboxed) context where non-secure software decoders are utilized. Nevertheless, using my DriverCartographer tool, I discovered an interesting device driver, /dev/bigwave that was accessible from the mediacodec SELinux context. BigWave is hardware present on the Pixel SOC that accelerates AV1 decoding tasks, which explains why it is accessible from the mediacodec context. As previous research has copiously affirmed, Android drivers for hardware devices are prime places to find powerful local privilege escalation bugs. The BigWave driver was no exception - across a couple hours of auditing the code, I discovered three separate bugs, including one that was powerful enough to escape the mediacodec sandbox and get kernel arbitrary read/write on the Pixel 9.",
+      "date": "2026-01-14",
+      "category": "tech"
+    },
+    {
+      "title": "A 0-click exploit chain for the Pixel 9 Part 1: Decoding Dolby",
+      "url": "https://projectzero.google/2026/01/pixel-0-click-part-1.html",
+      "source": "Project Zero",
+      "description": "Over the past few years, several AI-powered features have been added to mobile phones that allow users to better search and understand their messages. One effect of this change is increased 0-click attack surface, as efficient analysis often requires message media to be decoded before the message is opened by the user. One such feature is audio transcription. Incoming SMS and RCS audio attachments received by Google Messages are now automatically decoded with no user interaction. As a result, audio decoders are now in the 0-click attack surface of most Android phones.",
+      "date": "2026-01-14",
+      "category": "tech"
+    },
+    {
+      "title": "Welcome to the new Project Zero Blog",
+      "url": "https://projectzero.google/2025/12/welcome.html",
+      "source": "Project Zero",
+      "description": "While on Project Zero, we aim for our research to be leading-edge, our blog design was … not so much. We welcome readers to our shiny new blog!",
+      "date": "2025-12-16",
+      "category": "tech"
+    },
+    {
+      "title": "Thinking Outside The Box [dusted off draft from 2017]",
+      "url": "https://projectzero.google/2025/12/thinking-outside-the-box.html",
+      "source": "Project Zero",
+      "description": "Hello from the future!",
+      "date": "2025-12-16",
+      "category": "tech"
+    },
+    {
+      "title": "Windows Exploitation Techniques: Winning Race Conditions with Path Lookups",
+      "url": "https://projectzero.google/2025/12/windows-exploitation-techniques.html",
+      "source": "Project Zero",
+      "description": "This post was originally written in 2016 for the Project Zero blog. However, in the end it was published separately in the journal PoC||GTFO issue #13 as well as in the second volume of the printed version. In honor of our new blog we’re republishing it on this blog and included an updated analysis to see if it still works on a modern Windows 11 system.",
+      "date": "2025-12-16",
+      "category": "tech"
+    },
+    {
+      "title": "A look at an Android ITW DNG exploit",
+      "url": "https://projectzero.google/2025/12/android-itw-dng.html",
+      "source": "Project Zero",
+      "description": "Between July 2024 and February 2025, 6 suspicious image files were uploaded to VirusTotal. Thanks to a lead from Meta, these samples came to the attention of Google Threat Intelligence Group.",
+      "date": "2025-12-12",
+      "category": "tech"
+    },
+    {
+      "title": "Defeating KASLR by Doing Nothing at All",
+      "url": "https://projectzero.google/2025/11/defeating-kaslr-by-doing-nothing-at-all.html",
+      "source": "Project Zero",
+      "description": "I’ve recently been researching Pixel kernel exploitation and as part of this research I found myself with an excellent arbitrary write primitive…but without a KASLR leak. As necessity is the mother of all invention, on a hunch, I started researching the Linux kernel linear mapping.",
+      "date": "2025-11-03",
+      "category": "tech"
+    },
+    {
+      "title": "Pointer leaks through pointer-keyed data structures",
+      "url": "https://projectzero.google/2025/09/pointer-leaks-through-pointer-keyed.html",
+      "source": "Project Zero",
+      "description": "Some time in 2024, during a Project Zero team discussion, we were talking about how remote ASLR leaks would be helpful or necessary for exploiting some types of memory corruption bugs, specifically in the context of Apple devices. Coming from the angle of “where would be a good first place to look for a remote ASLR leak”, this led to the discovery of a trick that could potentially be used to leak a pointer remotely, without any memory safety violations or timing attacks, in scenarios where an attack surface can be reached that deserializes attacker-provided data, re-serializes the resulting objects, and sends the re-serialized data back to the attacker.",
+      "date": "2025-09-26",
+      "category": "tech"
+    },
+    {
+      "title": "From Chrome renderer code exec to kernel with MSG_OOB",
+      "url": "https://projectzero.google/2025/08/from-chrome-renderer-code-exec-to-kernel.html",
+      "source": "Project Zero",
+      "description": "In early June, I was reviewing a new Linux kernel feature when I learned about the MSG_OOB feature supported by stream-oriented UNIX domain sockets. I reviewed the implementation of MSG_OOB, and discovered a security bug (CVE-2025-38236) affecting Linux >=6.9. I reported the bug to Linux, and it got fixed. Interestingly, while the MSG_OOB feature is not used by Chrome, it was exposed in the Chrome renderer sandbox. (Since then, sending MSG_OOB messages has been blocked in Chrome renderers in response to this issue.)",
+      "date": "2025-08-08",
+      "category": "tech"
+    }
+  ],
+  "news": [
+    {
+      "title": "Perplexity AI 与巴蒂电信达成合作，向 3.6 亿印度用户免费提供一年期 Pro 版服务",
+      "url": "/post/id/310264",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "闪耀国家级地标，360安全智能体定义安全未来",
+      "url": "/post/id/309397",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "360亮相全球数字经济大会，智能体涌现，安全运营跃升",
+      "url": "/post/id/309374",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "当分公司突遭漏洞通报……如何揪出安全管理“暗礁”？",
+      "url": "/post/id/309100",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "Quest修补了关键的VCE SM缺陷，包括CVSS10身份验证绕过",
+      "url": "/post/id/309042",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "Cloudflare全球服务中断，引发互联网大面积瘫痪——多家主流网络平台无法访问",
+      "url": "/post/id/313258",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "哈维 AI 完成 7.6 亿美元融资 估值达 80 亿美元",
+      "url": "/post/id/313583",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "亚马逊推出基于NVIDIA架构的本地化“AI工厂”解决方案，向竞争对手发起挑战",
+      "url": "/post/id/313554",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "CVE-2025-54322（CVSS 10 分满分）：AI 智能体发现全球网络设备高危零日漏洞",
+      "url": "/post/id/314086",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "Goodword完成400万美元融资，其AI协理产品旨在助力用户拓展职场人脉",
+      "url": "/post/id/313491",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "零点击漏洞攻击元年：2025 年带给现代恶意软件防御的启示",
+      "url": "/post/id/314023",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "“lc” 漏洞泄露事件：LangChain 框架 9.3 级高危漏洞致提示注入沦为机密窃取工具",
+      "url": "/post/id/314050",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "双重严重：Ruckus IoT控制器因硬编码密钥泄露面临root权限远程代码执行",
+      "url": "/post/id/314315",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "高危漏洞CVE-2025-52694：研华设备存在 SQL 注入，可导致 IoT设备被完全攻陷",
+      "url": "/post/id/314324",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "Zimbra 遭攻击：高危本地文件包含漏洞致未授权攻击者可读取内部文件",
+      "url": "/post/id/314043",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "Checkmarx 收购 Tromzo，强化 AI 安全自动化能力",
+      "url": "/post/id/313645",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "Stripe 推出 Tempo 支付区块链并开放公测，万事达卡、瑞银集团已正式接入",
+      "url": "/post/id/313639",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "“PDF陷阱”：Apache Tika核心组件存在严重漏洞（CVE-2025-66516，CVSS 10.0）",
+      "url": "/post/id/313590",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "AI boom 催生全球存储芯片荒 价格将涨三倍至 2027 年",
+      "url": "/post/id/313587",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "XML陷阱：Struts 2高危漏洞CVE-2025-68493致数据泄露",
+      "url": "/post/id/314266",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-02-02",
+      "category": "news"
+    },
+    {
+      "title": "国家安全部：NFC“贴贴”也要注意哦",
+      "url": "https://www.secrss.com/articles/87517",
+      "source": "Secrss",
+      "description": "NFC这项“一触即通”的技术，也可能在无形中成为信息泄露乃至危害国家安全的潜在渠道。",
+      "date": "2026-02-01",
+      "category": "news"
+    },
+    {
+      "title": "moltbook爆火背后：人类操控？伪造截图？Karpathy发风险提醒",
+      "url": "https://www.secrss.com/articles/87512",
+      "source": "Secrss",
+      "description": "狂欢的主角：到底是 AI 还是人类？",
+      "date": "2026-02-01",
+      "category": "news"
+    },
+    {
+      "title": "《网络犯罪防治法（征求意见稿）》公开征求意见",
+      "url": "https://www.secrss.com/articles/87497",
+      "source": "Secrss",
+      "description": "预防、遏制和治理网络犯罪活动，维护国家安全、社会稳定和网络秩序，保护公民和组织的合法权益.",
+      "date": "2026-01-31",
+      "category": "news"
+    },
+    {
+      "title": "政府泄露数千万公民求职信息被罚超4100万元",
+      "url": "https://www.secrss.com/articles/87478",
+      "source": "Secrss",
+      "description": "4300万民众的求职信息泄露，按法国总人口6800万计算，占比高达63%。",
+      "date": "2026-01-30",
+      "category": "news"
+    },
+    {
+      "title": "2026年网络安全等级保护技术学术交流活动在蓉召开",
+      "url": "https://www.secrss.com/articles/87474",
+      "source": "Secrss",
+      "description": "活动以“科技赋能·筑基强网”为主题，探讨新时代网络安全等级保护制度的深化实施、技术创新与育才强基新举措。",
+      "date": "2026-01-30",
+      "category": "news"
+    },
+    {
+      "title": "工信部：2025年我国信息安全领域收入2235亿元",
+      "url": "https://www.secrss.com/articles/87473",
+      "source": "Secrss",
+      "description": "2025年，信息安全产品和服务收入2235亿元，同比增长6.7%。",
+      "date": "2026-01-30",
+      "category": "news"
+    },
+    {
+      "title": "欧盟拟向美国提供敏感个人数据权限以换取免签待遇",
+      "url": "https://www.secrss.com/articles/87472",
+      "source": "Secrss",
+      "description": "欧盟正计划向美国开放包含其公民种族、信仰及生物识别特征等敏感个人数据的数据库访问权限，以换取维持对美免...",
+      "date": "2026-01-30",
+      "category": "news"
+    },
+    {
+      "title": "前美军高官建议加强“金穹”导弹防御系统的网络安全设计",
+      "url": "https://www.secrss.com/articles/87470",
+      "source": "Secrss",
+      "description": "前美军高官提出确保“金穹”系统网络安全性的四项建议措施。",
+      "date": "2026-01-30",
+      "category": "news"
+    },
+    {
+      "title": "Databricks推出开源AI红队工具箱BlackIce，集成14种AI安全工具",
+      "url": "https://www.secrss.com/articles/87459",
+      "source": "Secrss",
+      "description": "该工具箱集成了14种主流AI安全工具，被誉为“AI安全领域的Kali Linux”，有效解决了繁琐的环境配置和依赖冲突问...",
+      "date": "2026-01-30",
+      "category": "news"
+    },
+    {
+      "title": "国家安全部：“插”亮眼睛，“件”证安全",
+      "url": "https://www.secrss.com/articles/87451",
+      "source": "Secrss",
+      "description": "个别恶意浏览器插件却暗藏“黑手”，以非法收集、后台监控等手段窃取敏感信息，甚至成为境外间谍情报机关渗透窃...",
+      "date": "2026-01-30",
+      "category": "news"
+    },
+    {
+      "title": "英国国家网络安全中心发布关基单位严重威胁应对指南",
+      "url": "https://www.secrss.com/articles/87452",
+      "source": "Secrss",
+      "description": "英国国家网络安全中心（NCSC）近期发布了一份专门针对关基设施的指南，用于指导组织如何在“严重网络威胁”环境...",
+      "date": "2026-01-29",
+      "category": "news"
+    },
+    {
+      "title": "2025年全国IT采购近1300亿元，数据要素是采购热点",
+      "url": "https://www.secrss.com/articles/87445",
+      "source": "Secrss",
+      "description": "2025年，全国IT相关采购项目约5.6万个，采购规模1290.1亿元。",
+      "date": "2026-01-29",
+      "category": "news"
+    },
+    {
+      "title": "以色列情报智能化建设情况研析",
+      "url": "https://www.secrss.com/articles/87440",
+      "source": "Secrss",
+      "description": "以色列在情报建设中积极融入人工智能技术，从机构设置、平台搭建、人才培养等维度推动情报工作向智能化转型。",
+      "date": "2026-01-29",
+      "category": "news"
+    },
+    {
+      "title": "全国人大常委会法工委经济法室专家：筑牢网络安全的法治保障",
+      "url": "https://www.secrss.com/articles/87438",
+      "source": "Secrss",
+      "description": "《网络安全法》修改贯彻落实党中央决策部署，适应网络安全新形势新要求，加强法律之间的衔接，完善法律责任制...",
+      "date": "2026-01-29",
+      "category": "news"
+    },
+    {
+      "title": "首次披露！波兰电网险遭大停电，数十处电站通信设备被攻击瘫痪",
+      "url": "https://www.secrss.com/articles/87436",
+      "source": "Secrss",
+      "description": "结合多家安全厂商的事件响应报告，波兰电网险遭大停电事件，带有明显的IT、OT协同攻击特征，攻击者通过防火墙...",
+      "date": "2026-01-29",
+      "category": "news"
+    },
+    {
+      "title": "完全转向！美国白宫调整政府供应商软硬件产品安全证明要求",
+      "url": "https://www.secrss.com/articles/87437",
+      "source": "Secrss",
+      "description": "美国白宫发布备忘录，摒弃了此前针对联邦供应商产品网络安全的单一标准化软件证明表格，改为采用基于风险的评...",
+      "date": "2026-01-29",
+      "category": "news"
+    },
+    {
+      "title": "美国防部向国会提供修订版网络兵力生成模型实施方案",
+      "url": "https://www.secrss.com/articles/87430",
+      "source": "Secrss",
+      "description": "美军通过“非动能效应小组”将网络能力融入联合作战。",
+      "date": "2026-01-29",
+      "category": "news"
+    },
+    {
+      "title": "深度剖析：Skills架构攻击面、实战案例与开源生态调研",
+      "url": "https://www.secrss.com/articles/87420",
+      "source": "Secrss",
+      "description": "从架构到风险，从实测到趋势研判，全链路揭SKILLS繁荣下的安全危机  想摸清SKILLS哪里不安全？哪些攻击面实锤...",
+      "date": "2026-01-29",
+      "category": "news"
+    },
+    {
+      "title": "担忧被黑？以色列总理内塔尼亚胡用贴纸封住手机摄像头",
+      "url": "https://www.secrss.com/articles/87429",
+      "source": "Secrss",
+      "description": "“以色列官员的手机屡遭黑客攻击，在这一背景下，以色列领导人已成惊弓之鸟。”",
+      "date": "2026-01-29",
+      "category": "news"
+    },
+    {
+      "title": "国家安全部：“助农神器”气象探测设备秒变泄密工具",
+      "url": "https://www.secrss.com/articles/87419",
+      "source": "Secrss",
+      "description": "部分机构与个人法律意识淡薄，违规设立涉外气象探测站（点）,导致敏感气象数据面临外流风险，给我国家安全带...",
+      "date": "2026-01-29",
+      "category": "news"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+name: Daily Security News Update
+
+on:
+  schedule:
+    # Run daily at 00:00 (midnight) UTC
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt || echo "requirements.txt not found, installing basic packages"
+        pip install requests beautifulsoup4
+
+    - name: Create docs directory
+      run: |
+        mkdir -p docs
+
+    - name: Run scraping script
+      run: |
+        cd src
+        python scrape_news.py
+
+    - name: Commit and push changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+
+        # Check if there are any changes
+        if [[ -n $(git status --porcelain) ]]; then
+          git add .
+          git commit -m "Auto-update security news $(date)"
+          git push
+        else
+          echo "No changes to commit"
+        fi
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
