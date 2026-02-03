@@ -488,10 +488,20 @@ class SecurityNewsAggregator:
 
                                 # Build URL from article ID
                                 article_id = article_data.get('id')
+                                url_raw = article_data.get('url', '')
+
+                                # Prioritize using article ID to build canonical URL
                                 if article_id:
                                     url = f"https://www.anquanke.com/post/id/{article_id}"
+                                elif url_raw and url_raw.startswith('/'):
+                                    # If URL is relative, make it absolute
+                                    url = f"https://www.anquanke.com{url_raw}"
+                                elif url_raw:
+                                    # If URL is already absolute, use as-is
+                                    url = url_raw
                                 else:
-                                    url = article_data.get('url', '')
+                                    # Fallback to a default empty URL
+                                    url = f"https://www.anquanke.com/post/id/{article_id}" if article_id else ""
 
                                 description = self.decode_html_entities(article_data.get('desc', '') or article_data.get('summary', ''))
 
