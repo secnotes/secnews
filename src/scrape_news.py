@@ -372,8 +372,8 @@ class SecurityNewsAggregator:
                 # If direct connection fails, try using the proxy
                 logger.info("Direct connection to Project Zero failed, trying proxy...")
                 proxy_session.proxies = {
-                    'http': 'http://192.168.17.1:7890',  # Updated to match user's proxy address
-                    'https': 'http://192.168.17.1:7890'  # Updated to match user's proxy address
+                    'http': 'http://192.168.36.1:7890',  # Updated to match user's proxy address
+                    'https': 'http://192.168.36.1:7890'  # Updated to match user's proxy address
                 }
                 response = proxy_session.get("https://projectzero.google/", timeout=20)
 
