@@ -32,8 +32,7 @@ jobs:
 
     - name: Run scraping script
       run: |
-        cd src
-        python scrape_news.py
+        python src/scrape_news.py
 
     - name: Commit and push changes
       run: |
