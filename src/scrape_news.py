@@ -1739,6 +1739,9 @@ class SecurityNewsAggregator:
         # Remove duplicates based on URL
         self.remove_duplicates()
 
+        # Filter articles to keep only those published within the last 30 days
+        self.filter_recent_articles(days=30)
+
         logger.info(f"Scraping completed. Collected {len(self.articles['tech'])} tech articles and {len(self.articles['news'])} news articles")
 
     def remove_duplicates(self):
@@ -1759,6 +1762,63 @@ class SecurityNewsAggregator:
 
         self.articles['tech'] = unique_tech
         self.articles['news'] = unique_news
+
+    def filter_recent_articles(self, days=30):
+        """Filter articles to keep only those published within the specified number of days"""
+        from datetime import datetime, timedelta
+
+        logger.info(f"Filtering articles to keep only those published within the last {days} days...")
+
+        cutoff_date = datetime.now() - timedelta(days=days)
+
+        # Filter tech articles
+        filtered_tech = []
+        for article in self.articles['tech']:
+            try:
+                # Parse the article date
+                article_date = datetime.strptime(article['date'], '%Y-%m-%d')
+
+                # Keep only articles newer than cutoff date
+                if article_date >= cutoff_date:
+                    filtered_tech.append(article)
+                else:
+                    logger.debug(f"Removing old tech article: {article['title']} (published on {article['date']})")
+            except ValueError:
+                # If date parsing fails, keep the article to be safe
+                logger.warning(f"Could not parse date for tech article: {article['date']}, keeping article")
+                filtered_tech.append(article)
+
+        # Filter news articles
+        filtered_news = []
+        for article in self.articles['news']:
+            try:
+                # Parse the article date
+                article_date = datetime.strptime(article['date'], '%Y-%m-%d')
+
+                # Keep only articles newer than cutoff date
+                if article_date >= cutoff_date:
+                    filtered_news.append(article)
+                else:
+                    logger.debug(f"Removing old news article: {article['title']} (published on {article['date']})")
+            except ValueError:
+                # If date parsing fails, keep the article to be safe
+                logger.warning(f"Could not parse date for news article: {article['date']}, keeping article")
+                filtered_news.append(article)
+
+        original_counts = {
+            'tech': len(self.articles['tech']),
+            'news': len(self.articles['news'])
+        }
+
+        self.articles['tech'] = filtered_tech
+        self.articles['news'] = filtered_news
+
+        filtered_counts = {
+            'tech': len(self.articles['tech']),
+            'news': len(self.articles['news'])
+        }
+
+        logger.info(f"Article filtering completed: {original_counts['tech']} -> {filtered_counts['tech']} tech articles, {original_counts['news']} -> {filtered_counts['news']} news articles")
 
     def save_articles_json(self, filename='articles.json'):
         """Save articles to a JSON file"""
