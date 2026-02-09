@@ -1098,6 +1098,141 @@ class SecurityNewsAggregator:
         except Exception as e:
             logger.error(f"Error scraping SeeBug Paper: {str(e)}")
 
+    def scrape_kanxue(self):
+        """Scrape https://www.kanxue.com/ for security tech articles"""
+        logger.info("Scraping KanXue...")
+        try:
+            # Create a session with appropriate headers for KanXue
+            kanxue_session = requests.Session()
+            kanxue_session.headers.update({
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Connection': 'keep-alive',
+                'Upgrade-Insecure-Requests': '1',
+            })
+
+            response = kanxue_session.get("https://www.kanxue.com/", timeout=20)
+            response.raise_for_status()
+
+            soup = BeautifulSoup(response.content, 'html.parser')
+
+            # Find articles in the specified div with class "media p-3 home_article bg-white"
+            article_elements = soup.find_all(class_='media p-3 home_article bg-white')
+
+            if article_elements:
+                logger.info(f"Found {len(article_elements)} articles on KanXue")
+
+                for element in article_elements:
+                    try:
+                        # Find the article link and title
+                        link_elem = element.find('a', class_='article_url')
+                        if not link_elem:
+                            # Fallback: find any link in the element
+                            link_elem = element.find('a', href=True)
+
+                        if link_elem:
+                            # Extract title from h4 with class article_title or from link text
+                            title_elem = element.find('h4', class_='article_title')
+                            if title_elem:
+                                title = self.decode_html_entities(title_elem.get_text(strip=True))
+                            else:
+                                # Use link text if no specific title element found
+                                title = self.decode_html_entities(link_elem.get_text(strip=True))
+
+                            if not title:
+                                continue  # Skip if no title found
+
+                            # Get the URL
+                            url = link_elem.get('href')
+                            if url:
+                                if not url.startswith('http'):
+                                    if url.startswith('//'):
+                                        url = 'https:' + url
+                                    else:
+                                        url = urljoin("https://www.kanxue.com/", url)
+
+                            # Extract description from article-excerpt div
+                            excerpt_elem = element.find('div', class_='article-excerpt')
+                            description = ''
+                            if excerpt_elem:
+                                description = self.decode_html_entities(excerpt_elem.get_text(strip=True)[:500] + "..." if len(excerpt_elem.get_text(strip=True)) > 500 else excerpt_elem.get_text(strip=True))
+
+                            # Extract date if available
+                            date = datetime.now().strftime('%Y-%m-%d')  # Default fallback
+
+                            # Look for date information in the element
+                            time_elem = element.find('span')
+                            if time_elem:
+                                time_text = time_elem.get_text(strip=True)
+                                import re
+                                from datetime import timedelta
+                                # Try to find date pattern like "1天前", "2天前", "几天前"
+                                # Or look for more specific date patterns
+                                date_patterns = [
+                                    r'(\d{4}-\d{2}-\d{2})',  # YYYY-MM-DD
+                                    r'(\d{4}/\d{2}/\d{2})',  # YYYY/MM/DD
+                                    r'(\d{2}/\d{2}/\d{4})',  # MM/DD/YYYY
+                                ]
+
+                                for pattern in date_patterns:
+                                    date_match = re.search(pattern, time_text)
+                                    if date_match:
+                                        extracted_date = date_match.group(1).replace('/', '-')
+                                        try:
+                                            parsed_date = datetime.strptime(extracted_date, '%Y-%m-%d')
+                                            date = parsed_date.strftime('%Y-%m-%d')
+                                            break
+                                        except ValueError:
+                                            continue
+
+                                # If no specific date found, try to parse relative dates like "X天前"
+                                if not any(c.isdigit() for c in extracted_date if '天前' in time_text) if 'extracted_date' in locals() else True:
+                                    relative_patterns = [
+                                        r'(\d+)\s*天前',  # X天前
+                                        r'(\d+)\s*小时前', # X小时前
+                                        r'(\d+)\s*分钟前' # X分钟前
+                                    ]
+
+                                    for rel_pattern in relative_patterns:
+                                        rel_match = re.search(rel_pattern, time_text)
+                                        if rel_match:
+                                            quantity = int(rel_match.group(1))
+                                            if '天前' in time_text:
+                                                past_date = datetime.now() - timedelta(days=quantity)
+                                            elif '小时前' in time_text:
+                                                past_date = datetime.now() - timedelta(hours=quantity)
+                                            elif '分钟前' in time_text:
+                                                past_date = datetime.now() - timedelta(minutes=quantity)
+                                            else:
+                                                past_date = datetime.now()
+
+                                            date = past_date.strftime('%Y-%m-%d')
+                                            break
+
+                            # Add to tech articles as specified (KanXue is tech-focused)
+                            article = {
+                                'title': title,
+                                'url': url,
+                                'source': 'KanXue',
+                                'description': description,
+                                'date': date,
+                                'category': 'tech'  # KanXue is technology-focused
+                            }
+                            self.articles['tech'].append(article)
+
+                    except Exception as e:
+                        logger.warning(f"Error processing KanXue article: {str(e)}")
+                        continue
+            else:
+                logger.info("Could not find articles with class 'media p-3 home_article bg-white' on KanXue")
+
+        except requests.exceptions.RequestException as e:
+            logger.warning(f"Network error while scraping KanXue: {str(e)}")
+        except Exception as e:
+            logger.error(f"Error scraping KanXue: {str(e)}")
+
     def scrape_security_week(self):
         """Scrape https://www.securityweek.com/ for security news"""
         logger.info("Scraping SecurityWeek...")
@@ -1593,6 +1728,7 @@ class SecurityNewsAggregator:
         self.scrape_xz_aliyun()
         self.scrape_project_zero()
         self.scrape_seebug_paper()
+        self.scrape_kanxue()
 
         # News-focused sources
         self.scrape_anquanke()
@@ -1951,7 +2087,7 @@ def generate_html(articles, output_file='docs/index.html'):
         <div class="footer">
             <p>© 2026 <a href="https://github.com/secnotes">SecNotes</a> | <a href="https://github.com/secnotes/secnews">站点源码</a></p>
             <p>安全资讯聚合平台 | 更新时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
-            <p>数据来源: Sec-Today, 先知社区, Project Zero, Seebug Paper, 腾讯安全, 安全客, 安全内参, SecurityWeek</p>
+            <p>数据来源: Sec-Today, 先知社区, Project Zero, Seebug Paper, 腾讯安全, 安全客, 安全内参, SecurityWeek, 看雪</p>
             <p>如有侵权，请联系删除</p>
         </div>
     </div>
