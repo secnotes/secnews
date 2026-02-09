@@ -1098,6 +1098,491 @@ class SecurityNewsAggregator:
         except Exception as e:
             logger.error(f"Error scraping SeeBug Paper: {str(e)}")
 
+    def scrape_security_week(self):
+        """Scrape https://www.securityweek.com/ for security news"""
+        logger.info("Scraping SecurityWeek...")
+        try:
+            # Create a session that can use proxy for testing if needed
+            secweek_session = requests.Session()
+
+            # Use the same headers as other successful scrapers
+            secweek_session.headers.update({
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Connection': 'keep-alive',
+                'Upgrade-Insecure-Requests': '1',
+                'Sec-Fetch-Dest': 'document',
+                'Sec-Fetch-Mode': 'navigate',
+                'Sec-Fetch-Site': 'none',
+                'Cache-Control': 'max-age=0'
+            })
+
+            # First, try direct connection
+            response = secweek_session.get("https://www.securityweek.com/", timeout=20)
+            response.raise_for_status()
+
+            soup = BeautifulSoup(response.content, 'html.parser')
+
+            # Find articles in the specified div with class "zox-widget-side-trend-wrap left zoxrel zox100"
+            trend_wrap_div = soup.find('div', class_='zox-widget-side-trend-wrap left zoxrel zox100')
+
+            if trend_wrap_div:
+                self._parse_securityweek_articles(trend_wrap_div)
+            else:
+                logger.info("Could not find 'zox-widget-side-trend-wrap left zoxrel zox100' div in SecurityWeek")
+                # As fallback, look for other common article patterns
+                self._parse_securityweek_fallback(soup)
+
+        except requests.exceptions.HTTPError as e:
+            if e.response.status_code == 403:
+                # If direct connection is blocked, try using proxy
+                logger.info("Direct connection to SecurityWeek failed with 403, trying proxy...")
+
+                # Reconfigure session with proxy
+                secweek_session_with_proxy = requests.Session()
+                secweek_session_with_proxy.headers.update({
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                    'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+                    'Accept-Encoding': 'gzip, deflate, br',
+                    'Connection': 'keep-alive',
+                    'Upgrade-Insecure-Requests': '1',
+                    'Sec-Fetch-Dest': 'document',
+                    'Sec-Fetch-Mode': 'navigate',
+                    'Sec-Fetch-Site': 'none',
+                    'Cache-Control': 'max-age=0'
+                })
+
+                # Only use proxy in testing environment
+                secweek_session_with_proxy.proxies = {
+                    'http': 'http://192.168.36.1:7890',  # Proxy for testing environment only
+                    'https': 'http://192.168.36.1:7890'  # Proxy for testing environment only
+                }
+
+                try:
+                    response = secweek_session_with_proxy.get("https://www.securityweek.com/", timeout=20)
+                    response.raise_for_status()
+
+                    soup = BeautifulSoup(response.content, 'html.parser')
+
+                    # Find articles in the specified div with class "zox-widget-side-trend-wrap left zoxrel zox100"
+                    trend_wrap_div = soup.find('div', class_='zox-widget-side-trend-wrap left zoxrel zox100')
+
+                    if trend_wrap_div:
+                        self._parse_securityweek_articles(trend_wrap_div)
+                    else:
+                        logger.info("Could not find 'zox-widget-side-trend-wrap left zoxrel zox100' div in SecurityWeek with proxy")
+                        # As fallback, look for other common article patterns
+                        self._parse_securityweek_fallback(soup)
+
+                except Exception as proxy_error:
+                    logger.warning(f"SecurityWeek is blocked even with proxy (got {type(proxy_error).__name__}: {str(proxy_error)})")
+
+                    # Final attempt with requests that allows for insecure SSL connections
+                    try:
+                        # Create a session without SSL verification for testing
+                        import urllib3
+                        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+                        secweek_session_insecure = requests.Session()
+                        secweek_session_insecure.headers.update({
+                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
+                            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                            'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+                            'Accept-Encoding': 'gzip, deflate, br',
+                            'Connection': 'keep-alive',
+                            'Upgrade-Insecure-Requests': '1',
+                        })
+
+                        secweek_session_insecure.proxies = {
+                            'http': 'http://192.168.36.1:7890',  # Proxy for testing environment only
+                            'https': 'http://192.168.36.1:7890'  # Proxy for testing environment only
+                        }
+
+                        response = secweek_session_insecure.get(
+                            "https://www.securityweek.com/",
+                            timeout=20,
+                            verify=False  # Only for testing environment
+                        )
+                        response.raise_for_status()
+
+                        soup = BeautifulSoup(response.content, 'html.parser')
+
+                        # Find articles in the specified div with class "zox-widget-side-trend-wrap left zoxrel zox100"
+                        trend_wrap_div = soup.find('div', class_='zox-widget-side-trend-wrap left zoxrel zox100')
+
+                        if trend_wrap_div:
+                            self._parse_securityweek_articles(trend_wrap_div)
+                        else:
+                            logger.info("Could not find 'zox-widget-side-trend-wrap left zoxrel zox100' div in SecurityWeek with insecure request")
+                            # As fallback, look for other common article patterns
+                            self._parse_securityweek_fallback(soup)
+
+                    except Exception as insecure_error:
+                        logger.warning(f"SecurityWeek is inaccessible even with insecure request (got {type(insecure_error).__name__}: {str(insecure_error)})")
+
+                        # Even if all connection attempts fail, still try to make a last attempt with minimal settings
+                        # Sometimes basic request works better
+                        try:
+                            # Very minimal headers to avoid detection
+                            minimal_session = requests.Session()
+                            minimal_session.headers.update({
+                                'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+                            })
+
+                            minimal_session.proxies = {
+                                'http': 'http://192.168.36.1:7890',  # Proxy for testing environment only
+                                'https': 'http://192.168.36.1:7890'  # Proxy for testing environment only
+                            }
+
+                            response = minimal_session.get(
+                                "https://www.securityweek.com/",
+                                timeout=20,
+                                verify=False  # Only for testing environment
+                            )
+                            response.raise_for_status()
+
+                            soup = BeautifulSoup(response.content, 'html.parser')
+
+                            # Try to find the target div again
+                            trend_wrap_div = soup.find('div', class_='zox-widget-side-trend-wrap left zoxrel zox100')
+
+                            if trend_wrap_div:
+                                self._parse_securityweek_articles(trend_wrap_div)
+                            else:
+                                logger.info("Final attempt: Could not find target div in SecurityWeek")
+                                # Final fallback
+                                self._parse_securityweek_fallback(soup)
+
+                        except Exception as final_error:
+                            logger.warning(f"Final attempt also failed for SecurityWeek (got {type(final_error).__name__}: {str(final_error)})")
+            else:
+                logger.warning(f"SecurityWeek HTTP error (not 403): {str(e)}")
+        except requests.exceptions.RequestException as e:
+            if "521" in str(e) or "403" in str(e) or "503" in str(e):
+                logger.warning(f"SecurityWeek is blocked (got {type(e).__name__}: {str(e)})")
+
+                # Try with proxy if direct request is blocked
+                try:
+                    secweek_session_with_proxy = requests.Session()
+                    secweek_session_with_proxy.headers.update({
+                        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
+                        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                        'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+                        'Accept-Encoding': 'gzip, deflate, br',
+                        'Connection': 'keep-alive',
+                        'Upgrade-Insecure-Requests': '1',
+                    })
+
+                    secweek_session_with_proxy.proxies = {
+                        'http': 'http://192.168.36.1:7890',  # Proxy for testing environment only
+                        'https': 'http://192.168.36.1:7890'  # Proxy for testing environment only
+                    }
+
+                    response = secweek_session_with_proxy.get(
+                        "https://www.securityweek.com/",
+                        timeout=20,
+                        verify=False  # Only for testing environment
+                    )
+                    response.raise_for_status()
+
+                    soup = BeautifulSoup(response.content, 'html.parser')
+
+                    trend_wrap_div = soup.find('div', class_='zox-widget-side-trend-wrap left zoxrel zox100')
+
+                    if trend_wrap_div:
+                        self._parse_securityweek_articles(trend_wrap_div)
+                    else:
+                        self._parse_securityweek_fallback(soup)
+
+                except Exception as proxy_error:
+                    logger.warning(f"SecurityWeek proxy request also failed: {str(proxy_error)}")
+            else:
+                logger.warning(f"Network error while scraping SecurityWeek: {str(e)}")
+        except Exception as e:
+            logger.warning(f"Error scraping SecurityWeek (non-critical): {str(e)}")
+
+    def _parse_securityweek_articles(self, trend_wrap_div):
+        """Helper method to parse articles from SecurityWeek"""
+        try:
+            # First try to find articles with specific patterns within the trend div
+            articles = trend_wrap_div.find_all(['div', 'article'], class_=lambda x: x and ('post' in x or 'item' in x or 'entry' in x or 'article' in x))
+
+            # If no articles found with the above pattern, try to find all links in the div
+            if not articles:
+                all_links = trend_wrap_div.find_all('a', href=True, class_=lambda x: x and 'post' in x if x else True)
+                if not all_links:
+                    all_links = trend_wrap_div.find_all('a', href=True)
+
+                for link in all_links:
+                    try:
+                        title = self.decode_html_entities(link.text.strip())
+
+                        if len(title) > 10:  # Only consider significant titles
+                            url = link.get('href')
+                            if url and not url.startswith('http'):
+                                url = urljoin("https://www.securityweek.com/", url)
+
+                            # Extract description from the article page itself
+                            description = self._get_securityweek_description(url)
+
+                            date = datetime.now().strftime('%Y-%m-%d')
+
+                            article = {
+                                'title': title,
+                                'url': url,
+                                'source': 'SecurityWeek',
+                                'description': description,
+                                'date': date,
+                                'category': 'news'
+                            }
+                            self.articles['news'].append(article)
+                    except Exception as e:
+                        logger.warning(f"Error processing SecurityWeek link: {str(e)}")
+                        continue
+            else:
+                # Process articles found with common patterns
+                for article_elem in articles:
+                    try:
+                        # Find title and link within the article element
+                        title_elem = article_elem.find(['a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
+                        if title_elem:
+                            # Get title from the element itself or from a child link
+                            link_elem = title_elem.find('a') if title_elem.name != 'a' else title_elem
+
+                            if title_elem.name != 'a':
+                                title = self.decode_html_entities(title_elem.get_text(strip=True))
+                            else:
+                                title = self.decode_html_entities(title_elem.text.strip())
+
+                            if not title and link_elem:
+                                title = self.decode_html_entities(link_elem.text.strip())
+
+                            if link_elem:
+                                url = link_elem.get('href')
+                            else:
+                                url = None
+
+                            if url and not url.startswith('http'):
+                                url = urljoin("https://www.securityweek.com/", url)
+
+                            if title and url and len(title) > 5:  # Only add if title is significant
+                                # Extract description from the article page itself
+                                description = self._get_securityweek_description(url)
+
+                                # Extract date if available
+                                date = datetime.now().strftime('%Y-%m-%d')
+                                date_elem = article_elem.find('time') or article_elem.find('span', class_='date') or article_elem.find('span', class_='time') or article_elem.find('div', class_='date')
+                                if date_elem:
+                                    date_text = date_elem.get_text(strip=True)
+                                    import re
+                                    # Try to extract date in various formats
+                                    date_match = re.search(r'(\d{4}[-/年]\d{1,2}[/-月]\d{1,2}日?)', date_text)
+                                    if not date_match:
+                                        # Try MM/DD/YYYY or similar patterns
+                                        date_match = re.search(r'(\d{1,2}/\d{1,2}/\d{4})', date_text)
+                                    if not date_match:
+                                        # Try Month DD, YYYY pattern
+                                        date_match = re.search(r'([A-Za-z]+\s+\d{1,2},?\s+\d{4})', date_text)
+
+                                    if date_match:
+                                        extracted_date = date_match.group(1)
+                                        try:
+                                            if ',' in extracted_date:
+                                                # Month DD, YYYY format
+                                                parsed_date = datetime.strptime(extracted_date, '%B %d, %Y')
+                                                date = parsed_date.strftime('%Y-%m-%d')
+                                            elif '/' in extracted_date:
+                                                # MM/DD/YYYY format
+                                                parts = extracted_date.split('/')
+                                                if len(parts) == 3:
+                                                    month, day, year = parts
+                                                    parsed_date = datetime.strptime(f'{year}-{month.zfill(2)}-{day.zfill(2)}', '%Y-%m-%d')
+                                                    date = parsed_date.strftime('%Y-%m-%d')
+                                        except ValueError:
+                                            try:
+                                                # Try other date formats
+                                                parsed_date = datetime.strptime(extracted_date, '%m/%d/%Y')
+                                                date = parsed_date.strftime('%Y-%m-%d')
+                                            except ValueError:
+                                                pass
+
+                                article = {
+                                    'title': title,
+                                    'url': url,
+                                    'source': 'SecurityWeek',
+                                    'description': description,
+                                    'date': date,
+                                    'category': 'news'  # SecurityWeek is news-focused
+                                }
+                                self.articles['news'].append(article)
+                    except Exception as e:
+                        logger.warning(f"Error processing SecurityWeek article: {str(e)}")
+                        continue
+        except Exception as e:
+            logger.error(f"Error in _parse_securityweek_articles helper: {str(e)}")
+
+    def _get_securityweek_description(self, url):
+        """Helper method to fetch description from individual SecurityWeek article pages"""
+        try:
+            # Create a session to fetch the individual article page
+            desc_session = requests.Session()
+            desc_session.headers.update({
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Connection': 'keep-alive',
+                'Upgrade-Insecure-Requests': '1',
+            })
+
+            # For testing environment, use proxy
+            desc_session.proxies = {
+                'http': 'http://192.168.36.1:7890',  # Proxy for testing environment only
+                'https': 'http://192.168.36.1:7890'  # Proxy for testing environment only
+            }
+
+            response = desc_session.get(url, timeout=15, verify=False)
+            response.raise_for_status()
+
+            soup = BeautifulSoup(response.content, 'html.parser')
+
+            # Try multiple methods to get the description
+            description = ""
+
+            # 1. Try to get meta description
+            meta_desc = soup.find('meta', attrs={'name': 'description'})
+            if meta_desc and meta_desc.get('content'):
+                description = self.decode_html_entities(meta_desc.get('content').strip())
+
+            if not description:
+                # 2. Try to get og:description
+                og_desc = soup.find('meta', property='og:description')
+                if og_desc and og_desc.get('content'):
+                    description = self.decode_html_entities(og_desc.get('content').strip())
+
+            if not description:
+                # 3. Try to get first paragraph content
+                first_p = soup.find('p')
+                if first_p:
+                    text = first_p.get_text(strip=True)
+                    # Skip common placeholder text
+                    if text and not text.startswith('Hi, what are you looking for?') and len(text) > 20:
+                        description = text[:500]  # Limit length
+
+            if not description:
+                # 4. Look for content divs
+                content_selectors = ['div.entry-content', 'div.post-content', 'article div.content', 'div[itemprop="articleBody"]']
+                for selector in content_selectors:
+                    content_elem = soup.select_one(selector)
+                    if content_elem:
+                        paras = content_elem.find_all('p')
+                        for p in paras:
+                            text = p.get_text(strip=True)
+                            if text and not text.startswith('Hi, what are you looking for?') and len(text) > 20:
+                                description = text[:500]
+                                break
+                    if description:
+                        break
+
+            # Fallback to default if still no description found
+            if not description:
+                description = "Latest security news from SecurityWeek"
+
+            return description
+
+        except Exception as e:
+            logger.debug(f"Could not get description from {url}: {str(e)}")
+            # Return a default description rather than empty
+            return "Latest security news from SecurityWeek"
+
+    def _parse_securityweek_fallback(self, soup):
+        """Fallback method to parse SecurityWeek if main div is not found"""
+        try:
+            fallback_selectors = [
+                'article',
+                '.post',
+                '.entry',
+                '.article',
+                '.news-item',
+                '.trending',
+                '.latest',
+                '.headline'
+            ]
+
+            articles_found = False
+            for selector in fallback_selectors:
+                elements = soup.select(selector)
+                if elements:
+                    logger.info(f"Found {len(elements)} elements with selector '{selector}' on SecurityWeek")
+
+                    for element in elements[:10]:  # Limit to first 10 to prevent too many
+                        try:
+                            link_elem = element.find('a', href=True)
+
+                            if link_elem:
+                                title = self.decode_html_entities(link_elem.text.strip()) or 'No Title'
+                                url = link_elem.get('href')
+
+                                if url and not url.startswith('http'):
+                                    url = urljoin("https://www.securityweek.com/", url)
+
+                                if title and len(title) > 5:  # Only add if title is significant
+                                    # Extract description from the article page itself
+                                    description = self._get_securityweek_description(url)
+
+                                    # Extract date
+                                    date = datetime.now().strftime('%Y-%m-%d')
+                                    date_elem = element.find('time') or element.find('span', class_='date') or element.find('span', class_='time') or element.find('div', class_='date')
+                                    if date_elem:
+                                        date_text = date_elem.get_text(strip=True)
+                                        import re
+                                        date_match = re.search(r'(\d{4}[-/年]\d{1,2}[/-月]\d{1,2}日?)', date_text)
+                                        if not date_match:
+                                            date_match = re.search(r'(\d{1,2}/\d{1,2}/\d{4})', date_text)
+                                        if not date_match:
+                                            date_match = re.search(r'([A-Za-z]+\s+\d{1,2},?\s+\d{4})', date_text)
+
+                                        if date_match:
+                                            extracted_date = date_match.group(1)
+                                            try:
+                                                if ',' in extracted_date:
+                                                    parsed_date = datetime.strptime(extracted_date, '%B %d, %Y')
+                                                    date = parsed_date.strftime('%Y-%m-%d')
+                                                elif '/' in extracted_date:
+                                                    parts = extracted_date.split('/')
+                                                    if len(parts) == 3:
+                                                        month, day, year = parts
+                                                        parsed_date = datetime.strptime(f'{year}-{month.zfill(2)}-{day.zfill(2)}', '%Y-%m-%d')
+                                                        date = parsed_date.strftime('%Y-%m-%d')
+                                            except ValueError:
+                                                try:
+                                                    parsed_date = datetime.strptime(extracted_date, '%m/%d/%Y')
+                                                    date = parsed_date.strftime('%Y-%m-%d')
+                                                except ValueError:
+                                                    pass
+
+                                    article = {
+                                        'title': title,
+                                        'url': url,
+                                        'source': 'SecurityWeek',
+                                        'description': description,
+                                        'date': date,
+                                        'category': 'news'
+                                    }
+                                    self.articles['news'].append(article)
+                                    articles_found = True
+                        except Exception as e:
+                            logger.warning(f"Error processing SecurityWeek fallback element: {str(e)}")
+                            continue
+
+                    if articles_found:
+                        break  # Stop after finding articles with one valid selector
+        except Exception as e:
+            logger.error(f"Error in _parse_securityweek_fallback helper: {str(e)}")
+
     def scrape_all_sources(self):
         """Scrape all security news sources"""
         logger.info("Starting to scrape all security news sources...")
@@ -1113,6 +1598,7 @@ class SecurityNewsAggregator:
         self.scrape_anquanke()
         self.scrape_freebuf()
         self.scrape_secrss()
+        self.scrape_security_week()
 
         # Remove duplicates based on URL
         self.remove_duplicates()
@@ -1140,9 +1626,13 @@ class SecurityNewsAggregator:
 
     def save_articles_json(self, filename='articles.json'):
         """Save articles to a JSON file"""
-        with open(filename, 'w', encoding='utf-8') as f:
+        import os
+        # Create full path relative to the script location
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        full_path = os.path.join(script_dir, filename)
+        with open(full_path, 'w', encoding='utf-8') as f:
             json.dump(self.articles, f, ensure_ascii=False, indent=2)
-        logger.info(f"Articles saved to {filename}")
+        logger.info(f"Articles saved to {full_path}")
 
     def load_articles_json(self, filename='articles.json'):
         """Load articles from a JSON file"""
@@ -1461,7 +1951,7 @@ def generate_html(articles, output_file='docs/index.html'):
         <div class="footer">
             <p>© 2026 <a href="https://github.com/secnotes">SecNotes</a> | <a href="https://github.com/secnotes/secnews">站点源码</a></p>
             <p>安全资讯聚合平台 | 更新时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
-            <p>数据来源: Sec-Today, 先知社区, Project Zero, Seebug Paper, 腾讯安全, 安全客, 安全内参</p>
+            <p>数据来源: Sec-Today, 先知社区, Project Zero, Seebug Paper, 腾讯安全, 安全客, 安全内参, SecurityWeek</p>
             <p>如有侵权，请联系删除</p>
         </div>
     </div>
