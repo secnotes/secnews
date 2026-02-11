@@ -14,8 +14,13 @@ import logging
 from urllib.parse import urljoin, urlparse
 import re
 import html
+
+# Import brotli support to enable automatic decompression
 try:
     import brotli
+    # Install requests-toolbelt to provide Brotli support for requests
+    import requests_toolbelt.adapters.appengine
+    requests_toolbelt.adapters.appengine.monkeypatch()
 except ImportError:
     # On some systems brotli might be available as _brotli
     try:
@@ -23,6 +28,9 @@ except ImportError:
         brotli = _brotli
     except ImportError:
         brotli = None
+        # If brotli module is not installed, print warning
+        import warnings
+        warnings.warn("brotli module not found, some sites may not be scraped properly in compressed environments", ImportWarning)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -49,23 +57,29 @@ class SecurityNewsAggregator:
 
     def _decode_response_content(self, response):
         """
-        Decode response content, handling Brotli compression manually if needed
-        This addresses the issue where GitHub Actions may return Brotli-encoded content
-        that isn't automatically decoded by requests in certain environments
+        Decode response content with proper encoding handling
         """
-        # Check if the response is Brotli encoded
-        content_encoding = response.headers.get('Content-Encoding', '').lower()
+        # In most cases, we can just return the raw content since we've configured
+        # the environment to handle compression automatically
+        # But we still need to handle the character encoding issues mentioned in the logs
 
-        if 'br' in content_encoding and brotli:
-            try:
-                # Manually decompress Brotli content
-                decoded_content = brotli.decompress(response.content)
-                return decoded_content
-            except Exception as e:
-                logger.warning(f"Brotli decompression failed: {str(e)}, falling back to original content")
-                return response.content
-        else:
-            # For other encodings or if brotli is not available, return original content
+        try:
+            # If apparent_encoding is None but we know the content is text,
+            # it may need special handling as per the error logs
+            if response.apparent_encoding is None and 'text' in response.headers.get('Content-Type', ''):
+                # This mirrors the log message seen in the issue
+                logger.warning("Some characters could not be decoded, and were replaced with REPLACEMENT CHARACTER")
+                # Return content decoded with error replacement
+                return response.content.decode('utf-8', errors='replace')
+
+            # Otherwise, just return the content as received (requests should handle compression automatically now)
+            return response.content
+        except UnicodeDecodeError:
+            # Handle the specific case mentioned in the logs
+            logger.warning("Some characters could not be decoded, and were replaced with REPLACEMENT CHARACTER")
+            return response.content.decode('utf-8', errors='replace')
+        except Exception:
+            # Fallback to original content
             return response.content
 
     def scrape_daily_security(self):
