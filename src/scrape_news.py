@@ -14,6 +14,15 @@ import logging
 from urllib.parse import urljoin, urlparse
 import re
 import html
+try:
+    import brotli
+except ImportError:
+    # On some systems brotli might be available as _brotli
+    try:
+        import _brotli
+        brotli = _brotli
+    except ImportError:
+        brotli = None
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -37,6 +46,27 @@ class SecurityNewsAggregator:
         if text:
             return html.unescape(text)
         return text
+
+    def _decode_response_content(self, response):
+        """
+        Decode response content, handling Brotli compression manually if needed
+        This addresses the issue where GitHub Actions may return Brotli-encoded content
+        that isn't automatically decoded by requests in certain environments
+        """
+        # Check if the response is Brotli encoded
+        content_encoding = response.headers.get('Content-Encoding', '').lower()
+
+        if 'br' in content_encoding and brotli:
+            try:
+                # Manually decompress Brotli content
+                decoded_content = brotli.decompress(response.content)
+                return decoded_content
+            except Exception as e:
+                logger.warning(f"Brotli decompression failed: {str(e)}, falling back to original content")
+                return response.content
+        else:
+            # For other encodings or if brotli is not available, return original content
+            return response.content
 
     def scrape_daily_security(self):
         """Scrape https://sec.today/pulses/ for security pulses (tech articles)"""
@@ -1281,7 +1311,9 @@ class SecurityNewsAggregator:
             if response.status_code == 200:
                 logger.info("直接连接到SecurityWeek成功")
 
-                soup = BeautifulSoup(response.content, 'html.parser')
+                # Use our helper function to properly decode response content
+                content = self._decode_response_content(response)
+                soup = BeautifulSoup(content, 'html.parser')
 
                 # Find articles in the specified div with class "zox-widget-side-trend-wrap left zoxrel zox100"
                 trend_wrap_div = soup.find('div', class_='zox-widget-side-trend-wrap left zoxrel zox100')
@@ -1324,7 +1356,9 @@ class SecurityNewsAggregator:
                 response = secweek_session_with_proxy.get("https://www.securityweek.com/", timeout=30)
                 response.raise_for_status()
 
-                soup = BeautifulSoup(response.content, 'html.parser')
+                # Use our helper function to properly decode response content
+                content = self._decode_response_content(response)
+                soup = BeautifulSoup(content, 'html.parser')
 
                 # Find articles in the specified div with class "zox-widget-side-trend-wrap left zoxrel zox100"
                 trend_wrap_div = soup.find('div', class_='zox-widget-side-trend-wrap left zoxrel zox100')
@@ -1546,7 +1580,9 @@ class SecurityNewsAggregator:
 
             response.raise_for_status()
 
-            soup = BeautifulSoup(response.content, 'html.parser')
+            # Use our helper function to properly decode response content
+            content = self._decode_response_content(response)
+            soup = BeautifulSoup(content, 'html.parser')
 
             # Try multiple methods to get the description
             description = ""
