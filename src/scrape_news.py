@@ -1277,6 +1277,324 @@ class SecurityNewsAggregator:
         except Exception as e:
             logger.error(f"Error scraping KanXue: {str(e)}")
 
+    def scrape_the_hacker_news(self):
+        """Scrape https://thehackernews.com/ for security news"""
+        logger.info("Scraping The Hacker News...")
+
+        import time
+        import random
+
+        # Multiple User-Agent strings to rotate
+        user_agents = [
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        ]
+
+        # Create a session to handle cookies and headers consistently
+        thackernews_session = requests.Session()
+        thackernews_session.headers.update({
+            'User-Agent': random.choice(user_agents),
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+            'Accept-Language': 'en-US,en;q=0.9',
+            'Accept-Encoding': 'gzip, deflate',
+            'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1',
+            'DNT': '1',
+            'Referer': 'https://www.google.com/'
+        })
+
+        # 随机延时，模拟人类行为
+        time.sleep(random.uniform(1, 2))
+
+        try:
+            response = thackernews_session.get("https://thehackernews.com/", timeout=10)
+
+            if response.status_code == 200:
+                logger.info("Successfully connected to The Hacker News")
+
+                # Use our helper function to properly decode response content
+                content = self._decode_response_content(response)
+                soup = BeautifulSoup(content, 'html.parser')
+
+                # Find articles in the specified div with class "blog-posts clear"
+                blog_posts_div = soup.find('div', class_='blog-posts clear')
+
+                if blog_posts_div:
+                    # Find all article elements within the blog-posts container
+                    articles = blog_posts_div.find_all(['div', 'article'], class_=lambda x: x and ('home-post' in x or 'BNeawe' in x or 'article' in x or 'post' in x))
+
+                    if not articles:
+                        # If no articles found with specific classes, look for all articles within the container
+                        articles = blog_posts_div.find_all('a', href=True)
+
+                    for article_elem in articles:
+                        try:
+                            # Handle both <a> tags and <div> tags with links inside
+                            if article_elem.name == 'a':
+                                link_elem = article_elem
+                                title_elem = article_elem
+                            else:
+                                link_elem = article_elem.find('a', href=True)
+                                title_elem = article_elem.find(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span'], string=True)
+
+                            if link_elem:
+                                url = link_elem.get('href')
+
+                                # Convert relative URLs to absolute URLs
+                                if url and not url.startswith('http'):
+                                    url = urljoin("https://thehackernews.com/", url)
+
+                                # Get title from the element
+                                if title_elem:
+                                    title = self.decode_html_entities(title_elem.text.strip())
+                                else:
+                                    title = self.decode_html_entities(link_elem.text.strip())
+
+                                if not title:
+                                    # Try to get title from aria-label or title attributes
+                                    title = self.decode_html_entities(link_elem.get('title', '').strip() or link_elem.get('aria-label', '').strip())
+
+                                if title and url:
+                                    # Get description from the article page itself
+                                    description = self._get_the_hacker_news_description(url)
+
+                                    # Get date from the article page
+                                    date = self._get_the_hacker_news_date(url)
+
+                                    # Determine category based on content
+                                    category = 'news'  # The Hacker News is news-focused
+
+                                    article = {
+                                        'title': title,
+                                        'url': url,
+                                        'source': 'The Hacker News',
+                                        'description': description,
+                                        'date': date,
+                                        'category': category
+                                    }
+                                    self.articles['news'].append(article)
+
+                        except Exception as e:
+                            logger.warning(f"Error processing The Hacker News article: {str(e)}")
+                            continue
+                else:
+                    logger.info("Could not find 'blog-posts clear' div in The Hacker News")
+
+                    # Fallback: look for common article patterns on the page
+                    all_articles = soup.find_all(['div', 'article'], class_=lambda x: x and ('post' in x or 'article' in x or 'entry' in x))
+
+                    if not all_articles:
+                        all_articles = soup.find_all('a', href=True, class_=lambda x: x and ('post' in x or 'article' in x))
+
+                    for article_elem in all_articles:
+                        try:
+                            if article_elem.name == 'a':
+                                link_elem = article_elem
+                                title_elem = article_elem
+                            else:
+                                link_elem = article_elem.find('a', href=True)
+                                title_elem = article_elem.find(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span'], string=True)
+
+                            if link_elem:
+                                url = link_elem.get('href')
+
+                                if url and not url.startswith('http'):
+                                    url = urljoin("https://thehackernews.com/", url)
+
+                                if title_elem:
+                                    title = self.decode_html_entities(title_elem.text.strip())
+                                else:
+                                    title = self.decode_html_entities(link_elem.text.strip())
+
+                                if title and url:
+                                    description = self._get_the_hacker_news_description(url)
+                                    date = self._get_the_hacker_news_date(url)
+
+                                    article = {
+                                        'title': title,
+                                        'url': url,
+                                        'source': 'The Hacker News',
+                                        'description': description,
+                                        'date': date,
+                                        'category': 'news'
+                                    }
+                                    self.articles['news'].append(article)
+
+                        except Exception as e:
+                            logger.warning(f"Error processing The Hacker News fallback article: {str(e)}")
+                            continue
+            else:
+                logger.warning(f"Failed to fetch The Hacker News: HTTP {response.status_code}")
+
+        except requests.exceptions.RequestException as e:
+            logger.warning(f"Network error while scraping The Hacker News: {str(e)}")
+        except Exception as e:
+            logger.error(f"Error scraping The Hacker News: {str(e)}")
+
+    def _get_the_hacker_news_description(self, url):
+        """Helper method to fetch description from individual The Hacker News article pages"""
+        try:
+            import time
+            import random
+
+            # Random delay to avoid rate limiting
+            time.sleep(random.uniform(0.2, 1))
+
+            # Create a session to fetch the individual article page
+            desc_session = requests.Session()
+            desc_session.headers.update({
+                'User-Agent': random.choice([
+                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
+                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0',
+                    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+                ]),
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Accept-Encoding': 'gzip, deflate',
+                'Connection': 'keep-alive',
+                'Upgrade-Insecure-Requests': '1',
+                'DNT': '1',
+                'Referer': 'https://thehackernews.com/'
+            })
+
+            response = desc_session.get(url, timeout=8)
+
+            if response.status_code == 200:
+                content = self._decode_response_content(response)
+                soup = BeautifulSoup(content, 'html.parser')
+
+                # Look for meta description
+                meta_desc = soup.find('meta', attrs={'name': 'description'})
+                if meta_desc and meta_desc.get('content'):
+                    return self.decode_html_entities(meta_desc.get('content').strip())
+
+                # Look for Open Graph description
+                og_desc = soup.find('meta', property='og:description')
+                if og_desc and og_desc.get('content'):
+                    return self.decode_html_entities(og_desc.get('content').strip())
+
+                # Try to find description in article content
+                content_selectors = [
+                    '.post-content',
+                    '.article-content',
+                    '.entry-content',
+                    '.post-body',
+                    'article',
+                    '.content',
+                    'main',
+                    '.post-text',
+                    '.story-body',
+                    'p'
+                ]
+
+                description = ""
+                for selector in content_selectors:
+                    elements = soup.select(selector)
+                    for elem in elements:
+                        text = elem.get_text(strip=True)
+                        if text and len(text) > 50:  # Get meaningful text
+                            # Remove common non-content text
+                            if not text.startswith('FacebookTwitterLinkedIn') and len(text) < 1000:
+                                description = text[:500]  # Limit length
+                                break
+                    if description:
+                        break
+
+                # If still no description found, use first paragraph
+                if not description:
+                    first_p = soup.find('p')
+                    if first_p:
+                        text = first_p.get_text(strip=True)
+                        if len(text) > 20:
+                            description = text[:500]
+
+                if description:
+                    return self.decode_html_entities(description)
+
+            # Fallback description
+            return "Latest security news from The Hacker News"
+
+        except Exception as e:
+            logger.debug(f"Could not get description from {url}: {str(e)}")
+            # Return a default description rather than empty
+            return "Latest security news from The Hacker News"
+
+    def _get_the_hacker_news_date(self, url):
+        """Helper method to fetch publication date from individual The Hacker News article pages"""
+        try:
+            import time
+            import random
+
+            # Random delay to avoid rate limiting
+            time.sleep(random.uniform(0.2, 0.8))
+
+            # Create a session to fetch the individual article page
+            date_session = requests.Session()
+            date_session.headers.update({
+                'User-Agent': random.choice([
+                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
+                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0',
+                    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+                ]),
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Accept-Encoding': 'gzip, deflate',
+                'Connection': 'keep-alive',
+                'Upgrade-Insecure-Requests': '1',
+                'DNT': '1',
+                'Referer': 'https://thehackernews.com/'
+            })
+
+            response = date_session.get(url, timeout=8)
+
+            if response.status_code == 200:
+                content = self._decode_response_content(response)
+                soup = BeautifulSoup(content, 'html.parser')
+
+                # Look for publication date in various formats
+                date_selectors = [
+                    'time[datetime]',
+                    'time',
+                    '[pubdate]',
+                    '.publishdate',
+                    '.date',
+                    '.post-meta',
+                    '.entry-meta',
+                    '.published',
+                    '.updated',
+                    '.post-date'
+                ]
+
+                for selector in date_selectors:
+                    date_elem = soup.select_one(selector)
+                    if date_elem:
+                        date_str = date_elem.get('datetime') or date_elem.get_text(strip=True)
+                        if date_str:
+                            # Try to parse the date string
+                            parsed_date = self._parse_date_string(date_str)
+                            if parsed_date:
+                                return parsed_date
+
+                # Look for date in meta tags
+                date_meta = soup.find('meta', attrs={'name': 'publishdate'}) or \
+                           soup.find('meta', attrs={'property': 'article:published_time'}) or \
+                           soup.find('meta', attrs={'name': 'article:published_time'})
+
+                if date_meta:
+                    content = date_meta.get('content') or date_meta.get('value')
+                    if content:
+                        parsed_date = self._parse_date_string(content)
+                        if parsed_date:
+                            return parsed_date
+
+        except Exception as e:
+            logger.debug(f"Could not get date from {url}: {str(e)}")
+
+        # Return today's date if no date found
+        return datetime.now().strftime('%Y-%m-%d')
+
     def scrape_security_week(self):
         """Scrape https://www.securityweek.com/ for security news"""
         logger.info("Scraping SecurityWeek...")
@@ -1748,6 +2066,7 @@ class SecurityNewsAggregator:
         self.scrape_anquanke()
         self.scrape_freebuf()
         self.scrape_secrss()
+        self.scrape_the_hacker_news()
         self.scrape_security_week()
 
         # Remove duplicates based on URL
@@ -2174,7 +2493,7 @@ def generate_html(articles, output_file=None):
         <div class="footer">
             <p>© 2026 <a href="https://github.com/secnotes">SecNotes</a> | <a href="https://github.com/secnotes/secnews">站点源码</a></p>
             <p>安全资讯聚合平台 | 更新时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
-            <p>数据来源: Sec-Today, 先知社区, Project Zero, Seebug Paper, 腾讯安全, 安全客, 安全内参, SecurityWeek, 看雪</p>
+            <p>数据来源: Sec-Today, 先知社区, Project Zero, Seebug Paper, 腾讯安全, 安全客, 安全内参, SecurityWeek, The Hacker News, 看雪</p>
             <p>如有侵权，请联系删除</p>
         </div>
     </div>
