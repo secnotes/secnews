@@ -501,91 +501,92 @@ class SecurityNewsAggregator:
             logger.error(f"Error scraping Project Zero: {str(e)}")
 
     def scrape_anquanke(self):
-        """Scrape https://www.anquanke.com/ for security news using API"""
+        """Scrape https://www.anquanke.com/ for security news by parsing <li class="item"> elements"""
         logger.info("Scraping Anquanke...")
         try:
-            import time
-            import random
+            # Request the main page
+            response = session.get("https://www.anquanke.com/", timeout=20)
+            response.raise_for_status()
 
-            # Get current timestamp to mimic the API call
-            timestamp = int(time.time() * 1000)
+            # Parse HTML content
+            soup = BeautifulSoup(response.content, 'html.parser')
 
-            # Scrape multiple pages (page < 5 as requested)
-            for page in range(1, 5):
-                # Construct API URL with timestamp and page
-                api_url = f"https://www.anquanke.com/webapi/api/index/top/list?page={page}&_={timestamp + page}"
+            # Find all list items with class "item" as specified
+            item_elements = soup.find_all('li', class_='item')
 
+            for item in item_elements:
                 try:
-                    response = session.get(api_url, timeout=10)
-                    response.raise_for_status()
+                    # Extract title - look for title inside .item-main .title a
+                    title_elem = item.select_one('.item-main .title a')
 
-                    # Parse JSON response
-                    data = response.json()
+                    if title_elem:
+                        title = self.decode_html_entities(title_elem.get_text(strip=True))
 
-                    # Check if response has expected structure
-                    if 'data' in data and 'list' in data['data']:
-                        articles_list = data['data']['list']
-
-                        for article_data in articles_list:
-                            try:
-                                title = self.decode_html_entities(article_data.get('title', 'No Title'))
-
-                                # Build URL from article ID
-                                article_id = article_data.get('id')
-                                url_raw = article_data.get('url', '')
-
-                                # Prioritize using article ID to build canonical URL
-                                if article_id:
-                                    url = f"https://www.anquanke.com/post/id/{article_id}"
-                                elif url_raw and url_raw.startswith('/'):
-                                    # If URL is relative, make it absolute
-                                    url = f"https://www.anquanke.com{url_raw}"
-                                elif url_raw:
-                                    # If URL is already absolute, use as-is
-                                    url = url_raw
-                                else:
-                                    # Fallback to a default empty URL
-                                    url = f"https://www.anquanke.com/post/id/{article_id}" if article_id else ""
-
-                                description = self.decode_html_entities(article_data.get('desc', '') or article_data.get('summary', ''))
-
-                                # Extract and format date
-                                date = datetime.now().strftime('%Y-%m-%d')  # Default fallback
-
-                                publish_time = article_data.get('publish_time')
-                                if publish_time:
-                                    try:
-                                        # Handle different date formats
-                                        if isinstance(publish_time, str):
-                                            # If date is in string format like "2026-01-30 10:30:00"
-                                            if ' ' in publish_time:
-                                                parsed_date = datetime.strptime(publish_time.split()[0], '%Y-%m-%d')
-                                            else:
-                                                parsed_date = datetime.strptime(publish_time, '%Y-%m-%d')
-                                            date = parsed_date.strftime('%Y-%m-%d')
-                                    except ValueError:
-                                        # If date parsing fails, keep default date
-                                        pass
-
-                                # Add to news articles (default category as per requirement)
-                                article = {
-                                    'title': title,
-                                    'url': url,
-                                    'source': 'Anquanke',
-                                    'description': description,
-                                    'date': date,
-                                    'category': 'news'  # Default category as specified
-                                }
-                                self.articles['news'].append(article)
-
-                            except Exception as e:
-                                logger.warning(f"Error processing Anquanke article data: {str(e)}")
-                                continue
+                        # Get URL from the same anchor tag
+                        url = title_elem.get('href')
+                        if url:
+                            if url.startswith('/'):
+                                url = f"https://www.anquanke.com{url}"
+                            elif not url.startswith('http'):
+                                url = urljoin("https://www.anquanke.com/", url)
+                        else:
+                            # Generate a placeholder URL if none found
+                            url = f"https://www.anquanke.com/"
                     else:
-                        logger.warning(f"Unexpected response structure from Anquanke API on page {page}")
+                        # Skip items without titles
+                        continue
+
+                    # Extract description if available - look for desc class
+                    desc_elem = item.select_one('.desc.g-line2')
+                    description = self.decode_html_entities(desc_elem.get_text(strip=True)) if desc_elem else ''
+
+                    # Extract date - look for the time element
+                    date_elem = item.select_one('.bottom-item.bottom-item-time')
+                    date = ''
+                    if date_elem:
+                        date_str = date_elem.get_text(strip=True)
+                        # Clean date string - extract the date part from "2026-02-25 17:11:48"
+                        date_part = date_str.split()[0]  # Get just the date part
+
+                        # Try to parse date in various formats
+                        for fmt in ['%Y-%m-%d', '%Y.%m.%d', '%Y/%m/%d']:
+                            try:
+                                parsed_date = datetime.strptime(date_part, fmt)
+                                date = parsed_date.strftime('%Y-%m-%d')
+                                break
+                            except ValueError:
+                                continue
+
+                        # If date parsing fails, try a different approach
+                        if not date:
+                            # Extract date-like pattern using regex
+                            date_match = re.search(r'\d{4}[-/.]\d{1,2}[-/.]\d{1,2}', date_str)
+                            if date_match:
+                                date_part = date_match.group(0)
+                                date_part = date_part.replace('/', '-').replace('.', '-')
+                                try:
+                                    parsed_date = datetime.strptime(date_part, '%Y-%m-%d')
+                                    date = parsed_date.strftime('%Y-%m-%d')
+                                except ValueError:
+                                    date = datetime.now().strftime('%Y-%m-%d')
+
+                    # Use today's date if no date was found
+                    if not date:
+                        date = datetime.now().strftime('%Y-%m-%d')
+
+                    # Add to news articles
+                    article = {
+                        'title': title,
+                        'url': url,
+                        'source': 'Anquanke',
+                        'description': description,
+                        'date': date,
+                        'category': 'news'
+                    }
+                    self.articles['news'].append(article)
 
                 except Exception as e:
-                    logger.error(f"Error scraping Anquanke API page {page}: {str(e)}")
+                    logger.warning(f"Error processing Anquanke item: {str(e)}")
                     continue
 
         except Exception as e:
