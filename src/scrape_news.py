@@ -86,13 +86,65 @@ class SecurityNewsAggregator:
         """Scrape https://sec.today/pulses/ for security pulses (tech articles)"""
         logger.info("Scraping Daily Security...")
         try:
-            logger.info("Making request to https://sec.today/pulses/")
-            logger.info(f"Session headers: {dict(session.headers)}")
+            # Create a specialized session with more realistic browser headers
+            sec_today_session = requests.Session()
 
-            response = session.get("https://sec.today/pulses/", timeout=20)  # Increased timeout
+            # Set very realistic browser headers to bypass Cloudflare protection
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Connection': 'keep-alive',
+                'Upgrade-Insecure-Requests': '1',
+                'Sec-Fetch-Dest': 'document',
+                'Sec-Fetch-Mode': 'navigate',
+                'Sec-Fetch-Site': 'none',
+                'Sec-Fetch-User': '?1',
+                'Cache-Control': 'max-age=0',
+            }
+
+            sec_today_session.headers.update(headers)
+
+            logger.info("Making request to https://sec.today/pulses/")
+            logger.info(f"Session headers: {dict(sec_today_session.headers)}")
+
+            response = sec_today_session.get("https://sec.today/pulses/", timeout=20)  # Increased timeout
             logger.info(f"Response status code: {response.status_code}")
             logger.info(f"Response headers: {dict(response.headers)}")
             logger.info(f"Response content length: {len(response.content)}")
+
+            if response.status_code == 403 or response.status_code == 429:
+                logger.error(f"HTTP request blocked with status code: {response.status_code}")
+                logger.error(f"Response content (first 1000 chars): {response.text[:1000]}")
+
+                # Try with additional headers that might help bypass Cloudflare
+                logger.info("Trying again with additional browser-like headers...")
+                # Add Referer and other headers that mimic a real browser more closely
+                additional_headers = {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                    'Accept-Language': 'en-US,en;q=0.9',
+                    'Accept-Encoding': 'gzip, deflate, br',
+                    'Connection': 'keep-alive',
+                    'Upgrade-Insecure-Requests': '1',
+                    'Sec-Fetch-Dest': 'document',
+                    'Sec-Fetch-Mode': 'navigate',
+                    'Sec-Fetch-Site': 'none',
+                    'Sec-Fetch-User': '?1',
+                    'Cache-Control': 'no-cache',
+                    'Pragma': 'no-cache',
+                    'DNT': '1',  # Do Not Track
+                    'Referer': 'https://www.google.com/'
+                }
+
+                sec_today_session.headers.update(additional_headers)
+
+                # Add small delay before retry
+                time.sleep(2)
+
+                response = sec_today_session.get("https://sec.today/pulses/", timeout=20)
+                logger.info(f"Retry response status code: {response.status_code}")
 
             if response.status_code != 200:
                 logger.error(f"HTTP request failed with status code: {response.status_code}")
