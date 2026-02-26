@@ -7,7 +7,7 @@ Scrapes cybersecurity news from multiple sources and generates a static HTML pag
 import requests
 from bs4 import BeautifulSoup
 import time
-from datetime import datetime
+from datetime import datetime, timedelta
 import os
 import json
 import logging
@@ -33,7 +33,7 @@ except ImportError:
         warnings.warn("brotli module not found, some sites may not be scraped properly in compressed environments", ImportWarning)
 
 # Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 # Session with headers to mimic a real browser
@@ -86,11 +86,28 @@ class SecurityNewsAggregator:
         """Scrape https://sec.today/pulses/ for security pulses (tech articles)"""
         logger.info("Scraping Daily Security...")
         try:
+            logger.info("Making request to https://sec.today/pulses/")
+            logger.info(f"Session headers: {dict(session.headers)}")
+
             response = session.get("https://sec.today/pulses/", timeout=20)  # Increased timeout
+            logger.info(f"Response status code: {response.status_code}")
+            logger.info(f"Response headers: {dict(response.headers)}")
+            logger.info(f"Response content length: {len(response.content)}")
+
+            if response.status_code != 200:
+                logger.error(f"HTTP request failed with status code: {response.status_code}")
+                logger.error(f"Response content (first 1000 chars): {response.text[:1000]}")
+                return
+
+            # Log raw response content for debugging
+            logger.debug(f"Raw response content (first 2000 chars): {response.text[:2000]}")
+
             response.raise_for_status()
 
             soup = BeautifulSoup(response.content, 'html.parser')
             cards = soup.find_all('div', class_='card my-2')
+
+            logger.info(f"Found {len(cards)} cards in the response")
 
             for card in cards:  # Process all available cards
                 try:
@@ -105,9 +122,6 @@ class SecurityNewsAggregator:
 
                         # Extract date from relative time text like "• 2 days ago"
                         date = datetime.now().strftime('%Y-%m-%d')  # Default fallback
-
-                        import re
-                        from datetime import timedelta
 
                         # Look for time-relative text in the card
                         card_text = card.get_text()
@@ -168,11 +182,16 @@ class SecurityNewsAggregator:
                             'category': 'tech'
                         }
                         self.articles['tech'].append(article)
+                        logger.debug(f"Added article: {title} from {url}")
                 except Exception as e:
                     logger.warning(f"Error processing Daily Security card: {str(e)}")
                     continue
+
+            logger.info(f"Completed scraping Daily Security, added {len(self.articles['tech'])} tech articles total")
         except Exception as e:
             logger.error(f"Error scraping Daily Security: {str(e)}")
+            import traceback
+            logger.error(f"Full traceback: {traceback.format_exc()}")
 
     def scrape_tencent_security(self):
         """Scrape https://sectoday.tencent.com/ for tech articles"""
