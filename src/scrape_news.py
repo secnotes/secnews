@@ -34,7 +34,7 @@ except ImportError:
         warnings.warn("brotli module not found, some sites may not be scraped properly in compressed environments", ImportWarning)
 
 # Configure logging
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
 # Session with headers to mimic a real browser
@@ -91,8 +91,6 @@ class SecurityNewsAggregator:
             try:
                 import cloudscraper
 
-                logger.info("Using cloudscraper to bypass Cloudflare protection...")
-
                 # Create a cloudscraper session which handles Cloudflare challenges automatically
                 scraper = cloudscraper.create_scraper(
                     browser={
@@ -100,7 +98,6 @@ class SecurityNewsAggregator:
                         'platform': 'windows',
                         'mobile': False
                     },
-                    # Additional options that help bypass protections
                     disableCloudflareV1=True
                 )
 
@@ -120,19 +117,12 @@ class SecurityNewsAggregator:
                 })
 
                 response = scraper.get("https://sec.today/pulses/", timeout=20)
-                logger.info(f"CloudScraper response status code: {response.status_code}")
-                logger.info(f"CloudScraper response headers: {dict(response.headers)}")
 
             except ImportError:
-                logger.warning("CloudScraper library not available. Install with 'pip install cloudscraper' for better Cloudflare bypass")
-
-                # Fallback to requests with session approach
-                logger.info("Falling back to requests session with advanced headers...")
-
-                # Create a specialized session with realistic browser headers and cookie support
+                # Fallback to requests with session approach if cloudscraper is not available
                 sec_today_session = requests.Session()
 
-                # Set very realistic browser headers to bypass Cloudflare protection
+                # Set realistic browser headers
                 headers = {
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
                     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -150,30 +140,18 @@ class SecurityNewsAggregator:
 
                 sec_today_session.headers.update(headers)
 
-                # First, try to establish a session by getting the main page
-                logger.info("Making initial request to https://sec.today/")
-                initial_response = sec_today_session.get("https://sec.today/", timeout=20)
-                logger.info(f"Initial request to sec.today homepage - Status: {initial_response.status_code}")
-
-                # Small delay to simulate human behavior
+                # Establish session by getting the main page first
+                sec_today_session.get("https://sec.today/", timeout=20)
                 time.sleep(2)
 
                 response = sec_today_session.get("https://sec.today/pulses/", timeout=20)
-                logger.info(f"Response status code: {response.status_code}")
 
-            # Check response status
-            if response.status_code == 403 or response.status_code == 429:
-                logger.error(f"Request blocked with status code: {response.status_code}")
-                logger.error(f"Response content (first 1000 chars): {response.text[:1000]}")
-
-                # If we're still getting blocked, try again with cloudscraper if it wasn't tried yet
-                if 'scraper' not in locals():
+            if response.status_code != 200:
+                # If still getting blocked, try cloudscraper as a last resort
+                if response.status_code == 403 or response.status_code == 429:
                     try:
                         import cloudscraper
 
-                        logger.info("Trying cloudscraper as last resort...")
-
-                        # Create a new scraper with different settings
                         scraper = cloudscraper.create_scraper(
                             browser={
                                 'browser': 'chrome',
@@ -182,34 +160,18 @@ class SecurityNewsAggregator:
                             }
                         )
 
-                        # Set additional headers for this attempt
-                        scraper.headers.update({
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
-                            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                            'Accept-Language': 'en-US,en;q=0.9',
-                            'Accept-Encoding': 'gzip, deflate, br',
-                            'Connection': 'keep-alive',
-                            'Upgrade-Insecure-Requests': '1',
-                        })
-
                         response = scraper.get("https://sec.today/pulses/", timeout=30)
-                        logger.info(f"CloudScraper retry response status code: {response.status_code}")
                     except ImportError:
-                        logger.error("Cloudscraper is not available and other methods failed.")
+                        logger.error("All methods failed: Cloudflare blocking requests and cloudscraper not available.")
+                        return
 
-            if response.status_code != 200:
-                logger.error(f"All methods failed. Final status code: {response.status_code}")
-                logger.error(f"Response content (first 1000 chars): {response.text[:1000]}")
-                return
-
-            # Log raw response content for debugging
-            logger.debug(f"Raw response content (first 2000 chars): {response.text[:2000]}")
+                if response.status_code != 200:
+                    logger.error(f"Failed to fetch sec.today content, status code: {response.status_code}")
+                    return
 
             # Parse the successful response
             soup = BeautifulSoup(response.content, 'html.parser')
             cards = soup.find_all('div', class_='card my-2')
-
-            logger.info(f"Found {len(cards)} cards in the response")
 
             for card in cards:  # Process all available cards
                 try:
@@ -284,16 +246,12 @@ class SecurityNewsAggregator:
                             'category': 'tech'
                         }
                         self.articles['tech'].append(article)
-                        logger.debug(f"Added article: {title} from {url}")
                 except Exception as e:
-                    logger.warning(f"Error processing Daily Security card: {str(e)}")
                     continue
 
-            logger.info(f"Completed scraping Daily Security, added {len(self.articles['tech'])} tech articles total")
+            logger.info(f"Completed scraping Daily Security, added {len(self.articles['tech'])} tech articles")
         except Exception as e:
             logger.error(f"Error scraping Daily Security: {str(e)}")
-            import traceback
-            logger.error(f"Full traceback: {traceback.format_exc()}")
 
     def scrape_tencent_security(self):
         """Scrape https://sectoday.tencent.com/ for tech articles"""
