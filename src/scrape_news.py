@@ -87,51 +87,25 @@ class SecurityNewsAggregator:
         """Scrape https://sec.today/pulses/ for security pulses (tech articles)"""
         logger.info("Scraping Daily Security...")
         try:
-            # Create a specialized session with realistic browser headers and cookie support
-            sec_today_session = requests.Session()
+            # First, try using cloudscraper which is specifically designed to handle Cloudflare
+            try:
+                import cloudscraper
 
-            # Set very realistic browser headers to bypass Cloudflare protection
-            headers = {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-                'Accept-Encoding': 'gzip, deflate, br',
-                'Connection': 'keep-alive',
-                'Upgrade-Insecure-Requests': '1',
-                'Sec-Fetch-Dest': 'document',
-                'Sec-Fetch-Mode': 'navigate',
-                'Sec-Fetch-Site': 'none',
-                'Sec-Fetch-User': '?1',
-                'Cache-Control': 'max-age=0',
-                'DNT': '1'
-            }
+                logger.info("Using cloudscraper to bypass Cloudflare protection...")
 
-            sec_today_session.headers.update(headers)
+                # Create a cloudscraper session which handles Cloudflare challenges automatically
+                scraper = cloudscraper.create_scraper(
+                    browser={
+                        'browser': 'firefox',
+                        'platform': 'windows',
+                        'mobile': False
+                    },
+                    # Additional options that help bypass protections
+                    disableCloudflareV1=True
+                )
 
-            logger.info("Making initial request to https://sec.today/pulses/")
-            logger.info(f"Session headers: {dict(sec_today_session.headers)}")
-
-            # First, try to establish a session by getting the main page
-            initial_response = sec_today_session.get("https://sec.today/", timeout=20)
-            logger.info(f"Initial request to sec.today homepage - Status: {initial_response.status_code}")
-
-            # Small delay to simulate human behavior
-            time.sleep(2)
-
-            response = sec_today_session.get("https://sec.today/pulses/", timeout=20)  # Increased timeout
-            logger.info(f"Response status code: {response.status_code}")
-            logger.info(f"Response headers: {dict(response.headers)}")
-            logger.info(f"Response content length: {len(response.content)}")
-
-            if response.status_code == 403 or response.status_code == 429:
-                logger.error(f"HTTP request blocked with status code: {response.status_code}")
-                logger.error(f"Response content (first 1000 chars): {response.text[:1000]}")
-
-                # Try to handle Cloudflare challenge with additional techniques
-                logger.info("Attempting to bypass Cloudflare protection...")
-
-                # Add Referer and other advanced headers that might help bypass Cloudflare
-                advanced_headers = {
+                # Set realistic headers for cloudscraper
+                scraper.headers.update({
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
                     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
                     'Accept-Language': 'en-US,en;q=0.9',
@@ -142,59 +116,73 @@ class SecurityNewsAggregator:
                     'Sec-Fetch-Mode': 'navigate',
                     'Sec-Fetch-Site': 'none',
                     'Sec-Fetch-User': '?1',
-                    'Cache-Control': 'no-cache',
-                    'Pragma': 'no-cache',
-                    'DNT': '1',
-                    'Referer': 'https://www.google.com/',
-                    'TE': 'Trailers'
+                    'Cache-Control': 'max-age=0',
+                })
+
+                response = scraper.get("https://sec.today/pulses/", timeout=20)
+                logger.info(f"CloudScraper response status code: {response.status_code}")
+                logger.info(f"CloudScraper response headers: {dict(response.headers)}")
+
+            except ImportError:
+                logger.warning("CloudScraper library not available. Install with 'pip install cloudscraper' for better Cloudflare bypass")
+
+                # Fallback to requests with session approach
+                logger.info("Falling back to requests session with advanced headers...")
+
+                # Create a specialized session with realistic browser headers and cookie support
+                sec_today_session = requests.Session()
+
+                # Set very realistic browser headers to bypass Cloudflare protection
+                headers = {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                    'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
+                    'Accept-Encoding': 'gzip, deflate, br',
+                    'Connection': 'keep-alive',
+                    'Upgrade-Insecure-Requests': '1',
+                    'Sec-Fetch-Dest': 'document',
+                    'Sec-Fetch-Mode': 'navigate',
+                    'Sec-Fetch-Site': 'none',
+                    'Sec-Fetch-User': '?1',
+                    'Cache-Control': 'max-age=0',
+                    'DNT': '1'
                 }
 
-                sec_today_session.headers.update(advanced_headers)
+                sec_today_session.headers.update(headers)
 
-                # Add longer delay before retry to make it look more human
-                time.sleep(5)
+                # First, try to establish a session by getting the main page
+                logger.info("Making initial request to https://sec.today/")
+                initial_response = sec_today_session.get("https://sec.today/", timeout=20)
+                logger.info(f"Initial request to sec.today homepage - Status: {initial_response.status_code}")
 
-                # Try visiting the homepage first to establish "legitimate" visit pattern
-                homepage_response = sec_today_session.get("https://sec.today/", timeout=20)
-                logger.info(f"Homepage visit response: {homepage_response.status_code}")
+                # Small delay to simulate human behavior
+                time.sleep(2)
 
-                time.sleep(3)  # Wait on homepage
-
-                # Then try to access the target page again
                 response = sec_today_session.get("https://sec.today/pulses/", timeout=20)
-                logger.info(f"Second attempt response status code: {response.status_code}")
+                logger.info(f"Response status code: {response.status_code}")
 
-                if response.status_code == 403 or response.status_code == 429:
-                    logger.error(f"Second attempt also failed with status code: {response.status_code}")
+            # Check response status
+            if response.status_code == 403 or response.status_code == 429:
+                logger.error(f"Request blocked with status code: {response.status_code}")
+                logger.error(f"Response content (first 1000 chars): {response.text[:1000]}")
 
-                    # One more attempt with different user agent
-                    alternative_user_agents = [
-                        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0'
-                    ]
-
-                    for ua in alternative_user_agents:
-                        time.sleep(3)
-                        sec_today_session.headers.update({'User-Agent': ua})
-
-                        response = sec_today_session.get("https://sec.today/pulses/", timeout=20)
-                        logger.info(f"Attempt with different User-Agent ({ua}): Status {response.status_code}")
-
-                        if response.status_code == 200:
-                            break
-
-                # If we still can't get through with regular requests, try cloudscraper
-                if response.status_code == 403 or response.status_code == 429:
-                    logger.info("Regular requests failed, trying with cloudscraper library...")
+                # If we're still getting blocked, try again with cloudscraper if it wasn't tried yet
+                if 'scraper' not in locals():
                     try:
-                        # Try importing cloudscraper to bypass Cloudflare
                         import cloudscraper
 
-                        # Create a cloudscraper session which handles Cloudflare challenges automatically
-                        scraper = cloudscraper.create_scraper()
+                        logger.info("Trying cloudscraper as last resort...")
 
-                        # Set realistic headers for cloudscraper
+                        # Create a new scraper with different settings
+                        scraper = cloudscraper.create_scraper(
+                            browser={
+                                'browser': 'chrome',
+                                'platform': 'windows',
+                                'mobile': False
+                            }
+                        )
+
+                        # Set additional headers for this attempt
                         scraper.headers.update({
                             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
                             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -204,57 +192,20 @@ class SecurityNewsAggregator:
                             'Upgrade-Insecure-Requests': '1',
                         })
 
-                        # Attempt to scrape with cloudscraper
-                        cf_response = scraper.get("https://sec.today/pulses/", timeout=20)
-                        logger.info(f"CloudScraper response status code: {cf_response.status_code}")
-
-                        if cf_response.status_code == 200:
-                            logger.info("CloudScraper succeeded!")
-                            response = cf_response
-                        else:
-                            logger.warning(f"CloudScraper also failed with status: {cf_response.status_code}")
-
+                        response = scraper.get("https://sec.today/pulses/", timeout=30)
+                        logger.info(f"CloudScraper retry response status code: {response.status_code}")
                     except ImportError:
-                        logger.warning("CloudScraper library not available. Install with 'pip install cloudscraper' for better Cloudflare bypass")
-                    except Exception as e:
-                        logger.error(f"Error using CloudScraper: {str(e)}")
+                        logger.error("Cloudscraper is not available and other methods failed.")
 
             if response.status_code != 200:
-                logger.error(f"HTTP request failed with status code: {response.status_code}")
+                logger.error(f"All methods failed. Final status code: {response.status_code}")
                 logger.error(f"Response content (first 1000 chars): {response.text[:1000]}")
-
-                # Final attempt with requests and more delays
-                if response.status_code == 403 or response.status_code == 429:
-                    logger.info("Final attempt: adding more delay and trying with random User-Agent...")
-
-                    import random
-                    user_agents = [
-                        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0',
-                        'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0'
-                    ]
-
-                    # Use random user agent
-                    random_ua = random.choice(user_agents)
-                    sec_today_session.headers.update({'User-Agent': random_ua})
-
-                    # Longer delay before final attempt
-                    time.sleep(10)
-
-                    response = sec_today_session.get("https://sec.today/pulses/", timeout=20)
-                    logger.info(f"Final attempt response status code: {response.status_code}")
-
-                if response.status_code != 200:
-                    logger.error(f"All attempts failed. Last response status: {response.status_code}")
-                    return
+                return
 
             # Log raw response content for debugging
             logger.debug(f"Raw response content (first 2000 chars): {response.text[:2000]}")
 
-            response.raise_for_status()
-
+            # Parse the successful response
             soup = BeautifulSoup(response.content, 'html.parser')
             cards = soup.find_all('div', class_='card my-2')
 
