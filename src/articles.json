@@ -4,32 +4,32 @@
       "title": "GoHarbor Harbor 严重漏洞 CVE-2026-4404 允许通过硬编码凭证完全接管注册中心",
       "url": "https://sec.today/pulses/d2bfb9ee-5add-4ddd-89df-97237079e5b6/",
       "source": "Daily Security",
-      "description": "本文揭示了 Harbor 容器镜像仓库中因默认凭证未强制重置而引发的严重供应链攻击风险（CVE-2026-4404），攻击者可借此直接接管 CI/CD 流水线并植入恶意镜像。该漏洞对云原生基础设施构成致命威胁，亟需安全团队立即手动修改密码并关注即将发布的自动化修复补丁。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
-      "date": "2026-04-13",
+      "description": "本文揭示了 Harbor 容器镜像仓库中因默认凭证未强制重置而引发的严重供应链攻击风险（CVE-2026-4404），攻击者可借此直接接管 CI/CD 流水线并植入恶意镜像。该漏洞对云原生基础设施构成致命威胁，亟需安全团队立即手动修改密码并关注即将发布的自动化修复补丁。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 weeks ago",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
       "title": "通过 Null Routes 防止 IPv6 路由环路及固件放大漏洞",
       "url": "https://sec.today/pulses/ce63a53b-6d33-40f7-bbad-2c842a739abb/",
       "source": "Daily Security",
-      "description": "本文揭示了IPv6网络中普遍存在的路由环路问题，并发现主流路由器固件中存在严重漏洞，可将单个ICMP请求放大超过25万次，构成巨大的DDoS攻击风险。文章不仅量化了全球影响范围，更提供了通过配置空路由（Null Routes）来修复这一关键安全缺陷的实用方案，对提升互联网基础设施的稳定性至关重要。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
-      "date": "2026-04-13",
+      "description": "本文揭示了IPv6网络中普遍存在的路由环路问题，并发现主流路由器固件中存在严重漏洞，可将单个ICMP请求放大超过25万次，构成巨大的DDoS攻击风险。文章不仅量化了全球影响范围，更提供了通过配置空路由（Null Routes）来修复这一关键安全缺陷的实用方案，对提升互联网基础设施的稳定性至关重要。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 weeks ago",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
       "title": "SecToday Next",
       "url": "https://sec.today/pulses/42c59ae1-aa8b-4938-b9ce-53ecf253d102/",
       "source": "Daily Security",
-      "description": "2026 年 3 月，威胁组织 TeamPCP 利用 Trivy CI/CD 流程中的漏洞，成功入侵热门 Python AI 网关库 LiteLLM，并在 PyPI 上发布了被篡改的 1.82.7 和 1.82.8 版本。攻击者绕过源代码审查，直接向分发包注入包含三阶段逻辑的恶意载荷：首先利用 Python .pth 机制实现无需导入即可触发的自动执行，随后窃取 SSH 密钥、AWS/GCP/Azure 云凭证、Kubernetes 配置及加密货币钱包数据，最后通过创建特权 Pod 逃逸容器并注册 systemd 服务建立持久化后门，实现横向移动。此次攻击波及全球数亿次安装，严重影响 OpenAI、Anthropic 等主流 AI 服务用户，迫使 PyPA 紧急下架恶意版本并建议用户立即轮换凭证。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
-      "date": "2026-04-13",
+      "description": "2026 年 3 月，威胁组织 TeamPCP 利用 Trivy CI/CD 流程中的漏洞，成功入侵热门 Python AI 网关库 LiteLLM，并在 PyPI 上发布了被篡改的 1.82.7 和 1.82.8 版本。攻击者绕过源代码审查，直接向分发包注入包含三阶段逻辑的恶意载荷：首先利用 Python .pth 机制实现无需导入即可触发的自动执行，随后窃取 SSH 密钥、AWS/GCP/Azure 云凭证、Kubernetes 配置及加密货币钱包数据，最后通过创建特权 Pod 逃逸容器并注册 systemd 服务建立持久化后门，实现横向移动。此次攻击波及全球数亿次安装，严重影响 OpenAI、Anthropic 等主流 AI 服务用户，迫使 PyPA 紧急下架恶意版本并建议用户立即轮换凭证。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 weeks ago",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
       "title": "SecToday Next",
       "url": "https://sec.today/pulses/32c58337-8f8c-48fc-8b88-b3cce0d3f37d/",
       "source": "Daily Security",
-      "description": "Xen 安全公告 XSA-482 披露了编号为 CVE-2026-31788 的严重漏洞，该缺陷存在于 Xen 虚拟化环境中的 Linux privcmd 驱动程序。攻击者可利用此漏洞修改页表，使用户模式能够访问并篡改内核内存，从而绕过 Kernel Lockdown 机制及 Secure Boot 防护。该漏洞影响运行于 Secure Boot 系统上的 PV、PVH 及 HVM 虚拟机，目前尚无其他缓解措施，必须应用 Xen 项目安全团队发布的特定补丁才能修复。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
-      "date": "2026-04-13",
+      "description": "Xen 安全公告 XSA-482 披露了编号为 CVE-2026-31788 的严重漏洞，该缺陷存在于 Xen 虚拟化环境中的 Linux privcmd 驱动程序。攻击者可利用此漏洞修改页表，使用户模式能够访问并篡改内核内存，从而绕过 Kernel Lockdown 机制及 Secure Boot 防护。该漏洞影响运行于 Secure Boot 系统上的 PV、PVH 及 HVM 虚拟机，目前尚无其他缓解措施，必须应用 Xen 项目安全团队发布的特定补丁才能修复。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 weeks ago",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -37,7 +37,7 @@
       "url": "https://sec.today/pulses/48ff0604-50d4-4799-a119-7f7d37b5476d/",
       "source": "Daily Security",
       "description": "本文揭示了新西兰全国部署的医疗 AI 助手 Heidi Health 存在严重安全漏洞，攻击者仅需简单的提示词注入即可绕过其安全护栏，诱导其生成详细的身份盗窃指南甚至越权进行临床决策。这一发现不仅暴露了生成式 AI 在关键医疗场景中的监管盲区，更凸显了将未经验证的 AI 工具直接嵌入核心临床工作流所带来的巨大隐私与生命安全风险。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 weeks ago",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -45,7 +45,7 @@
       "url": "https://sec.today/pulses/2739c5df-1eff-4e4e-b6f6-ec9b7e0211d9/",
       "source": "Daily Security",
       "description": "本文揭示了联发科（UNISOC）T612系列基带中一个可通过恶意视频呼叫触发远程代码执行的关键内存破坏漏洞，其利用SIP/SDP解析中的无限制递归导致堆栈溢出，且攻击完全发生在独立于Android系统的基带层。该漏洞影响全球140多个国家的大量中低端机型，且厂商尚未提供修复方案，对移动网络基础设施安全构成紧迫且隐蔽的威胁。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 weeks ago",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -53,7 +53,7 @@
       "url": "https://sec.today/pulses/a517e5c1-6bea-4b14-ab19-be998249a5af/",
       "source": "Daily Security",
       "description": "本文极具前瞻性地揭示了在谷歌推出的通用商务协议（UCP）背景下，攻击者如何利用间接提示注入技术劫持AI代理，实施隐蔽的礼品卡盗窃和退货欺诈。文章通过构建具体的攻击场景，深刻警示了这种新型自动化欺诈将如何导致零售商资金瞬间枯竭并引发客户忠诚度的'隐形死亡'，为防御者提供了至关重要的实战洞察。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 weeks ago",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -61,7 +61,7 @@
       "url": "https://sec.today/pulses/eb3e1cc9-54ba-4c9a-8bd3-1b4be5760f22/",
       "source": "Daily Security",
       "description": "本文揭示了利用公开 API 结合大语言模型（LLM）对网络用户进行深度行为画像的惊人能力，展示了仅凭千条评论即可精准还原用户专业背景、安全观点甚至个人习惯的技术现实。这一案例不仅凸显了开源数据与生成式 AI 结合带来的隐私边界危机，更警示了“提示词注入”等安全威胁在现实场景中可能引发的身份推断风险。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 weeks ago",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -69,7 +69,7 @@
       "url": "https://sec.today/pulses/7abbaa62-98fa-4826-a28d-7b5137f85233/",
       "source": "Daily Security",
       "description": "本文揭示了Xen虚拟化环境中Linux privcmd驱动的一个严重漏洞（CVE-2026-31788），该漏洞允许攻击者绕过内核锁定机制并修改内核内存。这一发现对于依赖安全启动和内核完整性保护的云基础设施具有重大警示意义，必须立即引起业界关注。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 weeks ago",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -77,39 +77,39 @@
       "url": "https://sec.today/pulses/fc77ca52-b68d-421c-937b-c769a10deb82/",
       "source": "Daily Security",
       "description": "本文揭示了针对 litellm 等关键 Python 包的严重供应链攻击，攻击者利用恶意 .pth 文件实现了无需导入即可自动窃取环境凭证的“静默感染”机制。这一发现凸显了当前开源生态中依赖包被武器化的巨大风险，是安全从业者必须立即关注的紧急威胁。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 weeks ago",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
       "title": "CVE-2026-20643：Apple WebKit 同源策略绕过漏洞通过 Background Security Improvements 机制修复",
       "url": "https://sec.today/pulses/a737da0d-c8fe-49a6-9854-98b36848004e/",
       "source": "Daily Security",
-      "description": "本文揭示了 Apple 如何利用创新的“后台安全改进”机制，在无需重启或大版本更新的情况下，紧急修复了可绕过同源策略的高危 WebKit 漏洞（CVE-2026-20643）。这一案例不仅展示了针对跨站攻击的即时防御能力，更突显了现代操作系统在零日漏洞响应速度上的重大技术突破。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 weeks ago",
-      "date": "2026-04-13",
+      "description": "本文揭示了 Apple 如何利用创新的“后台安全改进”机制，在无需重启或大版本更新的情况下，紧急修复了可绕过同源策略的高危 WebKit 漏洞（CVE-2026-20643）。这一案例不仅展示了针对跨站攻击的即时防御能力，更突显了现代操作系统在零日漏洞响应速度上的重大技术突破。\n                –\n                \n\n                        SecTodayBot\n                    \n• 3 weeks ago",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
       "title": "SecToday Next",
       "url": "https://sec.today/pulses/cb1d18b1-3c65-4eb3-8021-3b046ab43101/",
       "source": "Daily Security",
-      "description": "俄罗斯关联黑客组织 Void Blizzard（亦称 Laundry Bear 或 UAC-0190）发起代号为 DRILLAPP 的新型网络间谍活动，专门针对乌克兰企业。该活动部署了一种基于 JavaScript 的后门程序，通过滥用 Microsoft Edge 浏览器的调试模式及 Chrome 开发者工具协议（CDP）实现隐蔽渗透。攻击者利用无头模式执行恶意脚本，并配合特定的参数绕过沙箱及安全检查，从而在无需用户交互的情况下获取文件系统访问权、录制屏幕以及控制麦克风和网络摄像头。该恶意软件通过伪装成合法进程并利用 LNK 文件或控制面板模块作为投递载体，成功逃避了传统安全检测，实现了持久化驻留和远程命令控制。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 weeks ago",
-      "date": "2026-04-13",
+      "description": "俄罗斯关联黑客组织 Void Blizzard（亦称 Laundry Bear 或 UAC-0190）发起代号为 DRILLAPP 的新型网络间谍活动，专门针对乌克兰企业。该活动部署了一种基于 JavaScript 的后门程序，通过滥用 Microsoft Edge 浏览器的调试模式及 Chrome 开发者工具协议（CDP）实现隐蔽渗透。攻击者利用无头模式执行恶意脚本，并配合特定的参数绕过沙箱及安全检查，从而在无需用户交互的情况下获取文件系统访问权、录制屏幕以及控制麦克风和网络摄像头。该恶意软件通过伪装成合法进程并利用 LNK 文件或控制面板模块作为投递载体，成功逃避了传统安全检测，实现了持久化驻留和远程命令控制。\n                –\n                \n\n                        SecTodayBot\n                    \n• 3 weeks ago",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
       "title": "SecToday Next",
       "url": "https://sec.today/pulses/94741209-69d6-44d3-b843-3bfae7b894ef/",
       "source": "Daily Security",
-      "description": "libuv 库在 Windows 平台的 TTY 行读取路径中存在一个严重的 Off-by-One 堆缓冲区溢出漏洞，该问题源于 uv_utf16_to_wtf8() 函数在处理 CJK 字符时的逻辑缺陷。当输入缓冲区大小恰好为 3 的倍数时，函数会在未预留空间的情况下将 NUL 终止符写入缓冲区边界之外，导致单字节越界写入。该漏洞自 v1.47.0 版本引入并持续影响 v1.x 分支，攻击者可利用此漏洞破坏堆元数据，尽管维护者最初低估了风险，但该问题最终通过特定的 GitHub 补丁得到修复。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 weeks ago",
-      "date": "2026-04-13",
+      "description": "libuv 库在 Windows 平台的 TTY 行读取路径中存在一个严重的 Off-by-One 堆缓冲区溢出漏洞，该问题源于 uv_utf16_to_wtf8() 函数在处理 CJK 字符时的逻辑缺陷。当输入缓冲区大小恰好为 3 的倍数时，函数会在未预留空间的情况下将 NUL 终止符写入缓冲区边界之外，导致单字节越界写入。该漏洞自 v1.47.0 版本引入并持续影响 v1.x 分支，攻击者可利用此漏洞破坏堆元数据，尽管维护者最初低估了风险，但该问题最终通过特定的 GitHub 补丁得到修复。\n                –\n                \n\n                        SecTodayBot\n                    \n• 3 weeks ago",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
       "title": "SecToday Next",
       "url": "https://sec.today/pulses/26dd4dac-0034-4f2d-8c66-d689de81461b/",
       "source": "Daily Security",
-      "description": "Google 威胁情报小组联合多家安全厂商披露了名为 DarkSword 的高级 iOS 全链路漏洞利用工具，该工具自 2025 年 11 月起活跃，专门针对 iOS 18.4 至 18.7 版本设备。DarkSword 完全基于 JavaScript 构建，通过串联包括 JavaScriptCore 和内核在内的六个漏洞（其中包含多个零日漏洞），成功绕过进程保护（PPL）和系统完整性保护（SPTM）机制，实现从 WebContent 沙箱逃逸至 GPU 进程及系统守护进程，最终达成内核权限提升。该工具链被 UNC6353、UNC6748 等国家级支持组织以及 PARS Defense 等商业监控厂商利用，通过攻陷合法网站实施水坑攻击，针对沙特、土耳其、马来西亚和乌克兰等地的高价值目标进行间谍活动及加密货币盗窃。攻击者部署 GHOSTKNIFE、GHOSTSABER 和 GHOSTBLADE 三种载荷，采用“打了就跑”策略在数秒内窃取短信、位置历史及钱包凭证后立即清除痕迹。Apple 已在 iOS 26.3 中修复所有相关漏洞，建议高风险用户启用 Lockdown Mode 以应对此威胁。\n                –\n                \n\n                        SecTodayBot\n                    \n• 2 weeks ago",
-      "date": "2026-04-13",
+      "description": "Google 威胁情报小组联合多家安全厂商披露了名为 DarkSword 的高级 iOS 全链路漏洞利用工具，该工具自 2025 年 11 月起活跃，专门针对 iOS 18.4 至 18.7 版本设备。DarkSword 完全基于 JavaScript 构建，通过串联包括 JavaScriptCore 和内核在内的六个漏洞（其中包含多个零日漏洞），成功绕过进程保护（PPL）和系统完整性保护（SPTM）机制，实现从 WebContent 沙箱逃逸至 GPU 进程及系统守护进程，最终达成内核权限提升。该工具链被 UNC6353、UNC6748 等国家级支持组织以及 PARS Defense 等商业监控厂商利用，通过攻陷合法网站实施水坑攻击，针对沙特、土耳其、马来西亚和乌克兰等地的高价值目标进行间谍活动及加密货币盗窃。攻击者部署 GHOSTKNIFE、GHOSTSABER 和 GHOSTBLADE 三种载荷，采用“打了就跑”策略在数秒内窃取短信、位置历史及钱包凭证后立即清除痕迹。Apple 已在 iOS 26.3 中修复所有相关漏洞，建议高风险用户启用 Lockdown Mode 以应对此威胁。\n                –\n                \n\n                        SecTodayBot\n                    \n• 3 weeks ago",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://sec.today/pulses/43b584f4-6d5b-47f6-8983-28f17c9720a0/",
       "source": "Daily Security",
       "description": "本文揭示了联发科Dimensity 7300芯片中一个无法通过软件修复的硬件级漏洞，攻击者可通过电磁故障注入技术在45秒内窃取手机PIN码和加密货币助记词，影响全球25%的安卓用户，凸显了移动设备底层安全架构的重大隐患。\n                –\n                \n\n                        SecTodayBot\n                    \n• 3 weeks ago",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -125,7 +125,7 @@
       "url": "https://sec.today/pulses/8da80b22-3bc9-4ad3-aa9f-af776f1fc5b0/",
       "source": "Daily Security",
       "description": "谷歌紧急发布Chrome浏览器安全更新，修复了Skia 2D图形库中的越界写入漏洞（CVE-2026-3909）和V8 JavaScript引擎中的实现缺陷（CVE-2026-3910）。这两个高危零日漏洞正被攻击者在野外积极利用，攻击者可通过构造恶意HTML页面触发漏洞，实现远程代码执行及沙箱逃逸，严重威胁用户数据安全。美国网络安全与基础设施安全局（CISA）已将这两项漏洞列入已知被利用漏洞（KEV）目录，强制要求联邦机构于2026年3月27日前完成修补，并强烈建议所有Chromium内核浏览器用户立即更新以规避风险。\n                –\n                \n\n                        SecTodayBot\n                    \n• 3 weeks ago",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -133,7 +133,7 @@
       "url": "https://sec.today/pulses/435d7909-cf15-4a7b-ac82-f8015dae397e/",
       "source": "Daily Security",
       "description": "本文揭露了一个高度隐蔽的npm供应链攻击，恶意包react-refresh-update通过近乎完美的模仿合法包并结合双层混淆的多平台木马投放机制，针对开发者机器发起跨平台攻击，尤其揭示了自动化代码工具和低人工审核场景下的安全风险。\n                –\n                \n\n                        SecTodayBot\n                    \n• 3 weeks ago",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -141,7 +141,7 @@
       "url": "https://sec.today/pulses/7d6672e3-82ba-4deb-8eca-ae226b2db2fb/",
       "source": "Daily Security",
       "description": "本文揭露了Palo Alto Cortex XDR代理中一个严重的设计缺陷：攻击者仅需在命令行添加特定字符串即可绕过约一半的行为检测规则，直接窃取凭据。这一发现不仅迫使厂商紧急修复，更深刻警示了过度依赖“黑盒”加密检测引擎所带来的隐蔽性安全风险。\n                –\n                \n\n                        SecTodayBot\n                    \n• 3 weeks ago",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -149,7 +149,7 @@
       "url": "https://sec.today/pulses/773775ac-c3d2-410a-8da5-c4aa174106a3/",
       "source": "Daily Security",
       "description": "本文揭露了 AWS Bedrock AgentCore 沙箱模式中存在的关键设计缺陷，即其承诺的“完全网络隔离”因允许 DNS 查询而失效，研究人员借此构建了基于 DNS 的双向命令与控制通道，能够利用默认宽泛的 IAM 权限窃取敏感数据。该研究不仅证实了 AI 代理执行环境中的严重隔离漏洞，更深刻揭示了云原生 AI 服务在默认权限配置与网络边界防护上的系统性风险，对当前企业广泛部署的 AI 安全架构具有极高的警示意义。\n                –\n                \n\n                        SecTodayBot\n                    \n• 3 weeks ago",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -157,14 +157,14 @@
       "url": "https://sec.today/pulses/c0f0a009-85fd-4080-8ae9-285e573e7769/",
       "source": "Daily Security",
       "description": "本文揭示了AI网络助手的一个致命盲区：攻击者仅需利用自定义字体和CSS，即可在AI仅读取无害HTML源码的同时，向用户渲染恶意指令，导致所有主流AI助手均未能识别威胁甚至误导用户。这一无需利用浏览器漏洞即可实施的攻击，彻底暴露了当前AI安全评估中“文本解析”与“视觉渲染”脱节的严重风险，亟需业界关注。\n                –\n                \n\n                        SecTodayBot\n                    \n• 3 weeks ago",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
       "title": "2026阿里白帽大会 - Agent安全(智能体时代的攻防新范式)",
       "url": "https://xz.aliyun.com/news/91933",
       "source": "XZ Aliyun",
-      "description": "2026阿里白帽大会 - Agent安全(智能体时代的攻防新范式)2026阿里白帽大会 - Agent安全(智能体时代的攻防新范式)AI专栏阿里云先知阿里白帽大会 · 1640浏览 · 2026-04-08 02:35",
+      "description": "2026阿里白帽大会 - Agent安全(智能体时代的攻防新范式)2026阿里白帽大会 - Agent安全(智能体时代的攻防新范式)AI专栏阿里云先知阿里白帽大会 · 1965浏览 · 2026-04-08 02:35",
       "date": "2026-04-08",
       "category": "tech"
     },
@@ -172,7 +172,7 @@
       "title": "0day--JeecgBoot v3.9.1 多漏洞审计过程",
       "url": "https://xz.aliyun.com/news/91897",
       "source": "XZ Aliyun",
-      "description": "0day--JeecgBoot v3.9.1 多漏洞审计过程该文章记录了jeecgboot两个0day漏洞的挖掘过程漏洞分析xia0mai发表于 北京· 3254浏览 · 2026-04-01 17:01",
+      "description": "0day--JeecgBoot v3.9.1 多漏洞审计过程该文章记录了jeecgboot两个0day漏洞的挖掘过程漏洞分析xia0mai发表于 北京· 3609浏览 · 2026-04-01 17:01",
       "date": "2026-04-01",
       "category": "tech"
     },
@@ -180,7 +180,7 @@
       "title": "【AI安全】OpenClaw多阶段网页诱导绕过防护的RCE攻击",
       "url": "https://xz.aliyun.com/news/91880",
       "source": "XZ Aliyun",
-      "description": "【AI安全】OpenClaw多阶段网页诱导绕过防护的RCE攻击OpenClaw作为最近爆火的AI应用，其设计者已深刻意识到了外部攻击面的风险，并构建了多层的静态防护机制，但当攻击者利用长上下文的认知负载和任务导向性等手段逐步诱导AI忽略安全边界时，AI 似乎难以始终守住边界，最终仍可能执行恶意命令。AI专栏Fausto发表于 广东· 2699浏览 · 2026-03-31 02:59",
+      "description": "【AI安全】OpenClaw多阶段网页诱导绕过防护的RCE攻击OpenClaw作为最近爆火的AI应用，其设计者已深刻意识到了外部攻击面的风险，并构建了多层的静态防护机制，但当攻击者利用长上下文的认知负载和任务导向性等手段逐步诱导AI忽略安全边界时，AI 似乎难以始终守住边界，最终仍可能执行恶意命令。AI专栏Fausto发表于 广东· 2915浏览 · 2026-03-31 02:59",
       "date": "2026-03-31",
       "category": "tech"
     },
@@ -188,7 +188,7 @@
       "title": "Smartbi历史漏洞分析(一)——RMIServlet接口引发的惨案",
       "url": "https://xz.aliyun.com/news/91878",
       "source": "XZ Aliyun",
-      "description": "Smartbi历史漏洞分析(一)——RMIServlet接口引发的惨案Smartbi的RMIServlet接口由于其方法调用的功能，出现过非常多漏洞，以这个接口为切入点，开始分析其出现过的部分历史漏洞。漏洞分析idiot9发表于 北京· 1924浏览 · 2026-03-30 15:36",
+      "description": "Smartbi历史漏洞分析(一)——RMIServlet接口引发的惨案Smartbi的RMIServlet接口由于其方法调用的功能，出现过非常多漏洞，以这个接口为切入点，开始分析其出现过的部分历史漏洞。漏洞分析idiot9发表于 北京· 2044浏览 · 2026-03-30 15:36",
       "date": "2026-03-30",
       "category": "tech"
     },
@@ -204,7 +204,7 @@
       "title": "IDA实操技巧：深度剖析Dridex家族木马分析",
       "url": "https://xz.aliyun.com/news/91860",
       "source": "XZ Aliyun",
-      "description": "IDA实操技巧：深度剖析Dridex家族木马分析1. 深度分析Dridex分析 2. 介绍分析过程中的各种技巧 3. 编写脚本提取C2二进制安全你猜猜丶发表于 北京· 1407浏览 · 2026-03-29 13:28",
+      "description": "IDA实操技巧：深度剖析Dridex家族木马分析1. 深度分析Dridex分析 2. 介绍分析过程中的各种技巧 3. 编写脚本提取C2二进制安全你猜猜丶发表于 北京· 1436浏览 · 2026-03-29 13:28",
       "date": "2026-03-29",
       "category": "tech"
     },
@@ -212,7 +212,7 @@
       "title": "【原创漏洞】JeecgBoot ≤3.4.0 验证码逻辑缺陷导致任意用户注册漏洞（0day）",
       "url": "https://xz.aliyun.com/news/91856",
       "source": "XZ Aliyun",
-      "description": "【原创漏洞】JeecgBoot ≤3.4.0 验证码逻辑缺陷导致任意用户注册漏洞（0day）JeecgBoot ≤3.4.0 验证码逻辑缺陷导致任意用户注册漏洞核心问题是由于系统对Redis缓存Key设计不严谨、验证码来源未做业务隔离、校验逻辑存在权限所导致WEB安全aqyoung发表于 福建· 1044浏览 · 2026-03-28 11:49",
+      "description": "【原创漏洞】JeecgBoot ≤3.4.0 验证码逻辑缺陷导致任意用户注册漏洞（0day）JeecgBoot ≤3.4.0 验证码逻辑缺陷导致任意用户注册漏洞核心问题是由于系统对Redis缓存Key设计不严谨、验证码来源未做业务隔离、校验逻辑存在权限所导致WEB安全aqyoung发表于 福建· 1082浏览 · 2026-03-28 11:49",
       "date": "2026-03-28",
       "category": "tech"
     },
@@ -220,7 +220,7 @@
       "title": "jeeWMS基于鉴权绕过的四种RCE姿势",
       "url": "https://xz.aliyun.com/news/91855",
       "source": "XZ Aliyun",
-      "description": "jeeWMS基于鉴权绕过的四种RCE姿势本文深入探讨了 JEEWMS v3.7中存在的四个远程代码执行漏洞。作者受SUCTF启发，详细展示了如何通过绕过鉴权逻辑来利用未授权的高危接口。指出其安全性问题本质上源于鉴权机制不严以及文件/路径处理逻辑中的过滤缺失。文章提供了详细的调试过程、Payload 构造及复现截图，具有实操参考价值。漏洞分析iElloc发表于 北京· 577浏览 · 2026...",
+      "description": "jeeWMS基于鉴权绕过的四种RCE姿势本文深入探讨了 JEEWMS v3.7中存在的四个远程代码执行漏洞。作者受SUCTF启发，详细展示了如何通过绕过鉴权逻辑来利用未授权的高危接口。指出其安全性问题本质上源于鉴权机制不严以及文件/路径处理逻辑中的过滤缺失。文章提供了详细的调试过程、Payload 构造及复现截图，具有实操参考价值。漏洞分析iElloc发表于 北京· 594浏览 · 2026...",
       "date": "2026-03-27",
       "category": "tech"
     },
@@ -228,7 +228,7 @@
       "title": "【AI安全】CVE-2026-26023深度分析：Dify中的XSS利用",
       "url": "https://xz.aliyun.com/news/91845",
       "source": "XZ Aliyun",
-      "description": "【AI安全】CVE-2026-26023深度分析：Dify中的XSS利用我们可以进一步利用CVE-2026-26023漏洞，在受害者查看历史聊天记录时触发恶意脚本，进而借助受害者浏览器的已授权上下文，调用Dify后端API，最终实现从中危XSS到窃取工作空间权限的危害提升AI专栏Fausto发表于 广东· 551浏览 · 2026-03-26 08:59",
+      "description": "【AI安全】CVE-2026-26023深度分析：Dify中的XSS利用我们可以进一步利用CVE-2026-26023漏洞，在受害者查看历史聊天记录时触发恶意脚本，进而借助受害者浏览器的已授权上下文，调用Dify后端API，最终实现从中危XSS到窃取工作空间权限的危害提升AI专栏Fausto发表于 广东· 578浏览 · 2026-03-26 08:59",
       "date": "2026-03-26",
       "category": "tech"
     },
@@ -236,7 +236,7 @@
       "title": "LiteLLM供应链攻击分析：多段被注释备用载荷的发现",
       "url": "https://xz.aliyun.com/news/91843",
       "source": "XZ Aliyun",
-      "description": "LiteLLM供应链攻击分析：多段被注释备用载荷的发现在litellm-1.82.8、litellm-1.82.7包的proxy_server.py代码中存在多段不同的b64_payload代码载荷，推测其是历史版本载荷。AI专栏T0daySeeker发表于 四川· 2812浏览 · 2026-03-25 16:31",
+      "description": "LiteLLM供应链攻击分析：多段被注释备用载荷的发现在litellm-1.82.8、litellm-1.82.7包的proxy_server.py代码中存在多段不同的b64_payload代码载荷，推测其是历史版本载荷。AI专栏T0daySeeker发表于 四川· 2824浏览 · 2026-03-25 16:31",
       "date": "2026-03-25",
       "category": "tech"
     },
@@ -244,7 +244,7 @@
       "title": "CVE-2026-33017 Langflow 公开接口未授权 RCE 漏洞分析与利用",
       "url": "https://xz.aliyun.com/news/91841",
       "source": "XZ Aliyun",
-      "description": "CVE-2026-33017 Langflow 公开接口未授权 RCE 漏洞分析与利用本文分析了 Langflow CVE-2026-33017 漏洞，指出其公开构建接口未校验请求体中的流程图数据，导致后端直接执行恶意 code 字段。攻击者通过构造包含任意 Python 代码的节点 payload，利用组件实例化阶段的 exec 调用实现未授权远程代码执行。漏洞分析y0no发表于 湖南· 31...",
+      "description": "CVE-2026-33017 Langflow 公开接口未授权 RCE 漏洞分析与利用本文分析了 Langflow CVE-2026-33017 漏洞，指出其公开构建接口未校验请求体中的流程图数据，导致后端直接执行恶意 code 字段。攻击者通过构造包含任意 Python 代码的节点 payload，利用组件实例化阶段的 exec 调用实现未授权远程代码执行。漏洞分析y0no发表于 湖南· 33...",
       "date": "2026-03-25",
       "category": "tech"
     },
@@ -268,7 +268,7 @@
       "title": "2026阿里CTF MHGA题解：基于ViburDBCP与HessianProxy的JNDI注入高版本绕过研究",
       "url": "https://xz.aliyun.com/news/91836",
       "source": "XZ Aliyun",
-      "description": "2026阿里CTF MHGA题解：基于ViburDBCP与HessianProxy的JNDI注入高版本绕过研究2026阿里CTF MHGA题解：基于ViburDBCP与HessianProxy的JNDI注入高版本绕过研究CTFY0n3er原创 · 1401浏览 · 2026-03-23 08:06",
+      "description": "2026阿里CTF MHGA题解：基于ViburDBCP与HessianProxy的JNDI注入高版本绕过研究2026阿里CTF MHGA题解：基于ViburDBCP与HessianProxy的JNDI注入高版本绕过研究CTFY0n3er原创 · 1409浏览 · 2026-03-23 08:06",
       "date": "2026-03-23",
       "category": "tech"
     },
@@ -276,8 +276,24 @@
       "title": "【AI供应链威胁】多智能体场景下的Agent Session Smuggling攻击",
       "url": "https://xz.aliyun.com/news/91806",
       "source": "XZ Aliyun",
-      "description": "【AI供应链威胁】多智能体场景下的Agent Session Smuggling攻击Agent Session Smuggling是一种针对AI代理间有状态通信的新型攻击。恶意代理利用A2A（Agent2Agent）协议的会话状态保持特性，在正常的代理间对话中隐蔽注入恶意指令实现恶意的目的执行AI专栏Fausto发表于 广东· 2491浏览 · 2026-03-21 14:28",
+      "description": "【AI供应链威胁】多智能体场景下的Agent Session Smuggling攻击Agent Session Smuggling是一种针对AI代理间有状态通信的新型攻击。恶意代理利用A2A（Agent2Agent）协议的会话状态保持特性，在正常的代理间对话中隐蔽注入恶意指令实现恶意的目的执行AI专栏Fausto发表于 广东· 2506浏览 · 2026-03-21 14:28",
       "date": "2026-03-21",
+      "category": "tech"
+    },
+    {
+      "title": "今晚8点直击 | 第二届智能渗透挑战赛·冠军之夜",
+      "url": "http://bbs.kanxue.com/thread-290803.htm?style=1",
+      "source": "KanXue",
+      "description": "连续5晚8点，锁定赛事直播。看雪创始人段钢主持，携手腾讯智能渗透挑战赛负责人与重磅嘉宾，深度复盘战况、解析智能渗透技术，还原攻防背后的真实博弈。",
+      "date": "2026-04-14",
+      "category": "tech"
+    },
+    {
+      "title": "2026 年腾讯游戏安全初赛 PC方向",
+      "url": "http://bbs.kanxue.com/thread-290786.htm?style=1",
+      "source": "KanXue",
+      "description": "2026 年腾讯游戏安全初赛 PC方向\r\n仅为本人题解，并非参考答案不能保证正确，请参照官方公布题解\r\n〇、得分点\r\n如何加载驱动\r\n关掉 ACE 预启动，随便签一个泄露签名，即可加载驱动，稳定性极高，就蓝屏了两次。\r\nFlag\r\nflag{SHAD0WNT_HYPERVMX}\r\n\r\n最短路径\r\nD ...",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -285,7 +301,7 @@
       "url": "http://bbs.kanxue.com/thread-290726.htm?style=1",
       "source": "KanXue",
       "description": "重要提示：下面是本人制作的VMProtect虚拟机逆向课程，点击下面的链接进入学习\r\nVMProtect虚拟机逆向入门\r\nVMProtect分析与调试器插件开发\r\n自从VMProtect 3.5.1 被爆出源码泄露开始直到最后的那一两个最重要的源文件也被公之于众之后，VMProtect 3.5.1算 ...",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -293,7 +309,7 @@
       "url": "http://bbs.kanxue.com/thread-290728.htm?style=1",
       "source": "KanXue",
       "description": "【原创】某厂 APP 核心保活机制深度逆向：从 Double Fork 逃逸到 Native Binder 穿透\r\n0x00 前言\r\n在 Android 逆向与安全防护的博弈中，进程保活（Keep-Alive）始终是一个充满争议且技术密集的话题。随着 Android 系统的迭代，从早期的 1 像素  ...",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -301,7 +317,7 @@
       "url": "http://bbs.kanxue.com/thread-290733.htm?style=1",
       "source": "KanXue",
       "description": "利用导入表劫持实现DLL注入以干掉杀毒软件\r\n引言\r\n利用安全软件的白名单进程进行敏感操作，是恶意软件的常见特征。在现代安全软件中，常会通过复杂的权限校验严格限制目标进程的权限。但一些安全软件在防止APC注入时只防止通过OpenProcess获取进程句柄，或者对通过进程句柄继承的句柄限制不严格，导致 ...",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -309,7 +325,7 @@
       "url": "http://bbs.kanxue.com/thread-290756.htm?style=1",
       "source": "KanXue",
       "description": "frida-gum简介\r\nFrida Gum 是一个底层代码插桩库，可在多个平台和架构上提供动态二进制插桩功能。它支持通过函数钩子（fun hooking GumInterceptor）、指令级跟踪（include-level tracing GumStalker）、内存访问监控（memory ac ...",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -317,7 +333,7 @@
       "url": "http://bbs.kanxue.com/thread-278282.htm?style=1",
       "source": "KanXue",
       "description": "之前在论坛看到这个帖子https://bbs.kanxue.com/thread-277034.htm通过nop的方式过掉了frida检测，一时兴起，想要分析一下具体的检测逻辑\r\n样本版本7.26.1，包名tv.danmaku.bili\r\n通过上文楼主给出的方法定位了检测函数的地址，再通过IDA进行 ...",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -325,7 +341,7 @@
       "url": "http://bbs.kanxue.com/thread-290731.htm?style=1",
       "source": "KanXue",
       "description": "4月9日，ISC.AI 2026大会正式开启全球议题征集。本届大会聚焦AI从大模型向智能体演进过程中的技术突破、安全挑战与产业重塑。",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -333,7 +349,7 @@
       "url": "http://bbs.kanxue.com/thread-290730.htm?style=1",
       "source": "KanXue",
       "description": "告别体力劳动，实现安全工程生产力的质变提升",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     },
     {
@@ -341,27 +357,19 @@
       "url": "http://bbs.kanxue.com/thread-290729.htm?style=1",
       "source": "KanXue",
       "description": "近日，Docker 官方披露了一枚高危安全漏洞（CVE-2026-34040），该漏洞存在于 Docker Engine 中，允许攻击者绕过授权插件（AuthZ）的访问控制，进而可能获得底层宿主机的非法访问权限。",
-      "date": "2026-04-13",
-      "category": "tech"
-    },
-    {
-      "title": "从“用设备”到“造环境”：CVD正在改变整套玩法",
-      "url": "http://bbs.kanxue.com/thread-290708.htm?style=1",
-      "source": "KanXue",
-      "description": "同步谷歌最新系统｜内核级定制突破｜高阶风控对抗前沿技术实战",
-      "date": "2026-04-13",
-      "category": "tech"
-    },
-    {
-      "title": "npm 惊现恶意 Gemini 工具包：专盯 AI 开发者数据",
-      "url": "http://bbs.kanxue.com/thread-290706.htm?style=1",
-      "source": "KanXue",
-      "description": "一名攻击者在npm公共仓库中发布了名为gemini-ai-checker的软件包，声称其功能为“Google Gemini AI令牌校验工具”。",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "tech"
     }
   ],
   "news": [
+    {
+      "title": "工程化实战思维在红队技战术中的应用",
+      "url": "https://www.anquanke.com/post/id/315292",
+      "source": "Anquanke",
+      "description": "",
+      "date": "2026-04-13",
+      "category": "news"
+    },
     {
       "title": "鸿蒙NEXT应用一键加固——AI Agent助力安全开发",
       "url": "https://www.anquanke.com/post/id/315277",
@@ -408,6 +416,102 @@
       "source": "Anquanke",
       "description": "",
       "date": "2026-03-19",
+      "category": "news"
+    },
+    {
+      "title": "细节披露：黑客借助AI攻破墨西哥九家政府机构，窃取数亿公民数据",
+      "url": "https://www.secrss.com/articles/89360",
+      "source": "Secrss",
+      "description": "黑客利用 GPT-4.1 生成 2597 份情报报告，攻破税务、选举、医疗系统。",
+      "date": "2026-04-13",
+      "category": "news"
+    },
+    {
+      "title": "Anthropic新模型颠覆网络安全：美英德政府加急评估影响，传统漏洞或不复存在",
+      "url": "https://www.secrss.com/articles/89358",
+      "source": "Secrss",
+      "description": "Anthropic Mythos预览版模型发布以来在网络安全领域评价毁誉不一，有认为许多其他模型和智能体也具备类似能力...",
+      "date": "2026-04-13",
+      "category": "news"
+    },
+    {
+      "title": "Nginx ngx_http_dav_module堆缓冲区溢出漏洞(CVE-2026-27654)安全风险通告",
+      "url": "https://www.secrss.com/articles/89355",
+      "source": "Secrss",
+      "description": "攻击者可利用该漏洞，通过构造特殊 HTTP 请求实现任意文件读写、部署 Webshell 并最终达成远程代码执行（RCE...",
+      "date": "2026-04-13",
+      "category": "news"
+    },
+    {
+      "title": "MacOS ClickFix攻击升级，改用脚本编辑器绕过防护",
+      "url": "https://www.secrss.com/articles/89346",
+      "source": "Secrss",
+      "description": "攻击者转而利用脚本编辑器和applescript://URL",
+      "date": "2026-04-13",
+      "category": "news"
+    },
+    {
+      "title": "威胁情报生态系统的产出与共享",
+      "url": "https://www.secrss.com/articles/89344",
+      "source": "Secrss",
+      "description": "生态系统中威胁情报是如何传递的？谁在产出和消费？",
+      "date": "2026-04-13",
+      "category": "news"
+    },
+    {
+      "title": "德国后量子密码学领域的研究进展",
+      "url": "https://www.secrss.com/articles/89343",
+      "source": "Secrss",
+      "description": "当前，包括德国在内的西方主要发达国家都在加大对后量子密码技术的研究力度，密集发布后量子密码相关的战略计...",
+      "date": "2026-04-13",
+      "category": "news"
+    },
+    {
+      "title": "OWASP发布MCP十大安全风险",
+      "url": "https://www.secrss.com/articles/89329",
+      "source": "Secrss",
+      "description": "MCP的风险有哪些？它和skill风险有什么区别？",
+      "date": "2026-04-12",
+      "category": "news"
+    },
+    {
+      "title": "浙商银行关于人工智能基础设施应用的思考与展望",
+      "url": "https://www.secrss.com/articles/89328",
+      "source": "Secrss",
+      "description": "金融AI基础设施正从“以大模型为中心”朝着“算力、模型、知识、风控”体系化迈进，进而支撑新一轮金融应用创新，...",
+      "date": "2026-04-12",
+      "category": "news"
+    },
+    {
+      "title": "Adobe Reader漏洞已被在野利用，打开PDF可执行任意代码",
+      "url": "https://www.secrss.com/articles/89331",
+      "source": "Secrss",
+      "description": "Adobe 现已正式确认，同时影响Windows和MacOS双平台用户的高危漏洞CVE-2026-34621已被攻击者在野利用。",
+      "date": "2026-04-11",
+      "category": "news"
+    },
+    {
+      "title": "OWASP发布Agentic Skill十大安全风险",
+      "url": "https://www.secrss.com/articles/89333",
+      "source": "Secrss",
+      "description": "skill 是 Agent 的行为封装层，也是现实世界攻击面真正落地的一层。",
+      "date": "2026-04-11",
+      "category": "news"
+    },
+    {
+      "title": "Claude Mythos其实没那么神？AI发现bug其实早已是寻常",
+      "url": "https://www.secrss.com/articles/89320",
+      "source": "Secrss",
+      "description": "「AI 辅助的漏洞发现已经是现实的常规操作，绝非什么未来的技术突破。」",
+      "date": "2026-04-11",
+      "category": "news"
+    },
+    {
+      "title": "南加大研究实锤：AI让全人类思维越来越雷同，认知多样性正在被抹平",
+      "url": "https://www.secrss.com/articles/89323",
+      "source": "Secrss",
+      "description": "起码今天，自己手搓一下工作吧。",
+      "date": "2026-04-11",
       "category": "news"
     },
     {
@@ -475,99 +579,51 @@
       "category": "news"
     },
     {
-      "title": "解读Wiz 2025云威胁回顾：云入侵八成是老套路？",
-      "url": "https://www.secrss.com/articles/89284",
-      "source": "Secrss",
-      "description": "很多人担心AI会催生全新的云攻击手段，但事实并非如此。",
-      "date": "2026-04-10",
+      "title": "JanelaRAT Malware Targets Latin American Banks with 14,739 Attacks in Brazil in 2025",
+      "url": "https://thehackernews.com/2026/04/janelarat-malware-targets-latin.html",
+      "source": "The Hacker News",
+      "description": "JanelaRAT hits Latin American banks with 14,739 attacks in Brazil in 2025, enabling credential theft and financial espionage",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
-      "title": "基于视觉大模型的图像地理定位",
-      "url": "https://www.secrss.com/articles/89273",
-      "source": "Secrss",
-      "description": "线上一张照片就能按图索骥线下找到真人吗？",
-      "date": "2026-04-10",
+      "title": "FBI and Indonesian Police Dismantle W3LL Phishing Network Behind $20M Fraud Attempts",
+      "url": "https://thehackernews.com/2026/04/fbi-and-indonesian-police-dismantle.html",
+      "source": "The Hacker News",
+      "description": "FBI dismantles W3LL phishing network targeting 17,000 victims; crackdown disrupts $20M fraud scheme.",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
-      "title": "AI越火，越要敬畏SDLC：一场关于软件工程的理性回归",
-      "url": "https://www.secrss.com/articles/89271",
-      "source": "Secrss",
-      "description": "跳过流程，接盘混乱。",
-      "date": "2026-04-10",
+      "title": "⚡ Weekly Recap: Fiber Optic Spying, Windows Rootkit, AI Vulnerability Hunting and More",
+      "url": "https://thehackernews.com/2026/04/weekly-recap-fiber-optic-spying-windows.html",
+      "source": "The Hacker News",
+      "description": "Stay ahead of the logs with our Monday Recap. We break down active Adobe 0-days, North Korean crypto stings, and critical CVEs you need to patch today",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
-      "title": "Claw类智能体安全四重奏：模型、运行框架、信任通道与场景",
-      "url": "https://www.secrss.com/articles/89276",
-      "source": "Secrss",
-      "description": "模型、运行框架、信任通道与场景如何共同决定智能体风险。",
-      "date": "2026-04-09",
+      "title": "Your MTTD Looks Great. Your Post-Alert Gap Doesn't",
+      "url": "https://thehackernews.com/2026/04/your-mttd-looks-great-your-post-alert.html",
+      "source": "The Hacker News",
+      "description": "AI-driven attacks exploiting zero-days and 29-minute breakout times expose SOC investigation gaps, accelerating the shift to automated response.",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
-      "title": "国家漏洞库CNNVD：关于Apache ActiveMQ安全漏洞的通报",
-      "url": "https://www.secrss.com/articles/89281",
-      "source": "Secrss",
-      "description": "成功利用漏洞的攻击者，可在目标系统远程执行代码。",
-      "date": "2026-04-09",
+      "title": "North Korea's APT37 Uses Facebook Social Engineering to Deliver RokRAT Malware",
+      "url": "https://thehackernews.com/2026/04/north-koreas-apt37-uses-facebook-social.html",
+      "source": "The Hacker News",
+      "description": "APT37 spreads RokRAT via Facebook and trojanized PDFelement accounts created Nov 10, 2025, enabling espionage and data theft.",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
-      "title": "从美以伊冲突观察AI驱动网络战形态变革",
-      "url": "https://www.secrss.com/articles/89266",
-      "source": "Secrss",
-      "description": "本报告旨在系统梳理并对比冲突主要参与方在网络空间中应用AI技术的战略侧重与战术流程，重点剖析AI在信息操控...",
-      "date": "2026-04-09",
-      "category": "news"
-    },
-    {
-      "title": "能源水务等关基工控设施遭破坏性网络攻击，美国政府紧急发布警报",
-      "url": "https://www.secrss.com/articles/89258",
-      "source": "Secrss",
-      "description": "在特朗普对伊朗威胁不断加码的同时，美国联邦多个机构联合警告称，伊朗正对美国关键基础设施实施了大规模网络...",
-      "date": "2026-04-09",
-      "category": "news"
-    },
-    {
-      "title": "OpenPrinting CUPS多个高危漏洞安全风险通告",
-      "url": "https://www.secrss.com/articles/89256",
-      "source": "Secrss",
-      "description": "OpenPrinting CUPS 远程代码执行漏洞(CVE-2026-34980)以及OpenPrinting CUPS 认证绕过漏洞(CVE-2026-34990)。",
-      "date": "2026-04-09",
-      "category": "news"
-    },
-    {
-      "title": "OpenAM远程代码执行漏洞(CVE-2026-33439)安全风险通告",
-      "url": "https://www.secrss.com/articles/89257",
-      "source": "Secrss",
-      "description": "攻击者可利用该漏洞，通过向目标系统发送精心构造的恶意序列化数据，实现无需认证的远程代码执行。",
-      "date": "2026-04-09",
-      "category": "news"
-    },
-    {
-      "title": "潘多拉模型：Anthropic模型或将颠覆网络安全格局并重塑美国网络攻防行动",
-      "url": "https://www.secrss.com/articles/89251",
-      "source": "Secrss",
-      "description": "Anthropic公司暂缓发布超级模型Mythos并启动“玻璃之翼项目”。",
-      "date": "2026-04-09",
-      "category": "news"
-    },
-    {
-      "title": "《网络安全技术 网络安全威胁信息评价方法》等3项国家标准公开征求意见",
-      "url": "https://www.secrss.com/articles/89255",
-      "source": "Secrss",
-      "description": "​《网络安全技术 物理不可克隆功能安全技术规范》《网络安全技术 网络安全威胁信息评价方法》《网络安全技术...",
-      "date": "2026-04-09",
-      "category": "news"
-    },
-    {
-      "title": "《金融网络安全运营数智化建设研究与实践》发布",
-      "url": "https://www.secrss.com/articles/89250",
-      "source": "Secrss",
-      "description": "报告阐述了网络安全运营数智化建设的核心内涵、关键技术、体系架构、流程重构等方面内容，提出以数据中台、AI...",
-      "date": "2026-04-09",
+      "title": "OpenAI Revokes macOS App Certificate After Malicious Axios Supply Chain Incident",
+      "url": "https://thehackernews.com/2026/04/openai-revokes-macos-app-certificate.html",
+      "source": "The Hacker News",
+      "description": "OpenAI revoked its macOS signing certificate after a malicious Axios dependency incident on March 31, 2026, preventing potential software misuse.",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
@@ -575,7 +631,7 @@
       "url": "https://thehackernews.com/2026/04/cpuid-breach-distributes-stx-rat-via.html",
       "source": "The Hacker News",
       "description": "CPUID breach served STX RAT via trojanized CPU-Z downloads on April 9–10, impacting 150+ victims and multiple industries.",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
@@ -583,7 +639,7 @@
       "url": "https://thehackernews.com/2026/04/adobe-patches-actively-exploited.html",
       "source": "The Hacker News",
       "description": "Adobe patches CVE-2026-34621 after active exploitation since Dec 2025, preventing remote code execution via malicious PDFs.",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
@@ -591,7 +647,7 @@
       "url": "https://thehackernews.com/2026/04/citizen-lab-law-enforcement-used-webloc.html",
       "source": "The Hacker News",
       "description": "Webloc surveils up to 500M devices using ad data; global law enforcement adoption raises warrantless tracking concerns.",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
@@ -599,7 +655,7 @@
       "url": "https://thehackernews.com/2026/04/glassworm-campaign-uses-zig-dropper-to.html",
       "source": "The Hacker News",
       "description": "GlassWorm uses a fake WakaTime VS Code extension to infect IDEs, deploy RATs, and steal data, prompting urgent credential rotation.",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
@@ -607,7 +663,7 @@
       "url": "https://thehackernews.com/2026/04/browser-extensions-are-new-ai.html",
       "source": "The Hacker News",
       "description": "AI browser extensions increase enterprise risk with 60% higher vulnerabilities, bypassing DLP controls and exposing sensitive data.",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
@@ -615,55 +671,63 @@
       "url": "https://thehackernews.com/2026/04/google-rolls-out-dbsc-in-chrome-146-to.html",
       "source": "The Hacker News",
       "description": "Google releases DBSC in Chrome 146 for Windows, binding cookies to devices to reduce session theft and prevent unauthorized access.",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
-      "title": "Marimo RCE Flaw CVE-2026-39987 Exploited Within 10 Hours of Disclosure",
-      "url": "https://thehackernews.com/2026/04/marimo-rce-flaw-cve-2026-39987.html",
-      "source": "The Hacker News",
-      "description": "Marimo CVE-2026-39987 exploited within 10 hours of disclosure, enabling unauthenticated RCE and credential theft, emphasizing urgent patching needs.",
-      "date": "2026-04-13",
+      "title": "Booking.com Says Hackers Accessed User Information",
+      "url": "https://www.securityweek.com/booking-com-says-hackers-accessed-user-information/",
+      "source": "SecurityWeek",
+      "description": "Latest security news from SecurityWeek",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
-      "title": "Backdoored Smart Slider 3 Pro Update Distributed via Compromised Nextend Servers",
-      "url": "https://thehackernews.com/2026/04/backdoored-smart-slider-3-pro-update.html",
-      "source": "The Hacker News",
-      "description": "Backdoored Smart Slider 3 Pro v3.5.1.35 update distributed for 6 hours via compromised infrastructure, enabling RCE and data theft.",
-      "date": "2026-04-13",
+      "title": "BrowserGate: Claims of LinkedIn ‘Spying’ Clash With Security Research Findings",
+      "url": "https://www.securityweek.com/browsergate-claims-of-linkedin-spying-clash-with-security-research-findings/",
+      "source": "SecurityWeek",
+      "description": "Latest security news from SecurityWeek",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
-      "title": "EngageLab SDK Flaw Exposed 50M Android Users, Including 30M Crypto Wallet Installs",
-      "url": "https://thehackernews.com/2026/04/engagelab-sdk-flaw-exposed-50m-android.html",
-      "source": "The Hacker News",
-      "description": "EngageLab SDK flaw exposed 50M+ Android installs after April 2025 disclosure, risking crypto wallet data until November 2025 patch.",
-      "date": "2026-04-13",
+      "title": "OpenAI Impacted by North Korea-Linked Axios Supply Chain Hack",
+      "url": "https://www.securityweek.com/openai-impacted-by-north-korea-linked-axios-supply-chain-hack/",
+      "source": "SecurityWeek",
+      "description": "Latest security news from SecurityWeek",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
-      "title": "UAT-10362 Targets Taiwanese NGOs with LucidRook Malware in Spear-Phishing Campaigns",
-      "url": "https://thehackernews.com/2026/04/uat-10362-targets-taiwanese-ngos-with.html",
-      "source": "The Hacker News",
-      "description": "UAT-10362 spear-phishing targets Taiwanese NGOs in October 2025, deploying LucidRook malware for data exfiltration and stealthy persistence.",
-      "date": "2026-04-13",
+      "title": "International Operation Targets Multimillion-Dollar Crypto Theft Schemes",
+      "url": "https://www.securityweek.com/international-operation-targets-multimillion-dollar-crypto-theft-schemes/",
+      "source": "SecurityWeek",
+      "description": "Latest security news from SecurityWeek",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
-      "title": "ThreatsDay Bulletin: Hybrid P2P Botnet, 13-Year-Old Apache RCE and 18 More Stories",
-      "url": "https://thehackernews.com/2026/04/threatsday-bulletin-hybrid-p2p-botnet.html",
-      "source": "The Hacker News",
-      "description": "This week in cybersecurity: botnets, RCE flaws, AI-driven attacks, stealers, and more. Fast, no-fluff roundup.",
-      "date": "2026-04-13",
+      "title": "CPUID Hacked to Serve Trojanized CPU-Z and HWMonitor Downloads",
+      "url": "https://www.securityweek.com/cpuid-hacked-to-serve-trojanized-cpu-z-and-hwmonitor-downloads/",
+      "source": "SecurityWeek",
+      "description": "Latest security news from SecurityWeek",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
-      "title": "The Hidden Security Risks of Shadow AI in Enterprises",
-      "url": "https://thehackernews.com/2026/04/the-hidden-security-risks-of-shadow-ai.html",
-      "source": "The Hacker News",
-      "description": "Employees are using unapproved AI tools. Learn the risks of shadow AI, including data leaks and identity sprawl & how enterprises can reduce exposure.",
-      "date": "2026-04-13",
+      "title": "Fake Claude Website Distributes PlugX RAT",
+      "url": "https://www.securityweek.com/fake-claude-website-distributes-plugx-rat/",
+      "source": "SecurityWeek",
+      "description": "Latest security news from SecurityWeek",
+      "date": "2026-04-14",
+      "category": "news"
+    },
+    {
+      "title": "Gmail Brings End-to-End Encryption to Android and iOS for Enterprise Users",
+      "url": "https://www.securityweek.com/gmail-brings-end-to-end-encryption-to-android-and-ios-for-enterprise-users/",
+      "source": "SecurityWeek",
+      "description": "Latest security news from SecurityWeek",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
@@ -671,7 +735,7 @@
       "url": "https://www.securityweek.com/adobe-patches-reader-zero-day-exploited-for-months/",
       "source": "SecurityWeek",
       "description": "Latest security news from SecurityWeek",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
@@ -679,7 +743,7 @@
       "url": "https://www.securityweek.com/in-other-news-cyberattack-stings-stryker-windows-zero-day-china-supercomputer-hack/",
       "source": "SecurityWeek",
       "description": "Latest security news from SecurityWeek",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
@@ -687,7 +751,7 @@
       "url": "https://www.securityweek.com/juniper-networks-patches-dozens-of-junos-os-vulnerabilities/",
       "source": "SecurityWeek",
       "description": "Latest security news from SecurityWeek",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
@@ -695,7 +759,7 @@
       "url": "https://www.securityweek.com/industry-reactions-to-iran-hacking-ics-in-critical-infrastructure-feedback-friday/",
       "source": "SecurityWeek",
       "description": "Latest security news from SecurityWeek",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
@@ -703,7 +767,7 @@
       "url": "https://www.securityweek.com/orthanc-dicom-vulnerabilities-lead-to-crashes-rce/",
       "source": "SecurityWeek",
       "description": "Latest security news from SecurityWeek",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "news"
     },
     {
@@ -711,63 +775,7 @@
       "url": "https://www.securityweek.com/chrome-147-patches-60-vulnerabilities-including-two-critical-flaws-worth-86000/",
       "source": "SecurityWeek",
       "description": "Latest security news from SecurityWeek",
-      "date": "2026-04-13",
-      "category": "news"
-    },
-    {
-      "title": "MITRE Releases Fight Fraud Framework",
-      "url": "https://www.securityweek.com/mitre-releases-fight-fraud-framework/",
-      "source": "SecurityWeek",
-      "description": "Latest security news from SecurityWeek",
-      "date": "2026-04-13",
-      "category": "news"
-    },
-    {
-      "title": "Critical Marimo Flaw Exploited Hours After Public Disclosure",
-      "url": "https://www.securityweek.com/critical-marimo-flaw-exploited-hours-after-public-disclosure/",
-      "source": "SecurityWeek",
-      "description": "Latest security news from SecurityWeek",
-      "date": "2026-04-13",
-      "category": "news"
-    },
-    {
-      "title": "Google Rolls Out Cookie Theft Protections in Chrome",
-      "url": "https://www.securityweek.com/google-rolls-out-cookie-theft-protections-in-chrome/",
-      "source": "SecurityWeek",
-      "description": "Latest security news from SecurityWeek",
-      "date": "2026-04-13",
-      "category": "news"
-    },
-    {
-      "title": "Microsoft Finds Vulnerability Exposing Millions of Android Crypto Wallet Users",
-      "url": "https://www.securityweek.com/microsoft-finds-vulnerability-exposing-millions-of-android-crypto-wallet-users/",
-      "source": "SecurityWeek",
-      "description": "Latest security news from SecurityWeek",
-      "date": "2026-04-13",
-      "category": "news"
-    },
-    {
-      "title": "Apple Intelligence AI Guardrails Bypassed in New Attack",
-      "url": "https://www.securityweek.com/apple-intelligence-ai-guardrails-bypassed-in-new-attack/",
-      "source": "SecurityWeek",
-      "description": "Latest security news from SecurityWeek",
-      "date": "2026-04-13",
-      "category": "news"
-    },
-    {
-      "title": "Can We Trust AI? No – But Eventually We Must",
-      "url": "https://www.securityweek.com/can-we-trust-ai-no-but-eventually-we-must/",
-      "source": "SecurityWeek",
-      "description": "Latest security news from SecurityWeek",
-      "date": "2026-04-13",
-      "category": "news"
-    },
-    {
-      "title": "Google API Keys in Android Apps Expose Gemini Endpoints to Unauthorized Access",
-      "url": "https://www.securityweek.com/google-api-keys-in-android-apps-expose-gemini-endpoints-to-unauthorized-access/",
-      "source": "SecurityWeek",
-      "description": "Latest security news from SecurityWeek",
-      "date": "2026-04-13",
+      "date": "2026-04-14",
       "category": "news"
     }
   ]
