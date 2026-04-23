@@ -218,7 +218,115 @@
                 <h2 class="section-title">🎯 技术文章 (Technical Articles)</h2>
                 <div class="articles-grid" id="tech-articles">
                     
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/daa94d56-1f6f-40e3-aef3-bf1261a59c3a/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">匿名研究员&#x27;Chaotic Eclipse&#x27;因对微软安全响应中心（MSRC）的披露流程及僵化要求感到不满，公开了名为&#x27;BlueHammer&#x27;的 Windows 零日漏洞利用代码。该漏洞利用 Windows Defender 签名更新机制中的时间检查与使用（TOCTOU）竞态条件及路径混淆缺陷，通过欺骗 IMpService RPC 接口并利用卷影复制服务（VSS）泄露 SAM 数据库，从而提取 NTLM 哈希并实现从本地用户到 SYSTEM 或管理员权限的提升。尽管该利用程序在服务器平台上的可靠性存在波动，但已在客户端系统上被证实可获取完全控制权。此事件迫使组织在官方补丁发布前采取严格的终端加固措施，包括监控异常进程生成及限制本地管理员权限。
+                –
+                
+
+                        SecTodayBot
+                    
+• 1 week ago</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/688e6f58-1fa5-47c2-92b8-99db46095241/" target="_blank">cpuid.com 水坑攻击：特洛伊化的 CPU-Z 与 HWMonitor 通过 DLL 侧加载分发 STX RAT</a></h3>
+                        <p class="article-description">本文深入剖析了针对 CPU-Z 和 HWMonitor 等知名系统工具网站的水坑攻击，揭示了攻击者利用 DLL 侧加载技术分发 STX RAT 的完整链条。文章核心亮点在于揭露了威胁行为者因重复使用旧版 C2 配置和已知恶意载荷而导致的严重运营安全失误，为快速识别和阻断此类供应链攻击提供了关键线索。
+                –
+                
+
+                        SecTodayBot
+                    
+• 1 week ago</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/aa0c201b-45d8-4d77-a6da-90f0357b99f0/" target="_blank">Project Glasswing 与 Claude Mythos：网络安全面临的十大即时与长期后果</a></h3>
+                        <p class="article-description">本文深刻揭示了 Anthropic 的 Mythos 模型如何颠覆传统漏洞发现范式，将安全行业的价值重心从“发现”强制转移至“修复”与“治理”。文章前瞻性地预警了开源维护瓶颈、CVE 系统过载及国家网络战略转变等十大连锁反应，为行业应对 AI 驱动的安全危机提供了至关重要的战略路线图。
+                –
+                
+
+                        SecTodayBot
+                    
+• 1 week ago</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/b80144c0-2c0a-4ffc-a926-80188ce08c74/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">2026 年 3 月，疑似朝鲜关联的黑客组织（UNC1069）成功劫持了流行的开源库 Axios 的维护者账户，发布了包含隐藏远程访问木马（RAT）的投毒版本。攻击者利用“幽灵依赖”（phantom dependency）技术触发 postinstall 脚本，在 Windows、macOS 和 Linux 系统上跨平台部署恶意软件，并手动使用被盗 Token 绕过了 GitHub Actions 的 OIDC 防护。此次攻击直接导致 OpenAI 的 CI/CD 工作流及 macOS 代码签名证书面临严重风险。尽管未发生用户数据泄露，但 OpenAI 被迫撤销所有 macOS 证书，并强制 ChatGPT、Codex 和 Atlas 用户立即更新应用以防止伪造分发。该事件凸显了软件供应链中第三方依赖管理的极端脆弱性，以及高级持续性威胁（APT）利用开源生态进行大规模渗透的严峻挑战。
+                –
+                
+
+                        SecTodayBot
+                    
+• 1 week ...</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/bf4ffc22-1990-4da6-8bf7-b37e987a5ebd/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">安全研究人员 Haifei Li 通过 EXPMON 平台披露了 Adobe Acrobat Reader 中一个严重的零日漏洞 CVE-2026-34621，该漏洞源于原型污染（Prototype Pollution）缺陷。自 2025 年 12 月起，高级持续性威胁（APT）组织利用该漏洞针对俄罗斯油气行业等高价值目标发动定向攻击。攻击者通过特制的恶意 PDF 文件，利用混淆的 JavaScript 代码调用 util.readFileIntoStream() 和 RSS.addFeed() 等特权 API，在无需用户深度交互的情况下绕过沙箱限制，执行系统指纹识别、敏感数据窃取及建立命令与控制（C2）通道，并具备潜在的远程代码执行（RCE）和沙箱逃逸能力。Adobe 随后发布了紧急补丁（APSB26-43），建议全球用户在 72 小时内完成更新以阻断这一持续数月的活跃攻击活动。
+                –
+                
+
+                        SecTodayBot
+                    
+• 1 week a...</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/bdbc1600-a59a-4de5-b739-12af728fbc07/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">OpenAI 推出了专为数字防御者设计的 GPT-5.4-Cyber 模型，这是一款经过微调的“网络许可”（Cyber-Permissive）变体，旨在降低防御性任务的拒绝阈值，使安全专家能够在无需源代码的情况下执行二进制逆向工程等高级工作流，以分析恶意软件、漏洞及系统鲁棒性。该模型的发布伴随着“网络安全可信访问”（Trusted Access for Cyber, TAC）计划的扩展，通过分级验证机制将访问权限严格限制于经过审核的安全专业人士及组织。这一战略举措标志着从单纯限制模型能力向基于严格身份验证的运营级 AI 网络安全基础设施的重大转变，旨在回应行业竞争并建立在 Codex Security 修复大量漏洞的成功基础之上，为未来高能力模型的部署铺平道路。
+                –
+                
+
+                        SecTodayBot
+                    
+• 1 week ago</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/035684f9-d82e-40ce-9af1-5fa147e9653e/" target="_blank">利用 Model Context Protocol 与 IAM 控制保障 AI Agent 访问 AWS 资源的安全</a></h3>
+                        <p class="article-description">本文针对非确定性 AI 代理在 AWS 环境中的动态行为，提出了构建确定性 IAM 权限控制的三大核心安全原则。文章通过深入剖析托管与自托管 MCP 服务器的部署差异及凭证管理策略，为在机器速度下防止权限滥用提供了极具实操性的架构指南。
+                –
+                
+
+                        SecTodayBot
+                    
+• 1 week ago</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/048ab46f-ac85-43e9-8dcd-a40741b3c60a/" target="_blank">Strix AI 发现 etcd 严重认证绕过漏洞 CVE-2026-33413，导致未授权集群访问</a></h3>
+                        <p class="article-description">本文揭示了由AI安全代理Strix发现的etcd关键身份验证绕过漏洞（CVE-2026-33413），该漏洞允许攻击者无需授权即可执行维护操作并导致集群崩溃。这一发现不仅突显了云原生基础设施中维护API权限检查的重大架构缺陷，更标志着AI自主渗透测试在发现深层逻辑漏洞方面的里程碑式突破。
+                –
+                
+
+                        SecTodayBot
+                    
+• 1 week ago</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: Daily Security</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/bc2b2b92-977f-4005-a1d0-1467a6840d50/" target="_blank">AI 驱动提权：Codex 利用 World-Writable Novatek 驱动实现三星智能电视 Root</a></h3>
+                        <p class="article-description">本文最引人注目的亮点在于，OpenAI 的 Codex 模型在未被指引具体漏洞的情况下，自主分析三星电视固件源码并成功利用 Novatek 驱动的世界可写缺陷，将浏览器沙盒权限提升至 Root。这一案例不仅揭示了消费电子硬件供应链中第三方内核组件的严重安全盲区，更标志着 AI 已具备独立执行复杂内核级漏洞挖掘与利用的实战能力。
+                –
+                
+
+                        SecTodayBot
+                    
+• 1 week ago</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: Daily Security</div>
                         <h3 class="article-title"><a href="https://sec.today/pulses/d2bfb9ee-5add-4ddd-89df-97237079e5b6/" target="_blank">GoHarbor Harbor 严重漏洞 CVE-2026-4404 允许通过硬编码凭证完全接管注册中心</a></h3>
                         <p class="article-description">本文揭示了 Harbor 容器镜像仓库中因默认凭证未强制重置而引发的严重供应链攻击风险（CVE-2026-4404），攻击者可借此直接接管 CI/CD 流水线并植入恶意镜像。该漏洞对云原生基础设施构成致命威胁，亟需安全团队立即手动修改密码并关注即将发布的自动化修复补丁。
@@ -228,9 +336,9 @@
                         SecTodayBot
                     
 • 3 weeks ago</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: Daily Security</div>
                         <h3 class="article-title"><a href="https://sec.today/pulses/ce63a53b-6d33-40f7-bbad-2c842a739abb/" target="_blank">通过 Null Routes 防止 IPv6 路由环路及固件放大漏洞</a></h3>
                         <p class="article-description">本文揭示了IPv6网络中普遍存在的路由环路问题，并发现主流路由器固件中存在严重漏洞，可将单个ICMP请求放大超过25万次，构成巨大的DDoS攻击风险。文章不仅量化了全球影响范围，更提供了通过配置空路由（Null Routes）来修复这一关键安全缺陷的实用方案，对提升互联网基础设施的稳定性至关重要。
@@ -240,9 +348,9 @@
                         SecTodayBot
                     
 • 3 weeks ago</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: Daily Security</div>
                         <h3 class="article-title"><a href="https://sec.today/pulses/42c59ae1-aa8b-4938-b9ce-53ecf253d102/" target="_blank">SecToday Next</a></h3>
                         <p class="article-description">2026 年 3 月，威胁组织 TeamPCP 利用 Trivy CI/CD 流程中的漏洞，成功入侵热门 Python AI 网关库 LiteLLM，并在 PyPI 上发布了被篡改的 1.82.7 和 1.82.8 版本。攻击者绕过源代码审查，直接向分发包注入包含三阶段逻辑的恶意载荷：首先利用 Python .pth 机制实现无需导入即可触发的自动执行，随后窃取 SSH 密钥、AWS/GCP/Azure 云凭证、Kubernetes 配置及加密货币钱包数据，最后通过创建特权 Pod 逃逸容器并注册 systemd 服务建立持久化后门，实现横向移动。此次攻击波及全球数亿次安装，严重影响 OpenAI、Anthropic 等主流 AI 服务用户，迫使 PyPA 紧急下架恶意版本并建议用户立即轮换凭证。
@@ -252,9 +360,9 @@
                         SecTodayBot
                     
 • 3 weeks ago</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: Daily Security</div>
                         <h3 class="article-title"><a href="https://sec.today/pulses/32c58337-8f8c-48fc-8b88-b3cce0d3f37d/" target="_blank">SecToday Next</a></h3>
                         <p class="article-description">Xen 安全公告 XSA-482 披露了编号为 CVE-2026-31788 的严重漏洞，该缺陷存在于 Xen 虚拟化环境中的 Linux privcmd 驱动程序。攻击者可利用此漏洞修改页表，使用户模式能够访问并篡改内核内存，从而绕过 Kernel Lockdown 机制及 Secure Boot 防护。该漏洞影响运行于 Secure Boot 系统上的 PV、PVH 及 HVM 虚拟机，目前尚无其他缓解措施，必须应用 Xen 项目安全团队发布的特定补丁才能修复。
@@ -264,15 +372,41 @@
                         SecTodayBot
                     
 • 3 weeks ago</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: KanXue</div>
+                        <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-290940.htm?style=1" target="_blank">绿盟科技发布2025年年报： 收入稳中有升，亏损大幅收窄，现金流持续为正</a></h3>
+                        <p class="article-description">4月22日，绿盟科技披露2025年年度报告。报告显示，公司持续推进战略落地、组织优化、运营提效和能力建设，整体经营运行稳中有进、稳中提质。</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: KanXue</div>
+                        <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-290936.htm?style=1" target="_blank">Lazarus黑客涉嫌窃取KelpDAO 2.9亿美元加密资产</a></h3>
+                        <p class="article-description">当地时间4月18日，以太坊网络上的去中心化金融（DeFi）项目KelpDAO遭遇重大加密资产盗窃事件，约11.65万枚rsETH代币被盗，折合美元约2.93亿美元。</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: KanXue</div>
+                        <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-290915.htm?style=1" target="_blank">2026腾讯游戏安全PC初赛  新手使用IDAPRO AI结合参赛 分析复盘</a></h3>
+                        <p class="article-description">ShadowGate 初赛复盘：我做出来的部分，以及参考公开 writeup 补完的部分前言这篇文章是我对 ShadowGate 题目的完整复盘整理版。和我之前的阶段性记录不同，这一版的目标不是只写“我已经做到哪”，而是尽可能把整道题的分析链路整 ...</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: KanXue</div>
+                        <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-290891.htm?style=1" target="_blank">2026腾讯游戏安全竞赛-决赛-安卓</a></h3>
+                        <p class="article-description">前言：写的比较流水账。看了其它佬的文章，发现比赛还是漏掉了n多得分点…
+解gdc
+ .gdc 文件头格式仍是 MD5(16) | plain_len(8) | IV(16) | ciphertext和初赛的方法一样，依旧是hook open_and_parse_password，捕获到密钥仍是  ...</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: KanXue</div>
                         <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-290914.htm?style=1" target="_blank">Windows截图工具漏洞PoC公开，NTLM哈希可静默窃取</a></h3>
                         <p class="article-description">近日，Windows自带截图工具（Snipping Tool）被披露存在安全漏洞（CVE-2026-33829），其概念验证（PoC）利用代码已同步公开。</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: KanXue</div>
                         <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-290903.htm?style=1" target="_blank">腾讯游戏安全初赛 Android 客户端分析</a></h3>
                         <p class="article-description">腾讯游戏安全初赛 Android 客户端分析
@@ -284,71 +418,33 @@
 1.3 解题思路流程图
 1.4 从 APK 结构入手，先确认主战场不在脚本明文
 1.5 先拆 libsec2026.so 的运行时壳，再把真实执行段送 ...</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: KanXue</div>
                         <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-290901.htm?style=1" target="_blank">Vercel 确认遭第三方 OAuth 劫持入侵，内部访问令牌与部分环境变量暴露</a></h3>
                         <p class="article-description">云开发平台 Vercel于2026年4月19日披露一起安全事件，攻击者利用第三方 AI 服务 Context.ai 的 Google Workspace OAuth 应用漏洞，成功劫持一名 Vercel 员工的 Google 企业账号，进而横向渗透至 Vercel 内部系统</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: KanXue</div>
                         <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-290899.htm?style=1" target="_blank">4月21日20点直播 | 自动化工具固件初步分析、大模型视角下的IoT漏挖</a></h3>
                         <p class="article-description">看雪视频号，欢迎预约</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: KanXue</div>
                         <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-290897.htm?style=1" target="_blank">直播预告 | 2025年度货拉拉SRC白帽子安全沙龙暨年度颁奖典礼~</a></h3>
                         <p class="article-description">4月24日16:00  LLSRC视频号见</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: KanXue</div>
                         <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-290623.htm?style=1" target="_blank">全流程使用AI，完成一次APK重打包。改包名、绕过 Native 校验、重建签名并去掉奖励广告的完整复现</a></h3>
                         <p class="article-description">全流程使用AI，完成一次 APK重打包。改包名、绕过 Native 校验、重建签名并去掉奖励广告的完整复现
 0x00 写在前面
 最近在关注Android应用重打包，自己练手了几个，突发奇想，想试试完全使用AI辅助，能不能完成整个过程。就在google play上随手找了一个小游戏来进行尝试。为了 ...</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: KanXue</div>
-                        <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-290887.htm?style=1" target="_blank">腾讯游戏安全技术竞赛PC决赛题解</a></h3>
-                        <p class="article-description">腾讯游戏安全技术竞赛 PC决赛 题解
-今年终于是完整的都做出来了，想到去年连让驱动成功运行的任务都做不到，真是感慨，但是还是有点遗憾，花了很多时间去复现题目的ddma方案写检测，导致没时间去写其他类型的检测。
-然后昨晚看到另一个大神发的WP，真是震撼，我的文章就是相形见拙了哈哈，不过也公布出来给 ...</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: KanXue</div>
-                        <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-290881.htm?style=1" target="_blank">2026腾讯游戏安全PC决赛Writeup</a></h3>
-                        <p class="article-description">记录一下今年 2026 决赛过程
-
-
-题目描述
-
-（1）  「影」核心系统「根」需要在一些开启了特殊特性的机器上才能部署成功，逆向找到成功部署条件！成功部署「影」核心系统，即成功运行shadow_panel.exe，控制台程序成功运行进入至输入终止密码的终端。(满分0.5分)
-（2）   ...</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: KanXue</div>
-                        <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-290878.htm?style=1" target="_blank">单机DMA劫持HyperV！调试 取证两种思路解决2026腾讯游戏安全技术竞赛决赛</a></h3>
-                        <p class="article-description">去年考察了Hypervisor，今年按理应该考察DMA技术，选手手中不一定有DMA怎么办呢？那就利用硬盘作为已有的DMA设备！(1) 「影」核心系统「根」需要在一些开启了特殊特性的机器上才能部署成功，逆向找到成功部署条件！成功部署「影」核心系统，即成功运行shadow_panel. ...</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: KanXue</div>
-                        <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-290882.htm?style=1" target="_blank">南极动物游戏安全2026-安卓决赛</a></h3>
-                        <p class="article-description">魔改Godot引擎，加上虚拟机，真做吐了。混淆我是一个没去、就说这思路能不能跑吧
-主要操作：模拟执行，过反调试，Frida Hook(相关脚本不放了、太丑，思路肯定是对的就是了)
-展示：
-FLAG1:
-  FLAG2:
-  
-FLAG3（模拟跑通了、没时间扒下来）  几个不同的触发题触发 ...</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
                     <div class="article-card" data-date="2026-04-18">
                         <div class="article-source">来源: Daily Security</div>
@@ -359,7 +455,7 @@ FLAG3（模拟跑通了、没时间扒下来）  几个不同的触发题触发 
 
                         SecTodayBot
                     
-• 4 days ago</p>
+• 5 days ago</p>
                         <div class="article-date">发布日期: 2026-04-18</div>
                     </div>
                     <div class="article-card" data-date="2026-04-18">
@@ -371,7 +467,7 @@ FLAG3（模拟跑通了、没时间扒下来）  几个不同的触发题触发 
 
                         SecTodayBot
                     
-• 4 days ago</p>
+• 5 days ago</p>
                         <div class="article-date">发布日期: 2026-04-18</div>
                     </div>
                     <div class="article-card" data-date="2026-04-18">
@@ -383,7 +479,7 @@ FLAG3（模拟跑通了、没时间扒下来）  几个不同的触发题触发 
 
                         SecTodayBot
                     
-• 4 days ago</p>
+• 5 days ago</p>
                         <div class="article-date">发布日期: 2026-04-18</div>
                     </div>
                     <div class="article-card" data-date="2026-04-18">
@@ -395,7 +491,7 @@ FLAG3（模拟跑通了、没时间扒下来）  几个不同的触发题触发 
 
                         SecTodayBot
                     
-• 4 days ago</p>
+• 5 days ago</p>
                         <div class="article-date">发布日期: 2026-04-18</div>
                     </div>
                     <div class="article-card" data-date="2026-04-18">
@@ -407,7 +503,7 @@ FLAG3（模拟跑通了、没时间扒下来）  几个不同的触发题触发 
 
                         SecTodayBot
                     
-• 4 days ago</p>
+• 5 days ago</p>
                         <div class="article-date">发布日期: 2026-04-18</div>
                     </div>
                     <div class="article-card" data-date="2026-04-18">
@@ -419,7 +515,7 @@ FLAG3（模拟跑通了、没时间扒下来）  几个不同的触发题触发 
 
                         SecTodayBot
                     
-• 4 days ago</p>
+• 5 days ago</p>
                         <div class="article-date">发布日期: 2026-04-18</div>
                     </div>
                     <div class="article-card" data-date="2026-04-18">
@@ -431,116 +527,8 @@ FLAG3（模拟跑通了、没时间扒下来）  几个不同的触发题触发 
 
                         SecTodayBot
                     
-• 4 days ago</p>
+• 5 days ago</p>
                         <div class="article-date">发布日期: 2026-04-18</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-16">
-                        <div class="article-source">来源: Daily Security</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/daa94d56-1f6f-40e3-aef3-bf1261a59c3a/" target="_blank">SecToday Next</a></h3>
-                        <p class="article-description">匿名研究员&#x27;Chaotic Eclipse&#x27;因对微软安全响应中心（MSRC）的披露流程及僵化要求感到不满，公开了名为&#x27;BlueHammer&#x27;的 Windows 零日漏洞利用代码。该漏洞利用 Windows Defender 签名更新机制中的时间检查与使用（TOCTOU）竞态条件及路径混淆缺陷，通过欺骗 IMpService RPC 接口并利用卷影复制服务（VSS）泄露 SAM 数据库，从而提取 NTLM 哈希并实现从本地用户到 SYSTEM 或管理员权限的提升。尽管该利用程序在服务器平台上的可靠性存在波动，但已在客户端系统上被证实可获取完全控制权。此事件迫使组织在官方补丁发布前采取严格的终端加固措施，包括监控异常进程生成及限制本地管理员权限。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ago</p>
-                        <div class="article-date">发布日期: 2026-04-16</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-16">
-                        <div class="article-source">来源: Daily Security</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/688e6f58-1fa5-47c2-92b8-99db46095241/" target="_blank">cpuid.com 水坑攻击：特洛伊化的 CPU-Z 与 HWMonitor 通过 DLL 侧加载分发 STX RAT</a></h3>
-                        <p class="article-description">本文深入剖析了针对 CPU-Z 和 HWMonitor 等知名系统工具网站的水坑攻击，揭示了攻击者利用 DLL 侧加载技术分发 STX RAT 的完整链条。文章核心亮点在于揭露了威胁行为者因重复使用旧版 C2 配置和已知恶意载荷而导致的严重运营安全失误，为快速识别和阻断此类供应链攻击提供了关键线索。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ago</p>
-                        <div class="article-date">发布日期: 2026-04-16</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-16">
-                        <div class="article-source">来源: Daily Security</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/aa0c201b-45d8-4d77-a6da-90f0357b99f0/" target="_blank">Project Glasswing 与 Claude Mythos：网络安全面临的十大即时与长期后果</a></h3>
-                        <p class="article-description">本文深刻揭示了 Anthropic 的 Mythos 模型如何颠覆传统漏洞发现范式，将安全行业的价值重心从“发现”强制转移至“修复”与“治理”。文章前瞻性地预警了开源维护瓶颈、CVE 系统过载及国家网络战略转变等十大连锁反应，为行业应对 AI 驱动的安全危机提供了至关重要的战略路线图。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ago</p>
-                        <div class="article-date">发布日期: 2026-04-16</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-16">
-                        <div class="article-source">来源: Daily Security</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/b80144c0-2c0a-4ffc-a926-80188ce08c74/" target="_blank">SecToday Next</a></h3>
-                        <p class="article-description">2026 年 3 月，疑似朝鲜关联的黑客组织（UNC1069）成功劫持了流行的开源库 Axios 的维护者账户，发布了包含隐藏远程访问木马（RAT）的投毒版本。攻击者利用“幽灵依赖”（phantom dependency）技术触发 postinstall 脚本，在 Windows、macOS 和 Linux 系统上跨平台部署恶意软件，并手动使用被盗 Token 绕过了 GitHub Actions 的 OIDC 防护。此次攻击直接导致 OpenAI 的 CI/CD 工作流及 macOS 代码签名证书面临严重风险。尽管未发生用户数据泄露，但 OpenAI 被迫撤销所有 macOS 证书，并强制 ChatGPT、Codex 和 Atlas 用户立即更新应用以防止伪造分发。该事件凸显了软件供应链中第三方依赖管理的极端脆弱性，以及高级持续性威胁（APT）利用开源生态进行大规模渗透的严峻挑战。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ...</p>
-                        <div class="article-date">发布日期: 2026-04-16</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-16">
-                        <div class="article-source">来源: Daily Security</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/bf4ffc22-1990-4da6-8bf7-b37e987a5ebd/" target="_blank">SecToday Next</a></h3>
-                        <p class="article-description">安全研究人员 Haifei Li 通过 EXPMON 平台披露了 Adobe Acrobat Reader 中一个严重的零日漏洞 CVE-2026-34621，该漏洞源于原型污染（Prototype Pollution）缺陷。自 2025 年 12 月起，高级持续性威胁（APT）组织利用该漏洞针对俄罗斯油气行业等高价值目标发动定向攻击。攻击者通过特制的恶意 PDF 文件，利用混淆的 JavaScript 代码调用 util.readFileIntoStream() 和 RSS.addFeed() 等特权 API，在无需用户深度交互的情况下绕过沙箱限制，执行系统指纹识别、敏感数据窃取及建立命令与控制（C2）通道，并具备潜在的远程代码执行（RCE）和沙箱逃逸能力。Adobe 随后发布了紧急补丁（APSB26-43），建议全球用户在 72 小时内完成更新以阻断这一持续数月的活跃攻击活动。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days a...</p>
-                        <div class="article-date">发布日期: 2026-04-16</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-16">
-                        <div class="article-source">来源: Daily Security</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/bdbc1600-a59a-4de5-b739-12af728fbc07/" target="_blank">SecToday Next</a></h3>
-                        <p class="article-description">OpenAI 推出了专为数字防御者设计的 GPT-5.4-Cyber 模型，这是一款经过微调的“网络许可”（Cyber-Permissive）变体，旨在降低防御性任务的拒绝阈值，使安全专家能够在无需源代码的情况下执行二进制逆向工程等高级工作流，以分析恶意软件、漏洞及系统鲁棒性。该模型的发布伴随着“网络安全可信访问”（Trusted Access for Cyber, TAC）计划的扩展，通过分级验证机制将访问权限严格限制于经过审核的安全专业人士及组织。这一战略举措标志着从单纯限制模型能力向基于严格身份验证的运营级 AI 网络安全基础设施的重大转变，旨在回应行业竞争并建立在 Codex Security 修复大量漏洞的成功基础之上，为未来高能力模型的部署铺平道路。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ago</p>
-                        <div class="article-date">发布日期: 2026-04-16</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-16">
-                        <div class="article-source">来源: Daily Security</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/035684f9-d82e-40ce-9af1-5fa147e9653e/" target="_blank">利用 Model Context Protocol 与 IAM 控制保障 AI Agent 访问 AWS 资源的安全</a></h3>
-                        <p class="article-description">本文针对非确定性 AI 代理在 AWS 环境中的动态行为，提出了构建确定性 IAM 权限控制的三大核心安全原则。文章通过深入剖析托管与自托管 MCP 服务器的部署差异及凭证管理策略，为在机器速度下防止权限滥用提供了极具实操性的架构指南。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ago</p>
-                        <div class="article-date">发布日期: 2026-04-16</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-16">
-                        <div class="article-source">来源: Daily Security</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/048ab46f-ac85-43e9-8dcd-a40741b3c60a/" target="_blank">Strix AI 发现 etcd 严重认证绕过漏洞 CVE-2026-33413，导致未授权集群访问</a></h3>
-                        <p class="article-description">本文揭示了由AI安全代理Strix发现的etcd关键身份验证绕过漏洞（CVE-2026-33413），该漏洞允许攻击者无需授权即可执行维护操作并导致集群崩溃。这一发现不仅突显了云原生基础设施中维护API权限检查的重大架构缺陷，更标志着AI自主渗透测试在发现深层逻辑漏洞方面的里程碑式突破。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ago</p>
-                        <div class="article-date">发布日期: 2026-04-16</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-16">
-                        <div class="article-source">来源: Daily Security</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/bc2b2b92-977f-4005-a1d0-1467a6840d50/" target="_blank">AI 驱动提权：Codex 利用 World-Writable Novatek 驱动实现三星智能电视 Root</a></h3>
-                        <p class="article-description">本文最引人注目的亮点在于，OpenAI 的 Codex 模型在未被指引具体漏洞的情况下，自主分析三星电视固件源码并成功利用 Novatek 驱动的世界可写缺陷，将浏览器沙盒权限提升至 Root。这一案例不仅揭示了消费电子硬件供应链中第三方内核组件的严重安全盲区，更标志着 AI 已具备独立执行复杂内核级漏洞挖掘与利用的实战能力。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ago</p>
-                        <div class="article-date">发布日期: 2026-04-16</div>
                     </div>
                     <div class="article-card" data-date="2026-04-15">
                         <div class="article-source">来源: XZ Aliyun</div>
@@ -551,19 +539,19 @@ FLAG3（模拟跑通了、没时间扒下来）  几个不同的触发题触发 
                     <div class="article-card" data-date="2026-04-13">
                         <div class="article-source">来源: XZ Aliyun</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/91963" target="_blank">契约锁电子签章系统登录接口组合漏洞挖掘</a></h3>
-                        <p class="article-description">契约锁电子签章系统登录接口组合漏洞挖掘在契约锁电子签章系统的安全审计中，通过分析官方补丁包发现一处逻辑漏洞：短信验证码校验可被绕过，导致任意用户注册。尽管登录环节设置了短信验证码及多项参数校验，但由于短信发送条件判断存在歧义，且注册与登录流程过度耦合，形成了一条完整的攻击路径。漏洞分析aqyoung发表于 福建· 165浏览 · 2026-04-13 15:10</p>
+                        <p class="article-description">契约锁电子签章系统登录接口组合漏洞挖掘在契约锁电子签章系统的安全审计中，通过分析官方补丁包发现一处逻辑漏洞：短信验证码校验可被绕过，导致任意用户注册。尽管登录环节设置了短信验证码及多项参数校验，但由于短信发送条件判断存在歧义，且注册与登录流程过度耦合，形成了一条完整的攻击路径。漏洞分析aqyoung发表于 福建· 395浏览 · 2026-04-13 15:10</p>
                         <div class="article-date">发布日期: 2026-04-13</div>
                     </div>
                     <div class="article-card" data-date="2026-04-11">
                         <div class="article-source">来源: XZ Aliyun</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/91931" target="_blank">某攻防钓鱼样本分析</a></h3>
-                        <p class="article-description">某攻防钓鱼样本分析文章详细分析了钓鱼样本执行从上线到维权，最后拿到CS的shellcode，文末有彩蛋二进制安全蓝*澪发表于 广西· 2106浏览 · 2026-04-11 13:58</p>
+                        <p class="article-description">某攻防钓鱼样本分析文章详细分析了钓鱼样本执行从上线到维权，最后拿到CS的shellcode，文末有彩蛋二进制安全蓝*澪发表于 广西· 2247浏览 · 2026-04-11 13:58</p>
                         <div class="article-date">发布日期: 2026-04-11</div>
                     </div>
                     <div class="article-card" data-date="2026-04-09">
                         <div class="article-source">来源: XZ Aliyun</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/91939" target="_blank">Apache ActiveMQ CVE-2026-34197 Jolokia 远程代码执行漏洞分析</a></h3>
-                        <p class="article-description">Apache ActiveMQ CVE-2026-34197 Jolokia 远程代码执行漏洞分析Apache ActiveMQ CVE-2026-34197 Jolokia 远程代码执行漏洞分析漏洞分析真爱和自由发表于 北京· 1570浏览 · 2026-04-09 05:27</p>
+                        <p class="article-description">Apache ActiveMQ CVE-2026-34197 Jolokia 远程代码执行漏洞分析Apache ActiveMQ CVE-2026-34197 Jolokia 远程代码执行漏洞分析漏洞分析真爱和自由发表于 北京· 1723浏览 · 2026-04-09 05:27</p>
                         <div class="article-date">发布日期: 2026-04-09</div>
                     </div>
                     <div class="article-card" data-date="2026-04-09">
@@ -575,31 +563,31 @@ FLAG3（模拟跑通了、没时间扒下来）  几个不同的触发题触发 
                     <div class="article-card" data-date="2026-04-08">
                         <div class="article-source">来源: XZ Aliyun</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/91936" target="_blank">CVE-2026-22738-Spring AI SimpleVectorStore 中的 SpEL 注入导致远程代码执行漏洞分析</a></h3>
-                        <p class="article-description">CVE-2026-22738-Spring AI SimpleVectorStore 中的 SpEL 注入导致远程代码执行漏洞分析Spring AI SpEL 注入 RCEAI专栏rocky发表于 北京· 1342浏览 · 2026-04-08 15:18</p>
+                        <p class="article-description">CVE-2026-22738-Spring AI SimpleVectorStore 中的 SpEL 注入导致远程代码执行漏洞分析Spring AI SpEL 注入 RCEAI专栏rocky发表于 北京· 1434浏览 · 2026-04-08 15:18</p>
                         <div class="article-date">发布日期: 2026-04-08</div>
                     </div>
                     <div class="article-card" data-date="2026-04-08">
                         <div class="article-source">来源: XZ Aliyun</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/91933" target="_blank">2026阿里白帽大会 - Agent安全(智能体时代的攻防新范式)</a></h3>
-                        <p class="article-description">2026阿里白帽大会 - Agent安全(智能体时代的攻防新范式)2026阿里白帽大会 - Agent安全(智能体时代的攻防新范式)AI专栏阿里云先知阿里白帽大会 · 3044浏览 · 2026-04-08 02:35</p>
+                        <p class="article-description">2026阿里白帽大会 - Agent安全(智能体时代的攻防新范式)2026阿里白帽大会 - Agent安全(智能体时代的攻防新范式)AI专栏阿里云先知阿里白帽大会 · 3189浏览 · 2026-04-08 02:35</p>
                         <div class="article-date">发布日期: 2026-04-08</div>
                     </div>
                     <div class="article-card" data-date="2026-04-01">
                         <div class="article-source">来源: XZ Aliyun</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/91897" target="_blank">0day--JeecgBoot v3.9.1 多漏洞审计过程</a></h3>
-                        <p class="article-description">0day--JeecgBoot v3.9.1 多漏洞审计过程该文章记录了jeecgboot两个0day漏洞的挖掘过程漏洞分析xia0mai发表于 北京· 4528浏览 · 2026-04-01 17:01</p>
+                        <p class="article-description">0day--JeecgBoot v3.9.1 多漏洞审计过程该文章记录了jeecgboot两个0day漏洞的挖掘过程漏洞分析xia0mai发表于 北京· 4669浏览 · 2026-04-01 17:01</p>
                         <div class="article-date">发布日期: 2026-04-01</div>
                     </div>
                     <div class="article-card" data-date="2026-03-31">
                         <div class="article-source">来源: XZ Aliyun</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/91880" target="_blank">【AI安全】OpenClaw多阶段网页诱导绕过防护的RCE攻击</a></h3>
-                        <p class="article-description">【AI安全】OpenClaw多阶段网页诱导绕过防护的RCE攻击OpenClaw作为最近爆火的AI应用，其设计者已深刻意识到了外部攻击面的风险，并构建了多层的静态防护机制，但当攻击者利用长上下文的认知负载和任务导向性等手段逐步诱导AI忽略安全边界时，AI 似乎难以始终守住边界，最终仍可能执行恶意命令。AI专栏Fausto发表于 广东· 3626浏览 · 2026-03-31 02:59</p>
+                        <p class="article-description">【AI安全】OpenClaw多阶段网页诱导绕过防护的RCE攻击OpenClaw作为最近爆火的AI应用，其设计者已深刻意识到了外部攻击面的风险，并构建了多层的静态防护机制，但当攻击者利用长上下文的认知负载和任务导向性等手段逐步诱导AI忽略安全边界时，AI 似乎难以始终守住边界，最终仍可能执行恶意命令。AI专栏Fausto发表于 广东· 3734浏览 · 2026-03-31 02:59</p>
                         <div class="article-date">发布日期: 2026-03-31</div>
                     </div>
                     <div class="article-card" data-date="2026-03-30">
                         <div class="article-source">来源: XZ Aliyun</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/91878" target="_blank">Smartbi历史漏洞分析(一)——RMIServlet接口引发的惨案</a></h3>
-                        <p class="article-description">Smartbi历史漏洞分析(一)——RMIServlet接口引发的惨案Smartbi的RMIServlet接口由于其方法调用的功能，出现过非常多漏洞，以这个接口为切入点，开始分析其出现过的部分历史漏洞。漏洞分析idiot9发表于 北京· 2512浏览 · 2026-03-30 15:36</p>
+                        <p class="article-description">Smartbi历史漏洞分析(一)——RMIServlet接口引发的惨案Smartbi的RMIServlet接口由于其方法调用的功能，出现过非常多漏洞，以这个接口为切入点，开始分析其出现过的部分历史漏洞。漏洞分析idiot9发表于 北京· 2595浏览 · 2026-03-30 15:36</p>
                         <div class="article-date">发布日期: 2026-03-30</div>
                     </div>
                     <div class="article-card" data-date="2026-03-30">
@@ -611,25 +599,25 @@ FLAG3（模拟跑通了、没时间扒下来）  几个不同的触发题触发 
                     <div class="article-card" data-date="2026-03-29">
                         <div class="article-source">来源: XZ Aliyun</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/91860" target="_blank">IDA实操技巧：深度剖析Dridex家族木马分析</a></h3>
-                        <p class="article-description">IDA实操技巧：深度剖析Dridex家族木马分析1. 深度分析Dridex分析 2. 介绍分析过程中的各种技巧 3. 编写脚本提取C2二进制安全你猜猜丶发表于 北京· 1842浏览 · 2026-03-29 13:28</p>
+                        <p class="article-description">IDA实操技巧：深度剖析Dridex家族木马分析1. 深度分析Dridex分析 2. 介绍分析过程中的各种技巧 3. 编写脚本提取C2二进制安全你猜猜丶发表于 北京· 1915浏览 · 2026-03-29 13:28</p>
                         <div class="article-date">发布日期: 2026-03-29</div>
                     </div>
                     <div class="article-card" data-date="2026-03-28">
                         <div class="article-source">来源: XZ Aliyun</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/91856" target="_blank">【原创漏洞】JeecgBoot ≤3.4.0 验证码逻辑缺陷导致任意用户注册漏洞（0day）</a></h3>
-                        <p class="article-description">【原创漏洞】JeecgBoot ≤3.4.0 验证码逻辑缺陷导致任意用户注册漏洞（0day）JeecgBoot ≤3.4.0 验证码逻辑缺陷导致任意用户注册漏洞核心问题是由于系统对Redis缓存Key设计不严谨、验证码来源未做业务隔离、校验逻辑存在权限所导致WEB安全aqyoung发表于 福建· 1578浏览 · 2026-03-28 11:49</p>
+                        <p class="article-description">【原创漏洞】JeecgBoot ≤3.4.0 验证码逻辑缺陷导致任意用户注册漏洞（0day）JeecgBoot ≤3.4.0 验证码逻辑缺陷导致任意用户注册漏洞核心问题是由于系统对Redis缓存Key设计不严谨、验证码来源未做业务隔离、校验逻辑存在权限所导致WEB安全aqyoung发表于 福建· 1675浏览 · 2026-03-28 11:49</p>
                         <div class="article-date">发布日期: 2026-03-28</div>
                     </div>
                     <div class="article-card" data-date="2026-03-27">
                         <div class="article-source">来源: XZ Aliyun</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/91855" target="_blank">jeeWMS基于鉴权绕过的四种RCE姿势</a></h3>
-                        <p class="article-description">jeeWMS基于鉴权绕过的四种RCE姿势本文深入探讨了 JEEWMS v3.7中存在的四个远程代码执行漏洞。作者受SUCTF启发，详细展示了如何通过绕过鉴权逻辑来利用未授权的高危接口。指出其安全性问题本质上源于鉴权机制不严以及文件/路径处理逻辑中的过滤缺失。文章提供了详细的调试过程、Payload 构造及复现截图，具有实操参考价值。漏洞分析iElloc发表于 北京· 987浏览 · 2026...</p>
+                        <p class="article-description">jeeWMS基于鉴权绕过的四种RCE姿势本文深入探讨了 JEEWMS v3.7中存在的四个远程代码执行漏洞。作者受SUCTF启发，详细展示了如何通过绕过鉴权逻辑来利用未授权的高危接口。指出其安全性问题本质上源于鉴权机制不严以及文件/路径处理逻辑中的过滤缺失。文章提供了详细的调试过程、Payload 构造及复现截图，具有实操参考价值。漏洞分析iElloc发表于 北京· 1070浏览 · 202...</p>
                         <div class="article-date">发布日期: 2026-03-27</div>
                     </div>
                     <div class="article-card" data-date="2026-03-26">
                         <div class="article-source">来源: XZ Aliyun</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/91845" target="_blank">【AI安全】CVE-2026-26023深度分析：Dify中的XSS利用</a></h3>
-                        <p class="article-description">【AI安全】CVE-2026-26023深度分析：Dify中的XSS利用我们可以进一步利用CVE-2026-26023漏洞，在受害者查看历史聊天记录时触发恶意脚本，进而借助受害者浏览器的已授权上下文，调用Dify后端API，最终实现从中危XSS到窃取工作空间权限的危害提升AI专栏Fausto发表于 广东· 1019浏览 · 2026-03-26 08:59</p>
+                        <p class="article-description">【AI安全】CVE-2026-26023深度分析：Dify中的XSS利用我们可以进一步利用CVE-2026-26023漏洞，在受害者查看历史聊天记录时触发恶意脚本，进而借助受害者浏览器的已授权上下文，调用Dify后端API，最终实现从中危XSS到窃取工作空间权限的危害提升AI专栏Fausto发表于 广东· 1102浏览 · 2026-03-26 08:59</p>
                         <div class="article-date">发布日期: 2026-03-26</div>
                     </div>
                 </div>
@@ -639,160 +627,263 @@ FLAG3（模拟跑通了、没时间扒下来）  几个不同的触发题触发 
                 <h2 class="section-title">📰 安全新闻 (Security News)</h2>
                 <div class="articles-grid" id="news-articles">
                     
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: The Hacker News</div>
+                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/malicious-kics-docker-images-and-vs.html" target="_blank">Malicious KICS Docker Images and VS Code Extensions Hit Checkmarx Supply Chain</a></h3>
+                        <p class="article-description">Malicious KICS Docker tags and VS Code versions 1.17.0, 1.19.0 enabled data exfiltration, risking exposed infrastructure secrets.</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: The Hacker News</div>
+                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/self-propagating-supply-chain-worm.html" target="_blank">Self-Propagating Supply Chain Worm Hijacks npm Packages to Steal Developer Tokens</a></h3>
+                        <p class="article-description">Self-propagating npm worm steals tokens via postinstall hooks, impacting six packages and expanding supply chain attacks.</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: The Hacker News</div>
+                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/harvester-deploys-linux-gogra-backdoor.html" target="_blank">Harvester Deploys Linux GoGra Backdoor in South Asia Using Microsoft Graph API</a></h3>
+                        <p class="article-description">Harvester deploys Linux GoGra via Microsoft Graph API in South Asia, targeting India and Afghanistan since 2021, enabling covert espionage</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: The Hacker News</div>
+                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/lotus-wiper-malware-targets-venezuelan.html" target="_blank">Lotus Wiper Malware Targets Venezuelan Energy Systems in Destructive Attack</a></h3>
+                        <p class="article-description">Lotus Wiper hit Venezuela’s energy sector in late 2025, exploiting pre-Windows 10 1803 systems, wiping drives and crippling operations.</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: The Hacker News</div>
+                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/toxic-combinations-when-cross-app.html" target="_blank">Toxic Combinations: When Cross-App Permissions Stack into Risk</a></h3>
+                        <p class="article-description">Toxic combinations form when AI agents, integrations, or OAuth grants
+bridge SaaS apps into trust relationships no single admin authorized.</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: The Hacker News</div>
+                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/microsoft-patches-critical-aspnet-core.html" target="_blank">Microsoft Patches Critical ASP.NET Core CVE-2026-40372 Privilege Escalation Bug</a></h3>
+                        <p class="article-description">CVE-2026-40372 scores 9.1 due to cryptographic flaw in ASP.NET Core 10.0.0–10.0.6, risking SYSTEM access.</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: The Hacker News</div>
+                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/mustang-pandas-new-lotuslite-variant.html" target="_blank">Mustang Panda’s New LOTUSLITE Variant Targets India Banks, South Korea Policy Circles</a></h3>
+                        <p class="article-description">Updated LOTUSLITE targets India banking sector via CHM and DLL side-loading, expanding espionage campaign to South Korea and U.S. policy circles.</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: The Hacker News</div>
+                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/cohere-ai-terrarium-sandbox-flaw.html" target="_blank">Cohere AI Terrarium Sandbox Flaw Enables Root Code Execution, Container Escape</a></h3>
+                        <p class="article-description">CVE-2026-5752 CVSS 9.3 flaw in Terrarium enables root code execution via Pyodide prototype traversal, risking container escape.</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: The Hacker News</div>
                         <h3 class="article-title"><a href="https://thehackernews.com/2026/04/systembc-c2-server-reveals-1570-victims.html" target="_blank">SystemBC C2 Server Reveals 1,570+ Victims in The Gentlemen Ransomware Operation</a></h3>
                         <p class="article-description">SystemBC C2 exposed 1,570+ victims tied to The Gentlemen since July 2025, revealing expanding ransomware scale.</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: The Hacker News</div>
                         <h3 class="article-title"><a href="https://thehackernews.com/2026/04/22-bridgebreak-flaws-expose-20000.html" target="_blank">22 BRIDGE:BREAK Flaws Expose Thousands of Lantronix and Silex Serial-to-IP Converters</a></h3>
                         <p class="article-description">22 BRIDGE:BREAK flaws in Lantronix and Silex converters expose nearly 20,000 devices online, enabling takeover and data tampering.</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: The Hacker News</div>
                         <h3 class="article-title"><a href="https://thehackernews.com/2026/04/ransomware-negotiator-pleads-guilty-to.html" target="_blank">Ransomware Negotiator Pleads Guilty to Aiding BlackCat Attacks in 2023</a></h3>
                         <p class="article-description">Ransomware negotiator pleads guilty to aiding BlackCat in 2023; leaked victim data enabled $1.2M extortion and $10M seizure.</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: The Hacker News</div>
                         <h3 class="article-title"><a href="https://thehackernews.com/2026/04/5-places-where-mature-socs-keep-mttr.html" target="_blank">5 Places where Mature SOCs Keep MTTR Fast and Others Waste Time</a></h3>
                         <p class="article-description">Integrated threat intelligence reduces MTTR using data from 15,000 organizations and 600,000 analysts, limiting dwell time and business risk.</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: The Hacker News</div>
-                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/ngate-campaign-targets-brazil.html" target="_blank">NGate Campaign Targets Brazil, Trojanizes HandyPay to Steal NFC Data and PINs</a></h3>
-                        <p class="article-description">NGate abuses HandyPay in Brazil since Nov 2025, stealing NFC data and PINs to enable ATM fraud and unauthorized payments.</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: SecurityWeek</div>
+                        <h3 class="article-title"><a href="https://www.securityweek.com/after-bluesky-mastodon-targeted-in-ddos-attack/" target="_blank">After Bluesky, Mastodon Targeted in DDoS Attack</a></h3>
+                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: The Hacker News</div>
-                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/no-exploit-needed-how-attackers-walk.html" target="_blank">No Exploit Needed: How Attackers Walk Through the Front Door via Identity-Based Attacks</a></h3>
-                        <p class="article-description">Stolen credentials remain top breach vector as AI speeds phishing and testing, increasing ransomware and persistence risk.</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: SecurityWeek</div>
+                        <h3 class="article-title"><a href="https://www.securityweek.com/most-serious-cyberattacks-against-the-uk-now-from-russia-iran-and-china-cyber-chief-says/" target="_blank">Most Serious Cyberattacks Against the UK Now From Russia, Iran and China, Cyber Chief Says</a></h3>
+                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: The Hacker News</div>
-                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/google-patches-antigravity-ide-flaw.html" target="_blank">Google Patches Antigravity IDE Flaw Enabling Prompt Injection Code Execution</a></h3>
-                        <p class="article-description">Antigravity Strict Mode bypass disclosed Jan 7, 2026, patched Feb 28, enables arbitrary code execution via fd -X flag.</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: SecurityWeek</div>
+                        <h3 class="article-title"><a href="https://www.securityweek.com/new-wiper-malware-targeted-venezuelan-energy-sector-prior-to-us-intervention/" target="_blank">New Wiper Malware Targeted Venezuelan Energy Sector Prior to US Intervention</a></h3>
+                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: The Hacker News</div>
-                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/cisa-adds-8-exploited-flaws-to-kev-sets.html" target="_blank">CISA Adds 8 Exploited Flaws to KEV, Sets April-May 2026 Federal Deadlines</a></h3>
-                        <p class="article-description">CISA adds 8 exploited vulnerabilities to KEV, sets April 23 and May 4, 2026 deadlines, driving urgent federal patching.</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: SecurityWeek</div>
+                        <h3 class="article-title"><a href="https://www.securityweek.com/mirai-botnet-targets-flaw-in-discontinued-d-link-routers/" target="_blank">Mirai Botnet Targets Flaw in Discontinued D-Link Routers</a></h3>
+                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: The Hacker News</div>
-                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/sglang-cve-2026-5760-cvss-98-enables.html" target="_blank">SGLang CVE-2026-5760 (CVSS 9.8) Enables RCE via Malicious GGUF Model Files</a></h3>
-                        <p class="article-description">CVE-2026-5760 (CVSS 9.8) exposes SGLang via /v1/rerank endpoint, enabling RCE through malicious GGUF models, risking server compromise.</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: SecurityWeek</div>
+                        <h3 class="article-title"><a href="https://www.securityweek.com/are-sboms-failing-supply-chain-attacks-rise-as-security-teams-struggle-with-sbom-data/" target="_blank">Are SBOMs Failing? Supply Chain Attacks Rise as Security Teams Struggle With SBOM Data</a></h3>
+                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: The Hacker News</div>
-                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/weekly-recap-vercel-hack-push-fraud.html" target="_blank">⚡ Weekly Recap: Vercel Hack, Push Fraud, QEMU Abused, New Android RATs Emerge &amp; More</a></h3>
-                        <p class="article-description">Monday cybersecurity recap on evolving threats, trusted tool abuse, stealthy in-memory attacks, and shifting access patterns.</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: SecurityWeek</div>
+                        <h3 class="article-title"><a href="https://www.securityweek.com/claude-mythos-finds-271-firefox-vulnerabilities/" target="_blank">Claude Mythos Finds 271 Firefox Vulnerabilities</a></h3>
+                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: The Hacker News</div>
-                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/why-most-ai-deployments-stall-after-demo.html" target="_blank">Why Most AI Deployments Stall After the Demo</a></h3>
-                        <p class="article-description">AI projects stall when clean demos meet messy operations, latency, and governance gaps, limiting enterprise impact.</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: SecurityWeek</div>
+                        <h3 class="article-title"><a href="https://www.securityweek.com/north-korean-hackers-use-applescript-clickfix-in-fresh-macos-attacks/" target="_blank">North Korean Hackers Use AppleScript, ClickFix in Fresh macOS Attacks</a></h3>
+                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: The Hacker News</div>
-                        <h3 class="article-title"><a href="https://thehackernews.com/2026/04/anthropic-mcp-design-vulnerability.html" target="_blank">Anthropic MCP Design Vulnerability Enables RCE, Threatening AI Supply Chain</a></h3>
-                        <p class="article-description">MCP design flaw enables RCE across 7,000+ servers and 150M downloads, impacting AI SDKs and supply chains.</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: SecurityWeek</div>
+                        <h3 class="article-title"><a href="https://www.securityweek.com/google-antigravity-in-crosshairs-of-security-researchers-cybercriminals/" target="_blank">Google Antigravity in Crosshairs of Security Researchers, Cybercriminals</a></h3>
+                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
+                        <div class="article-source">来源: SecurityWeek</div>
+                        <h3 class="article-title"><a href="https://www.securityweek.com/oracle-patches-450-vulnerabilities-with-april-2026-cpu/" target="_blank">Oracle Patches 450 Vulnerabilities With April 2026 CPU</a></h3>
+                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: SecurityWeek</div>
                         <h3 class="article-title"><a href="https://www.securityweek.com/third-us-security-expert-admits-helping-ransomware-gang/" target="_blank">Third US Security Expert Admits Helping Ransomware Gang</a></h3>
                         <p class="article-description">Latest security news from SecurityWeek</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: SecurityWeek</div>
                         <h3 class="article-title"><a href="https://www.securityweek.com/dozens-of-malicious-crypto-apps-land-in-apple-app-store/" target="_blank">Dozens of Malicious Crypto Apps Land in Apple App Store</a></h3>
                         <p class="article-description">Latest security news from SecurityWeek</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: SecurityWeek</div>
                         <h3 class="article-title"><a href="https://www.securityweek.com/unsecured-perforce-servers-expose-sensitive-data-from-major-orgs/" target="_blank">Unsecured Perforce Servers Expose Sensitive Data From Major Orgs</a></h3>
                         <p class="article-description">Latest security news from SecurityWeek</p>
-                        <div class="article-date">发布日期: 2026-04-22</div>
+                        <div class="article-date">发布日期: 2026-04-23</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-22">
+                    <div class="article-card" data-date="2026-04-23">
                         <div class="article-source">来源: SecurityWeek</div>
                         <h3 class="article-title"><a href="https://www.securityweek.com/progress-patches-multiple-vulnerabilities-in-moveit-waf-loadmaster/" target="_blank">Progress Patches Multiple Vulnerabilities in MOVEit WAF, LoadMaster</a></h3>
                         <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-date">发布日期: 2026-04-23</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-22">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89656" target="_blank">仅花1.5万元，就能把关键漏洞变成直接运行的网络武器</a></h3>
+                        <p class="article-description">安全研究员尝试用Claude Opus 4.6模型为Discord客户端内置的Chrome编写漏洞利用，在消耗20个小时2.3T词元（价...</p>
                         <div class="article-date">发布日期: 2026-04-22</div>
                     </div>
                     <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/organizations-warned-of-exploited-cisco-kentico-zimbra-vulnerabilities/" target="_blank">Organizations Warned of Exploited Cisco, Kentico, Zimbra Vulnerabilities</a></h3>
-                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89650" target="_blank">聚焦联合作战和博弈对抗：美国防部披露美军网络战略布局与发展方向</a></h3>
+                        <p class="article-description">美国防部网络高官针对美军网络空间态势和能力作证。</p>
                         <div class="article-date">发布日期: 2026-04-22</div>
                     </div>
                     <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/data-breaches-at-healthcare-organizations-in-illinois-and-texas-affect-600000/" target="_blank">Data Breaches at Healthcare Organizations in Illinois and Texas Affect 600,000</a></h3>
-                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89648" target="_blank">Coinbase交易所发布加密货币紧急量子警告</a></h3>
+                        <p class="article-description">必须立刻开始制定和实施PQC迁移战略。</p>
                         <div class="article-date">发布日期: 2026-04-22</div>
                     </div>
                     <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/290-million-kelp-dao-crypto-heist-blamed-on-north-korea/" target="_blank">$290 Million Kelp DAO Crypto Heist Blamed on North Korea</a></h3>
-                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89629" target="_blank">朝鲜黑客组织Lazarus涉嫌窃取KelpDAO 2.9亿美元加密资产</a></h3>
+                        <p class="article-description">黑客篡改验证节点窃取资产。</p>
                         <div class="article-date">发布日期: 2026-04-22</div>
                     </div>
                     <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/serial-to-ip-converter-flaws-expose-ot-and-healthcare-systems-to-hacking/" target="_blank">Serial-to-IP Converter Flaws Expose OT and Healthcare Systems to Hacking</a></h3>
-                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89643" target="_blank">美军驻关岛军事通信基础设施概况</a></h3>
+                        <p class="article-description">本文讨论的关岛军事通信基础设施，涵盖美军在关岛部署与运营的固定通信枢纽、地面光纤传输网络、卫星通信网关...</p>
                         <div class="article-date">发布日期: 2026-04-22</div>
                     </div>
                     <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/british-scattered-spider-hacker-pleads-guilty-in-the-us/" target="_blank">British Scattered Spider Hacker Pleads Guilty in the US</a></h3>
-                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89642" target="_blank">英国人工智能安全研究所报告：前沿人工智能风险、影响和展望</a></h3>
+                        <p class="article-description">报告指出，随着人工智能能力在各领域迅速提升，甚至开始接近或超越人类专家水平，社会亟需理解这一技术变化的...</p>
                         <div class="article-date">发布日期: 2026-04-22</div>
                     </div>
                     <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/hackers-abuse-qemu-for-defense-evasion/" target="_blank">Hackers Abuse QEMU for Defense Evasion</a></h3>
-                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89644" target="_blank">为了训练AI，Meta强制监控了员工的鼠标和键盘</a></h3>
+                        <p class="article-description">难以想象，Meta 员工竟然正在被扎克伯格当做 AI 训练的数据源。</p>
                         <div class="article-date">发布日期: 2026-04-22</div>
                     </div>
                     <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/bluesky-disrupted-by-sophisticated-ddos-attack/" target="_blank">Bluesky Disrupted by Sophisticated DDoS Attack</a></h3>
-                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89638" target="_blank">智能体互联网：网络新范式与安全新机遇</a></h3>
+                        <p class="article-description">智能体互联网这一新兴基础设施不仅将重塑互联网的底层逻辑，也为网络安全领域带来了新的发展机遇。</p>
                         <div class="article-date">发布日期: 2026-04-22</div>
                     </div>
                     <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/senate-extends-surveillance-powers-until-april-30-after-chaotic-votes-in-house/" target="_blank">Senate Extends Surveillance Powers Until April 30 After Chaotic Votes in House</a></h3>
-                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89639" target="_blank">Mirai变种Nexcorium深度解析：针对视频监控设备的命令注入漏洞利用与僵尸网络演化分析</a></h3>
+                        <p class="article-description">奇安信威胁情报中心监测发现，Fortinet FortiGuard Labs与Palo Alto Networks Unit 42联合披露了一起活跃的物...</p>
                         <div class="article-date">发布日期: 2026-04-22</div>
                     </div>
                     <div class="article-card" data-date="2026-04-22">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/half-of-the-6-million-internet-facing-ftp-servers-lack-encryption/" target="_blank">Half of the 6 Million Internet-Facing FTP Servers Lack Encryption</a></h3>
-                        <p class="article-description">Latest security news from SecurityWeek</p>
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89646" target="_blank">国家计算机病毒应急处理中心：警惕！“龙虾”智能体被投毒</a></h3>
+                        <p class="article-description">“龙虾”智能体系统相关技能仓库中发现多个包含恶意代码的仿冒技能包。</p>
+                        <div class="article-date">发布日期: 2026-04-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-22">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89637" target="_blank">美媒：Anthropic的Mythos AI模型正被一群未授权用户访问</a></h3>
+                        <p class="article-description">Anthropic表示，没有证据显示其核心系统遭到入侵或数据泄露，访问仅限于供应商侧的环境。</p>
                         <div class="article-date">发布日期: 2026-04-22</div>
                     </div>
                     <div class="article-card" data-date="2026-04-21">
                         <div class="article-source">来源: Anquanke</div>
                         <h3 class="article-title"><a href="https://www.anquanke.com/post/id/315341" target="_blank">科技云报到：当AI闯入特教行业，一场颠覆变革正在发生！</a></h3>
                         
+                        <div class="article-date">发布日期: 2026-04-21</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-21">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89630" target="_blank">AI训练数据集投毒行动开始走向社区化作战</a></h3>
+                        <p class="article-description">介绍几种数据投毒的方式以及对抗方法。</p>
+                        <div class="article-date">发布日期: 2026-04-21</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-21">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89626" target="_blank">航旅纵横App突然崩了！官方紧急致歉</a></h3>
+                        <p class="article-description">多名旅客称航旅纵横APP突发服务异常，显示“服务暂时不可用，请稍后再试”，导致大量用户无法查询行程等信息。</p>
+                        <div class="article-date">发布日期: 2026-04-21</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-21">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89620" target="_blank">认知供应链安全风险特点与应对举措</a></h3>
+                        <p class="article-description">认知对抗的底层化与系统化，标志着人类信息文明进入了“算法操纵意义”的新阶段。从“内容治理”向“全链路能力形...</p>
+                        <div class="article-date">发布日期: 2026-04-21</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-21">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89618" target="_blank">面向大语言模型的自动化渗透测试</a></h3>
+                        <p class="article-description">研究通过一套模拟真实渗透场景的功能性实验，验证了 RedShell 生成的 PowerShell 载荷在受控环境中的实际可执...</p>
+                        <div class="article-date">发布日期: 2026-04-21</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-21">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89615" target="_blank">《国务院关于推进服务业扩能提质的意见》印发</a></h3>
+                        <p class="article-description">深入实施“人工智能+”行动、工业互联网创新发展工程等。</p>
+                        <div class="article-date">发布日期: 2026-04-21</div>
+                    </div>
+                    <div class="article-card" data-date="2026-04-21">
+                        <div class="article-source">来源: Secrss</div>
+                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89612" target="_blank">中国人工智能监管法规全景解析</a></h3>
+                        <p class="article-description">本文逐一梳理主要法规的适用范围与核心合规要点，供企业参考。</p>
                         <div class="article-date">发布日期: 2026-04-21</div>
                     </div>
                     <div class="article-card" data-date="2026-04-21">
@@ -813,113 +904,11 @@ FLAG3（模拟跑通了、没时间扒下来）  几个不同的触发题触发 
                         <p class="article-description">哈密市商业银行因“违反支付结算业务管理规定；违反网络安全与数据安全管理规定；违反反假货币业务管理规定；...</p>
                         <div class="article-date">发布日期: 2026-04-21</div>
                     </div>
-                    <div class="article-card" data-date="2026-04-21">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89600" target="_blank">Vercel供应链攻击事件深度分析：第三方AI工具成为企业安全突破口</a></h3>
-                        <p class="article-description">Vercel内部系统遭未授权访问事件的根源是第三方AI工具Context.ai的一名员工于2026年2月感染Lumma信息窃取器，...</p>
-                        <div class="article-date">发布日期: 2026-04-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-21">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89601" target="_blank">国家安全部：AI“投毒”，危害不容小觑！</a></h3>
-                        <p class="article-description">推动AI治理向善，守住数据安全底线，既是行业责任，也需要全社会共同参与。</p>
-                        <div class="article-date">发布日期: 2026-04-21</div>
-                    </div>
                     <div class="article-card" data-date="2026-04-20">
                         <div class="article-source">来源: Anquanke</div>
                         <h3 class="article-title"><a href="https://www.anquanke.com/post/id/315337" target="_blank">科技云报到：AI云，逻辑变了吗？</a></h3>
                         
                         <div class="article-date">发布日期: 2026-04-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-20">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89594" target="_blank">Claude Desktop被曝秘密写入浏览器后门文件</a></h3>
-                        <p class="article-description">当用户安装 Claude Desktop 桌面应用时，该应用会在用户完全不知情的情况下，向电脑中所有基于 Chromium 内核...</p>
-                        <div class="article-date">发布日期: 2026-04-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-20">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89625" target="_blank">法国国家重要证件管理机构遭网络攻击，部分用户信息泄露</a></h3>
-                        <p class="article-description">受影响信息可能包括姓名、电子邮箱、出生日期，以及部分用户的住址、出生地和电话号码等。</p>
-                        <div class="article-date">发布日期: 2026-04-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-20">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89595" target="_blank">商务部就欧盟《网络安全法》修订草案相关问题答记者问</a></h3>
-                        <p class="article-description">中方表达严正关切，希望欧方不要低估中方维护国家利益和企业合法权益的坚定决心。</p>
-                        <div class="article-date">发布日期: 2026-04-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-20">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89586" target="_blank">Vercel遭第三方OAuth劫持入侵，内部访问令牌与部分环境变量暴露</a></h3>
-                        <p class="article-description">员工 Google 账号失陷，非敏感变量未加密成突破口。</p>
-                        <div class="article-date">发布日期: 2026-04-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-20">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89585" target="_blank">人工智能时代国际传播转向与认知安全风险</a></h3>
-                        <p class="article-description">AI正在深刻重塑国际信息的生产、传播与接收全链条，国际传播正经历从传统舆论宣传向认知博弈的范式转型。不仅...</p>
-                        <div class="article-date">发布日期: 2026-04-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-20">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89584" target="_blank">损害金融主权？俄交易所疑遭敌对国黑客攻击，近亿元被盗后停止运营</a></h3>
-                        <p class="article-description">俄罗斯加密货币交易所Grinex声称，遭遇了一起不友好国家特种部门黑客发起的攻击，导致近亿元加密货币被盗，现...</p>
-                        <div class="article-date">发布日期: 2026-04-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-20">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89590" target="_blank">开源754个安全Skills，能否堆出一个“高级分析师”？</a></h3>
-                        <p class="article-description">正如一线实战人员的直观感受——这些Skill显得“大而全，但很多只是简单的功能”。深入剖析其实现逻辑，这种“肤浅...</p>
-                        <div class="article-date">发布日期: 2026-04-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-20">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89573" target="_blank">诸神黄昏！网络安全平台化时代走向终结</a></h3>
-                        <p class="article-description">浴火之后，谁会诞生？</p>
-                        <div class="article-date">发布日期: 2026-04-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-20">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89571" target="_blank">美国政府科研数据管理政策的演进与实践：科学开放与国家安全的持续角力与平衡</a></h3>
-                        <p class="article-description">本文梳理了美国联邦政府科研数据管理政策的发展演进，尤其是美国相关政策在“数据开放共享”与“研究安全保护”间...</p>
-                        <div class="article-date">发布日期: 2026-04-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-20">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89566" target="_blank">德国防长皮斯托瑞斯严令：敏感会议与机密办公室禁携私人手机</a></h3>
-                        <p class="article-description">德国国防部的新规是在兼顾一定办公效率与最高风险防范之间作出的权衡，而非最极端的方案。</p>
-                        <div class="article-date">发布日期: 2026-04-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-20">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89572" target="_blank">国家安全部：保密意识下班能“下线”吗？</a></h3>
-                        <p class="article-description">八小时之外，看似离开了单位，实则仍处于保密防线延伸地带，一旦思想上滋生麻痹侥幸心理、放松自我约束，就会...</p>
-                        <div class="article-date">发布日期: 2026-04-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-19">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89569" target="_blank">针对以色列水处理和海水淡化设施系统的新型工业恶意软件</a></h3>
-                        <p class="article-description">展示了攻击者已经具备了针对工业控制系统进行精准攻击的能力。</p>
-                        <div class="article-date">发布日期: 2026-04-19</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-19">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89564" target="_blank">未成年人个保审计实务问答</a></h3>
-                        <p class="article-description">我们在协助企业开展审计和报送工作的过程中，对具体执行中遇到的一些问题进行了总结。</p>
-                        <div class="article-date">发布日期: 2026-04-19</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-19">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89563" target="_blank">你的 Agent，他人的资产：真实场景下OpenClaw的安全性分析</a></h3>
-                        <p class="article-description">Agent 的安全边界，正在从“当前这轮 prompt”转移到“它长期保存并持续信任的状态”。</p>
-                        <div class="article-date">发布日期: 2026-04-19</div>
-                    </div>
-                    <div class="article-card" data-date="2026-04-19">
-                        <div class="article-source">来源: Secrss</div>
-                        <h3 class="article-title"><a href="https://www.secrss.com/articles/89561" target="_blank">NIST突然宣布：漏洞太多，处理不过来了</a></h3>
-                        <p class="article-description">美国NIST正式启动国家漏洞数据库（NVD）的运营改革。</p>
-                        <div class="article-date">发布日期: 2026-04-19</div>
                     </div>
                     <div class="article-card" data-date="2026-04-13">
                         <div class="article-source">来源: Anquanke</div>
@@ -956,7 +945,7 @@ FLAG3（模拟跑通了、没时间扒下来）  几个不同的触发题触发 
                     <label for="date-filter">📅 按日期筛选:</label>
                     <select id="date-filter" onchange="filterByDate()">
                         <option value="">全部日期</option>
-                        <option value="2026-04-22">2026-04-22</option><option value="2026-04-21">2026-04-21</option><option value="2026-04-20">2026-04-20</option><option value="2026-04-19">2026-04-19</option><option value="2026-04-18">2026-04-18</option><option value="2026-04-16">2026-04-16</option><option value="2026-04-15">2026-04-15</option><option value="2026-04-13">2026-04-13</option><option value="2026-04-11">2026-04-11</option><option value="2026-04-10">2026-04-10</option><option value="2026-04-09">2026-04-09</option><option value="2026-04-08">2026-04-08</option><option value="2026-04-03">2026-04-03</option><option value="2026-04-01">2026-04-01</option><option value="2026-03-31">2026-03-31</option><option value="2026-03-30">2026-03-30</option><option value="2026-03-29">2026-03-29</option><option value="2026-03-28">2026-03-28</option><option value="2026-03-27">2026-03-27</option><option value="2026-03-26">2026-03-26</option>
+                        <option value="2026-04-23">2026-04-23</option><option value="2026-04-22">2026-04-22</option><option value="2026-04-21">2026-04-21</option><option value="2026-04-20">2026-04-20</option><option value="2026-04-18">2026-04-18</option><option value="2026-04-15">2026-04-15</option><option value="2026-04-13">2026-04-13</option><option value="2026-04-11">2026-04-11</option><option value="2026-04-10">2026-04-10</option><option value="2026-04-09">2026-04-09</option><option value="2026-04-08">2026-04-08</option><option value="2026-04-03">2026-04-03</option><option value="2026-04-01">2026-04-01</option><option value="2026-03-31">2026-03-31</option><option value="2026-03-30">2026-03-30</option><option value="2026-03-29">2026-03-29</option><option value="2026-03-28">2026-03-28</option><option value="2026-03-27">2026-03-27</option><option value="2026-03-26">2026-03-26</option>
                     </select>
                 </div>
 
@@ -980,13 +969,13 @@ FLAG3（模拟跑通了、没时间扒下来）  几个不同的触发题触发 
                 <p>总文章数: 96</p>
                 <p>技术文章: 45</p>
                 <p>安全新闻: 51</p>
-                <p>更新日期: 2026-04-22</p>
+                <p>更新日期: 2026-04-23</p>
             </div>
         </aside>
 
         <div class="footer">
             <p>© 2026 <a href="https://github.com/secnotes">SecNotes</a> | <a href="https://github.com/secnotes/secnews">站点源码</a></p>
-            <p>安全资讯聚合平台 | 更新时间: 2026-04-22 01:19:43</p>
+            <p>安全资讯聚合平台 | 更新时间: 2026-04-23 01:25:03</p>
             <p>数据来源: Sec-Today, 先知社区, Project Zero, Seebug Paper, 腾讯安全, 安全客, 安全内参, SecurityWeek, The Hacker News, 看雪</p>
             <p>如有侵权，请联系删除</p>
         </div>
