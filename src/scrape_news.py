@@ -2272,6 +2272,9 @@ def generate_html(articles, output_file=None):
     tech_sorted = sorted(articles['tech'], key=lambda x: x['date'], reverse=True)
     news_sorted = sorted(articles['news'], key=lambda x: x['date'], reverse=True)
 
+    # Calculate default visible count (excluding Unsafe.sh)
+    default_visible_count = len([a for a in tech_sorted + news_sorted if a['source'] != 'Unsafe.sh'])
+
     # Function to truncate description if too long
     def truncate_description(desc, max_length=500):
         if not desc:
@@ -2612,12 +2615,12 @@ def generate_html(articles, output_file=None):
                     <input type="text" id="search-input" placeholder="输入关键词搜索..." onkeyup="applyFilters()">
                 </div>
 
-                <button onclick="toggleUnsafe()" id="unsafe-btn" style="margin-top: 10px; padding: 8px 16px; background: #17a2b8; color: white; border: none; border-radius: 4px; cursor: pointer;">显示Unsafe</button>
                 <button onclick="clearAllFilters()" style="margin-top: 10px; padding: 8px 16px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">清除筛选</button>
             </div>
 
             <div style="margin-top: 1.5rem;">
                 <h4>统计信息</h4>
+                <p id="visible-count">当前显示: {default_visible_count}</p>
                 <p>总文章数: {len(tech_sorted) + len(news_sorted)}</p>
                 <p>技术文章: {len(tech_sorted)}</p>
                 <p>安全新闻: {len(news_sorted)}</p>
@@ -2634,21 +2637,6 @@ def generate_html(articles, output_file=None):
     </div>
 
     <script>
-        var showUnsafe = false;
-
-        function toggleUnsafe() {{
-            showUnsafe = !showUnsafe;
-            var btn = document.getElementById('unsafe-btn');
-            if (showUnsafe) {{
-                btn.textContent = '隐藏Unsafe';
-                btn.style.background = '#28a745';
-            }} else {{
-                btn.textContent = '显示Unsafe';
-                btn.style.background = '#17a2b8';
-            }}
-            applyFilters();
-        }}
-
         document.addEventListener('click', function(e) {{
             if (!e.target.closest('.multi-select')) {{
                 document.querySelectorAll('.multi-select-dropdown').forEach(d => d.classList.remove('show'));
@@ -2697,6 +2685,7 @@ def generate_html(articles, output_file=None):
             document.querySelector('#source-select .multi-select-header').textContent = selectedSources.length ? (selectedSources.length > 1 ? selectedSources.length + '项已选' : selectedSources[0]) : '全部来源';
 
             // 筛选文章
+            let visibleCount = 0;
             document.querySelectorAll('.article-card').forEach(card => {{
                 const cardDate = card.getAttribute('data-date');
                 const cardSource = card.querySelector('.article-source').textContent.replace('来源: ', '');
@@ -2706,16 +2695,14 @@ def generate_html(articles, output_file=None):
                 const match = (selectedDates.length === 0 || selectedDates.includes(cardDate)) &&
                              (selectedSources.length === 0 || selectedSources.includes(cardSource)) &&
                              (searchTerm === '' || title.includes(searchTerm) || desc.includes(searchTerm)) &&
-                             (showUnsafe || cardSource !== 'Unsafe.sh');
+                             (selectedSources.includes('Unsafe.sh') || cardSource !== 'Unsafe.sh');
                 card.style.display = match ? 'flex' : 'none';
+                if (match) visibleCount++;
             }});
+            document.getElementById('visible-count').textContent = '当前显示: ' + visibleCount;
         }}
 
         function clearAllFilters() {{
-            showUnsafe = false;
-            var btn = document.getElementById('unsafe-btn');
-            btn.textContent = '显示Unsafe';
-            btn.style.background = '#17a2b8';
             document.querySelectorAll('.multi-select input[type="checkbox"]').forEach(cb => cb.checked = false);
             document.getElementById('search-input').value = '';
             document.querySelector('#date-select .multi-select-header').textContent = '全部日期';
