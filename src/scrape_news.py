@@ -2009,6 +2009,120 @@ class SecurityNewsAggregator:
         except Exception as e:
             logger.error(f"Error in _parse_securityweek_fallback helper: {str(e)}")
 
+    def scrape_unsafe_sh(self):
+        """Scrape https://unsafe.sh/ for security news - only articles within last 2 days"""
+        logger.info("Scraping Unsafe.sh...")
+
+        def get_original_url(detail_url):
+            """Fetch detail page and extract original source URL"""
+            try:
+                detail_response = session.get(detail_url, timeout=15, proxies=proxies)
+                if detail_response.status_code == 200:
+                    detail_content = self._decode_response_content(detail_response)
+                    # Ensure content is string
+                    if isinstance(detail_content, bytes):
+                        detail_content = detail_content.decode('utf-8', errors='ignore')
+                    # Look for "文章来源:" followed by URL
+                    source_match = re.search(r'文章来源:\s*(https?://[^\s<]+)', detail_content)
+                    if source_match:
+                        return source_match.group(1)
+            except Exception as e:
+                logger.warning(f"Error fetching detail page {detail_url}: {str(e)}")
+            return None
+
+        try:
+            proxies = get_proxies()
+
+            # Scrape first 5 pages to ensure we get recent articles
+            for page_num in range(1, 6):
+                url = f"https://unsafe.sh/?page={page_num}" if page_num > 1 else "https://unsafe.sh/"
+                response = session.get(url, timeout=30, proxies=proxies)
+                time.sleep(1)  # Rate limiting
+
+                if response.status_code == 200:
+                    content = self._decode_response_content(response)
+                    soup = BeautifulSoup(content, 'html.parser')
+
+                    # Find all article links with class "paper_list"
+                    articles = soup.find_all('a', class_='paper_list')
+
+                    for article_link in articles:
+                        try:
+                            title = self.decode_html_entities(article_link.text.strip())
+                            href = article_link.get('href', '')
+
+                            if not title or not href or len(title) < 10:
+                                continue
+
+                            # Build detail page URL
+                            detail_url = f"https://unsafe.sh{href}" if href.startswith('/') else href
+
+                            # Find date - look for the date pattern near the article
+                            parent_td = article_link.find_parent('td')
+                            if parent_td:
+                                parent_text = parent_td.get_text()
+                                date_match = re.search(r'(\d{4}-\d{1,2}-\d{1,2})\s+\d{1,2}:\d{1,2}:\d{1,2}', parent_text)
+                                if date_match:
+                                    date_str = date_match.group(1)
+                                    try:
+                                        parts = date_str.split('-')
+                                        year = int(parts[0])
+                                        month = int(parts[1])
+                                        day = int(parts[2])
+                                        article_date = datetime(year, month, day)
+                                    except:
+                                        article_date = datetime.now()
+                                else:
+                                    article_date = datetime.now()
+                            else:
+                                article_date = datetime.now()
+
+                            date = article_date.strftime('%Y-%m-%d')
+
+                            # Filter: only keep articles within last 2 days
+                            two_days_ago = datetime.now() - timedelta(days=2)
+                            if article_date < two_days_ago:
+                                continue
+
+                            # Fetch detail page to get original URL
+                            article_url = get_original_url(detail_url)
+                            if not article_url:
+                                article_url = detail_url  # Fallback to internal link
+
+                            time.sleep(0.5)  # Rate limiting for detail pages
+
+                            # Get description
+                            description = ""
+                            if parent_td:
+                                desc_span = parent_td.find('span', class_='d-block small opacity-50')
+                                if desc_span:
+                                    desc_text = desc_span.get_text(strip=True)
+                                    desc_match = re.search(r'^(.*?)\s*\d{4}-\d{1,2}-\d{1,2}', desc_text)
+                                    if desc_match:
+                                        description = desc_match.group(1).strip()
+
+                            if not description:
+                                description = title[:100] + "..." if len(title) > 100 else title
+
+                            article = {
+                                'title': title,
+                                'url': article_url,
+                                'source': 'Unsafe.sh',
+                                'description': description,
+                                'date': date,
+                                'category': 'news'
+                            }
+                            self.articles['news'].append(article)
+
+                        except Exception as e:
+                            logger.warning(f"Error processing Unsafe.sh article: {str(e)}")
+                            continue
+
+                    logger.info(f"Found articles on Unsafe.sh page {page_num}")
+
+        except Exception as e:
+            logger.error(f"Error scraping Unsafe.sh: {str(e)}")
+
     def scrape_all_sources(self):
         """Scrape all security news sources"""
         logger.info("Starting to scrape all security news sources...")
@@ -2027,6 +2141,7 @@ class SecurityNewsAggregator:
         self.scrape_secrss()
         self.scrape_the_hacker_news()
         self.scrape_security_week()
+        self.scrape_unsafe_sh()
 
         # Remove duplicates based on URL
         self.remove_duplicates()
@@ -2497,6 +2612,7 @@ def generate_html(articles, output_file=None):
                     <input type="text" id="search-input" placeholder="输入关键词搜索..." onkeyup="applyFilters()">
                 </div>
 
+                <button onclick="toggleUnsafe()" id="unsafe-btn" style="margin-top: 10px; padding: 8px 16px; background: #17a2b8; color: white; border: none; border-radius: 4px; cursor: pointer;">显示Unsafe</button>
                 <button onclick="clearAllFilters()" style="margin-top: 10px; padding: 8px 16px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">清除筛选</button>
             </div>
 
@@ -2518,6 +2634,21 @@ def generate_html(articles, output_file=None):
     </div>
 
     <script>
+        var showUnsafe = false;
+
+        function toggleUnsafe() {{
+            showUnsafe = !showUnsafe;
+            var btn = document.getElementById('unsafe-btn');
+            if (showUnsafe) {{
+                btn.textContent = '隐藏Unsafe';
+                btn.style.background = '#28a745';
+            }} else {{
+                btn.textContent = '显示Unsafe';
+                btn.style.background = '#17a2b8';
+            }}
+            applyFilters();
+        }}
+
         document.addEventListener('click', function(e) {{
             if (!e.target.closest('.multi-select')) {{
                 document.querySelectorAll('.multi-select-dropdown').forEach(d => d.classList.remove('show'));
@@ -2574,12 +2705,17 @@ def generate_html(articles, output_file=None):
 
                 const match = (selectedDates.length === 0 || selectedDates.includes(cardDate)) &&
                              (selectedSources.length === 0 || selectedSources.includes(cardSource)) &&
-                             (searchTerm === '' || title.includes(searchTerm) || desc.includes(searchTerm));
+                             (searchTerm === '' || title.includes(searchTerm) || desc.includes(searchTerm)) &&
+                             (showUnsafe || cardSource !== 'Unsafe.sh');
                 card.style.display = match ? 'flex' : 'none';
             }});
         }}
 
         function clearAllFilters() {{
+            showUnsafe = false;
+            var btn = document.getElementById('unsafe-btn');
+            btn.textContent = '显示Unsafe';
+            btn.style.background = '#17a2b8';
             document.querySelectorAll('.multi-select input[type="checkbox"]').forEach(cb => cb.checked = false);
             document.getElementById('search-input').value = '';
             document.querySelector('#date-select .multi-select-header').textContent = '全部日期';
