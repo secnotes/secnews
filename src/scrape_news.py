@@ -43,6 +43,19 @@ session.headers.update({
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
 })
 
+# Proxy configuration (can be set via environment variable or config file)
+# Set HTTPS_PROXY environment variable, e.g., export HTTPS_PROXY=https://127.0.0.1:10808
+PROXY_URL = os.environ.get('HTTPS_PROXY', os.environ.get('HTTP_PROXY', None))
+
+def get_proxies():
+    """Get proxy configuration from environment variable"""
+    if PROXY_URL:
+        return {
+            'http': PROXY_URL,
+            'https': PROXY_URL
+        }
+    return None
+
 class SecurityNewsAggregator:
     def __init__(self):
         self.articles = {
@@ -55,6 +68,61 @@ class SecurityNewsAggregator:
         if text:
             return html.unescape(text)
         return text
+
+    def _parse_relative_time(self, time_text):
+        """Parse relative time text and return date string (YYYY-MM-DD)"""
+        if not time_text:
+            return None
+
+        # English patterns
+        english_patterns = [
+            (r'(\d+)\s*day[s]?\s*ago', 'days'),
+            (r'(\d+)\s*hour[s]?\s*ago', 'hours'),
+            (r'(\d+)\s*minute[s]?\s*ago', 'minutes'),
+            (r'(\d+)\s*second[s]?\s*ago', 'seconds'),
+        ]
+
+        for pattern, unit in english_patterns:
+            match = re.search(pattern, time_text, re.IGNORECASE)
+            if match:
+                quantity = int(match.group(1))
+                if unit == 'days':
+                    past_date = datetime.now() - timedelta(days=quantity)
+                elif unit == 'hours':
+                    past_date = datetime.now() - timedelta(hours=quantity)
+                elif unit == 'minutes':
+                    past_date = datetime.now() - timedelta(minutes=quantity)
+                elif unit == 'seconds':
+                    past_date = datetime.now() - timedelta(seconds=quantity)
+                return past_date.strftime('%Y-%m-%d')
+
+        # Chinese patterns
+        chinese_patterns = [
+            (r'(\d+)\s*周\s*之\s*前', 'weeks'),    # "2周之前", "2 周 之前"
+            (r'(\d+)\s*周前', 'weeks'),             # "2周前"
+            (r'(\d+)\s*天前', 'days'),              # "2天前"
+            (r'(\d+)\s*小时前', 'hours'),           # "2小时前"
+            (r'(\d+)\s*分钟前', 'minutes'),         # "2分钟前"
+            (r'(\d+)\s*秒前', 'seconds'),           # "2秒前"
+        ]
+
+        for pattern, unit in chinese_patterns:
+            match = re.search(pattern, time_text)
+            if match:
+                quantity = int(match.group(1))
+                if unit == 'weeks':
+                    past_date = datetime.now() - timedelta(weeks=quantity)
+                elif unit == 'days':
+                    past_date = datetime.now() - timedelta(days=quantity)
+                elif unit == 'hours':
+                    past_date = datetime.now() - timedelta(hours=quantity)
+                elif unit == 'minutes':
+                    past_date = datetime.now() - timedelta(minutes=quantity)
+                elif unit == 'seconds':
+                    past_date = datetime.now() - timedelta(seconds=quantity)
+                return past_date.strftime('%Y-%m-%d')
+
+        return None
 
     def _decode_response_content(self, response):
         """
@@ -187,30 +255,90 @@ class SecurityNewsAggregator:
                         # Extract date from relative time text like "• 2 days ago"
                         date = datetime.now().strftime('%Y-%m-%d')  # Default fallback
 
-                        # Look for time-relative text in the card
-                        card_text = card.get_text()
-                        time_ago_pattern = r'(\d+)\s+(day|days|hour|hours|minute|minutes|second|seconds)\s+ago'
-                        match = re.search(time_ago_pattern, card_text)
+                        # Try multiple methods to extract date
+                        date_found = False
 
-                        if match:
-                            quantity = int(match.group(1))
-                            unit = match.group(2)
+                        # Method 1: Look for <time> tag with datetime attribute
+                        time_tag = card.find('time')
+                        if time_tag:
+                            datetime_attr = time_tag.get('datetime')
+                            if datetime_attr:
+                                try:
+                                    # Try ISO format first
+                                    parsed_date = datetime.fromisoformat(datetime_attr.replace('Z', '+00:00').split('+')[0])
+                                    date = parsed_date.strftime('%Y-%m-%d')
+                                    date_found = True
+                                    logger.debug(f"Found date from time tag datetime attr: {date}")
+                                except ValueError:
+                                    pass
+                            if not date_found:
+                                time_text = time_tag.get_text(strip=True)
+                                # Try parsing time text
+                                parsed_date = self._parse_relative_time(time_text)
+                                if parsed_date:
+                                    date = parsed_date
+                                    date_found = True
 
-                            # Calculate actual date based on the relative time
-                            if 'day' in unit:
-                                past_date = datetime.now() - timedelta(days=quantity)
-                            elif 'hour' in unit:
-                                past_date = datetime.now() - timedelta(hours=quantity)
-                            elif 'minute' in unit:
-                                past_date = datetime.now() - timedelta(minutes=quantity)
-                            elif 'second' in unit:
-                                past_date = datetime.now() - timedelta(seconds=quantity)
-                            else:
-                                past_date = datetime.now()
+                        # Method 2: Look for text containing relative time (English format)
+                        if not date_found:
+                            card_text = card.get_text()
+                            # English relative time patterns (with or without space)
+                            english_patterns = [
+                                r'(\d+)\s*day[s]?\s*ago',      # "2 days ago", "2day ago"
+                                r'(\d+)\s*hour[s]?\s*ago',     # "2 hours ago"
+                                r'(\d+)\s*minute[s]?\s*ago',   # "2 minutes ago"
+                                r'(\d+)\s*second[s]?\s*ago',   # "2 seconds ago"
+                            ]
+                            for pattern in english_patterns:
+                                match = re.search(pattern, card_text, re.IGNORECASE)
+                                if match:
+                                    quantity = int(match.group(1))
+                                    if 'day' in pattern.lower():
+                                        past_date = datetime.now() - timedelta(days=quantity)
+                                    elif 'hour' in pattern.lower():
+                                        past_date = datetime.now() - timedelta(hours=quantity)
+                                    elif 'minute' in pattern.lower():
+                                        past_date = datetime.now() - timedelta(minutes=quantity)
+                                    elif 'second' in pattern.lower():
+                                        past_date = datetime.now() - timedelta(seconds=quantity)
+                                    date = past_date.strftime('%Y-%m-%d')
+                                    date_found = True
+                                    logger.debug(f"Found date from English pattern: {date}")
+                                    break
 
-                            date = past_date.strftime('%Y-%m-%d')
-                        else:
-                            # Look for explicit date patterns as backup
+                        # Method 3: Chinese relative time patterns
+                        if not date_found:
+                            card_text = card.get_text()
+                            chinese_patterns = [
+                                (r'(\d+)\s*周\s*之\s*前', 'weeks'),    # "2周之前", "2 周 之前"
+                                (r'(\d+)\s*周前', 'weeks'),             # "2周前"
+                                (r'(\d+)\s*天前', 'days'),              # "2天前"
+                                (r'(\d+)\s*小时前', 'hours'),           # "2小时前"
+                                (r'(\d+)\s*分钟前', 'minutes'),         # "2分钟前"
+                                (r'(\d+)\s*秒前', 'seconds'),           # "2秒前"
+                            ]
+                            for pattern, unit in chinese_patterns:
+                                match = re.search(pattern, card_text)
+                                if match:
+                                    quantity = int(match.group(1))
+                                    if unit == 'weeks':
+                                        past_date = datetime.now() - timedelta(weeks=quantity)
+                                    elif unit == 'days':
+                                        past_date = datetime.now() - timedelta(days=quantity)
+                                    elif unit == 'hours':
+                                        past_date = datetime.now() - timedelta(hours=quantity)
+                                    elif unit == 'minutes':
+                                        past_date = datetime.now() - timedelta(minutes=quantity)
+                                    elif unit == 'seconds':
+                                        past_date = datetime.now() - timedelta(seconds=quantity)
+                                    date = past_date.strftime('%Y-%m-%d')
+                                    date_found = True
+                                    logger.debug(f"Found date from Chinese pattern: {date}")
+                                    break
+
+                        # Method 4: Look for explicit date patterns as backup
+                        if not date_found:
+                            card_text = card.get_text()
                             date_patterns = [
                                 r'(\d{4}-\d{2}-\d{2})',  # YYYY-MM-DD
                                 r'(\d{4}/\d{2}/\d{2})',  # YYYY/MM/DD
@@ -225,16 +353,23 @@ class SecurityNewsAggregator:
                                         try:
                                             parsed_date = datetime.strptime(extracted_date, '%Y/%m/%d')
                                             date = parsed_date.strftime('%Y-%m-%d')
+                                            date_found = True
                                             break
                                         except ValueError:
                                             try:
                                                 parsed_date = datetime.strptime(extracted_date, '%m/%d/%Y')
                                                 date = parsed_date.strftime('%Y-%m-%d')
+                                                date_found = True
+                                                break
                                             except ValueError:
                                                 pass
                                     else:
                                         date = extracted_date
-                                    break
+                                        date_found = True
+                                        break
+
+                        if not date_found:
+                            logger.debug(f"No date found for article '{title[:50]}...', using today's date")
 
                         # Add to tech articles
                         article = {
@@ -481,25 +616,18 @@ class SecurityNewsAggregator:
         """Scrape https://projectzero.google/ for security research (tech)"""
         logger.info("Scraping Project Zero...")
         try:
-            # Create a new session that can use proxy for testing
-            proxy_session = requests.Session()
-            proxy_session.headers.update({
+            # Create a new session
+            pz_session = requests.Session()
+            pz_session.headers.update({
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
             })
 
-            # Check if we're in testing environment by attempting to connect directly first
-            try:
-                response = proxy_session.get("https://projectzero.google/", timeout=20)
-                response.raise_for_status()
-            except:
-                # If direct connection fails, try using the proxy
-                logger.info("Direct connection to Project Zero failed, trying proxy...")
-                proxy_session.proxies = {
-                    'http': 'http://192.168.36.1:7890',  # Updated to match user's proxy address
-                    'https': 'http://192.168.36.1:7890'  # Updated to match user's proxy address
-                }
-                response = proxy_session.get("https://projectzero.google/", timeout=20)
+            # Set proxy from environment if available
+            proxies = get_proxies()
+            if proxies:
+                pz_session.proxies = proxies
 
+            response = pz_session.get("https://projectzero.google/", timeout=20)
             response.raise_for_status()
 
             soup = BeautifulSoup(response.content, 'html.parser')
@@ -1286,20 +1414,51 @@ class SecurityNewsAggregator:
                             # Extract date if available
                             date = datetime.now().strftime('%Y-%m-%d')  # Default fallback
 
-                            # Look for date information in the element
-                            time_elem = element.find('span')
-                            if time_elem:
-                                time_text = time_elem.get_text(strip=True)
-                                import re
-                                from datetime import timedelta
-                                # Try to find date pattern like "1天前", "2天前", "几天前"
-                                # Or look for more specific date patterns
-                                date_patterns = [
-                                    r'(\d{4}-\d{2}-\d{2})',  # YYYY-MM-DD
-                                    r'(\d{4}/\d{2}/\d{2})',  # YYYY/MM/DD
-                                    r'(\d{2}/\d{2}/\d{4})',  # MM/DD/YYYY
+                            # Look for relative time in span elements (format: "4小时前", "1天前")
+                            import re
+                            from datetime import timedelta
+
+                            # Find all span elements and look for relative time text
+                            span_elems = element.find_all('span')
+                            for span_elem in span_elems:
+                                time_text = span_elem.get_text(strip=True)
+
+                                # Match relative time patterns: "X小时前", "X天前", "X分钟前", "昨天", "刚刚"
+                                relative_patterns = [
+                                    (r'(\d+)\s*小时前', 'hours'),
+                                    (r'(\d+)\s*天前', 'days'),
+                                    (r'(\d+)\s*分钟前', 'minutes'),
+                                    (r'昨天', 'yesterday'),
+                                    (r'刚刚|刚刚发布', 'now'),
                                 ]
 
+                                for pattern, unit in relative_patterns:
+                                    rel_match = re.search(pattern, time_text)
+                                    if rel_match:
+                                        if unit == 'hours':
+                                            quantity = int(rel_match.group(1))
+                                            past_date = datetime.now() - timedelta(hours=quantity)
+                                            date = past_date.strftime('%Y-%m-%d')
+                                        elif unit == 'days':
+                                            quantity = int(rel_match.group(1))
+                                            past_date = datetime.now() - timedelta(days=quantity)
+                                            date = past_date.strftime('%Y-%m-%d')
+                                        elif unit == 'minutes':
+                                            # Minutes ago is still today
+                                            date = datetime.now().strftime('%Y-%m-%d')
+                                        elif unit == 'yesterday':
+                                            past_date = datetime.now() - timedelta(days=1)
+                                            date = past_date.strftime('%Y-%m-%d')
+                                        elif unit == 'now':
+                                            date = datetime.now().strftime('%Y-%m-%d')
+                                        logger.debug(f"KanXue date from '{time_text}': {date}")
+                                        break
+
+                                # Also check for specific date formats as fallback
+                                date_patterns = [
+                                    r'(\d{4}-\d{2}-\d{2})',
+                                    r'(\d{4}/\d{2}/\d{2})',
+                                ]
                                 for pattern in date_patterns:
                                     date_match = re.search(pattern, time_text)
                                     if date_match:
@@ -1310,30 +1469,6 @@ class SecurityNewsAggregator:
                                             break
                                         except ValueError:
                                             continue
-
-                                # If no specific date found, try to parse relative dates like "X天前"
-                                if not any(c.isdigit() for c in extracted_date if '天前' in time_text) if 'extracted_date' in locals() else True:
-                                    relative_patterns = [
-                                        r'(\d+)\s*天前',  # X天前
-                                        r'(\d+)\s*小时前', # X小时前
-                                        r'(\d+)\s*分钟前' # X分钟前
-                                    ]
-
-                                    for rel_pattern in relative_patterns:
-                                        rel_match = re.search(rel_pattern, time_text)
-                                        if rel_match:
-                                            quantity = int(rel_match.group(1))
-                                            if '天前' in time_text:
-                                                past_date = datetime.now() - timedelta(days=quantity)
-                                            elif '小时前' in time_text:
-                                                past_date = datetime.now() - timedelta(hours=quantity)
-                                            elif '分钟前' in time_text:
-                                                past_date = datetime.now() - timedelta(minutes=quantity)
-                                            else:
-                                                past_date = datetime.now()
-
-                                            date = past_date.strftime('%Y-%m-%d')
-                                            break
 
                             # Add to tech articles as specified (KanXue is tech-focused)
                             article = {
@@ -1398,63 +1533,60 @@ class SecurityNewsAggregator:
                 content = self._decode_response_content(response)
                 soup = BeautifulSoup(content, 'html.parser')
 
-                # Find articles in the specified div with class "blog-posts clear"
+                # Find articles in the blog-posts container
                 blog_posts_div = soup.find('div', class_='blog-posts clear')
 
                 if blog_posts_div:
-                    # Find all article elements within the blog-posts container
-                    articles = blog_posts_div.find_all(['div', 'article'], class_=lambda x: x and ('home-post' in x or 'BNeawe' in x or 'article' in x or 'post' in x))
+                    # Find all body-post elements (article cards)
+                    body_posts = blog_posts_div.find_all('div', class_='body-post')
 
-                    if not articles:
-                        # If no articles found with specific classes, look for all articles within the container
-                        articles = blog_posts_div.find_all('a', href=True)
-
-                    for article_elem in articles:
+                    for body_post in body_posts:
                         try:
-                            # Handle both <a> tags and <div> tags with links inside
-                            if article_elem.name == 'a':
-                                link_elem = article_elem
-                                title_elem = article_elem
-                            else:
-                                link_elem = article_elem.find('a', href=True)
-                                title_elem = article_elem.find(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span'], string=True)
-
+                            # Get the link
+                            link_elem = body_post.find('a', class_='story-link')
                             if link_elem:
                                 url = link_elem.get('href')
 
-                                # Convert relative URLs to absolute URLs
-                                if url and not url.startswith('http'):
-                                    url = urljoin("https://thehackernews.com/", url)
+                                # Find home-right section containing title, date, and description
+                                home_right = body_post.find('div', class_='home-right')
+                                if home_right:
+                                    # Get title
+                                    title_elem = home_right.find('h2', class_='home-title')
+                                    title = self.decode_html_entities(title_elem.get_text(strip=True)) if title_elem else 'No Title'
 
-                                # Get title from the element
-                                if title_elem:
-                                    title = self.decode_html_entities(title_elem.text.strip())
-                                else:
-                                    title = self.decode_html_entities(link_elem.text.strip())
+                                    # Get date from item-label
+                                    date = datetime.now().strftime('%Y-%m-%d')  # Default
+                                    item_label = home_right.find('div', class_='item-label')
+                                    if item_label:
+                                        date_text = item_label.get_text(strip=True)
+                                        # Extract date like "May 13, 2026..." -> "May 13, 2026"
+                                        import re
+                                        # Remove icon characters, keep date format
+                                        date_text = re.sub(r'[^\w\s,]', '', date_text).strip()
+                                        # Split by whitespace and take first 3 parts (Month Day, Year)
+                                        parts = date_text.split()
+                                        if len(parts) >= 3:
+                                            date_str = ' '.join(parts[:3])  # "May 13, 2026"
+                                            parsed_date = self._parse_date_string(date_str)
+                                            if parsed_date:
+                                                date = parsed_date
 
-                                if not title:
-                                    # Try to get title from aria-label or title attributes
-                                    title = self.decode_html_entities(link_elem.get('title', '').strip() or link_elem.get('aria-label', '').strip())
+                                    # Get description from home-desc
+                                    description = ''
+                                    desc_elem = home_right.find('div', class_='home-desc')
+                                    if desc_elem:
+                                        description = self.decode_html_entities(desc_elem.get_text(strip=True))
 
-                                if title and url:
-                                    # Get description from the article page itself
-                                    description = self._get_the_hacker_news_description(url)
-
-                                    # Get date from the article page
-                                    date = self._get_the_hacker_news_date(url)
-
-                                    # Determine category based on content
-                                    category = 'news'  # The Hacker News is news-focused
-
-                                    article = {
-                                        'title': title,
-                                        'url': url,
-                                        'source': 'The Hacker News',
-                                        'description': description,
-                                        'date': date,
-                                        'category': category
-                                    }
-                                    self.articles['news'].append(article)
+                                    if title and url:
+                                        article = {
+                                            'title': title,
+                                            'url': url,
+                                            'source': 'The Hacker News',
+                                            'description': description,
+                                            'date': date,
+                                            'category': 'news'
+                                        }
+                                        self.articles['news'].append(article)
 
                         except Exception as e:
                             logger.warning(f"Error processing The Hacker News article: {str(e)}")
@@ -1462,49 +1594,6 @@ class SecurityNewsAggregator:
                 else:
                     logger.info("Could not find 'blog-posts clear' div in The Hacker News")
 
-                    # Fallback: look for common article patterns on the page
-                    all_articles = soup.find_all(['div', 'article'], class_=lambda x: x and ('post' in x or 'article' in x or 'entry' in x))
-
-                    if not all_articles:
-                        all_articles = soup.find_all('a', href=True, class_=lambda x: x and ('post' in x or 'article' in x))
-
-                    for article_elem in all_articles:
-                        try:
-                            if article_elem.name == 'a':
-                                link_elem = article_elem
-                                title_elem = article_elem
-                            else:
-                                link_elem = article_elem.find('a', href=True)
-                                title_elem = article_elem.find(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span'], string=True)
-
-                            if link_elem:
-                                url = link_elem.get('href')
-
-                                if url and not url.startswith('http'):
-                                    url = urljoin("https://thehackernews.com/", url)
-
-                                if title_elem:
-                                    title = self.decode_html_entities(title_elem.text.strip())
-                                else:
-                                    title = self.decode_html_entities(link_elem.text.strip())
-
-                                if title and url:
-                                    description = self._get_the_hacker_news_description(url)
-                                    date = self._get_the_hacker_news_date(url)
-
-                                    article = {
-                                        'title': title,
-                                        'url': url,
-                                        'source': 'The Hacker News',
-                                        'description': description,
-                                        'date': date,
-                                        'category': 'news'
-                                    }
-                                    self.articles['news'].append(article)
-
-                        except Exception as e:
-                            logger.warning(f"Error processing The Hacker News fallback article: {str(e)}")
-                            continue
             else:
                 logger.warning(f"Failed to fetch The Hacker News: HTTP {response.status_code}")
 
@@ -1513,167 +1602,59 @@ class SecurityNewsAggregator:
         except Exception as e:
             logger.error(f"Error scraping The Hacker News: {str(e)}")
 
-    def _get_the_hacker_news_description(self, url):
-        """Helper method to fetch description from individual The Hacker News article pages"""
-        try:
-            import time
-            import random
+    def _parse_date_string(self, date_str):
+        """Parse various date string formats and return YYYY-MM-DD format"""
+        if not date_str:
+            return None
 
-            # Random delay to avoid rate limiting
-            time.sleep(random.uniform(0.2, 1))
+        # Common date formats to try
+        date_formats = [
+            '%Y-%m-%d',           # 2026-05-13
+            '%Y/%m/%d',           # 2026/05/13
+            '%m/%d/%Y',           # 05/13/2026
+            '%d/%m/%Y',           # 13/05/2026
+            '%B %d, %Y',          # May 13, 2026
+            '%b %d, %Y',          # May 13, 2026 (short month)
+            '%d %B %Y',           # 13 May 2026
+            '%d %b %Y',           # 13 May 2026 (short month)
+            '%Y-%m-%dT%H:%M:%S',  # ISO format without timezone
+            '%Y-%m-%dT%H:%M:%SZ', # ISO format with Z
+            '%Y-%m-%dT%H:%M:%S%z', # ISO format with timezone
+        ]
 
-            # Create a session to fetch the individual article page
-            desc_session = requests.Session()
-            desc_session.headers.update({
-                'User-Agent': random.choice([
-                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
-                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0',
-                    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-                ]),
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                'Accept-Language': 'en-US,en;q=0.9',
-                'Accept-Encoding': 'gzip, deflate',
-                'Connection': 'keep-alive',
-                'Upgrade-Insecure-Requests': '1',
-                'DNT': '1',
-                'Referer': 'https://thehackernews.com/'
-            })
+        # Clean the date string
+        date_str = date_str.strip()
 
-            response = desc_session.get(url, timeout=8)
+        for fmt in date_formats:
+            try:
+                parsed_date = datetime.strptime(date_str, fmt)
+                return parsed_date.strftime('%Y-%m-%d')
+            except ValueError:
+                continue
 
-            if response.status_code == 200:
-                content = self._decode_response_content(response)
-                soup = BeautifulSoup(content, 'html.parser')
+        # Try to extract date pattern using regex
+        # Look for patterns like "May 12, 2026" or "2026-05-12"
+        import re
+        patterns = [
+            r'(\d{4}-\d{2}-\d{2})',                    # 2026-05-12
+            r'(\d{4}/\d{2}/\d{2})',                    # 2026/05/12
+            r'([A-Za-z]+\s+\d{1,2},?\s+\d{4})',        # May 12, 2026
+            r'(\d{1,2}\s+[A-Za-z]+\s+\d{4})',          # 12 May 2026
+        ]
 
-                # Look for meta description
-                meta_desc = soup.find('meta', attrs={'name': 'description'})
-                if meta_desc and meta_desc.get('content'):
-                    return self.decode_html_entities(meta_desc.get('content').strip())
+        for pattern in patterns:
+            match = re.search(pattern, date_str)
+            if match:
+                extracted = match.group(1)
+                # Try parsing the extracted date
+                for fmt in date_formats:
+                    try:
+                        parsed_date = datetime.strptime(extracted, fmt)
+                        return parsed_date.strftime('%Y-%m-%d')
+                    except ValueError:
+                        continue
 
-                # Look for Open Graph description
-                og_desc = soup.find('meta', property='og:description')
-                if og_desc and og_desc.get('content'):
-                    return self.decode_html_entities(og_desc.get('content').strip())
-
-                # Try to find description in article content
-                content_selectors = [
-                    '.post-content',
-                    '.article-content',
-                    '.entry-content',
-                    '.post-body',
-                    'article',
-                    '.content',
-                    'main',
-                    '.post-text',
-                    '.story-body',
-                    'p'
-                ]
-
-                description = ""
-                for selector in content_selectors:
-                    elements = soup.select(selector)
-                    for elem in elements:
-                        text = elem.get_text(strip=True)
-                        if text and len(text) > 50:  # Get meaningful text
-                            # Remove common non-content text
-                            if not text.startswith('FacebookTwitterLinkedIn') and len(text) < 1000:
-                                description = text[:500]  # Limit length
-                                break
-                    if description:
-                        break
-
-                # If still no description found, use first paragraph
-                if not description:
-                    first_p = soup.find('p')
-                    if first_p:
-                        text = first_p.get_text(strip=True)
-                        if len(text) > 20:
-                            description = text[:500]
-
-                if description:
-                    return self.decode_html_entities(description)
-
-            # Fallback description
-            return "Latest security news from The Hacker News"
-
-        except Exception as e:
-            logger.debug(f"Could not get description from {url}: {str(e)}")
-            # Return a default description rather than empty
-            return "Latest security news from The Hacker News"
-
-    def _get_the_hacker_news_date(self, url):
-        """Helper method to fetch publication date from individual The Hacker News article pages"""
-        try:
-            import time
-            import random
-
-            # Random delay to avoid rate limiting
-            time.sleep(random.uniform(0.2, 0.8))
-
-            # Create a session to fetch the individual article page
-            date_session = requests.Session()
-            date_session.headers.update({
-                'User-Agent': random.choice([
-                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
-                    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0',
-                    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-                ]),
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                'Accept-Language': 'en-US,en;q=0.9',
-                'Accept-Encoding': 'gzip, deflate',
-                'Connection': 'keep-alive',
-                'Upgrade-Insecure-Requests': '1',
-                'DNT': '1',
-                'Referer': 'https://thehackernews.com/'
-            })
-
-            response = date_session.get(url, timeout=8)
-
-            if response.status_code == 200:
-                content = self._decode_response_content(response)
-                soup = BeautifulSoup(content, 'html.parser')
-
-                # Look for publication date in various formats
-                date_selectors = [
-                    'time[datetime]',
-                    'time',
-                    '[pubdate]',
-                    '.publishdate',
-                    '.date',
-                    '.post-meta',
-                    '.entry-meta',
-                    '.published',
-                    '.updated',
-                    '.post-date'
-                ]
-
-                for selector in date_selectors:
-                    date_elem = soup.select_one(selector)
-                    if date_elem:
-                        date_str = date_elem.get('datetime') or date_elem.get_text(strip=True)
-                        if date_str:
-                            # Try to parse the date string
-                            parsed_date = self._parse_date_string(date_str)
-                            if parsed_date:
-                                return parsed_date
-
-                # Look for date in meta tags
-                date_meta = soup.find('meta', attrs={'name': 'publishdate'}) or \
-                           soup.find('meta', attrs={'property': 'article:published_time'}) or \
-                           soup.find('meta', attrs={'name': 'article:published_time'})
-
-                if date_meta:
-                    content = date_meta.get('content') or date_meta.get('value')
-                    if content:
-                        parsed_date = self._parse_date_string(content)
-                        if parsed_date:
-                            return parsed_date
-
-        except Exception as e:
-            logger.debug(f"Could not get date from {url}: {str(e)}")
-
-        # Return today's date if no date found
-        return datetime.now().strftime('%Y-%m-%d')
+        return None
 
     def scrape_security_week(self):
         """Scrape https://www.securityweek.com/ for security news"""
@@ -1691,13 +1672,9 @@ class SecurityNewsAggregator:
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0'
         ]
 
-        success = False
-
-        # First, try direct connection
         try:
             secweek_session = requests.Session()
 
-            # 随机选择User-Agent
             selected_user_agent = random.choice(user_agents)
 
             secweek_session.headers.update({
@@ -1715,112 +1692,35 @@ class SecurityNewsAggregator:
                 'Referer': 'https://www.google.com/'
             })
 
-            # 随机延时，模拟人类行为
-            time.sleep(random.uniform(1, 3))
+            # Set proxy from environment if available
+            proxies = get_proxies()
+            if proxies:
+                secweek_session.proxies = proxies
+                logger.info("Using proxy for SecurityWeek")
 
+            time.sleep(random.uniform(1, 3))
             response = secweek_session.get("https://www.securityweek.com/", timeout=30)
 
             if response.status_code == 200:
-                logger.info("直接连接到SecurityWeek成功")
+                logger.info("Connected to SecurityWeek successfully")
 
-                # Use our helper function to properly decode response content
                 content = self._decode_response_content(response)
                 soup = BeautifulSoup(content, 'html.parser')
 
-                # Find articles in the specified div with class "zox-widget-side-trend-wrap left zoxrel zox100"
                 trend_wrap_div = soup.find('div', class_='zox-widget-side-trend-wrap left zoxrel zox100')
 
                 if trend_wrap_div:
                     self._parse_securityweek_articles(trend_wrap_div)
-                    success = True
                 else:
-                    logger.info("Could not find 'zox-widget-side-trend-wrap left zoxrel zox100' div in SecurityWeek")
-                    # As fallback, look for other common article patterns
+                    logger.info("Could not find main div in SecurityWeek, using fallback")
                     self._parse_securityweek_fallback(soup)
-                    success = True
-            elif response.status_code == 403:
-                logger.info("Direct connection to SecurityWeek failed with 403, trying proxy...")
+            else:
+                logger.warning(f"SecurityWeek returned status {response.status_code}")
 
         except requests.exceptions.RequestException as e:
-            logger.info(f"Direct connection to SecurityWeek failed: {str(e)}, trying proxy...")
-
-        # 如果直接连接失败，则尝试使用代理（仅在测试环境中）
-        if not success:
-            try:
-                # Configure session with proxy for testing environment only
-                secweek_session_with_proxy = requests.Session()
-                secweek_session_with_proxy.headers.update({
-                    'User-Agent': random.choice(user_agents),
-                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                    'Accept-Language': 'en-US,en;q=0.9',
-                    'Accept-Encoding': 'gzip, deflate, br',
-                    'Connection': 'keep-alive',
-                    'Upgrade-Insecure-Requests': '1',
-                })
-
-                # For testing environment, use proxy
-                secweek_session_with_proxy.proxies = {
-                    'http': 'http://192.168.36.1:7890',  # Proxy for testing environment only
-                    'https': 'http://192.168.36.1:7890'  # Proxy for testing environment only
-                }
-
-                time.sleep(random.uniform(1, 3))
-                response = secweek_session_with_proxy.get("https://www.securityweek.com/", timeout=30)
-                response.raise_for_status()
-
-                # Use our helper function to properly decode response content
-                content = self._decode_response_content(response)
-                soup = BeautifulSoup(content, 'html.parser')
-
-                # Find articles in the specified div with class "zox-widget-side-trend-wrap left zoxrel zox100"
-                trend_wrap_div = soup.find('div', class_='zox-widget-side-trend-wrap left zoxrel zox100')
-
-                if trend_wrap_div:
-                    self._parse_securityweek_articles(trend_wrap_div)
-                else:
-                    logger.info("Could not find 'zox-widget-side-trend-wrap left zoxrel zox100' div in SecurityWeek with proxy")
-                    # As fallback, look for other common article patterns
-                    self._parse_securityweek_fallback(soup)
-
-                success = True
-
-            except Exception as proxy_error:
-                logger.warning(f"SecurityWeek proxy request failed: {str(proxy_error)}")
-
-        if not success:
-            logger.warning("经过多次尝试仍无法获取SecurityWeek内容，使用备用数据")
-            # 当所有方法都失败时，添加一些示例数据确保源列表显示
-            backup_articles = [
-                {
-                    'title': 'Cybersecurity Threats Continue to Evolve in 2026',
-                    'url': 'https://www.securityweek.com/threats-evolve-2026',
-                    'source': 'SecurityWeek',
-                    'description': 'Analysis of the evolving cybersecurity landscape and emerging threats that organizations need to prepare for in 2026.',
-                    'date': datetime.now().strftime('%Y-%m-%d'),
-                    'category': 'news'
-                },
-                {
-                    'title': 'Latest Ransomware Trends and Protection Strategies',
-                    'url': 'https://www.securityweek.com/ransomware-trends-2026',
-                    'source': 'SecurityWeek',
-                    'description': 'Overview of current ransomware tactics and effective strategies for protecting against these persistent attacks.',
-                    'date': datetime.now().strftime('%Y-%m-%d'),
-                    'category': 'news'
-                },
-                {
-                    'title': 'Vulnerability Disclosure and Patch Management Best Practices',
-                    'url': 'https://www.securityweek.com/vulnerability-disclosure',
-                    'source': 'SecurityWeek',
-                    'description': 'Best practices for responsible vulnerability disclosure and effective patch management programs.',
-                    'date': datetime.now().strftime('%Y-%m-%d'),
-                    'category': 'news'
-                }
-            ]
-
-            for article in backup_articles:
-                # Check if the article already exists to avoid duplicates
-                if not any(a['url'] == article['url'] for a in self.articles['news']):
-                    self.articles['news'].append(article)
+            logger.warning(f"Network error while scraping SecurityWeek: {str(e)}")
+        except Exception as e:
+            logger.error(f"Error scraping SecurityWeek: {str(e)}")
 
     def _parse_securityweek_articles(self, trend_wrap_div):
         """Helper method to parse articles from SecurityWeek"""
@@ -1963,33 +1863,12 @@ class SecurityNewsAggregator:
                 'Referer': 'https://www.securityweek.com/'
             })
 
-            # First, try direct connection
+            # Set proxy from environment if available
+            proxies = get_proxies()
+            if proxies:
+                desc_session.proxies = proxies
+
             response = desc_session.get(url, timeout=15)
-
-            # If direct connection fails, try using proxy
-            if response.status_code != 200:
-                logger.info(f"Direct connection to {url} failed, trying proxy...")
-
-                # Configure session with proxy for testing environment only
-                desc_session_proxy = requests.Session()
-                desc_session_proxy.headers.update({
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
-                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                    'Accept-Language': 'en-US,en;q=0.9',
-                    'Accept-Encoding': 'gzip, deflate, br',
-                    'Connection': 'keep-alive',
-                    'Upgrade-Insecure-Requests': '1',
-                    'Referer': 'https://www.securityweek.com/'
-                })
-
-                # For testing environment, use proxy
-                desc_session_proxy.proxies = {
-                    'http': 'http://192.168.36.1:7890',  # Proxy for testing environment only
-                    'https': 'http://192.168.36.1:7890'  # Proxy for testing environment only
-                }
-
-                response = desc_session_proxy.get(url, timeout=15)
-
             response.raise_for_status()
 
             # Use our helper function to properly decode response content
@@ -2383,6 +2262,63 @@ def generate_html(articles, output_file=None):
             font-size: 0.9rem;
         }}
 
+        .multi-select {{
+            position: relative;
+            width: 100%;
+        }}
+
+        .multi-select-header {{
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%23666" d="M2 4l4 4 4-4"/></svg>') no-repeat right 0.5rem center;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #333;
+        }}
+
+        .multi-select-dropdown {{
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 2px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 100;
+            display: none;
+            font-size: 0.9rem;
+        }}
+
+        .multi-select-dropdown.show {{
+            display: block;
+        }}
+
+        .multi-select-option {{
+            display: flex;
+            align-items: center;
+            padding: 0.25rem 0.5rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            line-height: 1.2;
+        }}
+
+        .multi-select-option input[type="checkbox"] {{
+            margin: 0;
+            margin-right: 0.35rem;
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }}
+
+        .multi-select-option:hover {{
+            background: #f5f5f5;
+        }}
+
         .stats {{
             background: white;
             padding: 1rem;
@@ -2539,23 +2475,26 @@ def generate_html(articles, output_file=None):
             <h3>筛选器</h3>
             <div class="filters">
                 <div class="filter-group">
-                    <label for="date-filter">📅 按日期筛选:</label>
-                    <select id="date-filter" onchange="filterByDate()">
-                        <option value="">全部日期</option>
-                        {''.join([f'<option value="{date}">{date}</option>' for date in sorted_dates])}
-                    </select>
+                    <label>📅 按日期筛选:</label>
+                    <div class="multi-select" id="date-select">
+                        <div class="multi-select-header" onclick="toggleDropdown('date-select')">全部日期</div>
+                        <div class="multi-select-dropdown">
+                            {''.join([f'<div class="multi-select-option"><input type="checkbox" id="date-{i}" value="{date}"> {date}</div>' for i, date in enumerate(sorted_dates)])}
+                        </div>
+                    </div>
                 </div>
 
                 <div class="filter-group">
-                    <label for="source-filter">🏢 按来源筛选:</label>
-                    <select id="source-filter" onchange="filterBySource()">
-                        <option value="">全部来源</option>
-                    </select>
+                    <label>🏢 按来源筛选:</label>
+                    <div class="multi-select" id="source-select">
+                        <div class="multi-select-header" onclick="toggleDropdown('source-select')">全部来源</div>
+                        <div class="multi-select-dropdown" id="source-dropdown"></div>
+                    </div>
                 </div>
 
                 <div class="filter-group">
                     <label for="search-input">🔍 搜索关键词:</label>
-                    <input type="text" id="search-input" placeholder="输入关键词搜索..." onkeyup="filterBySearch()">
+                    <input type="text" id="search-input" placeholder="输入关键词搜索..." onkeyup="applyFilters()">
                 </div>
 
                 <button onclick="clearAllFilters()" style="margin-top: 10px; padding: 8px 16px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">清除筛选</button>
@@ -2579,170 +2518,74 @@ def generate_html(articles, output_file=None):
     </div>
 
     <script>
-        // Initialize sources filter
+        document.addEventListener('click', function(e) {{
+            if (!e.target.closest('.multi-select')) {{
+                document.querySelectorAll('.multi-select-dropdown').forEach(d => d.classList.remove('show'));
+            }}
+        }});
+
+        function toggleDropdown(id) {{
+            var dropdown = document.querySelector('#' + id + ' .multi-select-dropdown');
+            var isOpen = dropdown.classList.contains('show');
+            // 先关闭所有下拉框
+            document.querySelectorAll('.multi-select-dropdown').forEach(function(dd) {{
+                dd.classList.remove('show');
+            }});
+            // 如果之前是关闭的，则打开
+            if (!isOpen) {{
+                dropdown.classList.add('show');
+            }}
+        }}
+
         window.onload = function() {{
+            // 初始化来源下拉框
             const sources = new Set();
             document.querySelectorAll('.article-card').forEach(card => {{
-                const source = card.querySelector('.article-source').textContent.replace('来源: ', '');
-                sources.add(source);
+                sources.add(card.querySelector('.article-source').textContent.replace('来源: ', ''));
+            }});
+            const dropdown = document.getElementById('source-dropdown');
+            Array.from(sources).sort().forEach((source, i) => {{
+                dropdown.innerHTML += '<div class="multi-select-option"><input type="checkbox" id="source-' + i + '" value="' + source + '"> ' + source + '</div>';
             }});
 
-            const sourceFilter = document.getElementById('source-filter');
-            Array.from(sources).sort().forEach(source => {{
-                const option = document.createElement('option');
-                option.value = source;
-                option.textContent = source;
-                sourceFilter.appendChild(option);
+            // 绑定checkbox事件
+            document.querySelectorAll('.multi-select-dropdown input[type="checkbox"]').forEach(cb => {{
+                cb.addEventListener('change', applyFilters);
             }});
 
-            // Initialize with all articles shown
-            updateArticleCounts();
+            applyFilters();
         }};
 
-        function filterByDate() {{
-            const dateFilter = document.getElementById('date-filter').value;
-            const techCards = document.querySelectorAll('#tech-articles .article-card');
-            const newsCards = document.querySelectorAll('#news-articles .article-card');
-            let visibleCount = 0;
-
-            // Show/hide tech articles
-            techCards.forEach(card => {{
-                const cardDate = card.getAttribute('data-date');
-                if (dateFilter === '' || cardDate === dateFilter) {{
-                    card.style.display = 'flex';
-                    visibleCount++;
-                }} else {{
-                    card.style.display = 'none';
-                }}
-            }});
-
-            // Show/hide news articles
-            newsCards.forEach(card => {{
-                const cardDate = card.getAttribute('data-date');
-                if (dateFilter === '' || cardDate === dateFilter) {{
-                    card.style.display = 'flex';
-                    visibleCount++;
-                }} else {{
-                    card.style.display = 'none';
-                }}
-            }});
-
-            updateArticleCounts();
-        }}
-
-        function filterBySource() {{
-            const sourceFilter = document.getElementById('source-filter').value;
-            const techCards = document.querySelectorAll('#tech-articles .article-card');
-            const newsCards = document.querySelectorAll('#news-articles .article-card');
-            let visibleCount = 0;
-
-            // Show/hide tech articles
-            techCards.forEach(card => {{
-                const cardSource = card.querySelector('.article-source').textContent.replace('来源: ', '');
-                if (sourceFilter === '' || cardSource === sourceFilter) {{
-                    if (isVisibleByDateFilter(card)) {{
-                        card.style.display = 'flex';
-                        visibleCount++;
-                    }}
-                }} else {{
-                    card.style.display = 'none';
-                }}
-            }});
-
-            // Show/hide news articles
-            newsCards.forEach(card => {{
-                const cardSource = card.querySelector('.article-source').textContent.replace('来源: ', '');
-                if (sourceFilter === '' || cardSource === sourceFilter) {{
-                    if (isVisibleByDateFilter(card)) {{
-                        card.style.display = 'flex';
-                        visibleCount++;
-                    }}
-                }} else {{
-                    card.style.display = 'none';
-                }}
-            }});
-
-            updateArticleCounts();
-        }}
-
-        function filterBySearch() {{
+        function applyFilters() {{
+            const selectedDates = Array.from(document.querySelectorAll('#date-select input:checked')).map(cb => cb.value);
+            const selectedSources = Array.from(document.querySelectorAll('#source-select input:checked')).map(cb => cb.value);
             const searchTerm = document.getElementById('search-input').value.toLowerCase();
-            const techCards = document.querySelectorAll('#tech-articles .article-card');
-            const newsCards = document.querySelectorAll('#news-articles .article-card');
-            let visibleCount = 0;
 
-            // Show/hide tech articles
-            techCards.forEach(card => {{
+            // 更新下拉框标题
+            document.querySelector('#date-select .multi-select-header').textContent = selectedDates.length ? (selectedDates.length > 1 ? selectedDates.length + '项已选' : selectedDates[0]) : '全部日期';
+            document.querySelector('#source-select .multi-select-header').textContent = selectedSources.length ? (selectedSources.length > 1 ? selectedSources.length + '项已选' : selectedSources[0]) : '全部来源';
+
+            // 筛选文章
+            document.querySelectorAll('.article-card').forEach(card => {{
+                const cardDate = card.getAttribute('data-date');
+                const cardSource = card.querySelector('.article-source').textContent.replace('来源: ', '');
                 const title = card.querySelector('.article-title').textContent.toLowerCase();
-                const description = card.querySelector('.article-description') ?
-                    card.querySelector('.article-description').textContent.toLowerCase() : '';
-                const source = card.querySelector('.article-source').textContent.toLowerCase();
+                const desc = card.querySelector('.article-description')?.textContent.toLowerCase() || '';
 
-                const matches = title.includes(searchTerm) ||
-                               description.includes(searchTerm) ||
-                               source.includes(searchTerm);
-
-                if (matches && isVisibleByDateFilter(card) && isVisibleBySourceFilter(card)) {{
-                    card.style.display = 'flex';
-                    visibleCount++;
-                }} else {{
-                    card.style.display = 'none';
-                }}
+                const match = (selectedDates.length === 0 || selectedDates.includes(cardDate)) &&
+                             (selectedSources.length === 0 || selectedSources.includes(cardSource)) &&
+                             (searchTerm === '' || title.includes(searchTerm) || desc.includes(searchTerm));
+                card.style.display = match ? 'flex' : 'none';
             }});
-
-            // Show/hide news articles
-            newsCards.forEach(card => {{
-                const title = card.querySelector('.article-title').textContent.toLowerCase();
-                const description = card.querySelector('.article-description') ?
-                    card.querySelector('.article-description').textContent.toLowerCase() : '';
-                const source = card.querySelector('.article-source').textContent.toLowerCase();
-
-                const matches = title.includes(searchTerm) ||
-                               description.includes(searchTerm) ||
-                               source.includes(searchTerm);
-
-                if (matches && isVisibleByDateFilter(card) && isVisibleBySourceFilter(card)) {{
-                    card.style.display = 'flex';
-                    visibleCount++;
-                }} else {{
-                    card.style.display = 'none';
-                }}
-            }});
-
-            updateArticleCounts();
-        }}
-
-        function isVisibleByDateFilter(card) {{
-            const dateFilter = document.getElementById('date-filter').value;
-            const cardDate = card.getAttribute('data-date');
-            return dateFilter === '' || cardDate === dateFilter;
-        }}
-
-        function isVisibleBySourceFilter(card) {{
-            const sourceFilter = document.getElementById('source-filter').value;
-            const cardSource = card.querySelector('.article-source').textContent.replace('来源: ', '');
-            return sourceFilter === '' || cardSource === sourceFilter;
         }}
 
         function clearAllFilters() {{
-            document.getElementById('date-filter').value = '';
-            document.getElementById('source-filter').value = '';
+            document.querySelectorAll('.multi-select input[type="checkbox"]').forEach(cb => cb.checked = false);
             document.getElementById('search-input').value = '';
-
-            // Reset all cards to visible
-            document.querySelectorAll('.article-card').forEach(card => {{
-                card.style.display = 'flex';
-            }});
-
-            updateArticleCounts();
-        }}
-
-        function updateArticleCounts() {{
-            const visibleCards = document.querySelectorAll('.article-card[style*="display: flex"]').length;
-            const totalCount = document.querySelectorAll('.article-card').length;
-
-            // Update stats or provide some visual feedback about filtered results
-            console.log(`Showing ${{visibleCards}} of ${{totalCount}} articles`);
+            document.querySelector('#date-select .multi-select-header').textContent = '全部日期';
+            document.querySelector('#source-select .multi-select-header').textContent = '全部来源';
+            document.querySelectorAll('.multi-select-dropdown').forEach(d => d.classList.remove('show'));
+            applyFilters();
         }}
     </script>
 </body>
