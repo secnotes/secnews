@@ -37,11 +37,16 @@ except ImportError:
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+# Disable SSL warnings for proxy connections
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
 # Session with headers to mimic a real browser
 session = requests.Session()
 session.headers.update({
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
 })
+session.verify = False  # Ignore SSL errors (useful for proxy connections)
 
 # Proxy configuration (can be set via environment variable or config file)
 # Set HTTPS_PROXY environment variable, e.g., export HTTPS_PROXY=https://127.0.0.1:10808
@@ -192,6 +197,7 @@ class SecurityNewsAggregator:
             except ImportError:
                 # Fallback to requests with session approach if cloudscraper is not available
                 sec_today_session = requests.Session()
+                sec_today_session.verify = False  # Ignore SSL errors
 
                 # Set realistic browser headers
                 headers = {
@@ -624,6 +630,7 @@ class SecurityNewsAggregator:
         try:
             # Create a new session
             pz_session = requests.Session()
+            pz_session.verify = False  # Ignore SSL errors
             pz_session.headers.update({
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
             })
@@ -806,241 +813,261 @@ class SecurityNewsAggregator:
             logger.error(f"Error scraping Anquanke: {str(e)}")
 
     def scrape_freebuf(self):
-        """Scrape https://www.freebuf.com/ for security news"""
+        """Scrape https://www.freebuf.com/ for security news using Playwright with human-like slider simulation"""
         logger.info("Scraping FreeBuf...")
         try:
-            # Create a specialized session for FreeBuf to handle anti-bot measures
+            from playwright.sync_api import sync_playwright
             import time
             import random
 
-            # Create a new session with more realistic browser headers
-            freebuf_session = requests.Session()
+            def generate_human_trajectory(start_x, end_x, steps=35):
+                """Generate human-like sliding trajectory: fast start, slow end, with jitter"""
+                trajectory = []
+                total_distance = end_x - start_x
 
-            # Set very realistic browser headers to mimic a real user
-            headers_list = [
-                {
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
-                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                    'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-                    'Accept-Encoding': 'gzip, deflate, br',
-                    'Connection': 'keep-alive',
-                    'Upgrade-Insecure-Requests': '1',
-                    'Sec-Fetch-Dest': 'document',
-                    'Sec-Fetch-Mode': 'navigate',
-                    'Sec-Fetch-Site': 'none',
-                    'Sec-Fetch-User': '?1',
-                    'Cache-Control': 'max-age=0',
-                    'DNT': '1'
-                },
-                {
-                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
-                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                    'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-                    'Accept-Encoding': 'gzip, deflate, br',
-                    'Connection': 'keep-alive',
-                    'Upgrade-Insecure-Requests': '1',
-                    'Sec-Fetch-Dest': 'document',
-                    'Sec-Fetch-Mode': 'navigate',
-                    'Sec-Fetch-Site': 'none',
-                    'Sec-Fetch-User': '?1',
-                    'Cache-Control': 'max-age=0',
-                    'DNT': '1'
-                }
-            ]
+                # Add overshoot at the end (humans often overshoot slightly)
+                overshoot = random.uniform(5, 15)
+                final_x = end_x + overshoot
 
-            # Randomly select headers to vary the requests
-            selected_headers = random.choice(headers_list)
-            freebuf_session.headers.update(selected_headers)
+                for i in range(steps):
+                    progress = i / steps
+                    # Use cubic ease-out for more natural curve
+                    eased_progress = 1 - pow(1 - progress, 3)
 
-            # First, establish a session by visiting the homepage to get cookies
-            response = freebuf_session.get("https://www.freebuf.com/", timeout=15)
+                    # Add some acceleration at the start
+                    if progress < 0.3:
+                        eased_progress = eased_progress * 1.2
 
-            # Check if page requires verification/captcha
-            if "verification" in response.text.lower() or "captcha" in response.text.lower() or "aliyun_waf" in response.text.lower():
-                logger.info("FreeBuf may require verification, trying with different approach...")
+                    x = start_x + (final_x - start_x) * eased_progress
 
-                # Add more human-like behaviors
-                time.sleep(random.uniform(2, 5))  # Simulate initial page load time
+                    # Add random jitter (decreasing at end)
+                    jitter_amount = 3 * (1 - progress)  # Less jitter at end
+                    jitter = random.uniform(-jitter_amount, jitter_amount)
+                    x += jitter
 
-                # Try with different headers that look more like a returning user
-                freebuf_session.headers.update({
-                    'Referer': 'https://www.google.com/',
-                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8',
-                    'Sec-Ch-Ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-                    'Sec-Ch-Ua-Mobile': '?0',
-                    'Sec-Ch-Ua-Platform': '"Windows"',
-                    'Sec-Gpc': '1'
-                })
+                    # Clamp to reasonable range
+                    x = max(start_x, min(final_x + 10, x))
 
-                # Try visiting a specific section instead of homepage
-                response = freebuf_session.get("https://www.freebuf.com/news", timeout=15)
+                    trajectory.append(x)
 
-            # Check again if page still requires verification
-            if "verification" in response.text.lower() or "captcha" in response.text.lower() or "aliyun_waf" in response.text.lower():
-                logger.warning("FreeBuf requires verification/captcha - unable to scrape content")
-                # Still return gracefully without adding any articles
-                return
+                # Add final settling position (move back from overshoot)
+                trajectory.append(end_x + random.uniform(-2, 2))
 
-            response.raise_for_status()
+                return trajectory
 
-            soup = BeautifulSoup(response.content, 'html.parser')
-
-            # Find articles using the specified structure: div class="article-list" > div class="article-item"
-            article_list = soup.find('div', class_='article-list')
-
-            if article_list:
-                # Find all article items within the article-list container
-                article_items = article_list.find_all('div', class_='article-item')
-
-                for item in article_items:
-                    try:
-                        # Find the link in the article-item
-                        link_tag = item.find('a')
-
-                        if link_tag:
-                            title = self.decode_html_entities(link_tag.text.strip()) or 'No Title'
-                            url = link_tag.get('href')
-
-                            # Ensure URL is complete
-                            if url:
-                                if not url.startswith('http'):
-                                    url = urljoin("https://www.freebuf.com/", url)
-
-                            # Extract description if available
-                            description = ''
-
-                            # Look for description in the item - could be in p tag or div with description class
-                            desc_elem = item.find('p', class_='desc') or item.find('div', class_='desc') or \
-                                      item.find('p', class_='description') or item.find('div', class_='description') or \
-                                      item.find('div', class_='summary')
-
-                            if desc_elem:
-                                description = self.decode_html_entities(desc_elem.get_text(strip=True))
-
-                            # If no description found in specific elements, try to get any text content excluding the title
-                            if not description:
-                                # Get all text from the item and exclude the title
-                                all_text = item.get_text(separator=' ', strip=True)
-                                if title and title in all_text:
-                                    remaining_text = all_text.replace(title, '', 1).strip()
-                                    # Take first sentence or first 200 characters as description
-                                    if remaining_text:
-                                        description = self.decode_html_entities(remaining_text[:200] + "..." if len(remaining_text) > 200 else remaining_text)
-
-                            # Extract date if available
-                            date = datetime.now().strftime('%Y-%m-%d')  # Default fallback
-
-                            # Look for date in time element or other date-related classes
-                            time_elem = item.find('time') or item.find('span', class_='time') or \
-                                       item.find('span', class_='date') or item.find('div', class_='time')
-
-                            if time_elem:
-                                time_text = time_elem.get_text(strip=True)
-                                import re
-                                # Try to extract date in various formats
-                                date_match = re.search(r'(\d{4}[-/年]\d{1,2}[/-月]\d{1,2}日?)', time_text)
-                                if date_match:
-                                    extracted_date = date_match.group(1)
-                                    # Clean up the date string
-                                    extracted_date = extracted_date.replace('年', '-').replace('月', '-').replace('日', '')
-                                    try:
-                                        parsed_date = datetime.strptime(extracted_date, '%Y-%m-%d')
-                                        date = parsed_date.strftime('%Y-%m-%d')
-                                    except ValueError:
-                                        pass
-
-                            # Add to news articles as specified (these are mostly news)
-                            article = {
-                                'title': title,
-                                'url': url,
-                                'source': 'FreeBuf',
-                                'description': description,
-                                'date': date,
-                                'category': 'news'  # Most FreeBuf articles are news
-                            }
-                            self.articles['news'].append(article)
-                    except Exception as e:
-                        logger.warning(f"Error processing FreeBuf item: {str(e)}")
-                        continue
-            else:
-                # If article-list not found, try other common selectors
-                logger.info("Could not find article-list container, trying alternative selectors...")
-
-                # Try other possible article containers
-                possible_selectors = [
-                    'div.feed-item',
-                    'div.news-item',
-                    'div.list-item',
-                    'article',
-                    '.item',
-                    '.list-item',
-                    '.article-item',
-                    '.news-item',
-                    '[class*="feed"]',
-                    '[class*="card"]'
+            with sync_playwright() as p:
+                # Check if proxy is available
+                proxies = get_proxies()
+                launch_args = [
+                    '--disable-blink-features=AutomationControlled',  # Hide automation
+                    '--disable-dev-shm-usage',
+                    '--no-sandbox',
+                    '--disable-setuid-sandbox',
+                    '--disable-infobars',
+                    '--disable-breakpoint',
+                    '--disable-component-update',
+                    '--disable-background-networking',
+                    '--disable-sync',
+                    '--metrics-recording-only',
+                    '--disable-default-apps',
+                    '--mute-audio',
+                    '--no-first-run',
+                    '--enable-features=NetworkService,NetworkServiceInProcess',
                 ]
 
-                articles_found = False
-                for selector in possible_selectors:
-                    elements = soup.select(selector)
-                    if elements:
-                        logger.info(f"Found {len(elements)} elements with selector '{selector}'")
+                if proxies:
+                    logger.info("Using proxy for FreeBuf")
+                    proxy_server = PROXY_URL.replace('https://', '').replace('http://', '')
+                    launch_args.append(f'--proxy-server={proxy_server}')
 
-                        for element in elements[:10]:  # Limit to first 10 to prevent too many
-                            try:
-                                link_tag = element.find('a')
+                # Launch browser with stealth settings to hide headless detection
+                browser = p.chromium.launch(
+                    headless=True,
+                    args=launch_args
+                )
+                context = browser.new_context(
+                    user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                    viewport={'width': 1280, 'height': 720},
+                    locale='zh-CN',
+                    timezone_id='Asia/Shanghai',
+                )
+                page = context.new_page()
 
-                                if link_tag:
-                                    title = self.decode_html_entities(link_tag.text.strip()) or 'No Title'
-                                    url = link_tag.get('href')
+                # Inject stealth scripts to hide webdriver and automation detection
+                page.add_init_script("""
+                    // Hide webdriver property
+                    Object.defineProperty(navigator, 'webdriver', {
+                        get: () => undefined
+                    });
 
-                                    if url and not url.startswith('http'):
-                                        url = urljoin("https://www.freebuf.com/", url)
+                    // Mock plugins
+                    Object.defineProperty(navigator, 'plugins', {
+                        get: () => [1, 2, 3, 4, 5]
+                    });
 
-                                    # Extract description
-                                    desc_elem = element.find('p') or element.find('div', class_='content') or element.find('div', class_='summary')
-                                    description = self.decode_html_entities(desc_elem.get_text(strip=True)) if desc_elem else ''
+                    // Mock languages
+                    Object.defineProperty(navigator, 'languages', {
+                        get: () => ['zh-CN', 'zh', 'en']
+                    });
 
-                                    # Extract date
-                                    time_elem = element.find('time') or element.find('span', class_='time') or element.find('span', class_='date')
-                                    date = datetime.now().strftime('%Y-%m-%d')
-                                    if time_elem:
-                                        time_text = time_elem.get_text(strip=True)
-                                        import re
-                                        date_match = re.search(r'(\d{4}[-/年]\d{1,2}[/-月]\d{1,2}日?)', time_text)
-                                        if date_match:
-                                            extracted_date = date_match.group(1).replace('年', '-').replace('月', '-').replace('日', '')
-                                            try:
-                                                parsed_date = datetime.strptime(extracted_date, '%Y-%m-%d')
-                                                date = parsed_date.strftime('%Y-%m-%d')
-                                            except ValueError:
-                                                pass
+                    // Hide chrome automation
+                    window.chrome = {
+                        runtime: {},
+                        loadTimes: function() {},
+                        csi: function() {},
+                        app: {}
+                    };
+                """)
 
-                                    article = {
-                                        'title': title,
-                                        'url': url,
-                                        'source': 'FreeBuf',
-                                        'description': description,
-                                        'date': date,
-                                        'category': 'news'
-                                    }
-                                    self.articles['news'].append(article)
-                                    articles_found = True
-                            except Exception as e:
-                                logger.warning(f"Error processing FreeBuf alternative element: {str(e)}")
-                                continue
-                        break  # Stop after finding articles with first valid selector
+                # Navigate to FreeBuf homepage
+                page.goto('https://www.freebuf.com/', timeout=60000)
+                time.sleep(2)
 
-                if not articles_found:
-                    logger.info("Could not find article-list container on FreeBuf - may be protected by security measures")
+                # Check page title to see if we're on verification page
+                page_title = page.title()
+                logger.info(f"FreeBuf page title: {page_title}")
 
-        except requests.exceptions.RequestException as e:
-            if "403" in str(e) or "503" in str(e) or "captcha" in str(e).lower():
-                logger.warning(f"FreeBuf blocked the request (likely protected by security): {str(e)}")
-            else:
-                logger.error(f"Network error while scraping FreeBuf: {str(e)}")
+                # Check if WAF slider verification is present
+                slider_selector = '#aliyunCaptcha-sliding-slider'
+                try:
+                    slider = page.wait_for_selector(slider_selector, timeout=5000)
+                    logger.info("FreeBuf WAF slider detected, attempting to bypass...")
+
+                    # Get slider bounding box
+                    box = slider.bounding_box()
+
+                    # Get slider track/container width (the full sliding area)
+                    track = page.query_selector('.nc-container')
+                    if track:
+                        track_box = track.bounding_box()
+                        track_width = track_box['width']
+                    else:
+                        # Default track width if not found
+                        track_width = 570
+
+                    if box:
+                        # Start from center of slider
+                        start_x = box['x'] + box['width'] / 2
+                        start_y = box['y'] + box['height'] / 2
+
+                        # End position: slide to the end of track minus slider width
+                        end_x = box['x'] + track_width - box['width']
+
+                        logger.info(f"Slider: start_x={start_x}, end_x={end_x}, distance={end_x-start_x}")
+
+                        # Random delay before action (simulate human reaction)
+                        time.sleep(random.uniform(0.3, 0.6))
+
+                        # Mouse press (mousedown)
+                        page.mouse.move(start_x, start_y)
+                        time.sleep(random.uniform(0.05, 0.15))
+                        page.mouse.down()
+                        time.sleep(random.uniform(0.15, 0.25))
+
+                        # Generate and execute human-like trajectory
+                        trajectory = generate_human_trajectory(start_x, end_x, steps=35)
+                        for i, x in enumerate(trajectory):
+                            # Random small y jitter
+                            y = start_y + random.uniform(-3, 3)
+                            page.mouse.move(x, y)
+                            # Variable delay between steps (slower at end)
+                            delay = random.uniform(0.01, 0.05) * (1 + i / len(trajectory))
+                            time.sleep(delay)
+
+                        # Random delay before release
+                        time.sleep(random.uniform(0.1, 0.3))
+                        page.mouse.up()
+
+                        # Wait for verification to complete
+                        logger.info("Slider simulation completed, waiting for verification...")
+                        time.sleep(5)
+
+                except Exception as e:
+                    logger.warning(f"Slider not found or interaction failed: {str(e)}")
+                    # If slider not found, we might be on the actual page already
+                    if "验证" not in page_title and "verification" not in page_title.lower():
+                        logger.info("No WAF detected, proceeding to extract articles")
+
+                # Wait for page to load after verification
+                time.sleep(3)
+
+                # Get page content
+                content = page.content()
+                soup = BeautifulSoup(content, 'html.parser')
+
+                browser.close()
+
+            # Find articles - FreeBuf uses various article container classes
+            articles_found = 0
+
+            # Try different selectors for article items
+            selectors = [
+                ('div.article-item', 'a'),
+                ('div.news-item', 'a'),
+                ('div.feed-item', 'a'),
+                ('article', 'a'),
+                ('.card-item', 'a'),
+            ]
+
+            for container_class, link_tag in selectors:
+                containers = soup.find_all('div', class_=container_class) if 'div' in container_class else soup.find_all(container_class)
+
+                if containers:
+                    logger.info(f"Found {len(containers)} FreeBuf articles with selector '{container_class}'")
+
+                    for container in containers[:20]:  # Limit to 20 articles
+                        try:
+                            link = container.find(link_tag)
+                            if link and link.get('href'):
+                                title = link.text.strip()
+                                url = link.get('href')
+                                if not url.startswith('http'):
+                                    url = urljoin('https://www.freebuf.com/', url)
+
+                                # Skip non-article links
+                                if not title or len(title) < 5 or '/tag/' in url or '/author/' in url:
+                                    continue
+
+                                # Extract description
+                                desc_elem = container.find('p') or container.find('div', class_='desc') or container.find('div', class_='summary')
+                                description = desc_elem.text.strip()[:200] if desc_elem else ''
+
+                                # Extract date
+                                date = datetime.now().strftime('%Y-%m-%d')
+                                time_elem = container.find('time') or container.find('span', class_='time') or container.find('span', class_='date')
+                                if time_elem:
+                                    time_text = time_elem.text.strip()
+                                    date_match = re.search(r'(\d{4}[-/]\d{1,2}[-/]\d{1,2})', time_text)
+                                    if date_match:
+                                        date = date_match.group(1).replace('/', '-')
+
+                                article = {
+                                    'title': self.decode_html_entities(title),
+                                    'url': url,
+                                    'source': 'FreeBuf',
+                                    'description': description,
+                                    'date': date,
+                                    'category': 'news'
+                                }
+                                self.articles['news'].append(article)
+                                articles_found += 1
+
+                        except Exception as e:
+                            logger.warning(f"Error processing FreeBuf article: {str(e)}")
+                            continue
+
+                    if articles_found > 0:
+                        break
+
+            logger.info(f"Found {articles_found} FreeBuf articles")
+
+        except ImportError:
+            logger.warning("Playwright not available, skipping FreeBuf")
         except Exception as e:
             logger.error(f"Error scraping FreeBuf: {str(e)}")
+
+        except Exception as e:
+            logger.error(f"Error scraping FreeBuf RSS: {str(e)}")
 
     def scrape_secrss(self):
         """Scrape https://www.secrss.com/ for security news"""
@@ -1139,6 +1166,7 @@ class SecurityNewsAggregator:
 
             # Create a new session with more realistic headers
             seebug_session = requests.Session()
+            seebug_session.verify = False  # Ignore SSL errors
 
             # Set headers to mimic a real browser
             seebug_session.headers.update({
@@ -1362,6 +1390,7 @@ class SecurityNewsAggregator:
         try:
             # Create a session with appropriate headers for KanXue
             kanxue_session = requests.Session()
+            kanxue_session.verify = False  # Ignore SSL errors
             kanxue_session.headers.update({
                 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -1515,6 +1544,7 @@ class SecurityNewsAggregator:
 
         # Create a session to handle cookies and headers consistently
         thackernews_session = requests.Session()
+        thackernews_session.verify = False  # Ignore SSL errors
         thackernews_session.headers.update({
             'User-Agent': random.choice(user_agents),
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -1663,357 +1693,121 @@ class SecurityNewsAggregator:
         return None
 
     def scrape_security_week(self):
-        """Scrape https://www.securityweek.com/ for security news"""
-        logger.info("Scraping SecurityWeek...")
+        """Scrape https://www.securityweek.com/feed (RSS) for security news"""
+        logger.info("Scraping SecurityWeek RSS feed...")
 
-        import time
-        import random
-
-        # Multiple User-Agent strings to rotate
-        user_agents = [
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0',
-            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0'
-        ]
+        from email.utils import parsedate_to_datetime
 
         try:
-            secweek_session = requests.Session()
+            # Use Playwright to bypass Cloudflare
+            from playwright.sync_api import sync_playwright
+            import time
 
-            selected_user_agent = random.choice(user_agents)
+            with sync_playwright() as p:
+                browser = p.chromium.launch(headless=True, args=['--disable-blink-features=AutomationControlled'])
+                context = browser.new_context(
+                    user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                    viewport={'width': 1280, 'height': 720}
+                )
+                page = context.new_page()
+                page.add_init_script('Object.defineProperty(navigator, "webdriver", { get: () => undefined });')
 
-            secweek_session.headers.update({
-                'User-Agent': selected_user_agent,
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                'Accept-Language': 'en-US,en;q=0.9',
-                'Accept-Encoding': 'gzip, deflate, br',
-                'Connection': 'keep-alive',
-                'Upgrade-Insecure-Requests': '1',
-                'Sec-Fetch-Dest': 'document',
-                'Sec-Fetch-Mode': 'navigate',
-                'Sec-Fetch-Site': 'none',
-                'Cache-Control': 'max-age=0',
-                'DNT': '1',
-                'Referer': 'https://www.google.com/'
-            })
+                # Set proxy if available
+                proxies = get_proxies()
+                if proxies:
+                    proxy_server = PROXY_URL.replace('https://', '').replace('http://', '')
+                    logger.info(f"Using proxy for SecurityWeek: {proxy_server}")
+                    # Relaunch with proxy
+                    browser.close()
+                    browser = p.chromium.launch(
+                        headless=True,
+                        args=['--disable-blink-features=AutomationControlled', f'--proxy-server={proxy_server}']
+                    )
+                    context = browser.new_context(
+                        user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                        viewport={'width': 1280, 'height': 720}
+                    )
+                    page = context.new_page()
+                    page.add_init_script('Object.defineProperty(navigator, "webdriver", { get: () => undefined });')
 
-            # Set proxy from environment if available
-            proxies = get_proxies()
-            if proxies:
-                secweek_session.proxies = proxies
-                logger.info("Using proxy for SecurityWeek")
+                # Navigate to RSS feed
+                page.goto('https://www.securityweek.com/feed', timeout=60000)
+                time.sleep(2)
 
-            time.sleep(random.uniform(1, 3))
-            response = secweek_session.get("https://www.securityweek.com/", timeout=30)
-
-            if response.status_code == 200:
-                logger.info("Connected to SecurityWeek successfully")
-
-                content = self._decode_response_content(response)
-                soup = BeautifulSoup(content, 'html.parser')
-
-                trend_wrap_div = soup.find('div', class_='zox-widget-side-trend-wrap left zoxrel zox100')
-
-                if trend_wrap_div:
-                    self._parse_securityweek_articles(trend_wrap_div)
+                # Get page content (RSS XML)
+                # The browser renders RSS as text inside a <pre> tag, so we need to extract the inner text
+                pre_element = page.query_selector('pre')
+                if pre_element:
+                    content = pre_element.inner_text()
                 else:
-                    logger.info("Could not find main div in SecurityWeek, using fallback")
-                    self._parse_securityweek_fallback(soup)
-            else:
-                logger.warning(f"SecurityWeek returned status {response.status_code}")
+                    content = page.content()
+                browser.close()
 
-        except requests.exceptions.RequestException as e:
-            logger.warning(f"Network error while scraping SecurityWeek: {str(e)}")
+            # Parse RSS XML
+            soup = BeautifulSoup(content, 'xml')
+
+            # Find all items in RSS feed
+            items = soup.find_all('item')
+            logger.info(f"Found {len(items)} items in SecurityWeek RSS feed")
+
+            for item in items:
+                try:
+                    title_elem = item.find('title')
+                    link_elem = item.find('link')
+                    desc_elem = item.find('description')
+                    pub_date_elem = item.find('pubDate')
+
+                    if title_elem and link_elem:
+                        title = self.decode_html_entities(title_elem.text.strip())
+                        url = link_elem.text.strip()
+
+                        # Extract description
+                        description = ''
+                        if desc_elem:
+                            desc_text = desc_elem.text.strip()
+                            desc_soup = BeautifulSoup(desc_text, 'html.parser')
+                            description = desc_soup.get_text(strip=True)[:200]
+                            if len(desc_soup.get_text(strip=True)) > 200:
+                                description += "..."
+
+                        # Extract date
+                        date = datetime.now().strftime('%Y-%m-%d')
+                        if pub_date_elem:
+                            pub_date_text = pub_date_elem.text.strip()
+                            try:
+                                parsed_date = parsedate_to_datetime(pub_date_text)
+                                date = parsed_date.strftime('%Y-%m-%d')
+                            except:
+                                date_match = re.search(r'(\d{1,2})\s+(\w+)\s+(\d{4})', pub_date_text)
+                                if date_match:
+                                    day = date_match.group(1)
+                                    month_name = date_match.group(2)
+                                    year = date_match.group(3)
+                                    months = {'Jan': 1, 'Feb': 2, 'Mar': 3, 'Apr': 4, 'May': 5, 'Jun': 6,
+                                              'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12}
+                                    if month_name in months:
+                                        date = f"{year}-{months[month_name]:02d}-{int(day):02d}"
+
+                        article = {
+                            'title': title,
+                            'url': url,
+                            'source': 'SecurityWeek',
+                            'description': description,
+                            'date': date,
+                            'category': 'news'
+                        }
+                        self.articles['news'].append(article)
+
+                except Exception as e:
+                    logger.warning(f"Error processing SecurityWeek RSS item: {str(e)}")
+                    continue
+
+            logger.info(f"Found {len([a for a in self.articles['news'] if a['source'] == 'SecurityWeek'])} SecurityWeek articles")
+
+        except ImportError:
+            logger.warning("Playwright not available, skipping SecurityWeek")
         except Exception as e:
             logger.error(f"Error scraping SecurityWeek: {str(e)}")
-
-    def _parse_securityweek_articles(self, trend_wrap_div):
-        """Helper method to parse articles from SecurityWeek"""
-        try:
-            # First try to find articles with specific patterns within the trend div
-            articles = trend_wrap_div.find_all(['div', 'article'], class_=lambda x: x and ('post' in x or 'item' in x or 'entry' in x or 'article' in x))
-
-            # If no articles found with the above pattern, try to find all links in the div
-            if not articles:
-                all_links = trend_wrap_div.find_all('a', href=True, class_=lambda x: x and 'post' in x if x else True)
-                if not all_links:
-                    all_links = trend_wrap_div.find_all('a', href=True)
-
-                for link in all_links:
-                    try:
-                        title = self.decode_html_entities(link.text.strip())
-
-                        if len(title) > 10:  # Only consider significant titles
-                            url = link.get('href')
-                            if url and not url.startswith('http'):
-                                url = urljoin("https://www.securityweek.com/", url)
-
-                            # Extract description from the article page itself
-                            description = self._get_securityweek_description(url)
-
-                            date = datetime.now().strftime('%Y-%m-%d')
-
-                            article = {
-                                'title': title,
-                                'url': url,
-                                'source': 'SecurityWeek',
-                                'description': description,
-                                'date': date,
-                                'category': 'news'
-                            }
-                            self.articles['news'].append(article)
-                    except Exception as e:
-                        logger.warning(f"Error processing SecurityWeek link: {str(e)}")
-                        continue
-            else:
-                # Process articles found with common patterns
-                for article_elem in articles:
-                    try:
-                        # Find title and link within the article element
-                        title_elem = article_elem.find(['a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
-                        if title_elem:
-                            # Get title from the element itself or from a child link
-                            link_elem = title_elem.find('a') if title_elem.name != 'a' else title_elem
-
-                            if title_elem.name != 'a':
-                                title = self.decode_html_entities(title_elem.get_text(strip=True))
-                            else:
-                                title = self.decode_html_entities(title_elem.text.strip())
-
-                            if not title and link_elem:
-                                title = self.decode_html_entities(link_elem.text.strip())
-
-                            if link_elem:
-                                url = link_elem.get('href')
-                            else:
-                                url = None
-
-                            if url and not url.startswith('http'):
-                                url = urljoin("https://www.securityweek.com/", url)
-
-                            if title and url and len(title) > 5:  # Only add if title is significant
-                                # Extract description from the article page itself
-                                description = self._get_securityweek_description(url)
-
-                                # Extract date if available
-                                date = datetime.now().strftime('%Y-%m-%d')
-                                date_elem = article_elem.find('time') or article_elem.find('span', class_='date') or article_elem.find('span', class_='time') or article_elem.find('div', class_='date')
-                                if date_elem:
-                                    date_text = date_elem.get_text(strip=True)
-                                    import re
-                                    # Try to extract date in various formats
-                                    date_match = re.search(r'(\d{4}[-/年]\d{1,2}[/-月]\d{1,2}日?)', date_text)
-                                    if not date_match:
-                                        # Try MM/DD/YYYY or similar patterns
-                                        date_match = re.search(r'(\d{1,2}/\d{1,2}/\d{4})', date_text)
-                                    if not date_match:
-                                        # Try Month DD, YYYY pattern
-                                        date_match = re.search(r'([A-Za-z]+\s+\d{1,2},?\s+\d{4})', date_text)
-
-                                    if date_match:
-                                        extracted_date = date_match.group(1)
-                                        try:
-                                            if ',' in extracted_date:
-                                                # Month DD, YYYY format
-                                                parsed_date = datetime.strptime(extracted_date, '%B %d, %Y')
-                                                date = parsed_date.strftime('%Y-%m-%d')
-                                            elif '/' in extracted_date:
-                                                # MM/DD/YYYY format
-                                                parts = extracted_date.split('/')
-                                                if len(parts) == 3:
-                                                    month, day, year = parts
-                                                    parsed_date = datetime.strptime(f'{year}-{month.zfill(2)}-{day.zfill(2)}', '%Y-%m-%d')
-                                                    date = parsed_date.strftime('%Y-%m-%d')
-                                        except ValueError:
-                                            try:
-                                                # Try other date formats
-                                                parsed_date = datetime.strptime(extracted_date, '%m/%d/%Y')
-                                                date = parsed_date.strftime('%Y-%m-%d')
-                                            except ValueError:
-                                                pass
-
-                                article = {
-                                    'title': title,
-                                    'url': url,
-                                    'source': 'SecurityWeek',
-                                    'description': description,
-                                    'date': date,
-                                    'category': 'news'  # SecurityWeek is news-focused
-                                }
-                                self.articles['news'].append(article)
-                    except Exception as e:
-                        logger.warning(f"Error processing SecurityWeek article: {str(e)}")
-                        continue
-        except Exception as e:
-            logger.error(f"Error in _parse_securityweek_articles helper: {str(e)}")
-
-    def _get_securityweek_description(self, url):
-        """Helper method to fetch description from individual SecurityWeek article pages"""
-        try:
-            import time
-            import random
-
-            # Random delay to avoid rate limiting
-            time.sleep(random.uniform(0.5, 2))
-
-            # Create a session to fetch the individual article page
-            desc_session = requests.Session()
-            desc_session.headers.update({
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.6099.109 Safari/537.36',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                'Accept-Language': 'en-US,en;q=0.9',
-                'Accept-Encoding': 'gzip, deflate, br',
-                'Connection': 'keep-alive',
-                'Upgrade-Insecure-Requests': '1',
-                'Referer': 'https://www.securityweek.com/'
-            })
-
-            # Set proxy from environment if available
-            proxies = get_proxies()
-            if proxies:
-                desc_session.proxies = proxies
-
-            response = desc_session.get(url, timeout=15)
-            response.raise_for_status()
-
-            # Use our helper function to properly decode response content
-            content = self._decode_response_content(response)
-            soup = BeautifulSoup(content, 'html.parser')
-
-            # Try multiple methods to get the description
-            description = ""
-
-            # 1. Try to get meta description
-            meta_desc = soup.find('meta', attrs={'name': 'description'})
-            if meta_desc and meta_desc.get('content'):
-                description = self.decode_html_entities(meta_desc.get('content').strip())
-
-            if not description:
-                # 2. Try to get og:description
-                og_desc = soup.find('meta', property='og:description')
-                if og_desc and og_desc.get('content'):
-                    description = self.decode_html_entities(og_desc.get('content').strip())
-
-            if not description:
-                # 3. Try to get first paragraph content
-                first_p = soup.find('p')
-                if first_p:
-                    text = first_p.get_text(strip=True)
-                    # Skip common placeholder text
-                    if text and not text.startswith('Hi, what are you looking for?') and len(text) > 20:
-                        description = text[:500]  # Limit length
-
-            if not description:
-                # 4. Look for content divs
-                content_selectors = ['div.entry-content', 'div.post-content', 'article div.content', 'div[itemprop="articleBody"]']
-                for selector in content_selectors:
-                    content_elem = soup.select_one(selector)
-                    if content_elem:
-                        paras = content_elem.find_all('p')
-                        for p in paras:
-                            text = p.get_text(strip=True)
-                            if text and not text.startswith('Hi, what are you looking for?') and len(text) > 20:
-                                description = text[:500]
-                                break
-                    if description:
-                        break
-
-            # Fallback to default if still no description found
-            if not description:
-                description = "Latest security news from SecurityWeek"
-
-            return description
-
-        except Exception as e:
-            logger.debug(f"Could not get description from {url}: {str(e)}")
-            # Return a default description rather than empty
-            return "Latest security news from SecurityWeek"
-
-    def _parse_securityweek_fallback(self, soup):
-        """Fallback method to parse SecurityWeek if main div is not found"""
-        try:
-            fallback_selectors = [
-                'article',
-                '.post',
-                '.entry',
-                '.article',
-                '.news-item',
-                '.trending',
-                '.latest',
-                '.headline'
-            ]
-
-            articles_found = False
-            for selector in fallback_selectors:
-                elements = soup.select(selector)
-                if elements:
-                    logger.info(f"Found {len(elements)} elements with selector '{selector}' on SecurityWeek")
-
-                    for element in elements[:10]:  # Limit to first 10 to prevent too many
-                        try:
-                            link_elem = element.find('a', href=True)
-
-                            if link_elem:
-                                title = self.decode_html_entities(link_elem.text.strip()) or 'No Title'
-                                url = link_elem.get('href')
-
-                                if url and not url.startswith('http'):
-                                    url = urljoin("https://www.securityweek.com/", url)
-
-                                if title and len(title) > 5:  # Only add if title is significant
-                                    # Extract description from the article page itself
-                                    description = self._get_securityweek_description(url)
-
-                                    # Extract date
-                                    date = datetime.now().strftime('%Y-%m-%d')
-                                    date_elem = element.find('time') or element.find('span', class_='date') or element.find('span', class_='time') or element.find('div', class_='date')
-                                    if date_elem:
-                                        date_text = date_elem.get_text(strip=True)
-                                        import re
-                                        date_match = re.search(r'(\d{4}[-/年]\d{1,2}[/-月]\d{1,2}日?)', date_text)
-                                        if not date_match:
-                                            date_match = re.search(r'(\d{1,2}/\d{1,2}/\d{4})', date_text)
-                                        if not date_match:
-                                            date_match = re.search(r'([A-Za-z]+\s+\d{1,2},?\s+\d{4})', date_text)
-
-                                        if date_match:
-                                            extracted_date = date_match.group(1)
-                                            try:
-                                                if ',' in extracted_date:
-                                                    parsed_date = datetime.strptime(extracted_date, '%B %d, %Y')
-                                                    date = parsed_date.strftime('%Y-%m-%d')
-                                                elif '/' in extracted_date:
-                                                    parts = extracted_date.split('/')
-                                                    if len(parts) == 3:
-                                                        month, day, year = parts
-                                                        parsed_date = datetime.strptime(f'{year}-{month.zfill(2)}-{day.zfill(2)}', '%Y-%m-%d')
-                                                        date = parsed_date.strftime('%Y-%m-%d')
-                                            except ValueError:
-                                                try:
-                                                    parsed_date = datetime.strptime(extracted_date, '%m/%d/%Y')
-                                                    date = parsed_date.strftime('%Y-%m-%d')
-                                                except ValueError:
-                                                    pass
-
-                                    article = {
-                                        'title': title,
-                                        'url': url,
-                                        'source': 'SecurityWeek',
-                                        'description': description,
-                                        'date': date,
-                                        'category': 'news'
-                                    }
-                                    self.articles['news'].append(article)
-                                    articles_found = True
-                        except Exception as e:
-                            logger.warning(f"Error processing SecurityWeek fallback element: {str(e)}")
-                            continue
-
-                    if articles_found:
-                        break  # Stop after finding articles with one valid selector
-        except Exception as e:
-            logger.error(f"Error in _parse_securityweek_fallback helper: {str(e)}")
 
     def scrape_unsafe_sh(self):
         """Scrape https://unsafe.sh/ for security news - only articles within last 2 days"""
@@ -2129,8 +1923,12 @@ class SecurityNewsAggregator:
         except Exception as e:
             logger.error(f"Error scraping Unsafe.sh: {str(e)}")
 
-    def scrape_all_sources(self):
-        """Scrape all security news sources"""
+    def scrape_all_sources(self, include_unsafe=False):
+        """Scrape all security news sources
+
+        Args:
+            include_unsafe: If True, also scrape Unsafe.sh (default: False)
+        """
         logger.info("Starting to scrape all security news sources...")
 
         # Tech-focused sources
@@ -2138,16 +1936,19 @@ class SecurityNewsAggregator:
         self.scrape_tencent_security()
         self.scrape_xz_aliyun()
         self.scrape_project_zero()
-        self.scrape_seebug_paper()
+        # self.scrape_seebug_paper()  # Temporarily disabled due to Aliyun WAF protection (521 error)
         self.scrape_kanxue()
 
         # News-focused sources
         self.scrape_anquanke()
-        self.scrape_freebuf()
+        # self.scrape_freebuf()  # Temporarily disabled due to Aliyun WAF protection (405 error)
         self.scrape_secrss()
         self.scrape_the_hacker_news()
         self.scrape_security_week()
-        self.scrape_unsafe_sh()
+
+        # Unsafe.sh crawler (only when explicitly enabled)
+        if include_unsafe:
+            self.scrape_unsafe_sh()
 
         # Remove duplicates based on URL
         self.remove_duplicates()
@@ -2760,10 +2561,17 @@ def generate_html(articles, output_file=None):
 
 
 def main():
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Security News Aggregator')
+    parser.add_argument('--unsafe', action='store_true',
+                        help='Include Unsafe.sh crawler (default: disabled)')
+    args = parser.parse_args()
+
     aggregator = SecurityNewsAggregator()
 
-    # Scrape all sources
-    aggregator.scrape_all_sources()
+    # Scrape all sources (unsafe crawler only enabled with --unsafe flag)
+    aggregator.scrape_all_sources(include_unsafe=args.unsafe)
 
     # Save raw data
     aggregator.save_articles_json()
