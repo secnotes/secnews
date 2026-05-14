@@ -2079,8 +2079,8 @@ def generate_html(articles, output_file=None):
     tech_sorted = sorted(articles['tech'], key=lambda x: x['date'], reverse=True)
     news_sorted = sorted(articles['news'], key=lambda x: x['date'], reverse=True)
 
-    # Calculate default visible count (excluding Unsafe.sh)
-    default_visible_count = len([a for a in tech_sorted + news_sorted if a['source'] != 'Unsafe.sh'])
+    # Calculate default visible count
+    default_visible_count = len(tech_sorted + news_sorted)
 
     # Function to truncate description if too long
     def truncate_description(desc, max_length=500):
@@ -2534,8 +2534,7 @@ def generate_html(articles, output_file=None):
 
                 const match = (selectedDates.length === 0 || selectedDates.includes(cardDate)) &&
                              (selectedSources.length === 0 || selectedSources.includes(cardSource)) &&
-                             (searchTerm === '' || title.includes(searchTerm) || desc.includes(searchTerm)) &&
-                             (selectedSources.includes('Unsafe.sh') || cardSource !== 'Unsafe.sh');
+                             (searchTerm === '' || title.includes(searchTerm) || desc.includes(searchTerm));
                 card.style.display = match ? 'flex' : 'none';
                 if (match) visibleCount++;
             }});
