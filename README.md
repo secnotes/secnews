@@ -27,7 +27,8 @@
 - **FreeBuf**: https://www.freebuf.com/
 - **安全内参**: https://www.secrss.com/
 - **SecurityWeek**: https://www.securityweek.com/
-- **看雪**: https://bbs.kanxue.com/
+- **The Hacker News**: https://thehackernews.com/
+- **看雪论坛**: https://bbs.kanxue.com/
 
 ## 功能特性
 
@@ -52,7 +53,8 @@
 3. 运行爬虫：
    ```bash
    cd src
-   python scrape_news.py
+   python scrape_news.py              # 默认模式，不爬取 Unsafe.sh
+   python scrape_news.py --unsafe     # 包含 Unsafe.sh 数据源
    ```
 
 生成的网页将位于 `docs/index.html`，可以直接在浏览器中打开查看。

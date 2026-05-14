@@ -2079,8 +2079,8 @@ def generate_html(articles, output_file=None):
     tech_sorted = sorted(articles['tech'], key=lambda x: x['date'], reverse=True)
     news_sorted = sorted(articles['news'], key=lambda x: x['date'], reverse=True)
 
-    # Calculate default visible count
-    default_visible_count = len(tech_sorted + news_sorted)
+    # Calculate default visible count (excluding Unsafe.sh)
+    default_visible_count = len([a for a in tech_sorted + news_sorted if a['source'] != 'Unsafe.sh'])
 
     # Function to truncate description if too long
     def truncate_description(desc, max_length=500):
@@ -2432,7 +2432,7 @@ def generate_html(articles, output_file=None):
                 <div class="filter-group">
                     <label>🏢 按来源筛选:</label>
                     <div class="multi-select" id="source-select">
-                        <div class="multi-select-header" onclick="toggleDropdown('source-select')">全部来源</div>
+                        <div class="multi-select-header" onclick="toggleDropdown('source-select')">全部来源[不包含Unsafe]</div>
                         <div class="multi-select-dropdown" id="source-dropdown"></div>
                     </div>
                 </div>
@@ -2522,7 +2522,7 @@ def generate_html(articles, output_file=None):
 
             // 更新下拉框标题
             document.querySelector('#date-select .multi-select-header').textContent = selectedDates.length ? (selectedDates.length > 1 ? selectedDates.length + '项已选' : selectedDates[0]) : '全部日期';
-            document.querySelector('#source-select .multi-select-header').textContent = selectedSources.length ? (selectedSources.length > 1 ? selectedSources.length + '项已选' : selectedSources[0]) : '全部来源';
+            document.querySelector('#source-select .multi-select-header').textContent = selectedSources.length ? (selectedSources.length > 1 ? selectedSources.length + '项已选' : selectedSources[0]) : '全部来源[不包含Unsafe]';
 
             // 筛选文章
             let visibleCount = 0;
@@ -2534,7 +2534,8 @@ def generate_html(articles, output_file=None):
 
                 const match = (selectedDates.length === 0 || selectedDates.includes(cardDate)) &&
                              (selectedSources.length === 0 || selectedSources.includes(cardSource)) &&
-                             (searchTerm === '' || title.includes(searchTerm) || desc.includes(searchTerm));
+                             (searchTerm === '' || title.includes(searchTerm) || desc.includes(searchTerm)) &&
+                             (selectedSources.includes('Unsafe.sh') || cardSource !== 'Unsafe.sh');
                 card.style.display = match ? 'flex' : 'none';
                 if (match) visibleCount++;
             }});
@@ -2545,7 +2546,7 @@ def generate_html(articles, output_file=None):
             document.querySelectorAll('.multi-select input[type="checkbox"]').forEach(cb => cb.checked = false);
             document.getElementById('search-input').value = '';
             document.querySelector('#date-select .multi-select-header').textContent = '全部日期';
-            document.querySelector('#source-select .multi-select-header').textContent = '全部来源';
+            document.querySelector('#source-select .multi-select-header').textContent = '全部来源[不包含Unsafe]';
             document.querySelectorAll('.multi-select-dropdown').forEach(d => d.classList.remove('show'));
             applyFilters();
         }}

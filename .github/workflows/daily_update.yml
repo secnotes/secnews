@@ -32,7 +32,7 @@ jobs:
 
     - name: Run scraping script
       run: |
-        python src/scrape_news.py
+        python src/scrape_news.py --unsafe
 
     - name: Commit and push changes
       run: |
