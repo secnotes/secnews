@@ -381,7 +381,7 @@ class SecurityNewsAggregator:
                         article = {
                             'title': title,
                             'url': url,
-                            'source': 'Daily Security',
+                            'source': 'Sec-Today',
                             'description': description,
                             'date': date,
                             'category': 'tech'
@@ -422,7 +422,7 @@ class SecurityNewsAggregator:
                             article = {
                                 'title': title,
                                 'url': url,
-                                'source': 'Tencent Security',
+                                'source': '腾讯安全',
                                 'description': description,
                                 'date': datetime.now().strftime('%Y-%m-%d'),
                                 'category': 'tech'
@@ -603,7 +603,7 @@ class SecurityNewsAggregator:
                             article = {
                                 'title': title,
                                 'url': url,
-                                'source': 'XZ Aliyun',
+                                'source': '先知社区',
                                 'description': description,
                                 'date': date,
                                 'category': 'tech'
@@ -791,7 +791,7 @@ class SecurityNewsAggregator:
                     article = {
                         'title': title,
                         'url': url,
-                        'source': 'Anquanke',
+                        'source': '安全客',
                         'description': description,
                         'date': date,
                         'category': 'news'
@@ -1118,7 +1118,7 @@ class SecurityNewsAggregator:
                                 article = {
                                     'title': title,
                                     'url': url,
-                                    'source': 'Secrss',
+                                    'source': '安全内参',
                                     'description': description,
                                     'date': date,
                                     'category': 'news'
@@ -1268,7 +1268,7 @@ class SecurityNewsAggregator:
                                 article = {
                                     'title': title,
                                     'url': url,
-                                    'source': 'SeeBug Paper',
+                                    'source': 'Seebug Paper',
                                     'description': description,
                                     'date': date,
                                     'category': 'tech'  # Security research papers belong to tech category
@@ -1332,7 +1332,7 @@ class SecurityNewsAggregator:
                                     article = {
                                         'title': title,
                                         'url': url,
-                                        'source': 'SeeBug Paper',
+                                        'source': 'Seebug Paper',
                                         'description': description,
                                         'date': date,
                                         'category': 'tech'
@@ -1480,7 +1480,7 @@ class SecurityNewsAggregator:
                             article = {
                                 'title': title,
                                 'url': url,
-                                'source': 'KanXue',
+                                'source': '看雪论坛',
                                 'description': description,
                                 'date': date,
                                 'category': 'tech'  # KanXue is technology-focused
@@ -2534,6 +2534,26 @@ def generate_html(articles, output_file=None):
             border-top: 1px solid #dee2e6;
         }}
 
+        .footer a {{
+            color: #007bff;
+            text-decoration: none;
+        }}
+
+        .footer a:hover {{
+            text-decoration: underline;
+        }}
+
+        .footer .github-icon {{
+            width: 16px;
+            height: 16px;
+            vertical-align: middle;
+            margin-right: 4px;
+        }}
+
+        .footer .separator {{
+            margin: 0 8px;
+        }}
+
         @media (max-width: 1100px) {{
             .container {{
                 grid-template-columns: 1fr;
@@ -2635,7 +2655,20 @@ def generate_html(articles, output_file=None):
         </aside>
 
         <div class="footer">
-            <p>© 2026 <a href="https://github.com/secnotes">SecNotes</a> | <a href="https://github.com/secnotes/secnews">站点源码</a></p>
+            <p>
+                © 2026 <a href="https://github.com/secnotes" target="_blank">Security Notes</a>
+                <span class="separator">|</span>
+                <a href="https://github.com/secnotes/secnews" target="_blank">
+                    <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.938 9.9 9.207 11.387.68.113.893-.261.893-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.218.694.825.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    Star on GitHub
+                </a>
+                <span class="separator">|</span>
+                <a href="https://github.com/secnotes/secnews/blob/main/src/articles.json" target="_blank">
+                    📄 Json data
+                </a>
+            </p>
             <p>安全资讯聚合平台 | 更新时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
             <p>数据来源: Sec-Today, 先知社区, Project Zero, Seebug Paper, 腾讯安全, 安全客, 安全内参, SecurityWeek, The Hacker News, 看雪</p>
             <p>如有侵权，请联系删除</p>
