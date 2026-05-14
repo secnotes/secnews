@@ -76,6 +76,7 @@ class SecurityNewsAggregator:
 
         # English patterns
         english_patterns = [
+            (r'(\d+)\s*week[s]?\s*ago', 'weeks'),
             (r'(\d+)\s*day[s]?\s*ago', 'days'),
             (r'(\d+)\s*hour[s]?\s*ago', 'hours'),
             (r'(\d+)\s*minute[s]?\s*ago', 'minutes'),
@@ -86,7 +87,9 @@ class SecurityNewsAggregator:
             match = re.search(pattern, time_text, re.IGNORECASE)
             if match:
                 quantity = int(match.group(1))
-                if unit == 'days':
+                if unit == 'weeks':
+                    past_date = datetime.now() - timedelta(weeks=quantity)
+                elif unit == 'days':
                     past_date = datetime.now() - timedelta(days=quantity)
                 elif unit == 'hours':
                     past_date = datetime.now() - timedelta(hours=quantity)
@@ -284,6 +287,7 @@ class SecurityNewsAggregator:
                             card_text = card.get_text()
                             # English relative time patterns (with or without space)
                             english_patterns = [
+                                r'(\d+)\s*week[s]?\s*ago',     # "2 weeks ago", "1 week ago"
                                 r'(\d+)\s*day[s]?\s*ago',      # "2 days ago", "2day ago"
                                 r'(\d+)\s*hour[s]?\s*ago',     # "2 hours ago"
                                 r'(\d+)\s*minute[s]?\s*ago',   # "2 minutes ago"
@@ -293,7 +297,9 @@ class SecurityNewsAggregator:
                                 match = re.search(pattern, card_text, re.IGNORECASE)
                                 if match:
                                     quantity = int(match.group(1))
-                                    if 'day' in pattern.lower():
+                                    if 'week' in pattern.lower():
+                                        past_date = datetime.now() - timedelta(weeks=quantity)
+                                    elif 'day' in pattern.lower():
                                         past_date = datetime.now() - timedelta(days=quantity)
                                     elif 'hour' in pattern.lower():
                                         past_date = datetime.now() - timedelta(hours=quantity)
