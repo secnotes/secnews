@@ -2034,6 +2034,78 @@ class SecurityNewsAggregator:
 
         logger.info(f"Article filtering completed: {original_counts['tech']} -> {filtered_counts['tech']} tech articles, {original_counts['news']} -> {filtered_counts['news']} news articles")
 
+    def get_recent_articles(self, days=2):
+        """Get articles from the last N days"""
+        cutoff_date = datetime.now() - timedelta(days=days)
+        recent_articles = []
+
+        for article in self.articles['tech'] + self.articles['news']:
+            try:
+                article_date = datetime.strptime(article['date'], '%Y-%m-%d')
+                if article_date >= cutoff_date:
+                    recent_articles.append(article)
+            except ValueError:
+                # Include article if date parsing fails
+                recent_articles.append(article)
+
+        logger.info(f"Found {len(recent_articles)} articles from the last {days} days")
+        return recent_articles
+
+    def ai_curate_articles(self, days=2, api_key=None, model=None, base_url=None):
+        """Use AI to analyze and categorize recent articles
+
+        Args:
+            days: Number of days to look back for articles (default: 2)
+            api_key: AI API key (optional, uses env var if not provided)
+            model: AI model name (optional, uses env var if not provided)
+            base_url: API base URL (optional, auto-inferred if not provided)
+
+        Returns:
+            Dict with categorized articles, or None if AI analysis fails
+        """
+        from ai_provider import get_ai_provider
+
+        try:
+            # Get recent articles
+            recent_articles = self.get_recent_articles(days)
+
+            if not recent_articles:
+                logger.warning("No recent articles to analyze")
+                return None
+
+            # Initialize AI provider
+            ai_provider = get_ai_provider(api_key=api_key, model=model, base_url=base_url)
+
+            logger.info(f"Starting AI analysis of {len(recent_articles)} articles...")
+
+            # Analyze articles
+            curated_result = ai_provider.analyze_articles(recent_articles)
+
+            logger.info(f"AI analysis completed: categorized articles into {len(curated_result.get('categories', {}))} categories")
+
+            return curated_result
+
+        except ValueError as e:
+            logger.warning(f"AI curation skipped: {str(e)}")
+            return None
+        except Exception as e:
+            logger.error(f"Error during AI curation: {str(e)}")
+            return None
+
+    def save_ai_curated_json(self, curated_data, filename='ai_curated.json'):
+        """Save AI curated data to a JSON file"""
+        if not curated_data:
+            logger.warning("No AI curated data to save")
+            return
+
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        full_path = os.path.join(script_dir, filename)
+
+        with open(full_path, 'w', encoding='utf-8') as f:
+            json.dump(curated_data, f, ensure_ascii=False, indent=2)
+
+        logger.info(f"AI curated data saved to {full_path}")
+
     def save_articles_json(self, filename='articles.json'):
         """Save articles to a JSON file"""
         import os
@@ -2055,8 +2127,103 @@ class SecurityNewsAggregator:
             self.articles = {'tech': [], 'news': []}
 
 
-def generate_html(articles, output_file=None):
-    """Generate HTML page with collected articles"""
+def _generate_ai_curated_html(ai_curated):
+    """Generate HTML for AI curated view"""
+    if not ai_curated:
+        return '<div class="no-ai-data"><p>🤖 AI精选数据暂未生成</p></div>'
+
+    categories_html = []
+    category_icons = {
+        '漏洞研究': '🐛',
+        '移动安全': '📱',
+        'AI安全': '🤖',
+        '威胁情报': '🔍',
+        '安全工具': '🔧',
+        '云安全': '☁️',
+        '其他重要': '⭐',
+    }
+
+    categories = ai_curated.get('categories', {})
+    for category_name, articles in categories.items():
+        if not articles:
+            continue
+
+        icon = category_icons.get(category_name, '📌')
+        articles_html = []
+
+        for article in articles:
+            title = article.get('title', 'No Title')
+            url = article.get('url', '')
+            source = article.get('source', '')
+            date = article.get('date', '')
+            reason = article.get('reason', '')
+
+            articles_html.append(f'''
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="{url}" target="_blank">{html.escape(title)}</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: {source}</span>
+                    <span>日期: {date}</span>
+                </div>
+                {f'<div class="ai-article-reason">💡 推荐理由: {html.escape(reason)}</div>' if reason else ''}
+            </div>''')
+
+        categories_html.append(f'''
+        <div class="ai-category">
+            <h3 class="ai-category-title">{icon} {category_name}</h3>
+            {"".join(articles_html)}
+        </div>''')
+
+    summary = ai_curated.get('summary', '')
+    analysis_date = ai_curated.get('analysis_date', '')
+    total_analyzed = ai_curated.get('total_analyzed', 0)
+
+    result_html = f'''
+    <div class="ai-summary">
+        <h3>🤖 AI分析摘要</h3>
+        <p>{html.escape(summary)}</p>
+        <p style="margin-top: 0.5rem; color: #888; font-size: 0.85rem;">
+            分析日期: {analysis_date} | 共分析 {total_analyzed} 篇文章
+        </p>
+    </div>
+    {"".join(categories_html)}
+    '''
+
+    return result_html
+
+
+def _generate_ai_category_nav(ai_curated):
+    """Generate category navigation for AI sidebar"""
+    if not ai_curated:
+        return ''
+
+    category_icons = {
+        '漏洞研究': '🐛',
+        '移动安全': '📱',
+        'AI安全': '🤖',
+        '威胁情报': '🔍',
+        '安全工具': '🔧',
+        '云安全': '☁️',
+        '其他重要': '⭐',
+    }
+
+    categories = ai_curated.get('categories', {})
+    nav_items = []
+
+    for category_name, articles in categories.items():
+        if articles:
+            icon = category_icons.get(category_name, '📌')
+            count = len(articles)
+            # Create anchor link to category section
+            nav_items.append(f'<li onclick="scrollToCategory(\'{category_name}\')">{icon} {category_name} ({count})</li>')
+
+    return ''.join(nav_items)
+
+
+def generate_html(articles, output_file=None, ai_curated=None):
+    """Generate HTML page with collected articles, optionally including AI curated view"""
 
     # 如果没有指定输出文件，则默认为项目根目录下的docs/index.html
     if output_file is None:
@@ -2378,6 +2545,180 @@ def generate_html(articles, output_file=None):
             .articles-grid {{
                 grid-template-columns: 1fr;
             }}
+
+            .view-toggle {{
+                flex-direction: column;
+            }}
+        }}
+
+        /* View toggle buttons - positioned in sidebar */
+        .view-toggle {{
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1rem;
+            justify-content: flex-end;
+        }}
+
+        .view-toggle-btn {{
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }}
+
+        .view-toggle-btn:hover {{
+            background: #f0f4ff;
+        }}
+
+        .view-toggle-btn.active {{
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: transparent;
+        }}
+
+        /* Sidebar sections */
+        .sidebar-section {{
+            transition: all 0.3s ease;
+        }}
+
+        .sidebar-section.hidden {{
+            display: none;
+        }}
+
+        /* AI category navigation */
+        .ai-category-nav {{
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+        }}
+
+        .ai-category-nav h4 {{
+            margin-bottom: 0.75rem;
+            color: #495057;
+        }}
+
+        .ai-category-nav ul {{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }}
+
+        .ai-category-nav li {{
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            color: #007bff;
+            transition: all 0.2s ease;
+        }}
+
+        .ai-category-nav li:hover {{
+            color: #0056b3;
+            padding-left: 5px;
+        }}
+
+        .ai-category-nav li:last-child {{
+            border-bottom: none;
+        }}
+
+        /* AI curated view styles */
+        .ai-view {{
+            display: none;
+        }}
+
+        .ai-view.active {{
+            display: block;
+        }}
+
+        .original-view {{
+            display: block;
+        }}
+
+        .original-view.hidden {{
+            display: none;
+        }}
+
+        .ai-category {{
+            margin-bottom: 2rem;
+        }}
+
+        .ai-category-title {{
+            font-size: 1.4rem;
+            color: #495057;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }}
+
+        .ai-summary {{
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }}
+
+        .ai-summary h3 {{
+            margin-bottom: 0.5rem;
+            color: #495057;
+        }}
+
+        .ai-article {{
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }}
+
+        .ai-article:hover {{
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }}
+
+        .ai-article-title {{
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }}
+
+        .ai-article-title a {{
+            color: #007bff;
+            text-decoration: none;
+        }}
+
+        .ai-article-title a:hover {{
+            text-decoration: underline;
+        }}
+
+        .ai-article-reason {{
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px dashed #ddd;
+        }}
+
+        .ai-meta {{
+            display: flex;
+            gap: 1rem;
+            color: #888;
+            font-size: 0.85rem;
+        }}
+
+        .no-ai-data {{
+            text-align: center;
+            padding: 2rem;
+            color: #666;
+            background: #f8f9fa;
+            border-radius: 8px;
         }}
     </style>
 </head>
@@ -2389,6 +2730,9 @@ def generate_html(articles, output_file=None):
         </header>
 
         <main class="main-content">
+            <!-- View Toggle Buttons -->
+            <!-- Original View (All Articles) -->
+            <div class="original-view" id="original-view">
             <div class="category-section">
                 <h2 class="section-title">🎯 技术文章 (Technical Articles)</h2>
                 <div class="articles-grid" id="tech-articles">
@@ -2414,44 +2758,74 @@ def generate_html(articles, output_file=None):
                     </div>''' for article in news_sorted])}
                 </div>
             </div>
+            </div>
+
+            <!-- AI Curated View -->
+            <div class="ai-view" id="ai-view">
+                {_generate_ai_curated_html(ai_curated) if ai_curated else '<div class="no-ai-data"><p>🤖 AI精选数据暂未生成</p><p>请启用 --ai-curate 参数来生成AI精选内容</p></div>'}
+            </div>
         </main>
 
         <aside class="sidebar">
-            <h3>筛选器</h3>
-            <div class="filters">
-                <div class="filter-group">
-                    <label>📅 按日期筛选:</label>
-                    <div class="multi-select" id="date-select">
-                        <div class="multi-select-header" onclick="toggleDropdown('date-select')">全部日期</div>
-                        <div class="multi-select-dropdown">
-                            {''.join([f'<div class="multi-select-option"><input type="checkbox" id="date-{i}" value="{date}"> {date}</div>' for i, date in enumerate(sorted_dates)])}
-                        </div>
-                    </div>
-                </div>
-
-                <div class="filter-group">
-                    <label>🏢 按来源筛选:</label>
-                    <div class="multi-select" id="source-select">
-                        <div class="multi-select-header" onclick="toggleDropdown('source-select')">全部来源[不包含Unsafe]</div>
-                        <div class="multi-select-dropdown" id="source-dropdown"></div>
-                    </div>
-                </div>
-
-                <div class="filter-group">
-                    <label for="search-input">🔍 搜索关键词:</label>
-                    <input type="text" id="search-input" placeholder="输入关键词搜索..." onkeyup="applyFilters()">
-                </div>
-
-                <button onclick="clearAllFilters()" style="margin-top: 10px; padding: 8px 16px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">清除筛选</button>
+            <!-- View Toggle Buttons -->
+            <div class="view-toggle">
+                <button class="view-toggle-btn" onclick="switchView('ai')">🤖 AI精选</button>
+                <button class="view-toggle-btn active" onclick="switchView('original')">📚 全部文章</button>
             </div>
 
-            <div style="margin-top: 1.5rem;">
-                <h4>统计信息</h4>
-                <p id="visible-count">当前显示: {default_visible_count}</p>
-                <p>总文章数: {len(tech_sorted) + len(news_sorted)}</p>
-                <p>技术文章: {len(tech_sorted)}</p>
-                <p>安全新闻: {len(news_sorted)}</p>
-                <p>更新日期: {datetime.now().strftime('%Y-%m-%d')}</p>
+            <!-- Original Sidebar (Filters) -->
+            <div class="sidebar-section" id="original-sidebar">
+                <h3>筛选器</h3>
+                <div class="filters">
+                    <div class="filter-group">
+                        <label>📅 按日期筛选:</label>
+                        <div class="multi-select" id="date-select">
+                            <div class="multi-select-header" onclick="toggleDropdown('date-select')">全部日期</div>
+                            <div class="multi-select-dropdown">
+                                {''.join([f'<div class="multi-select-option"><input type="checkbox" id="date-{i}" value="{date}"> {date}</div>' for i, date in enumerate(sorted_dates)])}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label>🏢 按来源筛选:</label>
+                        <div class="multi-select" id="source-select">
+                            <div class="multi-select-header" onclick="toggleDropdown('source-select')">全部来源[不包含Unsafe]</div>
+                            <div class="multi-select-dropdown" id="source-dropdown"></div>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="search-input">🔍 搜索关键词:</label>
+                        <input type="text" id="search-input" placeholder="输入关键词搜索..." onkeyup="applyFilters()">
+                    </div>
+
+                    <button onclick="clearAllFilters()" style="margin-top: 10px; padding: 8px 16px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">清除筛选</button>
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                    <h4>统计信息</h4>
+                    <p id="visible-count">当前显示: {default_visible_count}</p>
+                    <p>总文章数: {len(tech_sorted) + len(news_sorted)}</p>
+                    <p>技术文章: {len(tech_sorted)}</p>
+                    <p>安全新闻: {len(news_sorted)}</p>
+                    <p>更新日期: {datetime.now().strftime('%Y-%m-%d')}</p>
+                </div>
+            </div>
+
+            <!-- AI Sidebar (Category Navigation) -->
+            <div class="sidebar-section hidden" id="ai-sidebar">
+                <div class="ai-category-nav">
+                    <h4>📋 分类目录</h4>
+                    <ul>
+                        {_generate_ai_category_nav(ai_curated) if ai_curated else '<li style="color:#666">暂无分类数据</li>'}
+                    </ul>
+                </div>
+                <div style="margin-top: 1rem; padding: 0.5rem; background: #f8f9fa; border-radius: 4px; font-size: 0.85rem; color: #666;">
+                    <p>分析日期: {ai_curated.get('analysis_date', '-') if ai_curated else '-'}</p>
+                    <p>筛选文章: {sum(len(arts) for arts in ai_curated.get('categories', {}).values()) if ai_curated else 0} 篇</p>
+                    <p>原始文章: {ai_curated.get('total_analyzed', 0) if ai_curated else 0} 篇</p>
+                </div>
             </div>
         </aside>
 
@@ -2550,6 +2924,43 @@ def generate_html(articles, output_file=None):
             document.querySelectorAll('.multi-select-dropdown').forEach(d => d.classList.remove('show'));
             applyFilters();
         }}
+
+        function switchView(view) {{
+            const originalView = document.getElementById('original-view');
+            const aiView = document.getElementById('ai-view');
+            const originalSidebar = document.getElementById('original-sidebar');
+            const aiSidebar = document.getElementById('ai-sidebar');
+            const buttons = document.querySelectorAll('.view-toggle-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            if (view === 'original') {{
+                originalView.classList.remove('hidden');
+                originalView.classList.add('active');
+                aiView.classList.remove('active');
+                originalSidebar.classList.remove('hidden');
+                aiSidebar.classList.add('hidden');
+                buttons[1].classList.add('active');
+            }} else {{
+                originalView.classList.add('hidden');
+                originalView.classList.remove('active');
+                aiView.classList.add('active');
+                originalSidebar.classList.add('hidden');
+                aiSidebar.classList.remove('hidden');
+                buttons[0].classList.add('active');
+            }}
+        }}
+
+        function scrollToCategory(categoryName) {{
+            // Find the category title element
+            const titles = document.querySelectorAll('.ai-category-title');
+            for (const title of titles) {{
+                if (title.textContent.includes(categoryName)) {{
+                    title.scrollIntoView({{ behavior: 'smooth', block: 'start' }});
+                    break;
+                }}
+            }}
+        }}
     </script>
 </body>
 </html>"""
@@ -2566,6 +2977,16 @@ def main():
     parser = argparse.ArgumentParser(description='Security News Aggregator')
     parser.add_argument('--unsafe', action='store_true',
                         help='Include Unsafe.sh crawler (default: disabled)')
+    parser.add_argument('--ai-curate', action='store_true',
+                        help='Enable AI curation for recent articles')
+    parser.add_argument('--ai-days', type=int, default=2,
+                        help='Number of days to analyze for AI curation (default: 2)')
+    parser.add_argument('--ai-key', type=str, default=None,
+                        help='AI API key (default: from AI_API_KEY env var)')
+    parser.add_argument('--ai-model', type=str, default=None,
+                        help='AI model name (default: from AI_MODEL env var, or gpt-4o-mini)')
+    parser.add_argument('--ai-base-url', type=str, default=None,
+                        help='AI API base URL (default: auto-inferred from model)')
     args = parser.parse_args()
 
     aggregator = SecurityNewsAggregator()
@@ -2576,12 +2997,27 @@ def main():
     # Save raw data
     aggregator.save_articles_json()
 
+    # AI curation (optional)
+    ai_curated = None
+    if args.ai_curate:
+        ai_curated = aggregator.ai_curate_articles(
+            days=args.ai_days,
+            api_key=args.ai_key,
+            model=args.ai_model,
+            base_url=args.ai_base_url
+        )
+        if ai_curated:
+            aggregator.save_ai_curated_json(ai_curated)
+
     # Generate HTML page (this will go to project root docs directory)
-    generate_html(aggregator.articles)
+    generate_html(aggregator.articles, ai_curated=ai_curated)
 
     print(f"\n完成！共收集到:")
     print(f"- 技术文章: {len(aggregator.articles['tech'])} 篇")
     print(f"- 新闻: {len(aggregator.articles['news'])} 篇")
+    if ai_curated:
+        total_curated = sum(len(arts) for arts in ai_curated.get('categories', {}).values())
+        print(f"- AI精选: {total_curated} 篇")
     print(f"已生成 docs/index.html 文件")
 
 

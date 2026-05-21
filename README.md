@@ -1,6 +1,6 @@
 # 安全资讯聚合平台
 
-一个自动化的安全资讯聚合平台，每日自动收集来自各大安全社区的技术文章和新闻资讯。
+一个自动化的安全资讯聚合平台，每日自动收集来自各大安全社区的技术文章和新闻资讯，并通过AI智能筛选和分类重要内容。
 
 ## 项目结构
 
@@ -8,7 +8,10 @@
 .
 ├── src/                    # 源代码目录
 │   ├── scrape_news.py      # 主爬虫脚本
-│   └── run_scraping.sh     # 运行脚本
+│   ├── ai_provider.py      # AI分析模块
+│   ├── articles.json       # 爬取的原始数据
+│   ├── ai_curated.json     # AI精选数据
+│   └── .env                # 本地AI配置（不提交到git）
 ├── docs/                   # 生成的网页文件目录
 │   └── index.html          # 生成的静态网页
 ├── .github/workflows/      # GitHub Actions 工作流
@@ -38,10 +41,13 @@
 - 生成美观的静态网页展示
 - 自动去重，避免重复文章
 - 支持中文内容正确显示
+- **AI智能精选**：通过AI分析最近文章，筛选重要内容并分类
+- **分类导航**：支持漏洞研究、移动安全、AI安全、威胁情报、安全工具、云安全等分类
+- **双视图切换**：网页支持"全部文章"和"AI精选"两种视图
 
 ## 自动更新
 
-项目配置了GitHub Actions，每日凌晨0点（UTC时间）自动运行，更新最新的安全资讯。
+项目配置了GitHub Actions，每日凌晨0点（UTC时间）自动运行，更新最新的安全资讯并生成AI精选内容。
 
 ## 安装与运行
 
@@ -58,6 +64,94 @@
    ```
 
 生成的网页将位于 `docs/index.html`，可以直接在浏览器中打开查看。
+
+## AI精选功能
+
+### 功能说明
+
+AI精选功能会分析最近2天的安全文章，筛选出重要内容并按主题分类：
+- 🐛 漏洞研究
+- 📱 移动安全
+- 🤖 AI安全
+- 🔍 威胁情报
+- 🔧 安全工具
+- ☁️ 云安全
+- ⭐ 其他重要
+
+### 支持的AI服务
+
+本项目使用OpenAI-compatible API接口，支持以下AI服务：
+
+| AI服务 | 模型示例 | API地址 |
+|-------|---------|--------|
+| OpenAI | gpt-4o-mini | https://api.openai.com/v1 |
+| DeepSeek | deepseek-chat | https://api.deepseek.com/v1 |
+| 阿里百练 | glm-4, glm-5 | https://dashscope.aliyuncs.com/compatible-mode/v1 |
+| 智谱AI | glm-4 | https://open.bigmodel.cn/api/paas/v4 |
+| Moonshot | moonshot-v1 | https://api.moonshot.cn/v1 |
+
+### 本地使用
+
+**方式一：使用环境变量**
+
+在 `src/` 目录下创建 `.env` 文件：
+```env
+AI_API_KEY=your-api-key-here
+AI_MODEL=gpt-4o-mini
+AI_BASE_URL=https://api.openai.com/v1   # 可选，根据AI服务自动推断
+```
+
+运行带AI分析的爬虫：
+```bash
+python scrape_news.py --unsafe --ai-curate --ai-days 2
+```
+
+**方式二：使用命令行参数**
+
+```bash
+python scrape_news.py --unsafe --ai-curate \
+    --ai-key your-api-key \
+    --ai-model gpt-4o-mini \
+    --ai-base-url https://api.openai.com/v1
+```
+
+### 命令行参数
+
+| 参数 | 说明 | 默认值 |
+|-----|------|-------|
+| `--ai-curate` | 启用AI精选功能 | 不启用 |
+| `--ai-days` | 分析最近N天的文章 | 2 |
+| `--ai-key` | AI API密钥 | 从环境变量读取 |
+| `--ai-model` | AI模型名称 | gpt-4o-mini |
+| `--ai-base-url` | API地址 | 自动推断 |
+
+### GitHub Actions配置
+
+在GitHub仓库中设置Secrets：
+1. 进入 Settings → Secrets and variables → Actions
+2. 添加以下Secrets：
+   - `AI_API_KEY`（必须）：你的AI API密钥
+   - `AI_MODEL`（推荐）：AI模型名称，如 `glm-5.1`、`gpt-4o-mini`、`deepseek-chat`
+   - `AI_BASE_URL`（推荐）：API地址，如使用阿里百练需设置为 `https://dashscope.aliyuncs.com/compatible-mode/v1`
+
+**常见配置示例：**
+
+| AI服务 | AI_MODEL | AI_BASE_URL |
+|-------|---------|------------|
+| OpenAI | gpt-4o-mini | 不需要（自动推断） |
+| DeepSeek | deepseek-chat | 不需要（自动推断） |
+| 智谱AI官方 | glm-4-plus | 不需要（自动推断） |
+| 阿里百练(GLM) | glm-5.1 | **必须设置** `https://dashscope.aliyuncs.com/compatible-mode/v1` |
+| Moonshot | moonshot-v1-8k | 不需要（自动推断） |
+
+注意：阿里百练平台虽然使用GLM模型，但API地址与智谱官方不同，必须手动设置 `AI_BASE_URL`。
+
+### 成本估算
+
+- 每日约分析100-150篇文章
+- 使用分批处理（每批50篇）
+- 推荐使用高性价比模型（如 gpt-4o-mini、deepseek-chat）
+- 预估每日成本约 $0.05-0.10
 
 ## 维护
 
