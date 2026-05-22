@@ -1,14 +1,210 @@
 {
   "analysis_date": "2026-05-22",
-  "total_analyzed": 134,
+  "total_analyzed": 137,
   "categories": {
-    "漏洞研究": [],
-    "移动安全": [],
-    "AI安全": [],
-    "威胁情报": [],
-    "安全工具": [],
-    "云安全": [],
-    "其他重要": []
+    "漏洞研究": [
+      {
+        "title": "Project Zero 披露 Pixel 10 Zero-Click 漏洞链：从 Dolby 音频到 VPU Mmap 内核控制",
+        "url": "https://sec.today/pulses/118357e2-1ebf-4365-b265-5e3fa69a57da/",
+        "source": "Sec-Today",
+        "date": "2026-05-22",
+        "reason": "深度剖析零点击漏洞链与VPU驱动缺陷，揭示第三方组件对内核安全的致命影响，具备极高的漏洞挖掘参考价值。"
+      },
+      {
+        "title": "Fragnesia（亦称 Copyfail 3.0，CVE-2026-46300）是 Linux 内核 XFRM ESP-in-TCP 子系统中的一项严重本地提权漏洞",
+        "url": "https://sec.today/pulses/16d69023-03c8-46e7-a718-7d461daa0d27/",
+        "source": "Sec-Today",
+        "date": "2026-05-22",
+        "reason": "详细分析Linux内核XFRM子系统逻辑缺陷，提供无需竞态条件的稳定本地提权技术细节与利用路径。"
+      },
+      {
+        "title": "Qualys 披露了 Linux 内核 __ptrace_may_access() 函数中存在一个严重逻辑漏洞，被正式分配为 CVE-2026-46333",
+        "url": "https://sec.today/pulses/897a2e74-b886-4eb8-b5bb-e1ec397325d5/",
+        "source": "Sec-Today",
+        "date": "2026-05-22",
+        "reason": "揭示ptrace访问控制竞态条件，演示如何利用进程退出窗口窃取特权文件描述符，技术实战性强。"
+      },
+      {
+        "title": "安全研究人员披露了名为 NGINX Rift (CVE-2026-42945) 的严重漏洞",
+        "url": "https://sec.today/pulses/a7f2f976-8d2e-4754-bbe8-7aed1daa0d27/",
+        "source": "Sec-Today",
+        "date": "2026-05-22",
+        "reason": "挖掘潜伏18年的NGINX重写模块状态不一致漏洞，具备极高的实战利用价值与修复参考意义。"
+      },
+      {
+        "title": "Kukurigu：利用 xfrm-ESP 与 RxRPC 漏洞链实现稳定的 Linux Kernel 页面缓存投毒提权",
+        "url": "https://sec.today/pulses/7afe272e-128d-4080-8b75-28ed461daa0d27/",
+        "source": "Sec-Today",
+        "date": "2026-05-22",
+        "reason": "展示跨协议漏洞组合利用技术，实现接近100%成功率的内核提权，为内核安全研究树立新标杆。"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "Google 在 2026 年 5 月安全公告中披露了 Android Debug Bridge (adbd) 守护进程中的严重零点击远程代码执行漏洞 (CVE-2026-0073)",
+        "url": "https://sec.today/pulses/c1633a07-f7f9-4745-b5af-9c8401b39df1/",
+        "source": "Sec-Today",
+        "date": "2026-05-22",
+        "reason": "分析无线ADB TLS认证绕过机制，揭示局域网内零交互获取Android设备控制权的严重风险。"
+      },
+      {
+        "title": "ScarCruft 供应链攻击：Windows 与 Android 后门瞄准游戏平台",
+        "url": "https://sec.today/pulses/3c83189c-c240-4717-9dbe-ac9a29356a1b/",
+        "source": "Sec-Today",
+        "date": "2026-05-22",
+        "reason": "披露朝鲜APT组织针对Android平台的新型BirdCall后门技术细节，为移动端威胁狩猎提供关键IoC。"
+      },
+      {
+        "title": "macOS Kernel Memory Corruption Exploit",
+        "url": "https://www.schneier.com/blog/archives/2026/05/macos-kernel-memory-corruption-exploit.html",
+        "source": "Unsafe.sh",
+        "date": "2026-05-21",
+        "reason": "剖析macOS内核内存破坏利用技术，对苹果生态系统的底层安全研究与防御具有重要参考价值。"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "InstallFix 行动：利用 Claude AI 信任通过虚假安装程序与多阶段恶意软件攻击",
+        "url": "https://sec.today/pulses/f43b9b3e-96c0-4202-8c28-6e26e79a5766/",
+        "source": "Sec-Today",
+        "date": "2026-05-22",
+        "reason": "揭示针对AI工具信任链的新型社会工程与多阶段攻击手法，提供关键防御策略与IoC。"
+      },
+      {
+        "title": "微软推出了名为 MDASH（多模型智能体扫描框架）的新一代自动化安全系统",
+        "url": "https://sec.today/pulses/b7ee6664-a34-4e01-824b-cecd2eeee09e/",
+        "source": "Sec-Today",
+        "date": "2026-05-22",
+        "reason": "介绍基于百余个AI智能体协同的自动化漏洞挖掘框架，代表AI驱动安全测试的前沿方向。"
+      },
+      {
+        "title": "AgentTrust：面向Agent的工具调用防火墙",
+        "url": "https://www.secrss.com/articles/90590",
+        "source": "安全内参",
+        "date": "2026-05-21",
+        "reason": "提出针对AI智能体工具调用的安全隔离方案，解决大模型代理执行外部操作的核心风险。"
+      },
+      {
+        "title": "【安全事件】AI基础设施LiteLLM供应链投毒预警通告",
+        "url": "https://blog.nsfocus.net/%e3%80%90%e5%ae%89%e5%85%a8%e4%ba%8b%e4%bb%b6%e3%80%91ai%e5%9f%ba%e7%a1%80%e8%ae%be%e6%96%bdlitellm%e4%be%9b%e5%ba%94%e9%93%be%e6%8a%95%e6%af%92%e9%a2%84%e8%ad%a6%e9%80%9a%e5%91%8a/",
+        "source": "Unsafe.sh",
+        "date": "2026-05-22",
+        "reason": "预警AI网关组件供应链投毒事件，强调AI基础设施依赖链的安全审查与依赖锁定必要性。"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "“银狐”木马新变种爆发！伪装人事文件定向攻击国内用户",
+        "url": "http://bbs.kanxue.com/thread-291298.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-05-21",
+        "reason": "追踪国内高发木马家族最新变种TTPs，针对HR/行政人员的定向攻击特征极具预警价值。"
+      },
+      {
+        "title": "GitHub遭恶意VSCode插件入侵！3800个内部仓库被盗",
+        "url": "http://bbs.kanxue.com/thread-291284.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-05-21",
+        "reason": "深度复盘全球最大代码平台供应链入侵事件，揭示开发者生态面临的严峻内部威胁。"
+      },
+      {
+        "title": "Showboat Linux Malware Hits Middle East Telecom with SOCKS5 Proxy Backdoor",
+        "url": "https://thehackernews.com/2026/05/showboat-linux-malware-hits-middle-east.html",
+        "source": "The Hacker News",
+        "date": "2026-05-21",
+        "reason": "披露针对中东电信运营商的新型Linux恶意软件，丰富服务器端威胁情报与横向移动分析。"
+      },
+      {
+        "title": "黑客组织UNG0002针对国内大学发起鱼叉式钓鱼攻击活动分析",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzI0MTE4ODY3Nw==&amp;mid=2247492937&amp;idx=1&amp;sn=466fc6b4ed08ed5d1ecfc80ea3b215f7",
+        "source": "Unsafe.sh",
+        "date": "2026-05-22",
+        "reason": "剖析针对教育行业的APT钓鱼活动战术与技术，提供针对性的防御与溯源建议。"
+      },
+      {
+        "title": "TeamPCP：正在以 前所未有的规模污染开源代码的黑客组织",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&amp;mid=2451186770&amp;idx=1&amp;sn=8374614e0cc8b70d57cd07408d95c2ea",
+        "source": "Unsafe.sh",
+        "date": "2026-05-21",
+        "reason": "追踪大规模开源供应链投毒攻击组织，揭示自动化污染流水线与防御盲区。"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "从文本到情报：自动化STIX实体与关系提取",
+        "url": "https://www.secrss.com/articles/90553",
+        "source": "安全内参",
+        "date": "2026-05-21",
+        "reason": "提供将非结构化安全报告自动转化为STIX标准格式的工具方法，提升威胁情报处理效率。"
+      },
+      {
+        "title": "Continuous Security Validation Best Practices: A Practical Guide for Security Teams",
+        "url": "https://www.guidepointsecurity.com/blog/continuous-security-validation-best-practices-a-practical-guide-for-security-teams/",
+        "source": "Unsafe.sh",
+        "date": "2026-05-21",
+        "reason": "系统化介绍持续安全验证（CSV）工具链的最佳实践，指导企业构建自动化防御验证体系。"
+      },
+      {
+        "title": "面向Java库模糊测试的覆盖率引导多智能体工具生成",
+        "url": "https://www.secrss.com/articles/90575",
+        "source": "安全内参",
+        "date": "2026-05-21",
+        "reason": "展示结合LLM与程序分析的自动化Fuzzing工具生成技术，提升软件供应链漏洞挖掘效率。"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "Cisco Patches CVSS 10.0 Secure Workload REST API Flaw Enabling Data Access",
+        "url": "https://thehackernews.com/2026/05/cisco-patches-cvss-100-secure-workload.html",
+        "source": "The Hacker News",
+        "date": "2026-05-22",
+        "reason": "分析云工作负载管理平台API未授权访问漏洞，警示云原生环境接口鉴权缺陷。"
+      },
+      {
+        "title": "When Identity is the Attack Path",
+        "url": "https://thehackernews.com/2026/05/when-identity-is-attack-path.html",
+        "source": "The Hacker News",
+        "date": "2026-05-21",
+        "reason": "深入剖析云环境（AWS）缓存凭证泄露路径，为云身份与访问管理（IAM）提供实战防御思路。"
+      },
+      {
+        "title": "Announcing Claude Compliance API support with Cloudflare CASB",
+        "url": "https://blog.cloudflare.com/casb-anthropic-integration/",
+        "source": "Unsafe.sh",
+        "date": "2026-05-21",
+        "reason": "介绍云访问安全代理（CASB）与AI合规API的集成方案，强化企业AI应用的数据防泄漏能力。"
+      },
+      {
+        "title": "GitHub Actions Cache Poisoning is eating open source",
+        "url": "https://unsafe.sh/go-418134.html",
+        "source": "Unsafe.sh",
+        "date": "2026-05-21",
+        "reason": "揭示CI/CD云流水线缓存投毒技术，为云原生开发运维安全提供关键加固指南。"
+      }
+    ],
+    "其他重要": [
+      {
+        "title": "执法部门关闭勒索软件团伙使用的VPN服务",
+        "url": "https://blog.upx8.com/%E6%89%A7%E6%B3%95%E9%83%A8%E9%97%A8%E5%85%B3%E9%97%AD%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E5%9B%A2%E4%BC%99%E4%BD%BF%E7%94%A8%E7%9A%84VPN%E6%9C%8D%E5%8A%A1",
+        "source": "Unsafe.sh",
+        "date": "2026-05-22",
+        "reason": "记录国际联合执法行动取缔犯罪基础设施的里程碑事件，对黑产生态打击具有战略意义。"
+      },
+      {
+        "title": "U.S. CISA adds Microsoft and Adobe flaws to its Known Exploited Vulnerabilities catalog",
+        "url": "https://securityaffairs.com/192508/security/u-s-cisa-adds-microsoft-and-adobe-flaws-to-its-known-exploited-vulnerabilities-catalog.html",
+        "source": "Unsafe.sh",
+        "date": "2026-05-21",
+        "reason": "跟踪CISA KEV目录更新，强制推动高危在野漏洞的修复优先级，影响全球合规与应急响应。"
+      },
+      {
+        "title": "GTIG AI 威胁追踪报告：攻击者利用AI开展漏洞利用、作战赋能与初始入侵",
+        "url": "https://mp.weixin.qq.com/s?__biz=Mzg3NjU4MDI4NQ==&amp;mid=2247486740&amp;idx=1&amp;sn=9532faa2125265606c27c96db56f8aa1",
+        "source": "Unsafe.sh",
+        "date": "2026-05-22",
+        "reason": "汇总AI赋能网络攻击的最新趋势与战术演进，为安全战略制定提供宏观情报支撑。"
+      }
+    ]
   },
-  "summary": "AI分析完成，已筛选重要文章并分类"
+  "summary": "本批次聚焦高危内核漏洞、AI供应链投毒、APT定向攻击及云原生安全，筛选出具备深度技术分析与实战防御价值的核心文章。"
 }

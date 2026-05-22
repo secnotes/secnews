@@ -36,8 +36,8 @@ jobs:
         python src/scrape_news.py --unsafe --ai-curate --ai-days 2
       env:
         AI_API_KEY: ${{ secrets.AI_API_KEY }}
-        AI_MODEL: ${{ secrets.AI_MODEL || 'gpt-4o-mini' }}
-        AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
+        AI_MODEL: ${{ vars.AI_MODEL || 'gpt-4o-mini' }}
+        AI_BASE_URL: ${{ vars.AI_BASE_URL }}
 
     - name: Commit and push changes
       run: |

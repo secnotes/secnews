@@ -127,10 +127,11 @@ python scrape_news.py --unsafe --ai-curate \
 
 ### GitHub Actions配置
 
-在GitHub仓库中设置Secrets：
+在GitHub仓库中设置Secrets和Variables：
 1. 进入 Settings → Secrets and variables → Actions
-2. 添加以下Secrets：
+2. 在 **Secrets** 标签下添加：
    - `AI_API_KEY`（必须）：你的AI API密钥
+3. 在 **Variables** 标签下添加：
    - `AI_MODEL`（推荐）：AI模型名称，如 `glm-5.1`、`gpt-4o-mini`、`deepseek-chat`
    - `AI_BASE_URL`（推荐）：API地址，如使用阿里百练需设置为 `https://dashscope.aliyuncs.com/compatible-mode/v1`
 
@@ -138,13 +139,15 @@ python scrape_news.py --unsafe --ai-curate \
 
 | AI服务 | AI_MODEL | AI_BASE_URL |
 |-------|---------|------------|
-| OpenAI | gpt-4o-mini | 不需要（自动推断） |
-| DeepSeek | deepseek-chat | 不需要（自动推断） |
-| 智谱AI官方 | glm-4-plus | 不需要（自动推断） |
-| 阿里百练(GLM) | glm-5.1 | **必须设置** `https://dashscope.aliyuncs.com/compatible-mode/v1` |
-| Moonshot | moonshot-v1-8k | 不需要（自动推断） |
+| OpenAI | gpt-4o-mini | https://api.openai.com/v1 |
+| DeepSeek | deepseek-chat | https://api.deepseek.com/v1 |
+| 智谱AI官方 | glm-4-plus | https://open.bigmodel.cn/api/paas/v4 |
+| 阿里百练(GLM) | glm-5.1 | https://dashscope.aliyuncs.com/compatible-mode/v1 |
+| Moonshot | moonshot-v1-8k | https://api.moonshot.cn/v1 |
 
-注意：阿里百练平台虽然使用GLM模型，但API地址与智谱官方不同，必须手动设置 `AI_BASE_URL`。
+注意：
+- `AI_MODEL` 和 `AI_BASE_URL` 为非敏感配置，应设置在 Variables 标签下
+- 阿里百练和智谱AI官方都提供GLM模型，但API地址不同，需根据使用的平台选择正确的地址
 
 ### 成本估算
 

@@ -280,40 +280,37 @@
             .articles-grid {
                 grid-template-columns: 1fr;
             }
-
-            .view-toggle {
-                flex-direction: column;
-            }
         }
 
-        /* View toggle buttons - positioned in sidebar */
+        /* View toggle buttons - segmented control style */
         .view-toggle {
-            display: flex;
-            gap: 10px;
+            display: inline-flex;
+            background: #f0f0f0;
+            border-radius: 24px;
+            padding: 4px;
             margin-bottom: 1rem;
-            justify-content: flex-end;
         }
 
         .view-toggle-btn {
-            padding: 10px 20px;
-            border: 2px solid #667eea;
-            background: white;
-            color: #667eea;
-            border-radius: 8px;
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            color: #666;
+            border-radius: 20px;
             cursor: pointer;
             font-size: 0.9rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         .view-toggle-btn:hover {
-            background: #f0f4ff;
+            color: #333;
         }
 
         .view-toggle-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-color: transparent;
+            background: white;
+            color: #667eea;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
         /* Sidebar sections */
@@ -393,15 +390,23 @@
         }
 
         .ai-summary {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
+            padding: 0.5rem 0 1.5rem 0;
             margin-bottom: 2rem;
+            border-bottom: 1px solid #dee2e6;
         }
 
         .ai-summary h3 {
-            margin-bottom: 0.5rem;
-            color: #495057;
+            margin-bottom: 0.75rem;
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .ai-summary-text {
+            color: #555;
+            line-height: 1.7;
+            padding-left: 1rem;
+            border-left: 3px solid #667eea;
         }
 
         .ai-article {
@@ -472,7 +477,7 @@
                 <h2 class="section-title">🎯 技术文章 (Technical Articles)</h2>
                 <div class="articles-grid" id="tech-articles">
                     
-                    <div class="article-card" data-date="2026-05-21">
+                    <div class="article-card" data-date="2026-05-22">
                         <div class="article-source">来源: Sec-Today</div>
                         <h3 class="article-title"><a href="https://sec.today/pulses/118357e2-1ebf-4365-b265-5e3fa69a57da/" target="_blank">Project Zero 披露 Pixel 10 Zero-Click 漏洞链：从 Dolby 音频到 VPU Mmap 内核控制</a></h3>
                         <p class="article-description">本文揭示了针对 Pixel 10 的一条全新零点击漏洞链，其核心亮点在于仅用两小时便发现了供应商 VPU 驱动中一个因缺乏边界检查而直接暴露任意物理内存的严重缺陷，导致攻击者可轻易获取内核控制权。该案例不仅突显了谷歌修复速度的显著提升，更深刻警示了即便在主流安全模型下，第三方供应商驱动中的浅层编码错误仍是破坏系统安全的致命短板。
@@ -481,10 +486,10 @@
 
                         SecTodayBot
                     
-• 1 day ago</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
+• 1 日 之前</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
                     </div>
-                    <div class="article-card" data-date="2026-05-21">
+                    <div class="article-card" data-date="2026-05-22">
                         <div class="article-source">来源: Sec-Today</div>
                         <h3 class="article-title"><a href="https://sec.today/pulses/df515d1b-d1e9-4f25-84d6-ac0316760610/" target="_blank">SecToday Next</a></h3>
                         <p class="article-description">Perl 编程语言中的多个关键安全模块被发现存在严重缺陷，这些模块在生成加密密钥、会话 ID 或 TOTP 秘密时错误地使用了可预测的内置 rand 函数。受影响的组件包括 Trog::TOTP、Apache::Session::Generate::SHA256 和 Crypt::DSA。该缺陷导致生成的加密材料熵值不足，违反了 CWE-331 标准，使得攻击者能够预测安全凭证并绕过身份验证或解密敏感数据。受影响版本包括 Trog::TOTP 1.006 之前版本、Apache::Session::Generate::SHA256 1.3.19 之前版本以及 Crypt::DSA 1.20 之前版本。用户被强烈建议立即升级至已修复的补丁版本以消除安全风险。
@@ -493,10 +498,10 @@
 
                         SecTodayBot
                     
-• 1 day ago</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
+• 1 日 之前</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
                     </div>
-                    <div class="article-card" data-date="2026-05-21">
+                    <div class="article-card" data-date="2026-05-22">
                         <div class="article-source">来源: Sec-Today</div>
                         <h3 class="article-title"><a href="https://sec.today/pulses/f7c1dea9-a5ec-47c1-ba10-5911360d1c53/" target="_blank">Inside a GitHub Desktop for macOS Vulnerability: How Attackers Can Trap Mac Users</a></h3>
                         <p class="article-description">本文深入剖析了GitHub Desktop在macOS上因自定义URL协议处理不当而引发的路径遍历漏洞，揭示了攻击者如何通过构造恶意链接绕过安全检查并触发任意应用程序。文章不仅复现了从源码编译到漏洞利用的全过程，还清晰展示了开发者如何通过简单的逻辑修正（区分macOS目录特性）来彻底解决这一安全隐患，为客户端应用的安全开发提供了极具价值的实战参考。
@@ -505,10 +510,10 @@
 
                         SecTodayBot
                     
-• 1 day ago</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
+• 1 日 之前</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
                     </div>
-                    <div class="article-card" data-date="2026-05-21">
+                    <div class="article-card" data-date="2026-05-22">
                         <div class="article-source">来源: Sec-Today</div>
                         <h3 class="article-title"><a href="https://sec.today/pulses/16d69023-03c8-46e7-a718-7d461daa0d27/" target="_blank">SecToday Next</a></h3>
                         <p class="article-description">Fragnesia（亦称 Copyfail 3.0，CVE-2026-46300）是 Linux 内核 XFRM ESP-in-TCP 子系统中的一项严重本地提权漏洞，由 V12 团队的 William Bowling 发现。该漏洞源于修复前序 Dirty Frag 漏洞（CVE-2026-43284）的补丁中引入的逻辑缺陷，导致攻击者无需依赖竞态条件即可利用 AES-GCM 密钥流操纵，向只读文件的内核页面缓存执行任意字节写入。攻击者通过此技术可修改内存中的关键二进制文件（如 /usr/bin/su）以获取 root 权限，而磁盘上的原始文件保持不变。该漏洞影响了 2026 年 5 月 13 日之前的所有主要 Linux 发行版，尽管官方补丁已发布，但在修复初期存在约 9 天的暴露窗口。研究人员指出，由于初始补丁未覆盖所有变体路径，建议立即应用完整补丁或禁用 esp4/esp6 模块以缓解风险。
@@ -518,9 +523,9 @@
                         SecTodayBot
                     
 • ...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
+                        <div class="article-date">发布日期: 2026-05-22</div>
                     </div>
-                    <div class="article-card" data-date="2026-05-21">
+                    <div class="article-card" data-date="2026-05-22">
                         <div class="article-source">来源: Sec-Today</div>
                         <h3 class="article-title"><a href="https://sec.today/pulses/897a2e74-b886-4eb8-b5bb-e1ec397325d5/" target="_blank">SecToday Next</a></h3>
                         <p class="article-description">Qualys 披露了 Linux 内核 __ptrace_may_access() 函数中存在一个严重逻辑漏洞，被正式分配为 CVE-2026-46333，代号 ssh-keysign-pwn。该漏洞源于 ptrace 访问控制路径中的竞态条件，允许本地攻击者在进程退出过程中，利用内存已清除但文件描述符仍存在的短暂窗口，通过 pidfd_getfd 系统调用窃取特权进程的文件描述符。攻击者可借此绕过 kernel.yama.ptrace_scope 等标准缓解机制，窃取 SSH 私钥和 /etc/shadow 密码哈希，从而实现非特权用户的本地提权及敏感数据泄露。Linus Torvalds 已提交修复补丁，该补丁适用于 6.6 及以上版本内核，并支持回溯至 5.10 版本，鉴于 GitHub 已公开概念验证代码，受影响系统需立即更新补丁并轮换密钥。
@@ -529,10 +534,10 @@
 
                         SecTodayBot
                     
-• 1 day ago</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
+• 1 日 之前</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
                     </div>
-                    <div class="article-card" data-date="2026-05-21">
+                    <div class="article-card" data-date="2026-05-22">
                         <div class="article-source">来源: Sec-Today</div>
                         <h3 class="article-title"><a href="https://sec.today/pulses/72fd8fec-03b0-4717-ad79-c88bc1b1acb0/" target="_blank">SecToday Next</a></h3>
                         <p class="article-description">Vim 编辑器近期曝出多个严重安全漏洞，影响版本 9.2.0450 至 9.2.495 之前的广泛发行版。这些漏洞涵盖堆缓冲区溢出及多种代码注入攻击向量。其中，CVE-2026-45130 源于拼写文件加载过程中的整数溢出，可导致堆内存损坏和进程崩溃。此外，netrw 插件中的 NetrwBookHistSave() 和 NetrwMarkFile() 函数因未对目录名和文件名进行正确转义，允许攻击者通过构造包含单引号或双引号的恶意路径注入任意 Vimscript 代码。Cucumber 文件类型插件也存在缺陷，在特定正则表达式配置下可绕过防护机制注入 Ruby 代码。攻击者利用这些漏洞可在用户打开恶意文件或浏览受感染目录时，以用户权限执行任意 Shell 命令，造成系统被完全控制的风险。
@@ -541,10 +546,10 @@
 
                         SecTodayBot
                     
-• 1 day ago</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
+• 1 日 之前</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
                     </div>
-                    <div class="article-card" data-date="2026-05-21">
+                    <div class="article-card" data-date="2026-05-22">
                         <div class="article-source">来源: Sec-Today</div>
                         <h3 class="article-title"><a href="https://sec.today/pulses/48b61be7-d44b-4fea-858b-bf321d768dd8/" target="_blank">From Forgotten Code Comment to Full Compromise: Dissecting a Chain-Reaction Vulnerability</a></h3>
                         <p class="article-description">本文通过实战演示，精彩揭示了如何结合本地文件包含（LFI）漏洞与图片元数据注入技术，绕过传统文件上传限制以实现远程代码执行（RCE）。文章不仅详细剖析了从目录模糊测试、哈希破解到利用 DirtyCow 漏洞提权的完整攻击链，更展示了现代 Web 渗透中组合利用多种弱点的核心思路。
@@ -553,10 +558,10 @@
 
                         SecTodayBot
                     
-• 1 day ago</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
+• 1 日 之前</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
                     </div>
-                    <div class="article-card" data-date="2026-05-21">
+                    <div class="article-card" data-date="2026-05-22">
                         <div class="article-source">来源: Sec-Today</div>
                         <h3 class="article-title"><a href="https://sec.today/pulses/79359a41-0a5e-4d74-8b4d-b057d541b319/" target="_blank">Forwarding failure</a></h3>
                         <p class="article-description">本文揭示了VSOL GPON光线路终端（OLT）及其云端管理系统中存在的未认证远程代码执行漏洞，展示了攻击者如何从单一设备突破进而全面接管整个ISP光纤网络。这一发现极具警示意义，因为它暴露了现代光纤基础设施核心控制点的致命弱点，迫使行业立即重新评估FTTH网络的安全架构。
@@ -565,8 +570,104 @@
 
                         SecTodayBot
                     
-• 1 day ago</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
+• 1 日 之前</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Sec-Today</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/3c83189c-c240-4717-9dbe-ac9a29356a1b/" target="_blank">ScarCruft 供应链攻击：Windows 与 Android 后门瞄准游戏平台</a></h3>
+                        <p class="article-description">本文首次深度剖析了朝鲜国家支持黑客组织ScarCruft利用游戏供应链漏洞，针对中国延边地区朝鲜族群体实施的精准间谍活动。文章独家披露了新型Android版BirdCall后门的技术细节，揭示了攻击者如何通过伪装成合法游戏更新来窃取难民及脱北者的敏感数据，为当前地缘政治背景下的供应链安全研究提供了关键情报。
+                –
+                
+
+                        SecTodayBot
+                    
+• 6 日 之前</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Sec-Today</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/c1633a07-f7f9-4745-b5af-9c8401b39df1/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">Google 在 2026 年 5 月安全公告中披露了 Android Debug Bridge (adbd) 守护进程中的严重零点击远程代码执行漏洞 (CVE-2026-0073)。该漏洞源于 adbd_tls_verify_cert 函数中的逻辑缺陷，导致无线 ADB 的相互 TLS 认证被绕过。攻击者无需用户交互，仅需通过同一局域网或近场连接即可在 Android 14 至 16 设备上获取远程 Shell 访问权限并绕过沙箱限制。该漏洞影响广泛，Google 已发布安全补丁，但部分设备厂商的更新延迟仍使大量用户面临风险。
+                –
+                
+
+                        SecTodayBot
+                    
+• 6 日 之前</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Sec-Today</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/f43b9b3e-96c0-4202-8c28-6e26e79a5766/" target="_blank">InstallFix 行动：利用 Claude AI 信任通过虚假安装程序与多阶段恶意软件攻击</a></h3>
+                        <p class="article-description">本文揭示了攻击者如何利用付费搜索广告和伪造的 Claude AI 安装指南，通过社会工程学诱骗用户执行恶意命令，其多阶段攻击链巧妙利用合法系统工具（如 mshta.exe）和动态 C2 域名规避检测。这一针对 AI 工具信任机制的新型威胁，为防御者提供了关键的 IoC 和针对开发者及普通用户的即时防护策略。
+                –
+                
+
+                        SecTodayBot
+                    
+• 6 日 之前</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Sec-Today</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/a7f2f976-8d2e-4754-bbe8-7aed18e5c57d/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">安全研究人员披露了名为 NGINX Rift (CVE-2026-42945) 的严重漏洞，该漏洞存在于 NGINX 的 ngx_http_rewrite_module 中，其根源可追溯至 2008 年，影响长达 18 年。该漏洞源于脚本引擎双遍处理机制中的状态不一致，当特定条件下组合使用 &#x27;rewrite&#x27; 和 &#x27;set&#x27; 指令并包含问号时，URI 转义扩展会导致堆缓冲区溢出。未认证的远程攻击者可通过发送构造的 HTTP 请求触发此漏洞，导致 Worker 进程崩溃（拒绝服务）或在禁用 ASLR 的环境下实现远程代码执行 (RCE)。该漏洞影响 NGINX 0.6.27 至 1.30.0 版本以及多款 F5 产品，厂商已紧急发布补丁修复此问题及相关的三个内存破坏漏洞。
+                –
+                
+
+                        SecTodayBot
+                    
+• 6 日 之前</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Sec-Today</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/7afe272e-128d-4080-8b75-28ed465347f4/" target="_blank">Kukurigu：利用 xfrm-ESP 与 RxRPC 漏洞链实现稳定的 Linux Kernel 页面缓存投毒提权</a></h3>
+                        <p class="article-description">本文揭示了代号为&#x27;Kukurigu&#x27;的严重漏洞链，通过巧妙组合xfrm-ESP与RxRPC协议缺陷，实现了无竞态条件且成功率接近100%的Linux内核本地提权。该漏洞影响跨度长达9年且覆盖主流发行版，其稳定的内存驻留页缓存污染技术为内核安全研究树立了新的警示标杆。
+                –
+                
+
+                        SecTodayBot
+                    
+• 6 日 之前</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Sec-Today</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/ef0b6fd7-68a8-42f7-a46a-e505b60d06be/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">针对 Windows 11 及 Server 2022/2025 系统，两款名为 YellowKey 与 GreenPlasma 的严重未修复零日漏洞被披露。YellowKey 利用 WinRE 组件及特定 FsTx 目录实现了对 BitLocker 全磁盘加密的完全绕过，而 GreenPlasma 则通过 CTFMON 服务中的任意内存段创建缺陷进行本地权限提升至 SYSTEM 级别。由于一名对微软披露流程不满的研究者出于报复心理，已将这两个漏洞的 PoC 利用代码公开，导致数百万设备面临即时威胁。在官方补丁发布前，安全专家建议立即实施自定义 PIN 码及 BIOS 密码等缓解措施以防御潜在攻击。
+                –
+                
+
+                        SecTodayBot
+                    
+• 6 日 之前</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Sec-Today</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/b7ee6664-a434-4e01-824b-cecd2eeee09e/" target="_blank">SecToday Next</a></h3>
+                        <p class="article-description">微软推出了名为 MDASH（多模型智能体扫描框架）的新一代自动化安全系统，该系统通过编排超过 100 个专用 AI 智能体，在审计、辩论和概念验证的流水线中协同工作。MDASH 在 CyberGym 基准测试中以 88.45% 的分数超越了 Anthropic 的 Mythos 和 OpenAI 的 GPT-5.5，成功在 Windows 网络栈和认证栈中识别出 16 个新的关键漏洞，其中包括两个远程代码执行（RCE）漏洞。这一成果标志着 AI 漏洞发现技术从研究阶段正式跨越到企业级生产防御，展示了多智能体架构在加速补丁发布和应对自动化攻击方面的战略优势，同时也揭示了 AI 作为进攻性工具的双刃剑风险。
+                –
+                
+
+                        SecTodayBot
+                    
+• 6 日 之前</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Sec-Today</div>
+                        <h3 class="article-title"><a href="https://sec.today/pulses/d58fb3aa-afed-4c1a-a4b7-5052d7bce995/" target="_blank">Our recommendations</a></h3>
+                        <p class="article-description">本文独家披露了 Anthropic 尚未公开的 AI 模型 Mythos 所展现出的突破性‘情境感知’与代理式认知能力，揭示了其如何从根本上降低网络攻击的技术门槛。文章基于 Cisco 的内部测试，前瞻性地提出了应对 AI 驱动威胁的新型防御框架与‘安全默认’代码生成策略，是当今网络安全领域必读的里程碑式技术指南。
+                –
+                
+
+                        SecTodayBot
+                    
+• 6 日 之前</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
                     </div>
                     <div class="article-card" data-date="2026-05-21">
                         <div class="article-source">来源: 看雪论坛</div>
@@ -628,139 +729,43 @@ AI 在嘲笑：整个武林在我面前都毫无意义，热武器面前人人�
 CTF: CyberG ...</p>
                         <div class="article-date">发布日期: 2026-05-20</div>
                     </div>
-                    <div class="article-card" data-date="2026-05-20">
+                    <div class="article-card" data-date="2026-05-19">
                         <div class="article-source">来源: 看雪论坛</div>
                         <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-291107.htm?style=1" target="_blank">最新版某气骑士分析记录-绕过某讯的防御dump内存并解密存档</a></h3>
                         <p class="article-description">最新版某气骑士分析记录-绕过某讯的防御dump内存并解密存档
 前段时间想找一个能简单打发时间的小游戏，于是就想到了元气骑士，但是元气骑士的旧账号在另一个手机上，那个手机不在身边，但是我又不想重头开始玩，作为网安学生，于是有了自己逆向的想法。
 逆向分析
 首先逆向一下元气骑士的apk包，一眼看到这 ...</p>
-                        <div class="article-date">发布日期: 2026-05-20</div>
+                        <div class="article-date">发布日期: 2026-05-19</div>
                     </div>
-                    <div class="article-card" data-date="2026-05-20">
+                    <div class="article-card" data-date="2026-05-19">
                         <div class="article-source">来源: 看雪论坛</div>
                         <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-291108.htm?style=1" target="_blank">某气骑士 libtprt.so 反 Frida 机制分析与绕过</a></h3>
                         <p class="article-description">某气骑士 libtprt.so 反 Frida 机制分析与绕过
 好久没写博客了，今天打算更新一下，记录一下之前写过的东西，在GitHub上也写了一些小软件，顺便分享一下
 本文核心问题：libtprt.so 是通过哪些特征检测 Frida？
 方法：对比 frida-server 与 florid ...</p>
-                        <div class="article-date">发布日期: 2026-05-20</div>
+                        <div class="article-date">发布日期: 2026-05-19</div>
                     </div>
-                    <div class="article-card" data-date="2026-05-20">
+                    <div class="article-card" data-date="2026-05-19">
                         <div class="article-source">来源: 看雪论坛</div>
                         <h3 class="article-title"><a href="http://bbs.kanxue.com/thread-291106.htm?style=1" target="_blank">记一次银狐样本分析</a></h3>
                         <p class="article-description">0x00 前言
 最近突然心血来潮，想找个样本来分析一下，顺便学习了解一下免杀以及恶意样本的手法，在网上冲浪的时候找到了一个银狐样本，于是拿来分析一下
 样本地址：WindowsEvent 病毒木马程序 - 吾爱破解 - 52pojie.cn
 样本sha256:1443f7eb60ceebe875 ...</p>
-                        <div class="article-date">发布日期: 2026-05-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-16">
-                        <div class="article-source">来源: Sec-Today</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/3c83189c-c240-4717-9dbe-ac9a29356a1b/" target="_blank">ScarCruft 供应链攻击：Windows 与 Android 后门瞄准游戏平台</a></h3>
-                        <p class="article-description">本文首次深度剖析了朝鲜国家支持黑客组织ScarCruft利用游戏供应链漏洞，针对中国延边地区朝鲜族群体实施的精准间谍活动。文章独家披露了新型Android版BirdCall后门的技术细节，揭示了攻击者如何通过伪装成合法游戏更新来窃取难民及脱北者的敏感数据，为当前地缘政治背景下的供应链安全研究提供了关键情报。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ago</p>
-                        <div class="article-date">发布日期: 2026-05-16</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-16">
-                        <div class="article-source">来源: Sec-Today</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/c1633a07-f7f9-4745-b5af-9c8401b39df1/" target="_blank">SecToday Next</a></h3>
-                        <p class="article-description">Google 在 2026 年 5 月安全公告中披露了 Android Debug Bridge (adbd) 守护进程中的严重零点击远程代码执行漏洞 (CVE-2026-0073)。该漏洞源于 adbd_tls_verify_cert 函数中的逻辑缺陷，导致无线 ADB 的相互 TLS 认证被绕过。攻击者无需用户交互，仅需通过同一局域网或近场连接即可在 Android 14 至 16 设备上获取远程 Shell 访问权限并绕过沙箱限制。该漏洞影响广泛，Google 已发布安全补丁，但部分设备厂商的更新延迟仍使大量用户面临风险。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ago</p>
-                        <div class="article-date">发布日期: 2026-05-16</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-16">
-                        <div class="article-source">来源: Sec-Today</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/f43b9b3e-96c0-4202-8c28-6e26e79a5766/" target="_blank">InstallFix 行动：利用 Claude AI 信任通过虚假安装程序与多阶段恶意软件攻击</a></h3>
-                        <p class="article-description">本文揭示了攻击者如何利用付费搜索广告和伪造的 Claude AI 安装指南，通过社会工程学诱骗用户执行恶意命令，其多阶段攻击链巧妙利用合法系统工具（如 mshta.exe）和动态 C2 域名规避检测。这一针对 AI 工具信任机制的新型威胁，为防御者提供了关键的 IoC 和针对开发者及普通用户的即时防护策略。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ago</p>
-                        <div class="article-date">发布日期: 2026-05-16</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-16">
-                        <div class="article-source">来源: Sec-Today</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/a7f2f976-8d2e-4754-bbe8-7aed18e5c57d/" target="_blank">SecToday Next</a></h3>
-                        <p class="article-description">安全研究人员披露了名为 NGINX Rift (CVE-2026-42945) 的严重漏洞，该漏洞存在于 NGINX 的 ngx_http_rewrite_module 中，其根源可追溯至 2008 年，影响长达 18 年。该漏洞源于脚本引擎双遍处理机制中的状态不一致，当特定条件下组合使用 &#x27;rewrite&#x27; 和 &#x27;set&#x27; 指令并包含问号时，URI 转义扩展会导致堆缓冲区溢出。未认证的远程攻击者可通过发送构造的 HTTP 请求触发此漏洞，导致 Worker 进程崩溃（拒绝服务）或在禁用 ASLR 的环境下实现远程代码执行 (RCE)。该漏洞影响 NGINX 0.6.27 至 1.30.0 版本以及多款 F5 产品，厂商已紧急发布补丁修复此问题及相关的三个内存破坏漏洞。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ago</p>
-                        <div class="article-date">发布日期: 2026-05-16</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-16">
-                        <div class="article-source">来源: Sec-Today</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/7afe272e-128d-4080-8b75-28ed465347f4/" target="_blank">Kukurigu：利用 xfrm-ESP 与 RxRPC 漏洞链实现稳定的 Linux Kernel 页面缓存投毒提权</a></h3>
-                        <p class="article-description">本文揭示了代号为&#x27;Kukurigu&#x27;的严重漏洞链，通过巧妙组合xfrm-ESP与RxRPC协议缺陷，实现了无竞态条件且成功率接近100%的Linux内核本地提权。该漏洞影响跨度长达9年且覆盖主流发行版，其稳定的内存驻留页缓存污染技术为内核安全研究树立了新的警示标杆。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ago</p>
-                        <div class="article-date">发布日期: 2026-05-16</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-16">
-                        <div class="article-source">来源: Sec-Today</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/ef0b6fd7-68a8-42f7-a46a-e505b60d06be/" target="_blank">SecToday Next</a></h3>
-                        <p class="article-description">针对 Windows 11 及 Server 2022/2025 系统，两款名为 YellowKey 与 GreenPlasma 的严重未修复零日漏洞被披露。YellowKey 利用 WinRE 组件及特定 FsTx 目录实现了对 BitLocker 全磁盘加密的完全绕过，而 GreenPlasma 则通过 CTFMON 服务中的任意内存段创建缺陷进行本地权限提升至 SYSTEM 级别。由于一名对微软披露流程不满的研究者出于报复心理，已将这两个漏洞的 PoC 利用代码公开，导致数百万设备面临即时威胁。在官方补丁发布前，安全专家建议立即实施自定义 PIN 码及 BIOS 密码等缓解措施以防御潜在攻击。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ago</p>
-                        <div class="article-date">发布日期: 2026-05-16</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-16">
-                        <div class="article-source">来源: Sec-Today</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/b7ee6664-a434-4e01-824b-cecd2eeee09e/" target="_blank">SecToday Next</a></h3>
-                        <p class="article-description">微软推出了名为 MDASH（多模型智能体扫描框架）的新一代自动化安全系统，该系统通过编排超过 100 个专用 AI 智能体，在审计、辩论和概念验证的流水线中协同工作。MDASH 在 CyberGym 基准测试中以 88.45% 的分数超越了 Anthropic 的 Mythos 和 OpenAI 的 GPT-5.5，成功在 Windows 网络栈和认证栈中识别出 16 个新的关键漏洞，其中包括两个远程代码执行（RCE）漏洞。这一成果标志着 AI 漏洞发现技术从研究阶段正式跨越到企业级生产防御，展示了多智能体架构在加速补丁发布和应对自动化攻击方面的战略优势，同时也揭示了 AI 作为进攻性工具的双刃剑风险。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ago</p>
-                        <div class="article-date">发布日期: 2026-05-16</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-16">
-                        <div class="article-source">来源: Sec-Today</div>
-                        <h3 class="article-title"><a href="https://sec.today/pulses/d58fb3aa-afed-4c1a-a4b7-5052d7bce995/" target="_blank">Our recommendations</a></h3>
-                        <p class="article-description">本文独家披露了 Anthropic 尚未公开的 AI 模型 Mythos 所展现出的突破性‘情境感知’与代理式认知能力，揭示了其如何从根本上降低网络攻击的技术门槛。文章基于 Cisco 的内部测试，前瞻性地提出了应对 AI 驱动威胁的新型防御框架与‘安全默认’代码生成策略，是当今网络安全领域必读的里程碑式技术指南。
-                –
-                
-
-                        SecTodayBot
-                    
-• 6 days ago</p>
-                        <div class="article-date">发布日期: 2026-05-16</div>
+                        <div class="article-date">发布日期: 2026-05-19</div>
                     </div>
                     <div class="article-card" data-date="2026-05-15">
                         <div class="article-source">来源: 先知社区</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/92140" target="_blank">FFM API之RASP 绕过</a></h3>
-                        <p class="article-description">FFM API之RASP 绕过Foreign Function &amp; Memory API（FFM API）是 JDK 21 引入的用于替代 JNI 的本地互操作接口。渗透测试NullLine发表于 河南· 618浏览 · 2026-05-15 16:24</p>
+                        <p class="article-description">FFM API之RASP 绕过Foreign Function &amp; Memory API（FFM API）是 JDK 21 引入的用于替代 JNI 的本地互操作接口。渗透测试NullLine发表于 河南· 628浏览 · 2026-05-15 16:24</p>
                         <div class="article-date">发布日期: 2026-05-15</div>
                     </div>
                     <div class="article-card" data-date="2026-05-15">
                         <div class="article-source">来源: 先知社区</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/92138" target="_blank">JDK 21 反序列化过滤器绕过与 Post-TemplatesImpl 利用链构造</a></h3>
-                        <p class="article-description">JDK 21 反序列化过滤器绕过与 Post-TemplatesImpl 利用链构造Java 反序列化、ObjectInputFilter、JEP 415、Gadget Chain、JDK 21、绕过技术、SignedObjectWEB安全NullLine发表于 河南· 531浏览 · 2026-05-15 05:28</p>
+                        <p class="article-description">JDK 21 反序列化过滤器绕过与 Post-TemplatesImpl 利用链构造Java 反序列化、ObjectInputFilter、JEP 415、Gadget Chain、JDK 21、绕过技术、SignedObjectWEB安全NullLine发表于 河南· 541浏览 · 2026-05-15 05:28</p>
                         <div class="article-date">发布日期: 2026-05-15</div>
                     </div>
                     <div class="article-card" data-date="2026-05-13">
@@ -769,40 +774,34 @@ CTF: CyberG ...</p>
                         <p class="article-description">泛微e9分析思路本文基于泛微e9（9.00.210804版本），系统阐述OA系统的安全审计方法。文章涵盖环境搭建、六大类路由（/weaver/、/api/、/services/*、/dwr/*等）的分析，详细剖析SecurityMain安全过滤机制、XssRequestWeblogic参数过滤、登录绕过等技术要点。通过FileDownloadLocation文件读取、browser.jsp SQL...</p>
                         <div class="article-date">发布日期: 2026-05-13</div>
                     </div>
-                    <div class="article-card" data-date="2026-05-13">
-                        <div class="article-source">来源: Project Zero</div>
-                        <h3 class="article-title"><a href="https://projectzero.google/2026/05/pixel-10-exploit.html" target="_blank">A 0-click exploit chain for the Pixel 10: When a Door Closes, a Window Opens</a></h3>
-                        <p class="article-description">We recently published an exploit chain for the Google Pixel 9 that demonstrated it was possible to go from a zero-click context to root on Android in just two exploits. The Dolby 0-click vulnerability existed across all of Android, until it was patched in January 2026. While we had an exploit chain for the Pixel 9, we wanted to see if it was possible to write a similar exploit chain for Pixel 10.</p>
-                        <div class="article-date">发布日期: 2026-05-13</div>
-                    </div>
                     <div class="article-card" data-date="2026-05-12">
                         <div class="article-source">来源: 先知社区</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/92125" target="_blank">【漏洞研究】多层内容解析链引发的 XSS 语义错位绕过及根因分析</a></h3>
-                        <p class="article-description">【漏洞研究】多层内容解析链引发的 XSS 语义错位绕过及根因分析在 Markdown、公式渲染等富内容处理场景下，由于第三方组件与浏览器底层（HTML、URL、JS 解析器）在实体解码、协议提取和规范化处理上存在机制差异，极易引发解析层面的语义错位，导致了XSS防御体系的 Bypass漏洞分析Fausto发表于 广东· 1004浏览 · 2026-05-12 05:28</p>
+                        <p class="article-description">【漏洞研究】多层内容解析链引发的 XSS 语义错位绕过及根因分析在 Markdown、公式渲染等富内容处理场景下，由于第三方组件与浏览器底层（HTML、URL、JS 解析器）在实体解码、协议提取和规范化处理上存在机制差异，极易引发解析层面的语义错位，导致了XSS防御体系的 Bypass漏洞分析Fausto发表于 广东· 1015浏览 · 2026-05-12 05:28</p>
                         <div class="article-date">发布日期: 2026-05-12</div>
                     </div>
                     <div class="article-card" data-date="2026-05-11">
                         <div class="article-source">来源: 先知社区</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/92120" target="_blank">GraalVM Polyglot 沙箱逃逸：跨语言上下文 RCE</a></h3>
-                        <p class="article-description">GraalVM Polyglot 沙箱逃逸：跨语言上下文 RCE从受限JavaScript沙箱到宿主Java环境的完整攻击链构造与纵深防御WEB安全NullLine发表于 河南· 1014浏览 · 2026-05-11 09:34</p>
+                        <p class="article-description">GraalVM Polyglot 沙箱逃逸：跨语言上下文 RCE从受限JavaScript沙箱到宿主Java环境的完整攻击链构造与纵深防御WEB安全NullLine发表于 河南· 1019浏览 · 2026-05-11 09:34</p>
                         <div class="article-date">发布日期: 2026-05-11</div>
                     </div>
                     <div class="article-card" data-date="2026-05-08">
                         <div class="article-source">来源: 先知社区</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/92103" target="_blank">Java Attach API内存注入</a></h3>
-                        <p class="article-description">Java Attach API内存注入通过 Java Attach API的底层Unix Domain Socket通信协议，结合Linux内核memfd_create系统调用实现纯内存态Agent注入。WEB安全NullLine发表于 河南· 1802浏览 · 2026-05-08 11:15</p>
+                        <p class="article-description">Java Attach API内存注入通过 Java Attach API的底层Unix Domain Socket通信协议，结合Linux内核memfd_create系统调用实现纯内存态Agent注入。WEB安全NullLine发表于 河南· 1816浏览 · 2026-05-08 11:15</p>
                         <div class="article-date">发布日期: 2026-05-08</div>
                     </div>
                     <div class="article-card" data-date="2026-05-07">
                         <div class="article-source">来源: 先知社区</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/92100" target="_blank">伪装成10086官网流量的Cobalt Strike木马深度分析</a></h3>
-                        <p class="article-description">伪装成10086官网流量的Cobalt Strike木马深度分析海量IP地址字符串转码生成shellcode、Beacon木马伪造Referer请求头为10086官网二进制安全T0daySeeker发表于 四川· 2496浏览 · 2026-05-07 15:45</p>
+                        <p class="article-description">伪装成10086官网流量的Cobalt Strike木马深度分析海量IP地址字符串转码生成shellcode、Beacon木马伪造Referer请求头为10086官网二进制安全T0daySeeker发表于 四川· 2512浏览 · 2026-05-07 15:45</p>
                         <div class="article-date">发布日期: 2026-05-07</div>
                     </div>
                     <div class="article-card" data-date="2026-05-02">
                         <div class="article-source">来源: 先知社区</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/92074" target="_blank">Hessian 二次反序列化新链从零到一挖掘</a></h3>
-                        <p class="article-description">Hessian 二次反序列化新链从零到一挖掘记录一条新的hessian二次反序列化链的完整分析过程漏洞分析用户j7LIalOmNY发表于 浙江· 1829浏览 · 2026-05-02 16:39</p>
+                        <p class="article-description">Hessian 二次反序列化新链从零到一挖掘记录一条新的hessian二次反序列化链的完整分析过程漏洞分析用户j7LIalOmNY发表于 浙江· 1839浏览 · 2026-05-02 16:39</p>
                         <div class="article-date">发布日期: 2026-05-02</div>
                     </div>
                     <div class="article-card" data-date="2026-05-02">
@@ -814,37 +813,37 @@ CTF: CyberG ...</p>
                     <div class="article-card" data-date="2026-04-30">
                         <div class="article-source">来源: 先知社区</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/92067" target="_blank">PHP Filter Chain 无文件 RCE分析</a></h3>
-                        <p class="article-description">PHP Filter Chain 无文件 RCE分析通过精心构造 php://filter 链，在不写入任何文件的前提下，将一个普通的本地文件包含（LFI）漏洞直接升级为远程代码执行（RCE）。WEB安全NullLine发表于 河南· 1543浏览 · 2026-04-30 09:42</p>
+                        <p class="article-description">PHP Filter Chain 无文件 RCE分析通过精心构造 php://filter 链，在不写入任何文件的前提下，将一个普通的本地文件包含（LFI）漏洞直接升级为远程代码执行（RCE）。WEB安全NullLine发表于 河南· 1547浏览 · 2026-04-30 09:42</p>
                         <div class="article-date">发布日期: 2026-04-30</div>
                     </div>
                     <div class="article-card" data-date="2026-04-29">
                         <div class="article-source">来源: 先知社区</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/92061" target="_blank">面向大模型隐私推理的安全协议-MPC与ZK的角色分工</a></h3>
-                        <p class="article-description">面向大模型隐私推理的安全协议-MPC与ZK的角色分工面向大模型隐私推理的安全协议-MPC与ZK的角色分工AI专栏阿里云先知先知沙龙 · 1718浏览 · 2026-04-29 09:49</p>
+                        <p class="article-description">面向大模型隐私推理的安全协议-MPC与ZK的角色分工面向大模型隐私推理的安全协议-MPC与ZK的角色分工AI专栏阿里云先知先知沙龙 · 1723浏览 · 2026-04-29 09:49</p>
                         <div class="article-date">发布日期: 2026-04-29</div>
                     </div>
                     <div class="article-card" data-date="2026-04-29">
                         <div class="article-source">来源: 先知社区</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/92060" target="_blank">Agentic / Context</a></h3>
-                        <p class="article-description">Agentic / ContextAgentic / ContextAI专栏阿里云先知先知沙龙 · 1642浏览 · 2026-04-29 09:49</p>
+                        <p class="article-description">Agentic / ContextAgentic / ContextAI专栏阿里云先知先知沙龙 · 1648浏览 · 2026-04-29 09:49</p>
                         <div class="article-date">发布日期: 2026-04-29</div>
                     </div>
                     <div class="article-card" data-date="2026-04-29">
                         <div class="article-source">来源: 先知社区</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/92059" target="_blank">AI洪流下的防守对抗新范式</a></h3>
-                        <p class="article-description">AI洪流下的防守对抗新范式AI洪流下的防守对抗新范式AI专栏阿里云先知先知沙龙 · 1987浏览 · 2026-04-29 09:49</p>
+                        <p class="article-description">AI洪流下的防守对抗新范式AI洪流下的防守对抗新范式AI专栏阿里云先知先知沙龙 · 1995浏览 · 2026-04-29 09:49</p>
                         <div class="article-date">发布日期: 2026-04-29</div>
                     </div>
                     <div class="article-card" data-date="2026-04-29">
                         <div class="article-source">来源: 先知社区</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/92058" target="_blank">LLM 能帮一个安全工程师干些什么</a></h3>
-                        <p class="article-description">LLM 能帮一个安全工程师干些什么LLM 能帮一个安全工程师干些什么AI专栏阿里云先知先知沙龙 · 2284浏览 · 2026-04-29 09:48</p>
+                        <p class="article-description">LLM 能帮一个安全工程师干些什么LLM 能帮一个安全工程师干些什么AI专栏阿里云先知先知沙龙 · 2296浏览 · 2026-04-29 09:48</p>
                         <div class="article-date">发布日期: 2026-04-29</div>
                     </div>
                     <div class="article-card" data-date="2026-04-29">
                         <div class="article-source">来源: 先知社区</div>
                         <h3 class="article-title"><a href="https://xz.aliyun.com/news/92056" target="_blank">AI For Security：AI在云产品安全建设中能做什么？</a></h3>
-                        <p class="article-description">AI For Security：AI在云产品安全建设中能做什么？AI For Security：AI在云产品安全建设中能做什么？AI专栏阿里云先知先知沙龙 · 1680浏览 · 2026-04-29 09:48</p>
+                        <p class="article-description">AI For Security：AI在云产品安全建设中能做什么？AI For Security：AI在云产品安全建设中能做什么？AI专栏阿里云先知先知沙龙 · 1688浏览 · 2026-04-29 09:48</p>
                         <div class="article-date">发布日期: 2026-04-29</div>
                     </div>
                     <div class="article-card" data-date="2026-04-24">
@@ -856,7 +855,7 @@ CTF: CyberG ...</p>
 
                         SecTodayBot
                     
-• 4 weeks ago</p>
+• 4 周 之前</p>
                         <div class="article-date">发布日期: 2026-04-24</div>
                     </div>
                     <div class="article-card" data-date="2026-04-24">
@@ -868,7 +867,7 @@ CTF: CyberG ...</p>
 
                         SecTodayBot
                     
-• 4 weeks ago</p>
+• 4 周 之前</p>
                         <div class="article-date">发布日期: 2026-04-24</div>
                     </div>
                     <div class="article-card" data-date="2026-04-24">
@@ -880,7 +879,7 @@ CTF: CyberG ...</p>
 
                         SecTodayBot
                     
-• 4 weeks ago</p>
+• 4 周 之前</p>
                         <div class="article-date">发布日期: 2026-04-24</div>
                     </div>
                     <div class="article-card" data-date="2026-04-24">
@@ -892,7 +891,7 @@ CTF: CyberG ...</p>
 
                         SecTodayBot
                     
-• 4 weeks ago</p>
+• 4 周 之前</p>
                         <div class="article-date">发布日期: 2026-04-24</div>
                     </div>
                 </div>
@@ -909,6 +908,126 @@ CTF: CyberG ...</p>
                         <div class="article-date">发布日期: 2026-05-22</div>
                     </div>
                     <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: The Hacker News</div>
+                        <h3 class="article-title"><a href="https://thehackernews.com/2026/05/cisa-adds-exploited-langflow-and-trend.html" target="_blank">CISA Adds Exploited Langflow and Trend Micro Apex One Vulnerabilities to KEV</a></h3>
+                        <p class="article-description">The U.S. Cybersecurity and Infrastructure Security Agency (CISA) on Thursday added  two security flaws impacting Langflow and Trend Micro Apex One to its Known Exploited Vulnerabilities ( KEV ) catalog, citing evidence of active exploitation.   The vulnerabilities in question are listed below -      CVE-2025-34291  (CVSS score: 9.4) - An origin validation error vulnerability in Langflow that could allow an attacker to execute arbitrary code and achieve full system compromise.    CVE-2026-34926  ...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: The Hacker News</div>
+                        <h3 class="article-title"><a href="https://thehackernews.com/2026/05/cisco-patches-cvss-100-secure-workload.html" target="_blank">Cisco Patches CVSS 10.0 Secure Workload REST API Flaw Enabling Data Access</a></h3>
+                        <p class="article-description">Cisco has rolled out updates for a maximum-severity security flaw impacting Secure Workload that could allow an unauthenticated, remote attacker to access sensitive data.   Tracked as CVE-2026-20223  (CVSS score: 10.0), the vulnerability arises from insufficient validation and authentication when accessing REST API endpoints.   &quot;An attacker could exploit this vulnerability if they are able to send a crafted API request to an affected endpoint,&quot; Cisco said . &quot;A successful exploit could allow the ...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://www.appinn.com/tabulabili-plus/" target="_blank">TabulaBili-Plus – 让 B 站暂时忘记你是谁[Chrome]</a></h3>
+                        <p class="article-description">TabulaBili-Plus – 让 B 站暂时忘记你是谁[Chrome]</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://blog.upx8.com/OpenAI%E5%B0%86%E5%90%91%E6%97%A5%E6%9C%AC%E6%8F%90%E4%BE%9B%E9%AB%98%E6%80%A7%E8%83%BD%E9%98%B2%E5%BE%A1%E7%94%A8AI%E6%A8%A1%E5%9E%8B" target="_blank">OpenAI将向日本提供高性能防御用AI模型</a></h3>
+                        <p class="article-description">OpenAI将向日本提供高性能防御用AI模型开发对话型生成式人工智能(AI）“ChatGPT”的美国OpenAI公司21日宣布，将开始向日本提供强化网络防御性能的最新一代人工智能模型，提供对象仅限于日...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://blog.upx8.com/%E6%99%BA%E8%B0%B1%E6%8E%A8%E5%87%BAGLM-5-1%E9%AB%98%E9%80%9F%E7%89%88-400-tokens-s" target="_blank">智谱推出GLM-5.1高速版：400 tokens/s</a></h3>
+                        <p class="article-description">智谱推出GLM-5.1高速版：400 tokens/s智谱宣布面向部分企业客户推出GLM-5.1高速版API“GLM-5.1-highspeed”，模型输出速度达到400 tokens/s。智谱称，这...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://blog.upx8.com/Take-Two%E7%A1%AE%E8%AE%A4-GTA-VI-%E6%B8%B8%E6%88%8F11%E6%9C%88%E9%A6%96%E5%8F%91" target="_blank">Take-Two确认《GTA VI》游戏11月首发</a></h3>
+                        <p class="article-description">Take-Two互动软件公司证实《GTA VI》游戏11月19日的发布日期，缓解了人们对于这款有望成为史上最畅销电子游戏之一的作品可能会再次延期的担忧。首席执行官斯特劳斯·泽尔尼克在接受采访时表示，《...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://blog.upx8.com/%E5%8A%A0%E5%B7%9E%E5%B7%9E%E9%95%BF%E7%AD%BE%E7%BD%B2AI%E8%A1%8C%E6%94%BF%E4%BB%A4-%E6%97%A8%E5%9C%A8%E5%B8%AE%E5%8A%A9%E5%8F%97%E5%BD%B1%E5%93%8D%E5%91%98%E5%B7%A5" target="_blank">加州州长签署AI行政令 旨在帮助受影响员工</a></h3>
+                        <p class="article-description">加州州长签署AI行政令 旨在帮助受影响员工美国加州州长加文·纽森周四签署了一项行政令，旨在研究AI对就业的影响，并探索如何帮助因此失业的员工。民主党人纽森被视为2028年总统大选的潜在候选人。他出台此...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://blog.upx8.com/Meta%E7%AD%89%E7%A4%BE%E5%AA%92%E5%85%AC%E5%8F%B8%E5%B0%B1%E9%9D%92%E5%B0%91%E5%B9%B4%E4%BC%A4%E5%AE%B3%E6%A1%88%E8%BE%BE%E6%88%90%E5%92%8C%E8%A7%A3" target="_blank">Meta等社媒公司就青少年伤害案达成和解</a></h3>
+                        <p class="article-description">Meta与肯塔基州一个学区达成和解。该学区此前指控社交媒体公司故意将其平台设计得让年轻人上瘾，Meta成为最后一家解决该诉讼并避免即将到来的庭审的主要平台。周四宣布的这项和解协议，让这些公司免受原定于...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://blog.nsfocus.net/%e3%80%90%e6%bc%8f%e6%b4%9e%e9%80%9a%e5%91%8a%e3%80%91apache-struts%e5%a4%96%e9%83%a8%e5%ae%9e%e4%bd%93xxe%e6%b3%a8%e5%85%a5%e6%bc%8f%e6%b4%9es2-069%ef%bc%88cve-2025-68493%ef%bc%89/" target="_blank">【漏洞通告】Apache Struts外部实体(XXE)注入漏洞S2-069（CVE-2025-68493）</a></h3>
+                        <p class="article-description">阅读： 11通告编号:NS-2026-0001TAG：Apache Struts、XXE、S2-069、CVE-20...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://blog.upx8.com/%E6%98%9F%E8%88%B0-V3-%E9%A6%96%E9%A3%9E%E6%8E%A8%E8%BF%9F-%E9%A9%AC%E6%96%AF%E5%85%8B%E7%AC%AC%E4%B8%80%E6%97%B6%E9%97%B4%E5%9B%9E%E5%BA%94" target="_blank">“星舰”V3 首飞推迟！马斯克第一时间回应</a></h3>
+                        <p class="article-description">当地时间5月21日，SpaceX在发射前排查多项技术问题后，推迟了 “星舰” 火箭第12次重大试飞任务。北京时间今天早上，在美国得克萨斯州“星际基地”新的2号发射台，SpaceX全新升级版重型运载火箭...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://blog.nsfocus.net/%e3%80%90%e5%ae%89%e5%85%a8%e6%9b%b4%e6%96%b0%e3%80%91%e5%be%ae%e8%bd%af1%e6%9c%88%e5%ae%89%e5%85%a8%e6%9b%b4%e6%96%b0%e5%a4%9a%e4%b8%aa%e4%ba%a7%e5%93%81%e9%ab%98%e5%8d%b1%e6%bc%8f%e6%b4%9e/" target="_blank">【安全更新】微软1月安全更新多个产品高危漏洞</a></h3>
+                        <p class="article-description">阅读： 11通告编号:NS-2026-0002TAG：安全更新、Windows、Office、SQL Server、Azure漏洞危害：攻击者利用...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://blog.nsfocus.net/%e3%80%90%e6%bc%8f%e6%b4%9e%e9%80%9a%e5%91%8a%e3%80%91gnu-inetutils-telnetd%e8%bf%9c%e7%a8%8b%e8%ba%ab%e4%bb%bd%e9%aa%8c%e8%af%81%e7%bb%95%e8%bf%87%e6%bc%8f%e6%b4%9e%ef%bc%88cve-2026-24061%ef%bc%89/" target="_blank">【漏洞通告】GNU InetUtils Telnetd远程身份验证绕过漏洞（CVE-2026-24061）</a></h3>
+                        <p class="article-description">阅读： 14通告编号:NS-2026-0003TAG：GNU InetUtils Telnetd、验证绕过、CVE-...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://blog.nsfocus.net/%e3%80%90%e5%ae%89%e5%85%a8%e6%9b%b4%e6%96%b0%e3%80%91%e5%be%ae%e8%bd%af3%e6%9c%88%e5%ae%89%e5%85%a8%e6%9b%b4%e6%96%b0%e5%a4%9a%e4%b8%aa%e4%ba%a7%e5%93%81%e9%ab%98%e5%8d%b1%e6%bc%8f%e6%b4%9e%e9%80%9a/" target="_blank">【安全更新】微软3月安全更新多个产品高危漏洞通告</a></h3>
+                        <p class="article-description">阅读： 14通告编号:NS-2026-0005TAG：安全更新、Windows、Office、SQL Server、Azure漏洞危害：攻击者利...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://blog.nsfocus.net/%e3%80%90%e5%ae%89%e5%85%a8%e4%ba%8b%e4%bb%b6%e3%80%91apifox%e6%a1%8c%e9%9d%a2%e5%ae%a2%e6%88%b7%e7%ab%af%e9%81%ad%e4%be%9b%e5%ba%94%e9%93%be%e6%8a%95%e6%af%92%e5%88%86%e6%9e%90/" target="_blank">【安全事件】Apifox桌面客户端遭供应链投毒分析</a></h3>
+                        <p class="article-description">阅读： 15通告编号:NS-2026-0007TAG：Apifox、供应链攻击、CDN投毒危害程度：高版本：1.0...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://sspai.com/post/109287" target="_blank">Maptoposter Online：把你爱的城市画成艺术海报</a></h3>
+                        <p class="article-description">Matrix 首页推荐Matrix 是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选 Matrix 最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://blog.upx8.com/%E5%BE%97%E5%B7%9E%E5%B0%B1%E5%8A%A0%E5%AF%86%E9%9A%90%E7%A7%81%E9%97%AE%E9%A2%98%E8%B5%B7%E8%AF%89Meta%E5%92%8CWhatsApp" target="_blank">得州就加密隐私问题起诉Meta和WhatsApp</a></h3>
+                        <p class="article-description">得州就加密隐私问题起诉Meta和WhatsApp得州总检察长办公室周四起诉了 WhatsApp 及其母公司Meta，指控其就WhatsApp加密措施的强度和范围误导消费者，Meta的一位发言人对此予以...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://blog.nsfocus.net/%e3%80%90%e5%ae%89%e5%85%a8%e4%ba%8b%e4%bb%b6%e3%80%91ai%e5%9f%ba%e7%a1%80%e8%ae%be%e6%96%bdlitellm%e4%be%9b%e5%ba%94%e9%93%be%e6%8a%95%e6%af%92%e9%a2%84%e8%ad%a6%e9%80%9a%e5%91%8a/" target="_blank">【安全事件】AI基础设施LiteLLM供应链投毒预警通告</a></h3>
+                        <p class="article-description">阅读： 11通告编号:NS-2026-0006TAG：LiteLLM、TeamPCP、供应链攻击版本：1.0...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://www.landiannews.com/archives/113048.html" target="_blank">黑客团队TeamPCP给开发者提出防黑建议 至少可以应对TeamPCP的供应链攻击</a></h3>
+                        <p class="article-description">黑客团队TeamPCP给开发者提出防黑建议 至少可以应对TeamPCP的供应链攻击</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://blog.nsfocus.net/%e3%80%90%e5%ae%89%e5%85%a8%e4%ba%8b%e4%bb%b6%e3%80%91axios%e5%89%8d%e7%ab%af%e5%ba%93npm%e4%be%9b%e5%ba%94%e9%93%be%e6%8a%95%e6%af%92%e9%a2%84%e8%ad%a6%e9%80%9a%e5%91%8a/" target="_blank">【安全事件】axios前端库npm供应链投毒预警通告</a></h3>
+                        <p class="article-description">阅读： 13通告编号:NS-2026-0008TAG：axios、npm、供应链攻击危害程度：高版本：1.0...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://blog.nsfocus.net/%e3%80%90%e5%ae%89%e5%85%a8%e6%9b%b4%e6%96%b0%e3%80%91%e5%be%ae%e8%bd%af4%e6%9c%88%e5%ae%89%e5%85%a8%e6%9b%b4%e6%96%b0%e5%a4%9a%e4%b8%aa%e4%ba%a7%e5%93%81%e9%ab%98%e5%8d%b1%e6%bc%8f%e6%b4%9e%e9%80%9a/" target="_blank">【安全更新】微软4月安全更新多个产品高危漏洞通告</a></h3>
+                        <p class="article-description">阅读： 18通告编号:NS-2026-0009TAG：安全更新、Windows、Office、Visual Studio、SQL Server...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
                         <div class="article-source">来源: Unsafe.sh</div>
                         <h3 class="article-title"><a href="https://blog.upx8.com/SpaceX%E8%AE%A1%E5%88%92%E5%9C%A8%E5%BE%97%E5%B7%9E%E5%A5%A5%E6%96%AF%E4%B8%81%E9%99%84%E8%BF%91%E5%BB%BA%E8%AE%BE%E4%B8%80%E5%BA%A710%E5%90%89%E7%93%A6%E5%A4%AA%E9%98%B3%E8%83%BD%E5%B7%A5%E5%8E%82" target="_blank">SpaceX计划在得州奥斯丁附近建设一座10吉瓦太阳能工厂</a></h3>
                         <p class="article-description">SpaceX计划在得州奥斯丁附近建设一座10吉瓦太阳能工厂据悉 SpaceX 正计划在美国得克萨斯州奥斯汀附近建造一座规模庞大的10吉瓦 (GW) 太阳能制造工厂。此举是马斯克旨在为外太空人工智能（A...</p>
@@ -918,6 +1037,12 @@ CTF: CyberG ...</p>
                         <div class="article-source">来源: Unsafe.sh</div>
                         <h3 class="article-title"><a href="https://blog.nsfocus.net/%e6%96%b9%e4%be%bf%e9%ab%98%e6%95%88%ef%bc%81%e9%a3%9e%e4%b9%a6%e5%8a%a0%e5%af%86%e6%96%87%e5%9c%a8%e7%ba%bf%e8%a7%a3%e5%af%86%e9%a2%84%e8%a7%88/" target="_blank">方便高效！飞书加密文在线“解密预览”</a></h3>
                         <p class="article-description">阅读： 1飞书作为当下热门主流协同办公软件，凭借简洁流畅的操作体验与全面实用的办公功能，如今被越来越多企业与职场人士广泛选用，成为日常办公...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://www.landiannews.com/archives/113047.html" target="_blank">后知后觉：腾讯TIM PC客户端竟然已经被弃用 显示版本过低无法登录</a></h3>
+                        <p class="article-description">2026年5月22日 10:21软件资讯01.46K...</p>
                         <div class="article-date">发布日期: 2026-05-22</div>
                     </div>
                     <div class="article-card" data-date="2026-05-22">
@@ -946,6 +1071,18 @@ CTF: CyberG ...</p>
                     </div>
                     <div class="article-card" data-date="2026-05-22">
                         <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://www.landiannews.com/archives/113046.html" target="_blank">文档基金会(开源LibreOffice开发商)再次发文抨击微软的OOXML专有格式</a></h3>
+                        <p class="article-description">文档基金会(开源LibreOffice开发商)再次发文抨击微软的OOXML专有格式</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://isc.sans.edu/diary/rss/33004" target="_blank">ISC Stormcast For Friday, May 22nd, 2026 https://isc.sans.edu/podcastdetail/9942, (Fri, May 22nd)</a></h3>
+                        <p class="article-description">ISC Stormcast For Friday, May 22nd, 2026 https://isc.sans.edu/podcastdetail/9942, (Fri, May 22nd)</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
                         <h3 class="article-title"><a href="https://blog.nsfocus.net/%e3%80%90%e5%ae%89%e5%85%a8%e6%9b%b4%e6%96%b0%e3%80%91%e5%be%ae%e8%bd%af5%e6%9c%88%e5%ae%89%e5%85%a8%e6%9b%b4%e6%96%b0%e5%a4%9a%e4%b8%aa%e4%ba%a7%e5%93%81%e9%ab%98%e5%8d%b1%e6%bc%8f%e6%b4%9e%e9%80%9a/" target="_blank">【安全更新】微软5月安全更新多个产品高危漏洞通告</a></h3>
                         <p class="article-description">阅读： 5通告编号 NS-2026-0013TAG：安全更新、Windows、Office、SQL Server、Azure漏洞危害：攻击...</p>
                         <div class="article-date">发布日期: 2026-05-22</div>
@@ -964,8 +1101,26 @@ CTF: CyberG ...</p>
                     </div>
                     <div class="article-card" data-date="2026-05-22">
                         <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://therecord.media/cisa-to-allow-researchers-to-report-vulnerabilities-kev" target="_blank">CISA to allow researchers to report vulnerabilities to exploited bugs catalog</a></h3>
+                        <p class="article-description">The federal cybersecurity agency has created a new pathway for people outside of the U.S. governmen...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
                         <h3 class="article-title"><a href="https://blog.upx8.com/%E9%A9%AC%E6%96%AF%E5%85%8B%E9%9B%86%E5%9B%A2%E5%8C%96%E6%95%B4%E5%90%88SpaceX-xAI%E5%A4%A7%E8%B5%9A%E4%B8%80%E7%AC%94" target="_blank">马斯克集团化整合SpaceX、xAI大赚一笔</a></h3>
                         <p class="article-description">马斯克集团化整合SpaceX、xAI大赚一笔周三，就在SpaceX开启历史性的IPO前，该公司提交的监管文件显示，它已从银行获得了一笔 200 亿美元的过桥贷款，这笔资金将被用来偿还马斯克的社交媒体和...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://www.landiannews.com/archives/113045.html" target="_blank">曾经的招聘独角兽拉勾网已申请破产 还欠着UCloud超过147万元技术服务费</a></h3>
+                        <p class="article-description">曾经的招聘独角兽拉勾网已申请破产 还欠着UCloud超过147万元技术服务费</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://www.securityinfo.it/2026/05/21/hackerone-taglia-drasticamente-le-ricompense-dei-bug-bounty/" target="_blank">HackerOne taglia drasticamente le ricompense dei bug bounty</a></h3>
+                        <p class="article-description">HackerOne taglia drasticamente le ricompense dei bug bounty</p>
                         <div class="article-date">发布日期: 2026-05-22</div>
                     </div>
                     <div class="article-card" data-date="2026-05-22">
@@ -978,6 +1133,12 @@ CTF: CyberG ...</p>
                         <div class="article-source">来源: Unsafe.sh</div>
                         <h3 class="article-title"><a href="https://blog.upx8.com/%E6%8B%85%E5%BF%A7%E6%94%BE%E7%BC%93AI%E5%8F%91%E5%B1%95-%E7%89%B9%E6%9C%97%E6%99%AE%E6%8E%A8%E8%BF%9F%E7%AD%BE%E7%BD%B2%E7%9B%91%E7%AE%A1%E8%A1%8C%E6%94%BF%E4%BB%A4" target="_blank">担忧放缓AI发展 特朗普推迟签署监管行政令</a></h3>
                         <p class="article-description">美国总统特朗普推迟签署一项行政命令，该命令将允许政府在人工智能模型发布前对其进行评估。特朗普声称他对该命令的措辞不满意：“我不喜欢其中的某些方面，” 他告诉白宫记者团。“我们领先中国，我们领先所有人，...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://mp.weixin.qq.com/s?__biz=MzI0MTE4ODY3Nw==&amp;mid=2247492937&amp;idx=1&amp;sn=466fc6b4ed08ed5d1ecfc80ea3b215f7" target="_blank">黑客组织UNG0002针对国内大学发起鱼叉式钓鱼攻击活动分析</a></h3>
+                        <p class="article-description">环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</p>
                         <div class="article-date">发布日期: 2026-05-22</div>
                     </div>
                     <div class="article-card" data-date="2026-05-22">
@@ -1025,6 +1186,12 @@ CTF: CyberG ...</p>
                     <div class="article-card" data-date="2026-05-22">
                         <div class="article-source">来源: Unsafe.sh</div>
                         <h3 class="article-title"><a href="https://mp.weixin.qq.com/s?__biz=MzAwNTgyODU3NQ==&amp;mid=2651141752&amp;idx=1&amp;sn=b4554171294b581adedd876b29b85529" target="_blank">三部门：推动智能体在智能制造、交通、医疗等典型场景应用</a></h3>
+                        <p class="article-description">环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</p>
+                        <div class="article-date">发布日期: 2026-05-22</div>
+                    </div>
+                    <div class="article-card" data-date="2026-05-22">
+                        <div class="article-source">来源: Unsafe.sh</div>
+                        <h3 class="article-title"><a href="https://mp.weixin.qq.com/s?__biz=Mzg3NjU4MDI4NQ==&amp;mid=2247486740&amp;idx=1&amp;sn=9532faa2125265606c27c96db56f8aa1" target="_blank">GTIG AI 威胁追踪报告：攻击者利用AI开展漏洞利用、作战赋能与初始入侵</a></h3>
                         <p class="article-description">环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</p>
                         <div class="article-date">发布日期: 2026-05-22</div>
                     </div>
@@ -1131,57 +1298,9 @@ CTF: CyberG ...</p>
                         <div class="article-date">发布日期: 2026-05-21</div>
                     </div>
                     <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/cisco-patches-critical-vulnerability-in-secure-workload/" target="_blank">Cisco Patches Critical Vulnerability in Secure Workload</a></h3>
-                        <p class="article-description">Insufficient validation and authentication in the Secure Workload’s REST APIs provide remote attackers with Site Admin privileges.The postCisco Patches Critical Vulnerability in Secure Workloadappeare...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/ocean-emerges-from-stealth-with-28m-for-agentic-email-security-platform/" target="_blank">Ocean Emerges From Stealth With $28M for Agentic Email Security Platform</a></h3>
-                        <p class="article-description">The company has developed a platform that uses specialized AI agents to inspect every incoming message.The postOcean Emerges From Stealth With $28M for Agentic Email Security Platformappeared first on...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/apple-rejected-2-million-app-store-submissions-in-2025-for-security-and-fraud-prevention/" target="_blank">Apple Rejected 2 Million App Store Submissions in 2025 for Security and Fraud Prevention</a></h3>
-                        <p class="article-description">The company blocked over 1.1 billion accounts and $2.2 billion in potentially fraudulent transactions.The postApple Rejected 2 Million App Store Submissions in 2025 for Security and Fraud Preventionap...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/drupal-patches-highly-critical-vulnerability-exposing-websites-to-hacking/" target="_blank">Drupal Patches Highly Critical Vulnerability Exposing Websites to Hacking</a></h3>
-                        <p class="article-description">CVE-2026-9082 can be exploited without authentication for information disclosure, privilege escalation, and remote code execution.The postDrupal Patches Highly Critical Vulnerability Exposing Websites...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/socket-raises-60-million-at-1-billion-valuation/" target="_blank">Socket Raises $60 Million at $1 Billion Valuation</a></h3>
-                        <p class="article-description">The company will invest in its firewall, certified patches, protection extensions, new products, and team expansion.The postSocket Raises $60 Million at $1 Billion Valuationappeared first onSecurityWe...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/microsoft-patches-exploited-undefend-and-redsun-defender-zero-days/" target="_blank">Microsoft Patches Exploited UnDefend and RedSun Defender Zero-Days</a></h3>
-                        <p class="article-description">The bugs could be exploited to elevate privileges to System or create a denial-of-service (DoS) condition.The postMicrosoft Patches Exploited UnDefend and RedSun Defender Zero-Daysappeared first onSec...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/googles-surge-in-chrome-vulnerability-discoveries-likely-driven-by-ai/" target="_blank">Google’s Surge in Chrome Vulnerability Discoveries Likely Driven by AI</a></h3>
-                        <p class="article-description">More than 200 vulnerabilities patched in recent Chrome releases are marked as ‘reported by Google’.The postGoogle’s Surge in Chrome Vulnerability Discoveries Likely Driven by AIappeared first onSecuri...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/supply-chain-security-crisis-too-many-vulnerabilities-too-little-visibility/" target="_blank">Supply Chain Security Crisis: Too Many Vulnerabilities, Too Little Visibility</a></h3>
-                        <p class="article-description">New vulnerabilities are being discovered too fast, the time-to-exploitation is too short, and our visibility into them is largely lacking.The postSupply Chain Security Crisis: Too Many Vulnerabilities...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
                         <div class="article-source">来源: Unsafe.sh</div>
                         <h3 class="article-title"><a href="http://www.ruanyifeng.com/blog/2026/05/weekly-issue-397.html" target="_blank">科技爱好者周刊（第 397 期）：财富正在向 AI 集中</a></h3>
-                        <p class="article-description">科技爱好者周刊（第 397 期）：财富正在向 AI 集中</p>
+                        <p class="article-description">这里记录每周值得分享的科技内容，周五发布。...</p>
                         <div class="article-date">发布日期: 2026-05-21</div>
                     </div>
                     <div class="article-card" data-date="2026-05-21">
@@ -1496,156 +1615,6 @@ CTF: CyberG ...</p>
                         <p class="article-description">The British government’s plans to overhaul the country&#x27;s main cybercrime law would offer such narro...</p>
                         <div class="article-date">发布日期: 2026-05-21</div>
                     </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://blog.upx8.com/%E4%BF%84%E7%BD%97%E6%96%AF%E6%9C%89%E5%AE%98%E6%96%B9%E8%83%8C%E6%99%AF%E7%9A%84-MAX-%E5%BA%94%E7%94%A8%E7%A7%98%E5%AF%86%E5%BD%95%E5%88%B6%E7%94%A8%E6%88%B7%E9%9F%B3%E9%A2%91%E5%B9%B6%E7%9B%91%E6%8E%A7-VPN" target="_blank">俄罗斯有官方背景的 MAX 应用秘密录制用户音频并监控 VPN</a></h3>
-                        <p class="article-description">俄罗斯安全论坛 Habr 上的一位用户声称，俄罗斯官方支持的即时通讯服务 MAX 包含用于监视用户活动的侵入性工具。该研究人员声称已经对该应用程序的 APK 进行了逆向工程，并发现了至少 15 个安全...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://www.cybersecurity360.it/news/ai-agentiche-nella-cyber-e-nellarea-della-cognizione-umana-vediamo-se-siamo-preparati/" target="_blank">AI agentiche nella cyber e nell’area della cognizione umana: vediamo se siamo preparati</a></h3>
-                        <p class="article-description">Gli orizzonti tecnologici spostano sempre la frontiera dell’innovazione non appena sembrava di aver...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://blog.upx8.com/%E8%AF%88%E9%AA%97%E5%88%86%E5%AD%90%E6%BB%A5%E7%94%A8%E5%BE%AE%E8%BD%AF%E5%86%85%E9%83%A8%E8%B4%A6%E6%88%B7%E5%8F%91%E9%80%81%E5%9E%83%E5%9C%BE%E9%93%BE%E6%8E%A5" target="_blank">诈骗分子滥用微软内部账户发送垃圾链接</a></h3>
-                        <p class="article-description">数月来，诈骗分子一直在利用一个漏洞，该漏洞允许他们从一个通常用于发送合法账户警报的微软公司内部电子邮件地址发送垃圾邮件。目前尚不清楚诈骗分子是如何滥用该系统的，但他们已经能够像新用户一样设置新的微软账...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://securityaffairs.com/192477/hacking/attackers-are-bypassing-mfa-on-sonicwall-vpns-because-something-was-wrong-with-previous-fix.html" target="_blank">Attackers are bypassing MFA on SonicWall VPNs because something was wrong with previous fix</a></h3>
-                        <p class="article-description">Attackers are bypassing MFA on SonicWall VPNs because something was wrong with previo...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://cyble.com/blog/jomangy-inj3ctor3s-self-healing-freepbx-toll-fraud-campaign/" target="_blank">JOMANGY: INJ3CTOR3’s Self-Healing FreePBX Toll Fraud Campaign</a></h3>
-                        <p class="article-description">CRIL uncovers JOMANGY, a stealth PHP webshell by INJ3CTOR3 with 6 persistence layers and self-...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://www.bleepingcomputer.com/news/security/cisco-max-severity-secure-workload-flaw-gives-hackers-site-admin-privileges/" target="_blank">Max severity Cisco Secure Workload flaw gives Site Admin privileges</a></h3>
-                        <p class="article-description">Cisco has released security updates to address a maximum-severity Secure Workload vulnerabil...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://www.bleepingcomputer.com/news/security/chinese-hackers-target-telcos-with-new-linux-windows-malware/" target="_blank">Chinese hackers target telcos with new Linux, Windows malware</a></h3>
-                        <p class="article-description">A Chinese cyber-espionage campaign has been targeting telecommunications providers with newl...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://www.bleepingcomputer.com/news/security/inside-a-crypto-drainer-how-to-spot-it-before-it-empties-your-wallet/" target="_blank">Inside a Crypto Drainer: How to Spot it Before it Empties Your Wallet</a></h3>
-                        <p class="article-description">In recent years, cryptocurrency theft operations have evolved far beyond isolated phishing p...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://blog.upx8.com/%E6%AC%A7%E7%9B%9F%E6%8B%9F%E4%B8%BA%E8%A2%AB%E7%A6%81%E4%B8%AD%E5%9B%BD%E8%8A%AF%E5%AF%BB%E6%B1%82%E8%B1%81%E5%85%8D%E4%BB%A5%E4%BF%9D%E6%8A%A4%E8%BD%A6%E4%BC%81" target="_blank">欧盟拟为被禁中国芯寻求豁免以保护车企</a></h3>
-                        <p class="article-description">欧盟将提议暂时解除对一家中国半导体供应商的制裁，此前汽车制造商警告称，如果不解除禁令，即将发生供应链混乱。据知情人士透露，欧盟执行机构欧盟委员会最早将于本周提出这项豁免。实施这一举措需要得到欧盟27个...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://www.appinn.com/linux-nginx-security-chaos/" target="_blank">说出来我都不信：Linux 漏洞第4、第5爆了 / Nginx 也继续爆漏洞</a></h3>
-                        <p class="article-description">说出来我都不信：Linux 漏洞第4、第5爆了 / Nginx 也继续爆漏洞</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://hackernoon.com/5-21-2026-techbeat?source=rss" target="_blank">The TechBeat: Reinforcement Learning Breakthrough: AI Designs Faster Ways to Multiply Matrices (5/21/2026)</a></h3>
-                        <p class="article-description">New StorybyTechBeatbyTechBeat@techbeatHackerNoon’s rank of trending tech stories based on pageviews...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://hackernoon.com/53-blog-posts-to-learn-about-chrome?source=rss" target="_blank">53 Blog Posts To Learn About Chrome</a></h3>
-                        <p class="article-description">New StorybyLearn RepobyLearn Repo@learnLets geek out. The HackerNoon library is now ranked by readi...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://hackernoon.com/undefined-behavior-ghosts-in-the-fog-or-boundaries-of-a-model?source=rss" target="_blank">Undefined Behavior: Ghosts in the Fog, or Boundaries of a Model?</a></h3>
-                        <p class="article-description">New StorybyArthur LazdinbyArthur Lazdin@arthurlazdinComputer Science Lecturer &amp; Systems Programmer....</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://therecord.media/europe-dismantles-first-vpn" target="_blank">Europe dismantles VPN service used by cybercriminals to hide ransomware attacks</a></h3>
-                        <p class="article-description">European law enforcement agencies have dismantled a VPN service long favored by cybercriminals to c...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://blog.upx8.com/%E6%91%A9%E6%A0%B9%E5%A4%A7%E9%80%9A%E5%B0%86%E6%8B%9B%E8%81%98%E6%9B%B4%E5%A4%9AAI%E4%BA%BA%E6%89%8D-%E5%87%8F%E5%B0%91%E9%93%B6%E8%A1%8C%E5%AE%B6%E6%8B%9B%E8%81%98" target="_blank">摩根大通将招聘更多AI人才 减少银行家招聘</a></h3>
-                        <p class="article-description">摩根大通首席执行官杰米·戴蒙表示，随着人工智能技术的普及，这家华尔街巨头可能会雇用更多人工智能专家，减少传统银行家的招聘。“我认为这从长远来看会减少我们的工作岗位，”戴蒙在上海举行的该行中国峰会上受访...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://isc.sans.edu/diary/rss/33002" target="_blank">Selective HTTP Proxying in Linux, (Thu, May 21st)</a></h3>
-                        <p class="article-description">Recently, Rob wrote about a tool, Proxifier, that can intercept requests from specific processes. P...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://www.solidot.org/story?sid=84365" target="_blank">Google 宣布在 AI 模式下加入更多广告</a></h3>
-                        <p class="article-description">Google 本周二宣布搜索框将变成 AI 聊天机器人的对话框，那么它久经时间考虑的商业模式——搜索广告——自然也会跟着进入 AI 模式。Google 周三宣布将在 AI 模式中引入更多“...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://www.tenable.com/blog/cve-2026-9082-highly-critical-sql-injection-vulnerability-in-drupal-core-sa-core-2026-004" target="_blank">CVE-2026-9082: Highly Critical SQL Injection Vulnerability in Drupal Core (SA-CORE-2026-004)</a></h3>
-                        <p class="article-description">A highly critical SQL injection vulnerability in Drupal core&#x27;s database abstraction layer affects si...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://securityaffairs.com/192473/security/cisco-fixed-maximum-severity-flaw-cve-2026-20223-in-secure-workload.html" target="_blank">Cisco fixed maximum severity flaw CVE-2026-20223 in Secure Workload</a></h3>
-                        <p class="article-description">Cisco fixed maximum severity flaw CVE-2026-20223 in Secure Workload...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://www.bleepingcomputer.com/news/security/police-seize-first-vpn-service-used-in-ransomware-data-theft-attacks/" target="_blank">Police seize “First VPN” service used in ransomware, data theft attacks</a></h3>
-                        <p class="article-description">A virtual private network service called &#x27;First VPN,&#x27; used in ransomware and data theft atta...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://blog.upx8.com/%E5%89%AA%E6%98%A0%E5%9B%BD%E9%99%85%E7%89%88%E5%AE%A3%E5%B8%83%E5%B0%86%E6%8E%A8%E5%87%BAGemini%E9%9B%86%E6%88%90%E5%8A%9F%E8%83%BD" target="_blank">剪映国际版宣布将推出Gemini集成功能</a></h3>
-                        <p class="article-description">CapCut长期以来一直是智能手机上编辑视频的首选应用。它拥有一套强大的功能，尽管该应用已转向激进的订阅选项，但它仍然是许多在线内容创作者的热门选择。该应用易于学习的功能和丰富的编辑选项已经受到许多人...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://www.cybersecurity360.it/cultura-cyber/vpn-su-fire-tv-stick-guida-alla-scelta-tra-sicurezza-velocita-e-consumo-cpu/" target="_blank">VPN su Fire TV Stick: guida alla scelta tra sicurezza, velocità e consumo CPU</a></h3>
-                        <p class="article-description">Garantire la riservatezza del dato e l’integrità del traffico senza compromettere il throughput comp...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://blog.upx8.com/%E4%BD%A0%E7%8E%B0%E5%8F%AF%E4%BB%A5%E7%94%A8AI%E6%B7%B7%E5%89%AA%E4%BB%96%E4%BA%BA%E7%9A%84YouTube%E7%9F%AD%E8%A7%86%E9%A2%91" target="_blank">你现可以用AI混剪他人的YouTube短视频</a></h3>
-                        <p class="article-description">谷歌宣布了一项新的YouTube Shorts混剪功能，允许用户使用 Gemini Omni 重新设计剪辑风格，甚至将自己插入他人的视频中。现在，在YouTube Shorts底部，当你点击混剪图标时...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://www.tenable.com/blog/new-tenable-one-open-connector-extends-third-party-integrations-unified-risk-visibility" target="_blank">Tenable One deepens third-party integrations with new Open Connector for unified risk visibility</a></h3>
-                        <p class="article-description">The days of rigid, vendor-locked security stacks are over. The...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-21">
-                        <div class="article-source">来源: Unsafe.sh</div>
-                        <h3 class="article-title"><a href="https://projectdiscovery.io/blog/red-teaming-cloud-infrastructure-with-neo" target="_blank">Red-Teaming Cloud Infrastructure with Neo</a></h3>
-                        <p class="article-description">Most AI security tooling shipped over the last year focuses on one of two workflows, code review at...</p>
-                        <div class="article-date">发布日期: 2026-05-21</div>
-                    </div>
                     <div class="article-card" data-date="2026-05-20">
                         <div class="article-source">来源: 安全客</div>
                         <h3 class="article-title"><a href="https://www.anquanke.com/post/id/315334" target="_blank">从开源投毒到AI生成代码：供应链安全为何成为企业安全的主战场？</a></h3>
@@ -1772,30 +1741,6 @@ CTF: CyberG ...</p>
                         <p class="article-description">Cybersecurity researchers have flagged fresh activity from a China-aligned threat actor known as Webworm  in 2025, deploying custom backdoors that employ Discord and Microsoft Graph API for command-and-control (C2 or C&amp;C) communications.   Webworm, first publicly documented  by Broadcom-owned Symantec in September 2022, is assessed to be active since at least 2022, targeting government agencies and enterprises spanning IT services, aerospace, and electric power sectors in Russia, Georgia, Mongol...</p>
                         <div class="article-date">发布日期: 2026-05-20</div>
                     </div>
-                    <div class="article-card" data-date="2026-05-20">
-                        <div class="article-source">来源: The Hacker News</div>
-                        <h3 class="article-title"><a href="https://thehackernews.com/2026/05/agent-ai-is-coming-are-you-ready.html" target="_blank">Agent AI is Coming. Are You Ready?</a></h3>
-                        <p class="article-description">New Industry Data Just Released Suggests Not.   On May 19th, 2026, Orchid Security released the results of our Identity Gap: Snapshot 2026.  Among the findings, &quot;identity dark matter&quot; (the unseen, unmanaged elements of identity) now overshadows the visible elements 57% vs. 43%. And it couldn&#x27;t have occurred at a worse time, with enterprises embracing Agent AI with both arms (and unfortunately, as Orchid co-founder Robert Wiseman explains, more than one eye closed).</p>
-                        <div class="article-date">发布日期: 2026-05-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-20">
-                        <div class="article-source">来源: The Hacker News</div>
-                        <h3 class="article-title"><a href="https://thehackernews.com/2026/05/github-investigating-teampcp-claimed.html" target="_blank">GitHub Breached — Employee Device Hack Led to Exfiltration of 3,800+ Internal Repos</a></h3>
-                        <p class="article-description">GitHub on Tuesday said it&#x27;s investigating unauthorized access to its internal repositories after the notorious threat actor known as TeamPCP listed the platform&#x27;s source code and internal organizations for sale on a cybercrime forum.   &quot;While we currently have no evidence of impact to customer information stored outside of GitHub&#x27;s internal repositories (such as our customers&#x27; enterprises, organizations, and repositories), we are closely monitoring our infrastructure for follow-on activity,&quot; the...</p>
-                        <div class="article-date">发布日期: 2026-05-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-20">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/quantum-bridge-raises-8-million-for-quantum-safe-key-distribution-solution/" target="_blank">Quantum Bridge Raises $8 Million for Quantum-Safe Key Distribution Solution</a></h3>
-                        <p class="article-description">The new Series A funding round brings the total raised by Quantum Bridge to $16 million.The postQuantum Bridge Raises $8 Million for Quantum-Safe Key Distribution Solutionappeared first onSecurityWeek...</p>
-                        <div class="article-date">发布日期: 2026-05-20</div>
-                    </div>
-                    <div class="article-card" data-date="2026-05-20">
-                        <div class="article-source">来源: SecurityWeek</div>
-                        <h3 class="article-title"><a href="https://www.securityweek.com/microsoft-rolls-out-mitigations-for-yellowkey-bitlocker-bypass/" target="_blank">Microsoft Rolls Out Mitigations for ‘YellowKey’ BitLocker Bypass</a></h3>
-                        <p class="article-description">The exploitation is mitigated by preventing the FsTx Auto Recovery Utility from starting when the WinRE image launches.The postMicrosoft Rolls Out Mitigations for ‘YellowKey’ BitLocker Bypassappeared ...</p>
-                        <div class="article-date">发布日期: 2026-05-20</div>
-                    </div>
                     <div class="article-card" data-date="2026-05-19">
                         <div class="article-source">来源: 安全客</div>
                         <h3 class="article-title"><a href="https://www.anquanke.com/post/id/315529" target="_blank">科技云报到：“联通星罗”Token服务平台正式发布，为OPC创业提供“最佳助攻”</a></h3>
@@ -1846,13 +1791,308 @@ CTF: CyberG ...</p>
             <div class="ai-view" id="ai-view">
                 
     <div class="ai-summary">
-        <h3>🤖 AI分析摘要</h3>
-        <p>AI分析完成，已筛选重要文章并分类</p>
-        <p style="margin-top: 0.5rem; color: #888; font-size: 0.85rem;">
-            分析日期: 2026-05-22 | 共分析 134 篇文章
-        </p>
+        <h3>🤖 AI智能分析</h3>
+        <div class="ai-summary-text">本批次聚焦高危内核漏洞、AI供应链投毒、APT定向攻击及云原生安全，筛选出具备深度技术分析与实战防御价值的核心文章。</div>
     </div>
     
+        <div class="ai-category">
+            <h3 class="ai-category-title">🐛 漏洞研究</h3>
+            
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://sec.today/pulses/118357e2-1ebf-4365-b265-5e3fa69a57da/" target="_blank">Project Zero 披露 Pixel 10 Zero-Click 漏洞链：从 Dolby 音频到 VPU Mmap 内核控制</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Sec-Today</span>
+                    <span>日期: 2026-05-22</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 深度剖析零点击漏洞链与VPU驱动缺陷，揭示第三方组件对内核安全的致命影响，具备极高的漏洞挖掘参考价值。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://sec.today/pulses/16d69023-03c8-46e7-a718-7d461daa0d27/" target="_blank">Fragnesia（亦称 Copyfail 3.0，CVE-2026-46300）是 Linux 内核 XFRM ESP-in-TCP 子系统中的一项严重本地提权漏洞</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Sec-Today</span>
+                    <span>日期: 2026-05-22</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 详细分析Linux内核XFRM子系统逻辑缺陷，提供无需竞态条件的稳定本地提权技术细节与利用路径。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://sec.today/pulses/897a2e74-b886-4eb8-b5bb-e1ec397325d5/" target="_blank">Qualys 披露了 Linux 内核 __ptrace_may_access() 函数中存在一个严重逻辑漏洞，被正式分配为 CVE-2026-46333</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Sec-Today</span>
+                    <span>日期: 2026-05-22</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 揭示ptrace访问控制竞态条件，演示如何利用进程退出窗口窃取特权文件描述符，技术实战性强。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://sec.today/pulses/a7f2f976-8d2e-4754-bbe8-7aed1daa0d27/" target="_blank">安全研究人员披露了名为 NGINX Rift (CVE-2026-42945) 的严重漏洞</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Sec-Today</span>
+                    <span>日期: 2026-05-22</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 挖掘潜伏18年的NGINX重写模块状态不一致漏洞，具备极高的实战利用价值与修复参考意义。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://sec.today/pulses/7afe272e-128d-4080-8b75-28ed461daa0d27/" target="_blank">Kukurigu：利用 xfrm-ESP 与 RxRPC 漏洞链实现稳定的 Linux Kernel 页面缓存投毒提权</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Sec-Today</span>
+                    <span>日期: 2026-05-22</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 展示跨协议漏洞组合利用技术，实现接近100%成功率的内核提权，为内核安全研究树立新标杆。</div>
+            </div>
+        </div>
+        <div class="ai-category">
+            <h3 class="ai-category-title">📱 移动安全</h3>
+            
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://sec.today/pulses/c1633a07-f7f9-4745-b5af-9c8401b39df1/" target="_blank">Google 在 2026 年 5 月安全公告中披露了 Android Debug Bridge (adbd) 守护进程中的严重零点击远程代码执行漏洞 (CVE-2026-0073)</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Sec-Today</span>
+                    <span>日期: 2026-05-22</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 分析无线ADB TLS认证绕过机制，揭示局域网内零交互获取Android设备控制权的严重风险。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://sec.today/pulses/3c83189c-c240-4717-9dbe-ac9a29356a1b/" target="_blank">ScarCruft 供应链攻击：Windows 与 Android 后门瞄准游戏平台</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Sec-Today</span>
+                    <span>日期: 2026-05-22</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 披露朝鲜APT组织针对Android平台的新型BirdCall后门技术细节，为移动端威胁狩猎提供关键IoC。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://www.schneier.com/blog/archives/2026/05/macos-kernel-memory-corruption-exploit.html" target="_blank">macOS Kernel Memory Corruption Exploit</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Unsafe.sh</span>
+                    <span>日期: 2026-05-21</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 剖析macOS内核内存破坏利用技术，对苹果生态系统的底层安全研究与防御具有重要参考价值。</div>
+            </div>
+        </div>
+        <div class="ai-category">
+            <h3 class="ai-category-title">🤖 AI安全</h3>
+            
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://sec.today/pulses/f43b9b3e-96c0-4202-8c28-6e26e79a5766/" target="_blank">InstallFix 行动：利用 Claude AI 信任通过虚假安装程序与多阶段恶意软件攻击</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Sec-Today</span>
+                    <span>日期: 2026-05-22</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 揭示针对AI工具信任链的新型社会工程与多阶段攻击手法，提供关键防御策略与IoC。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://sec.today/pulses/b7ee6664-a34-4e01-824b-cecd2eeee09e/" target="_blank">微软推出了名为 MDASH（多模型智能体扫描框架）的新一代自动化安全系统</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Sec-Today</span>
+                    <span>日期: 2026-05-22</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 介绍基于百余个AI智能体协同的自动化漏洞挖掘框架，代表AI驱动安全测试的前沿方向。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://www.secrss.com/articles/90590" target="_blank">AgentTrust：面向Agent的工具调用防火墙</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: 安全内参</span>
+                    <span>日期: 2026-05-21</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 提出针对AI智能体工具调用的安全隔离方案，解决大模型代理执行外部操作的核心风险。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://blog.nsfocus.net/%e3%80%90%e5%ae%89%e5%85%a8%e4%ba%8b%e4%bb%b6%e3%80%91ai%e5%9f%ba%e7%a1%80%e8%ae%be%e6%96%bdlitellm%e4%be%9b%e5%ba%94%e9%93%be%e6%8a%95%e6%af%92%e9%a2%84%e8%ad%a6%e9%80%9a%e5%91%8a/" target="_blank">【安全事件】AI基础设施LiteLLM供应链投毒预警通告</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Unsafe.sh</span>
+                    <span>日期: 2026-05-22</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 预警AI网关组件供应链投毒事件，强调AI基础设施依赖链的安全审查与依赖锁定必要性。</div>
+            </div>
+        </div>
+        <div class="ai-category">
+            <h3 class="ai-category-title">🔍 威胁情报</h3>
+            
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="http://bbs.kanxue.com/thread-291298.htm?style=1" target="_blank">“银狐”木马新变种爆发！伪装人事文件定向攻击国内用户</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: 看雪论坛</span>
+                    <span>日期: 2026-05-21</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 追踪国内高发木马家族最新变种TTPs，针对HR/行政人员的定向攻击特征极具预警价值。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="http://bbs.kanxue.com/thread-291284.htm?style=1" target="_blank">GitHub遭恶意VSCode插件入侵！3800个内部仓库被盗</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: 看雪论坛</span>
+                    <span>日期: 2026-05-21</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 深度复盘全球最大代码平台供应链入侵事件，揭示开发者生态面临的严峻内部威胁。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://thehackernews.com/2026/05/showboat-linux-malware-hits-middle-east.html" target="_blank">Showboat Linux Malware Hits Middle East Telecom with SOCKS5 Proxy Backdoor</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: The Hacker News</span>
+                    <span>日期: 2026-05-21</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 披露针对中东电信运营商的新型Linux恶意软件，丰富服务器端威胁情报与横向移动分析。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://mp.weixin.qq.com/s?__biz=MzI0MTE4ODY3Nw==&amp;mid=2247492937&amp;idx=1&amp;sn=466fc6b4ed08ed5d1ecfc80ea3b215f7" target="_blank">黑客组织UNG0002针对国内大学发起鱼叉式钓鱼攻击活动分析</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Unsafe.sh</span>
+                    <span>日期: 2026-05-22</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 剖析针对教育行业的APT钓鱼活动战术与技术，提供针对性的防御与溯源建议。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&amp;mid=2451186770&amp;idx=1&amp;sn=8374614e0cc8b70d57cd07408d95c2ea" target="_blank">TeamPCP：正在以 前所未有的规模污染开源代码的黑客组织</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Unsafe.sh</span>
+                    <span>日期: 2026-05-21</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 追踪大规模开源供应链投毒攻击组织，揭示自动化污染流水线与防御盲区。</div>
+            </div>
+        </div>
+        <div class="ai-category">
+            <h3 class="ai-category-title">🔧 安全工具</h3>
+            
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://www.secrss.com/articles/90553" target="_blank">从文本到情报：自动化STIX实体与关系提取</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: 安全内参</span>
+                    <span>日期: 2026-05-21</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 提供将非结构化安全报告自动转化为STIX标准格式的工具方法，提升威胁情报处理效率。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://www.guidepointsecurity.com/blog/continuous-security-validation-best-practices-a-practical-guide-for-security-teams/" target="_blank">Continuous Security Validation Best Practices: A Practical Guide for Security Teams</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Unsafe.sh</span>
+                    <span>日期: 2026-05-21</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 系统化介绍持续安全验证（CSV）工具链的最佳实践，指导企业构建自动化防御验证体系。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://www.secrss.com/articles/90575" target="_blank">面向Java库模糊测试的覆盖率引导多智能体工具生成</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: 安全内参</span>
+                    <span>日期: 2026-05-21</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 展示结合LLM与程序分析的自动化Fuzzing工具生成技术，提升软件供应链漏洞挖掘效率。</div>
+            </div>
+        </div>
+        <div class="ai-category">
+            <h3 class="ai-category-title">☁️ 云安全</h3>
+            
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://thehackernews.com/2026/05/cisco-patches-cvss-100-secure-workload.html" target="_blank">Cisco Patches CVSS 10.0 Secure Workload REST API Flaw Enabling Data Access</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: The Hacker News</span>
+                    <span>日期: 2026-05-22</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 分析云工作负载管理平台API未授权访问漏洞，警示云原生环境接口鉴权缺陷。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://thehackernews.com/2026/05/when-identity-is-attack-path.html" target="_blank">When Identity is the Attack Path</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: The Hacker News</span>
+                    <span>日期: 2026-05-21</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 深入剖析云环境（AWS）缓存凭证泄露路径，为云身份与访问管理（IAM）提供实战防御思路。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://blog.cloudflare.com/casb-anthropic-integration/" target="_blank">Announcing Claude Compliance API support with Cloudflare CASB</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Unsafe.sh</span>
+                    <span>日期: 2026-05-21</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 介绍云访问安全代理（CASB）与AI合规API的集成方案，强化企业AI应用的数据防泄漏能力。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://unsafe.sh/go-418134.html" target="_blank">GitHub Actions Cache Poisoning is eating open source</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Unsafe.sh</span>
+                    <span>日期: 2026-05-21</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 揭示CI/CD云流水线缓存投毒技术，为云原生开发运维安全提供关键加固指南。</div>
+            </div>
+        </div>
+        <div class="ai-category">
+            <h3 class="ai-category-title">⭐ 其他重要</h3>
+            
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://blog.upx8.com/%E6%89%A7%E6%B3%95%E9%83%A8%E9%97%A8%E5%85%B3%E9%97%AD%E5%8B%92%E7%B4%A2%E8%BD%AF%E4%BB%B6%E5%9B%A2%E4%BC%99%E4%BD%BF%E7%94%A8%E7%9A%84VPN%E6%9C%8D%E5%8A%A1" target="_blank">执法部门关闭勒索软件团伙使用的VPN服务</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Unsafe.sh</span>
+                    <span>日期: 2026-05-22</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 记录国际联合执法行动取缔犯罪基础设施的里程碑事件，对黑产生态打击具有战略意义。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://securityaffairs.com/192508/security/u-s-cisa-adds-microsoft-and-adobe-flaws-to-its-known-exploited-vulnerabilities-catalog.html" target="_blank">U.S. CISA adds Microsoft and Adobe flaws to its Known Exploited Vulnerabilities catalog</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Unsafe.sh</span>
+                    <span>日期: 2026-05-21</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 跟踪CISA KEV目录更新，强制推动高危在野漏洞的修复优先级，影响全球合规与应急响应。</div>
+            </div>
+            <div class="ai-article">
+                <div class="ai-article-title">
+                    <a href="https://mp.weixin.qq.com/s?__biz=Mzg3NjU4MDI4NQ==&amp;mid=2247486740&amp;idx=1&amp;sn=9532faa2125265606c27c96db56f8aa1" target="_blank">GTIG AI 威胁追踪报告：攻击者利用AI开展漏洞利用、作战赋能与初始入侵</a>
+                </div>
+                <div class="ai-meta">
+                    <span>来源: Unsafe.sh</span>
+                    <span>日期: 2026-05-22</span>
+                </div>
+                <div class="ai-article-reason">💡 推荐理由: 汇总AI赋能网络攻击的最新趋势与战术演进，为安全战略制定提供宏观情报支撑。</div>
+            </div>
+        </div>
     
             </div>
         </main>
@@ -1866,14 +2106,13 @@ CTF: CyberG ...</p>
 
             <!-- Original Sidebar (Filters) -->
             <div class="sidebar-section" id="original-sidebar">
-                <h3>筛选器</h3>
                 <div class="filters">
                     <div class="filter-group">
                         <label>📅 按日期筛选:</label>
                         <div class="multi-select" id="date-select">
                             <div class="multi-select-header" onclick="toggleDropdown('date-select')">全部日期</div>
                             <div class="multi-select-dropdown">
-                                <div class="multi-select-option"><input type="checkbox" id="date-0" value="2026-05-22"> 2026-05-22</div><div class="multi-select-option"><input type="checkbox" id="date-1" value="2026-05-21"> 2026-05-21</div><div class="multi-select-option"><input type="checkbox" id="date-2" value="2026-05-20"> 2026-05-20</div><div class="multi-select-option"><input type="checkbox" id="date-3" value="2026-05-19"> 2026-05-19</div><div class="multi-select-option"><input type="checkbox" id="date-4" value="2026-05-18"> 2026-05-18</div><div class="multi-select-option"><input type="checkbox" id="date-5" value="2026-05-16"> 2026-05-16</div><div class="multi-select-option"><input type="checkbox" id="date-6" value="2026-05-15"> 2026-05-15</div><div class="multi-select-option"><input type="checkbox" id="date-7" value="2026-05-13"> 2026-05-13</div><div class="multi-select-option"><input type="checkbox" id="date-8" value="2026-05-12"> 2026-05-12</div><div class="multi-select-option"><input type="checkbox" id="date-9" value="2026-05-11"> 2026-05-11</div><div class="multi-select-option"><input type="checkbox" id="date-10" value="2026-05-08"> 2026-05-08</div><div class="multi-select-option"><input type="checkbox" id="date-11" value="2026-05-07"> 2026-05-07</div><div class="multi-select-option"><input type="checkbox" id="date-12" value="2026-05-02"> 2026-05-02</div><div class="multi-select-option"><input type="checkbox" id="date-13" value="2026-04-30"> 2026-04-30</div><div class="multi-select-option"><input type="checkbox" id="date-14" value="2026-04-29"> 2026-04-29</div><div class="multi-select-option"><input type="checkbox" id="date-15" value="2026-04-24"> 2026-04-24</div>
+                                <div class="multi-select-option"><input type="checkbox" id="date-0" value="2026-05-22"> 2026-05-22</div><div class="multi-select-option"><input type="checkbox" id="date-1" value="2026-05-21"> 2026-05-21</div><div class="multi-select-option"><input type="checkbox" id="date-2" value="2026-05-20"> 2026-05-20</div><div class="multi-select-option"><input type="checkbox" id="date-3" value="2026-05-19"> 2026-05-19</div><div class="multi-select-option"><input type="checkbox" id="date-4" value="2026-05-18"> 2026-05-18</div><div class="multi-select-option"><input type="checkbox" id="date-5" value="2026-05-15"> 2026-05-15</div><div class="multi-select-option"><input type="checkbox" id="date-6" value="2026-05-13"> 2026-05-13</div><div class="multi-select-option"><input type="checkbox" id="date-7" value="2026-05-12"> 2026-05-12</div><div class="multi-select-option"><input type="checkbox" id="date-8" value="2026-05-11"> 2026-05-11</div><div class="multi-select-option"><input type="checkbox" id="date-9" value="2026-05-08"> 2026-05-08</div><div class="multi-select-option"><input type="checkbox" id="date-10" value="2026-05-07"> 2026-05-07</div><div class="multi-select-option"><input type="checkbox" id="date-11" value="2026-05-02"> 2026-05-02</div><div class="multi-select-option"><input type="checkbox" id="date-12" value="2026-04-30"> 2026-04-30</div><div class="multi-select-option"><input type="checkbox" id="date-13" value="2026-04-29"> 2026-04-29</div><div class="multi-select-option"><input type="checkbox" id="date-14" value="2026-04-24"> 2026-04-24</div>
                             </div>
                         </div>
                     </div>
@@ -1896,10 +2135,10 @@ CTF: CyberG ...</p>
 
                 <div style="margin-top: 1.5rem;">
                     <h4>统计信息</h4>
-                    <p id="visible-count">当前显示: 104</p>
-                    <p>总文章数: 202</p>
-                    <p>技术文章: 46</p>
-                    <p>安全新闻: 156</p>
+                    <p id="visible-count">当前显示: 93</p>
+                    <p>总文章数: 192</p>
+                    <p>技术文章: 45</p>
+                    <p>安全新闻: 147</p>
                     <p>更新日期: 2026-05-22</p>
                 </div>
             </div>
@@ -1909,13 +2148,13 @@ CTF: CyberG ...</p>
                 <div class="ai-category-nav">
                     <h4>📋 分类目录</h4>
                     <ul>
-                        
+                        <li onclick="scrollToCategory('漏洞研究')">🐛 漏洞研究 (5)</li><li onclick="scrollToCategory('移动安全')">📱 移动安全 (3)</li><li onclick="scrollToCategory('AI安全')">🤖 AI安全 (4)</li><li onclick="scrollToCategory('威胁情报')">🔍 威胁情报 (5)</li><li onclick="scrollToCategory('安全工具')">🔧 安全工具 (3)</li><li onclick="scrollToCategory('云安全')">☁️ 云安全 (4)</li><li onclick="scrollToCategory('其他重要')">⭐ 其他重要 (3)</li>
                     </ul>
                 </div>
                 <div style="margin-top: 1rem; padding: 0.5rem; background: #f8f9fa; border-radius: 4px; font-size: 0.85rem; color: #666;">
                     <p>分析日期: 2026-05-22</p>
-                    <p>筛选文章: 0 篇</p>
-                    <p>原始文章: 134 篇</p>
+                    <p>筛选文章: 27 篇</p>
+                    <p>原始文章: 137 篇</p>
                 </div>
             </div>
         </aside>
@@ -1935,7 +2174,7 @@ CTF: CyberG ...</p>
                     📄 Json data
                 </a>
             </p>
-            <p>安全资讯聚合平台 | 更新时间: 2026-05-22 03:09:18</p>
+            <p>安全资讯聚合平台 | 更新时间: 2026-05-22 15:26:01</p>
             <p>数据来源: Sec-Today, 先知社区, Project Zero, Seebug Paper, 腾讯安全, 安全客, 安全内参, SecurityWeek, The Hacker News, 看雪</p>
             <p>如有侵权，请联系删除</p>
         </div>

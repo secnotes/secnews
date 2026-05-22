@@ -101,7 +101,7 @@ class AIProvider:
         self,
         prompt: str,
         system_prompt: Optional[str] = None,
-        max_tokens: int = 4096,
+        max_tokens: int = 8192,
         temperature: float = 0.3,
     ) -> str:
         """
@@ -122,9 +122,9 @@ class AIProvider:
         except ImportError:
             raise ImportError("openai package is required. Install with: pip install openai")
 
-        # Create custom http client without proxy settings for compatibility
+        # Create custom http client with longer timeout for large prompts
         http_client = httpx.Client(
-            timeout=httpx.Timeout(120.0, connect=30.0),  # Increased timeout for large prompts
+            timeout=httpx.Timeout(300.0, connect=30.0),  # 5 min timeout for large article batches
             follow_redirects=True,
         )
 
@@ -157,7 +157,7 @@ class AIProvider:
         self,
         articles: List[Dict[str, Any]],
         categories: Optional[List[str]] = None,
-        batch_size: int = 50,
+        batch_size: int = 200,
     ) -> Dict[str, Any]:
         """
         Analyze security articles and categorize important ones
@@ -205,7 +205,7 @@ class AIProvider:
             prompt = f"""请分析以下安全文章，筛选出重要的内容并按主题分类。
 
 ## 分类类别
-{json.dumps(categories, ensure_ascii=False)}
+{json.dumps(categories, ensure_ascii=False, separators=(',', ':'))}
 
 ## 分析要求
 1. 筛选标准：具有技术深度、实战价值、最新漏洞/CVE、重要安全事件的文章
@@ -219,30 +219,13 @@ class AIProvider:
 ## 输出格式
 请严格按照以下 JSON 格式返回，不要添加任何额外内容：
 ```json
-{{
-  "analysis_date": "YYYY-MM-DD",
-  "total_analyzed": {len(batch_articles)},
-  "batch_number": {batch_num + 1},
-  "categories": {{
-    "漏洞研究": [
-      {{
-        "title": "文章标题",
-        "url": "文章链接",
-        "source": "来源",
-        "date": "日期",
-        "reason": "推荐理由"
-      }}
-    ],
-    ...
-  }},
-  "summary": "本批次分析摘要（50字以内）"
-}}
+{{"analysis_date":"YYYY-MM-DD","total_analyzed":{len(batch_articles)},"batch_number":{batch_num + 1},"categories":{{"漏洞研究":[{{"title":"文章标题","url":"文章链接","source":"来源","date":"日期","reason":"推荐理由"}}]}},"summary":"本批次分析摘要（50字以内）"}}
 ```
 
 请开始分析并返回 JSON 结果。"""
 
             try:
-                response_text = self.analyze(prompt, system_prompt, max_tokens=4096)
+                response_text = self.analyze(prompt, system_prompt)
                 batch_result = self._parse_json_response(response_text)
                 all_results.append(batch_result)
                 logger.info(f"Batch {batch_num + 1} completed successfully")
@@ -337,7 +320,14 @@ class AIProvider:
             return json.loads(text)
         except json.JSONDecodeError as e:
             logger.error(f"Failed to parse AI response as JSON: {e}")
-            logger.debug(f"Response text: {text[:500]}")
+            # Save raw response for debugging
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            debug_file = os.path.join(script_dir, 'ai_response_debug.txt')
+            with open(debug_file, 'w', encoding='utf-8') as f:
+                f.write(f"JSON Parse Error: {e}\n\n")
+                f.write(f"Raw Response (length={len(text)}):\n")
+                f.write(text)
+            logger.info(f"Raw response saved to {debug_file} for debugging")
             # Return empty structure on parse failure
             return {
                 "analysis_date": "",

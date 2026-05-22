@@ -2182,11 +2182,8 @@ def _generate_ai_curated_html(ai_curated):
 
     result_html = f'''
     <div class="ai-summary">
-        <h3>🤖 AI分析摘要</h3>
-        <p>{html.escape(summary)}</p>
-        <p style="margin-top: 0.5rem; color: #888; font-size: 0.85rem;">
-            分析日期: {analysis_date} | 共分析 {total_analyzed} 篇文章
-        </p>
+        <h3>🤖 AI智能分析</h3>
+        <div class="ai-summary-text">{html.escape(summary)}</div>
     </div>
     {"".join(categories_html)}
     '''
@@ -2545,40 +2542,38 @@ def generate_html(articles, output_file=None, ai_curated=None):
             .articles-grid {{
                 grid-template-columns: 1fr;
             }}
-
-            .view-toggle {{
-                flex-direction: column;
-            }}
         }}
 
-        /* View toggle buttons - positioned in sidebar */
+        /* View toggle buttons - segmented control style */
         .view-toggle {{
-            display: flex;
-            gap: 10px;
+            display: inline-flex;
+            background: #f0f0f0;
+            border-radius: 24px;
+            padding: 4px;
             margin-bottom: 1rem;
-            justify-content: flex-end;
         }}
 
         .view-toggle-btn {{
-            padding: 10px 20px;
-            border: 2px solid #667eea;
-            background: white;
-            color: #667eea;
-            border-radius: 8px;
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            color: #666;
+            border-radius: 20px;
             cursor: pointer;
             font-size: 0.9rem;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }}
 
         .view-toggle-btn:hover {{
-            background: #f0f4ff;
+            color: #333;
         }}
 
         .view-toggle-btn.active {{
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border-color: transparent;
+            background: white;
+            color: #667eea;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }}
         }}
 
         /* Sidebar sections */
@@ -2658,15 +2653,23 @@ def generate_html(articles, output_file=None, ai_curated=None):
         }}
 
         .ai-summary {{
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
+            padding: 0.5rem 0 1.5rem 0;
             margin-bottom: 2rem;
+            border-bottom: 1px solid #dee2e6;
         }}
 
         .ai-summary h3 {{
-            margin-bottom: 0.5rem;
-            color: #495057;
+            margin-bottom: 0.75rem;
+            color: #333;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }}
+
+        .ai-summary-text {{
+            color: #555;
+            line-height: 1.7;
+            padding-left: 1rem;
+            border-left: 3px solid #667eea;
         }}
 
         .ai-article {{
@@ -2775,7 +2778,6 @@ def generate_html(articles, output_file=None, ai_curated=None):
 
             <!-- Original Sidebar (Filters) -->
             <div class="sidebar-section" id="original-sidebar">
-                <h3>筛选器</h3>
                 <div class="filters">
                     <div class="filter-group">
                         <label>📅 按日期筛选:</label>
