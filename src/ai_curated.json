@@ -1,42 +1,35 @@
 {
-  "analysis_date": "2026-05-23",
-  "total_analyzed": 119,
+  "analysis_date": "2026-05-24",
+  "total_analyzed": 95,
   "categories": {
     "漏洞研究": [
       {
-        "title": "cPanel&WHM任意文件读取漏洞(CVE-2026-29205)安全风险通告",
-        "url": "https://www.secrss.com/articles/90610",
-        "source": "安全内参",
-        "date": "2026-05-22",
-        "reason": "无需认证即可利用特定路径参数以Root权限读取任意文件，影响广泛且危害极高。"
+        "title": "From Zero to Full Takeover: Chaining Vulnerabilities to Completely Compromise Gitea",
+        "url": "https://sec.today/pulses/f93e939c-6022-4339-bda7-318847321500/",
+        "source": "Sec-Today",
+        "date": "2026-05-24",
+        "reason": "深入剖析Gitea授权绕过与路径遍历漏洞，提供完整复现步骤与源码缺陷定位，对开源代码托管平台安全加固具有直接指导价值。"
       },
       {
-        "title": "Drupal Vulnerability in Hacker Crosshairs Shortly After Disclosure",
-        "url": "https://www.securityweek.com/drupal-vulnerability-in-hacker-crosshairs-shortly-after-disclosure/",
-        "source": "SecurityWeek",
-        "date": "2026-05-22",
-        "reason": "披露后迅速遭大规模在野利用，需紧急关注漏洞利用特征与修复方案。"
+        "title": "LiteSpeed cPanel Plugin CVE-2026-48172 Exploited to Run Scripts as Root",
+        "url": "https://thehackernews.com/2026/05/litespeed-cpanel-plugin-cve-2026-48172.html",
+        "source": "The Hacker News",
+        "date": "2026-05-23",
+        "reason": "披露CVSS 10.0的严重漏洞且已在野外被积极利用，详细分析了以Root权限执行脚本的攻击路径，需紧急关注补丁与缓解措施。"
       },
       {
-        "title": "TrendAI Patches Apex One Zero-Day Exploited in the Wild",
-        "url": "https://www.securityweek.com/trendai-patches-apex-one-zero-day-exploited-in-the-wild/",
-        "source": "SecurityWeek",
-        "date": "2026-05-22",
-        "reason": "针对企业终端防护产品的零日目录遍历漏洞，已在野外被实际利用，实战防御价值高。"
+        "title": "Drupal Core SQL Injection Bug Actively Exploited, Added to CISA KEV",
+        "url": "https://thehackernews.com/2026/05/drupal-core-sql-injection-bug-actively.html",
+        "source": "The Hacker News",
+        "date": "2026-05-23",
+        "reason": "CISA已将该高危SQL注入漏洞加入KEV目录，文章详细记录了其活跃利用现状与影响范围，为Web应用安全防御提供关键预警。"
       },
       {
-        "title": "CVE-2026-9256 - \"nginx-poolslip\", another new vulnerability in the rewrite module",
-        "url": "https://unsafe.sh/go-418419.html",
+        "title": "Linux Kernel Local Privilege Escalation (CVE-2026-43284 / CVE-2026-43500 / CVE-2026-46300)",
+        "url": "https://cxsecurity.com/issue/WLB-2026050017",
         "source": "Unsafe.sh",
-        "date": "2026-05-22",
-        "reason": "深入分析Nginx重写模块新型漏洞机制，对Web服务器安全配置与代码审计具有直接指导意义。"
-      },
-      {
-        "title": "Update Chrome now: Critical bugs could let attackers run code",
-        "url": "https://www.malwarebytes.com/blog/bugs/2026/05/update-chrome-now-critical-bugs-could-let-attackers-run-code",
-        "source": "Unsafe.sh",
-        "date": "2026-05-22",
-        "reason": "修复多个可导致远程代码执行的高危浏览器漏洞，直接影响终端安全基线与用户隐私。"
+        "date": "2026-05-23",
+        "reason": "集中披露多个Linux内核本地提权CVE，涉及底层内存与权限管理机制，对系统管理员与内核安全研究人员具有重要参考意义。"
       }
     ],
     "移动安全": [
@@ -44,153 +37,146 @@
         "title": "某安全SDK x-sign 签名算法还原",
         "url": "http://bbs.kanxue.com/thread-289785.htm?style=1",
         "source": "看雪论坛",
-        "date": "2026-05-22",
-        "reason": "基于ARM64汇编Trace深度逆向还原移动端安全SDK签名算法，技术细节详实，逆向工程价值极高。"
+        "date": "2026-05-23",
+        "reason": "基于ARM64汇编Trace深度还原安全SDK签名算法，详细拆解VM字节码解释器结构，为移动端逆向工程与协议分析提供高阶实战范例。"
       },
       {
-        "title": "【一图看懂】手机·电脑·服务器现场勘验",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzAwNDcwMDgzMA==&mid=2651049002&idx=2&sn=dfd346fc971756ad90067f5f3e2f2783",
+        "title": "2026腾讯游戏安全竞赛决赛安卓客户端安全分析",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458615450&idx=2&sn=5b372737248ca9dbc68c515e055e3636",
         "source": "Unsafe.sh",
-        "date": "2026-05-22",
-        "reason": "系统化梳理移动端设备现场取证与勘验标准流程，为移动安全应急响应提供实战指南。"
+        "date": "2026-05-23",
+        "reason": "聚焦安卓客户端安全对抗实战，涵盖主流游戏反作弊与客户端保护机制的攻防技术，具有较高的移动端安全研究价值。"
       },
       {
-        "title": "Why On-Device ML Is the Future of Mobile Apps (And How to Get Started)",
-        "url": "https://hackernoon.com/why-on-device-ml-is-the-future-of-mobile-apps-and-how-to-get-started?source=rss",
+        "title": "These special phone and app features can help protect you from spyware",
+        "url": "https://techcrunch.com/2026/05/23/you-dont-have-to-click-anything-to-get-hacked-anymore-heres-how-to-fight-back/",
         "source": "Unsafe.sh",
-        "date": "2026-05-22",
-        "reason": "探讨端侧机器学习在移动应用中的架构演进，重点分析本地化部署带来的数据隐私与安全边界变化。"
+        "date": "2026-05-23",
+        "reason": "系统梳理移动端对抗间谍软件的系统级防护特性与应用层防御策略，为高价值目标提供实用的移动设备安全加固指南。"
       }
     ],
     "AI安全": [
       {
-        "title": "当Agent进入财务和合同系统：中小企业的AI安全盲区暴露了",
-        "url": "https://www.secrss.com/articles/90602",
-        "source": "安全内参",
-        "date": "2026-05-22",
-        "reason": "聚焦AI Agent接入企业核心业务系统时的权限越权与数据泄露风险，具备极强的企业落地警示价值。"
+        "title": "Claude Opus wrote a Chrome exploit for $2,283",
+        "url": "https://sec.today/pulses/2d69be65-cb17-4943-91ca-7ae61113d0b3/",
+        "source": "Sec-Today",
+        "date": "2026-05-24",
+        "reason": "证实大模型已具备低成本独立开发完整漏洞利用链的能力，揭示AI自动化攻击对传统补丁响应周期的颠覆性冲击，警示防御范式需向零信任前置转变。"
       },
       {
-        "title": "AI Security CTF (free, open) - prompt injection, agent workflow hijacking, guardrail bypass",
-        "url": "https://unsafe.sh/go-418420.html",
-        "source": "Unsafe.sh",
-        "date": "2026-05-22",
-        "reason": "涵盖提示词注入、Agent工作流劫持等前沿AI攻防实战场景，是检验AI安全防御能力的优质演练平台。"
+        "title": "Claude Mythos AI Finds 10,000 High-Severity Flaws in Widely Used Software",
+        "url": "https://thehackernews.com/2026/05/claude-mythos-ai-finds-10000-high.html",
+        "source": "The Hacker News",
+        "date": "2026-05-23",
+        "reason": "展示AI在规模化漏洞挖掘中的实战效能，覆盖大量关键基础设施软件，为自动化安全审计与AI辅助代码审查提供重要数据支撑。"
       },
       {
-        "title": "Securing AI systems without overconfidence or fear – Part 2: Attack surfaces and the checkpoint flow",
-        "url": "https://blog.nviso.eu/2026/05/22/securing-ai-systems-without-overconfidence-or-fear-part-2-attack-surfaces-and-the-checkpoint-flow/",
+        "title": "How Hackers Are Manipulating AI Using Prompt Injection",
+        "url": "https://infosecwriteups.com/how-hackers-are-manipulating-ai-using-prompt-injection-7b58e792a88f?source=rss----7b722bfd1b8d---4",
         "source": "Unsafe.sh",
-        "date": "2026-05-22",
-        "reason": "系统化梳理AI系统攻击面与安全检查点设计流程，为构建健壮的AI安全架构提供方法论支撑。"
-      },
-      {
-        "title": "搜索“Disregard”等会导致谷歌搜索崩溃",
-        "url": "https://blog.upx8.com/%E6%90%9C%E7%B4%A2-Disregard-%E7%AD%89%E4%BC%9A%E5%AF%BC%E8%87%B4%E8%B0%B7%E6%AD%8C%E6%90%9C%E7%B4%A2%E5%B4%A9%E6%BA%83",
-        "source": "Unsafe.sh",
-        "date": "2026-05-22",
-        "reason": "直观揭示大模型系统指令解析缺陷，具象化展示AI提示词注入对生产环境的实际破坏力。"
+        "date": "2026-05-23",
+        "reason": "深入解析提示词注入攻击的原理与实战手法，揭示大模型应用面临的核心逻辑绕过风险，对AI系统安全设计与输入过滤机制具有直接指导意义。"
       }
     ],
     "威胁情报": [
       {
-        "title": "“银狐”木马新变种爆发！伪装人事文件定向攻击国内用户",
-        "url": "http://bbs.kanxue.com/thread-291298.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-05-22",
-        "reason": "针对国内企事业单位HR定向投放，利用企业微信等渠道传播，载荷特征与C2通信机制明确，需重点防御。"
+        "title": "Hiding Malware Execution with Process Doppelgänging: Disguising Windows Processes to Evade Detection",
+        "url": "https://sec.today/pulses/1f4b4ea6-1e2a-4c42-9d5a-954bca7ef14a/",
+        "source": "Sec-Today",
+        "date": "2026-05-24",
+        "reason": "详细拆解利用NTFS事务机制实现无文件恶意代码执行的“进程双生”技术，提供底层API调用分析与检测绕过原理，是防御高级持久化威胁的关键参考。"
       },
       {
-        "title": "Megalodon GitHub Attack Targets 5,561 Repos with Malicious CI/CD Workflows",
-        "url": "https://thehackernews.com/2026/05/megalodon-github-attack-targets-5561.html",
+        "title": "Packagist Supply Chain Attack Infects 8 Packages Using GitHub-Hosted Linux Malware",
+        "url": "https://thehackernews.com/2026/05/packagist-supply-chain-attack-infects-8.html",
         "source": "The Hacker News",
-        "date": "2026-05-22",
-        "reason": "自动化供应链投毒活动，利用恶意CI/CD工作流在极短时间内污染数千仓库，凸显DevSecOps管控盲区。"
+        "date": "2026-05-23",
+        "reason": "披露针对PHP生态的协同供应链攻击，恶意包通过GitHub托管二进制文件窃取凭证，揭示了开源依赖管理中的信任链脆弱性与检测盲区。"
       },
       {
-        "title": "RemotePE: The Lazarus RAT that lives in memory",
-        "url": "https://blog.fox-it.com/2026/05/22/remotepe-the-lazarus-rat-that-lives-in-memory/",
-        "source": "Unsafe.sh",
-        "date": "2026-05-22",
-        "reason": "深度剖析Lazarus组织内存驻留型RAT的无文件执行与持久化技术，为高级威胁狩猎提供关键IOC与TTPs。"
+        "title": "‘Underminr’ Vulnerability Lets Attackers Hide Malicious Connections Behind Trusted Domains",
+        "url": "https://www.securityweek.com/underminr-vulnerability-lets-attackers-hide-malicious-connections-behind-trusted-domains/",
+        "source": "SecurityWeek",
+        "date": "2026-05-23",
+        "reason": "揭示影响超8800万域名的隐蔽漏洞，攻击者可利用其绕过DNS过滤并隐藏C2流量，对网络边界防护与流量分析策略提出严峻挑战。"
       },
       {
-        "title": "Tracking Iranian APT Screening Serpens’ 2026 Espionage Campaigns",
-        "url": "https://unit42.paloaltonetworks.com/tracking-iran-apt-screening-serpens/",
+        "title": "Ghostwriter Is Back, Using a Ukrainian Learning Platform as Bait to Hit Government Targets",
+        "url": "https://securityaffairs.com/192538/apt/ghostwriter-is-back-using-a-ukrainian-learning-platform-as-bait-to-hit-government-targets.html",
         "source": "Unsafe.sh",
-        "date": "2026-05-22",
-        "reason": "完整追踪伊朗APT组织2026年最新间谍活动链条，涵盖初始入侵、横向移动与数据外传全阶段战术。"
+        "date": "2026-05-23",
+        "reason": "追踪知名APT组织Ghostwriter的最新钓鱼活动，分析其利用教育平台作为诱饵针对政府目标的攻击链，为威胁狩猎与态势感知提供最新IOC。"
       }
     ],
     "安全工具": [
       {
-        "title": "Built two free self-serve tools — a Linux hygiene snapshot (one curl line) and a browser-based email/DNS checker",
-        "url": "https://unsafe.sh/go-418418.html",
-        "source": "Unsafe.sh",
-        "date": "2026-05-22",
-        "reason": "提供轻量级Linux安全基线快照与DNS/邮件配置检测工具，单行命令即可运行，开箱即用且实用性强。"
+        "title": "npm Adds 2FA-Gated Publishing and Package Install Controls Against Supply Chain Attacks",
+        "url": "https://thehackernews.com/2026/05/npm-adds-2fa-gated-publishing-and.html",
+        "source": "The Hacker News",
+        "date": "2026-05-23",
+        "reason": "GitHub为npm引入2FA强制发布与安装控制机制，从平台层面有效遏制供应链投毒，为开发者提供可落地的依赖安全管理方案。"
       },
       {
-        "title": "Built a browser-based recon/testing workflow platform",
-        "url": "https://unsafe.sh/go-418414.html",
+        "title": "Open-source reverse engineering of PerimeterX (HUMAN Security) Web SDK — pure-algo cookie generators, dual-site live HTTP 200, 10-chapter methodology",
+        "url": "https://unsafe.sh/go-418522.html",
         "source": "Unsafe.sh",
-        "date": "2026-05-22",
-        "reason": "基于浏览器的侦察与测试工作流平台，有效整合信息收集与漏洞验证环节，提升安全测试自动化效率。"
+        "date": "2026-05-23",
+        "reason": "开源逆向PerimeterX反爬SDK的完整方法论与纯算法Cookie生成器，为安全研究人员提供对抗高级Web指纹识别与自动化检测的实用工具链。"
       },
       {
-        "title": "Just added an interactive security map to my project NoEyes showing exactly what the server sees",
-        "url": "https://unsafe.sh/go-418422.html",
+        "title": "Update: search-for-compression.py Version 0.0.7",
+        "url": "https://blog.didierstevens.com/2026/05/23/update-search-for-compression-py-version-0-0-7/",
         "source": "Unsafe.sh",
-        "date": "2026-05-22",
-        "reason": "交互式服务器视角安全地图，直观可视化数据暴露面与请求追踪路径，辅助快速定位配置缺陷。"
+        "date": "2026-05-23",
+        "reason": "Didier Stevens发布的恶意文档压缩特征搜索工具更新版，提升了在复杂样本中快速定位混淆与压缩载荷的效率，是应急响应与样本分析的利器。"
       }
     ],
     "云安全": [
       {
-        "title": "Cisco Patches CVSS 10.0 Secure Workload REST API Flaw Enabling Data Access",
-        "url": "https://thehackernews.com/2026/05/cisco-patches-cvss-100-secure-workload.html",
-        "source": "The Hacker News",
-        "date": "2026-05-22",
-        "reason": "CVSS满分云工作负载API漏洞，可导致未授权远程敏感数据访问，直接影响云环境核心资产安全。"
-      },
-      {
-        "title": "From edge appliance to enterprise compromise: Multi-stage Linux intrusion via F5 and Confluence",
-        "url": "https://www.microsoft.com/en-us/security/blog/2026/05/22/from-edge-appliance-to-enterprise-compromise-multi-stage-linux-intrusion-via-f5-and-confluence/",
+        "title": "SSRF in APIs: How a Single URL Parameter Can Expose Internal Systems",
+        "url": "https://infosecwriteups.com/ssrf-in-apis-how-a-single-url-parameter-can-expose-internal-systems-63128bff63a4?source=rss----7b722bfd1b8d--bug_bounty",
         "source": "Unsafe.sh",
-        "date": "2026-05-22",
-        "reason": "详细拆解通过边缘网关(F5/Confluence)突破云边界并横向渗透内网的多阶段攻击链，云架构防御参考性强。"
+        "date": "2026-05-23",
+        "reason": "深入剖析API中单参数配置不当引发的SSRF漏洞原理，演示如何利用服务端请求探测内网架构，为云原生API安全测试提供标准化排查思路。"
       },
       {
-        "title": "Grafana Says Codebase and Other Data Stolen via TanStack Supply Chain Attack",
-        "url": "https://www.securityweek.com/grafana-says-codebase-and-other-data-stolen-via-tanstack-supply-chain-attack",
-        "source": "SecurityWeek",
-        "date": "2026-05-22",
-        "reason": "云原生开发依赖链遭攻破导致核心代码库泄露，警示云环境第三方组件与Token生命周期管理风险。"
+        "title": "“Bug Bounty Bootcamp #38: SSRF Chaining — Bypassing Domain Whitelists with Open Redirects and PDF…",
+        "url": "https://infosecwriteups.com/bug-bounty-bootcamp-38-ssrf-chaining-bypassing-domain-whitelists-with-open-redirects-and-pdf-8c344246a1c7?source=rss----7b722bfd1b8d---4",
+        "source": "Unsafe.sh",
+        "date": "2026-05-23",
+        "reason": "详细讲解结合开放重定向与PDF渲染绕过域名白名单的SSRF链式利用技巧，极大拓展了云环境边界突破的实战攻击面。"
+      },
+      {
+        "title": "Finding & Exploiting Exposed Google API Keys for Bug $Bounties",
+        "url": "https://infosecwriteups.com/finding-exploiting-exposed-google-api-keys-for-bug-bounties-5ce6685a4927?source=rss----7b722bfd1b8d--bug_bounty",
+        "source": "Unsafe.sh",
+        "date": "2026-05-23",
+        "reason": "系统梳理云端API密钥泄露的自动化发现路径与权限滥用手法，直接关联实际漏洞赏金收益，对云资源访问控制审计具有高度实战价值。"
       }
     ],
     "其他重要": [
       {
-        "title": "CISA Adds Exploited Langflow and Trend Micro Apex One Vulnerabilities to KEV",
-        "url": "https://thehackernews.com/2026/05/cisa-adds-exploited-langflow-and-trend.html",
-        "source": "The Hacker News",
-        "date": "2026-05-22",
-        "reason": "CISA KEV目录强制更新，明确在野利用漏洞清单，为合规整改与应急响应提供权威优先级指引。"
+        "title": "UK Cybercrime Journal: Inside the Cl0p attack on South Staffs Water",
+        "url": "https://blog.bushidotoken.net/2026/05/uk-cybercrime-journal-inside-cl0p.html",
+        "source": "Unsafe.sh",
+        "date": "2026-05-23",
+        "reason": "深度复盘Cl0p勒索软件针对关键水务基础设施的攻击全过程，揭示OT/IT融合环境下的横向移动与业务中断风险，对工控安全防御具有重要警示作用。"
       },
       {
-        "title": "Lawmakers Demand Answers as CISA Tries to Contain Data Leak",
-        "url": "https://krebsonsecurity.com/2026/05/lawmakers-demand-answers-as-cisa-tries-to-contain-data-leak/",
+        "title": "Why pure extortion is replacing traditional ransomware",
+        "url": "https://securityaffairs.com/192550/cyber-crime/why-pure-extortion-is-replacing-traditional-ransomware.html",
         "source": "Unsafe.sh",
-        "date": "2026-05-22",
-        "reason": "国家级网络安全机构承包商数据泄露引发国会质询，暴露关键基础设施数据管控与供应链审查漏洞。"
+        "date": "2026-05-23",
+        "reason": "分析勒索软件商业模式向“纯数据勒索”演进的趋势，指出加密环节弱化与数据泄露威胁上升的现状，为企业数据防泄漏与应急响应策略调整提供依据。"
       },
       {
-        "title": "FBI warns of Kali365 phishing-as-a-service after April Microsoft 365 attacks",
-        "url": "https://therecord.media/fbi-warns-of-kali365-phishing-attacks",
+        "title": "【安全圈】趋势科技警告称，Apex One 零日漏洞已被利用",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652076796&idx=3&sn=957360c8847377bd11e2714149619033",
         "source": "Unsafe.sh",
-        "date": "2026-05-22",
-        "reason": "FBI官方预警新型钓鱼即服务(PaaS)活动，针对M365云办公环境，标志黑产工具化与规模化升级。"
+        "date": "2026-05-23",
+        "reason": "披露知名终端安全产品自身的零日漏洞被在野利用，打破“安全软件绝对可信”的假设，强调对安全基础设施进行持续漏洞管理与权限最小化的必要性。"
       }
     ]
   },
-  "summary": "本批次聚焦高危漏洞修复、AI Agent安全、供应链攻击及APT活动，技术深度与实战价值突出。"
+  "summary": "本批次聚焦AI自动化漏洞挖掘、高危CVE在野利用、供应链攻击及云API安全，筛选出24篇具实战价值的技术文章，涵盖攻防前沿与防御策略。"
 }
