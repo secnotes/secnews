@@ -1,37 +1,58 @@
 {
-  "analysis_date": "2026-05-25",
-  "total_analyzed": 84,
+  "analysis_date": "2026-05-26",
+  "total_analyzed": 119,
   "categories": {
     "漏洞研究": [
       {
         "title": "From Zero to Full Takeover: Chaining Vulnerabilities to Completely Compromise Gitea",
         "url": "https://sec.today/pulses/f93e939c-6022-4339-bda7-318847321500/",
         "source": "Sec-Today",
-        "date": "2026-05-25",
-        "reason": "深入剖析Gitea授权绕过与路径遍历漏洞链，提供完整复现步骤与源码缺陷定位，极具实战修补价值。"
+        "date": "2026-05-26",
+        "reason": "深入剖析Git LFS授权绕过与路径遍历漏洞链，提供完整复现步骤与源码缺陷定位，对开源代码托管平台安全加固具有直接指导价值。"
       },
       {
-        "title": "Abusing Open XML Documents for NTLMv2-SSP Hash Capture and Password Cracking",
-        "url": "https://sec.today/pulses/58486028-fec1-4062-aa5e-938cdfd921ff/",
-        "source": "Sec-Today",
+        "title": "Ghost CMS CVE-2026-26980 Exploited to Hijack 700+ Sites for ClickFix Attacks",
+        "url": "https://thehackernews.com/2026/05/ghost-cms-cve-2026-26980-exploited-to.html",
+        "source": "The Hacker News",
         "date": "2026-05-25",
-        "reason": "详细拆解利用Office subDoc功能诱导NTLMv2哈希捕获的攻击机制，为内网凭证窃取防御提供关键原理参考。"
+        "reason": "详细披露CVE-2026-26980漏洞在野利用情况，揭示攻击者如何通过恶意JS注入发起ClickFix攻击，为CMS漏洞应急响应提供关键情报。"
       },
       {
-        "title": "Intel 酷睿 CPU Management Engine 固件研究与分析逆向 （一） 前置准备与解包",
-        "url": "http://bbs.kanxue.com/thread-291300.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-05-24",
-        "reason": "系统记录Intel ME固件逆向与解包流程，为底层硬件安全漏洞挖掘与固件分析提供高质量技术前置指南。"
+        "title": "【漏洞通告】Drupal Core SQL注入漏洞(CVE-2026-9082)",
+        "url": "https://mp.weixin.qq.com/s?__biz=Mzg2NjgzNjA5NQ==&amp;mid=2247525807&amp;idx=1&amp;sn=d2d585508a40401bd1604794e648dd71",
+        "source": "Unsafe.sh",
+        "date": "2026-05-25",
+        "reason": "针对主流CMS Drupal核心组件的高危SQL注入漏洞发布通告，明确影响范围与修复建议，有助于企业快速排查与收敛攻击面。"
+      },
+      {
+        "title": "【漏洞通告】Fortinet FortiOS&FortiProxy身份验证绕过漏洞(CVE-2024-55591)通告",
+        "url": "https://blog.nsfocus.net/%e3%80%90%e6%bc%8f%e6%b4%9e%e9%80%9a%e5%91%8a%e3%80%91fortinet-fortiosfortiproxy%e8%ba%ab%e4%bb%bd%e9%aa%8c%e8%af%81%e7%bb%95%e8%bf%87%e6%bc%8f%e6%b4%9ecve-2024-55591%e9%80%9a%e5%91%8a/",
+        "source": "Unsafe.sh",
+        "date": "2026-05-25",
+        "reason": "聚焦网络设备核心组件的身份验证绕过缺陷，详细阐述漏洞原理与危害，为边界安全设备防护策略更新提供依据。"
       }
     ],
     "移动安全": [
       {
-        "title": "虎牙旗下安卓应用下载站APKPure被发现分发带有后门的Telegram安装包",
-        "url": "https://www.landian.news/archives/113057.html",
+        "title": "Zero-Click WhatsApp Account Takeover Hits iPhone Users Running iOS 16. No Linked Devices, No Warning",
+        "url": "https://securityaffairs.com/192627/security/zero-click-whatsapp-account-takeover-hits-iphone-users-running-ios-16-no-linked-devices-no-warning.html",
         "source": "Unsafe.sh",
         "date": "2026-05-25",
-        "reason": "揭露知名第三方安卓应用商店供应链投毒事件，警示移动端应用分发渠道的恶意软件渗透风险。"
+        "reason": "披露针对iOS 16的WhatsApp零点击账户接管漏洞，无需用户交互即可触发，对移动端即时通讯安全与系统补丁管理敲响警钟。"
+      },
+      {
+        "title": "硬啃反封号 dylib：OLLVM CFF/MBA 混淆拆解与167 Hook 深度分析",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458615455&amp;idx=1&amp;sn=86932f09204eb52a339f06b4e66678e9",
+        "source": "Unsafe.sh",
+        "date": "2026-05-25",
+        "reason": "深入解析iOS/macOS动态库反混淆与Hook技术，详细拆解OLLVM控制流平坦化与MBA混淆，为移动端逆向工程与对抗分析提供高阶实战参考。"
+      },
+      {
+        "title": "真机解锁难、调试受限？CVD 云手机定制及风控对抗全解",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458615455&amp;idx=3&amp;sn=5c863f190cdf7061107437eba3fb6f65",
+        "source": "Unsafe.sh",
+        "date": "2026-05-25",
+        "reason": "系统梳理云手机环境下的设备指纹伪造、调试限制突破与风控对抗策略，为移动安全测试与黑灰产治理提供技术视角。"
       }
     ],
     "AI安全": [
@@ -39,72 +60,137 @@
         "title": "Claude Opus wrote a Chrome exploit for $2,283",
         "url": "https://sec.today/pulses/2d69be65-cb17-4943-91ca-7ae61113d0b3/",
         "source": "Sec-Today",
+        "date": "2026-05-26",
+        "reason": "揭示大模型已具备低成本独立生成完整浏览器漏洞利用链的能力，警示AI自动化攻击正大幅压缩漏洞修复窗口，推动防御范式向零信任演进。"
+      },
+      {
+        "title": "[Project Onyx] Advanced EDR Evasion via AI Telemetry Spoofing & WASM Sandboxing",
+        "url": "https://unsafe.sh/go-418830.html",
+        "source": "Unsafe.sh",
         "date": "2026-05-25",
-        "reason": "揭示大模型已具备低成本独立开发浏览器完整漏洞利用链的能力，标志自动化攻击门槛实质性降低。"
+        "reason": "提出利用AI遥测欺骗与WASM沙箱技术绕过高级终端检测响应（EDR）的新型对抗方案，为红蓝对抗与端点安全检测机制优化提供前沿思路。"
       },
       {
-        "title": "把Agent当操作系统来保护：LLM不可信，运行时才是安全内核",
-        "url": "https://www.secrss.com/articles/90642",
-        "source": "安全内参",
-        "date": "2026-05-24",
-        "reason": "提出以运行时环境为核心的Agent安全架构理念，强调在模型不可信前提下构建系统级安全边界。"
-      },
-      {
-        "title": "Anthropic’s Project Glasswing: 10,000+ Vulnerabilities Found in One Month, and the Patching Problem Has Never Been More Obvious",
-        "url": "https://securityaffairs.com/192576/ai/anthropics-glasswing-10000-vulnerabilities-found-in-one-month-and-the-patching-problem-has-never-been-more-obvious.html",
+        "title": "AI安全案例分析：Prompts Become Shells —— 从提示词注入到AI Agent远程代码执行（RCE）（文末附邀请码）",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzkyMTI0NjA3OA==&amp;mid=2247495083&amp;idx=1&amp;sn=f13abeb4a11eb21249dc9e6e46d7e6e7",
         "source": "Unsafe.sh",
-        "date": "2026-05-24",
-        "reason": "展示AI自动化漏洞挖掘的规模化能力，同时深刻揭示漏洞爆发与补丁修复速度不匹配的行业痛点。"
+        "date": "2026-05-25",
+        "reason": "深度剖析提示词注入如何演变为AI Agent的RCE漏洞，揭示大模型应用层核心攻击路径，对AI系统安全架构设计具有重要警示意义。"
       },
       {
-        "title": "[2026]基于大模型的下一代杀毒引擎",
-        "url": "https://key08.com/index.php/2026/05/25/3197.html",
+        "title": "How credential brokering prevents AI agents from compromising credentials via prompt injection",
+        "url": "https://unsafe.sh/go-418824.html",
         "source": "Unsafe.sh",
-        "date": "2026-05-24",
-        "reason": "探讨大语言模型在恶意代码检测与下一代杀毒引擎架构中的应用潜力与技术演进方向。"
+        "date": "2026-05-25",
+        "reason": "探讨凭证代理机制在防御AI Agent提示词注入窃取凭证中的实际应用，为构建安全的AI智能体权限隔离体系提供可落地的技术方案。"
       }
     ],
     "威胁情报": [
       {
+        "title": "主流JavaScript软件包管理平台npm遭供应链投毒攻击",
+        "url": "https://www.secrss.com/articles/90663",
+        "source": "安全内参",
+        "date": "2026-05-25",
+        "reason": "监测并披露“沙虫”组织针对npm生态的大规模供应链投毒事件，详细分析恶意包传播路径，为开发者依赖管理提供紧急预警。"
+      },
+      {
+        "title": "Lazarus Deploys RemotePE Memory-Only RAT Against Financial and Crypto Firms",
+        "url": "https://thehackernews.com/2026/05/lazarus-deploys-remotepe-memory-only.html",
+        "source": "The Hacker News",
+        "date": "2026-05-25",
+        "reason": "追踪朝鲜APT组织Lazarus使用的纯内存驻留恶意软件RemotePE，揭示其针对金融与加密货币行业的跨平台攻击手法与基础设施特征。"
+      },
+      {
+        "title": "TrapDoor Supply Chain Attack Spreads Credential-Stealing Malware via npm, PyPI, and CratesIO",
+        "url": "https://thehackernews.com/2026/05/trapdoor-supply-chain-attack-spreads.html",
+        "source": "The Hacker News",
+        "date": "2026-05-25",
+        "reason": "披露跨生态（npm/PyPI/Crates.io）协同供应链攻击活动TrapDoor，分析其凭证窃取恶意载荷的投递机制，凸显多语言包管理器安全治理的紧迫性。"
+      },
+      {
+        "title": "Over 5,500 GitHub Repositories Infected in ‘Megalodon’ Supply Chain Attack",
+        "url": "https://www.securityweek.com/over-5500-github-repositories-infected-in-megalodon-supply-chain-attack/",
+        "source": "SecurityWeek",
+        "date": "2026-05-25",
+        "reason": "揭示利用自动化提交注入恶意GitHub Actions工作流的“Megalodon”供应链攻击，影响超5500个仓库，为CI/CD流水线安全审计提供关键案例。"
+      }
+    ],
+    "安全工具": [
+      {
         "title": "Hiding Malware Execution with Process Doppelgänging: Disguising Windows Processes to Evade Detection",
         "url": "https://sec.today/pulses/1f4b4ea6-1e2a-4c42-9d5a-954bca7ef14a/",
         "source": "Sec-Today",
+        "date": "2026-05-26",
+        "reason": "深度解析利用NTFS事务机制实现进程双生的免杀技术，提供完整代码实现与检测对比，是红队工具开发与蓝队防御的重要参考。"
+      },
+      {
+        "title": "Abusing Open XML Documents for NTLMv2-SSP Hash Capture and Password Cracking",
+        "url": "https://sec.today/pulses/58486028-fec1-4062-aa5e-938cdfd921ff/",
+        "source": "Sec-Today",
+        "date": "2026-05-26",
+        "reason": "详细拆解利用Office文档subDoc功能诱导NTLMv2哈希捕获的攻击链，提供手工构建恶意载荷的实战指南，对内网渗透测试与凭证防护具有直接价值。"
+      },
+      {
+        "title": "The Alert Firehose Finally Meets Its Match",
+        "url": "https://thehackernews.com/2026/05/the-alert-firehose-finally-meets-its.html",
+        "source": "The Hacker News",
         "date": "2026-05-25",
-        "reason": "深度解析利用NTFS事务机制实现无文件恶意代码执行的进程双生技术，为高级威胁检测提供关键TTPs参考。"
-      },
-      {
-        "title": "Ghost CMS SQL injection flaw exploited in large-scale ClickFix campaign",
-        "url": "https://www.bleepingcomputer.com/news/security/ghost-cms-sql-injection-flaw-exploited-in-large-scale-clickfix-campaign/",
-        "source": "Unsafe.sh",
-        "date": "2026-05-24",
-        "reason": "通报CVE-2026-26980 SQL注入漏洞被大规模ClickFix攻击活动利用的现状，提示紧急修复与流量监控。"
-      },
-      {
-        "title": "Verizon Data breach report 2026",
-        "url": "http://blog.cesaregallotti.it/2026/05/verizon-data-breach-report-2026.html",
-        "source": "Unsafe.sh",
-        "date": "2026-05-24",
-        "reason": "年度权威数据泄露报告，提供全球网络安全事件趋势、攻击向量统计与企业防御策略的宏观数据支撑。"
-      },
-      {
-        "title": "U.S. CISA adds a flaw in Drupal Core to its Known Exploited Vulnerabilities catalog",
-        "url": "https://securityaffairs.com/192566/uncategorized/u-s-cisa-adds-a-flaw-in-drupal-core-to-its-known-exploited-vulnerabilities-catalog.html",
-        "source": "Unsafe.sh",
-        "date": "2026-05-24",
-        "reason": "官方已知被利用漏洞目录更新，明确Drupal核心高危漏洞的在野利用状态，指导企业优先修补。"
+        "reason": "介绍集成Agentic AI能力的网络检测与响应（NDR）平台如何有效应对海量告警疲劳，展示AI在安全运营工具中的实战落地效果与效能提升。"
       }
     ],
-    "安全工具": [],
     "云安全": [
       {
-        "title": "你删除的谷歌API密钥还在工作:最长可达23分钟",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&amp;mid=2451186820&amp;idx=1&amp;sn=c13aeafe7e2c7dac4c7ecb196d6f2c49",
+        "title": "警惕Underminr新型网络规避技术：CDN共享边缘的隐形漏洞",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&amp;mid=2451186831&amp;idx=1&amp;sn=7a0ed378ca1323a830b4cfb7f28b7ae5",
         "source": "Unsafe.sh",
-        "date": "2026-05-24",
-        "reason": "揭示云服务商API密钥撤销机制的延迟缺陷，提示云端凭证生命周期管理中的潜在横向移动风险。"
+        "date": "2026-05-25",
+        "reason": "揭示CDN共享边缘架构下的新型网络规避技术，分析多租户环境下的隔离缺陷，为云原生架构与CDN安全配置提供关键防御视角。"
+      },
+      {
+        "title": "Netherlands Seizes 800 Servers, Arrests 2 for Aiding Cyberattacks",
+        "url": "https://krebsonsecurity.com/2026/05/netherlands-seizes-800-servers-arrests-2-for-aiding-cyberattacks/",
+        "source": "Unsafe.sh",
+        "date": "2026-05-25",
+        "reason": "报道执法部门对托管恶意基础设施的云服务器集群的大规模查封行动，揭示云服务商在滥用监测与合规响应中的关键作用。"
+      },
+      {
+        "title": "阿里云的「Agentic 时刻」",
+        "url": "https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;mid=2653107169&amp;idx=1&amp;sn=a7e0318af6595eac37a62a53cca0e046",
+        "source": "Unsafe.sh",
+        "date": "2026-05-25",
+        "reason": "探讨云厂商在AI智能体基础设施层面的安全架构演进，分析云上算力调度与模型服务的安全边界，对云原生AI安全部署具有指导意义。"
       }
     ],
-    "其他重要": []
+    "其他重要": [
+      {
+        "title": "《公安机关电子数据取证规则（征求意见稿）》的五大亮点",
+        "url": "https://www.secrss.com/articles/90650",
+        "source": "安全内参",
+        "date": "2026-05-25",
+        "reason": "解读最新电子数据取证规则的法治化与规范化创新，明确技术取证标准与合规边界，对安全企业数据治理与司法协同具有重要参考价值。"
+      },
+      {
+        "title": "筑牢工控安全屏障，威努特为药企生产保驾护航",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzAwNTgyODU3NQ==&amp;mid=2651141819&amp;idx=1&amp;sn=2617bde0229bc29590eb793910b7e5ad",
+        "source": "Unsafe.sh",
+        "date": "2026-05-26",
+        "reason": "聚焦制药行业工控系统安全防护实践，结合OT/IT融合场景下的威胁特征，提供工业控制网络纵深防御的落地方案。"
+      },
+      {
+        "title": "FBI warns of Kali365 phishing service targeting Microsoft 365 accounts",
+        "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-of-kali365-phishing-service-targeting-microsoft-365-accounts/",
+        "source": "Unsafe.sh",
+        "date": "2026-05-25",
+        "reason": "披露FBI针对Kali365钓鱼即服务（PhaaS）平台的官方预警，分析其针对企业云办公账户的规模化攻击手法，提升组织对新型钓鱼基础设施的防范意识。"
+      },
+      {
+        "title": "兼顾创新与安全：美国人工智能行政命令草案提出建立前沿AI安全部署框架",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzI4NDY2MDMwMw==&amp;mid=2247515993&amp;idx=2&amp;sn=552eaf396352b45e6cb3bd17898d41d6",
+        "source": "Unsafe.sh",
+        "date": "2026-05-25",
+        "reason": "梳理美国最新AI行政命令草案中的安全部署框架与监管要求，为跨国企业AI合规战略与前沿技术风险管控提供政策风向标。"
+      }
+    ]
   },
-  "summary": "本批次聚焦AI自动化攻防、底层漏洞链挖掘、活跃威胁TTPs及云凭证管理，筛选出13篇高实战价值技术文章。"
+  "summary": "本批次聚焦AI自动化攻击、跨生态供应链投毒、高危CVE在野利用及移动端零点击漏洞，涵盖前沿攻防技术与合规监管动态。"
 }

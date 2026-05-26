@@ -4,7 +4,7 @@
       "title": "Project Zero 披露 Pixel 10 Zero-Click 漏洞链：从 Dolby 音频到 VPU Mmap 内核控制",
       "url": "https://sec.today/pulses/118357e2-1ebf-4365-b265-5e3fa69a57da/",
       "source": "Sec-Today",
-      "description": "本文揭示了针对 Pixel 10 的一条全新零点击漏洞链，其核心亮点在于仅用两小时便发现了供应商 VPU 驱动中一个因缺乏边界检查而直接暴露任意物理内存的严重缺陷，导致攻击者可轻易获取内核控制权。该案例不仅突显了谷歌修复速度的显著提升，更深刻警示了即便在主流安全模型下，第三方供应商驱动中的浅层编码错误仍是破坏系统安全的致命短板。\n                –\n                \n\n                        SecTodayBot\n                    \n• 4 days ago",
+      "description": "本文揭示了针对 Pixel 10 的一条全新零点击漏洞链，其核心亮点在于仅用两小时便发现了供应商 VPU 驱动中一个因缺乏边界检查而直接暴露任意物理内存的严重缺陷，导致攻击者可轻易获取内核控制权。该案例不仅突显了谷歌修复速度的显著提升，更深刻警示了即便在主流安全模型下，第三方供应商驱动中的浅层编码错误仍是破坏系统安全的致命短板。\n                –\n                \n\n                        SecTodayBot\n                    \n• 5 days ago",
       "date": "2026-05-21",
       "category": "tech"
     },
@@ -12,7 +12,7 @@
       "title": "SecToday Next",
       "url": "https://sec.today/pulses/df515d1b-d1e9-4f25-84d6-ac0316760610/",
       "source": "Sec-Today",
-      "description": "Perl 编程语言中的多个关键安全模块被发现存在严重缺陷，这些模块在生成加密密钥、会话 ID 或 TOTP 秘密时错误地使用了可预测的内置 rand 函数。受影响的组件包括 Trog::TOTP、Apache::Session::Generate::SHA256 和 Crypt::DSA。该缺陷导致生成的加密材料熵值不足，违反了 CWE-331 标准，使得攻击者能够预测安全凭证并绕过身份验证或解密敏感数据。受影响版本包括 Trog::TOTP 1.006 之前版本、Apache::Session::Generate::SHA256 1.3.19 之前版本以及 Crypt::DSA 1.20 之前版本。用户被强烈建议立即升级至已修复的补丁版本以消除安全风险。\n                –\n                \n\n                        SecTodayBot\n                    \n• 4 days ago",
+      "description": "Perl 编程语言中的多个关键安全模块被发现存在严重缺陷，这些模块在生成加密密钥、会话 ID 或 TOTP 秘密时错误地使用了可预测的内置 rand 函数。受影响的组件包括 Trog::TOTP、Apache::Session::Generate::SHA256 和 Crypt::DSA。该缺陷导致生成的加密材料熵值不足，违反了 CWE-331 标准，使得攻击者能够预测安全凭证并绕过身份验证或解密敏感数据。受影响版本包括 Trog::TOTP 1.006 之前版本、Apache::Session::Generate::SHA256 1.3.19 之前版本以及 Crypt::DSA 1.20 之前版本。用户被强烈建议立即升级至已修复的补丁版本以消除安全风险。\n                –\n                \n\n                        SecTodayBot\n                    \n• 5 days ago",
       "date": "2026-05-21",
       "category": "tech"
     },
@@ -20,7 +20,7 @@
       "title": "Inside a GitHub Desktop for macOS Vulnerability: How Attackers Can Trap Mac Users",
       "url": "https://sec.today/pulses/f7c1dea9-a5ec-47c1-ba10-5911360d1c53/",
       "source": "Sec-Today",
-      "description": "本文深入剖析了GitHub Desktop在macOS上因自定义URL协议处理不当而引发的路径遍历漏洞，揭示了攻击者如何通过构造恶意链接绕过安全检查并触发任意应用程序。文章不仅复现了从源码编译到漏洞利用的全过程，还清晰展示了开发者如何通过简单的逻辑修正（区分macOS目录特性）来彻底解决这一安全隐患，为客户端应用的安全开发提供了极具价值的实战参考。\n                –\n                \n\n                        SecTodayBot\n                    \n• 4 days ago",
+      "description": "本文深入剖析了GitHub Desktop在macOS上因自定义URL协议处理不当而引发的路径遍历漏洞，揭示了攻击者如何通过构造恶意链接绕过安全检查并触发任意应用程序。文章不仅复现了从源码编译到漏洞利用的全过程，还清晰展示了开发者如何通过简单的逻辑修正（区分macOS目录特性）来彻底解决这一安全隐患，为客户端应用的安全开发提供了极具价值的实战参考。\n                –\n                \n\n                        SecTodayBot\n                    \n• 5 days ago",
       "date": "2026-05-21",
       "category": "tech"
     },
@@ -28,7 +28,7 @@
       "title": "SecToday Next",
       "url": "https://sec.today/pulses/16d69023-03c8-46e7-a718-7d461daa0d27/",
       "source": "Sec-Today",
-      "description": "Fragnesia（亦称 Copyfail 3.0，CVE-2026-46300）是 Linux 内核 XFRM ESP-in-TCP 子系统中的一项严重本地提权漏洞，由 V12 团队的 William Bowling 发现。该漏洞源于修复前序 Dirty Frag 漏洞（CVE-2026-43284）的补丁中引入的逻辑缺陷，导致攻击者无需依赖竞态条件即可利用 AES-GCM 密钥流操纵，向只读文件的内核页面缓存执行任意字节写入。攻击者通过此技术可修改内存中的关键二进制文件（如 /usr/bin/su）以获取 root 权限，而磁盘上的原始文件保持不变。该漏洞影响了 2026 年 5 月 13 日之前的所有主要 Linux 发行版，尽管官方补丁已发布，但在修复初期存在约 9 天的暴露窗口。研究人员指出，由于初始补丁未覆盖所有变体路径，建议立即应用完整补丁或禁用 esp4/esp6 模块以缓解风险。\n                –\n                \n\n                        SecTodayBot\n                    \n• 4 days ago",
+      "description": "Fragnesia（亦称 Copyfail 3.0，CVE-2026-46300）是 Linux 内核 XFRM ESP-in-TCP 子系统中的一项严重本地提权漏洞，由 V12 团队的 William Bowling 发现。该漏洞源于修复前序 Dirty Frag 漏洞（CVE-2026-43284）的补丁中引入的逻辑缺陷，导致攻击者无需依赖竞态条件即可利用 AES-GCM 密钥流操纵，向只读文件的内核页面缓存执行任意字节写入。攻击者通过此技术可修改内存中的关键二进制文件（如 /usr/bin/su）以获取 root 权限，而磁盘上的原始文件保持不变。该漏洞影响了 2026 年 5 月 13 日之前的所有主要 Linux 发行版，尽管官方补丁已发布，但在修复初期存在约 9 天的暴露窗口。研究人员指出，由于初始补丁未覆盖所有变体路径，建议立即应用完整补丁或禁用 esp4/esp6 模块以缓解风险。\n                –\n                \n\n                        SecTodayBot\n                    \n• 5 days ago",
       "date": "2026-05-21",
       "category": "tech"
     },
@@ -36,7 +36,7 @@
       "title": "SecToday Next",
       "url": "https://sec.today/pulses/897a2e74-b886-4eb8-b5bb-e1ec397325d5/",
       "source": "Sec-Today",
-      "description": "Qualys 披露了 Linux 内核 __ptrace_may_access() 函数中存在一个严重逻辑漏洞，被正式分配为 CVE-2026-46333，代号 ssh-keysign-pwn。该漏洞源于 ptrace 访问控制路径中的竞态条件，允许本地攻击者在进程退出过程中，利用内存已清除但文件描述符仍存在的短暂窗口，通过 pidfd_getfd 系统调用窃取特权进程的文件描述符。攻击者可借此绕过 kernel.yama.ptrace_scope 等标准缓解机制，窃取 SSH 私钥和 /etc/shadow 密码哈希，从而实现非特权用户的本地提权及敏感数据泄露。Linus Torvalds 已提交修复补丁，该补丁适用于 6.6 及以上版本内核，并支持回溯至 5.10 版本，鉴于 GitHub 已公开概念验证代码，受影响系统需立即更新补丁并轮换密钥。\n                –\n                \n\n                        SecTodayBot\n                    \n• 4 days ago",
+      "description": "Qualys 披露了 Linux 内核 __ptrace_may_access() 函数中存在一个严重逻辑漏洞，被正式分配为 CVE-2026-46333，代号 ssh-keysign-pwn。该漏洞源于 ptrace 访问控制路径中的竞态条件，允许本地攻击者在进程退出过程中，利用内存已清除但文件描述符仍存在的短暂窗口，通过 pidfd_getfd 系统调用窃取特权进程的文件描述符。攻击者可借此绕过 kernel.yama.ptrace_scope 等标准缓解机制，窃取 SSH 私钥和 /etc/shadow 密码哈希，从而实现非特权用户的本地提权及敏感数据泄露。Linus Torvalds 已提交修复补丁，该补丁适用于 6.6 及以上版本内核，并支持回溯至 5.10 版本，鉴于 GitHub 已公开概念验证代码，受影响系统需立即更新补丁并轮换密钥。\n                –\n                \n\n                        SecTodayBot\n                    \n• 5 days ago",
       "date": "2026-05-21",
       "category": "tech"
     },
@@ -44,7 +44,7 @@
       "title": "SecToday Next",
       "url": "https://sec.today/pulses/72fd8fec-03b0-4717-ad79-c88bc1b1acb0/",
       "source": "Sec-Today",
-      "description": "Vim 编辑器近期曝出多个严重安全漏洞，影响版本 9.2.0450 至 9.2.495 之前的广泛发行版。这些漏洞涵盖堆缓冲区溢出及多种代码注入攻击向量。其中，CVE-2026-45130 源于拼写文件加载过程中的整数溢出，可导致堆内存损坏和进程崩溃。此外，netrw 插件中的 NetrwBookHistSave() 和 NetrwMarkFile() 函数因未对目录名和文件名进行正确转义，允许攻击者通过构造包含单引号或双引号的恶意路径注入任意 Vimscript 代码。Cucumber 文件类型插件也存在缺陷，在特定正则表达式配置下可绕过防护机制注入 Ruby 代码。攻击者利用这些漏洞可在用户打开恶意文件或浏览受感染目录时，以用户权限执行任意 Shell 命令，造成系统被完全控制的风险。\n                –\n                \n\n                        SecTodayBot\n                    \n• 4 days ago",
+      "description": "Vim 编辑器近期曝出多个严重安全漏洞，影响版本 9.2.0450 至 9.2.495 之前的广泛发行版。这些漏洞涵盖堆缓冲区溢出及多种代码注入攻击向量。其中，CVE-2026-45130 源于拼写文件加载过程中的整数溢出，可导致堆内存损坏和进程崩溃。此外，netrw 插件中的 NetrwBookHistSave() 和 NetrwMarkFile() 函数因未对目录名和文件名进行正确转义，允许攻击者通过构造包含单引号或双引号的恶意路径注入任意 Vimscript 代码。Cucumber 文件类型插件也存在缺陷，在特定正则表达式配置下可绕过防护机制注入 Ruby 代码。攻击者利用这些漏洞可在用户打开恶意文件或浏览受感染目录时，以用户权限执行任意 Shell 命令，造成系统被完全控制的风险。\n                –\n                \n\n                        SecTodayBot\n                    \n• 5 days ago",
       "date": "2026-05-21",
       "category": "tech"
     },
@@ -52,7 +52,7 @@
       "title": "From Forgotten Code Comment to Full Compromise: Dissecting a Chain-Reaction Vulnerability",
       "url": "https://sec.today/pulses/48b61be7-d44b-4fea-858b-bf321d768dd8/",
       "source": "Sec-Today",
-      "description": "本文通过实战演示，精彩揭示了如何结合本地文件包含（LFI）漏洞与图片元数据注入技术，绕过传统文件上传限制以实现远程代码执行（RCE）。文章不仅详细剖析了从目录模糊测试、哈希破解到利用 DirtyCow 漏洞提权的完整攻击链，更展示了现代 Web 渗透中组合利用多种弱点的核心思路。\n                –\n                \n\n                        SecTodayBot\n                    \n• 4 days ago",
+      "description": "本文通过实战演示，精彩揭示了如何结合本地文件包含（LFI）漏洞与图片元数据注入技术，绕过传统文件上传限制以实现远程代码执行（RCE）。文章不仅详细剖析了从目录模糊测试、哈希破解到利用 DirtyCow 漏洞提权的完整攻击链，更展示了现代 Web 渗透中组合利用多种弱点的核心思路。\n                –\n                \n\n                        SecTodayBot\n                    \n• 5 days ago",
       "date": "2026-05-21",
       "category": "tech"
     },
@@ -60,7 +60,7 @@
       "title": "Forwarding failure",
       "url": "https://sec.today/pulses/79359a41-0a5e-4d74-8b4d-b057d541b319/",
       "source": "Sec-Today",
-      "description": "本文揭示了VSOL GPON光线路终端（OLT）及其云端管理系统中存在的未认证远程代码执行漏洞，展示了攻击者如何从单一设备突破进而全面接管整个ISP光纤网络。这一发现极具警示意义，因为它暴露了现代光纤基础设施核心控制点的致命弱点，迫使行业立即重新评估FTTH网络的安全架构。\n                –\n                \n\n                        SecTodayBot\n                    \n• 4 days ago",
+      "description": "本文揭示了VSOL GPON光线路终端（OLT）及其云端管理系统中存在的未认证远程代码执行漏洞，展示了攻击者如何从单一设备突破进而全面接管整个ISP光纤网络。这一发现极具警示意义，因为它暴露了现代光纤基础设施核心控制点的致命弱点，迫使行业立即重新评估FTTH网络的安全架构。\n                –\n                \n\n                        SecTodayBot\n                    \n• 5 days ago",
       "date": "2026-05-21",
       "category": "tech"
     },
@@ -69,7 +69,7 @@
       "url": "https://sec.today/pulses/3c83189c-c240-4717-9dbe-ac9a29356a1b/",
       "source": "Sec-Today",
       "description": "本文首次深度剖析了朝鲜国家支持黑客组织ScarCruft利用游戏供应链漏洞，针对中国延边地区朝鲜族群体实施的精准间谍活动。文章独家披露了新型Android版BirdCall后门的技术细节，揭示了攻击者如何通过伪装成合法游戏更新来窃取难民及脱北者的敏感数据，为当前地缘政治背景下的供应链安全研究提供了关键情报。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
-      "date": "2026-05-18",
+      "date": "2026-05-19",
       "category": "tech"
     },
     {
@@ -77,7 +77,7 @@
       "url": "https://sec.today/pulses/c1633a07-f7f9-4745-b5af-9c8401b39df1/",
       "source": "Sec-Today",
       "description": "Google 在 2026 年 5 月安全公告中披露了 Android Debug Bridge (adbd) 守护进程中的严重零点击远程代码执行漏洞 (CVE-2026-0073)。该漏洞源于 adbd_tls_verify_cert 函数中的逻辑缺陷，导致无线 ADB 的相互 TLS 认证被绕过。攻击者无需用户交互，仅需通过同一局域网或近场连接即可在 Android 14 至 16 设备上获取远程 Shell 访问权限并绕过沙箱限制。该漏洞影响广泛，Google 已发布安全补丁，但部分设备厂商的更新延迟仍使大量用户面临风险。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
-      "date": "2026-05-18",
+      "date": "2026-05-19",
       "category": "tech"
     },
     {
@@ -85,7 +85,7 @@
       "url": "https://sec.today/pulses/f43b9b3e-96c0-4202-8c28-6e26e79a5766/",
       "source": "Sec-Today",
       "description": "本文揭示了攻击者如何利用付费搜索广告和伪造的 Claude AI 安装指南，通过社会工程学诱骗用户执行恶意命令，其多阶段攻击链巧妙利用合法系统工具（如 mshta.exe）和动态 C2 域名规避检测。这一针对 AI 工具信任机制的新型威胁，为防御者提供了关键的 IoC 和针对开发者及普通用户的即时防护策略。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
-      "date": "2026-05-18",
+      "date": "2026-05-19",
       "category": "tech"
     },
     {
@@ -93,7 +93,7 @@
       "url": "https://sec.today/pulses/a7f2f976-8d2e-4754-bbe8-7aed18e5c57d/",
       "source": "Sec-Today",
       "description": "安全研究人员披露了名为 NGINX Rift (CVE-2026-42945) 的严重漏洞，该漏洞存在于 NGINX 的 ngx_http_rewrite_module 中，其根源可追溯至 2008 年，影响长达 18 年。该漏洞源于脚本引擎双遍处理机制中的状态不一致，当特定条件下组合使用 'rewrite' 和 'set' 指令并包含问号时，URI 转义扩展会导致堆缓冲区溢出。未认证的远程攻击者可通过发送构造的 HTTP 请求触发此漏洞，导致 Worker 进程崩溃（拒绝服务）或在禁用 ASLR 的环境下实现远程代码执行 (RCE)。该漏洞影响 NGINX 0.6.27 至 1.30.0 版本以及多款 F5 产品，厂商已紧急发布补丁修复此问题及相关的三个内存破坏漏洞。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
-      "date": "2026-05-18",
+      "date": "2026-05-19",
       "category": "tech"
     },
     {
@@ -101,7 +101,7 @@
       "url": "https://sec.today/pulses/7afe272e-128d-4080-8b75-28ed465347f4/",
       "source": "Sec-Today",
       "description": "本文揭示了代号为'Kukurigu'的严重漏洞链，通过巧妙组合xfrm-ESP与RxRPC协议缺陷，实现了无竞态条件且成功率接近100%的Linux内核本地提权。该漏洞影响跨度长达9年且覆盖主流发行版，其稳定的内存驻留页缓存污染技术为内核安全研究树立了新的警示标杆。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
-      "date": "2026-05-18",
+      "date": "2026-05-19",
       "category": "tech"
     },
     {
@@ -109,7 +109,7 @@
       "url": "https://sec.today/pulses/ef0b6fd7-68a8-42f7-a46a-e505b60d06be/",
       "source": "Sec-Today",
       "description": "针对 Windows 11 及 Server 2022/2025 系统，两款名为 YellowKey 与 GreenPlasma 的严重未修复零日漏洞被披露。YellowKey 利用 WinRE 组件及特定 FsTx 目录实现了对 BitLocker 全磁盘加密的完全绕过，而 GreenPlasma 则通过 CTFMON 服务中的任意内存段创建缺陷进行本地权限提升至 SYSTEM 级别。由于一名对微软披露流程不满的研究者出于报复心理，已将这两个漏洞的 PoC 利用代码公开，导致数百万设备面临即时威胁。在官方补丁发布前，安全专家建议立即实施自定义 PIN 码及 BIOS 密码等缓解措施以防御潜在攻击。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
-      "date": "2026-05-18",
+      "date": "2026-05-19",
       "category": "tech"
     },
     {
@@ -117,7 +117,7 @@
       "url": "https://sec.today/pulses/b7ee6664-a434-4e01-824b-cecd2eeee09e/",
       "source": "Sec-Today",
       "description": "微软推出了名为 MDASH（多模型智能体扫描框架）的新一代自动化安全系统，该系统通过编排超过 100 个专用 AI 智能体，在审计、辩论和概念验证的流水线中协同工作。MDASH 在 CyberGym 基准测试中以 88.45% 的分数超越了 Anthropic 的 Mythos 和 OpenAI 的 GPT-5.5，成功在 Windows 网络栈和认证栈中识别出 16 个新的关键漏洞，其中包括两个远程代码执行（RCE）漏洞。这一成果标志着 AI 漏洞发现技术从研究阶段正式跨越到企业级生产防御，展示了多智能体架构在加速补丁发布和应对自动化攻击方面的战略优势，同时也揭示了 AI 作为进攻性工具的双刃剑风险。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
-      "date": "2026-05-18",
+      "date": "2026-05-19",
       "category": "tech"
     },
     {
@@ -125,7 +125,7 @@
       "url": "https://sec.today/pulses/d58fb3aa-afed-4c1a-a4b7-5052d7bce995/",
       "source": "Sec-Today",
       "description": "本文独家披露了 Anthropic 尚未公开的 AI 模型 Mythos 所展现出的突破性‘情境感知’与代理式认知能力，揭示了其如何从根本上降低网络攻击的技术门槛。文章基于 Cisco 的内部测试，前瞻性地提出了应对 AI 驱动威胁的新型防御框架与‘安全默认’代码生成策略，是当今网络安全领域必读的里程碑式技术指南。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 week ago",
-      "date": "2026-05-18",
+      "date": "2026-05-19",
       "category": "tech"
     },
     {
@@ -133,7 +133,7 @@
       "url": "https://sec.today/pulses/2d69be65-cb17-4943-91ca-7ae61113d0b3/",
       "source": "Sec-Today",
       "description": "本文揭示了通用大模型（如 Claude Opus 4.6）已具备独立开发针对主流软件（如 Chrome V8 引擎）完整漏洞利用链的能力，且成本极低，这标志着自动化攻击门槛的实质性崩塌。文章警示安全界必须从“漏洞披露即安全”的传统范式转向“零信任”的防御前置策略，因为 AI 正将补丁窗口压缩至近乎为零，任何延迟更新都将成为自动化的攻击目标。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 month ago",
-      "date": "2026-05-25",
+      "date": "2026-05-26",
       "category": "tech"
     },
     {
@@ -141,7 +141,7 @@
       "url": "https://sec.today/pulses/f93e939c-6022-4339-bda7-318847321500/",
       "source": "Sec-Today",
       "description": "本文深入剖析了 Gitea 1.4 之前版本中一个隐蔽的 Git LFS 授权绕过漏洞，揭示了因代码逻辑缺失导致未授权用户可写入元数据并触发路径遍历的严重风险。该研究不仅提供了从 Windows 到 Docker 的完整复现步骤，还精准定位了源码缺陷，为即时修补开源代码托管平台的安全漏洞提供了关键依据。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 month ago",
-      "date": "2026-05-25",
+      "date": "2026-05-26",
       "category": "tech"
     },
     {
@@ -149,7 +149,7 @@
       "url": "https://sec.today/pulses/1f4b4ea6-1e2a-4c42-9d5a-954bca7ef14a/",
       "source": "Sec-Today",
       "description": "本文深入剖析了利用NTFS事务机制（TxF）绕过传统检测的'进程双生'（Process Doppelgänging）技术，揭示了其如何通过未公开的NTAPI函数在内存中执行恶意代码而不触碰磁盘。该文章不仅提供了详尽的技术对比与代码实现，更警示了安全界需立即关注这些罕见系统调用的滥用风险，是当下防御高级持久化威胁的关键参考资料。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 month ago",
-      "date": "2026-05-25",
+      "date": "2026-05-26",
       "category": "tech"
     },
     {
@@ -157,14 +157,14 @@
       "url": "https://sec.today/pulses/58486028-fec1-4062-aa5e-938cdfd921ff/",
       "source": "Sec-Today",
       "description": "本文深入剖析了利用Office文档中的subDoc功能，通过SMBv2协议诱导受害者计算机发送NTLMv2哈希凭证的Pass-the-Hash攻击机制。文章不仅详细拆解了NTLMv2的挑战-响应握手过程，还手把手演示了如何手工构建恶意载荷，为安全研究人员提供了极具实战价值的漏洞利用原理与防御视角。\n                –\n                \n\n                        SecTodayBot\n                    \n• 1 month ago",
-      "date": "2026-05-25",
+      "date": "2026-05-26",
       "category": "tech"
     },
     {
       "title": "FFM API之RASP 绕过",
       "url": "https://xz.aliyun.com/news/92140",
       "source": "先知社区",
-      "description": "FFM API之RASP 绕过Foreign Function & Memory API（FFM API）是 JDK 21 引入的用于替代 JNI 的本地互操作接口。渗透测试NullLine发表于 河南· 836浏览 · 2026-05-15 16:24",
+      "description": "FFM API之RASP 绕过Foreign Function & Memory API（FFM API）是 JDK 21 引入的用于替代 JNI 的本地互操作接口。渗透测试NullLine发表于 河南· 1013浏览 · 2026-05-15 16:24",
       "date": "2026-05-15",
       "category": "tech"
     },
@@ -172,7 +172,7 @@
       "title": "JDK 21 反序列化过滤器绕过与 Post-TemplatesImpl 利用链构造",
       "url": "https://xz.aliyun.com/news/92138",
       "source": "先知社区",
-      "description": "JDK 21 反序列化过滤器绕过与 Post-TemplatesImpl 利用链构造Java 反序列化、ObjectInputFilter、JEP 415、Gadget Chain、JDK 21、绕过技术、SignedObjectWEB安全NullLine发表于 河南· 725浏览 · 2026-05-15 05:28",
+      "description": "JDK 21 反序列化过滤器绕过与 Post-TemplatesImpl 利用链构造Java 反序列化、ObjectInputFilter、JEP 415、Gadget Chain、JDK 21、绕过技术、SignedObjectWEB安全NullLine发表于 河南· 834浏览 · 2026-05-15 05:28",
       "date": "2026-05-15",
       "category": "tech"
     },
@@ -188,7 +188,7 @@
       "title": "【漏洞研究】多层内容解析链引发的 XSS 语义错位绕过及根因分析",
       "url": "https://xz.aliyun.com/news/92125",
       "source": "先知社区",
-      "description": "【漏洞研究】多层内容解析链引发的 XSS 语义错位绕过及根因分析在 Markdown、公式渲染等富内容处理场景下，由于第三方组件与浏览器底层（HTML、URL、JS 解析器）在实体解码、协议提取和规范化处理上存在机制差异，极易引发解析层面的语义错位，导致了XSS防御体系的 Bypass漏洞分析Fausto发表于 广东· 1166浏览 · 2026-05-12 05:28",
+      "description": "【漏洞研究】多层内容解析链引发的 XSS 语义错位绕过及根因分析在 Markdown、公式渲染等富内容处理场景下，由于第三方组件与浏览器底层（HTML、URL、JS 解析器）在实体解码、协议提取和规范化处理上存在机制差异，极易引发解析层面的语义错位，导致了XSS防御体系的 Bypass漏洞分析Fausto发表于 广东· 1243浏览 · 2026-05-12 05:28",
       "date": "2026-05-12",
       "category": "tech"
     },
@@ -196,7 +196,7 @@
       "title": "GraalVM Polyglot 沙箱逃逸：跨语言上下文 RCE",
       "url": "https://xz.aliyun.com/news/92120",
       "source": "先知社区",
-      "description": "GraalVM Polyglot 沙箱逃逸：跨语言上下文 RCE从受限JavaScript沙箱到宿主Java环境的完整攻击链构造与纵深防御WEB安全NullLine发表于 河南· 1174浏览 · 2026-05-11 09:34",
+      "description": "GraalVM Polyglot 沙箱逃逸：跨语言上下文 RCE从受限JavaScript沙箱到宿主Java环境的完整攻击链构造与纵深防御WEB安全NullLine发表于 河南· 1244浏览 · 2026-05-11 09:34",
       "date": "2026-05-11",
       "category": "tech"
     },
@@ -204,7 +204,7 @@
       "title": "Java Attach API内存注入",
       "url": "https://xz.aliyun.com/news/92103",
       "source": "先知社区",
-      "description": "Java Attach API内存注入通过 Java Attach API的底层Unix Domain Socket通信协议，结合Linux内核memfd_create系统调用实现纯内存态Agent注入。WEB安全NullLine发表于 河南· 1980浏览 · 2026-05-08 11:15",
+      "description": "Java Attach API内存注入通过 Java Attach API的底层Unix Domain Socket通信协议，结合Linux内核memfd_create系统调用实现纯内存态Agent注入。WEB安全NullLine发表于 河南· 2067浏览 · 2026-05-08 11:15",
       "date": "2026-05-08",
       "category": "tech"
     },
@@ -212,7 +212,7 @@
       "title": "伪装成10086官网流量的Cobalt Strike木马深度分析",
       "url": "https://xz.aliyun.com/news/92100",
       "source": "先知社区",
-      "description": "伪装成10086官网流量的Cobalt Strike木马深度分析海量IP地址字符串转码生成shellcode、Beacon木马伪造Referer请求头为10086官网二进制安全T0daySeeker发表于 四川· 2683浏览 · 2026-05-07 15:45",
+      "description": "伪装成10086官网流量的Cobalt Strike木马深度分析海量IP地址字符串转码生成shellcode、Beacon木马伪造Referer请求头为10086官网二进制安全T0daySeeker发表于 四川· 2801浏览 · 2026-05-07 15:45",
       "date": "2026-05-07",
       "category": "tech"
     },
@@ -220,7 +220,7 @@
       "title": "Hessian 二次反序列化新链从零到一挖掘",
       "url": "https://xz.aliyun.com/news/92074",
       "source": "先知社区",
-      "description": "Hessian 二次反序列化新链从零到一挖掘记录一条新的hessian二次反序列化链的完整分析过程漏洞分析用户j7LIalOmNY发表于 浙江· 1997浏览 · 2026-05-02 16:39",
+      "description": "Hessian 二次反序列化新链从零到一挖掘记录一条新的hessian二次反序列化链的完整分析过程漏洞分析用户j7LIalOmNY发表于 浙江· 2084浏览 · 2026-05-02 16:39",
       "date": "2026-05-02",
       "category": "tech"
     },
@@ -236,7 +236,7 @@
       "title": "PHP Filter Chain 无文件 RCE分析",
       "url": "https://xz.aliyun.com/news/92067",
       "source": "先知社区",
-      "description": "PHP Filter Chain 无文件 RCE分析通过精心构造 php://filter 链，在不写入任何文件的前提下，将一个普通的本地文件包含（LFI）漏洞直接升级为远程代码执行（RCE）。WEB安全NullLine发表于 河南· 1693浏览 · 2026-04-30 09:42",
+      "description": "PHP Filter Chain 无文件 RCE分析通过精心构造 php://filter 链，在不写入任何文件的前提下，将一个普通的本地文件包含（LFI）漏洞直接升级为远程代码执行（RCE）。WEB安全NullLine发表于 河南· 1758浏览 · 2026-04-30 09:42",
       "date": "2026-04-30",
       "category": "tech"
     },
@@ -244,7 +244,7 @@
       "title": "面向大模型隐私推理的安全协议-MPC与ZK的角色分工",
       "url": "https://xz.aliyun.com/news/92061",
       "source": "先知社区",
-      "description": "面向大模型隐私推理的安全协议-MPC与ZK的角色分工面向大模型隐私推理的安全协议-MPC与ZK的角色分工AI专栏阿里云先知先知沙龙 · 1853浏览 · 2026-04-29 09:49",
+      "description": "面向大模型隐私推理的安全协议-MPC与ZK的角色分工面向大模型隐私推理的安全协议-MPC与ZK的角色分工AI专栏阿里云先知先知沙龙 · 1911浏览 · 2026-04-29 09:49",
       "date": "2026-04-29",
       "category": "tech"
     },
@@ -252,7 +252,7 @@
       "title": "Agentic / Context",
       "url": "https://xz.aliyun.com/news/92060",
       "source": "先知社区",
-      "description": "Agentic / ContextAgentic / ContextAI专栏阿里云先知先知沙龙 · 1772浏览 · 2026-04-29 09:49",
+      "description": "Agentic / ContextAgentic / ContextAI专栏阿里云先知先知沙龙 · 1911浏览 · 2026-04-29 09:49",
       "date": "2026-04-29",
       "category": "tech"
     },
@@ -260,7 +260,7 @@
       "title": "AI洪流下的防守对抗新范式",
       "url": "https://xz.aliyun.com/news/92059",
       "source": "先知社区",
-      "description": "AI洪流下的防守对抗新范式AI洪流下的防守对抗新范式AI专栏阿里云先知先知沙龙 · 2147浏览 · 2026-04-29 09:49",
+      "description": "AI洪流下的防守对抗新范式AI洪流下的防守对抗新范式AI专栏阿里云先知先知沙龙 · 2299浏览 · 2026-04-29 09:49",
       "date": "2026-04-29",
       "category": "tech"
     },
@@ -268,7 +268,7 @@
       "title": "LLM 能帮一个安全工程师干些什么",
       "url": "https://xz.aliyun.com/news/92058",
       "source": "先知社区",
-      "description": "LLM 能帮一个安全工程师干些什么LLM 能帮一个安全工程师干些什么AI专栏阿里云先知先知沙龙 · 2440浏览 · 2026-04-29 09:48",
+      "description": "LLM 能帮一个安全工程师干些什么LLM 能帮一个安全工程师干些什么AI专栏阿里云先知先知沙龙 · 2522浏览 · 2026-04-29 09:48",
       "date": "2026-04-29",
       "category": "tech"
     },
@@ -276,7 +276,7 @@
       "title": "AI For Security：AI在云产品安全建设中能做什么？",
       "url": "https://xz.aliyun.com/news/92056",
       "source": "先知社区",
-      "description": "AI For Security：AI在云产品安全建设中能做什么？AI For Security：AI在云产品安全建设中能做什么？AI专栏阿里云先知先知沙龙 · 1811浏览 · 2026-04-29 09:48",
+      "description": "AI For Security：AI在云产品安全建设中能做什么？AI For Security：AI在云产品安全建设中能做什么？AI专栏阿里云先知先知沙龙 · 1877浏览 · 2026-04-29 09:48",
       "date": "2026-04-29",
       "category": "tech"
     },
@@ -301,7 +301,7 @@
       "url": "http://bbs.kanxue.com/thread-291300.htm?style=1",
       "source": "看雪论坛",
       "description": "前言\r\n此帖是记录笔者研究Intel Management Engine 以及 Intel-SA-00086 安全漏洞的记录笔记。笔者也不知道能研究多深入，所以研究一点是一点，顺便发出来也给各位大佬参考以及讨论。（也是下班给自己找点事做，上班一直做Agent开发太无聊了）\r\n平台选择与前置准备\r\n基 ...",
-      "date": "2026-05-24",
+      "date": "2026-05-25",
       "category": "tech"
     },
     {
@@ -499,11 +499,75 @@
       "category": "news"
     },
     {
+      "title": "7.6万美金叫卖3.4亿条数据，OnlyFans的“泄露” 竟是一场骗局？",
+      "url": "https://www.secrss.com/articles/90670",
+      "source": "安全内参",
+      "description": "黑产新玩法。",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "AI智能体的数据安全风险与合规监管研究",
+      "url": "https://www.secrss.com/articles/90664",
+      "source": "安全内参",
+      "description": "本文聚焦其底层机制衍生的数据安全风险，讨论如何从法理层面建构数据安全权利与义务的边界，并探寻AI智能体数...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "主流JavaScript软件包管理平台npm遭供应链投毒攻击",
+      "url": "https://www.secrss.com/articles/90663",
+      "source": "安全内参",
+      "description": "监测发现，全球主流JavaScript软件包管理平台npm遭“沙虫”（Shai-Hulud）供应链投毒攻击。",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "AI定向注入攻击：加密货币窃取供应链攻击新邪招",
+      "url": "https://www.secrss.com/articles/90658",
+      "source": "安全内参",
+      "description": "该攻击同时针对 npm、PyPI 和 Crates.io 三大主流软件包仓库，发布超过 34 个恶意包 及 384+ 个关联版本，专...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "法务在开展数据合规工作中可以使用的工具：从“功能工具”到“能力体系”",
+      "url": "https://www.secrss.com/articles/90667",
+      "source": "安全内参",
+      "description": "真正的合规落地，是借助工具，把法律条文转化为企业持续运行、自动生效、可追溯核验的数据治理与合规体系。",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "《公安机关电子数据取证规则（征求意见稿）》的五大亮点",
+      "url": "https://www.secrss.com/articles/90650",
+      "source": "安全内参",
+      "description": "该文件总结了电子数据取证在规则建设方面的已有经验，在实用性、规范性、法治化等方面进行了许多创新性的探索...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "你删除的谷歌API密钥还在工作：最长可达23分钟",
+      "url": "https://www.secrss.com/articles/90643",
+      "source": "安全内参",
+      "description": "一个被 Google 标记为 \"不予修复\" 的安全隐患。",
+      "date": "2026-05-24",
+      "category": "news"
+    },
+    {
       "title": "把Agent当操作系统来保护：LLM不可信，运行时才是安全内核",
       "url": "https://www.secrss.com/articles/90642",
       "source": "安全内参",
       "description": "Agent 安全的核心，不是让模型永远不犯错，而是让系统在模型犯错时仍然守住边界。",
       "date": "2026-05-24",
+      "category": "news"
+    },
+    {
+      "title": "国家数研院等发布《数据流通安全合规框架和指标体系1.0》",
+      "url": "https://www.secrss.com/articles/90640",
+      "source": "安全内参",
+      "description": "通过建立兼具通用性、行业场景适配性与落地性的合规框架和指标体系，为促进数据要素合规高效流通提供专业指引...",
+      "date": "2026-05-23",
       "category": "news"
     },
     {
@@ -515,10 +579,34 @@
       "category": "news"
     },
     {
+      "title": "Mythos首月战绩：挖出1万个洞，人类防线全面崩溃",
+      "url": "https://www.secrss.com/articles/90629",
+      "source": "安全内参",
+      "description": "Anthropic公布了Project Glasswing的首月战报。",
+      "date": "2026-05-23",
+      "category": "news"
+    },
+    {
+      "title": "从技术规则到数字程序法：评《公安机关电子数据取证规则（征求意见稿）》",
+      "url": "https://www.secrss.com/articles/90634",
+      "source": "安全内参",
+      "description": "此次《取证规则》将公安机关办理刑事案件和行政案件过程中的电子数据取证活动纳入到统一的规则框架之下，在提...",
+      "date": "2026-05-23",
+      "category": "news"
+    },
+    {
       "title": "讨论AI安全之前，先说清楚你相信什么样的AI",
       "url": "https://www.secrss.com/articles/90627",
       "source": "安全内参",
       "description": "你相信 AGI 很快到来，和你相信 LLM 已经撞墙，会得到完全不同的风险地图。你相信前沿模型最重要，和你相信旧...",
+      "date": "2026-05-22",
+      "category": "news"
+    },
+    {
+      "title": "《公安机关电子数据取证规则》公开征求意见",
+      "url": "https://www.secrss.com/articles/90623",
+      "source": "安全内参",
+      "description": "规范公安机关办理刑事案件、行政案件电子数据取证工作，确保电子数据取证质量，保护公民、组织合法权益，提高...",
       "date": "2026-05-22",
       "category": "news"
     },
@@ -571,91 +659,43 @@
       "category": "news"
     },
     {
-      "title": "美国网络司令部通过JCC2项目重塑网络空间指挥控制体系",
-      "url": "https://www.secrss.com/articles/90597",
-      "source": "安全内参",
-      "description": "美网络司令部着力将JCC2系统打造为统一网络指挥控制中枢。",
-      "date": "2026-05-22",
+      "title": "⚡ Weekly Recap: Linux Flaws, Defender 0-Days, Router Botnets, and Supply Chain Chaos",
+      "url": "https://thehackernews.com/2026/05/weekly-recap-linux-flaws-defender-0.html",
+      "source": "The Hacker News",
+      "description": "Monday recap. Same mess, new week.   A sketchy dev tool got people pwned, old bugs came back from the dead, and security products somehow needed protecting from themselves. A bunch of companies spent the week checking old boxes and forgotten servers they should've patched years ago. Good times.   Phishing crews are getting smarter too - less obvious scam junk, more targeted stuff that actually looks real. Meanwhile, botnets are grabbing anything exposed to the internet like it's free candy. The Internet's still a dumpster fire.   Let’s get into it.   ⚡ Threat of the Week  GitHub Breached via Nx Console VS Code Extension —GitHub officially confirmed that the breach of its internal repositories was the result of a compromise of an employee device involving a poisoned version of the Nx Console Microsoft Visual Studio Code (VS Code) extension. The attack is said to have allowed the threat actor, a cybercriminal group known as TeamPCP, to exfiltrate about 3,800 repositories. G...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "警惕：黑客组织TeamPCP正在以前所未有的规模污染开源代码",
-      "url": "https://www.secrss.com/articles/90591",
-      "source": "安全内参",
-      "description": "TeamPCP篡改了数百个开源工具，通过勒索受害者获利，并在全球软件开发所依赖的整个生态系统中播下了新的不信...",
-      "date": "2026-05-21",
+      "title": "Ghost CMS CVE-2026-26980 Exploited to Hijack 700+ Sites for ClickFix Attacks",
+      "url": "https://thehackernews.com/2026/05/ghost-cms-cve-2026-26980-exploited-to.html",
+      "source": "The Hacker News",
+      "description": "Threat actors are exploiting a recently disclosed critical security flaw in Ghost CMS to inject malicious JavaScript code with an aim to fuel ClickFix  attacks.   According to QiAnXin XLab, the activity involves the exploitation of CVE-2026-26980  (CVSS score: 9.4), an SQL injection vulnerability  in Ghost's Content API that could allow an unauthenticated attacker to read arbitrary data from the database. The security flaw was addressed in February 2026 in version 6.19.1. The vulnerability was discovered  by Anthropic using Claude.   What makes the vulnerability severe is that it allows an attacker to gain access to a site's admin API key  without permission, granting them the ability to poison the site by injecting malicious code. The admin API key can be used to invoke the admin API and can directly modify articles published on the content management system.   The threat actor leveraged the security flaw to \"obtain the target site's Admin API Key without authorizati...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "AgentTrust：面向Agent的工具调用防火墙",
-      "url": "https://www.secrss.com/articles/90590",
-      "source": "安全内参",
-      "description": "现在讨论 Agent 安全，已经不能只盯着模型会不会说错话。",
-      "date": "2026-05-21",
+      "title": "The Alert Firehose Finally Meets Its Match",
+      "url": "https://thehackernews.com/2026/05/the-alert-firehose-finally-meets-its.html",
+      "source": "The Hacker News",
+      "description": "Ask a cybersecurity pro about Network Detection and Response (NDR) and you might still hear \"Noisy,\" \"Too much data.\" But ask the teams running NDR that includes agentic AI capabilities and you'll hear they're actually using it to catch threats earlier, triage faster, and chase fewer false positives. The old complaint lingers in part because reputations are sticky, and because NDR has evolved faster than the narrative.   The origins of noise   NDR deployments have always given analysts deep visibility into network traffic, encrypted session behavior, and protocol anomalies. But visibility often came as raw material, not finished intelligence.   Some systems required extensive manual tuning during deployment to prevent SIEM overload. Organizations that couldn't invest that time (or didn't know how important it was) helped cement NDR's \"alert firehose\" or \"noisy\" reputation.   NDR with agentic AI turns noise into narrative   A...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "AI重塑网络攻击：漏洞利用成最流行手段，利用门槛被大幅拉低",
-      "url": "https://www.secrss.com/articles/90587",
-      "source": "安全内参",
-      "description": "Verizon《2026年数据泄露调查报告》指出，漏洞利用已超过凭证滥用，成为最主要的数据泄露路径；与此同时，AI...",
-      "date": "2026-05-21",
+      "title": "Lazarus Deploys RemotePE Memory-Only RAT Against Financial and Crypto Firms",
+      "url": "https://thehackernews.com/2026/05/lazarus-deploys-remotepe-memory-only.html",
+      "source": "The Hacker News",
+      "description": "Cybersecurity researchers have shed light on a cross-platform malware called RemotePE  that has been put to use by the North Korea-linked Lazarus Group in attacks targeting financial and cryptocurrency organizations.   RemotePE, per NCC Group subsidiary Fox-IT, is part of a multi-stage attack chain that involves two loaders tracked as DPAPILoader and RemotePELoader.   \"DPAPILoader decrypts and loads RemotePELoader from disk using the Windows Data Protection API ( DPAPI ),\" security researchers Yun Zheng Hu and Mick Koomen said . \"RemotePELoader beacons to a C2 server and waits until it receives the next stage: RemotePE, a RAT executed entirely in memory and never written to disk, leaving no filesystem artifacts.\"   RemotePE was first highlighted  by the security vendor in September 2025 in connection with an attack targeting an unnamed organization in the decentralized finance (DeFi) sector, leading to the deployment of three malware families, including PondRAT, Th...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "面向Java库模糊测试的覆盖率引导多智能体工具生成",
-      "url": "https://www.secrss.com/articles/90575",
-      "source": "安全内参",
-      "description": "本文提出的多智能体桩代码生成系统代表了将 LLM 推理与程序分析深度融合的一次重要探索。",
-      "date": "2026-05-21",
-      "category": "news"
-    },
-    {
-      "title": "Gartner：中国AI优先型网络安全前沿治理的四大预测",
-      "url": "https://www.secrss.com/articles/90572",
-      "source": "安全内参",
-      "description": "到2029年，超过30%部署了物理AI的中国企业，将经历导致物理中断的重大安全事件。",
-      "date": "2026-05-21",
-      "category": "news"
-    },
-    {
-      "title": "美国网络司令部新特遣部队将加快引入尖端人工智能工具",
-      "url": "https://www.secrss.com/articles/90569",
-      "source": "安全内参",
-      "description": "美网络司令部与国家安全局联合组建人工智能特遣部队。",
-      "date": "2026-05-21",
-      "category": "news"
-    },
-    {
-      "title": "关于针对我国用户的“银狐”系列木马病毒攻击活动的预警报告",
-      "url": "https://www.secrss.com/articles/90554",
-      "source": "安全内参",
-      "description": "近日，国家计算机病毒应急处理中心和计算机病毒防治技术国家工程实验室依托国家计算机病毒协同分析平台捕获多...",
-      "date": "2026-05-21",
-      "category": "news"
-    },
-    {
-      "title": "英国前首相布莱尔：人工智能将如何改变政府？",
-      "url": "https://www.secrss.com/articles/90568",
-      "source": "安全内参",
-      "description": "老领导怎么看英国的政府AI应用工作？",
-      "date": "2026-05-21",
-      "category": "news"
-    },
-    {
-      "title": "从文本到情报：自动化STIX实体与关系提取",
-      "url": "https://www.secrss.com/articles/90553",
-      "source": "安全内参",
-      "description": "将分析报告转换为 STIX 的知识数据。",
-      "date": "2026-05-21",
-      "category": "news"
-    },
-    {
-      "title": "每家网安公司都得赌点什么：AI时代不下注的公司，也是一种押注",
-      "url": "https://www.secrss.com/articles/90555",
-      "source": "安全内参",
-      "description": "下注原本更像创业公司的事，成熟公司可以靠客户、渠道和执行慢慢优化。但 AI 正在改变客户、产品和商业模式，...",
-      "date": "2026-05-20",
+      "title": "TrapDoor Supply Chain Attack Spreads Credential-Stealing Malware via npm, PyPI, and CratesIO",
+      "url": "https://thehackernews.com/2026/05/trapdoor-supply-chain-attack-spreads.html",
+      "source": "The Hacker News",
+      "description": "A new coordinated cross-ecosystem software supply chain attack campaign has targeted npm, PyPI, and Crates.io to distribute credential-stealing malware.   The campaign, codenamed TrapDoor , spans more than 34 malicious packages across over 384 versions. The earliest activity was recorded on May 22, 2026, at 8:20 p.m. UTC, with new packages published to the ecosystems in waves from a cluster of accounts in quick succession.   \"TrapDoor targets developers in crypto, DeFi, Solana, and AI communities,\" Socket said. \"The malicious packages are designed to steal developer secrets, crypto wallets, SSH keys, cloud credentials, browser data, and environment variables.\"   \"Several npm packages also deploy a shared payload, trap-core.js, that scans for credentials, validates AWS and GitHub tokens, attempts SSH-based lateral movement, and plants persistence through .cursorrules, CLAUDE.md, Git hooks, shell hooks, systemd, cron, and SSH.\"   It's worth noting tha...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
@@ -715,43 +755,59 @@
       "category": "news"
     },
     {
-      "title": "Ghostwriter Targets Ukraine Government Entities with Prometheus Phishing Malware",
-      "url": "https://thehackernews.com/2026/05/ghostwriter-targets-ukraine-government.html",
-      "source": "The Hacker News",
-      "description": "The Belarus-aligned threat actor known as Ghostwriter  (aka UAC-0057 and UNC1151) has been observed using lures related to Prometheus, a Ukrainian online learning platform, to target government organizations in the country.   The activity, per the Computer Emergency Response Team of Ukraine (CERT-UA), involves sending phishing emails to government entities using compromised accounts. It's been active since the spring of 2026.   \"Typically, the email contains a PDF attachment with a link that, when clicked, leads to the download of a ZIP archive containing a JavaScript file,\" the agency said  in a Thursday report.   The JavaScript file, dubbed OYSTERFRESH, is designed to display a decoy document as a distraction mechanism, while stealthily writing an obfuscated and encrypted payload called OYSTERBLUES to the Windows Registry, as well as downloading and launching OYSTERSHUCK, which is responsible for decoding OYSTERBLUES.",
-      "date": "2026-05-22",
+      "title": "Ghost CMS Vulnerability Exploited to Hack Over 700 Websites",
+      "url": "https://www.securityweek.com/ghost-cms-vulnerability-exploited-to-hack-over-700-websites/",
+      "source": "SecurityWeek",
+      "description": "Sites belonging to major universities such as Harvard and Oxford, as well as DuckDuckGo, have been compromised in the attack.The postGhost CMS Vulnerability Exploited to Hack Over 700 Websitesappeared...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Megalodon GitHub Attack Targets 5,561 Repos with Malicious CI/CD Workflows",
-      "url": "https://thehackernews.com/2026/05/megalodon-github-attack-targets-5561.html",
-      "source": "The Hacker News",
-      "description": "Cybersecurity researchers have disclosed details of a new automated campaign called Megalodon  that has pushed 5,718 malicious commits to 5,561 GitHub repositories within a six-hour window.   \"Using throwaway accounts and forged author identities (build-bot, auto-ci, ci-bot, pipeline-bot), the attacker injected GitHub Actions workflows containing base64-encoded bash payloads that exfiltrate CI secrets, cloud credentials, SSH keys, OIDC tokens, and source code secrets to a C2 server at 216.126.225[.]129:8443,\" SafeDep said  in a report.   The complete list of data harvested by the malware is below -      CI environment variables, /proc/*/environ, and PID 1 environment    Amazon Web Services (AWS) credentials    Google Cloud access tokens    Instance role credentials obtained by querying AWS IMDSv2, Google Cloud metadata, and Microsoft Azure Instance Metadata Service (IMDS) endpoints    SSH private keys    Docker and Kubernetes configurations    Vault tokens    Terraform crede...",
-      "date": "2026-05-22",
+      "title": "Oncology Institute Discloses Data Breach",
+      "url": "https://www.securityweek.com/oncology-institute-discloses-third-party-data-breach/",
+      "source": "SecurityWeek",
+      "description": "The affected third-party vendor has not been named, but one possible candidate is TriZetto.The postOncology Institute Discloses Data Breachappeared first onSecurityWeek.",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Making Vulnerable Drivers Exploitable Without Hardware - The BYOVD Perspective",
-      "url": "https://thehackernews.com/2026/05/making-vulnerable-drivers-exploitable.html",
-      "source": "The Hacker News",
-      "description": "1 Introduction   This article provides a technical analysis of how many Windows kernel mode drivers can be interacted with from user mode without the hardware they were developed for. This work was motivated by driver-oriented vulnerability research and the need to evaluate the exploitability of individual findings, which frequently affect code whose reachability is hardware-gated. The methodology presented here should help anyone determine whether a particular Windows kernel mode driver vulnerability remains reachable - and thus potentially exploitable - even in the absence of the hardware the driver was developed for.   The reader is expected to have basic Windows driver knowledge, especially regarding device objects. The rest of this article is written with the assumption that the reader is already familiar with the concepts described in the introduction article: Anatomy of Access: Windows Device Objects from a Security Perspective .   Just like the introduction article, this resou...",
-      "date": "2026-05-22",
+      "title": "266,000 Affected by Data Breach at Radiology Associates of Richmond",
+      "url": "https://www.securityweek.com/266000-affected-by-data-breach-at-radiology-associates-of-richmond/",
+      "source": "SecurityWeek",
+      "description": "Threat actors stole files containing names and protected health information from the healthcare organization’s systems.The post266,000 Affected by Data Breach at Radiology Associates of Richmondappear...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Kimwolf DDoS Botnet Operator Arrested in Canada Over DDoS-for-Hire Attacks",
-      "url": "https://thehackernews.com/2026/05/kimwolf-ddos-botnet-operator-arrested.html",
-      "source": "The Hacker News",
-      "description": "The U.S. Department of Justice (DoJ) on Thursday announced the arrest of a Canadian man in connection with allegedly operating a distributed denial-of-service (DDoS) botnet known as Kimwolf .   In tandem, Jacob Butler (aka Dort), 23, Ottawa, Canada, has been charged with offenses related to the development and operation of the botnet. Kimwolf is assessed to be a variant of AISURU that specifically infected Android devices with an exposed Android Debug Bridge (ADB) service.   \"Kimwolf targeted infected devices which were traditionally 'firewalled' from the rest of the internet, such as digital photo frames and web cameras,\" the DoJ said . \"The infected devices were enslaved by the botnet operators.\"   \"The operators then used a 'cybercrime-as-a-service' model to sell access to the infected devices to other cybercriminals. The operators and their customers forced the victim devices to participate in DDoS attacks, targeting computers and servers l...",
-      "date": "2026-05-22",
+      "title": "Anthropic: Mythos Detected 23,000 Potential Vulnerabilities Across 1,000 OSS Projects",
+      "url": "https://www.securityweek.com/anthropic-mythos-detected-23000-potential-vulnerabilities-across-1000-oss-projects/",
+      "source": "SecurityWeek",
+      "description": "Many findings have been confirmed to be critical or high-severity vulnerabilities and the number will continue to increase.The postAnthropic: Mythos Detected 23,000 Potential Vulnerabilities Across 1,...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "CISA Adds Exploited Langflow and Trend Micro Apex One Vulnerabilities to KEV",
-      "url": "https://thehackernews.com/2026/05/cisa-adds-exploited-langflow-and-trend.html",
-      "source": "The Hacker News",
-      "description": "The U.S. Cybersecurity and Infrastructure Security Agency (CISA) on Thursday added  two security flaws impacting Langflow and Trend Micro Apex One to its Known Exploited Vulnerabilities ( KEV ) catalog, citing evidence of active exploitation.   The vulnerabilities in question are listed below -      CVE-2025-34291  (CVSS score: 9.4) - An origin validation error vulnerability in Langflow that could allow an attacker to execute arbitrary code and achieve full system compromise.    CVE-2026-34926  (CVSS score: 6.7) - A directory traversal vulnerability in on-premise versions of Trend Micro Apex One that could allow a pre-authenticated local attacker to modify a key table on the server to inject malicious code to deploy to agents on affected installations.   In a report published in December 2025, Obsidian Security said CVE-2025-34291 exploits three combined weaknesses: overly Permissive CORS, lack of cross-site request forgery (CSRF) protection, and an endpoint that allows code execution...",
-      "date": "2026-05-22",
+      "title": "Laravel-Lang Packages Poisoned for Malware Delivery",
+      "url": "https://www.securityweek.com/laravel-lang-packages-poisoned-for-malware-delivery/",
+      "source": "SecurityWeek",
+      "description": "Published within a 15-minute window, the malicious tags introduced backdoors to exfiltrate CI secrets.The postLaravel-Lang Packages Poisoned for Malware Deliveryappeared first onSecurityWeek.",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "DocketWise Data Breach Impacts 143,000",
+      "url": "https://www.securityweek.com/docketwise-data-breach-impacts-143000/",
+      "source": "SecurityWeek",
+      "description": "Hackers accessed names, addresses, Social Security numbers, financial information, and medical data from third-party partner repositories.The postDocketWise Data Breach Impacts 143,000appeared first o...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "Over 5,500 GitHub Repositories Infected in ‘Megalodon’ Supply Chain Attack",
+      "url": "https://www.securityweek.com/over-5500-github-repositories-infected-in-megalodon-supply-chain-attack/",
+      "source": "SecurityWeek",
+      "description": "Fake automated commits injected GitHub Actions workflows containing payloads to steal credentials, CI secrets, keys, and tokens.The postOver 5,500 GitHub Repositories Infected in ‘Megalodon’ Supply Ch...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
@@ -779,675 +835,763 @@
       "category": "news"
     },
     {
-      "title": "Canadian Man Arrested for Operating Kimwolf Botnet",
-      "url": "https://www.securityweek.com/canadian-man-arrested-for-operating-kimwolf-botnet/",
-      "source": "SecurityWeek",
-      "description": "Jacob Butler, 23, has been arrested in Canada and US authorities are seeking his extradition on computer hacking charges.The postCanadian Man Arrested for Operating Kimwolf Botnetappeared first onSecu...",
-      "date": "2026-05-22",
-      "category": "news"
-    },
-    {
-      "title": "‘First VPN’ Cybercrime Service Disrupted, Administrator Arrested",
-      "url": "https://www.securityweek.com/first-vpn-cybercrime-service-disrupted-administrator-arrested/",
-      "source": "SecurityWeek",
-      "description": "The FBI says First VPN has been used by dozens of ransomware groups for network reconnaissance and intrusions.The post‘First VPN’ Cybercrime Service Disrupted, Administrator Arrestedappeared first onS...",
-      "date": "2026-05-22",
-      "category": "news"
-    },
-    {
-      "title": "TrendAI Patches Apex One Zero-Day Exploited in the Wild",
-      "url": "https://www.securityweek.com/trendai-patches-apex-one-zero-day-exploited-in-the-wild/",
-      "source": "SecurityWeek",
-      "description": "CVE-2026-34926 is a directory traversal flaw that can be exploited against the on-premise version of Apex One.The postTrendAI Patches Apex One Zero-Day Exploited in the Wildappeared first onSecurityWe...",
-      "date": "2026-05-22",
-      "category": "news"
-    },
-    {
-      "title": "Grafana Says Codebase and Other Data Stolen via TanStack Supply Chain Attack",
-      "url": "https://www.securityweek.com/grafana-says-codebase-and-other-data-stolen-via-tanstack-supply-chain-attack/",
-      "source": "SecurityWeek",
-      "description": "Hackers accessed Grafana’s GitHub repositories after a token compromised in the TanStack attack was not rotated.The postGrafana Says Codebase and Other Data Stolen via TanStack Supply Chain Attackappe...",
-      "date": "2026-05-22",
-      "category": "news"
-    },
-    {
-      "title": "Cisco Patches Critical Vulnerability in Secure Workload",
-      "url": "https://www.securityweek.com/cisco-patches-critical-vulnerability-in-secure-workload/",
-      "source": "SecurityWeek",
-      "description": "Insufficient validation and authentication in the Secure Workload’s REST APIs provide remote attackers with Site Admin privileges.The postCisco Patches Critical Vulnerability in Secure Workloadappeare...",
-      "date": "2026-05-21",
-      "category": "news"
-    },
-    {
-      "title": "Ocean Emerges From Stealth With $28M for Agentic Email Security Platform",
-      "url": "https://www.securityweek.com/ocean-emerges-from-stealth-with-28m-for-agentic-email-security-platform/",
-      "source": "SecurityWeek",
-      "description": "The company has developed a platform that uses specialized AI agents to inspect every incoming message.The postOcean Emerges From Stealth With $28M for Agentic Email Security Platformappeared first on...",
-      "date": "2026-05-21",
-      "category": "news"
-    },
-    {
-      "title": "Apple Rejected 2 Million App Store Submissions in 2025 for Security and Fraud Prevention",
-      "url": "https://www.securityweek.com/apple-rejected-2-million-app-store-submissions-in-2025-for-security-and-fraud-prevention/",
-      "source": "SecurityWeek",
-      "description": "The company blocked over 1.1 billion accounts and $2.2 billion in potentially fraudulent transactions.The postApple Rejected 2 Million App Store Submissions in 2025 for Security and Fraud Preventionap...",
-      "date": "2026-05-21",
-      "category": "news"
-    },
-    {
-      "title": "火狐浏览器正在预览2026新设计(新星项目) 现在可以通过每夜构建版提前体验",
-      "url": "https://www.landian.news/archives/113058.html",
+      "title": "黄仁勋批评CEO以AI为理由裁员：太敷衍",
+      "url": "https://blog.upx8.com/%E9%BB%84%E4%BB%81%E5%8B%8B%E6%89%B9%E8%AF%84CEO%E4%BB%A5AI%E4%B8%BA%E7%90%86%E7%94%B1%E8%A3%81%E5%91%98-%E5%A4%AA%E6%95%B7%E8%A1%8D",
       "source": "Unsafe.sh",
-      "description": "2026年5月25日 09:30软件资讯00.00K...",
-      "date": "2026-05-25",
+      "description": "黄仁勋批评CEO以AI为理由裁员：太敷衍英伟达CEO黄仁勋对一些将裁员归咎于AI的CEO提出了批评，认为这种说法“太敷衍”。黄仁勋周一在接受新加坡亚洲新闻台采访时表示：“我认为很多CEO将AI与失业联...",
+      "date": "2026-05-26",
       "category": "news"
     },
     {
-      "title": "虎牙旗下安卓应用下载站APKPure被发现分发带有后门的Telegram安装包",
-      "url": "https://www.landian.news/archives/113057.html",
+      "title": "Possible ACR Stealer From Page Impersonating Claude, (Tue, May 26th)",
+      "url": "https://isc.sans.edu/diary/rss/33018",
       "source": "Unsafe.sh",
-      "description": "虎牙旗下安卓应用下载站APKPure被发现分发带有后门的Telegram安装包",
-      "date": "2026-05-25",
+      "description": "IntroductionIn recent weeks, I've searched for pages impersonating Claude that distribute malware...",
+      "date": "2026-05-26",
       "category": "news"
     },
     {
-      "title": "nmap on Linux: Guide to Network Scanning and Discovery",
-      "url": "https://unsafe.sh/go-418638.html",
+      "title": "欧盟将对谷歌开出近10亿欧元反垄断罚单",
+      "url": "https://blog.upx8.com/%E6%AC%A7%E7%9B%9F%E5%B0%86%E5%AF%B9%E8%B0%B7%E6%AD%8C%E5%BC%80%E5%87%BA%E8%BF%9110%E4%BA%BF%E6%AC%A7%E5%85%83%E5%8F%8D%E5%9E%84%E6%96%AD%E7%BD%9A%E5%8D%95",
       "source": "Unsafe.sh",
-      "description": "nmap on Linux: Guide to Network Scanning and Discovery",
-      "date": "2026-05-25",
+      "description": "德国《商报》周一援引欧盟委员会知情人士的消息称，欧盟正计划在一项反垄断调查中对谷歌处以数亿欧元、接近10亿欧元级别的罚款。报道称，该决定已接近完成，预计将在欧盟夏季休会前公布。这将是欧盟因违反《数字市...",
+      "date": "2026-05-26",
       "category": "news"
     },
     {
-      "title": "苹果WWDC将成库克“绝唱” 董事长身份不再发表主题演讲",
-      "url": "https://blog.upx8.com/%E8%8B%B9%E6%9E%9CWWDC%E5%B0%86%E6%88%90%E5%BA%93%E5%85%8B-%E7%BB%9D%E5%94%B1-%E8%91%A3%E4%BA%8B%E9%95%BF%E8%BA%AB%E4%BB%BD%E4%B8%8D%E5%86%8D%E5%8F%91%E8%A1%A8%E4%B8%BB%E9%A2%98%E6%BC%94%E8%AE%B2",
-      "source": "Unsafe.sh",
-      "description": "今年的全球开发者大会(WWDC)将是库克作为苹果CEO最后一次发表主题演讲，然后就会让位于约翰·特努斯，未来作为执行董事长将不会再做主题演讲。除非苹果CEO交接出现重大意外变故，否则6月8日的WWDC...",
-      "date": "2026-05-25",
-      "category": "news"
-    },
-    {
-      "title": "Cloudflare正在向用户推出新版DNS管理界面 功能没变但操作界面更清晰",
-      "url": "https://www.landian.news/archives/113056.html",
-      "source": "Unsafe.sh",
-      "description": "Cloudflare正在向用户推出新版DNS管理界面 功能没变但操作界面更清晰",
-      "date": "2026-05-25",
-      "category": "news"
-    },
-    {
-      "title": "浏览器Firefox宣布正在开发一种圆角设计",
-      "url": "https://blog.upx8.com/%E6%B5%8F%E8%A7%88%E5%99%A8Firefox%E5%AE%A3%E5%B8%83%E6%AD%A3%E5%9C%A8%E5%BC%80%E5%8F%91%E4%B8%80%E7%A7%8D%E5%9C%86%E8%A7%92%E8%AE%BE%E8%AE%A1",
-      "source": "Unsafe.sh",
-      "description": "浏览器Firefox宣布正在开发一种圆角设计Firefox正在进行彻底的外观大改，重新设计的设置部分将使得查找和使用隐私设置更加容易，包括用于关闭所有当前和未来AI功能的开关。Mozilla称此次重新...",
-      "date": "2026-05-25",
-      "category": "news"
-    },
-    {
-      "title": "威努特超融合+WinClaw亮相鲲鹏昇腾开发者大会2026",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzAwNTgyODU3NQ==&amp;mid=2651141818&amp;idx=1&amp;sn=98c2dacda0c1d4641352e9f006668308",
+      "title": "筑牢工控安全屏障，威努特为药企生产保驾护航",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAwNTgyODU3NQ==&amp;mid=2651141819&amp;idx=1&amp;sn=2617bde0229bc29590eb793910b7e5ad",
       "source": "Unsafe.sh",
       "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-26",
+      "category": "news"
+    },
+    {
+      "title": "Anthropic模型震动金融圈 欧洲央行紧急开会要求升级网络防御",
+      "url": "https://blog.upx8.com/Anthropic%E6%A8%A1%E5%9E%8B%E9%9C%87%E5%8A%A8%E9%87%91%E8%9E%8D%E5%9C%88-%E6%AC%A7%E6%B4%B2%E5%A4%AE%E8%A1%8C%E7%B4%A7%E6%80%A5%E5%BC%80%E4%BC%9A%E8%A6%81%E6%B1%82%E5%8D%87%E7%BA%A7%E7%BD%91%E7%BB%9C%E9%98%B2%E5%BE%A1",
+      "source": "Unsafe.sh",
+      "description": "欧洲央行已召集多家银行于周二召开会议，讨论最新人工智能模型暴露出的网络安全风险，这家中央银行预计将敦促其他银行加快强化IT系统防护的步伐。欧洲央行计划在会上强调Anthropic的Claude Myt...",
       "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "谷歌上诉反垄断裁决，辩称搜索成功全靠产品创新而非排他协议",
-      "url": "https://blog.upx8.com/%E8%B0%B7%E6%AD%8C%E4%B8%8A%E8%AF%89%E5%8F%8D%E5%9E%84%E6%96%AD%E8%A3%81%E5%86%B3-%E8%BE%A9%E7%A7%B0%E6%90%9C%E7%B4%A2%E6%88%90%E5%8A%9F%E5%85%A8%E9%9D%A0%E4%BA%A7%E5%93%81%E5%88%9B%E6%96%B0%E8%80%8C%E9%9D%9E%E6%8E%92%E4%BB%96%E5%8D%8F%E8%AE%AE",
+      "title": "派早报：OPPO 与荣耀发布多款新品，华为发表半导体领域新定律等",
+      "url": "https://sspai.com/post/110171",
       "source": "Unsafe.sh",
-      "description": "谷歌对一项2024年的裁决提出上诉，该裁决认定谷歌通过付费成为iPhone的默认搜索引擎违反了反垄断法。谷歌向美国哥伦比亚特区巡回上诉法院提交的文件称，地方法院在认定谷歌搜索的成功并非源于实力竞争时存...",
-      "date": "2026-05-24",
+      "description": "OPPO 发布 Reno16 系列等新品5 月 25 日，OPPO 举办 Reno Land 奇幻夜新品发布会，发布 OPPO Reno16 系列手机、OPPO Pad 6 平板等多款新品。OPPO...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Outlook hacked",
-      "url": "https://unsafe.sh/go-418637.html",
+      "title": "全球最大铝土矿生产国计划下月推出出口管制措施",
+      "url": "https://blog.upx8.com/%E5%85%A8%E7%90%83%E6%9C%80%E5%A4%A7%E9%93%9D%E5%9C%9F%E7%9F%BF%E7%94%9F%E4%BA%A7%E5%9B%BD%E8%AE%A1%E5%88%92%E4%B8%8B%E6%9C%88%E6%8E%A8%E5%87%BA%E5%87%BA%E5%8F%A3%E7%AE%A1%E5%88%B6%E6%8E%AA%E6%96%BD",
       "source": "Unsafe.sh",
-      "description": "Outlook hacked",
-      "date": "2026-05-24",
+      "description": "全球最大铝土矿生产国计划下月推出出口管制措施全球最大铝土矿生产国几内亚计划于下月宣布改革措施，对这种矿石实施出口管控，以提振价格。几内亚占全球铝土矿产量逾1/3。2025年，该国铝土矿出口量大增 25...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Codex现在即使在Mac锁屏状态下也能使用",
-      "url": "https://blog.upx8.com/Codex%E7%8E%B0%E5%9C%A8%E5%8D%B3%E4%BD%BF%E5%9C%A8Mac%E9%94%81%E5%B1%8F%E7%8A%B6%E6%80%81%E4%B8%8B%E4%B9%9F%E8%83%BD%E4%BD%BF%E7%94%A8",
+      "title": "Welcoming the Bhutanese Government to Have I Been Pwned",
+      "url": "https://www.troyhunt.com/welcoming-the-bhutanese-government-to-have-i-been-pwned/",
       "source": "Unsafe.sh",
-      "description": "Codex现在即使在Mac锁屏状态下也能使用OpenAI已为其在macOS上的Codex桌面应用推出了 “计算机使用” 功能，而其最新的功能是，即使您不在电脑旁，编程智能体也无需解锁您的Mac即可使用...",
-      "date": "2026-05-24",
+      "description": "Today, we welcome the 45th government onboarded to Have I Been Pwned’...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "派早报：GitHub 在微软治下面临技术和人员流失困境",
-      "url": "https://sspai.com/post/110130",
-      "source": "Unsafe.sh",
-      "description": "GitHub 在微软治下面临技术和人员流失困境据 The Verge 报道，微软收购 GitHub 近八年后，这家全球最大的开源代码托管平台正面临多重困境。人事方面，前任 CEO Thomas Doh...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "Postcast live (test)",
-      "url": "https://roccosicilia.com/2026/05/22/postcast-live-test/",
-      "source": "Unsafe.sh",
-      "description": "Qualche giorno fa assieme ad Andrea abbiamo provato ad eseguire lo stream di una puntata podcast. S...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "Every Microsoft 365 AI Agent Solves a Different Problem",
-      "url": "https://hackernoon.com/every-microsoft-365-ai-agent-solves-a-different-problem?source=rss",
-      "source": "Unsafe.sh",
-      "description": "New StorybyVishnu WRbyVishnu WR@wrvishnuWR Vishnu Microsoft Solutions Architect  write about what I...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "Is AI Really Delivering the ROI Companies Were Promised?",
-      "url": "https://hackernoon.com/is-ai-really-delivering-the-roi-companies-were-promised?source=rss",
-      "source": "Unsafe.sh",
-      "description": "New StorybyVipin LabroobyVipin Labroo@vlabrooContent Creator & PR Consultant- Contributes to GoDadd...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "6 Open-Source Frameworks Built for High-Load Applications",
-      "url": "https://hackernoon.com/6-open-source-frameworks-built-for-high-load-applications?source=rss",
-      "source": "Unsafe.sh",
-      "description": "New StorybyMax SurkizbyMax Surkiz@surkiz25+ years building tech from code to go-to-market. Founded...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "The Governance Deficit in Autonomous Agents",
-      "url": "https://hackernoon.com/the-governance-deficit-in-autonomous-agents?source=rss",
-      "source": "Unsafe.sh",
-      "description": "New StorybyOla AdesoyebyOla Adesoye@zollJust a dude fascinated by the creation of exciting things i...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "How to Build Production ML Systems That Detect Failure Early",
-      "url": "https://hackernoon.com/how-to-build-production-ml-systems-that-detect-failure-early?source=rss",
-      "source": "Unsafe.sh",
-      "description": "New StorybyChidiebere NjokubyChidiebere Njoku@chidieberenjokuData Scientist at DFE,UK.|(GORS Badged...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "500 Blog Posts To Learn About Ebooks",
-      "url": "https://hackernoon.com/500-blog-posts-to-learn-about-ebooks?source=rss",
+      "title": "155 Blog Posts To Learn About Edtech",
+      "url": "https://hackernoon.com/155-blog-posts-to-learn-about-edtech?source=rss",
       "source": "Unsafe.sh",
       "description": "New StorybyLearn RepobyLearn Repo@learnLets geek out. The HackerNoon library is now ranked by readi...",
-      "date": "2026-05-24",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "SwiftUI Performance Is Not About Views. It Is About Diffing",
-      "url": "https://hackernoon.com/swiftui-performance-is-not-about-views-it-is-about-diffing?source=rss",
+      "title": "Hacking Apple Pay",
+      "url": "http://blog.cesaregallotti.it/2026/05/hacking-apple-pay.html",
       "source": "Unsafe.sh",
-      "description": "New StorybyMaxim EgorovbyMaxim Egorov@elementSenior iOS Engineer with over 12 years of experience d...",
-      "date": "2026-05-24",
+      "description": "Hacking Apple Pay Simone Ceccherini mi ha segnalato un hack ad Apple Pay. Si può leggere l'a...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Giving AI Agents Permanent Memory with MCP and CRDTs",
-      "url": "https://hackernoon.com/giving-ai-agents-permanent-memory-with-mcp-and-crdts?source=rss",
+      "title": "We Moved a 10-Year-Old Monolith to AWS. Here's What Actually Happened.",
+      "url": "https://hackernoon.com/we-moved-a-10-year-old-monolith-to-aws-heres-what-actually-happened?source=rss",
       "source": "Unsafe.sh",
-      "description": "New StorybyDenis ErmakovbyDenis Ermakov@denis1ermakovI'm a software engineer with 15+ years of expe...",
-      "date": "2026-05-24",
+      "description": "New StorybySanjay SinghaniabySanjay Singhania@sanjaysA Technical Project Manager with expertise in...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Good at theory, terrible at practical (HTB/THM \"so-called easy\" boxes). What am I missing?",
-      "url": "https://unsafe.sh/go-418636.html",
+      "title": "AI Won’t Eat Your Job First. It Will Eat Your Software",
+      "url": "https://hackernoon.com/ai-wont-eat-your-job-first-it-will-eat-your-software?source=rss",
       "source": "Unsafe.sh",
-      "description": "Good at theory, terrible at practical (HTB/THM \"so-called easy\" boxes). What am I missing?",
-      "date": "2026-05-24",
+      "description": "New StorybyAlexander VolchekbyAlexander Volchek@alexandervolchekSuccessful 18 years career track in...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Verizon Data breach report 2026",
-      "url": "http://blog.cesaregallotti.it/2026/05/verizon-data-breach-report-2026.html",
+      "title": "Ghost CMS flaw abused to push ClickFix attacks on hundreds of sites",
+      "url": "https://securityaffairs.com/192655/cyber-crime/ghost-cms-flaw-abused-to-push-clickfix-attacks-on-hundreds-of-sites.html",
       "source": "Unsafe.sh",
-      "description": "domenica 24 maggio 2026          Verizon Data breach report 2026 Ecco qui il \"...",
-      "date": "2026-05-24",
+      "description": "Threat actors are actively exploiting a security flaw, tracked as CVE-2026...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Threat Hunting and Defending #1 (study)",
-      "url": "https://roccosicilia.com/2026/05/24/threat-hunting-and-defending-1-study/",
+      "title": "Meet the Writer: Hacker Noon's Contributor Vineet Vijay, Lead AI Engineer",
+      "url": "https://hackernoon.com/meet-the-writer-hacker-noons-contributor-vineet-vijay-lead-ai-engineer?source=rss",
       "source": "Unsafe.sh",
-      "description": "PremessaRicomincio a studiare per una nuova certificazione Cyber Security e quest’anno ho scelt...",
-      "date": "2026-05-24",
+      "description": "New StorybyHackerNoon Writers SpotlightbyHackerNoon Writers Spotlight@writerspotlightHackerNoon's W...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Wireshark 4.6.6 Released, (Sun, May 24th)",
-      "url": "https://isc.sans.edu/diary/rss/33010",
+      "title": "Universitat de València Targeted by Nova Group: 300GB Data Exfiltration Claimed, Initial $500,000 Ransom Demand Revealed",
+      "url": "https://unsafe.sh/go-418845.html",
       "source": "Unsafe.sh",
-      "description": "Published:",
-      "date": "2026-05-24",
+      "description": "Universitat de València Targeted by Nova Group: 300GB Data Exfiltration Claimed, Initial $500,000 Ra...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "[2026]基于大模型的下一代杀毒引擎",
-      "url": "https://key08.com/index.php/2026/05/25/3197.html",
+      "title": "[Project Onyx] Advanced EDR Evasion via AI Telemetry Spoofing & WASM Sandboxing",
+      "url": "https://unsafe.sh/go-418830.html",
       "source": "Unsafe.sh",
-      "description": "[2026]基于大模型的下一代杀毒引擎...",
-      "date": "2026-05-24",
+      "description": "[Project Onyx] Advanced EDR Evasion via AI Telemetry Spoofing & WASM Sandboxing",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "SecWiki News 2026-05-24 Review",
-      "url": "http://www.sec-wiki.com/?2026-05-24",
+      "title": "Anthropic’s restricted Claude Mythos model may be coming to Claude Code",
+      "url": "https://www.bleepingcomputer.com/news/artificial-intelligence/anthropics-restricted-claude-mythos-model-may-be-coming-to-claude-code/",
       "source": "Unsafe.sh",
-      "description": "SecWiki News 2026-05-24 Review",
-      "date": "2026-05-24",
+      "description": "Anthropic appears to be preparing for the public rollout of \"Mythos,\" which was announced in...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "I Traced a Single AI Query Back to Gas Turbines and Wall Street",
-      "url": "https://hackernoon.com/i-traced-a-single-ai-query-back-to-gas-turbines-and-wall-street?source=rss",
+      "title": "340 Million OnlyFans Profiles Allegedly Rebuilt from Leaks",
+      "url": "https://securityaffairs.com/192643/cyber-crime/340-million-onlyfans-profiles-allegedly-rebuilt-from-leaks.html",
       "source": "Unsafe.sh",
-      "description": "New Storybymonicabymonica@monicaAI Industry Analyst , Writing about the intersection of tech & busi...",
-      "date": "2026-05-24",
+      "description": "340 Million OnlyFans Profiles Allegedly Rebuilt from LeaksA hac...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Europe’s Regulatory Push Is Creating New Cybersecurity Product Markets",
-      "url": "https://hackernoon.com/europes-regulatory-push-is-creating-new-cybersecurity-product-markets?source=rss",
+      "title": "How to change MAC adress without rooting on Android",
+      "url": "https://unsafe.sh/go-418821.html",
       "source": "Unsafe.sh",
-      "description": "New StorybyAnamika PrasadbyAnamika Prasad@AnamikaPrasad_m8hssm18May 24th, 2026Translations ENESJAHE...",
-      "date": "2026-05-24",
+      "description": "How to change MAC adress without rooting on Android",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Album#40 - 大城•小事",
-      "url": "https://taxodium.ink/album-40.html",
+      "title": "欧洲执法部门黑进 VPN 服务识别勒索组织用户",
+      "url": "https://www.solidot.org/story?sid=84397",
       "source": "Unsafe.sh",
-      "description": "大城•小事图1  《大城•小事》専輯封面专辑信息专辑名称： 大城•小事歌手： 都市零件派对年份：",
-      "date": "2026-05-24",
+      "description": "欧洲刑警组织披露，他们黑进了被网络犯罪分子使用的 VPN 服务“First VPN”，访问了用户数据库，识别了数千用户身份。First VPN 的网站已经显示被执法部门扣押的信息，它过去曾...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "你删除的谷歌API密钥还在工作:最长可达23分钟",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&amp;mid=2451186820&amp;idx=1&amp;sn=c13aeafe7e2c7dac4c7ecb196d6f2c49",
+      "title": "Cybersecurity films that need to be made",
+      "url": "https://javvadmalik.com/2026/05/25/cybersecurity-films-that-need-to-be-made/",
+      "source": "Unsafe.sh",
+      "description": "blogMay 25, 20263 Minutes...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "Developers Are Entering the Era of Steering and Orchestration",
+      "url": "https://hackernoon.com/developers-are-entering-the-era-of-steering-and-orchestration?source=rss",
+      "source": "Unsafe.sh",
+      "description": "Your browser does not support the audio element.SpeedVoice...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "The HackerNoon Newsletter: Why Your Newborn Already Knows Physics (And Why LLMs Still Cant) (5/25/2026)",
+      "url": "https://hackernoon.com/5-25-2026-newsletter?source=rss",
+      "source": "Unsafe.sh",
+      "description": "New StorybyHackerNoon NewsletterbyHackerNoon Newsletter@hackernoonnewsletterGet Hacker Noon's top h...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "AI Coding Tools Are Creating Systems Nobody Fully Understands",
+      "url": "https://hackernoon.com/ai-coding-tools-are-creating-systems-nobody-fully-understands?source=rss",
+      "source": "Unsafe.sh",
+      "description": "New StorybyDavid Iyanuoluwa JonathanbyDavid Iyanuoluwa Jonathan@davidiyanuTechnical Content Writer...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "SecWiki News 2026-05-25 Review",
+      "url": "http://www.sec-wiki.com/?2026-05-25",
+      "source": "Unsafe.sh",
+      "description": "SecWiki News 2026-05-25 Review",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "The Stock Market Is Going Crazy… and Claude Is Pulling the Strings While Sipping Tea",
+      "url": "https://hackernoon.com/the-stock-market-is-going-crazy-and-claude-is-pulling-the-strings-while-sipping-tea?source=rss",
+      "source": "Unsafe.sh",
+      "description": "New StorybyMaria PiterbergbyMaria Piterberg@maria-piterbergSW AI Team Lead at Habana Labs (Intel) s...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "警惕Underminr新型网络规避技术：CDN共享边缘的隐形漏洞",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&amp;mid=2451186831&amp;idx=1&amp;sn=7a0ed378ca1323a830b4cfb7f28b7ae5",
       "source": "Unsafe.sh",
       "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
-      "date": "2026-05-24",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "OpenCyvis 2.0：不用刷机也能用的开源 AI 手机",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3ODI4NDM2MA==&amp;mid=2247484189&amp;idx=1&amp;sn=aa15fce77547860b0674c4e7729846f9",
+      "title": "The Mathematics Of Systematic Capital Expropriation",
+      "url": "https://hackernoon.com/the-mathematics-of-systematic-capital-expropriation?source=rss",
       "source": "Unsafe.sh",
-      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
-      "date": "2026-05-24",
+      "description": "New StorybyNadav GoverbyNadav Gover@nadavgoverCross border investment expert and capital architect...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Navigating Claude Code: MCP Servers Worth Adding",
-      "url": "https://hackernoon.com/navigating-claude-code-mcp-servers-worth-adding?source=rss",
+      "title": "Tracing CVE-2021-21735 through ZTE H168N QuickSetup whitelist and Lua wizard routing",
+      "url": "https://unsafe.sh/go-418827.html",
       "source": "Unsafe.sh",
-      "description": "New StorybyOleg EfimovbyOleg Efimov@efimovov_5guqm5Principal Platform Engineer with over 15 years o...",
-      "date": "2026-05-24",
+      "description": "Tracing CVE-2021-21735 through ZTE H168N QuickSetup whitelist and Lua wizard routing",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Ghost CMS SQL injection flaw exploited in large-scale ClickFix campaign",
-      "url": "https://www.bleepingcomputer.com/news/security/ghost-cms-sql-injection-flaw-exploited-in-large-scale-clickfix-campaign/",
+      "title": "This 2-Step LLM Gate Pattern Makes RAG Systems Faster and Cheaper",
+      "url": "https://hackernoon.com/this-2-step-llm-gate-pattern-makes-rag-systems-faster-and-cheaper?source=rss",
       "source": "Unsafe.sh",
-      "description": "A large-scale campaign is exploiting a critical SQL injection vulnerability (CVE-2026-26980)...",
-      "date": "2026-05-24",
+      "description": "New StorybyMehmet Ozgur GencbyMehmet Ozgur Genc@free-young20+ years experienced solution architect...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "362 Blog Posts To Learn About Digital Transformation",
-      "url": "https://hackernoon.com/362-blog-posts-to-learn-about-digital-transformation?source=rss",
+      "title": "How credential brokering prevents AI agents from compromising credentials via prompt injection",
+      "url": "https://unsafe.sh/go-418824.html",
       "source": "Unsafe.sh",
-      "description": "New StorybyLearn RepobyLearn Repo@learnLets geek out. The HackerNoon library is now ranked by readi...",
-      "date": "2026-05-24",
+      "description": "How credential brokering prevents AI agents from compromising credentials via prompt injection",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "The TechBeat: Why UK Retail Real Estate Investors Are Turning to Geomarketing 3.0 (5/24/2026)",
-      "url": "https://hackernoon.com/5-24-2026-techbeat?source=rss",
+      "title": "Meet Prnews.io: HackerNoon Company of the Week",
+      "url": "https://hackernoon.com/meet-prnewsio-hackernoon-company-of-the-week?source=rss",
+      "source": "Unsafe.sh",
+      "description": "New StorybyCompany of the WeekbyCompany of the Week@companyoftheweekWe feature the top tech brands...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "High-Value If, Low-Value Foreach and the Engineering Logic Behind Reliable AI Agents",
+      "url": "https://hackernoon.com/high-value-if-low-value-foreach-and-the-engineering-logic-behind-reliable-ai-agents?source=rss",
+      "source": "Unsafe.sh",
+      "description": "New Storybysuhuibysuhui@suhuiSuhui is CEO of New Technology Services Limited and founder of noussav...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "Dal cookie ai tracking pixel: i rischi regolatori per le imprese",
+      "url": "https://www.cybersecurity360.it/legal/privacy-dati-personali/dal-cookie-ai-tracking-pixel-i-rischi-regolatori-per-le-imprese/",
+      "source": "Unsafe.sh",
+      "description": "Il modello costruito dal Garante Privacy con le Linee Guida sui cookie nel 2021 per “salvare” gli an...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "DBIR 2026, il ritorno ai fondamentali nella cyber: le 5 azioni strutturali da mettere in campo",
+      "url": "https://www.cybersecurity360.it/news/dbir-2026-il-ritorno-ai-fondamentali-nella-cyber-le-5-azioni-strutturali-da-mettere-in-campo/",
+      "source": "Unsafe.sh",
+      "description": "I tuoi contenuti, la tua privacy!Su questo sito utilizziamo cookie tecnici necessari alla naviga...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "The Proxy Metric Engineers Get Wrong Every Time",
+      "url": "https://hackernoon.com/the-proxy-metric-engineers-get-wrong-every-time?source=rss",
+      "source": "Unsafe.sh",
+      "description": "New StorybyWeb Intelligence HubbyWeb Intelligence Hub@webintelligencehubAward winning proxy network...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "CVE-2021-21735: ZTE H168N wizard whitelist exposed PPPoE and WLAN secrets pre-auth",
+      "url": "https://unsafe.sh/go-418825.html",
+      "source": "Unsafe.sh",
+      "description": "CVE-2021-21735: ZTE H168N wizard whitelist exposed PPPoE and WLAN secrets pre-auth",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "一款开源App为国行机补上快速分享功能",
+      "url": "https://blog.upx8.com/%E4%B8%80%E6%AC%BE%E5%BC%80%E6%BA%90App%E4%B8%BA%E5%9B%BD%E8%A1%8C%E6%9C%BA%E8%A1%A5%E4%B8%8A%E5%BF%AB%E9%80%9F%E5%88%86%E4%BA%AB%E5%8A%9F%E8%83%BD",
+      "source": "Unsafe.sh",
+      "description": "一款开源App为国行机补上快速分享功能绝大多数安卓手机都预装谷歌Play服务，而该服务内置了快速分享。这项功能可让您使用快速分享应用轻松地与附近的 Android 设备、Chromebook、iPho...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "Rotta sul Canada: strategia VPN tra tunnel a 10 Gbps e la trappola dei 5 Eyes",
+      "url": "https://www.cybersecurity360.it/cultura-cyber/vpn-canada-le-migliori/",
+      "source": "Unsafe.sh",
+      "description": "Per le imprese e i professionisti che gestiscono flussi informativi transoceanici, l’allocazione geo...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "Microsoft Access VBA, (Mon, May 25th)",
+      "url": "https://isc.sans.edu/diary/rss/33012",
+      "source": "Unsafe.sh",
+      "description": "Microsoft Access files (Microsoft Office's Database) can contain VBA code.But they are not ole or...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "The TechBeat: OpenToonz Does What Adobe Animate Can't: Power a Studio Ghibli Film (5/25/2026)",
+      "url": "https://hackernoon.com/5-25-2026-techbeat?source=rss",
       "source": "Unsafe.sh",
       "description": "New StorybyTechBeatbyTechBeat@techbeatHackerNoon’s rank of trending tech stories based on pageviews...",
-      "date": "2026-05-24",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Qwen3.6-35B-A3B 越狱版版“无审查”开源模型（最低6G显存）",
-      "url": "https://blog.upx8.com/Qwen3-6-35B-A3B-6G",
-      "source": "Unsafe.sh",
-      "description": "最近 AI 圈，真的越来越离谱了。如果你一直关注本地大模型，应该已经发现：现在的开源模型，不仅越来越聪明，甚至已经开始挑战很多闭源商业 AI。而今天要介绍的这个模型，...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "Come Avviene La Censura Di USDT e USDC? Freezing e Blacklist",
-      "url": "http://darkwhite666.blogspot.com/2026/05/come-avviene-la-censura-di-usdt-e-usdc.html",
-      "source": "Unsafe.sh",
-      "description": "Le stablecoin grazie al Genius Act stanno acquisendo sempre più popolarità. Ci sono infiniti tipi d...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "声优津田健次郎起诉要求TikTok删除AI模仿自己声音的视频",
-      "url": "https://blog.upx8.com/%E5%A3%B0%E4%BC%98%E6%B4%A5%E7%94%B0%E5%81%A5%E6%AC%A1%E9%83%8E%E8%B5%B7%E8%AF%89%E8%A6%81%E6%B1%82TikTok%E5%88%A0%E9%99%A4AI%E6%A8%A1%E4%BB%BF%E8%87%AA%E5%B7%B1%E5%A3%B0%E9%9F%B3%E7%9A%84%E8%A7%86%E9%A2%91",
-      "source": "Unsafe.sh",
-      "description": "日本人气声优津田健次郎已向东京地方法院提起诉讼，以有人利用生成式AI擅自模仿其声音制作视频并公开为由，要求短视频应用TikTok运营方删除相关视频。津田的代理律师接受采访时透露了此事。津田“富有磁性的...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "SECURITY AFFAIRS MALWARE NEWSLETTER ROUND 98",
-      "url": "https://securityaffairs.com/192598/malware/security-affairs-malware-newsletter-round-98.html",
-      "source": "Unsafe.sh",
-      "description": "We use cookies on our website to give you the most relevant experience by remembering your preferenc...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "How to Upgrade Across Major Versions via API Automation",
-      "url": "https://hackernoon.com/how-to-upgrade-across-major-versions-via-api-automation?source=rss",
-      "source": "Unsafe.sh",
-      "description": "New StorybyZhou JieguangbyZhou Jieguang@zhoujieguangApache DolphinScheduler CommitterMay 24th, 2026...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "Security Affairs newsletter Round 578 by Pierluigi Paganini – INTERNATIONAL EDITION",
-      "url": "https://securityaffairs.com/192586/hacking/security-affairs-newsletter-round-578-by-pierluigi-paganini-international-edition.html",
-      "source": "Unsafe.sh",
-      "description": "We use cookies on our website to give you the most relevant experience by remembering your preferenc...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "智能体沙箱Allox即将开源：让大模型从“问题回答”走向“任务执行”",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4NDU4OTM4OQ==&amp;mid=2247516307&amp;idx=1&amp;sn=771333ea5fc5b832a0cc0e9e74976497",
-      "source": "Unsafe.sh",
-      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "2026 年美加墨世界杯赛程、比分日历分享：支持苹果、安卓、Outlook 日历订阅",
-      "url": "https://www.appinn.com/2026-fifa-world-cup-calendar/",
-      "source": "Unsafe.sh",
-      "description": "2026 年美加墨世界杯赛程、比分日历分享：支持苹果、安卓、Outlook 日历订阅",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "We Are Living In the Most Interesting Time",
-      "url": "https://unsafe.sh/go-418582.html",
-      "source": "Unsafe.sh",
-      "description": "We Are Living In the Most Interesting Time",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "报告认为个人要为老年健康状况承担至少八成责任",
-      "url": "https://www.solidot.org/story?sid=84382",
-      "source": "Unsafe.sh",
-      "description": "牛津长寿项目发表报告《Living Longer, Better》，认为个人至少要为老年时期的健康状况承担八成责任。报告指出，个人对自身寿命的掌控远超普遍认知。报告的结论是基于多项研究，这...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "How to Use Claude AI: A Complete Technical Beginner's Guide",
-      "url": "https://unsafe.sh/go-418583.html",
-      "source": "Unsafe.sh",
-      "description": "How to Use Claude AI: A Complete Technical Beginner's Guide",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "【安全圈】“DeepSeek崩了”再次登微博热搜",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;mid=2652076842&amp;idx=1&amp;sn=dab51b8b1b34d75999f4b8b8c85059ce",
-      "source": "Unsafe.sh",
-      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "【安全圈】某高校系统服务器遭木马入侵，警方调查后予以行政处罚",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;mid=2652076842&amp;idx=2&amp;sn=a98d5f104487d4f6ea77e07c49c25eff",
-      "source": "Unsafe.sh",
-      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "【安全圈】富士康遭黑客入侵！致苹果30余份机密文件外泄",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;mid=2652076842&amp;idx=3&amp;sn=e8b0c3a9ba5d24d03e786ead828083ef",
-      "source": "Unsafe.sh",
-      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "G.O.S.S.I.P 2026年5月投稿指南 Love and Peach",
-      "url": "https://mp.weixin.qq.com/s?__biz=Mzg5ODUxMzg0Ng==&amp;mid=2247501704&amp;idx=1&amp;sn=5b4447468e780a6baa2c226784e14c5f",
-      "source": "Unsafe.sh",
-      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "GitHub - iss4cf0ng/OpenPetya: A Proof-of-Concept bootkit inspired by Petya ransomware, written in Assembly, C, and C++",
-      "url": "https://unsafe.sh/go-418574.html",
-      "source": "Unsafe.sh",
-      "description": "GitHub - iss4cf0ng/OpenPetya: A Proof-of-Concept bootkit inspired by Petya ransomware, written in As...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "Inquiry about the eligibility of a startup technology project to apply — TID Project",
-      "url": "https://unsafe.sh/go-418572.html",
-      "source": "Unsafe.sh",
-      "description": "Inquiry about the eligibility of a startup technology project to apply — TID Project",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "虎牙旗下apkpure应用商店正在分发恶意软件",
-      "url": "https://blog.upx8.com/%E8%99%8E%E7%89%99%E6%97%97%E4%B8%8Bapkpure%E5%BA%94%E7%94%A8%E5%95%86%E5%BA%97%E6%AD%A3%E5%9C%A8%E5%88%86%E5%8F%91%E6%81%B6%E6%84%8F%E8%BD%AF%E4%BB%B6",
-      "source": "Unsafe.sh",
-      "description": "近日有多名开发者发现，虎牙旗下的知名第三方应用商店 APKPure 在分发 Telegram 相关应用时存在严重安全问题，强烈建议用户立即停止使用该平台下载任何 APK。开发者南宫雪珊表示在其频道发文...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "Spring Against the Machine",
-      "url": "https://hackernoon.com/spring-against-the-machine?source=rss",
-      "source": "Unsafe.sh",
-      "description": "New StorybyAstounding StoriesbyAstounding Stories@astoundingstoriesDare to dream. Dare to go where...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "Anthropic’s Project Glasswing: 10,000+ Vulnerabilities Found in One Month, and the Patching Problem Has Never Been More Obvious",
-      "url": "https://securityaffairs.com/192576/ai/anthropics-glasswing-10000-vulnerabilities-found-in-one-month-and-the-patching-problem-has-never-been-more-obvious.html",
-      "source": "Unsafe.sh",
-      "description": "Anthropic’s Project Glasswing: 10,000+ Vulnerabilities Found in One Month, and the Pa...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "外资正纷纷撤出中国数据中心市场",
-      "url": "https://blog.upx8.com/%E5%A4%96%E8%B5%84%E6%AD%A3%E7%BA%B7%E7%BA%B7%E6%92%A4%E5%87%BA%E4%B8%AD%E5%9B%BD%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%B8%82%E5%9C%BA",
-      "source": "Unsafe.sh",
-      "description": "多年来，外国私募股权投资公司投入了数十亿美元押注中国的云计算繁荣，如今它们正纷纷退出中国数据中心行业进行套现。随着政治和监管压力加大，境外资本持有数字基础设施的难度正不断上升。华平投资所投资的Prin...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "Has anyone manage to reverse the macked dylib?",
-      "url": "https://unsafe.sh/go-418561.html",
-      "source": "Unsafe.sh",
-      "description": "Has anyone manage to reverse the macked dylib?",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "U.S. CISA adds a flaw in Drupal Core to its Known Exploited Vulnerabilities catalog",
-      "url": "https://securityaffairs.com/192566/uncategorized/u-s-cisa-adds-a-flaw-in-drupal-core-to-its-known-exploited-vulnerabilities-catalog.html",
-      "source": "Unsafe.sh",
-      "description": "U.S. CISA adds a flaw in Drupal Core to its Known Exploited Vulnerabilities catalog...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "Beneath the Tuscan Sky",
-      "url": "https://hackernoon.com/beneath-the-tuscan-sky?source=rss",
-      "source": "Unsafe.sh",
-      "description": "New StorybyAstounding StoriesbyAstounding Stories@astoundingstoriesDare to dream. Dare to go where...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "韩总统府：将立即要求中国地图软件删除韩敏感设施信息",
-      "url": "https://blog.upx8.com/%E9%9F%A9%E6%80%BB%E7%BB%9F%E5%BA%9C-%E5%B0%86%E7%AB%8B%E5%8D%B3%E8%A6%81%E6%B1%82%E4%B8%AD%E5%9B%BD%E5%9C%B0%E5%9B%BE%E8%BD%AF%E4%BB%B6%E5%88%A0%E9%99%A4%E9%9F%A9%E6%95%8F%E6%84%9F%E8%AE%BE%E6%96%BD%E4%BF%A1%E6%81%AF",
-      "source": "Unsafe.sh",
-      "description": "韩国总统府青瓦台22日就有关部分中国地图软件显示韩国主要敏感设施位置的报道表示，国土交通部计划立即通过韩国境内合作方，要求相关地图应用删除韩国敏感设施名称等信息。韩国一家媒体当天报道称，在中国当地广泛...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "capcap：一键搞定截图、标注与图床，免费、开源的 macOS 截图工具",
-      "url": "https://sspai.com/post/109741",
-      "source": "Unsafe.sh",
-      "description": "Matrix 首页推荐Matrix 是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选 Matrix 最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "加密货币公司严阵以待，应对量子计算机威胁",
-      "url": "https://blog.upx8.com/%E5%8A%A0%E5%AF%86%E8%B4%A7%E5%B8%81%E5%85%AC%E5%8F%B8%E4%B8%A5%E9%98%B5%E4%BB%A5%E5%BE%85-%E5%BA%94%E5%AF%B9%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A8%81%E8%83%81",
-      "source": "Unsafe.sh",
-      "description": "比特币曾被普遍认为是无法被黑客攻破的。但随着科技公司将研发实用量子计算机的时间表大幅提前至最早2030年，数字资产公司也在加快为“后量子”时代做准备。这一威胁已经从理论层面变成了真实可信的风险。谷歌研...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "特朗普政府要求绿卡申请者离开美国申请",
-      "url": "https://www.solidot.org/story?sid=84381",
-      "source": "Unsafe.sh",
-      "description": "在非法移民之后，特朗普政府开始将目标瞄准合法移民。美国移民局宣布，绿卡申请者必须离开美国才能申请。但要离开美国申请者需要中断学业或工作，可能会被拒绝入境，事实上变成了某种自我遣返。目前不清...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "7-Eleven - 185,256 breached accounts",
-      "url": "https://haveibeenpwned.com/Breach/7-Eleven",
-      "source": "Unsafe.sh",
-      "description": "What Happened              In April 2026, 7-Eleven was the victim of a \"pay or leak\"...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "SpaceX的AI前景遭质疑，400个美国政府项目只有3个涉及Grok",
-      "url": "https://blog.upx8.com/SpaceX%E7%9A%84AI%E5%89%8D%E6%99%AF%E9%81%AD%E8%B4%A8%E7%96%91-400%E4%B8%AA%E7%BE%8E%E5%9B%BD%E6%94%BF%E5%BA%9C%E9%A1%B9%E7%9B%AE%E5%8F%AA%E6%9C%893%E4%B8%AA%E6%B6%89%E5%8F%8AGrok",
-      "source": "Unsafe.sh",
-      "description": "SpaceX的AI前景遭质疑，400个美国政府项目只有3个涉及Grok文件显示，SpaceX的人工智能业务Grok在美国政府的采用率偏低，政府采购案例中仅3个涉及xAI或Grok，而OpenAI等公司...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "活宝团队试验「让 AI 当老板」，结果「做什么赔什么」，底裤都不剩",
-      "url": "https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;mid=2653107089&amp;idx=1&amp;sn=2632430db662abd17668727eaf39c17c",
-      "source": "Unsafe.sh",
-      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "Codex已经完成额度重置 恭喜昨天已经将额度消耗到100%的用户",
-      "url": "https://www.landian.news/archives/113055.html",
-      "source": "Unsafe.sh",
-      "description": "Codex已经完成额度重置 恭喜昨天已经将额度消耗到100%的用户",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "微软旗下职场社交平台LinkedIn宣布打击AI生成的内容 检测到后将屏蔽推荐",
-      "url": "https://www.landian.news/archives/113054.html",
-      "source": "Unsafe.sh",
-      "description": "微软旗下职场社交平台LinkedIn宣布打击AI生成的内容 检测到后将屏蔽推荐",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "访谈资讯｜张谧教授就“AI智能体浪潮下的安全护栏治理”话题答南都记者问",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4NzUxOTI0OQ==&amp;mid=2247498592&amp;idx=1&amp;sn=d49ce409c6d145253360539bf3b8b05c",
-      "source": "Unsafe.sh",
-      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "Best ip puller?",
-      "url": "https://unsafe.sh/go-418553.html",
-      "source": "Unsafe.sh",
-      "description": "Best ip puller?",
-      "date": "2026-05-24",
-      "category": "news"
-    },
-    {
-      "title": "500 Blog Posts To Learn About Digital Marketing",
-      "url": "https://hackernoon.com/500-blog-posts-to-learn-about-digital-marketing?source=rss",
+      "title": "282 Blog Posts To Learn About Economics",
+      "url": "https://hackernoon.com/282-blog-posts-to-learn-about-economics?source=rss",
       "source": "Unsafe.sh",
       "description": "New StorybyLearn RepobyLearn Repo@learnLets geek out. The HackerNoon library is now ranked by readi...",
-      "date": "2026-05-24",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Weekly Update 505",
-      "url": "https://www.troyhunt.com/weekly-update-505/",
+      "title": "AI Already Controls More of Your Financial Life Than You Realize",
+      "url": "https://hackernoon.com/ai-already-controls-more-of-your-financial-life-than-you-realize?source=rss",
       "source": "Unsafe.sh",
-      "description": "Well, that didn't last long! Recording this on Saturday morning my ti...",
-      "date": "2026-05-24",
+      "description": "New StorybyEmmanuela OpurumbyEmmanuela Opurum@cloudsavantDevOps & Cloud Solutions Architect skilled...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "The Last Renaissance Man",
-      "url": "https://jonlu.ca/posts/the-last-renaissance-man",
+      "title": "华为正式发表半导体领域新定律 晶体管密度与系统性能逻辑折叠技术",
+      "url": "https://blog.upx8.com/%E5%8D%8E%E4%B8%BA%E6%AD%A3%E5%BC%8F%E5%8F%91%E8%A1%A8%E5%8D%8A%E5%AF%BC%E4%BD%93%E9%A2%86%E5%9F%9F%E6%96%B0%E5%AE%9A%E5%BE%8B-%E6%99%B6%E4%BD%93%E7%AE%A1%E5%AF%86%E5%BA%A6%E4%B8%8E%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E9%80%BB%E8%BE%91%E6%8A%98%E5%8F%A0%E6%8A%80%E6%9C%AF",
       "source": "Unsafe.sh",
-      "description": "May 23, 2026  AI models may bring back the ability to combine deep expertise from every field tow...",
-      "date": "2026-05-24",
+      "description": "2026国际电路与系统研讨会25日在上海举行，华为公司董事、半导体业务部总裁何庭波在演讲中，正式发表“韬（τ）定律”。这是中国在全球半导体领域首次提出指导产业发展的新原则。基于该定律，华为过去六年已成...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "The Last Renaissance Man",
-      "url": "https://blog.jonlu.ca/posts/the-last-renaissance-man",
+      "title": "Netherlands Seizes 800 Servers, Arrests 2 for Aiding Cyberattacks",
+      "url": "https://krebsonsecurity.com/2026/05/netherlands-seizes-800-servers-arrests-2-for-aiding-cyberattacks/",
       "source": "Unsafe.sh",
-      "description": "May 24, 2026AI models may bring back the ability to combine deep expertise from every field toward a...",
-      "date": "2026-05-24",
+      "description": "Authorities in the Netherlands have arrested the co-owners of two related Internet host...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Reverse engineering circuitry in a Spacelab computer from 1980",
-      "url": "https://unsafe.sh/go-418539.html",
+      "title": "TeamPCP Supply Chain Campaign: Activity Through 2026-05-24, (Mon, May 25th)",
+      "url": "https://isc.sans.edu/diary/rss/33016",
       "source": "Unsafe.sh",
-      "description": "Reverse engineering circuitry in a Spacelab computer from 1980",
-      "date": "2026-05-24",
+      "description": "TeamPCP now operates across three package ecosystems in parallel, it reached GitHub's own internal...",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "传 Anthropic 新估值反超 OpenAI；iPhone 18 Pro 配色曝光，橙色没了；中国将实施太空人体研究计划 | 极客早知道",
-      "url": "https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;mid=2653107102&amp;idx=1&amp;sn=996e044d753ba2444b6c8c58f9fe8526",
+      "title": "TeamPCP Supply Chain Campaign: Activity Through 2026-05-24, (Mon, May 25th)",
+      "url": "https://isc.sans.edu/diary/rss/33014",
+      "source": "Unsafe.sh",
+      "description": "TeamPCP now operates across three package ecosystems in parallel, it reached GitHub's own internal...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "FBI warns of Kali365 phishing service targeting Microsoft 365 accounts",
+      "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-of-kali365-phishing-service-targeting-microsoft-365-accounts/",
+      "source": "Unsafe.sh",
+      "description": "The FBI is warning about the Kali365 phishing-as-a-service platform (PhaaS) that is used to...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "HBM 成本占到了 AI 芯片组件成本的三分之二",
+      "url": "https://www.solidot.org/story?sid=84396",
+      "source": "Unsafe.sh",
+      "description": "对英伟达、AMD、Google 和亚马逊四家公司的 AI 芯片的分析显示，HBM 内存芯片成本占到了 AI 芯片组件成本的三分之二（63%），逻辑芯片占 13%，先进封装占 15%，辅助组...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "I Show How the Survival Mode of the Flash Game Gun Mayhem 2 More Mayhem is Built",
+      "url": "https://unsafe.sh/go-418829.html",
+      "source": "Unsafe.sh",
+      "description": "I Show How the Survival Mode of the Flash Game Gun Mayhem 2 More Mayhem is Built",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "惠普调查 BIOS 更新导致笔记本故障问题",
+      "url": "https://www.solidot.org/story?sid=84395",
+      "source": "Unsafe.sh",
+      "description": "过去几个月惠普笔记本电脑用户通过论坛等报告在更新 BIOS 之后设备出现了问题，包括设备无法启动、风扇噪音异常以及蓝屏死机等等。一名移动工作站 ZBook Ultra G1a 的用户称更新...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "天赋操作系统 v1.0",
+      "url": "https://mp.weixin.qq.com/s?__biz=MjM5NDQ5NjM5NQ==&amp;mid=2651626479&amp;idx=1&amp;sn=8c5cb0c8811a793ce9a9c5db42221792",
       "source": "Unsafe.sh",
       "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
-      "date": "2026-05-24",
+      "date": "2026-05-25",
       "category": "news"
     },
     {
-      "title": "Building Pi With Pi",
-      "url": "https://lucumr.pocoo.org/2026/5/24/pi-oss/",
+      "title": "俄罗斯推迟对移动 VPN 用户收费的计划",
+      "url": "https://www.solidot.org/story?sid=84394",
       "source": "Unsafe.sh",
-      "description": "written on May 24, 2026    Pi is now part of Earendil, but in the important se...",
-      "date": "2026-05-24",
+      "description": "俄罗斯政府已推迟对使 VPN 的移动互联网用户收费的计划。俄罗斯数字发展部在三月表示将打击 VPN 的使用。它最初要求移动网络运营商从 5 月 1 日起对每月国际数据流量超 15GB 的用...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "Influence360 Launches: AI-Driven Web3 KOL Platform with Global Reach & Real Attribution",
+      "url": "https://hackernoon.com/influence360-launches-ai-driven-web3-kol-platform-with-global-reach-and-real-attribution?source=rss",
+      "source": "Unsafe.sh",
+      "description": "Influence360 Launches: AI-Driven Web3 KOL Platform with Global Reach & Real Attribution",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "微软按下 vibe coding 暂停键：烧 token 已经比员工贵了",
+      "url": "https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;mid=2653107181&amp;idx=1&amp;sn=58fc8abc6447f864db5b2675f085910b",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "政治情绪和普通情绪不同",
+      "url": "https://www.solidot.org/story?sid=84393",
+      "source": "Unsafe.sh",
+      "description": "根据 PNAS 期刊上的一项研究，政治情绪的生理反应和日常经历的普通情绪不同。研究人员邀请近 1000 名美国参与者使用名为 emBODY 的身体映射工具，绘制出感受到的普通情绪和政治情绪...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "Threat Intel: ShinyHunters Leaks 9.4GB Database of 7-Eleven Franchisee Systems Post-Extortion Refusal",
+      "url": "https://unsafe.sh/go-418823.html",
+      "source": "Unsafe.sh",
+      "description": "Threat Intel: ShinyHunters Leaks 9.4GB Database of 7-Eleven Franchisee Systems Post-Extortion Refusa...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "教皇称AI应被解除武装以避免统治人类",
+      "url": "https://blog.upx8.com/%E6%95%99%E7%9A%87%E7%A7%B0AI%E5%BA%94%E8%A2%AB%E8%A7%A3%E9%99%A4%E6%AD%A6%E8%A3%85%E4%BB%A5%E9%81%BF%E5%85%8D%E7%BB%9F%E6%B2%BB%E4%BA%BA%E7%B1%BB",
+      "source": "Unsafe.sh",
+      "description": "教皇称AI应被解除武装以避免统治人类教皇利奥十四世表示AI应被 “解除武装” 以保护人类免受其危险。在对天主教会的具有里程碑意义的讲话中，该讲话包含了一个带有工业革命、二战和柏林墙倒塌图像的视频演示，...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "Nordpass business: 14 giorni di prova gratis e senza carta di credito per gestire in sicurezza le password aziendali",
+      "url": "https://www.cybersecurity360.it/cultura-cyber/nordpass-gratis/",
+      "source": "Unsafe.sh",
+      "description": "Il tempo delle policy flessibili e delle password annotate sui post-it è ufficialmente scaduto.Con l...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "Bce, allarme sui cyberattacchi AI alle banche: il nodo è il tempo di patch",
+      "url": "https://www.cybersecurity360.it/cybersecurity-nazionale/bce-allarme-sui-cyberattacchi-ai-alle-banche-il-nodo-e-il-tempo-di-patch/",
+      "source": "Unsafe.sh",
+      "description": "La Banca centrale europea (BCE) vuole capire se le banche dell’area euro siano davvero pronte al sal...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "What are cool stuff that I can do with old TATA sky Setup box...??",
+      "url": "https://unsafe.sh/go-418820.html",
+      "source": "Unsafe.sh",
+      "description": "What are cool stuff that I can do with old TATA sky Setup box...??",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "delimiter-less string obfuscation powered by compile-time AES",
+      "url": "https://unsafe.sh/go-418828.html",
+      "source": "Unsafe.sh",
+      "description": "delimiter-less string obfuscation powered by compile-time AES",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "↩️ 逾 5500 个 GitHub 仓库在一场供应链攻击中遭感染，攻击规模和损失评估",
+      "url": "https://blog.upx8.com/%E9%80%BE-5500-%E4%B8%AA-GitHub-%E4%BB%93%E5%BA%93%E5%9C%A8%E4%B8%80%E5%9C%BA%E4%BE%9B%E5%BA%94%E9%93%BE%E6%94%BB%E5%87%BB%E4%B8%AD%E9%81%AD%E6%84%9F%E6%9F%93-%E6%94%BB%E5%87%BB%E8%A7%84%E6%A8%A1%E5%92%8C%E6%8D%9F%E5%A4%B1%E8%AF%84%E4%BC%B0",
+      "source": "Unsafe.sh",
+      "description": "逾 5500 个 GitHub 仓库在一场供应链攻击中遭感染，攻击规模和损失评估安全研究人员警告称，在一次依赖自动化提交（automated commits）的供应链...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "【安全圈】985博士为间谍偷拍涉密资料，被判15年",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;mid=2652076871&amp;idx=1&amp;sn=174533ee2e8168689c6a17ed4456f79b",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "【安全圈】上海网警今年破获抢单外挂、私改计价器案15起，73人落网",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;mid=2652076871&amp;idx=2&amp;sn=2513fe61bd37bf8a502c574b783c6f7e",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "【安全圈】已修复：微软 Win11 内核曝 7.8 高危漏洞",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;mid=2652076871&amp;idx=3&amp;sn=8b7e1ab3adc698e9b50411d949be259c",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "使用vLLM + Qwen3.5部署内网AI笔记",
+      "url": "https://itlanyan.com/vllm-qwen3-5-installation-tutorial/",
+      "source": "Unsafe.sh",
+      "description": "由于工作需要，近期使用vLLM + Qwen3.5完成了内网AI的部署，本文为部署笔记。本教程的运行硬件为NVIDIA A100/V100 GPU，操作系统为Ubuntu 22.04 LTS版本。和O...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "Zero-Click WhatsApp Account Takeover Hits iPhone Users Running iOS 16. No Linked Devices, No Warning",
+      "url": "https://securityaffairs.com/192627/security/zero-click-whatsapp-account-takeover-hits-iphone-users-running-ios-16-no-linked-devices-no-warning.html",
+      "source": "Unsafe.sh",
+      "description": "Zero-Click WhatsApp Account Takeover Hits iPhone Users Running iOS 16. No Linked Devi...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "科学家推翻空气动力学的基础原则",
+      "url": "https://www.solidot.org/story?sid=84392",
+      "source": "Unsafe.sh",
+      "description": "几十年来，降低空气阻力的一大原则是表面必须光滑。日本东北大学研究团队率先证明，仅仅应用分布式微粗糙度（distributed micro-roughness 或 DMR），就能将空气阻力降...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "阿里云的「Agentic 时刻」",
+      "url": "https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;mid=2653107169&amp;idx=1&amp;sn=a7e0318af6595eac37a62a53cca0e046",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "国内上市公司近2000万条用户数据疑似泄露",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI4NDY2MDMwMw==&amp;mid=2247515993&amp;idx=1&amp;sn=5c57a6f70af23c6e836f681a234c6739",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "兼顾创新与安全：美国人工智能行政命令草案提出建立前沿AI安全部署框架",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI4NDY2MDMwMw==&amp;mid=2247515993&amp;idx=2&amp;sn=552eaf396352b45e6cb3bd17898d41d6",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "【漏洞通告】Drupal Core SQL注入漏洞(CVE-2026-9082)",
+      "url": "https://mp.weixin.qq.com/s?__biz=Mzg2NjgzNjA5NQ==&amp;mid=2247525807&amp;idx=1&amp;sn=d2d585508a04051bd1604794e648dd71",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "【漏洞通告】cPanel-WHM 任意文件读取漏洞(CVE-2026-29205)",
+      "url": "https://mp.weixin.qq.com/s?__biz=Mzg2NjgzNjA5NQ==&amp;mid=2247525807&amp;idx=2&amp;sn=d883b4663246394babb72bb364b34d39",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "派评 | 近期值得关注的 App",
+      "url": "https://sspai.com/post/110156",
+      "source": "Unsafe.sh",
+      "description": "欢迎收看本期《派评》。你可以通过文章目录快速跳转到你感兴趣的内容。如果发现了其它感兴趣的 App 或者关注的话题，也欢迎在评论区和我们讨论。VWFNDR™ + MBL：Android 独占特色交互相机...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "AI安全案例分析：Prompts Become Shells —— 从提示词注入到AI Agent远程代码执行（RCE）（文末附邀请码）",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzkyMTI0NjA3OA==&amp;mid=2247495083&amp;idx=1&amp;sn=f13abeb4a11eb21249dc9e6e46d7e6e7",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "硬啃反封号 dylib：OLLVM CFF/MBA 混淆拆解与167 Hook 深度分析",
+      "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458615455&amp;idx=1&amp;sn=86932f09204eb52a339f06b4e66678e9",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "7.6 万美金叫卖 3.4 亿条数据，OnlyFans 的 “泄露” 竟是一场骗局？",
+      "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458615455&amp;idx=2&amp;sn=84e660c57959d2401093c1e570f92510",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "真机解锁难、调试受限？CVD 云手机定制及风控对抗全解",
+      "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458615455&amp;idx=3&amp;sn=5c863f190cdf7061107437eba3fb6f65",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "论坛·数据安全治理 | AI智能体的数据安全风险与合规监管研究",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;mid=2664262951&amp;idx=1&amp;sn=41b3e25293f7d86d817f4241a44ae7b3",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "公告 | 公安部就《公安机关电子数据取证规则（征求意见稿）》公开征求意见",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;mid=2664262951&amp;idx=2&amp;sn=ab0dcdc7340bcfd2ad4bf8dbac1f8b5a",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "专家解读 | 从技术规则到数字程序法——评《公安机关电子数据取证规则（征求意见稿）》",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;mid=2664262951&amp;idx=3&amp;sn=81dbc89e2767afd98be05b3cddd3e662",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "关注 | 主流JavaScript软件包管理平台npm遭供应链投毒攻击",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;mid=2664262951&amp;idx=4&amp;sn=eb7bc2ea4900edd6205c21445cf7996a",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "天融信李雪莹：安全底座铺路、智算中枢加速，融合助力数据要素安全高效流通",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;mid=2664262951&amp;idx=5&amp;sn=f901958c21d75a9ec190ab02f84b4699",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "观点 | 划定人工智能终端“聪明标尺”",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;mid=2664262951&amp;idx=6&amp;sn=7f978dc9eb67020741bd76cb033c330c",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "AI赋能疾控数据安全 | 绿盟科技亮相“2026年全国生物样本与数据资源学术大会”",
+      "url": "https://blog.nsfocus.net/ai%e8%b5%8b%e8%83%bd%e7%96%be%e6%8e%a7%e6%95%b0%e6%8d%ae%e5%ae%89%e5%85%a8-%e7%bb%bf%e7%9b%9f%e7%a7%91%e6%8a%80%e4%ba%ae%e7%9b%b82026%e5%b9%b4%e5%85%a8%e5%9b%bd%e7%94%9f%e7%89%a9%e6%a0%b7/",
+      "source": "Unsafe.sh",
+      "description": "阅读： 15近日，由中国疾病预防控制中心、中国防痨协会共同主办的“2026年全国生物样本与数据资源学术大会”顺利举行。会议以“生物样本与数...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "CNVD漏洞周报2026年第20期",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU3ODM2NTg2Mg==&amp;mid=2247496966&amp;idx=1&amp;sn=ac3699b4b31bce4c5b16877fd623757d",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "上周关注度较高的产品安全漏洞(20260518-20260524)",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU3ODM2NTg2Mg==&amp;mid=2247496966&amp;idx=2&amp;sn=e60e7fcef20b977ae462ccddd14972dc",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "【漏洞通告】Adobe ColdFusion任意文件读取漏洞（CVE-2024-53961）",
+      "url": "https://blog.nsfocus.net/%e3%80%90%e6%bc%8f%e6%b4%9e%e9%80%9a%e5%91%8a%e3%80%91adobe-coldfusion%e4%bb%bb%e6%84%8f%e6%96%87%e4%bb%b6%e8%af%bb%e5%8f%96%e6%bc%8f%e6%b4%9e%ef%bc%88cve-2024-53961%ef%bc%89/",
+      "source": "Unsafe.sh",
+      "description": "阅读： 14通告编号:NS-2024-53961TAG：Adobe ColdFusion、任意文件读取、CVE-2024-53961漏洞危...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "YoroTrooper组织针对独联体及周边区域的攻击活动分析",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzUyMjk4NzExMA==&amp;mid=2247508637&amp;idx=1&amp;sn=31399d20fed27c8bfaf8e67aa2017bde",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "【漏洞通告】Windows LDAP拒绝服务漏洞（CVE-2024-49113）",
+      "url": "https://blog.nsfocus.net/%e3%80%90%e6%bc%8f%e6%b4%9e%e9%80%9a%e5%91%8a%e3%80%91windows-ldap%e6%8b%92%e7%bb%9d%e6%9c%8d%e5%8a%a1%e6%bc%8f%e6%b4%9e%ef%bc%88cve-2024-49113%ef%bc%89/",
+      "source": "Unsafe.sh",
+      "description": "阅读： 18通告编号:NS-2024-0039TAG：Windows、LDAP、拒绝服务、CVE-2024-49113漏洞危害：攻击者利...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "台积电绩效奖金缩减传言引来员工不满",
+      "url": "https://blog.upx8.com/%E5%8F%B0%E7%A7%AF%E7%94%B5%E7%BB%A9%E6%95%88%E5%A5%96%E9%87%91%E7%BC%A9%E5%87%8F%E4%BC%A0%E8%A8%80%E5%BC%95%E6%9D%A5%E5%91%98%E5%B7%A5%E4%B8%8D%E6%BB%A1",
+      "source": "Unsafe.sh",
+      "description": "台积电绩效奖金缩减传言引来员工不满社交媒体脸书的台积电相关群组中传出消息称，由于台积电正在筹集资金用于新的基础设施投资，计划在7月发放的员工年度绩效奖金可能面临高达15%的削减，这让一些台积电员工发帖...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "【漏洞通告】Ivanti多款产品缓冲区溢出漏洞(CVE-2025-0282)",
+      "url": "https://blog.nsfocus.net/%e3%80%90%e6%bc%8f%e6%b4%9e%e9%80%9a%e5%91%8a%e3%80%91ivanti%e5%a4%9a%e6%ac%be%e4%ba%a7%e5%93%81%e7%bc%93%e5%86%b2%e5%8c%ba%e6%ba%a2%e5%87%ba%e6%bc%8f%e6%b4%9ecve-2025-0282/",
+      "source": "Unsafe.sh",
+      "description": "通告编号:NS-2025-0001TAG：Ivanti、缓冲区溢出、CVE-2025-0282漏洞危害：攻击者利用此漏洞，可实现任意代码执行版本：1.0...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "【漏洞通告】Fortinet FortiOS&FortiProxy身份验证绕过漏洞(CVE-2024-55591)通告",
+      "url": "https://blog.nsfocus.net/%e3%80%90%e6%bc%8f%e6%b4%9e%e9%80%9a%e5%91%8a%e3%80%91fortinet-fortiosfortiproxy%e8%ba%ab%e4%bb%bd%e9%aa%8c%e8%af%81%e7%bb%95%e8%bf%87%e6%bc%8f%e6%b4%9ecve-2024-55591%e9%80%9a%e5%91%8a/",
+      "source": "Unsafe.sh",
+      "description": "阅读： 18通告编号:NS-2025-0003TAG：FortiOS&FortiProxy、身份验证绕过、CVE-2024-55591漏洞...",
+      "date": "2026-05-25",
+      "category": "news"
+    },
+    {
+      "title": "【漏洞通告】Rsync缓冲区溢出与信息泄露漏洞（CVE-2024-12084/CVE-2024-12085）",
+      "url": "https://blog.nsfocus.net/%e3%80%90%e6%bc%8f%e6%b4%9e%e9%80%9a%e5%91%8a%e3%80%91rsync%e7%bc%93%e5%86%b2%e5%8c%ba%e6%ba%a2%e5%87%ba%e4%b8%8e%e4%bf%a1%e6%81%af%e6%b3%84%e9%9c%b2%e6%bc%8f%e6%b4%9e%ef%bc%88cve-2024-12084-cve-2024/",
+      "source": "Unsafe.sh",
+      "description": "阅读： 30通告编号:NS-2024-0004TAG：Rsync、CVE-2024-12084、CVE-2024-12085漏洞危害：攻...",
+      "date": "2026-05-25",
       "category": "news"
     }
   ]
