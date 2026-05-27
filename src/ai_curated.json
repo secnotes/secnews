@@ -1,58 +1,72 @@
 {
-  "analysis_date": "2026-05-26",
-  "total_analyzed": 119,
+  "analysis_date": "2026-05-27",
+  "total_analyzed": 126,
   "categories": {
     "漏洞研究": [
       {
         "title": "From Zero to Full Takeover: Chaining Vulnerabilities to Completely Compromise Gitea",
         "url": "https://sec.today/pulses/f93e939c-6022-4339-bda7-318847321500/",
         "source": "Sec-Today",
+        "date": "2026-05-27",
+        "reason": "深入剖析Gitea Git LFS授权绕过与路径遍历漏洞链，提供完整复现步骤与源码级缺陷定位，对开源代码托管平台安全加固具有直接指导价值。"
+      },
+      {
+        "title": "NGINX ngx_http_rewrite_module堆缓冲区溢出漏洞(CVE-2026-9256)安全风险通告",
+        "url": "https://www.secrss.com/articles/90704",
+        "source": "安全内参",
         "date": "2026-05-26",
-        "reason": "深入剖析Git LFS授权绕过与路径遍历漏洞链，提供完整复现步骤与源码缺陷定位，对开源代码托管平台安全加固具有直接指导价值。"
+        "reason": "披露最新NGINX高危CVE漏洞细节，明确未授权请求触发Worker崩溃的利用条件，为Web服务器紧急补丁与WAF规则更新提供关键依据。"
       },
       {
-        "title": "Ghost CMS CVE-2026-26980 Exploited to Hijack 700+ Sites for ClickFix Attacks",
-        "url": "https://thehackernews.com/2026/05/ghost-cms-cve-2026-26980-exploited-to.html",
+        "title": "Microsoft Patches SharePoint RCE Flaw CVE-2026-45659 Across Server Versions",
+        "url": "https://thehackernews.com/2026/05/microsoft-patches-sharepoint-rce-flaw.html",
         "source": "The Hacker News",
-        "date": "2026-05-25",
-        "reason": "详细披露CVE-2026-26980漏洞在野利用情况，揭示攻击者如何通过恶意JS注入发起ClickFix攻击，为CMS漏洞应急响应提供关键情报。"
+        "date": "2026-05-26",
+        "reason": "通报微软SharePoint远程代码执行漏洞的跨版本修复情况，该漏洞无需特殊条件即可利用，对企业内网协作平台的安全排查至关重要。"
       },
       {
-        "title": "【漏洞通告】Drupal Core SQL注入漏洞(CVE-2026-9082)",
-        "url": "https://mp.weixin.qq.com/s?__biz=Mzg2NjgzNjA5NQ==&amp;mid=2247525807&amp;idx=1&amp;sn=d2d585508a40401bd1604794e648dd71",
-        "source": "Unsafe.sh",
-        "date": "2026-05-25",
-        "reason": "针对主流CMS Drupal核心组件的高危SQL注入漏洞发布通告，明确影响范围与修复建议，有助于企业快速排查与收敛攻击面。"
+        "title": "KnowledgeDeliver LMS Flaw Exploited to Deploy Godzilla and Cobalt Strike",
+        "url": "https://thehackernews.com/2026/05/knowledgedeliver-lms-flaw-exploited-to.html",
+        "source": "The Hacker News",
+        "date": "2026-05-26",
+        "reason": "揭示日本流行LMS系统零日漏洞被实战利用的完整攻击链，涵盖ViewState反序列化至Webshell部署过程，为同类教育平台提供防御参考。"
       },
       {
-        "title": "【漏洞通告】Fortinet FortiOS&FortiProxy身份验证绕过漏洞(CVE-2024-55591)通告",
-        "url": "https://blog.nsfocus.net/%e3%80%90%e6%bc%8f%e6%b4%9e%e9%80%9a%e5%91%8a%e3%80%91fortinet-fortiosfortiproxy%e8%ba%ab%e4%bb%bd%e9%aa%8c%e8%af%81%e7%bb%95%e8%bf%87%e6%bc%8f%e6%b4%9ecve-2024-55591%e9%80%9a%e5%91%8a/",
+        "title": "Truffa WhatsApp con malware 0click: allarme su iPhone (iOs 16)",
+        "url": "https://www.cybersecurity360.it/nuove-minacce/truffa-whatsapp-con-malware-0click-allarme-su-iphone-ios-16/",
         "source": "Unsafe.sh",
-        "date": "2026-05-25",
-        "reason": "聚焦网络设备核心组件的身份验证绕过缺陷，详细阐述漏洞原理与危害，为边界安全设备防护策略更新提供依据。"
+        "date": "2026-05-26",
+        "reason": "分析针对iOS的WhatsApp 0-click攻击链，涉及ImageIO组件漏洞利用，对移动端零交互攻击防御与系统版本升级策略具有重要警示意义。"
       }
     ],
     "移动安全": [
       {
-        "title": "Zero-Click WhatsApp Account Takeover Hits iPhone Users Running iOS 16. No Linked Devices, No Warning",
-        "url": "https://securityaffairs.com/192627/security/zero-click-whatsapp-account-takeover-hits-iphone-users-running-ios-16-no-linked-devices-no-warning.html",
-        "source": "Unsafe.sh",
-        "date": "2026-05-25",
-        "reason": "披露针对iOS 16的WhatsApp零点击账户接管漏洞，无需用户交互即可触发，对移动端即时通讯安全与系统补丁管理敲响警钟。"
+        "title": "从0到1构建一个Hook工具之Frida-like风格的Hook",
+        "url": "http://bbs.kanxue.com/thread-291347.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-05-26",
+        "reason": "详细讲解Android底层Hook框架的架构设计与实现路径，涵盖Java/Native Hook及动态分析工具链构建，对移动端逆向工程与动态调试极具实战价值。"
       },
       {
-        "title": "硬啃反封号 dylib：OLLVM CFF/MBA 混淆拆解与167 Hook 深度分析",
-        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458615455&amp;idx=1&amp;sn=86932f09204eb52a339f06b4e66678e9",
-        "source": "Unsafe.sh",
-        "date": "2026-05-25",
-        "reason": "深入解析iOS/macOS动态库反混淆与Hook技术，详细拆解OLLVM控制流平坦化与MBA混淆，为移动端逆向工程与对抗分析提供高阶实战参考。"
+        "title": "AndProxy 升级版：基于 Seccomp 的无 Hook Binder 服务代理",
+        "url": "http://bbs.kanxue.com/thread-291098.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-05-27",
+        "reason": "提出基于Seccomp系统调用过滤的无Hook Binder代理方案，突破传统GotHook限制，为Android系统级服务拦截与隐私保护提供新颖技术思路。"
       },
       {
-        "title": "真机解锁难、调试受限？CVD 云手机定制及风控对抗全解",
-        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458615455&amp;idx=3&amp;sn=5c863f190cdf7061107437eba3fb6f65",
+        "title": "把 .o 变成 .ko（二）：GKI 安全特性的铁幕",
+        "url": "http://bbs.kanxue.com/thread-291096.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-05-27",
+        "reason": "深入解析ARM64 Android GKI内核模块加载过程中的SELinux、PAC、CFI等安全机制，为移动端内核级安全研究与模块开发提供硬核技术参考。"
+      },
+      {
+        "title": "【安全圈】用户反馈摩托罗拉手机预装 App 劫持电商应用，植入电商联盟代码",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;mid=2652076920&amp;idx=2&amp;sn=4ecb9a48c63cb35c1966e9a43bb0d303",
         "source": "Unsafe.sh",
-        "date": "2026-05-25",
-        "reason": "系统梳理云手机环境下的设备指纹伪造、调试限制突破与风控对抗策略，为移动安全测试与黑灰产治理提供技术视角。"
+        "date": "2026-05-26",
+        "reason": "曝光手机厂商预装应用劫持第三方电商流量并植入推广代码的供应链安全事件，揭示移动端系统级权限滥用风险，对设备出厂安全审查具有现实警示作用。"
       }
     ],
     "AI安全": [
@@ -60,137 +74,172 @@
         "title": "Claude Opus wrote a Chrome exploit for $2,283",
         "url": "https://sec.today/pulses/2d69be65-cb17-4943-91ca-7ae61113d0b3/",
         "source": "Sec-Today",
+        "date": "2026-05-27",
+        "reason": "证实大模型已具备低成本独立生成完整浏览器漏洞利用链的能力，标志着自动化攻击门槛实质性降低，迫使防御方转向零信任与前置补丁策略。"
+      },
+      {
+        "title": "从一次拒绝服务说起——Claude Code 客户端安全机制逆向分析（一）",
+        "url": "http://bbs.kanxue.com/thread-291085.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-05-27",
+        "reason": "对主流AI编程助手客户端的安全限制机制进行逆向剖析，揭示其权限控制与拒绝策略的实现逻辑，为AI工具本地化部署与安全加固提供技术依据。"
+      },
+      {
+        "title": "AI 助手类应用通用安全漏洞：间接提示注入可窃取企业敏感数据",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&amp;mid=2451186845&amp;idx=1&amp;sn=2faa3e9338baeb8eeff238a63188eb27",
+        "source": "Unsafe.sh",
         "date": "2026-05-26",
-        "reason": "揭示大模型已具备低成本独立生成完整浏览器漏洞利用链的能力，警示AI自动化攻击正大幅压缩漏洞修复窗口，推动防御范式向零信任演进。"
+        "reason": "揭示AI助手应用中普遍存在的间接提示注入攻击面，阐明攻击者如何通过上下文污染窃取企业机密，对大模型应用安全架构设计具有直接指导意义。"
       },
       {
-        "title": "[Project Onyx] Advanced EDR Evasion via AI Telemetry Spoofing & WASM Sandboxing",
-        "url": "https://unsafe.sh/go-418830.html",
+        "title": "Building an AI-Safe Tool-Calling Proxy with FastAPI",
+        "url": "https://hackernoon.com/building-an-ai-safe-tool-calling-proxy-with-fastapi?source=rss",
         "source": "Unsafe.sh",
-        "date": "2026-05-25",
-        "reason": "提出利用AI遥测欺骗与WASM沙箱技术绕过高级终端检测响应（EDR）的新型对抗方案，为红蓝对抗与端点安全检测机制优化提供前沿思路。"
+        "date": "2026-05-26",
+        "reason": "提供基于FastAPI构建AI安全工具调用代理的实战方案，通过中间层隔离与权限校验有效缓解大模型越权调用风险，具备较高的工程落地价值。"
       },
       {
-        "title": "AI安全案例分析：Prompts Become Shells —— 从提示词注入到AI Agent远程代码执行（RCE）（文末附邀请码）",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzkyMTI0NjA3OA==&amp;mid=2247495083&amp;idx=1&amp;sn=f13abeb4a11eb21249dc9e6e46d7e6e7",
+        "title": "【安全圈】微软 Copilot Cowork 智能体 AI 曝安全风险，机密文件恐外泄",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;mid=2652076920&amp;idx=1&amp;sn=07bdc3fcd9f966d3680dc1603b51a86e",
         "source": "Unsafe.sh",
-        "date": "2026-05-25",
-        "reason": "深度剖析提示词注入如何演变为AI Agent的RCE漏洞，揭示大模型应用层核心攻击路径，对AI系统安全架构设计具有重要警示意义。"
-      },
-      {
-        "title": "How credential brokering prevents AI agents from compromising credentials via prompt injection",
-        "url": "https://unsafe.sh/go-418824.html",
-        "source": "Unsafe.sh",
-        "date": "2026-05-25",
-        "reason": "探讨凭证代理机制在防御AI Agent提示词注入窃取凭证中的实际应用，为构建安全的AI智能体权限隔离体系提供可落地的技术方案。"
+        "date": "2026-05-26",
+        "reason": "通报企业级AI智能体在协同办公场景下的数据越权访问与机密泄露风险，提示企业在引入AI Copilot时需严格配置数据隔离与访问控制策略。"
       }
     ],
     "威胁情报": [
       {
-        "title": "主流JavaScript软件包管理平台npm遭供应链投毒攻击",
-        "url": "https://www.secrss.com/articles/90663",
-        "source": "安全内参",
-        "date": "2026-05-25",
-        "reason": "监测并披露“沙虫”组织针对npm生态的大规模供应链投毒事件，详细分析恶意包传播路径，为开发者依赖管理提供紧急预警。"
-      },
-      {
-        "title": "Lazarus Deploys RemotePE Memory-Only RAT Against Financial and Crypto Firms",
-        "url": "https://thehackernews.com/2026/05/lazarus-deploys-remotepe-memory-only.html",
+        "title": "MuddyWater Uses DLL Side-Loading in Espionage Campaign Targeting 9 Countries",
+        "url": "https://thehackernews.com/2026/05/muddywater-uses-dll-side-loading-in.html",
         "source": "The Hacker News",
-        "date": "2026-05-25",
-        "reason": "追踪朝鲜APT组织Lazarus使用的纯内存驻留恶意软件RemotePE，揭示其针对金融与加密货币行业的跨平台攻击手法与基础设施特征。"
+        "date": "2026-05-26",
+        "reason": "追踪伊朗APT组织MuddyWater最新跨洲间谍活动，详细披露其利用DLL侧加载技术规避检测的战术，为高级威胁狩猎与端点防护提供关键IOC。"
       },
       {
-        "title": "TrapDoor Supply Chain Attack Spreads Credential-Stealing Malware via npm, PyPI, and CratesIO",
-        "url": "https://thehackernews.com/2026/05/trapdoor-supply-chain-attack-spreads.html",
+        "title": "Iranian Hackers Deploy MiniFast and MiniJunk V2 via Phishing and SEO Poisoning",
+        "url": "https://thehackernews.com/2026/05/iranian-hackers-deploy-minifast-and.html",
         "source": "The Hacker News",
-        "date": "2026-05-25",
-        "reason": "披露跨生态（npm/PyPI/Crates.io）协同供应链攻击活动TrapDoor，分析其凭证窃取恶意载荷的投递机制，凸显多语言包管理器安全治理的紧迫性。"
+        "date": "2026-05-26",
+        "reason": "剖析伊朗国家支持黑客组织Nimbus Manticore利用钓鱼与SEO投毒分发定制恶意软件的攻击手法，揭示其针对航空与软件行业的持续渗透策略。"
       },
       {
-        "title": "Over 5,500 GitHub Repositories Infected in ‘Megalodon’ Supply Chain Attack",
-        "url": "https://www.securityweek.com/over-5500-github-repositories-infected-in-megalodon-supply-chain-attack/",
+        "title": "Admins of Bulletproof Hosting Service Used by Russian Hackers Arrested in Netherlands",
+        "url": "https://www.securityweek.com/admins-of-bulletproof-hosting-service-used-by-russian-hackers-arrested-in-nethe...",
         "source": "SecurityWeek",
-        "date": "2026-05-25",
-        "reason": "揭示利用自动化提交注入恶意GitHub Actions工作流的“Megalodon”供应链攻击，影响超5500个仓库，为CI/CD流水线安全审计提供关键案例。"
+        "date": "2026-05-26",
+        "reason": "报道荷兰执法部门捣毁为俄罗斯黑客提供抗投诉托管服务的基础设施，揭示黑产底层支撑网络的运作模式，对追踪APT组织C2节点具有重要情报价值。"
+      },
+      {
+        "title": "Iranian hackers blamed for breach of Los Angeles transit system that took weeks to recover",
+        "url": "https://techcrunch.com/2026/05/26/iranian-hackers-blamed-for-breach-of-los-angeles-transit-system-that-took-weeks-to-recover/",
+        "source": "Unsafe.sh",
+        "date": "2026-05-26",
+        "reason": "披露伊朗黑客组织攻击美国洛杉矶公共交通系统导致长期瘫痪的重大事件，分析关键基础设施面临的国家级网络威胁，对城市交通网络安全防护具有警示意义。"
+      },
+      {
+        "title": "700+ education and tech websites hijacked in huge ClickFix malware campaign",
+        "url": "https://www.malwarebytes.com/blog/bugs/2026/05/700-education-and-tech-websites-hijacked-in-huge-clickfix-malware-campaign",
+        "source": "Unsafe.sh",
+        "date": "2026-05-26",
+        "reason": "追踪大规模ClickFix恶意软件活动，揭示攻击者利用Ghost CMS漏洞劫持数百教育科技网站的分发网络，为Web应用漏洞修复与流量清洗提供实战参考。"
       }
     ],
     "安全工具": [
       {
-        "title": "Hiding Malware Execution with Process Doppelgänging: Disguising Windows Processes to Evade Detection",
-        "url": "https://sec.today/pulses/1f4b4ea6-1e2a-4c42-9d5a-954bca7ef14a/",
-        "source": "Sec-Today",
+        "title": "Open Source DockSec Uses AI to Cut Through Vulnerability Noise in Docker Images",
+        "url": "https://www.securityweek.com/open-source-docksec-uses-ai-to-cut-through-vulnerability-noise-in-docker-images/",
+        "source": "SecurityWeek",
         "date": "2026-05-26",
-        "reason": "深度解析利用NTFS事务机制实现进程双生的免杀技术，提供完整代码实现与检测对比，是红队工具开发与蓝队防御的重要参考。"
+        "reason": "介绍OWASP孵化项目DockSec，利用AI聚合多容器扫描器结果并生成精准修复代码，有效降低容器镜像漏洞误报率，提升DevSecOps流水线效率。"
       },
       {
-        "title": "Abusing Open XML Documents for NTLMv2-SSP Hash Capture and Password Cracking",
-        "url": "https://sec.today/pulses/58486028-fec1-4062-aa5e-938cdfd921ff/",
-        "source": "Sec-Today",
+        "title": "Sylvia — IDA 9.x plugin that finds & documents iOS AArch64 syscalls with live man-page fetching",
+        "url": "https://unsafe.sh/go-419037.html",
+        "source": "Unsafe.sh",
         "date": "2026-05-26",
-        "reason": "详细拆解利用Office文档subDoc功能诱导NTLMv2哈希捕获的攻击链，提供手工构建恶意载荷的实战指南，对内网渗透测试与凭证防护具有直接价值。"
+        "reason": "发布IDA Pro 9.x专用插件，自动化识别并文档化iOS AArch64系统调用，大幅提升移动端二进制逆向分析与漏洞挖掘的工作效率。"
       },
       {
-        "title": "The Alert Firehose Finally Meets Its Match",
-        "url": "https://thehackernews.com/2026/05/the-alert-firehose-finally-meets-its.html",
-        "source": "The Hacker News",
-        "date": "2026-05-25",
-        "reason": "介绍集成Agentic AI能力的网络检测与响应（NDR）平台如何有效应对海量告警疲劳，展示AI在安全运营工具中的实战落地效果与效能提升。"
+        "title": "Microsoft Defender can now automatically isolate hacked endpoints",
+        "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-defender-can-now-automatically-isolate-hacked-endpoints/",
+        "source": "Unsafe.sh",
+        "date": "2026-05-26",
+        "reason": "介绍Microsoft Defender for Endpoint新增的自动隔离受感染终端功能，通过AI驱动的快速响应机制缩短MTTR，为企业端点安全运营提供自动化处置方案。"
+      },
+      {
+        "title": "Understanding SNI Proxy Mechanics and TLS Domain Identification",
+        "url": "https://dyrnq.com/understanding-sni-proxy-mechanics-and-tls-domain-identification/",
+        "source": "Unsafe.sh",
+        "date": "2026-05-27",
+        "reason": "深度解析SNI代理在四层网络中识别七层域名的技术原理与TLS握手明文特征，为网络流量审计、代理工具开发与加密流量检测提供底层技术参考。"
       }
     ],
     "云安全": [
       {
-        "title": "警惕Underminr新型网络规避技术：CDN共享边缘的隐形漏洞",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&amp;mid=2451186831&amp;idx=1&amp;sn=7a0ed378ca1323a830b4cfb7f28b7ae5",
-        "source": "Unsafe.sh",
-        "date": "2026-05-25",
-        "reason": "揭示CDN共享边缘架构下的新型网络规避技术，分析多租户环境下的隔离缺陷，为云原生架构与CDN安全配置提供关键防御视角。"
+        "title": "AppOmni’s Marlin AI Brings Autonomous Investigation to SaaS Security",
+        "url": "https://www.securityweek.com/appomnis-marlin-ai-brings-autonomous-investigation-to-saas-security/",
+        "source": "SecurityWeek",
+        "date": "2026-05-26",
+        "reason": "展示AI驱动的SaaS安全自主调查工具Marlin AI，可自动分析云应用配置错误并跨环境关联异常活动，为企业云原生安全治理提供智能化解决方案。"
       },
       {
-        "title": "Netherlands Seizes 800 Servers, Arrests 2 for Aiding Cyberattacks",
-        "url": "https://krebsonsecurity.com/2026/05/netherlands-seizes-800-servers-arrests-2-for-aiding-cyberattacks/",
+        "title": "Hands-Off Coding on GCP: Building Autonomous Agents with Guardrails",
+        "url": "https://hackernoon.com/hands-off-coding-on-gcp-building-autonomous-agents-with-guardrails?source=rss",
         "source": "Unsafe.sh",
-        "date": "2026-05-25",
-        "reason": "报道执法部门对托管恶意基础设施的云服务器集群的大规模查封行动，揭示云服务商在滥用监测与合规响应中的关键作用。"
+        "date": "2026-05-26",
+        "reason": "探讨在GCP环境中构建具备安全护栏的自主AI代理架构，强调云原生环境下的权限最小化与执行隔离，对云侧AI应用安全部署具有工程指导价值。"
       },
       {
-        "title": "阿里云的「Agentic 时刻」",
-        "url": "https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;mid=2653107169&amp;idx=1&amp;sn=a7e0318af6595eac37a62a53cca0e046",
+        "title": "滴滴出行回应系统异常：因云厂商网络专线故障，目前服务已全部恢复",
+        "url": "https://blog.upx8.com/%E6%BB%B4%E6%BB%B4%E5%87%BA%E8%A1%8C%E5%9B%9E%E5%BA%94%E7%B3%BB%E7%BB%9F%E5%BC%82%E5%B8%B8-%E5%9B%A0%E4%BA%91%E5%8E%82%E5%95%86%E7%BD%91%E7%BB%9C%E4%B8%93%E7%BA%BF%E6%95%85%E9%9A%9C-%E7%9B%AE%E5%89%8D%E6%9C%8D%E5%8A%A1%E5%B7%B2%E5%85%A8%E9%83%A8%E6%81%A2%E5%A4%8D",
         "source": "Unsafe.sh",
-        "date": "2026-05-25",
-        "reason": "探讨云厂商在AI智能体基础设施层面的安全架构演进，分析云上算力调度与模型服务的安全边界，对云原生AI安全部署具有指导意义。"
+        "date": "2026-05-26",
+        "reason": "记录因云服务商底层网络专线故障导致的大型互联网业务中断事件，凸显多云架构与专线冗余设计在保障云业务连续性中的关键作用。"
+      },
+      {
+        "title": "Malware Found in Laravel-Lang Composer Packages After Git Tag Poisoning Attack",
+        "url": "https://securityaffairs.com/192697/security/malware-found-in-laravel-lang-composer-packages-after-git-tag-poisoning-attack.html",
+        "source": "Unsafe.sh",
+        "date": "2026-05-26",
+        "reason": "披露针对PHP生态Composer包的Git标签投毒攻击，恶意软件通过云依赖链传播，警示云原生开发中软件供应链安全与第三方包验证的必要性。"
       }
     ],
     "其他重要": [
       {
-        "title": "《公安机关电子数据取证规则（征求意见稿）》的五大亮点",
-        "url": "https://www.secrss.com/articles/90650",
+        "title": "越南两个部委系统发生严重数据泄露，数百万用户受影响",
+        "url": "https://www.secrss.com/articles/90698",
         "source": "安全内参",
-        "date": "2026-05-25",
-        "reason": "解读最新电子数据取证规则的法治化与规范化创新，明确技术取证标准与合规边界，对安全企业数据治理与司法协同具有重要参考价值。"
+        "date": "2026-05-26",
+        "reason": "通报越南国家级政务系统遭攻击导致数百万公民数据泄露的重大安全事件，凸显关键信息基础设施防护薄弱与数据跨境合规风险。"
       },
       {
-        "title": "筑牢工控安全屏障，威努特为药企生产保驾护航",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzAwNTgyODU3NQ==&amp;mid=2651141819&amp;idx=1&amp;sn=2617bde0229bc29590eb793910b7e5ad",
+        "title": "欧盟GDPR对数据违规“一案多查”，Meta又被罚4.3亿欧元",
+        "url": "https://www.secrss.com/articles/90682",
+        "source": "安全内参",
+        "date": "2026-05-26",
+        "reason": "解析欧盟GDPR执法逻辑升级与天价罚单背后的合规要求，为企业数据隐私保护、跨境数据传输及合规体系建设提供重要法律参考。"
+      },
+      {
+        "title": "CERT-In Recommends 12-Hour Patching for Internet-Facing Flaws Amid AI-Assisted Attacks",
+        "url": "https://thehackernews.com/2026/05/cert-in-mandates-12-hour-patching-for.html",
+        "source": "The Hacker News",
+        "date": "2026-05-26",
+        "reason": "印度国家应急响应团队发布新规，要求互联网暴露面漏洞必须在12小时内修复，反映AI加速攻击背景下全球漏洞响应时效标准的显著提升。"
+      },
+      {
+        "title": "The Hidden Ransomware Economy Running on Exposed Databases",
+        "url": "https://securityaffairs.com/192711/cyber-crime/the-hidden-ransomware-economy-running-on-exposed-databases.html",
         "source": "Unsafe.sh",
         "date": "2026-05-26",
-        "reason": "聚焦制药行业工控系统安全防护实践，结合OT/IT融合场景下的威胁特征，提供工业控制网络纵深防御的落地方案。"
+        "reason": "深入调查基于暴露数据库的勒索软件黑产经济模型，揭示数据窃取、加密与勒索的完整产业链，为数据库安全加固与威胁狩猎提供宏观视角。"
       },
       {
-        "title": "FBI warns of Kali365 phishing service targeting Microsoft 365 accounts",
-        "url": "https://www.bleepingcomputer.com/news/security/fbi-warns-of-kali365-phishing-service-targeting-microsoft-365-accounts/",
+        "title": "Accessi non autorizzati a GitHub: in gioco la supply chain software, ecco come difendersi",
+        "url": "https://www.cybersecurity360.it/news/accessi-non-autorizzati-ai-repository-di-github-in-gioco-la-supply-chain-software-ecco-come-difendersi/",
         "source": "Unsafe.sh",
-        "date": "2026-05-25",
-        "reason": "披露FBI针对Kali365钓鱼即服务（PhaaS）平台的官方预警，分析其针对企业云办公账户的规模化攻击手法，提升组织对新型钓鱼基础设施的防范意识。"
-      },
-      {
-        "title": "兼顾创新与安全：美国人工智能行政命令草案提出建立前沿AI安全部署框架",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzI4NDY2MDMwMw==&amp;mid=2247515993&amp;idx=2&amp;sn=552eaf396352b45e6cb3bd17898d41d6",
-        "source": "Unsafe.sh",
-        "date": "2026-05-25",
-        "reason": "梳理美国最新AI行政命令草案中的安全部署框架与监管要求，为跨国企业AI合规战略与前沿技术风险管控提供政策风向标。"
+        "date": "2026-05-26",
+        "reason": "分析GitHub仓库未授权访问事件对软件供应链的连锁影响，提供代码托管平台权限管控与供应链防御的最佳实践，对开源生态安全至关重要。"
       }
     ]
   },
-  "summary": "本批次聚焦AI自动化攻击、跨生态供应链投毒、高危CVE在野利用及移动端零点击漏洞，涵盖前沿攻防技术与合规监管动态。"
+  "summary": "本批次聚焦AI自动化漏洞利用、移动端底层Hook与GKI安全、APT组织新型战术及云原生供应链风险，筛选出具备高实战价值与技术深度的核心文章。"
 }
