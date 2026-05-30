@@ -1490,20 +1490,32 @@ class SecurityNewsAggregator:
                                         break
 
                                 # Also check for specific date formats as fallback
+                                # Support both single-digit and double-digit month/day (e.g., "2026-5-22" or "2026-05-22")
                                 date_patterns = [
-                                    r'(\d{4}-\d{2}-\d{2})',
-                                    r'(\d{4}/\d{2}/\d{2})',
+                                    r'(\d{4}-\d{1,2}-\d{1,2})',
+                                    r'(\d{4}/\d{1,2}/\d{1,2})',
                                 ]
                                 for pattern in date_patterns:
                                     date_match = re.search(pattern, time_text)
                                     if date_match:
                                         extracted_date = date_match.group(1).replace('/', '-')
+                                        # Parse with flexible format (handle single-digit month/day)
                                         try:
+                                            # Try strict format first (YYYY-MM-DD)
                                             parsed_date = datetime.strptime(extracted_date, '%Y-%m-%d')
                                             date = parsed_date.strftime('%Y-%m-%d')
                                             break
                                         except ValueError:
-                                            continue
+                                            try:
+                                                # Fallback: parse parts manually and format
+                                                parts = extracted_date.split('-')
+                                                if len(parts) == 3:
+                                                    year, month, day = int(parts[0]), int(parts[1]), int(parts[2])
+                                                    parsed_date = datetime(year, month, day)
+                                                    date = parsed_date.strftime('%Y-%m-%d')
+                                                    break
+                                            except (ValueError, IndexError):
+                                                continue
 
                             # Add to tech articles as specified (KanXue is tech-focused)
                             article = {
@@ -2511,7 +2523,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         .footer .github-icon {{
             width: 16px;
             height: 16px;
-            vertical-align: middle;
+            vertical-align: -0.15em;
             margin-right: 4px;
         }}
 
