@@ -1,42 +1,42 @@
 {
-  "analysis_date": "2026-05-30",
-  "total_analyzed": 129,
+  "analysis_date": "2026-05-31",
+  "total_analyzed": 86,
   "categories": {
     "漏洞研究": [
       {
         "title": "7-Zip 严重堆溢出漏洞：NTFS 处理器 vtable Hijack 导致任意代码执行",
         "url": "https://sec.today/pulses/c107eb96-4ae3-4773-bbb3-13ae7a5f488f/",
         "source": "Sec-Today",
-        "date": "2026-05-29",
-        "reason": "深入剖析C++未定义行为引发的堆溢出与vtable劫持，揭示主流解压工具在文件解析中的底层缺陷，具有极高的漏洞挖掘与防御参考价值。"
+        "date": "2026-05-30",
+        "reason": "深入剖析了利用C++未定义行为导致堆溢出并劫持vtable的RCE漏洞，揭示了主流解压工具在文件处理机制中的底层缺陷，具有极高的漏洞挖掘与防御参考价值。"
+      },
+      {
+        "title": "BadHost：Starlette 严重漏洞导致 AI Agent 基础设施认证绕过",
+        "url": "https://sec.today/pulses/23f4564b-9b08-450d-9103-afac737cc68c/",
+        "source": "Sec-Today",
+        "date": "2026-05-30",
+        "reason": "披露了CVE-2026-48710，详细分析了HTTP Host头处理缺陷如何绕过FastAPI生态认证，对当前AI基础设施安全具有紧迫的警示意义。"
       },
       {
         "title": "从利用到检测：利用智能体快速构建 CVE-2026-31431 (Copy Fail) 防护方案",
         "url": "https://sec.today/pulses/b49ea3cf-4f26-483f-ab96-e886d54c537d/",
         "source": "Sec-Today",
-        "date": "2026-05-29",
-        "reason": "详细拆解利用AF_ALG套接字绕过文件完整性监控的内核提权链，并提供AI辅助快速构建检测规则的实战指南。"
+        "date": "2026-05-30",
+        "reason": "详细拆解了利用AF_ALG套接字和零拷贝机制绕过FIM的内核提权链，并提供了基于AI代理的快速检测规则构建实战指南。"
       },
       {
-        "title": "Gogs Zero-Day Exposes Servers to Remote Code Execution",
-        "url": "https://www.securityweek.com/gogs-zero-day-exposes-servers-to-remote-code-execution/",
-        "source": "SecurityWeek",
-        "date": "2026-05-29",
-        "reason": "披露CVSS 9.4的Gogs参数注入零日漏洞，攻击者可通过恶意分支名实现远程代码执行，对自托管代码平台安全构成直接威胁。"
+        "title": "PAN-OS GlobalProtect Authentication Bypass (CVE-2026-0257) Under Active Exploitation",
+        "url": "https://thehackernews.com/2026/05/pan-os-globalprotect-authentication.html",
+        "source": "The Hacker News",
+        "date": "2026-05-30",
+        "reason": "通报了正在野外被积极利用的PAN-OS认证绕过漏洞，涉及企业核心边界设备，需安全团队立即进行补丁验证与流量监控。"
       },
       {
-        "title": "Looting UniFi Controllers: Detecting and Weaponizing CVE-2026-22557",
-        "url": "https://bishopfox.com/blog/looting-unifi-controllers-detecting-and-weaponizing-cve-2026-22557",
+        "title": "New CIFSwitch Linux flaw gives root on multiple distributions",
+        "url": "https://www.bleepingcomputer.com/news/security/new-cifswitch-linux-flaw-gives-root-on-multiple-distributions/",
         "source": "Unsafe.sh",
-        "date": "2026-05-29",
-        "reason": "针对网络设备管理平台的未授权路径遍历漏洞进行武器化分析与检测方案构建，为IoT/网络设备安全研究提供完整攻防视角。"
-      },
-      {
-        "title": "【漏洞通告】Apache PyFory 反序列化策略绕过漏洞(CVE-2026-48207)",
-        "url": "https://mp.weixin.qq.com/s?__biz=Mzg2NjgzNjA5NQ==&amp;mid=2247525862&amp;idx=1&amp;sn=920a12a67e69e462696d3314cb960e",
-        "source": "Unsafe.sh",
-        "date": "2026-05-29",
-        "reason": "通报Apache生态关键反序列化绕过漏洞，直接影响Java应用供应链安全，需相关运维与开发人员紧急排查。"
+        "date": "2026-05-30",
+        "reason": "披露了影响多个Linux发行版的本地提权漏洞，攻击者可借此获取root权限，对服务器与终端安全基线管理提出直接挑战。"
       }
     ],
     "移动安全": [
@@ -44,29 +44,8 @@
         "title": "摩托罗拉设备中隐藏的 Smart Feed 应用劫持 Amazon 启动并注入联盟代码",
         "url": "https://sec.today/pulses/04d6bde7-a040-4b24-9971-9671dcb4e1a7/",
         "source": "Sec-Today",
-        "date": "2026-05-29",
-        "reason": "揭示预装系统应用通过劫持Intent实现流量重定向的供应链攻击手法，为移动设备隐蔽恶意行为分析提供实战案例。"
-      },
-      {
-        "title": "libmsaoaidsec.so 检测体系分析",
-        "url": "http://bbs.kanxue.com/thread-291377.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-05-29",
-        "reason": "深度逆向Android Native层安全库，剖析线程调度、签名校验与代码CRC等反调试/环境检测机制，对移动端对抗研究极具价值。"
-      },
-      {
-        "title": "某安全SDK x-sign 签名算法还原",
-        "url": "http://bbs.kanxue.com/thread-289785.htm?style=1",
-        "source": "看雪论坛",
         "date": "2026-05-30",
-        "reason": "基于ARM64汇编Trace完整还原移动端安全SDK签名算法，展示了从动态日志提取VM结构并扣取核心逻辑的高级逆向技巧。"
-      },
-      {
-        "title": "【安全圈】新型 BTMOB 安卓恶意软件可实现设备完全接管",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;mid=2652077025&amp;idx=2&amp;sn=afec41bc95d29cbf851b77b5be5ece9e",
-        "source": "Unsafe.sh",
-        "date": "2026-05-29",
-        "reason": "披露新型安卓恶意软件BTMOB的完整攻击链，具备设备完全接管能力，对移动端威胁检测与用户隐私保护具有警示意义。"
+        "reason": "揭示了预装系统应用通过劫持启动意图进行流量重定向的隐蔽攻击手法，为移动设备供应链安全与恶意软件动态配置分析提供了实战案例。"
       }
     ],
     "AI安全": [
@@ -74,29 +53,22 @@
         "title": "超越单轮防御：Cisco 研究揭示主流 AI 模型中关键的多轮提示注入漏洞",
         "url": "https://sec.today/pulses/2840d877-0f0f-40ea-b909-b5623f7c7528/",
         "source": "Sec-Today",
-        "date": "2026-05-29",
-        "reason": "指出当前AI安全评估盲区，证明多轮迭代提示注入攻击成功率高达88%，推动企业从单次ASR指标转向多轮对抗韧性评估。"
+        "date": "2026-05-30",
+        "reason": "指出当前AI安全评估的盲区，证明多轮迭代攻击可使成功率从8%飙升至88%，为企业AI模型治理与防御策略转型提供了关键数据支撑。"
       },
       {
-        "title": "BadHost：Starlette 严重漏洞导致 AI Agent 基础设施认证绕过",
-        "url": "https://sec.today/pulses/23f4564b-9b08-450d-9103-afac737cc68c/",
-        "source": "Sec-Today",
-        "date": "2026-05-29",
-        "reason": "披露CVE-2026-48710，利用HTTP Host头处理缺陷绕过FastAPI生态AI应用认证，直接威胁LLM推理服务器与AI代理网关安全。"
+        "title": "When an AI Agent Commits to Your Repo, What Exactly Happens?",
+        "url": "https://unsafe.sh/go-419996.html",
+        "source": "Unsafe.sh",
+        "date": "2026-05-30",
+        "reason": "深入探讨了AI编码代理自动提交代码时的潜在安全风险与供应链影响，为开发团队规范AI Agent权限与代码审查流程提供了重要视角。"
       },
       {
-        "title": "AI Agent零信任框架：五大风险、三层架构与八阶段实施流程",
-        "url": "https://www.secrss.com/articles/90799",
-        "source": "安全内参",
-        "date": "2026-05-29",
-        "reason": "系统解读Anthropic零信任框架，为AI智能体在复杂网络环境下的权限管控、风险隔离与架构设计提供标准化落地指南。"
-      },
-      {
-        "title": "Attackers Use LLM Agent for Post-Exploitation After Marimo CVE-2026-39987 Exploit",
-        "url": "https://thehackernews.com/2026/05/attackers-use-llm-agent-for-post.html",
-        "source": "The Hacker News",
-        "date": "2026-05-29",
-        "reason": "首次记录攻击者在初始入侵后利用LLM Agent自动化执行后渗透操作，标志着AI正从辅助工具演变为实战化攻击基础设施。"
+        "title": "【安全圈】警惕！ChatGPT共享链接竟成黑客新宠，你的下载安全吗？",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;mid=2652077061&amp;idx=1&amp;sn=3385da9592f9a706240d5d70ba7a6a88",
+        "source": "Unsafe.sh",
+        "date": "2026-05-30",
+        "reason": "分析了利用AI平台共享链接进行钓鱼与恶意载荷分发的新型攻击向量，提醒用户与企业加强AI工具使用规范与链接安全验证。"
       }
     ],
     "威胁情报": [
@@ -104,128 +76,78 @@
         "title": "智能合约作为 C&C：ClearFake 在 BSC 测试网上的 EtherHiding 活动",
         "url": "https://sec.today/pulses/70b7533f-ad72-4b51-9b76-120f81700f2e/",
         "source": "Sec-Today",
-        "date": "2026-05-29",
-        "reason": "揭示国家级威胁行为体利用区块链智能合约构建抗关停C2基础设施的新常态，对传统网络流量检测与阻断体系提出严峻挑战。"
+        "date": "2026-05-30",
+        "reason": "揭示了国家级威胁行为体利用区块链智能合约构建抗关停C2基础设施的新型战术，对传统网络防御体系构成严峻挑战。"
       },
       {
         "title": "MuddyWater 2026 年 Q1 间谍活动：跨九国的 DLL Side-Loading 与 Node.js 战术分析",
         "url": "https://sec.today/pulses/1ec2a821-5645-4b60-a48e-fe1dd57e28f2/",
         "source": "Sec-Today",
-        "date": "2026-05-29",
-        "reason": "深度追踪伊朗支持APT组织利用合法软件DLL侧加载与App-Bound加密绕过技术，展现其运营隐蔽性提升与全球关键基础设施 targeting。"
-      },
-      {
-        "title": "“银狐”木马新变种爆发！伪装人事文件定向攻击国内用户",
-        "url": "http://bbs.kanxue.com/thread-291298.htm?style=1",
-        "source": "看雪论坛",
         "date": "2026-05-30",
-        "reason": "通报国内高发木马家族最新变种，利用社会工程学定向攻击企事业单位HR与行政人员，提供关键IOC与防御策略。"
+        "reason": "深度追踪了伊朗支持的黑客组织利用合法签名软件进行DLL侧加载及绕过加密的新型战术，为防御高级持续性威胁提供了关键情报。"
       },
       {
-        "title": "New Russian-Linked GREYVIBE Targets Ukraine with AI-Powered Cyberattacks",
-        "url": "https://thehackernews.com/2026/05/new-russian-linked-greyvibe-targets.html",
-        "source": "The Hacker News",
-        "date": "2026-05-29",
-        "reason": "披露新型俄系黑客组织GREYVIBE的持续攻击活动，重点分析其AI赋能的攻击手法与战术演进，为地缘网络冲突防御提供情报支撑。"
+        "title": "Signal Phishing Campaign Targets Journalists and Activists to Steal Backup Recovery Keys",
+        "url": "https://securityaffairs.com/192899/security/signal-phishing-campaign-targets-journalists-and-activists-to-steal-backup-recovery-keys.html",
+        "source": "Unsafe.sh",
+        "date": "2026-05-30",
+        "reason": "披露了针对记者与活动人士的定向钓鱼活动，旨在窃取Signal备份恢复密钥，凸显了高价值目标面临的通信安全威胁。"
       },
       {
-        "title": "Kimsuky Deploys HTTPSpy, Expands Arsenal with HelloDoor and VS Code Tunnels",
-        "url": "https://thehackernews.com/2026/05/kimsuky-deploys-httpspy-expands-arsenal.html",
-        "source": "The Hacker News",
-        "date": "2026-05-29",
-        "reason": "追踪朝鲜APT组织Kimsuky武器库更新，详细分析其利用合法开发工具隧道与新型后门进行隐蔽数据外传的技术细节。"
+        "title": "Botnet of 17 Million Devices Dismantled in the Netherlands",
+        "url": "https://securityaffairs.com/192890/uncategorized/botnet-of-17-million-devices-dismantled-in-the-netherlands.html",
+        "source": "Unsafe.sh",
+        "date": "2026-05-30",
+        "reason": "报道了荷兰执法部门成功瓦解超1700万台设备僵尸网络的重大行动，为物联网设备安全治理与僵尸网络追踪提供了重要参考。"
+      },
+      {
+        "title": "Malicious npm packages abuse dependency confusion to profile developer environments",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/05/29/33-malicious-npm-packages-abuse-dependency-confusion-profile-developer-environments/",
+        "source": "Unsafe.sh",
+        "date": "2026-05-30",
+        "reason": "微软威胁情报团队披露了利用依赖混淆攻击探测开发者环境的活跃供应链攻击，为开源生态安全与依赖管理提供了最新威胁预警。"
       }
     ],
     "安全工具": [
       {
-        "title": "MokN Raises $15 Million for Phish-Back Platform",
-        "url": "https://www.securityweek.com/mokn-raises-15-million-for-phish-back-platform/",
-        "source": "SecurityWeek",
-        "date": "2026-05-29",
-        "reason": "介绍基于欺骗技术的主动防御平台，通过部署高仿真诱饵捕获攻击者凭证，为反钓鱼与威胁狩猎提供创新工具思路。"
+        "title": "usbsnoop — sniff and decode USB device traffic system-wide with eBPF, for reversing proprietary protocols (control/SCSI/HID, no bus analyzer)",
+        "url": "https://unsafe.sh/go-420002.html",
+        "source": "Unsafe.sh",
+        "date": "2026-05-31",
+        "reason": "介绍了一款基于eBPF的系统级USB流量嗅探与解码工具，无需专用硬件即可逆向分析专有协议，对硬件安全研究与恶意设备检测极具实用价值。"
       },
       {
-        "title": "Ghidra 12.1.1 has been released!",
-        "url": "https://unsafe.sh/go-419912.html",
+        "title": "木鱼沙箱软件分析平台全新开启内测",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzU3MTY5MzQxMA==&amp;mid=2247485228&amp;idx=1&amp;sn=f944f8c1869663aa2746f888ec286963",
         "source": "Unsafe.sh",
-        "date": "2026-05-29",
-        "reason": "发布主流开源逆向工程框架的重要更新，包含多项漏洞修复与架构优化，是安全研究人员进行二进制分析的核心工具迭代。"
-      },
-      {
-        "title": "从HTTP模糊测试看AI Agent的工程化设计",
-        "url": "https://mp.weixin.qq.com/s?__biz=Mzk0MTM4NzIxMQ==&amp;mid=2247529827&amp;idx=1&amp;sn=9ca27272c2ad5346f43ee6490f5ffbe8",
-        "source": "Unsafe.sh",
-        "date": "2026-05-29",
-        "reason": "探讨如何将AI Agent工程化应用于HTTP模糊测试，为自动化漏洞挖掘工具的设计与效能提升提供架构参考。"
-      },
-      {
-        "title": "不只是教你用工具，更教你造工具——全网首门逆向MCP/Skill开发实战",
-        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458615875&amp;idx=1&amp;sn=6e81d7ee486580335c81367006f0d5b",
-        "source": "Unsafe.sh",
-        "date": "2026-05-29",
-        "reason": "聚焦AI时代安全工具链开发，详细讲解MCP/Skill逆向与定制开发流程，助力安全从业者构建专属自动化分析工具。"
+        "date": "2026-05-30",
+        "reason": "推出新型沙箱分析平台，旨在提升恶意软件动态分析与行为检测效率，为安全研究人员提供自动化威胁分析环境。"
       }
     ],
-    "云安全": [
-      {
-        "title": "Zapocalypse：利用沙箱逃逸与元数据泄露链实现 Zapier 全账户接管",
-        "url": "https://sec.today/pulses/fd83c2ae-072a-4cee-963f-e10c1beeee82/",
-        "source": "Sec-Today",
-        "date": "2026-05-29",
-        "reason": "揭示SaaS自动化平台中沙箱逃逸与CI/CD元数据泄露的致命组合，警示云原生环境凭证管理与构建历史清理的极端重要性。"
-      },
-      {
-        "title": "What 2,000 Exposed Vibe-Coded Apps Reveal About the Limits of Most Security Stacks",
-        "url": "https://thehackernews.com/2026/05/what-2000-exposed-vibe-coded-apps.html",
-        "source": "The Hacker News",
-        "date": "2026-05-29",
-        "reason": "基于大规模AI生成应用暴露面调研，揭示传统安全栈在应对“影子AI”直连生产环境时的局限性，推动云安全架构演进。"
-      },
-      {
-        "title": "Malicious Sicoob NuGet Steals Banking Credentials as npm Packages Target Cloud Secrets",
-        "url": "https://thehackernews.com/2026/05/malicious-sicoob-nuget-steals-banking.html",
-        "source": "The Hacker News",
-        "date": "2026-05-29",
-        "reason": "披露针对NuGet与npm生态的恶意包投毒活动，专门窃取云环境密钥与银行凭证，凸显软件供应链与云凭证管理的交叉风险。"
-      },
-      {
-        "title": "CVE-2026-27771 | Gitea Container Registry Authentication Bypass Vulnerability",
-        "url": "https://horizon3.ai/attack-research/vulnerabilities/cve-2026-27771/",
-        "source": "Unsafe.sh",
-        "date": "2026-05-29",
-        "reason": "分析容器镜像仓库的高危认证绕过漏洞，直接影响云原生CI/CD流水线安全，为容器供应链防护提供关键修复依据。"
-      }
-    ],
+    "云安全": [],
     "其他重要": [
       {
-        "title": "开源情报中数据过载问题的破解之道",
-        "url": "https://www.secrss.com/articles/90809",
+        "title": "Emerson deltaV DCS和组态软件内存越界漏洞",
+        "url": "http://bbs.kanxue.com/thread-277826.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-05-30",
+        "reason": "披露了工控巨头艾默生DCS系统的内存越界漏洞，涉及关键基础设施控制软件，对工业控制系统（ICS）安全防护具有重要警示意义。"
+      },
+      {
+        "title": "这家农信社因数据安全管理不到位等被罚，1人被禁业3年",
+        "url": "https://www.secrss.com/articles/90838",
         "source": "安全内参",
-        "date": "2026-05-29",
-        "reason": "提出人机协同的OSINT处理范式，利用AI进行情报筛选与关联分析，为应对海量安全数据过载提供方法论指导。"
+        "date": "2026-05-30",
+        "reason": "通报了金融机构因数据安全管理缺失导致的监管处罚案例，为行业落实数据安全合规与内控机制提供了现实警示。"
       },
       {
-        "title": "Microsoft under fire for threatening security researcher with criminal investigation",
-        "url": "https://techcrunch.com/2026/05/29/microsoft-under-fire-for-threatening-security-researcher-with-criminal-investigation/",
+        "title": "国家安全部：这些“数据犯罪”关乎国家安全",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;mid=2664263116&amp;idx=2&amp;sn=48c41aac61e22ce74a93d2e6cb21957d",
         "source": "Unsafe.sh",
-        "date": "2026-05-29",
-        "reason": "记录微软与安全研究员在零日披露政策上的激烈冲突，引发行业对负责任披露边界与厂商合规压力的深度讨论。"
-      },
-      {
-        "title": "Dutch govt disrupts malware botnet with 17 million infected devices",
-        "url": "https://www.bleepingcomputer.com/news/security/dutch-govt-disrupts-malware-botnet-with-17-million-infected-devices/",
-        "source": "Unsafe.sh",
-        "date": "2026-05-29",
-        "reason": "报道荷兰政府成功瓦解千万级规模僵尸网络的执法行动，展示跨国协同打击网络犯罪基础设施的实战成果与取证流程。"
-      },
-      {
-        "title": "Microsoft calls zero-day releases ‘never justifiable’ as researcher threatens to drop more",
-        "url": "https://therecord.media/microsoft-calls-zero-day-releases-never-justifiable-as-researcher-threatens-to-drop-more",
-        "source": "Unsafe.sh",
-        "date": "2026-05-29",
-        "reason": "聚焦漏洞披露伦理与厂商响应机制的博弈，为安全社区制定更合理的漏洞协调与公开策略提供现实案例参考。"
+        "date": "2026-05-30",
+        "reason": "官方发布关于数据犯罪与国家安全的警示，明确了数据泄露、非法交易等行为的法律红线，对政企数据合规治理具有指导意义。"
       }
     ]
   },
-  "summary": "本批次聚焦高危漏洞、AI安全演进、APT战术及云供应链风险，筛选出具备实战防御与深度研究价值的核心文章。"
+  "summary": "本批次筛选出20篇高价值文章，聚焦底层漏洞利用、AI安全治理、APT战术演进及工控合规，为实战防御与前沿威胁研究提供关键参考。"
 }
