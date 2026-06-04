@@ -1,189 +1,210 @@
 {
-  "analysis_date": "2026-06-03",
+  "analysis_date": "2026-06-04",
   "total_analyzed": 126,
   "categories": {
     "漏洞研究": [
       {
-        "title": "提权实录：通过命名管道劫持可写服务",
-        "url": "http://bbs.kanxue.com/thread-291417.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-06-02",
-        "reason": "详细记录了Windows服务命名管道权限配置错误导致的提权实战过程，具有较高的攻防参考价值。"
+        "title": "Windows Netlogon CVE-2026-41089 遭活跃利用：高危 0-Click RCE 威胁预警",
+        "url": "https://sec.today/pulses/e606226d-7c1d-4649-9709-68a601e8642d/",
+        "source": "Sec-Today",
+        "date": "2026-06-03",
+        "reason": "Windows Netlogon 0-click RCE高危漏洞正在被野外利用，无需认证即可接管域控，企业需紧急修复。"
       },
       {
-        "title": "Oracle WebLogic CVE-2024-21182 Added to KEV Catalog After Active Exploitation",
-        "url": "https://thehackernews.com/2026/06/oracle-weblogic-cve-2024-21182-added-to.html",
+        "title": "New HTTP/2 Bomb Vulnerability Allows Remote DoS on NGINX, Apache, IIS, Envoy & Cloudflare",
+        "url": "https://thehackernews.com/2026/06/new-http2-bomb-vulnerability-allows.html",
         "source": "The Hacker News",
-        "date": "2026-06-02",
-        "reason": "CISA将活跃利用的WebLogic高危漏洞加入KEV目录，提示企业需紧急排查与修复。"
+        "date": "2026-06-03",
+        "reason": "HTTP/2 Bomb新型DoS漏洞影响所有主流Web服务器，结合压缩炸弹和慢速请求，攻击门槛低且破坏力极大。"
       },
       {
-        "title": "Critical Kirki flaw exploited to hijack WordPress admin accounts",
-        "url": "https://www.bleepingcomputer.com/news/security/critical-kirki-flaw-exploited-to-hijack-wordpress-admin-accounts/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-02",
-        "reason": "披露了WordPress Kirki插件中正在被利用的权限提升漏洞（CVE-2026-8206），对Web安全运维有直接指导意义。"
+        "title": "Redis Lua脚本远程代码执行漏洞(CVE-2026-23631)安全风险通告",
+        "url": "https://www.secrss.com/articles/90940",
+        "source": "安全内参",
+        "date": "2026-06-03",
+        "reason": "Redis Lua脚本曝出高危RCE漏洞，攻击者可通过构造特定脚本触发内存错误实现任意代码执行。"
       },
       {
-        "title": "CVE-2026-44825 | Apache Solr AuthTool Hardcoded Credentials Vulnerability",
-        "url": "https://horizon3.ai/attack-research/vulnerabilities/cve-2026-44825/",
+        "title": "Organizations Warned of Exploited Linux Kernel Vulnerability",
+        "url": "https://www.securityweek.com/organizations-warned-of-exploited-linux-kernel-vulnerability/",
+        "source": "SecurityWeek",
+        "date": "2026-06-03",
+        "reason": "Linux内核存在已遭活跃利用的权限提升漏洞，攻击者可利用其逃逸容器，对云环境构成严重威胁。"
+      },
+      {
+        "title": "漏洞预警 | Apache ActiveMQ Jolokia 远程代码执行漏洞（CVE-2026-42588）",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzkyNzcxNTczNA==&mid=2247488276&idx=1&sn=d97727e1af44baf52675d3ce2eb3c131",
         "source": "Unsafe.sh",
-        "date": "2026-06-02",
-        "reason": "分析了Apache Solr组件中硬编码凭证漏洞的成因与利用路径，为中间件安全加固提供依据。"
+        "date": "2026-06-03",
+        "reason": "Apache ActiveMQ Jolokia组件存在远程代码执行高危漏洞，中间件组件的安全性需引起应急响应团队关注。"
       }
     ],
     "移动安全": [
       {
-        "title": "Google June 2026 Android Update Patches 124 Flaws, One Actively Exploited",
-        "url": "https://thehackernews.com/2026/06/google-june-2026-android-update-patches.html",
+        "title": "Microsoft 365 Android Apps Let Any App Steal Account Tokens via Leftover Debug Flag",
+        "url": "https://thehackernews.com/2026/06/microsoft-365-android-apps-let-any-app.html",
         "source": "The Hacker News",
-        "date": "2026-06-02",
-        "reason": "涵盖Android 6月安全更新详情，重点修复了一个在野外被利用的零日漏洞，对移动设备安全至关重要。"
+        "date": "2026-06-03",
+        "reason": "微软365 Android版应用因生产环境中遗留调试标志，导致同一设备上的任何恶意应用均可窃取账户令牌。"
       },
       {
-        "title": "Exclusive: How One Line of Code Put Billions of Microsoft Android App Downloads at Risk",
-        "url": "https://www.securityweek.com/exclusive-how-one-line-of-code-put-billions-of-microsoft-android-app-downloads-at-risk/",
-        "source": "SecurityWeek",
-        "date": "2026-06-02",
-        "reason": "揭示了微软Android应用中因开发配置错误导致账户令牌泄露的供应链级风险，具有广泛影响。"
+        "title": "WhatsApp, Slack Notifications Could Hijack Google Gemini on Android",
+        "url": "https://thehackernews.com/2026/06/whatsapp-slack-notifications-could.html",
+        "source": "The Hacker News",
+        "date": "2026-06-03",
+        "reason": "揭示了Android端AI助手的新型攻击面，恶意应用通过伪造WhatsApp等通知即可劫持Gemini执行恶意操作。"
       },
       {
-        "title": "俄罗斯称在高官手机上发现外国间谍软件",
-        "url": "https://blog.upx8.com/%E4%BF%84%E7%BD%97%E6%96%AF%E7%A7%B0%E5%9C%A8%E9%AB%98%E5%AE%98%E6%89%8B%E6%9C%BA%E4%B8%8A%E5%8F%91%E7%8E%B0%E5%A4%96%E5%9B%BD%E9%97%B4%E8%B0%8D%E8%BD%AF%E4%BB%B6",
+        "title": "CISA warns of active attacks exploiting Android, Linux bugs",
+        "url": "https://www.bleepingcomputer.com/news/security/cisa-warns-of-active-attacks-exploiting-android-linux-bugs/",
         "source": "Unsafe.sh",
-        "date": "2026-06-02",
-        "reason": "报道了针对高级官员手机的国家级间谍软件攻击事件，反映了移动端高级持续性威胁的最新态势。"
+        "date": "2026-06-03",
+        "reason": "CISA将Android和Linux内核漏洞纳入已知被利用漏洞目录，表明相关提权漏洞已在实际攻击中被广泛使用。"
+      },
+      {
+        "title": "我们绕过了 GarudaDefender 整套 Frida 检测，但这已经不是重点了",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458616117&idx=1&sn=6a472bb24106383b4997fb70f0d8cae3",
+        "source": "Unsafe.sh",
+        "date": "2026-06-03",
+        "reason": "详细记录了绕过App安全防护（GarudaDefender Frida检测）的逆向分析过程，对移动端攻防对抗极具实战参考价值。"
       }
     ],
     "AI安全": [
       {
-        "title": "EvoDefense：与大语言模型共同进化的黑盒防御框架",
-        "url": "https://www.secrss.com/articles/90921",
-        "source": "安全内参",
-        "date": "2026-06-02",
-        "reason": "提出了一种无需重新训练即可动态适应未知攻击的LLM防御框架，在AI模型安全防护方面具有前沿技术价值。"
+        "title": "ChatGPhish：基于浏览器的提示注入将网页转化为钓鱼载荷",
+        "url": "https://sec.today/pulses/20c13653-4bc1-49ed-a53f-d754008fc368/",
+        "source": "Sec-Today",
+        "date": "2026-06-03",
+        "reason": "揭示了名为ChatGPhish的新型提示注入攻击，利用AI助手对网页摘要的信任，直接在受信任界面渲染钓鱼载荷。"
       },
       {
-        "title": "AI-Driven Exploitation is Destroying Vulnerability Management. Here’s How to Handle It.",
-        "url": "https://thehackernews.com/2026/06/ai-driven-exploitation-is-destroying.html",
+        "title": "Autonomous AI Tool Finds 2-Year-Old RCE Flaw in Redis (CVE-2026-23479)",
+        "url": "https://thehackernews.com/2026/06/autonomous-ai-tool-finds-2-year-old-rce.html",
         "source": "The Hacker News",
-        "date": "2026-06-02",
-        "reason": "深入分析了AI如何大幅缩短漏洞武器化周期，并为企业漏洞管理策略转型提供应对思路。"
+        "date": "2026-06-03",
+        "reason": "自主AI工具成功发现存在2年的Redis RCE漏洞，标志着AI在自动化漏洞挖掘领域取得了重要的实战突破。"
       },
       {
-        "title": "Meta AI Hands Over High-Profile Instagram Accounts to Hackers",
-        "url": "https://www.securityweek.com/meta-ai-hands-over-high-profile-instagram-accounts-to-hackers/",
-        "source": "SecurityWeek",
-        "date": "2026-06-02",
-        "reason": "披露了攻击者利用AI客服逻辑缺陷劫持高价值账号的案例，凸显了AI交互层的安全风险。"
+        "title": "AI客服变“叛徒”：一句话，盗走奥巴马等数千位名人账号",
+        "url": "https://www.secrss.com/articles/90951",
+        "source": "安全内参",
+        "date": "2026-06-03",
+        "reason": "Meta AI客服漏洞被利用数月导致名人账号被盗，反映了大模型接入业务系统后引发的新型账号接管风险。"
       },
       {
-        "title": "AI-built ransomware toolkit automates EDR evasion, AD discovery",
-        "url": "https://www.bleepingcomputer.com/news/security/ai-built-ransomware-toolkit-automates-edr-evasion-ad-discovery/",
+        "title": "The sorry state of skill distribution",
+        "url": "https://blog.trailofbits.com/2026/06/03/the-sorry-state-of-skill-distribution/",
         "source": "Unsafe.sh",
-        "date": "2026-06-02",
-        "reason": "展示了AI自动化生成的勒索软件工具包如何绕过EDR并发现AD域资产，对防御方战术升级具有警示作用。"
+        "date": "2026-06-03",
+        "reason": "深度分析了公共AI技能市场中泛滥的恶意技能，揭示了凭证窃取等安全威胁，为AI插件生态安全敲响警钟。"
+      },
+      {
+        "title": "Security of 100 AI Agents Tested and Ranked – What You Need to Know",
+        "url": "https://www.securityweek.com/security-of-100-ai-agents-tested-and-ranked-what-you-need-to-know/",
+        "source": "SecurityWeek",
+        "date": "2026-06-03",
+        "reason": "对100个主流AI代理的安全状况进行了评估和排名，为企业采购和安全使用AI Agent提供了量化参考。"
       }
     ],
     "威胁情报": [
       {
-        "title": "Gamaredon Exploits WinRAR to Deliver GammaWorm and GammaSteel Against Ukraine",
-        "url": "https://thehackernews.com/2026/06/gamaredon-exploits-winrar-to-deliver.html",
-        "source": "The Hacker News",
-        "date": "2026-06-02",
-        "reason": "追踪了Gamaredon组织利用WinRAR漏洞投递多款恶意软件针对乌克兰的攻击链，情报详实。"
+        "title": "针对 Claude Code 用户的无文件 Infostealer 攻击：利用伪造 Anthropic 站点与 ClickFix 诱饵",
+        "url": "https://sec.today/pulses/c253ef03-60b8-428c-ae4c-4aae02333994/",
+        "source": "Sec-Today",
+        "date": "2026-06-03",
+        "reason": "针对AI开发者群体的高度复杂攻击活动，利用多态文件和AMSI绕过实现无文件寄生，逃避EDR检测。"
       },
       {
-        "title": "Supply Chain Attack Hits 32 Red Hat NPM Packages",
-        "url": "https://www.securityweek.com/supply-chain-attack-hits-32-red-hat-npm-packages/",
+        "title": "Hackers Target Global Stock Exchange in Espionage Operation",
+        "url": "https://www.securityweek.com/hackers-target-global-stock-exchange-in-espionage-operation/",
         "source": "SecurityWeek",
-        "date": "2026-06-02",
-        "reason": "披露了针对Red Hat NPM软件包供应链的投毒事件，涉及凭证窃取蠕虫，对开源生态安全影响重大。"
+        "date": "2026-06-03",
+        "reason": "针对全球证券交易所高管的定向网络间谍活动，攻击者潜伏长达数月并持续窃取核心机密数据。"
       },
       {
-        "title": "LABScon25 Replay | Gamaredon x Turla: Unveiling a 2025 Espionage Alliance Targeting Ukraine",
-        "url": "https://www.sentinelone.com/labs/labscon25-replay-gamaredon-x-turla-unveiling-a-2025-espionage-alliance-targeting-ukraine/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-02",
-        "reason": "揭示了两大APT组织的联合间谍活动，提供了深度的战术与技术指标（TTPs/IOCs）。"
+        "title": "Google DoubleClick Abused in New Malspam Campaign to Deliver DesckVB RAT",
+        "url": "https://thehackernews.com/2026/06/google-doubleclick-abused-in-new.html",
+        "source": "The Hacker News",
+        "date": "2026-06-03",
+        "reason": "新型恶意邮件活动滥用Google DoubleClick合法域名作为分发中介，以此规避传统邮件网关检测并投递RAT。"
       },
       {
-        "title": "From Fake Purchase Orders to Remote Access: Analyzing the JS.MonoGlyphRAT Threat to US Enterprises",
-        "url": "https://any.run/cybersecurity-blog/monoglyphrat-attacks-us-enterprise/",
+        "title": "威胁情报｜Red Hat Cloud Services npm 包供应链投毒",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzU4ODQ3NTM2OA==&mid=2247505135&idx=1&sn=cb2fb9283b84262e0c3364ba753e3057",
         "source": "Unsafe.sh",
-        "date": "2026-06-02",
-        "reason": "详细剖析了针对美国企业的钓鱼邮件与JS.MonoGlyphRAT远控木马攻击流程，具备实战溯源价值。"
+        "date": "2026-06-03",
+        "reason": "针对Red Hat云服务的npm供应链投毒事件，凸显了开源组件和软件供应链正面临持续的高危威胁。"
       }
     ],
     "安全工具": [
       {
-        "title": "知名AI公司Perplexity开源了一款供应链安全工具",
-        "url": "https://www.secrss.com/articles/90888",
-        "source": "安全内参",
-        "date": "2026-06-02",
-        "reason": "Perplexity开源内部供应链安全工具Bumblebee，为开发者提供了实用的依赖项安全检测方案。"
-      },
-      {
-        "title": "How Leading Organizations Are Turning EDR Into Operational Resilience",
-        "url": "https://thehackernews.com/2026/06/how-leading-organizations-are-turning.html",
-        "source": "The Hacker News",
-        "date": "2026-06-02",
-        "reason": "探讨了领先企业如何将EDR从单纯防护工具升级为业务韧性保障平台，对安全运营体系建设有指导意义。"
-      },
-      {
-        "title": "Microsoft Build 2026: Securing code, agents, and models across the development lifecycle",
-        "url": "https://www.microsoft.com/en-us/security/blog/2026/06/02/microsoft-build-2026-securing-code-agents-and-models-across-the-development-lifecycle/",
+        "title": "Otto Support - Testing MCP Servers",
+        "url": "https://bishopfox.com/blog/otto-support-testing-mcp-servers",
         "source": "Unsafe.sh",
-        "date": "2026-06-02",
-        "reason": "介绍了微软发布的覆盖代码、智能体与模型全生命周期的安全工具链，推动DevSecOps实践。"
+        "date": "2026-06-03",
+        "reason": "Bishop Fox推出支持测试MCP服务器的Otto工具，填补了当前大模型上下文协议安全评估工具的空白。"
+      },
+      {
+        "title": "浏览器指纹与反爬虫：TLS JA3、HTTP/2指纹原理及绕过方法",
+        "url": "https://blog.axiaoxin.com/post/browser-fingerprint-anti-crawler-bypass/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-03",
+        "reason": "深入解析TLS JA3和HTTP/2协议层浏览器指纹的技术原理，并探讨了红蓝对抗中的实战绕过方法。"
+      },
+      {
+        "title": "重新定义智能渗透：TCH优秀开源项目CyberStrikeAI 技术解析与行业观察",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247497655&idx=1&sn=c47c010cad75ed3e0d9bc35087c70bbf",
+        "source": "Unsafe.sh",
+        "date": "2026-06-03",
+        "reason": "解析开源智能渗透测试工具CyberStrikeAI，展示了AI Agent在自动化漏洞挖掘与攻防推演中的应用前景。"
       }
     ],
     "云安全": [
       {
-        "title": "Microsoft Exchange Online outage causes email delays, failures",
-        "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-exchange-online-outage-causes-email-delays-failures/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-02",
-        "reason": "报道了Exchange Online大规模服务中断事件，对云邮件服务的可用性与应急响应机制提出警示。"
+        "title": "bmcweb (OpenBMC web server): four vulnerabilities — two unfixed, GHSA without a CVE",
+        "url": "https://sec.today/pulses/cb6b1def-343e-492a-804d-d6684bb070b2/",
+        "source": "Sec-Today",
+        "date": "2026-06-03",
+        "reason": "企业服务器底层BMC固件组件曝出多个严重漏洞，且存在修复滞后和治理混乱问题，直接影响物理云基础设施安全。"
       },
       {
-        "title": "国际认可 | 绿盟科技入选2026《中国云AI原生安全生态导航》，定义智能时代数字安全底座",
-        "url": "https://blog.nsfocus.net/%e5%9b%bd%e9%99%85%e8%ae%a4%e5%8f%af-%e7%bb%bf%e7%9b%9f%e7%a7%91%e6%8a%80%e5%85%a5%e9%80%892026%e3%80%8a%e4%b8%ad%e5%9b%bd%e4%ba%91ai%e5%8e%9f%e7%94%9f%e5%ae%89%e5%85%a8%e7%94%9f%e6%80%81%e5%af%bc/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-02",
-        "reason": "结合Forrester报告分析云原生与AI融合的安全架构趋势，为云安全战略规划提供参考。"
+        "title": "Shrinking the IAM Attack Surface through Identity Visibility and Intelligence Platforms (IVIP)",
+        "url": "https://thehackernews.com/2026/06/shrinking-iam-attack-surface-through.html",
+        "source": "The Hacker News",
+        "date": "2026-06-03",
+        "reason": "探讨在现代企业身份和访问管理（IAM）日趋复杂和碎片化的情况下，如何利用情报平台收紧云身份攻击面。"
       },
       {
-        "title": "DMIT宣布清退TYO EB系列产品(东京) 用户需在6月15日前备份数据和迁移业务",
-        "url": "https://www.landian.news/archives/113256.html",
+        "title": "Continuing Scans for swagger.json, (Wed, Jun 3rd)",
+        "url": "https://isc.sans.edu/diary/rss/33044",
         "source": "Unsafe.sh",
         "date": "2026-06-03",
-        "reason": "涉及云服务商业务调整与数据迁移要求，提醒企业关注云基础设施的连续性管理与数据备份策略。"
+        "reason": "SANS持续关注暴露在公网的swagger.json等API规范文件，提醒云原生架构下API资产暴露带来的安全隐患。"
       }
     ],
     "其他重要": [
       {
-        "title": "《民用无人驾驶航空器数据链路网络安全要求》强制性国家标准公开征求意见",
-        "url": "https://www.secrss.com/articles/90930",
+        "title": "OpenAI前沿AI治理框架：四类风险、三级分级与四层防护",
+        "url": "https://www.secrss.com/articles/90937",
         "source": "安全内参",
         "date": "2026-06-03",
-        "reason": "针对无人机数据链路的强制性国标征求意见，填补了低空经济关键基础设施的安全规范空白。"
+        "reason": "OpenAI发布详细的前沿大模型治理框架，对风险的分级和防护层设计为整个AI行业的安全合规提供了重要参考。"
       },
       {
-        "title": "华夏银行因数据安全管理问题被罚，一分行非科技部人员负有责任",
-        "url": "https://www.secrss.com/articles/90901",
+        "title": "Microsoft Tries to Calm Legal Threat Fears After Zero-Day Disclosure Backlash",
+        "url": "https://www.securityweek.com/microsoft-tries-to-calm-legal-threat-fears-after-zero-day-disclosure-backlash/",
+        "source": "SecurityWeek",
+        "date": "2026-06-03",
+        "reason": "微软就威胁零日漏洞研究人员法律诉讼的事件做出回应，引发了关于漏洞公开披露边界和厂商宽容度的行业讨论。"
+      },
+      {
+        "title": "特朗普政府正式发布关于人工智能监管的行政命令",
+        "url": "https://www.secrss.com/articles/90935",
         "source": "安全内参",
-        "date": "2026-06-02",
-        "reason": "金融机构因数据安全管理违规受罚的典型案例，强调了跨部门数据安全合规与问责机制的重要性。"
-      },
-      {
-        "title": "Device Code Phishing Forensics: What We Learned Investigating BEC in the Wild",
-        "url": "https://unsafe.sh/go-420549.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-02",
-        "reason": "基于真实BEC攻击的设备代码钓鱼取证分析，为身份认证安全与企业反钓鱼策略提供了实战经验。"
+        "date": "2026-06-03",
+        "reason": "美国发布新的AI监管行政命令，要求对顶级AI模型进行安全审查，这一政策将对全球AI安全发展产生深远影响。"
       }
     ]
   },
-  "summary": "本批次聚焦AI驱动攻击、活跃漏洞利用及供应链投毒事件，筛选出具备实战防御价值与前沿技术深度的核心文章。"
+  "summary": "本批次涵盖大量高危漏洞预警与实战情报，AI安全相关议题突出，包含AI工具漏洞挖掘、新型提示注入攻击等前沿内容。"
 }
