@@ -1,182 +1,189 @@
 {
-  "analysis_date": "2026-06-05",
+  "analysis_date": "2026-06-06",
   "total_analyzed": 125,
   "categories": {
     "漏洞研究": [
       {
-        "title": "Windows Netlogon CVE-2026-41089 遭活跃利用：高危 0-Click RCE 威胁预警",
-        "url": "https://sec.today/pulses/e606226d-7c1d-4649-9709-68a601e8642d/",
-        "source": "Sec-Today",
-        "date": "2026-06-04",
-        "reason": "揭示了正在被野外利用的Windows Netlogon 0-click RCE高危漏洞，攻击者无需认证即可接管域环境，具有极高的实战危害和紧急修补价值。"
-      },
-      {
         "title": "高危 HTTP/2 炸弹漏洞突袭！5大主流服务器全中招，家用宽带就能打崩站点",
         "url": "http://bbs.kanxue.com/thread-291473.htm?style=1",
         "source": "看雪论坛",
-        "date": "2026-06-04",
-        "reason": "HTTP/2 Bomb漏洞影响NGINX、Apache等主流Web服务器，无需认证即可造成拒绝服务攻击，波及面广且破坏力极强。"
+        "date": "2026-06-05",
+        "reason": "HTTP/2 Bomb漏洞波及多款主流Web服务器，极具破坏性，值得安全人员重点关注与排查。"
       },
       {
-        "title": "VS Code Vulnerability Allows One-Click GitHub Token Theft",
-        "url": "https://www.securityweek.com/vs-code-vulnerability-allows-one-click-github-token-theft/",
-        "source": "SecurityWeek",
-        "date": "2026-06-04",
-        "reason": "研究人员披露了VS Code中可导致GitHub Token一键被盗的漏洞细节及PoC，对全球开发者工具链安全构成严重威胁。"
+        "title": "Samba打印子系统远程代码执行漏洞(CVE-2026-4480)安全风险通告",
+        "url": "https://www.secrss.com/articles/91030",
+        "source": "安全内参",
+        "date": "2026-06-05",
+        "reason": "披露了Samba严重级别的RCE漏洞，详细分析了其触发原理与安全风险，建议尽快升级修复。"
       },
       {
-        "title": "Re:CACHE - Excessive reflection, type confusion, and 0-click SXSS on Next.js",
-        "url": "https://unsafe.sh/go-421044.html",
+        "title": "CVE-2026-0257 | Palo Alto Networks PAN-OS GlobalProtect Authentication Bypass Vulnerability | Active Exploitation",
+        "url": "https://horizon3.ai/attack-research/vulnerabilities/cve-2026-0257/",
         "source": "Unsafe.sh",
-        "date": "2026-06-04",
-        "reason": "针对现代流行框架Next.js的0点击存储型XSS漏洞研究，深入探讨了类型混淆与反射机制，具有很高的技术深度。"
+        "date": "2026-06-05",
+        "reason": "PAN-OS GlobalProtect爆出认证绕过0-day漏洞且已被活跃利用，企业需紧急排查。"
+      },
+      {
+        "title": "点个链接就能偷光你的GitHub仓库，VS Code零日漏洞遭研究员直接公开",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458616264&idx=3&sn=f4c250c9a1b1dd408dd66d17b01787e6",
+        "source": "Unsafe.sh",
+        "date": "2026-06-05",
+        "reason": "披露VS Code严重零日漏洞，点击恶意链接即可接管GitHub仓库，对开发者构成直接威胁。"
       }
     ],
     "移动安全": [
       {
-        "title": "Gemini Voice Assistant Hijacked via Messaging Notifications",
-        "url": "https://www.securityweek.com/gemini-voice-assistant-hijacked-via-messaging-notifications/",
-        "source": "SecurityWeek",
-        "date": "2026-06-04",
-        "reason": "揭示了通过消息通知劫持谷歌Gemini语音助手的漏洞，攻击者可控制智能家居设备及发起Zoom通话，危及移动端安全。"
+        "title": "Android Spyware Asin Targets Arabic Users via Fake News, PDF and War Map Apps",
+        "url": "https://thehackernews.com/2026/06/android-spyware-asin-targets-arabic.html",
+        "source": "The Hacker News",
+        "date": "2026-06-05",
+        "reason": "详细剖析了针对阿拉伯语用户的Android间谍软件Asin的传播机制与伪装手法。"
       },
       {
-        "title": "【安全圈】谷歌修复一款在野利用安卓高危漏洞，数百万设备受影响",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077248&idx=2&sn=9ca01538ec319d31197477dd6b17ccb8",
+        "title": "Zero-Click HFP/A2DP Takeover via L2CAP Session Preemption",
+        "url": "https://unsafe.sh/go-421338.html",
         "source": "Unsafe.sh",
-        "date": "2026-06-04",
-        "reason": "谷歌紧急修复了已在野利用的Android高危漏洞，影响数百万移动设备，具有重要的补丁修补指导意义。"
-      },
-      {
-        "title": "Meta’s own AI chatbot to blame for Instagram accounts being stolen in seconds",
-        "url": "https://www.fortra.com/blog/metas-own-ai-chatbot-blame-instagram-accounts-being-stolen-seconds",
-        "source": "Unsafe.sh",
-        "date": "2026-06-04",
-        "reason": "黑客大规模利用Meta的AI支持聊天机器人漏洞秒盗Instagram账号，揭示了移动社交平台中AI集成的安全风险。"
+        "date": "2026-06-05",
+        "reason": "深入分析蓝牙L2CAP会话抢占导致的零点击HFP/A2DP接管漏洞，具有极高的技术深度。"
       }
     ],
     "AI安全": [
       {
-        "title": "ChatGPhish：基于浏览器的提示注入将网页转化为钓鱼载荷",
-        "url": "https://sec.today/pulses/20c13653-4bc1-49ed-a53f-d754008fc368/",
-        "source": "Sec-Today",
-        "date": "2026-06-04",
-        "reason": "提出了一种新型的浏览器端提示注入攻击ChatGPhish，利用AI页面摘要功能将任意网页变为钓鱼载体，手法新颖且防不胜防。"
+        "title": "AI Agent 的信任边界：从中转 API 到 Agent Tool Call 的供应链劫持",
+        "url": "https://xz.aliyun.com/news/92255",
+        "source": "先知社区",
+        "date": "2026-06-05",
+        "reason": "探讨AI Agent从中转API到Tool Call的供应链劫持风险，揭示了AI架构的新型攻击面。"
       },
       {
-        "title": "Claude Code GitHub Action Flaw Let One Malicious Issue Hijack Repositories",
-        "url": "https://thehackernews.com/2026/06/claude-code-github-action-flaw-let-one.html",
-        "source": "The Hacker News",
-        "date": "2026-06-04",
-        "reason": "披露了Anthropic的Claude Code GitHub Action中的严重漏洞，攻击者仅通过开启一个Issue即可接管代码仓库。"
+        "title": "AGENT-MINER：攻击通用 AI 智能体与自动化风险挖掘",
+        "url": "https://xz.aliyun.com/news/92253",
+        "source": "先知社区",
+        "date": "2026-06-05",
+        "reason": "介绍AGENT-MINER自动化风险挖掘工具，展示针对通用AI智能体的前沿攻击方法。"
       },
       {
-        "title": "针对 Claude Code 用户的无文件 Infostealer 攻击：利用伪造 Anthropic 站点与 ClickFix 诱饵",
-        "url": "https://sec.today/pulses/c253ef03-60b8-428c-ae4c-4aae02333994/",
-        "source": "Sec-Today",
-        "date": "2026-06-04",
-        "reason": "针对新兴AI编程工具用户的凭证窃取活动，利用多态文件和AMSI绕过构建了完全无文件的复杂攻击链，规避检测能力强。"
+        "title": "协同作战：甲方视角的体系化 AI 渗透实践",
+        "url": "https://xz.aliyun.com/news/92252",
+        "source": "先知社区",
+        "date": "2026-06-05",
+        "reason": "分享甲方视角的体系化AI渗透实战经验，对AI模型红队评估具有较高参考价值。"
       },
       {
-        "title": "Updating the taxonomy of failure modes in agentic AI systems: What a year of red teaming taught us",
-        "url": "https://www.microsoft.com/en-us/security/blog/2026/06/04/updating-taxonomy-failure-modes-agentic-ai-systems-year-red-teaming-taught-us/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-04",
-        "reason": "微软AI红队发布关于智能体系统故障模式的最新分类法，基于一年的实战经验总结，对防御和评估AI系统具有指导意义。"
+        "title": "Anthropic年度报告：AI如何改变网络攻击？安全防御该如何改进？",
+        "url": "https://www.secrss.com/articles/91046",
+        "source": "安全内参",
+        "date": "2026-06-05",
+        "reason": "Anthropic年度报告实证分析AI如何重塑网络攻击，为未来的防御体系建设提供指导。"
       }
     ],
     "威胁情报": [
       {
-        "title": "China-Linked TA4922 Expands Phishing Attacks to U.K., Germany, Italy, and South Africa",
-        "url": "https://thehackernews.com/2026/06/china-linked-ta4922-expands-phishing.html",
+        "title": "IronWorm and New Miasma Worm Variant Hit npm in Supply Chain Attacks",
+        "url": "https://thehackernews.com/2026/06/ironworm-and-new-miasma-worm-variant.html",
         "source": "The Hacker News",
-        "date": "2026-06-04",
-        "reason": "披露了具有中国背景的TA4922组织将其网络钓鱼攻击范围扩展至欧洲多国，提供了最新的APT活动战术情报。"
+        "date": "2026-06-05",
+        "reason": "揭示npm生态系统中IronWorm等新型供应链攻击活动，影响超过50个合法开源包。"
       },
       {
-        "title": "New IronWorm malware hits 36 packages in npm supply-chain attack",
-        "url": "https://www.bleepingcomputer.com/news/security/new-ironworm-malware-hits-36-packages-in-npm-supply-chain-attack/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-04",
-        "reason": "报告了名为IronWorm的新恶意软件对npm开源生态的供应链攻击，波及36个包，凸显了开源开发环境的威胁。"
-      },
-      {
-        "title": "Hackers Spied on a Stock Exchange Executive's Outlook Mailbox for Five Months",
-        "url": "https://thehackernews.com/2026/06/hackers-spied-on-stock-exchange.html",
+        "title": "New Threat Cluster OP-512 Targets Microsoft IIS Servers with Custom Web Shell Framework",
+        "url": "https://thehackernews.com/2026/06/new-threat-cluster-op-512-targets.html",
         "source": "The Hacker News",
-        "date": "2026-06-04",
-        "reason": "未知攻击者潜伏在证券交易所高管的Outlook邮箱中长达五个月进行数据窃取，是一起典型的高价值目标定向攻击事件。"
+        "date": "2026-06-05",
+        "reason": "披露了针对微软IIS服务器的全新威胁集群OP-512及其定制Web Shell框架。"
       },
       {
-        "title": "Gamaredon Uses WinRAR Vulnerability to Launch Modular Spy Campaign on Ukrainian Targets",
-        "url": "https://securityaffairs.com/193112/intelligence/gamaredon-uses-winrar-vulnerability-to-launch-modular-spy-campaign-on-ukrainian-targets.html",
+        "title": "Chinese APT deploys new malware to keep access to hacked networks",
+        "url": "https://www.bleepingcomputer.com/news/security/chinese-apt-deploys-new-malware-to-keep-access-to-hacked-networks/",
         "source": "Unsafe.sh",
-        "date": "2026-06-04",
-        "reason": "俄罗斯关联组织Gamaredon利用WinRAR漏洞针对乌克兰发起模块化间谍活动，结合了最新CVE与地缘政治攻击背景。"
+        "date": "2026-06-05",
+        "reason": "监测到中国APT组织通过部署新型恶意软件持续潜伏于被攻陷的微软365环境中。"
+      },
+      {
+        "title": "Silent Ransom Group (SRG): Switching To DNS Fast Flux Infrastructure",
+        "url": "https://securityaffairs.com/193215/cyber-crime/silent-ransom-group-srg-switching-to-dns-fast-flux-infrastructure.html",
+        "source": "Unsafe.sh",
+        "date": "2026-06-05",
+        "reason": "剖析勒索组织SRG的基础设施演变，揭示其向DNS Fast Flux隐蔽架构的转型。"
       }
     ],
     "安全工具": [
       {
-        "title": "void-sniff: A lightweight x64 Native API syscall monitor with a custom inline hook engine and zero dependencies",
-        "url": "https://unsafe.sh/go-420986.html",
+        "title": "Ghidra 12.1.2 has been released!",
+        "url": "https://unsafe.sh/go-421328.html",
         "source": "Unsafe.sh",
-        "date": "2026-06-04",
-        "reason": "一款零依赖的轻量级x64 Native API系统调用监控工具，带有自定义内联Hook引擎，适合红队进行底层操作监控。"
+        "date": "2026-06-05",
+        "reason": "知名逆向工程神器Ghidra发布12.1.2版本，引入了新的特性和功能改进。"
       },
       {
-        "title": "Enter the WasmForge: Compiling Sliver into WebAssembly",
-        "url": "https://unsafe.sh/go-421014.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-04",
-        "reason": "介绍如何将知名的Sliver C2框架编译为WebAssembly，为红队在隐蔽的Web环境执行后渗透操作提供了创新思路。"
+        "title": "OWASP Incubator Project Helps Developers Find and Fix Vulnerable Dependencies in Seconds",
+        "url": "https://www.securityweek.com/owasp-incubator-project-helps-developers-find-and-fix-vulnerable-dependencies-in-seconds/",
+        "source": "SecurityWeek",
+        "date": "2026-06-05",
+        "reason": "介绍OWASP孵化的开源CLI工具CVE Lite，能在数秒内帮助开发者扫描并修复依赖漏洞。"
       },
       {
-        "title": "Introducing the Wallarm AI Control Platform: One closed loop for AI security and API security.",
-        "url": "https://lab.wallarm.com/introducing-the-wallarm-ai-control-platform-one-closed-loop-for-ai-security-and-api-security/",
+        "title": "Self-made tool for recursive directory enumeration and API probing",
+        "url": "https://unsafe.sh/go-421331.html",
         "source": "Unsafe.sh",
-        "date": "2026-06-04",
-        "reason": "Wallarm推出集AI安全与API安全于一体的闭环控制平台，为企业应对AI时代的API威胁提供了新的防御工具方案。"
+        "date": "2026-06-05",
+        "reason": "分享了一款自研的自动化目录枚举与API探测工具，适合Web渗透测试人员使用。"
       }
     ],
     "云安全": [
       {
-        "title": "bmcweb (OpenBMC web server): four vulnerabilities — two unfixed, GHSA without a CVE",
-        "url": "https://sec.today/pulses/cb6b1def-343e-492a-804d-d6684bb070b2/",
-        "source": "Sec-Today",
-        "date": "2026-06-04",
-        "reason": "揭示了云服务器底层BMC固件OpenBMC组件中的四个严重漏洞，并指出上游固件分发滞后带来的现实云基础设施风险。"
+        "title": "Securing CI/CD in an agentic world: Claude Code Github action case",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/06/05/securing-ci-cd-in-agentic-world-claude-code-github-action-case/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-05",
+        "reason": "分析在智能化时代如何保障CI/CD管道安全，结合Claude代码实战探讨防护策略。"
       },
       {
-        "title": "Cisco Patches CVE-2026-20230 in Unified CM as Exploit Code Goes Public",
-        "url": "https://thehackernews.com/2026/06/cisco-patches-cve-2026-20230-in-unified.html",
-        "source": "The Hacker News",
-        "date": "2026-06-04",
-        "reason": "Cisco紧急修补了统一通信管理器中的高危漏洞，由于PoC代码已公开，对使用该云服务的企业通信基础设施构成直接威胁。"
-      },
-      {
-        "title": "Mirasvit Vulnerability Exploited to Execute Code on Magento Servers",
-        "url": "https://www.securityweek.com/mirasvit-vulnerability-exploited-to-execute-code-on-magento-servers/",
+        "title": "Cisco Warns of 7th SD-WAN Zero-Day Exploited in 2026",
+        "url": "https://www.securityweek.com/cisco-warns-of-7th-sd-wan-zero-day-exploited-in-2026/",
         "source": "SecurityWeek",
-        "date": "2026-06-04",
-        "reason": "Magento电商云服务器上的Mirasvit扩展存在未授权RCE漏洞并被积极利用，直接威胁到企业级电商平台的业务安全。"
+        "date": "2026-06-05",
+        "reason": "警告Cisco SD-WAN出现今年第7个被积极利用的零日漏洞，允许以root权限执行任意命令。"
+      },
+      {
+        "title": "Cisco SD-WAN Has a New Root-Level Problem, and There’s No Fix Yet",
+        "url": "https://securityaffairs.com/193203/security/cisco-sd-wan-has-a-new-root-level-problem-and-theres-no-fix-yet.html",
+        "source": "Unsafe.sh",
+        "date": "2026-06-05",
+        "reason": "深入分析Cisco SD-WAN新出现的Root级别严重漏洞，目前官方尚未发布修复补丁。"
+      },
+      {
+        "title": "Popping Root on UniFi OS Server: Unauthenticated RCE Chain Detection & Analysis",
+        "url": "https://bishopfox.com/blog/popping-root-on-unifi-os-server-unauthenticated-rce-chain-detection-analysis",
+        "source": "Unsafe.sh",
+        "date": "2026-06-05",
+        "reason": "详细记录了Ubiquiti UniFi OS Server未授权RCE漏洞链的挖掘与分析全过程。"
       }
     ],
     "其他重要": [
       {
-        "title": "苹果corecrypto密码库中的后量子密码算法实现与形式化验证蓝图",
-        "url": "https://www.secrss.com/articles/90989",
-        "source": "安全内参",
-        "date": "2026-06-04",
-        "reason": "苹果开源其corecrypto中的后量子密码实现，为行业落地抗量子加密技术和形式化验证提供了权威参考。"
+        "title": "整理Windows 全架构 Hook 技术图谱：从 Ring3 到固件层 34 种实现",
+        "url": "http://bbs.kanxue.com/thread-291370.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-06-05",
+        "reason": "全面梳理Windows全架构34种Hook技术，提供完整代码实现，是极佳的底层安全学习资料。"
       },
       {
-        "title": "The NHS Was Lucky. The Next Victim Might Not Be.",
-        "url": "https://thecyberexpress.com/software-supply-chain-attacks-guidance/",
+        "title": "微软Build 2026安全布局：MDASH、Agent 365，微软安全走到哪了",
+        "url": "https://www.secrss.com/articles/91022",
+        "source": "安全内参",
+        "date": "2026-06-05",
+        "reason": "盘点微软Build 2026在安全领域的布局与产品动向，指明了未来安全架构的发展趋势。"
+      },
+      {
+        "title": "Intel 酷睿 CPU Management Engine 固件研究与分析逆向：前置准备与解包",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458616264&idx=1&sn=694e1420b968e1fea0b7b7a68b90dcbc",
         "source": "Unsafe.sh",
-        "date": "2026-06-04",
-        "reason": "基于近期NHS软件供应链遭受的攻击事件，深入探讨了软件供应链安全的脆弱性，并提供了实战性的防御指导建议。"
+        "date": "2026-06-05",
+        "reason": "深入讲解Intel ME固件逆向的前置准备与解包过程，对硬件级安全研究非常有价值。"
       }
     ]
   },
-  "summary": "本批次文章聚焦于Windows Netlogon与HTTP/2等高危底层漏洞预警，前沿AI工具（Claude、ChatGPT）的提示注入与代码劫持威胁，以及全球活跃的APT组织最新攻击情报。"
+  "summary": "本批次125篇文章聚焦AI Agent安全、云原生CI/CD与SD-WAN高危漏洞、多平台0-day及APT攻击情报，涵盖前沿攻防技术。"
 }
