@@ -1,210 +1,224 @@
 {
-  "analysis_date": "2026-06-10",
-  "total_analyzed": 120,
+  "analysis_date": "2026-06-11",
+  "total_analyzed": 130,
   "categories": {
     "漏洞研究": [
       {
-        "title": "Google Chrome V8越界读写漏洞(CVE-2026-11645)安全风险通告",
-        "url": "https://www.secrss.com/articles/91116",
-        "source": "安全内参",
-        "date": "2026-06-09",
-        "reason": "高危零日漏洞，已在野被利用，攻击者可通过恶意网页绕过沙箱实现RCE，影响面极广。"
+        "title": "UniFi OS 关键漏洞：CVE-2026-34908 至 34910 导致认证绕过与 Root 命令执行",
+        "url": "https://sec.today/pulses/981cfe81-e5b3-480c-b3da-6a1734ded40b/",
+        "source": "Sec-Today",
+        "date": "2026-06-10",
+        "reason": "CVSS 10.0满分漏洞，攻击者无需认证即可实现RCE并接管网络管理平面及物理安防系统，威胁极高。"
       },
       {
-        "title": "Veeam Backup & Replication RCE Flaw Lets Domain Users Run Remote Code",
-        "url": "https://thehackernews.com/2026/06/veeam-backup-replication-rce-flaw-lets.html",
+        "title": "Microsoft Defender RoguePlanet Zero-Day Grants SYSTEM Access on Updated Windows",
+        "url": "https://thehackernews.com/2026/06/microsoft-defender-rogueplanet-zero-day.html",
         "source": "The Hacker News",
-        "date": "2026-06-09",
-        "reason": "Veeam备份软件爆出严重的RCE漏洞，低权限域用户可利用此漏洞完全控制备份服务器，企业需紧急修复。"
+        "date": "2026-06-10",
+        "reason": "揭露了Microsoft Defender中的零日漏洞（RoguePlanet），利用竞争条件可实现在完全修补的系统上提权至SYSTEM。"
       },
       {
-        "title": "Microsoft Defender 'RoguePlanet' zero-day grants SYSTEM privileges",
-        "url": "https://www.bleepingcomputer.com/news/microsoft/microsoft-defender-rogueplanet-zero-day-grants-system-privileges/",
+        "title": "Unpatched Langflow Flaw CVE-2026-5027 Exploited for Unauthenticated RCE",
+        "url": "https://thehackernews.com/2026/06/unpatched-langflow-flaw-cve-2026-5027.html",
+        "source": "The Hacker News",
+        "date": "2026-06-10",
+        "reason": "开源AI应用构建平台Langflow存在高危路径穿越漏洞且已遭在野利用，对AI开发供应链具有重大威胁。"
+      },
+      {
+        "title": "When Anti-Rootkit Tools Backfire: How a Trend Micro Utility Ended Up Installing Rootkits",
+        "url": "https://sec.today/pulses/2c0ae87a-812c-427a-bd70-b8c20a48e944/",
+        "source": "Sec-Today",
+        "date": "2026-06-10",
+        "reason": "安全工具自身的内核级漏洞被逆向利用以安装恶意Rootkit，深刻警示了防御机制变成攻击载体的风险。"
+      },
+      {
+        "title": "Pre-auth XXE → HTTP SSRF on ArubaOS 8.13.2 closed as \"theoretical / no valid PoC\" despite TCP pcap, sshd localhost log, and internal port scan — documenting for community review",
+        "url": "https://unsafe.sh/go-422311.html",
         "source": "Unsafe.sh",
-        "date": "2026-06-09",
-        "reason": "微软Defender爆出本地提权零日漏洞，攻击者可利用该漏洞获取最高系统权限，具备极高实战价值。"
-      },
-      {
-        "title": "Check Point VPN Zero-Day Exploited in Qilin Ransomware Attacks",
-        "url": "https://www.securityweek.com/check-point-vpn-zero-day-exploited-in-qilin-ransomware-attacks/",
-        "source": "SecurityWeek",
-        "date": "2026-06-09",
-        "reason": "Check Point VPN的认证绕过零日漏洞被Qilin勒索软件组织在实战中利用，无需密码即可建立VPN连接。"
-      },
-      {
-        "title": "OpenSSL Patches High-Severity Vulnerability Found With AI",
-        "url": "https://www.securityweek.com/openssl-patches-high-severity-vulnerability-found-with-ai/",
-        "source": "SecurityWeek",
-        "date": "2026-06-09",
-        "reason": "OpenSSL修复了高危漏洞，值得关注的是该漏洞是通过AI技术发现的，体现了AI在漏洞挖掘中的应用潜力。"
+        "date": "2026-06-10",
+        "reason": "提供了详尽的ArubaOS预认证XXE到SSRF的漏洞PoC与流量抓包分析，对网络设备固件审计极具参考价值。"
       }
     ],
     "移动安全": [
       {
-        "title": "工信部指导规范APP信息窗口跳转行为",
-        "url": "https://www.secrss.com/articles/91131",
-        "source": "安全内参",
-        "date": "2026-06-09",
-        "reason": "针对APP恶意跳转等乱象的合规治理，对国内移动应用开发及安全合规测试具有直接影响。"
+        "title": "Fake Context Alignment：通过投毒通知劫持 Android 端 Google Gemini",
+        "url": "https://sec.today/pulses/92998aea-92da-43eb-9a09-3542a6af4a00/",
+        "source": "Sec-Today",
+        "date": "2026-06-10",
+        "reason": "揭示了利用伪装通知对Android端AI助手进行投毒劫持的新技术，暴露了多模态交互在移动端的验证盲区。"
       },
       {
-        "title": "2026-06-09: Atomic macOS (AMOS) Stealer infection",
-        "url": "https://www.malware-traffic-analysis.net/2026/06/09/index.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-09",
-        "reason": "针对macOS平台的AMOS信息窃取软件感染事件流量分析，对苹果端恶意软件检测具有实战参考价值。"
+        "title": "【安全圈】苹果 iOS 27 测试版 Siri AI 系统提示词泄露，超 1300 行核心指令曝光",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077328&idx=1&sn=193fa99912fa567a8d25077ddc0966b1",
+        "source": "微信",
+        "date": "2026-06-10",
+        "reason": "苹果最新iOS系统中Siri AI的核心系统提示词泄露，为研究移动端智能助手的安全防护与越狱防护提供了重要素材。"
       },
       {
-        "title": "Meta’s face-recognition code raises new concerns about smart glasses",
-        "url": "https://www.malwarebytes.com/blog/privacy/2026/06/metas-face-recognition-code-raises-new-concerns-about-smart-glasses",
-        "source": "Unsafe.sh",
-        "date": "2026-06-09",
-        "reason": "Meta智能眼镜的面部识别代码引发严重隐私担忧，移动智能穿戴设备的隐私合规面临新挑战。"
+        "title": "【安全圈】Instagram 再曝严重安全漏洞：扎克伯格、姆巴佩等身份信息泄露",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077328&idx=2&sn=7249ec24c28a5c743bdaa486b737ba93",
+        "source": "微信",
+        "date": "2026-06-10",
+        "reason": "主流移动社交平台再现严重数据泄露事件，凸显了移动应用在用户隐私和接口鉴权方面的持续脆弱性。"
+      },
+      {
+        "title": "NSO Group Hacking WhatsApp Despite Court Order",
+        "url": "https://www.schneier.com/blog/archives/2026/06/nso-group-hacking-whatsapp-despite-court-order.html",
+        "source": "Schneier on Security",
+        "date": "2026-06-10",
+        "reason": "NSO Group无视法院禁令继续利用漏洞攻击WhatsApp，反映了移动端间谍软件对抗的严峻态势。"
       }
     ],
     "AI安全": [
       {
-        "title": "揭秘MCP生态中的“暗面”：AI代理如何成为攻击者的帮凶？",
-        "url": "https://www.secrss.com/articles/91139",
-        "source": "安全内参",
-        "date": "2026-06-09",
-        "reason": "深度分析当前LLM在应对恶意MCP服务器时的防御缺失，对AI代理生态的安全研究具有重要参考意义。"
+        "title": "绕过 AI 技能扫描器：ClawHub、Cisco 和 Vercel 生态中的供应链风险",
+        "url": "https://sec.today/pulses/dc4d602f-ef25-43fd-a8e0-0a036c02d1de/",
+        "source": "Sec-Today",
+        "date": "2026-06-10",
+        "reason": "揭露了主流AI技能平台通过简单代码混淆即可绕过静态分析与LLM检测的供应链漏洞，直击AI生态软肋。"
       },
       {
-        "title": "Researchers Build Self-Replicating AI Worm That Operates Entirely on Local, Open-Weight Models",
-        "url": "https://thehackernews.com/2026/06/researchers-build-self-replicating-ai.html",
-        "source": "The Hacker News",
-        "date": "2026-06-09",
-        "reason": "多伦多大学研究人员开发出基于本地大模型自我复制的AI蠕虫，揭示了AI驱动攻击的自动化新趋势。"
-      },
-      {
-        "title": "LiteLLM Flaw CVE-2026-42271 Exploited in the Wild, Chains to Unauthenticated RCE",
-        "url": "https://thehackernews.com/2026/06/litellm-flaw-cve-2026-42271-exploited.html",
-        "source": "The Hacker News",
-        "date": "2026-06-09",
-        "reason": "BerriAI LiteLLM的严重漏洞已被CISA列入已知被利用漏洞目录，可导致未授权的远程代码执行。"
-      },
-      {
-        "title": "Claude Mythos Turns N-Days Into N-Hours With Rapid Exploit Creation",
-        "url": "https://www.securityweek.com/claude-mythos-turns-n-days-into-n-hours-with-rapid-exploit-creation/",
+        "title": "After AI Reaches Production: 12 Ways Security Teams Can Take Control",
+        "url": "https://www.securityweek.com/after-ai-reaches-production-12-ways-security-teams-can-take-control/",
         "source": "SecurityWeek",
-        "date": "2026-06-09",
-        "reason": "Anthropic的Mythos模型展示出极快的PoC编写能力，将NDay漏洞武器化时间缩短至数小时，改变攻防格局。"
+        "date": "2026-06-10",
+        "reason": "针对已经投入生产环境的AI应用，为安全团队提供了可落地的监控、调查和防御框架建议，实战指导性强。"
       },
       {
-        "title": "OpenClaw AI agent found falling for phishing attacks, spills user data",
-        "url": "https://www.bleepingcomputer.com/news/security/openclaw-ai-agent-found-falling-for-phishing-attacks-spills-user-data/",
+        "title": "We post-trained a model for offensive security instead of teaching it to refuse",
+        "url": "https://unsafe.sh/go-422258.html",
         "source": "Unsafe.sh",
-        "date": "2026-06-09",
-        "reason": "针对OpenClaw邮件代理的钓鱼测试表明，当前AI代理极易受到社工攻击并泄露用户数据，需引起重视。"
+        "date": "2026-06-10",
+        "reason": "分享了专门针对攻击性安全进行后训练的模型实践，探讨了大模型在红队攻防场景中的前沿应用。"
+      },
+      {
+        "title": "Anthropic Releases Claude Fable 5, Its Most Powerful AI Yet, With Cyber Safeguards",
+        "url": "https://thehackernews.com/2026/06/anthropic-releases-claude-fable-5-its.html",
+        "source": "The Hacker News",
+        "date": "2026-06-10",
+        "reason": "介绍了Anthropic最新发布的强大AI模型及其附带的安全防护机制，对了解前沿AI安全对齐策略极具参考意义。"
       }
     ],
     "威胁情报": [
       {
-        "title": "微软紧急关闭近百个开源代码库：AI类项目遭投毒，窃取用户敏感数据",
-        "url": "https://www.secrss.com/articles/91137",
-        "source": "安全内参",
-        "date": "2026-06-09",
-        "reason": "开源软件供应链投毒事件加剧，导致微软采取罕见措施关闭大量代码库，与TeamPCP投毒行动相关。"
-      },
-      {
-        "title": "WinRAR Flaw Exploited by Russia-Aligned Groups to Deploy Stealers in Ukraine",
-        "url": "https://thehackernews.com/2026/06/winrar-flaw-exploited-by-russia-aligned.html",
+        "title": "China-Linked JDY Botnet Expands to 1,500+ Devices for Cyber Reconnaissance",
+        "url": "https://thehackernews.com/2026/06/china-linked-jdy-botnet-expands-to-1500.html",
         "source": "The Hacker News",
-        "date": "2026-06-09",
-        "reason": "具有俄罗斯背景的APT组织持续利用WinRAR已修补近一年的漏洞攻击乌克兰实体，部署信息窃取工具。"
+        "date": "2026-06-10",
+        "reason": "揭露了中国关联的APT组织如何利用SOHO路由器构建大规模隐秘网络进行长期侦察的战术与规模。"
       },
       {
-        "title": "Hades PyPI Attack: 19 Packages Poisoned to Auto-Run Bun Credential Stealer",
-        "url": "https://thehackernews.com/2026/06/hades-pypi-attack-19-packages-poisoned.html",
-        "source": "The Hacker News",
-        "date": "2026-06-09",
-        "reason": "Miasma供应链攻击引发新一轮Hades行动，PyPI上19个流行包被植入Bun凭证窃取器，开发者风险极高。"
-      },
-      {
-        "title": "Over 100 NPM, PyPI Packages Hit in New Shai-Hulud Supply Chain Attacks",
-        "url": "https://www.securityweek.com/over-100-npm-pypi-packages-hit-in-new-shai-hulud-supply-chain-attacks/",
+        "title": "Infostealers Turn Millions of Devices Into Credential Theft Machines",
+        "url": "https://www.securityweek.com/infostealers-turn-millions-of-devices-into-credential-theft-machines/",
         "source": "SecurityWeek",
-        "date": "2026-06-09",
-        "reason": "自传播的Shai-Hulud供应链攻击最新变种Miasma和Hades爆发，影响超百个NPM和PyPI包，破坏力强。"
+        "date": "2026-06-10",
+        "reason": "深入分析信息窃取恶意软件如何取代传统漏洞利用成为勒索团伙和凭证盗取的主要源头，描绘了当前犯罪生态。"
       },
       {
-        "title": "Miasma Worm Compromises 73 Microsoft GitHub Repositories",
-        "url": "https://securityaffairs.com/193367/malware/miasma-worm-compromises-73-microsoft-github-repositories.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-09",
-        "reason": "Miasma蠕虫成功入侵微软官方73个GitHub存储库，凸显开源生态在面对自动化蠕虫攻击时的脆弱性。"
+        "title": "Russian APTs Still Exploiting Patched WinRAR Flaw CVE-2025-8088",
+        "url": "https://securityaffairs.com/193476/apt/russian-apts-still-exploiting-patched-winrar-flaw-cve-2025-8088.html",
+        "source": "Security Affairs",
+        "date": "2026-06-10",
+        "reason": "预警俄罗斯APT组织仍在积极利用已修补的WinRAR漏洞发起攻击，凸显N-day漏洞管理的现实紧迫性。"
+      },
+      {
+        "title": "Cybercriminals claim breach of Oracle PeopleSoft servers at 100-plus organizations",
+        "url": "https://techcrunch.com/2026/06/10/cybercriminals-claim-breach-of-oracle-peoplesoft-servers-at-100-plus-organizations/",
+        "source": "TechCrunch",
+        "date": "2026-06-10",
+        "reason": "ShinyHunters黑客组织宣称入侵了上百家企业的Oracle PeopleSoft服务器，是一起规模庞大的数据窃取事件。"
       }
     ],
     "安全工具": [
       {
-        "title": "5.3 Release 2",
-        "url": "https://binary.ninja/2026/06/09/5.3-release-2.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-09",
-        "reason": "知名逆向工程工具Binary Ninja发布5.3稳定版更新，包含多项稳定性和功能改进，对安全研究人员实用。"
+        "title": "EDRChoker：利用 Windows 原生 Policy-Based QoS 带宽节流静默 EDR 代理",
+        "url": "https://sec.today/pulses/ac143859-3524-4816-9b43-d75c77403989/",
+        "source": "Sec-Today",
+        "date": "2026-06-10",
+        "reason": "公开了一种利用Windows原生QoS引擎在NDIS层静默扼杀EDR流量的红队隐蔽技术，具备极高的反检测实战价值。"
       },
       {
-        "title": "Microsoft Patch Tuesday for June 2026 — Snort rules and prominent vulnerabilities",
-        "url": "https://blog.talosintelligence.com/microsoft-patch-tuesday-for-june-2026-snort-rules-and-prominent-vulnerabilities/",
+        "title": "应对供应链蠕虫攻击 GitHub宣布NPM v12将不再自动执行依赖项安装脚本",
+        "url": "https://www.landian.news/archives/113393.html",
         "source": "Unsafe.sh",
-        "date": "2026-06-09",
-        "reason": "Talos发布的6月补丁日Snort检测规则汇总，对于网络安全防御人员进行流量检测和应急响应不可或缺。"
+        "date": "2026-06-11",
+        "reason": "GitHub为应对日益猖獗的供应链攻击而修改核心机制，取消自动执行安装脚本将极大改善Node.js生态安全性。"
       },
       {
-        "title": "Collect digital evidence in one place. Disk, RAM, and Android acquisition.",
-        "url": "https://unsafe.sh/go-422010.html",
+        "title": "IDA 9.4 Beta | Hex-Rays Docs",
+        "url": "https://unsafe.sh/go-422292.html",
         "source": "Unsafe.sh",
-        "date": "2026-06-09",
-        "reason": "一款集成磁盘、内存和Android取证的数据收集工具介绍，对于电子数据取证和应急响应人员有帮助。"
+        "date": "2026-06-10",
+        "reason": "逆向工程领域标杆工具发布9.4 Beta版本，为漏洞挖掘和恶意软件分析人员提供更强大的技术支持。"
+      },
+      {
+        "title": "Turn specs into evals for any agent with ASSERT",
+        "url": "https://commandline.microsoft.com/assert-written-intent-executable-evals/",
+        "source": "Microsoft Command Line",
+        "date": "2026-06-10",
+        "reason": "微软发布ASSERT工具，能够将自然语言规范转化为自动化评估用例，为检验AI代理的安全性提供了创新方法。"
       }
     ],
     "云安全": [
       {
-        "title": "Blinding the Watchmen: Abusing Cloud Logging Services for Defense Evasion and Visibility",
-        "url": "https://unit42.paloaltonetworks.com/cloud-logging-defense-evasion/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-09",
-        "reason": "Palo Alto Unit42研究揭示攻击者如何滥用云日志服务逃避防御，对云环境安全监控和威胁狩猎极具价值。"
+        "title": "ServiceNow Flaw Exploited to Gain Unauthorized Access to Customer Instances",
+        "url": "https://thehackernews.com/2026/06/servicenow-flaw-exploited-to-gain.html",
+        "source": "The Hacker News",
+        "date": "2026-06-10",
+        "reason": "详细记录了攻击者如何利用ServiceNow云平台漏洞获取客户实例的未授权访问，对SaaS安全防护具有警示作用。"
       },
       {
-        "title": "ServiceNow discloses security incident exposing customer data",
-        "url": "https://www.bleepingcomputer.com/news/security/servicenow-discloses-security-incident-exposing-customer-data/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-09",
-        "reason": "云平台ServiceNow披露因未认证漏洞导致客户数据泄露的安全事件，云SaaS服务的攻击面再次敲响警钟。"
+        "title": "Cloud Security Report Finds Fragmented Tools Widening The Cloud Complexity Gap",
+        "url": "https://hackernoon.com/cloud-security-report-finds-fragmented-tools-widening-the-cloud-complexity-gap?source=rss",
+        "source": "HackerNoon",
+        "date": "2026-06-10",
+        "reason": "报告指出云安全工具的碎片化正在加剧企业安全防护的复杂性，为云安全架构规划提供了重要参考。"
       },
       {
-        "title": "When MCP Deployment Security Makes You Say AI, AI, AI (Ouch, Ouch, Ouch)!",
-        "url": "https://www.guidepointsecurity.com/blog/mcp-deployment-security-ai-ai-ai/",
+        "title": "Route public traffic to private applications with Cloudflare",
+        "url": "https://blog.cloudflare.com/private-origins-dns-routing/",
+        "source": "Cloudflare Blog",
+        "date": "2026-06-10",
+        "reason": "介绍了如何利用Cloudflare的DNS路由功能安全地将公共流量导向私有应用，是优化零信任云架构的实用指南。"
+      },
+      {
+        "title": "FedRAMP Penetration Testing: How to Pass Your ATO Review and Get Cloud Authorized Faster",
+        "url": "https://unsafe.sh/go-422228.html",
         "source": "Unsafe.sh",
-        "date": "2026-06-09",
-        "reason": "探讨在云端和企业环境中部署MCP时的安全风险与最佳实践，结合了云安全和最新AI代理架构。"
+        "date": "2026-06-10",
+        "reason": "针对云服务商，提供了如何通过FedRAMP渗透测试要求并快速获得ATO授权的实战操作指南。"
       }
     ],
     "其他重要": [
       {
-        "title": "New FROST Attack Lets Websites Track What Sites and Apps You Open via SSD Timing",
-        "url": "https://thehackernews.com/2026/06/new-frost-attack-lets-websites-track.html",
-        "source": "The Hacker News",
-        "date": "2026-06-09",
-        "reason": "新型FROST侧信道攻击利用SSD定时差异，恶意网站仅需JavaScript即可追踪用户跨站和应用使用情况。"
+        "title": "Critical HVAC and UPS Vulnerabilities Could Let Hackers Disrupt Data Centers",
+        "url": "https://www.securityweek.com/critical-hvac-and-ups-vulnerabilities-could-let-hackers-disrupt-data-centers/",
+        "source": "SecurityWeek",
+        "date": "2026-06-10",
+        "reason": "揭示了数据中心关键基础设施（温控和UPS）中的严重漏洞，攻击者可利用其造成物理破坏或服务中断。"
       },
       {
-        "title": "Reconstructing AI activity in investigations",
-        "url": "https://www.microsoft.com/en-us/security/blog/2026/06/09/reconstructing-ai-activity-investigations/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-09",
-        "reason": "微软发布指南探讨如何在安全调查中重构AI系统的活动轨迹，对AI时代的数字取证和审计意义重大。"
+        "title": "CISA to require federal agencies to patch some cyber vulnerabilities within 3 days",
+        "url": "https://therecord.media/cisa-to-require-federal-agencies-to-patch-3-days",
+        "source": "The Record",
+        "date": "2026-06-10",
+        "reason": "美国CISA出台新规要求联邦机构在3天内修补被积极利用的漏洞，反映了全球网络安全合规在补丁管理上的收紧趋势。"
       },
       {
-        "title": "NIST《受控非密信息增强型安全要求》解读",
-        "url": "https://www.secrss.com/articles/91130",
-        "source": "安全内参",
-        "date": "2026-06-09",
-        "reason": "对NIST最新修订的CUI安全要求进行解读，扩展了访问控制与供应链安全，对合规建设有重要指导意义。"
+        "title": "FIFA World Cup 2026 Scams Are Already Active: Fake Domains, Phishing Sites, and How to Stay Safe",
+        "url": "https://cyble.com/blog/fifa-world-cup-2026-scams/",
+        "source": "Cyble",
+        "date": "2026-06-10",
+        "reason": "针对即将到来的大型国际体育赛事，提前预警了相关的网络钓鱼和欺诈活动，对社会工程学防范具有现实意义。"
+      },
+      {
+        "title": "Patch Tuesday to Pentest Wednesday: How a Global Investment Firm Reduced Security Surprises",
+        "url": "https://horizon3.ai/intelligence/blogs/patch-tuesday-to-pentest-wednesday-reducing-security-surprises/",
+        "source": "Horizon3.ai",
+        "date": "2026-06-10",
+        "reason": "分享了全球投资公司如何通过常态化的自动渗透测试来减少补丁日的安全盲区，为企业安全运营提供了优秀实践案例。"
       }
     ]
   },
-  "summary": "本期重点涵盖Chrome V8和主流企业软件的严重零日漏洞，AI代理及模型面临的投毒与钓鱼威胁，以及针对开源代码库的大规模供应链攻击事件。"
+  "summary": "本批次重点涵盖了微软补丁日多个严重零日漏洞、AI开发平台的供应链与投毒风险，以及利用系统底层机制绕过EDR的新技术，具备极高的攻防实战与预警价值。"
 }
