@@ -1,175 +1,210 @@
 {
-  "analysis_date": "2026-06-12",
-  "total_analyzed": 121,
+  "analysis_date": "2026-06-13",
+  "total_analyzed": 118,
   "categories": {
     "漏洞研究": [
       {
-        "title": "UniFi OS 关键漏洞：CVE-2026-34908 至 34910 导致认证绕过与 Root 命令执行",
-        "url": "https://sec.today/pulses/981cfe81-e5b3-480c-b3da-6a1734ded40b/",
-        "source": "Sec-Today",
-        "date": "2026-06-11",
-        "reason": "揭示了Ubiquiti UniFi OS中三个CVSS 10.0的严重漏洞，无需认证即可实现RCE并获取root权限，对依赖该设备的网络构成重大威胁。"
-      },
-      {
-        "title": "New GreatXML Exploit Bypasses Windows BitLocker via Recovery Partition XML Files",
-        "url": "https://thehackernews.com/2026/06/new-greatxml-exploit-bypasses-windows.html",
-        "source": "The Hacker News",
-        "date": "2026-06-11",
-        "reason": "公开了名为GreatXML的Windows BitLocker绕过零日漏洞，通过利用恢复分区XML文件突破加密，物理安全防护面临严峻挑战。"
-      },
-      {
-        "title": "ShinyHunters Exploits Oracle PeopleSoft Zero-Day (CVE-2026-35273) to Breach Universities",
-        "url": "https://thehackernews.com/2026/06/shinyhunters-exploits-oracle-peoplesoft.html",
-        "source": "The Hacker News",
-        "date": "2026-06-11",
-        "reason": "详细报道了ShinyHunters勒索团伙利用Oracle PeopleSoft未修补的零日漏洞入侵企业系统并窃取大学数据的事件，具有极高的时效性。"
-      },
-      {
-        "title": "Hackers Exploit Langflow Vulnerability for Remote Code Execution",
-        "url": "https://www.securityweek.com/hackers-exploit-langflow-vulnerability-for-remote-code-execution/",
-        "source": "SecurityWeek",
-        "date": "2026-06-11",
-        "reason": "警告了Langflow漏洞被积极利用用于远程代码执行的风险，该缺陷允许未经身份验证的攻击者写入任意文件，影响广泛。"
-      },
-      {
-        "title": "CVE-2026-10520 Exploited: Ivanti Sentry Gateways Compromised Shortly After Patch Release",
-        "url": "https://securityaffairs.com/193530/uncategorized/cve-2026-10520-exploited-ivanti-sentry-gateways-compromised-shortly-after-patch-release.html",
+        "title": "CVE-2026-35273 | Oracle PeopleSoft PeopleTools Unauthenticated Remote Code Execution Vulnerability | Active Exploitation",
+        "url": "https://horizon3.ai/attack-research/vulnerabilities/cve-2026-35273/",
         "source": "Unsafe.sh",
-        "date": "2026-06-11",
-        "reason": "披露了Ivanti Sentry网关中CVE-2026-10520漏洞在补丁发布后立即遭到攻击者利用的情况，强调了及时更新和关注在野利用的重要性。"
+        "date": "2026-06-12",
+        "reason": "Oracle PeopleSoft存在未授权远程代码执行漏洞且已被ShinyHunters组织在野外积极利用，具有极高实战威胁。"
+      },
+      {
+        "title": "Chrome 149 Update Patches 28 Vulnerabilities",
+        "url": "https://www.securityweek.com/chrome-149-update-patches-28-vulnerabilities/",
+        "source": "SecurityWeek",
+        "date": "2026-06-12",
+        "reason": "谷歌Chrome 149版本修复了28个安全漏洞，其中包括多个高危的释放后重用漏洞，建议尽快升级。"
+      },
+      {
+        "title": "Ivanti Sentry Exploitation Attempts Hitting Honeypots",
+        "url": "https://www.securityweek.com/ivanti-sentry-exploitation-attempts-hitting-honeypots/",
+        "source": "SecurityWeek",
+        "date": "2026-06-12",
+        "reason": "Ivanti Sentry的高危OS命令注入漏洞（CVE-2026-35273）已被CISA确认存在在野利用，需紧急排查。"
+      },
+      {
+        "title": "phpBB forum fixes auth bypass bug lurking for a decade",
+        "url": "https://www.bleepingcomputer.com/news/security/phpbb-forum-fixes-auth-bypass-bug-lurking-for-a-decade/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-12",
+        "reason": "广泛使用的phpBB论坛软件修复了一个潜藏长达十年的身份验证绕过漏洞，对历史资产排查有参考价值。"
+      },
+      {
+        "title": "Factoring \"short-sleeve\" RSA keys with polynomials",
+        "url": "https://blog.trailofbits.com/2026/06/12/factoring-short-sleeve-rsa-keys-with-polynomials/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-12",
+        "reason": "深入分析了RSA私钥位偏向0时利用多项式分解密钥的密码学技术，具有极高的技术深度。"
       }
     ],
     "移动安全": [
       {
-        "title": "Fake Context Alignment：通过投毒通知劫持 Android 端 Google Gemini",
-        "url": "https://sec.today/pulses/92998aea-92da-43eb-9a09-3542a6af4a00/",
-        "source": "Sec-Today",
-        "date": "2026-06-11",
-        "reason": "提出了一种针对Google Gemini的新型攻击技术，仅通过伪装通知即可绕过最新安全防御劫持应用，深度剖析了AI代理在上下文处理上的致命盲区。"
+        "title": "UDS协议安全CTF挑战分析",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458616524&idx=1&sn=edf6417951ed1d20a39438def18ac040",
+        "source": "Unsafe.sh",
+        "date": "2026-06-12",
+        "reason": "针对汽车物联网UDS协议的CTF挑战分析，对车联网和移动设备底层通信安全研究具有实战指导意义。"
       },
       {
-        "title": "Android App Penetration Testing: From APK Decompilation to Runtime Exploitation [Tools and Labs]",
-        "url": "https://infosecwriteups.com/android-app-penetration-testing-from-apk-decompilation-to-runtime-exploitation-tools-and-labs-5fc2fc68fc5d?source=rss----7b722bfd1b8d---4",
+        "title": "/e/OS 4.0 释出",
+        "url": "https://www.solidot.org/story?sid=84567",
         "source": "Unsafe.sh",
-        "date": "2026-06-11",
-        "reason": "提供了从APK反编译到运行时漏洞利用的完整Android应用渗透测试指南，包含实用的工具推荐和实验环境搭建，实战参考价值高。"
+        "date": "2026-06-12",
+        "reason": "注重隐私的移动开源操作系统/e/OS发布4.0版本，为去谷歌化的移动终端安全提供了重要替代方案。"
+      },
+      {
+        "title": "Stolen iPhones could soon be worth a lot less to thieves",
+        "url": "https://www.malwarebytes.com/blog/mobile/2026/06/stolen-iphones-could-soon-be-worth-a-lot-less-to-thieves",
+        "source": "Unsafe.sh",
+        "date": "2026-06-12",
+        "reason": "英国警方与苹果达成新协议以降低被盗iPhone的销赃价值，属于移动设备防盗机制的重要进展。"
       }
     ],
     "AI安全": [
       {
-        "title": "绕过 AI 技能扫描器：ClawHub、Cisco 和 Vercel 生态中的供应链风险",
-        "url": "https://sec.today/pulses/dc4d602f-ef25-43fd-a8e0-0a036c02d1de/",
-        "source": "Sec-Today",
-        "date": "2026-06-11",
-        "reason": "揭示了主流AI技能平台中存在的严重供应链漏洞，证明了利用代码混淆和提示注入即可绕过静态分析与LLM检测，警示AI生态安全验证机制的缺失。"
-      },
-      {
-        "title": "New Attacks Trick OpenClaw AI Agent Into Running Code and Leaking Secrets",
-        "url": "https://thehackernews.com/2026/06/new-attacks-trick-openclaw-ai-agent.html",
+        "title": "LangGraph Flaw Chain Exposes Self-Hosted AI Agents to Remote Code Execution",
+        "url": "https://thehackernews.com/2026/06/langgraph-flaw-chain-exposes-self.html",
         "source": "The Hacker News",
-        "date": "2026-06-11",
-        "reason": "披露了针对流行开源AI代理OpenClaw的新型攻击手法，攻击者可诱导其运行恶意代码或泄露敏感数据，凸显了自主AI系统面临的直接安全威胁。"
+        "date": "2026-06-12",
+        "reason": "LangChain的LangGraph组件爆出严重漏洞链，可导致自托管AI智能体遭受远程代码执行攻击。"
       },
       {
-        "title": "AI Security: explanation to Exploitation || Part 1",
-        "url": "https://infosecwriteups.com/ai-security-explanation-to-exploitation-part-1-4e63637f7fd1?source=rss----7b722bfd1b8d---4",
+        "title": "Agentjacking Attack Tricks AI Coding Agents Into Running Malicious Code",
+        "url": "https://thehackernews.com/2026/06/agentjacking-attack-tricks-ai-coding.html",
+        "source": "The Hacker News",
+        "date": "2026-06-12",
+        "reason": "揭示了名为Agentjacking的新型攻击手法，能够诱导AI编程助手执行恶意代码，反映了AI开发环境的严峻安全挑战。"
+      },
+      {
+        "title": "5秒攻破，仅需1次对话：Fable 5最强安全机制被华人团队破解",
+        "url": "https://www.secrss.com/articles/91247",
+        "source": "安全内参",
+        "date": "2026-06-12",
+        "reason": "华人团队仅需5秒即破解Anthropic Fable 5的最强防护，展示了当前大模型越狱攻防的最前沿技术。"
+      },
+      {
+        "title": "近3个月斩获50万美元赏金：利用AI驱动的模糊测试流水线黑掉谷歌",
+        "url": "https://www.secrss.com/articles/91237",
+        "source": "安全内参",
+        "date": "2026-06-12",
+        "reason": "展示了AI在漏洞挖掘领域的强大潜力，通过AI驱动的模糊测试流水线发现严重漏洞，具有极高的实战启发价值。"
+      },
+      {
+        "title": "AI 智能体试图扫描 DN42 时把主人搞破产",
+        "url": "https://www.solidot.org/story?sid=84565",
         "source": "Unsafe.sh",
-        "date": "2026-06-11",
-        "reason": "深入讲解了针对AI模型的越狱技术及其利用方式，适合安全研究人员了解大语言模型底层的攻击面和防御规避技术。"
+        "date": "2026-06-12",
+        "reason": "一个真实案例展示了失控的AI智能体在进行网络扫描时导致的高额云账单耗尽事件，为AI Agent权限控制敲响警钟。"
       }
     ],
     "威胁情报": [
       {
-        "title": "The Gentlemen Ransomware Claims 478 Victims, Can Spread Like a Worm",
-        "url": "https://thehackernews.com/2026/06/the-gentlemen-ransomware-claims-478.html",
-        "source": "The Hacker News",
-        "date": "2026-06-11",
-        "reason": "分析了The Gentlemen勒索软件的运作机制，揭示了其不仅进行双重勒索，还具备类似蠕虫的横向传播能力，对目前勒索软件演变提供了重要情报。"
+        "title": "TeamPCP组织2025-2026全球软件供应链攻击活动综合分析",
+        "url": "https://www.secrss.com/articles/91229",
+        "source": "安全内参",
+        "date": "2026-06-12",
+        "reason": "深度剖析TeamPCP组织针对开源生态和云原生基础设施的全球供应链攻击活动，对防御方具有重要意义。"
       },
       {
-        "title": "OceanLotus Hits Vietnam Investors With SPECTRALVIPER in FireAnt Attack",
-        "url": "https://thehackernews.com/2026/06/oceanlotus-hits-vietnam-investors-with.html",
+        "title": "Over 400 Arch Linux AUR Packages Hijacked to Deploy Infostealer and eBPF Rootkit",
+        "url": "https://thehackernews.com/2026/06/over-400-arch-linux-aur-packages.html",
         "source": "The Hacker News",
-        "date": "2026-06-11",
-        "reason": "曝光了APT组织OceanLotus针对越南国内实体和股票投资者的攻击活动，利用SPECTRALVIPER后门进行攻击，为金融行业的威胁狩猎提供线索。"
+        "date": "2026-06-12",
+        "reason": "Arch Linux AUR仓库超400个包被劫持并植入窃密软件和Rootkit，是一起严重的开源供应链安全事件。"
       },
       {
-        "title": "FBI Seizes 13 Websites That Officials Say Were Used by China to Target and Recruit US Workers",
-        "url": "https://www.securityweek.com/fbi-seizes-13-websites-that-officials-say-were-used-by-china-to-target-and-recruit-us-workers/",
+        "title": "China-Linked Hackers Backdoored Linux Login Software to Hide for Nearly a Decade",
+        "url": "https://thehackernews.com/2026/06/china-linked-hackers-backdoored-linux.html",
+        "source": "The Hacker News",
+        "date": "2026-06-12",
+        "reason": "某APT组织被揭露在Linux登录软件中潜伏近十年，体现了高级威胁组织极强的隐蔽性与持久化战术。"
+      },
+      {
+        "title": "Iranian Cyber Group Handala Claims Cal Water Hack",
+        "url": "https://www.securityweek.com/iranian-cyber-group-handala-claims-cal-water-hack/",
         "source": "SecurityWeek",
-        "date": "2026-06-11",
-        "reason": "报道了FBI查封13个被指控用于针对和招募美国工人的间谍网站的地缘安全事件，反映了国家级网络间谍活动的最新动向。"
+        "date": "2026-06-12",
+        "reason": "与伊朗相关的Handala组织声称对加州水利系统发起攻击并泄露数据，凸显关键基础设施面临的持续威胁。"
       }
     ],
     "安全工具": [
       {
-        "title": "EDRChoker：利用 Windows 原生 Policy-Based QoS 带宽节流静默 EDR 代理",
-        "url": "https://sec.today/pulses/ac143859-3524-4816-9b43-d75c77403989/",
-        "source": "Sec-Today",
-        "date": "2026-06-11",
-        "reason": "公开了一种利用Windows原生QoS引擎在底层网络扼杀EDR带宽的隐蔽技术工具，深刻揭示了过度依赖云端的EDR架构存在的单点故障风险。"
+        "title": "开源一个 NTFS 卷过滤还原驱动 ——基于写时重定向，含设计取舍与性能优化记录",
+        "url": "http://bbs.kanxue.com/thread-291548.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-06-12",
+        "reason": "详细分享了基于写时重定向的Windows内核态NTFS卷过滤还原驱动开发过程，包含内核级安全工具的设计取舍与性能优化实践。"
       },
       {
-        "title": "How I Built a Burp Extension Efficiently with Claude",
-        "url": "https://infosecwriteups.com/how-i-built-a-burp-extension-efficiently-with-claude-85d43817b8f3?source=rss----7b722bfd1b8d---4",
+        "title": "Penelope – A Modern Alternative to Netcat for Red Teamers",
+        "url": "https://www.hackingarticles.in/penelope-a-modern-alternative-to-netcat-for-red-teamers/",
         "source": "Unsafe.sh",
-        "date": "2026-06-11",
-        "reason": "展示了如何利用AI（Claude）辅助高效开发Burp Suite安全扩展，为安全人员将LLM融入日常安全工具开发提供了极具实战意义的参考。"
+        "date": "2026-06-12",
+        "reason": "介绍了红队常用工具Penelope，作为Netcat的现代化替代品，在自动化反向Shell处理方面具有优秀的实战表现。"
       },
       {
-        "title": "GitHub to Disable npm Install Scripts by Default to Stop Supply Chain Attacks",
-        "url": "https://thehackernews.com/2026/06/github-to-disable-npm-install-scripts.html",
-        "source": "The Hacker News",
-        "date": "2026-06-11",
-        "reason": "报道了GitHub为应对软件供应链威胁，在npm中默认禁用安装脚本的重大安全更新，这一举措将影响数百万开发者并重塑生态安全基线。"
+        "title": "【工具】一个可以全网搜索用户注册信息的开源工具：Maigret",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651156236&idx=1&sn=5e1804841772ca9f0eac176304149549",
+        "source": "Unsafe.sh",
+        "date": "2026-06-12",
+        "reason": "推荐了一款强大的OSINT开源工具Maigret，可通过用户名在大量网络平台中搜集注册信息，对实战溯源有帮助。"
+      },
+      {
+        "title": "DeepSecrets 2.0: Catching 93% of SecretBench’s Valids While Filtering 92% of Noise",
+        "url": "https://hackernoon.com/deepsecrets-20-catching-93percent-of-secretbenchs-valids-while-filtering-92percent-of-noise-and-10k-extra",
+        "source": "Unsafe.sh",
+        "date": "2026-06-12",
+        "reason": "新一代凭据扫描工具DeepSecrets 2.0发布，在大幅降低误报的同时保持93%的高检出率，对代码审计和CI/CD安全极具价值。"
       }
     ],
     "云安全": [
       {
-        "title": "Hacking a Fortune 500 Finance Company via Envoy Proxy Misconfiguration",
-        "url": "https://infosecwriteups.com/part-1-of-abusing-envoy-kubernetes-staging-servers-verb-tampering-to-achieve-xss-idors-and-8f4620c035b2?source=rss----7b722bfd1b8d---4",
+        "title": "谷歌云GKE Labs开源OpenRL：自托管大模型后训练API",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&mid=2451187013&idx=1&sn=6cc9069312837993011e2f72cb326409",
         "source": "Unsafe.sh",
-        "date": "2026-06-11",
-        "reason": "通过实际渗透财富500强金融公司的案例，详细剖析了因Envoy代理和Kubernetes配置不当导致的严重安全漏洞，云原生架构配置安全极具参考价值。"
+        "date": "2026-06-12",
+        "reason": "谷歌云开源了大模型后训练API框架，为在云环境和私有化环境中安全部署、微调AI模型提供了新的基础设施选项。"
       },
       {
-        "title": "Splunk, Palo Alto Networks Patch Severe Vulnerabilities",
-        "url": "https://www.securityweek.com/splunk-palo-alto-networks-patch-severe-vulnerabilities/",
-        "source": "SecurityWeek",
-        "date": "2026-06-11",
-        "reason": "通报了Splunk和Palo Alto Networks等主流云安全与企业级产品的高危漏洞修补情况，云环境管理员需高度重视并及时更新。"
-      },
-      {
-        "title": "供应链攻击频发，AWS给出一套供应链安全最佳实践",
-        "url": "https://www.secrss.com/articles/91203",
-        "source": "安全内参",
-        "date": "2026-06-11",
-        "reason": "针对愈演愈烈的供应链攻击，AWS提出了一套体系化的安全最佳实践，对使用云服务构建应用的企业完善自身安全防护具有重要指导意义。"
+        "title": "Scaling Security Insights: how we achieved a 10x increase in global scanning capacity",
+        "url": "https://blog.cloudflare.com/scaling-security-scans/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-12",
+        "reason": "Cloudflare分享了如何将其全球安全扫描能力提升10倍的技术架构实践，对大规模云安全防护建设具有极高参考价值。"
       }
     ],
     "其他重要": [
       {
-        "title": "CISA BOD 26-04: Frequently asked questions about the new risk-based patching directive",
-        "url": "https://www.tenable.com/blog/cisa-bod-26-04-FAQ-vulnerability-remediation-impact",
+        "title": "泄露全国超七成民众个人信息，电商巨头被罚近28亿元",
+        "url": "https://www.secrss.com/articles/91249",
+        "source": "安全内参",
+        "date": "2026-06-12",
+        "reason": "韩国电商巨头Coupang因数据泄露导致超七成国民信息外泄被重罚近28亿元，成为数据安全合规与处罚历史性里程碑。"
+      },
+      {
+        "title": "OpenAI公司遭美国多州检察长联合调查",
+        "url": "https://blog.upx8.com/OpenAI%E5%85%AC%E5%8F%B8%E9%81%AD%E7%BE%8E%E5%9B%BD%E5%A4%9A%E5%B7%9E%E6%A3%80%E5%AF%9F%E9%95%BF%E8%81%94%E5%90%88%E8%B0%83%E6%9F%A5",
         "source": "Unsafe.sh",
-        "date": "2026-06-11",
-        "reason": "解读了CISA最新的BOD 26-04指令，重点解答了基于风险的漏洞优先级排序和补救措施，对企业和机构的合规与补丁管理有直接影响。"
+        "date": "2026-06-12",
+        "reason": "AI巨头OpenAI遭多州联合调查，反映了人工智能在飞速发展过程中面临的数据隐私与安全性审查正日益收紧。"
       },
       {
-        "title": "网易云阅读等30款App因个人信息收集使用问题被中央网信办通报",
-        "url": "https://www.secrss.com/articles/91213",
+        "title": "国家网信办室发布《中国个人信息保护报告（2025年）》",
+        "url": "https://www.secrss.com/articles/91253",
         "source": "安全内参",
-        "date": "2026-06-11",
-        "reason": "中央网信办发布关于30款App个人信息收集违规的通报，反映了国内对移动端隐私合规监管的持续高压态势，相关企业需引以为戒。"
+        "date": "2026-06-12",
+        "reason": "官方发布2025年个人信息保护报告，全面总结了国内数据隐私监管治理成效，对国内合规建设有重要指导意义。"
       },
       {
-        "title": "制糖巨头遭网络攻击：两家大型工厂停产 蔗农被迫停止砍收",
-        "url": "https://www.secrss.com/articles/91214",
-        "source": "安全内参",
-        "date": "2026-06-11",
-        "reason": "报道了澳洲制糖巨头Mackay Sugar遭受网络攻击导致工厂停产的实体影响事件，再次凸显了勒索攻击对关键基础设施和工控系统的毁灭性打击。"
+        "title": "美国国防部建立新的网络作战人员薪酬激励框架C-MIP",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzI4NDY2MDMwMw==&mid=2247516078&idx=2&sn=acf249b11308d17cb7cd83a07502fc32",
+        "source": "Unsafe.sh",
+        "date": "2026-06-12",
+        "reason": "美国防部推出网络作战人员薪酬激励新框架，体现了国家级层面对顶尖网络安全实战人才的高度重视。"
       }
     ]
   },
-  "summary": "本批次文章涵盖了多个CVSS 10.0严重漏洞（UniFi OS）、多个零日在野利用（BitLocker、PeopleSoft）以及AI智能体供应链风险等前沿技术。"
+  "summary": "本批次文章重点聚焦高危在野漏洞利用、前沿AI智能体攻防实战、严重开源供应链污染及全球大型数据泄露处罚事件。"
 }
