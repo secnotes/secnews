@@ -1,9 +1,9 @@
-JSON Parse Error: Expecting ':' delimiter: line 106 column 129 (char 4078)
+JSON Parse Error: Expecting ':' delimiter: line 83 column 58 (char 3033)
 
-Raw Response (length=7143):
+Raw Response (length=5944):
 {
-  "analysis_date": "2026-06-14",
-  "total_analyzed": 84,
+  "analysis_date": "2026-06-15",
+  "total_analyzed": 79,
   "batch_number": 1,
   "categories": {
     "漏洞研究": [
@@ -11,52 +11,52 @@ Raw Response (length=7143):
         "title": "第二届软件系统安全赛决赛 StudentManagement 详解",
         "url": "http://bbs.kanxue.com/thread-291360.htm?style=1",
         "source": "看雪论坛",
-        "date": "2026-06-13",
-        "reason": "详细解析了CTF决赛中的Pwn题目，具备较高的技术深度与实战复盘价值。"
+        "date": "2026-06-14",
+        "reason": "详细解析软件系统安全赛中的 PWN 题，涉及各类保护机制绕过与漏洞利用链构造，具有很强的实战参考价值。"
       },
       {
         "title": "ISCC 2026 test题目 [house of apple 2] 利用方法",
         "url": "http://bbs.kanxue.com/thread-291441.htm?style=1",
         "source": "看雪论坛",
-        "date": "2026-06-13",
-        "reason": "深入剖析Glibc 2.31环境下的类型混淆与House of Apple 2利用链构造，对堆漏洞研究有重要参考意义。"
+        "date": "2026-06-14",
+        "reason": "深入分析 Glibc 2.31 环境下的堆利用与 House of Apple 2 利用链，对底层内存管理和漏洞利用研究有较高学习价值。"
       },
       {
-        "title": "AI 辅助分析｜CyberGame 高分 Web 题：缓存投毒攻击链路拆解",
-        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;mid=2458616525&amp;idx=1&amp;sn=98be421b813114a5093f90ee6c636a23",
+        "title": "【安全圈】严重漏洞：UniFi OS 无需密码即可拿下 Root 权限",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077404&idx=2&sn=ddcbe0d234be3bd9a05f91b647416052",
         "source": "Unsafe.sh",
-        "date": "2026-06-13",
-        "reason": "结合AI工具分析复杂的Web缓存投毒攻击链路，具有较高的实战分析参考价值。"
+        "date": "2026-06-14",
+        "reason": "披露了 Ubiquiti UniFi OS 的严重提权漏洞，无需密码即可获取 Root 权限，属于具有极高风险的最新实战漏洞。"
       }
     ],
     "移动安全": [
       {
+        "title": "记某灰黑棋牌游戏逆向",
+        "url": "http://bbs.kanxue.com/thread-291590.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-06-14",
+        "reason": "记录了针对多壳保护的 Cocos2d-x Lua 棋牌应用进行逆向分析的完整过程，涵盖脱壳与内存还原技术，实战性强。"
+      },
+      {
         "title": "libmsaoaidsec.so 检测监测 绕过 Hook 脚本",
         "url": "http://bbs.kanxue.com/thread-291403.htm?style=1",
         "source": "看雪论坛",
-        "date": "2026-06-13",
-        "reason": "提供了针对Android Native层常见安全组件的Frida检测绕过方案，对移动逆向分析极具实战意义。"
-      },
-      {
-        "title": "某旅行 App 基于 LR 劫持的 ARM64 控制流混淆逆向分析",
-        "url": "http://bbs.kanxue.com/thread-291422.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-06-13",
-        "reason": "深入探讨了ARM64架构下基于LR劫持的控制流混淆机制及自动化处理思路，技术深度高。"
+        "date": "2026-06-14",
+        "reason": "提供了针对 Android Native 层常见安全组件的 Frida 检测绕过脚本，对移动安全测试与逆向工作有直接帮助。"
       },
       {
         "title": "手搓 JniForward：Unidbg JNI 转发真实 Android ART 的探索",
         "url": "http://bbs.kanxue.com/thread-291421.htm?style=1",
         "source": "看雪论坛",
-        "date": "2026-06-13",
-        "reason": "提出并实现了一种将Unidbg与真实Android ART环境结合的JNI转发机制，有效解决了模拟执行痛点。"
+        "date": "2026-06-14",
+        "reason": "探讨了在 Unidbg 模拟执行中将 JNI 调用转发至真实 Android 设备的解决方案，有效解决了模拟环境下的兼容性痛点。"
       },
       {
-        "title": "APP整体加固原理",
-        "url": "http://bbs.kanxue.com/thread-291460.htm?style=1",
+        "title": "某旅行 App 基于 LR 劫持的 ARM64 控制流混淆逆向分析",
+        "url": "http://bbs.kanxue.com/thread-291422.htm?style=1",
         "source": "看雪论坛",
-        "date": "2026-06-13",
-        "reason": "从底层源码逻辑系统梳理了Android App整体加固的本质原理，非常适合安全研究者学习。"
+        "date": "2026-06-14",
+        "reason": "深入剖析了基于 LR 劫持的 ARM64 控制流混淆原理及自动化反混淆处理思路，具有较高的技术深度。"
       }
     ],
     "AI安全": [
@@ -64,52 +64,59 @@ Raw Response (length=7143):
         "title": "腾讯云智能渗透挑战赛中AI First的学习与思考",
         "url": "http://bbs.kanxue.com/thread-291340.htm?style=1",
         "source": "看雪论坛",
-        "date": "2026-06-13",
-        "reason": "探讨了AI Agent在渗透测试无限状态空间中的实际应用与深层逻辑，具有前瞻性思考。"
+        "date": "2026-06-14",
+        "reason": "从维度和状态空间的角度探讨了 AI Agent 在渗透测试中的本质与应用，为 AI 驱动的安全自动化提供了创新思路。"
       },
       {
         "title": "Claude Code 客户端安全机制逆向分析（二）：从上报机制看中转池账号风险",
         "url": "http://bbs.kanxue.com/thread-291395.htm?style=1",
         "source": "看雪论坛",
-        "date": "2026-06-13",
-        "reason": "从逆向视角剖析Claude Code客户端的安全机制，揭示了使用中转API池潜在的账号安全风险。"
+        "date": "2026-06-14",
+        "reason": "通过逆向 Claude Code 客户端，深入分析其安全上报机制，揭示了使用第三方大模型服务时潜在的账号和数据泄露风险。"
       },
       {
-        "title": "恶意软件植入核武器文本骗过大模型安全扫描",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&amp;mid=2451187020&amp;idx=1&amp;sn=6d187a96894114a53e9b34284cf18925",
-        "source": "Unsafe.sh",
-        "date": "2026-06-13",
-        "reason": "揭露了利用特定文本绕过AI安全扫描的新型攻击手法，对大模型安全防御具有很高的警示价值。"
+        "title": "图片越糊越危险？西湖大学发现多模态大模型“攻击舒适区”",
+        "url": "https://www.secrss.com/articles/91278",
+        "source": "安全内参",
+        "date": "2026-06-14",
+        "reason": "学术界关于多模态大模型安全漏洞的最新研究，发现特定模糊度图像易诱发模型越狱，为大模型防护提供了新视角。"
       },
       {
-        "title": "AI-Accelerated Exploitation: The Mythos-Era Threat Model",
-        "url": "https://horizon3.ai/intelligence/blogs/ai-accelerated-exploitation-mythos-era-threat-model/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-13",
-        "reason": "分析了AI模型加速漏洞发现和利用的新型威胁模型，为未来安全防御方向提供了重要情报参考。"
+        "title": "Android 逆向 Multi-Agent 系统设计",
+        "http://bbs.kanxue.com/thread-291451.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-06-14",
+        "reason": "介绍了将 AI Multi-Agent 协作系统应用于 Android 逆向工程的架构设计，展示了 AI 技术在传统安全领域的落地场景。"
       }
     ],
     "威胁情报": [
       {
-        "title": "Chinese hackers hijack auth flow, spy on isolated network for a decade",
-        "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-hijack-auth-flow-spy-on-isolated-network-for-a-decade/",
+        "title": "FBI disrupts massive AI-powered phishing service using a million URLs",
+        "url": "https://www.bleepingcomputer.com/news/security/fbi-disrupts-massive-ai-powered-phishing-service-using-a-million-urls/",
         "source": "Unsafe.sh",
-        "date": "2026-06-13",
-        "reason": "披露了具备极高隐蔽性的APT长达十年的攻击活动与权限维持手法，是值得关注的高级威胁情报。"
+        "date": "2026-06-14",
+        "reason": "报道了 FBI 联合多方摧毁超大规模 AI 钓鱼平台的事件，反映了 AI 武器化在网络犯罪中的最新趋势与巨大危害。"
       },
       {
-        "title": "正在进行中的 AUR 软件包投毒事件",
-        "url": "https://www.archlinuxcn.org/active-aur-malicious-packages-incident/",
+        "title": "海莲花黑客组织利用越南金融软件进行供应链攻击",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&mid=2451187038&idx=1&sn=16bd27e31d83cfdc64c4f635d7fe46f8",
         "source": "Unsafe.sh",
-        "date": "2026-06-13",
-        "reason": "官方通报了Arch Linux社区仓库发生的大规模供应链投毒事件，涉及大量恶意软件包接管。"
+        "date": "2026-06-14",
+        "reason": "披露了 APT 组织海莲花利用合法软件发起供应链攻击的最新手法，对防御端追踪高级威胁具有预警价值。"
       },
       {
-        "title": "超过 400 个 Arch Linux 软件包被攻破，用于推送 rootkit 和信息窃取程序",
-        "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;mid=2652077371&amp;idx=3&amp;sn=ee58e389530cb426354b4cb61a7edb1e",
+        "title": "【安全圈】Meta AI 客服系统被黑，2 万+ Instagram 账户沦陷",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077404&idx=1&sn=36c21bc27d56fe347897a1e418312aff",
         "source": "Unsafe.sh",
-        "date": "2026-06-13",
-        "reason": "针对AUR供应链安全事件的影响面和恶意载荷进行了详细分析，具有极强的实战预警价值。"
+        "date": "2026-06-14",
+        "reason": "报道了 Meta AI 客服系统遭黑客攻击导致大规模账户失控的事件，涉及大厂系统供应链及权限滥用问题。"
+      },
+      {
+        "title": "Ukrainian Extradited from Ireland Pleads Guilty Over Role in Conti Ransomware Scheme",
+        "url": "https://securityaffairs.com/193590/uncategorized/ukrainian-extradited-from-ireland-pleads-guilty-over-role-in-conti-ransomware-scheme.html",
+        "source": "Unsafe.sh",
+        "date": "2026-06-14",
+        "reason": "报道了臭名昭著的 Conti 勒索软件团伙核心成员认罪的案件，是追踪跨国网络犯罪组织态势的重要情报。"
       }
     ],
     "安全工具": [
@@ -117,63 +124,34 @@ Raw Response (length=7143):
         "title": "我让 Hermes 把古法 RPC 重新炼成了高并发调度平台：r0rpc 实战",
         "url": "http://bbs.kanxue.com/thread-291419.htm?style=1",
         "source": "看雪论坛",
-        "date": "2026-06-13",
-        "reason": "介绍了一款适用于复杂逆向与爬虫场景的高并发RPC调度工具，具备很强的实战落地价值。"
-      },
-      {
-        "title": "Android 逆向 Multi-Agent 系统设计",
-        "url": "http://bbs.kanxue.com/thread-291451.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-06-13",
-        "reason": "分享了一种面向Android逆向工程的多智能体协作系统架构设计，为逆向自动化提供了新思路。"
-      },
-      {
-        "title": "Instead of touching grass... I built an AI that names 150,000 sub_ functions overnight. [SpectrIDA]",
-        "url": "https://unsafe.sh/go-422823.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-13",
-        "reason": "介绍了一款利用AI大模型在IDA中批量自动化重命名底层函数的实用工具，能大幅提升逆向效率。"
+        "date": "2026-06-14",
+        "reason": "介绍了一款重构的高并发 RPC 调度平台，为协议逆向、爬虫和自动化测试等高频安全调用场景提供了实用的工具级方案。"
       }
     ],
-    "云安全": [
-      {
-        "title": "Critical Splunk Enterprise Flaw Lets Attackers Run Code Without Authentication",
-        "url": "https://thehackernews.com/2026/06/critical-splunk-enterprise-flaw-lets.html",
-        "source": "The Hacker News",
-        "date": "2026-06-13",
-        "reason": "披露了Splunk Enterprise中可导致未授权远程代码执行的高危漏洞，对企业级安全数据分析平台构成重大威胁。"
-      },
-      {
-        "title": "U.S. CISA adds Oracle PeopleSoft Enterprise PeopleTools flaw to its Known Exploited Vulnerabilities catalog",
-        "url": "https://securityaffairs.com/193574/security/u-s-cisa-adds-oracle-peoplesoft-enterprise-peopletools-flaw-to-its-known-exploited-vulnerabilities-catalog.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-13",
-        "reason": "CISA确认Oracle PeopleSoft存在已被在野利用的高危漏洞，相关企业需重点关注并修补。"
-      }
-    ],
+    "云安全": [],
     "其他重要": [
       {
-        "title": "NPM 12 Will Change Script Execution Behavior to Prevent Supply Chain Attacks",
-        "url": "https://www.securityweek.com/npm-12-will-change-script-execution-behavior-to-prevent-supply-chain-attacks/",
-        "source": "SecurityWeek",
-        "date": "2026-06-13",
-        "reason": "NPM 12通过默认禁止执行依赖脚本从根本上改变生态行为，是抵御供应链攻击的重大里程碑。"
-      },
-      {
-        "title": "Anthropic Says It Has Taken Its Latest AI Models Offline to Comply With New Export Controls",
-        "url": "https://www.securityweek.com/anthropic-says-it-has-taken-its-latest-ai-models-offline-to-comply-with-new-export-controls/",
-        "source": "SecurityWeek",
-        "date": "2026-06-13",
-        "reason": "因美国出口管制导致顶级AI模型下线的事件，反映了全球AI技术与安全生态正在发生重大格局变动。"
-      },
-      {
-        "title": "携程未落实数据出境安全评估要求被罚千万",
-        "url": "https://blog.upx8.com/%E6%90%BA%E7%A8%8B%E6%9C%AA%E8%90%BD%E5%AE%9E%E6%95%B0%E6%8D%AE%E5%87%BA%E5%A2%83%E5%AE%89%E5%85%A8%E8%AF%84%E4%BC%B0%E8%A6%81%E6%B1%82%E8%A2%AB%E7%BD%9A%E5%8D%83%E4%B8%87",
+        "title": "本田思域容易遭到“邪恶女佣攻击”",
+        "url": "https://www.solidot.org/story?sid=84576",
         "source": "Unsafe.sh",
-        "date": "2026-06-13",
-        "reason": "国内数据出境合规的标志性处罚案例，为相关企业的数据跨境合规审计敲响了警钟。"
+        "date": "2026-06-14",
+        "reason": "揭示了本田思域车载系统在物理接触下存在的安全漏洞，属于车联网安全与硬件物理攻击交叉领域的重要发现。"
+      },
+      {
+        "title": "2026 年网络攻防桌面演练为何对网络韧性至关重要",
+        "url": "https://mp.weixin.qq.com/s?__biz=Mzg3NjU4MDI4NQ==&mid=2247486802&idx=1&sn=de0a163b00d5b4ca3936fc55b27dd5d0",
+        "source": "Unsafe.sh",
+        "date": "2026-06-14",
+        "reason": "从企业安全运营的角度探讨了网络攻防桌面演练在提升组织整体网络韧性和应急响应能力中的核心作用，偏重安全管理。"
+      },
+      {
+        "title": "【QQ群里的“数字暗语”】",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzAwNDcwMDgzMA==&mid=2651049020&idx=1&sn=d7119b0ab3e7eb36eb269018a516a4e4",
+        "source": "Unsafe.sh",
+        "date": "2026-06-14",
+        "reason": "分析了网络黑灰产在社交平台中利用数字暗语进行通信的现象，对研究黑产隐蔽通信特征和情报挖掘有一定参考意义。"
       }
     ]
   },
-  "summary": "本批次重点筛选了移动安全逆向实战、AI赋能攻防安全、云平台高危漏洞及供应链安全事件等高价值技术文章与情报。"
+  "summary": "本批次文章涵盖了移动端深度逆向、大模型安全风险、高危漏洞分析及最新APT与黑灰产威胁情报，技术干货与实战价值较高。"
 }
