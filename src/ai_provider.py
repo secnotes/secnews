@@ -101,7 +101,7 @@ class AIProvider:
         self,
         prompt: str,
         system_prompt: Optional[str] = None,
-        max_tokens: int = 8192,
+        max_tokens: int = 16384,
         temperature: float = 0.3,
     ) -> str:
         """
