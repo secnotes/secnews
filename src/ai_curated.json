@@ -1,196 +1,202 @@
 {
-  "analysis_date": "2026-06-16",
-  "total_analyzed": 145,
+  "analysis_date": "2026-06-17",
+  "total_analyzed": 130,
   "categories": {
     "漏洞研究": [
       {
-        "title": "UniFi OS 关键漏洞：CVE-2026-34908 至 34910 导致认证绕过与 Root 命令执行",
-        "url": "https://sec.today/pulses/981cfe81-e5b3-480c-b3da-6a1734ded40b/",
-        "source": "Sec-Today",
+        "title": "Splunk Enterprise未授权文件操作漏洞(CVE-2026-20253)安全风险通告",
+        "url": "https://www.secrss.com/articles/91360",
+        "source": "安全内参",
         "date": "2026-06-16",
-        "reason": "披露UniFi OS中三个CVSS 10.0严重漏洞，可实现无认证远程代码执行并获取root权限，构成生存级威胁。"
+        "reason": "详细披露了Splunk Enterprise的路径遍历高危漏洞，攻击者可借此实现任意文件创建与截断，具有较高实战威胁。"
       },
       {
-        "title": "When Anti-Rootkit Tools Backfire: How a Trend Micro Utility Ended Up Installing Rootkits",
-        "url": "https://sec.today/pulses/2c0ae87a-812c-427a-bd70-b8c20a48e944/",
-        "source": "Sec-Today",
-        "date": "2026-06-16",
-        "reason": "揭示Trend Micro工具内核级漏洞，允许攻击者利用驱动程序逻辑逆向安装Rootkit，将防御工具变为攻击载体。"
-      },
-      {
-        "title": "CISA Flags LiteSpeed cPanel Plugin Flaw Exploited for Root Privilege Escalation",
-        "url": "https://thehackernews.com/2026/06/cisa-flags-litespeed-cpanel-plugin-flaw.html",
+        "title": "Attackers Exploit Three Fortinet FortiSandbox Flaws, One Patched Last Week",
+        "url": "https://thehackernews.com/2026/06/attackers-exploit-three-fortinet.html",
         "source": "The Hacker News",
         "date": "2026-06-16",
-        "reason": "CISA将LiteSpeed cPanel插件漏洞加入KEV目录，该漏洞已被利用进行Root权限提升，需立即修复。"
-      },
-      {
-        "title": "Linux内核漏洞分析之CVE-2026-23394",
-        "url": "https://xz.aliyun.com/news/92193",
-        "source": "先知社区",
-        "date": "2026-06-15",
-        "reason": "针对Linux内核特定CVE的深度分析，提供了内核漏洞研究的技术细节和攻击面分析。"
-      },
-      {
-        "title": "Popular WordPress Plugin Scripts Tampered to Plant Hidden Backdoors on Sites",
-        "url": "https://thehackernews.com/2026/06/popular-wordpress-plugin-scripts.html",
-        "source": "The Hacker News",
-        "date": "2026-06-15",
-        "reason": "披露针对WordPress插件OptinMonster等的供应链攻击，篡改JS文件植入后门，影响广泛。"
-      }
-    ],
-    "移动安全": [
-      {
-        "title": "记某灰黑棋牌游戏逆向",
-        "url": "http://bbs.kanxue.com/thread-291590.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-06-15",
-        "reason": "详细记录了对多层加壳、SO内存解密等复杂安卓应用的逆向分析过程，实战技术参考价值高。"
-      },
-      {
-        "title": "Gaming soundbar can be hijacked from over 16 yards away without touch or pairing — the company allegedly refuses to label the blatant security flaw a cybersecurity risk",
-        "url": "https://sec.today/pulses/1d874afd-4dda-4e53-be45-ce085fdd9e35/",
-        "source": "Sec-Today",
-        "date": "2026-06-16",
-        "reason": "揭示Creative声条因缺乏蓝牙认证和固件签名可被远程劫持并伪装成键盘执行代码，涉及物联网设备安全。"
-      }
-    ],
-    "AI安全": [
-      {
-        "title": "绕过 AI 技能扫描器：ClawHub、Cisco 和 Vercel 生态中的供应链风险",
-        "url": "https://sec.today/pulses/dc4d602f-ef25-43fd-a8e0-0a036c02d1de/",
-        "source": "Sec-Today",
-        "date": "2026-06-16",
-        "reason": "Trail of Bits研究揭露主流AI技能平台供应链漏洞，证明可通过代码混淆、提示注入轻松绕过扫描。"
-      },
-      {
-        "title": "Fake Context Alignment：通过投毒通知劫持 Android 端 Google Gemini",
-        "url": "https://sec.today/pulses/92998aea-92da-43eb-9a09-3542a6af4a00/",
-        "source": "Sec-Today",
-        "date": "2026-06-16",
-        "reason": "揭示针对Google Gemini的“Fake Context Alignment”攻击，仅通过伪装通知即可实现应用劫持和记忆投毒。"
-      },
-      {
-        "title": "LiteLLM Vulnerability Chain Lets Low-Privilege Users Take Over AI Gateway Servers",
-        "url": "https://thehackernews.com/2026/06/litellm-vulnerability-chain-lets-low.html",
-        "source": "The Hacker News",
-        "date": "2026-06-15",
-        "reason": "披露LiteLLM代理中漏洞链，允许低权限用户提升至管理员并执行代码，影响AI网关安全。"
-      },
-      {
-        "title": "One-Click Microsoft 365 Copilot Flaw Could Have Let Attackers Steal Emails, Files, and MFA Codes",
-        "url": "https://thehackernews.com/2026/06/one-click-microsoft-365-copilot-flaw.html",
-        "source": "The Hacker News",
-        "date": "2026-06-15",
-        "reason": "披露Microsoft 365 Copilot中漏洞，攻击者可通过单次点击窃取邮件、文件和MFA代码，影响企业数据安全。"
-      },
-      {
-        "title": "黑客被观察到使用 AI 构建 EDR 逃避工具",
-        "url": "https://mp.weixin.qq.com/s?__biz=Mzg3NjU4MDI4NQ==&mid=2247486797&idx=1&sn=aaa426342be270b490a063f1a238daba",
-        "source": "Unsafe.sh",
-        "date": "2026-06-16",
-        "reason": "报告显示攻击者正在利用AI技术开发EDR逃避工具，标志AI赋能攻击已成为现实威胁。"
-      }
-    ],
-    "威胁情报": [
-      {
-        "title": "黑客盯上Arch Linux用户：超20个AUR软件包被植入了后门",
-        "url": "http://bbs.kanxue.com/thread-291615.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-06-15",
-        "reason": "披露“Atomic Arch”恶意攻击活动，超20个AUR软件包被植入后门，针对Arch Linux用户进行供应链攻击。"
-      },
-      {
-        "title": "Chinese Hackers Abused Google Workspace Rules to Steal Research and Defense Emails",
-        "url": "https://thehackernews.com/2026/06/chinese-hackers-abused-google-workspace.html",
-        "source": "The Hacker News",
-        "date": "2026-06-15",
-        "reason": "披露与中国关联的黑客组织滥用Google Workspace规则，长期潜伏窃取北美研究机构敏感邮件。"
-      },
-      {
-        "title": "North Korean Hackers Are Turning Developer Tools Into Malware Delivery Channels",
-        "url": "https://thehackernews.com/2026/06/north-korean-hackers-are-turning.html",
-        "source": "The Hacker News",
-        "date": "2026-06-15",
-        "reason": "预警朝鲜黑客组织将开发者工具转变为恶意软件投递渠道，针对开发人员的供应链攻击活跃。"
-      },
-      {
-        "title": "June 2026 Stealer Logs - 56,278,397 breached accounts",
-        "url": "https://haveibeenpwned.com/Breach/June2026StealerLogs",
-        "source": "Unsafe.sh",
-        "date": "2026-06-15",
-        "reason": "Have I Been Pwned新增5600余万条被盗账户数据，反映了信息窃取恶意软件的活跃威胁态势。"
-      }
-    ],
-    "安全工具": [
-      {
-        "title": "EDRChoker：利用 Windows 原生 Policy-Based QoS 带宽节流静默 EDR 代理",
-        "url": "https://sec.today/pulses/ac143859-3524-4816-9b43-d75c77403989/",
-        "source": "Sec-Today",
-        "date": "2026-06-16",
-        "reason": "介绍利用Windows原生QoS引擎在NDIS层限制EDR带宽的隐蔽技术，为对抗检测提供新思路。"
-      },
-      {
-        "title": "GitHub - Zypherion-Technologies/HallWatch: Usermode detector that catches indirect syscalls.",
-        "url": "https://unsafe.sh/go-423212.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-15",
-        "reason": "开源工具HallWatch，可在用户模式下检测间接系统调用，增强对EDR逃避行为的防御能力。"
-      },
-      {
-        "title": "Continuous PR Security Review",
-        "url": "https://projectdiscovery.io/blog/continuous-pr-security-review",
-        "source": "Unsafe.sh",
-        "date": "2026-06-15",
-        "reason": "阐述持续进行PR安全审查的实践和方法，帮助开发团队在代码合并前发现潜在安全问题。"
-      }
-    ],
-    "云安全": [
-      {
-        "title": "实战｜从AI API SSRF到K8s集群凭证泄露——一次大模型服务的内网渗透全记录",
-        "url": "https://xz.aliyun.com/news/92312",
-        "source": "先知社区",
-        "date": "2026-06-15",
-        "reason": "实战记录从AI接口SSRF漏洞开始，最终渗透获取Kubernetes集群凭证的全过程，云内网渗透参考价值高。"
-      },
-      {
-        "title": "Palo Alto Warns of Active Exploitation of PAN-OS GlobalProtect VPN Flaw",
-        "url": "https://thehackernews.com/2026/06/palo-alto-warns-of-active-exploitation.html",
-        "source": "The Hacker News",
-        "date": "2026-06-15",
-        "reason": "Palo Alto警告PAN-OS GlobalProtect VPN漏洞正被主动利用以获取未授权访问，云边界安全关键漏洞。"
+        "reason": "针对Fortinet安全产品多个漏洞的在野利用分析，揭示了沙箱逃逸和权限提升的严重风险，亟需修补。"
       },
       {
         "title": "Cisco Releases Security Updates for Actively Exploited SD-WAN Manager Flaw",
         "url": "https://thehackernews.com/2026/06/cisco-releases-security-updates-for.html",
         "source": "The Hacker News",
         "date": "2026-06-16",
-        "reason": "Cisco针对Catalyst SD-WAN Manager中被积极利用的漏洞发布更新，影响企业云网络管理平面安全。"
+        "reason": "Cisco Catalyst SD-WAN Manager存在被积极利用的漏洞(CVE-2026-20262)，对企业广域网边界构成重大威胁。"
+      },
+      {
+        "title": "CISA Flags LiteSpeed cPanel Plugin Flaw Exploited for Root Privilege Escalation",
+        "url": "https://thehackernews.com/2026/06/cisa-flags-litespeed-cpanel-plugin-flaw.html",
+        "source": "The Hacker News",
+        "date": "2026-06-16",
+        "reason": "CISA将其列入已知被利用漏洞目录，该cPanel插件漏洞可直接导致Root权限提升，影响范围极广。"
+      },
+      {
+        "title": "A Crash, Not a Shell: SolarWinds Serve-U CVE-2026-28318",
+        "url": "https://bishopfox.com/blog/a-crash-not-a-shell-solarwinds-serev-u-cve-2026-28318",
+        "source": "Unsafe.sh",
+        "date": "2026-06-16",
+        "reason": "深度剖析SolarWinds Serv-U漏洞的利用条件与限制，澄清了其可导致RCE的传闻，展现了真实的漏洞危害评估。"
       }
     ],
+    "移动安全": [
+      {
+        "title": "New Rokarolla Android Malware Steals PINs, SMS Codes, and Crypto Wallet Funds",
+        "url": "https://thehackernews.com/2026/06/new-rokarolla-android-malware-steals.html",
+        "source": "The Hacker News",
+        "date": "2026-06-16",
+        "reason": "针对新兴Android银行木马Rokarolla的深度分析，其具备强大的远程操控和窃密能力，严重威胁移动端资产。"
+      },
+      {
+        "title": "New Rokarolla Android malware targets 217 banking, crypto apps",
+        "url": "https://www.bleepingcomputer.com/news/security/new-rokarolla-android-malware-targets-217-banking-crypto-apps/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-16",
+        "reason": "揭示了Rokarolla木马庞大的攻击面（超200个金融及加密应用），为移动端威胁情报提供了关键指标。"
+      },
+      {
+        "title": "三星电子强化Galaxy终端安全防护功能",
+        "url": "https://blog.upx8.com/%E4%B8%89%E6%98%9F%E7%94%B5%E5%AD%90%E5%BC%BA%E5%8C%96Galaxy%E7%BB%88%E7%AB%AF%E5%AE%89%E5%85%A8%E9%98%B2%E6%8A%A4%E5%8A%9F%E8%83%BD",
+        "source": "Unsafe.sh",
+        "date": "2026-06-16",
+        "reason": "总结了终端厂商在防范电信诈骗和恶意应用方面的最新安全机制更新，对移动端防御策略具有参考价值。"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "内核漏洞深度剖析：从最新案例到 AI辅助的0day发现之路",
+        "url": "https://xz.aliyun.com/news/92319",
+        "source": "先知社区",
+        "date": "2026-06-16",
+        "reason": "探讨了AI技术在内核级0day漏洞挖掘中的前沿应用，展示了AI赋能攻防安全的技术深度与实战潜力。"
+      },
+      {
+        "title": "AI网关LiteLLM遭漏洞链攻击，默认账户致全面接管风险",
+        "url": "https://www.secrss.com/articles/91342",
+        "source": "安全内参",
+        "date": "2026-06-16",
+        "reason": "针对主流开源AI网关LiteLLM的漏洞链分析，警示了AI基础设施因配置不当导致的严重接管风险。"
+      },
+      {
+        "title": "Google Vertex AI SDK Flaw Let Attackers Hijack Model Uploads via Bucket Squatting",
+        "url": "https://thehackernews.com/2026/06/google-vertex-ai-sdk-flaw-let-attackers.html",
+        "source": "The Hacker News",
+        "date": "2026-06-16",
+        "reason": "披露了Google Cloud Vertex AI SDK中允许攻击者劫持模型上传的严重缺陷，对云原生AI模型安全极具参考意义。"
+      },
+      {
+        "title": "Malicious JetBrains Marketplace plugins steal AI API keys from developers",
+        "url": "https://www.bleepingcomputer.com/news/security/malicious-jetbrains-marketplace-plugins-steal-ai-api-keys-from-developers/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-16",
+        "reason": "揭示了供应链攻击正向AI生态渗透，通过恶意IDE插件窃取大模型API密钥，威胁开发者核心资产。"
+      },
+      {
+        "title": "Vulnerability Disclosure: Stealing Emails via Firefox’s AI Features",
+        "url": "https://insinuator.net/2026/06/vulnerability-disclosure-stealing-emails-via-firefoxs-ai-features/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-16",
+        "reason": "分析了浏览器AI集成功能中存在的隐患，演示了如何利用AI特性实现敏感邮件数据的窃取。"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "OceanLotus APT32 通过供应链攻击入侵 FireAnt MetaKit 并部署 SPECTRALVIPER 后门",
+        "url": "https://sec.today/pulses/eb620521-bc1d-4f6f-8456-17c534bf1f4d/",
+        "source": "Sec-Today",
+        "date": "2026-06-16",
+        "reason": "深度还原越南APT组织OceanLotus的供应链攻击链路，提供了关键的战术技术细节与防御IoC指标。"
+      },
+      {
+        "title": "China-Linked SprySOCKS Backdoor Expands to Windows with Driver-Based Stealth",
+        "url": "https://thehackernews.com/2026/06/china-linked-sprysocks-backdoor-expands.html",
+        "source": "The Hacker News",
+        "date": "2026-06-16",
+        "reason": "披露了具备内核级隐蔽性的Windows变体后门SprySOCKS，反映了高级威胁组织在终端驻留技术上的最新演进。"
+      },
+      {
+        "title": "Fake Microsoft Alerts Used to Deploy North Korean NarwhalRAT Malware",
+        "url": "https://thehackernews.com/2026/06/fake-microsoft-alerts-used-to-deploy.html",
+        "source": "The Hacker News",
+        "date": "2026-06-16",
+        "reason": "揭示了朝鲜黑客组织利用社会工程学绕过防御投递NarwhalRAT的战术，对企业邮件网关构成现实威胁。"
+      },
+      {
+        "title": "绿盟科技《APT组织研究年鉴》（2026 版）正式发布",
+        "url": "https://blog.nsfocus.net/%e7%bb%bf%e7%9b%9f%e7%a7%91%e6%8a%80%e3%80%8aapt%e7%bb%84%e7%bb%87%e7%a0%94%e7%a9%b6%e5%b9%b4%e9%89%b4%e3%80%8b%ef%bc%882026-%e7%89%88%ef%bc%89%e6%ad%a3%e5%bc%8f%e5%8f%91%e5%b8%83/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-16",
+        "reason": "全景式总结了过去一年高级持续性威胁的发展趋势与重点攻击手法，为威胁狩猎提供不可或缺的参考视野。"
+      },
+      {
+        "title": "Ransomware gang abuses Microsoft Teams relays to hide malicious traffic",
+        "url": "https://www.bleepingcomputer.com/news/security/ransomware-gang-abuses-microsoft-teams-relays-to-hide-malicious-traffic/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-16",
+        "reason": "DragonForce勒索软件滥用合法通信渠道隐藏C2流量，凸显了攻击者利用云应用进行命令控制的新型免杀策略。"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "VAXD - lightweight PE EXE/DLL disassembler and patch-assistance tool for Windows",
+        "url": "https://unsafe.sh/go-423520.html",
+        "source": "Unsafe.sh",
+        "date": "2026-06-16",
+        "reason": "一款轻量级的PE文件反汇编与补丁辅助工具，能有效提升漏洞分析和逆向工程的效率。"
+      },
+      {
+        "title": "【工具】CodeCleaner - 开源代码文件统计和清理工具",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUzODU3ODA0MA==&amp;mid=2247490902&amp;idx=1&amp;sn=d19df0988311e703aa792f1454296cf7",
+        "source": "Unsafe.sh",
+        "date": "2026-06-16",
+        "reason": "实用的代码库净化工具，有助于在审计或交付前快速清理冗余和潜在敏感信息。"
+      },
+      {
+        "title": "四川大学 | Darkflow：高性能暗网流量特征提取工具",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzU5MTM5MTQ2MA==&amp;mid=2247495506&amp;idx=1&amp;sn=8418fac0b40896c372ae471e232f2e23",
+        "source": "Unsafe.sh",
+        "date": "2026-06-16",
+        "reason": "提出了一种针对暗网环境的高性能特征提取方案，为网络流量分析和犯罪侦查提供了强有力的底层支撑。"
+      }
+    ],
+    "云安全": [],
     "其他重要": [
       {
-        "title": "从文件上传到376个API——某校园一卡通云平台渗透全记录",
-        "url": "https://xz.aliyun.com/news/92283",
-        "source": "先知社区",
-        "date": "2026-06-15",
-        "reason": "详细的渗透测试案例，记录从文件上传漏洞开始发现并利用376个API接口的完整攻防过程。"
+        "title": "FROST：基于浏览器OPFS的SSD时序攻击实现远程网站与应用追踪",
+        "url": "https://sec.today/pulses/9a8d3d65-f833-444e-86c6-968c95448c4e/",
+        "source": "Sec-Today",
+        "date": "2026-06-16",
+        "reason": "提出了一种突破传统本地限制的新型零点击时序侧信道攻击，深刻揭示了现代浏览器硬件访问权的隐私泄露风险。"
       },
       {
-        "title": "FBI, Google Dismantle ‘Outsider Enterprise’ Phishing Service",
-        "url": "https://www.securityweek.com/fbi-google-dismantle-outsider-enterprise-phishing-service/",
-        "source": "SecurityWeek",
-        "date": "2026-06-15",
-        "reason": "FBI与Google合作捣毁大型钓鱼平台“Outsider Enterprise”，该平台造成近19亿美元损失。"
+        "title": "Steam Workshop abused to spread malware via Wallpaper Engine app",
+        "url": "https://www.bleepingcomputer.com/news/security/steam-workshop-abused-to-spread-malware-via-wallpaper-engine-app/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-16",
+        "reason": "展示了攻击者如何滥用主流游戏社区的创意工坊分发恶意载荷，这是一种极易被安全软件忽视的新型传播载体。"
       },
       {
-        "title": "ShinyHunters Claims Council of Europe Hack",
-        "url": "https://www.securityweek.com/shinyhunters-claims-council-of-europe-hack/",
-        "source": "SecurityWeek",
-        "date": "2026-06-15",
-        "reason": "勒索组织ShinyHunters声称攻击了欧洲理事会，威胁泄露297GB数据，涉及重要国际组织数据安全。"
+        "title": "GhostTree Attack Abused Recursive Windows Junctions to Hide Malware",
+        "url": "https://www.bleepingcomputer.com/news/security/ghosttree-attack-abused-recursive-windows-junctions-to-hide-malware/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-16",
+        "reason": "深入剖析利用Windows文件系统底层特性隐藏恶意软件的高级技术，对终端防御与恶意软件检测具有启发意义。"
+      },
+      {
+        "title": "世界杯直播管理系统仅需简单注册即可任意访问",
+        "url": "https://blog.upx8.com/%E4%B8%96%E7%95%8C%E6%9D%AF%E7%9B%B4%E6%92%AD%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E4%BB%85%E9%9C%80%E7%AE%80%E5%8D%95%E6%B3%A8%E5%86%8C%E5%8D%B3%E5%8F%AF%E4%BB%BB%E6%84%8F%E8%AE%BF%E9%97%AE",
+        "source": "Unsafe.sh",
+        "date": "2026-06-16",
+        "reason": "披露了国际重大赛事系统中存在的严重越权和逻辑缺陷漏洞，其实战挖掘思路和潜在社会影响值得安全人员关注。"
+      },
+      {
+        "title": "Deepfake posting sites depicting famous women taken down by feds",
+        "url": "https://www.malwarebytes.com/blog/ai/2026/06/deepfake-posting-sites-depicting-famous-women-taken-down-by-feds",
+        "source": "Unsafe.sh",
+        "date": "2026-06-16",
+        "reason": "美国官方打击Deepfake滥用网站的执法行动，反映了虚假AI生成内容带来的严重社会与法律挑战。"
       }
     ]
   },
-  "summary": "本批次涵盖多个高危漏洞（UniFi、Trend Micro）、AI安全新威胁及云环境实战案例。"
+  "summary": "本批次文章涉及多项高危CVE与APT组织活动，AI在攻防两端应用成为核心热点，同时涵盖浏览器侧信道、实用安全工具等高价值技术内容。"
 }
