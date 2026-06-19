@@ -1,139 +1,257 @@
-JSON Parse Error: Unterminated string starting at: line 136 column 14 (char 5129)
+JSON Parse Error: Expecting ':' delimiter: line 185 column 87 (char 8203)
 
-Raw Response (length=5152):
+Raw Response (length=11307):
 {
-  "analysis_date": "2026-06-16",
-  "total_analyzed": 128,
+  "analysis_date": "2026-06-18",
+  "total_analyzed": 131,
   "batch_number": 1,
   "categories": {
     "漏洞研究": [
       {
-        "title": "Linux内核漏洞分析之CVE-2026-23394",
-        "url": "https://xz.aliyun.com/news/92193",
-        "source": "先知社区",
-        "date": "2026-06-15",
-        "reason": "深入分析Linux内核CVE-2026-23394漏洞原理，对二进制安全研究具有较高参考价值。"
+        "title": "CVE-2026-40519：Nginx Proxy Manager 命令注入漏洞复现",
+        "url": "https://sec.today/pulses/21786726-6dd5-4ab8-9756-144fd4dbf7d3/",
+        "source": "Sec-Today",
+        "date": "2026-06-18",
+        "reason": "深入剖析了Nginx Proxy Manager的高危命令注入漏洞，提供了从根因分析到完整攻击链复现的详细技术路径，极具实战参考价值。"
       },
       {
-        "title": "Zombie COTables: Resurrecting Freed Memory to Escape VirtualBox",
-        "url": "https://blog.exodusintel.com/2026/06/15/zombie-cotables-resurrecting-freed-memory-to-escape-virtualbox/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-15",
-        "reason": "探讨通过复活已释放内存实现VirtualBox虚拟机逃逸的技术细节，极具实战深度。"
+        "title": "CVE-2026-21241：AFD.sys 中 Socket 通知处理 Race Condition 引发的 Use-After-Free LPE 漏洞",
+        "url": "https://sec.today/pulses/7528bf4b-0207-4360-8afd-0c75da0e69b4/",
+        "source": "Sec-Today",
+        "date": "2026-06-18",
+        "reason": "详细披露了Windows内核级AFD.sys组件中的UAF漏洞原理与竞态条件利用，展现了底层的漏洞挖掘与利用技术。"
       },
       {
-        "title": "Windows Defender (MsMpEng.exe) Race Condition -> LPE / SYSTEM / Use-After-Free -> Crash",
-        "url": "https://cxsecurity.com/issue/WLB-2026060013",
-        "source": "Unsafe.sh",
-        "date": "2026-06-15",
-        "reason": "详细剖析Windows Defender中的竞态条件漏洞及其导致的本地权限提升与系统崩溃。"
+        "title": "Windows Defender 关键竞态条件漏洞：导致 SYSTEM 权限提升与 Use-After-Free 崩溃",
+        "url": "https://sec.today/pulses/3f284945-4169-4174-af53-eb6b71f4aed6/",
+        "source": "Sec-Today",
+        "date": "2026-06-18",
+        "reason": "揭示了利用Defender竞态条件绕过实时防护并提权至SYSTEM的严重零日漏洞，对端点防御与权限控制敲响警钟。"
       },
       {
-        "title": "CVE-2026-48558 | SimpleHelp OIDC Authentication Bypass Vulnerability",
-        "url": "https://horizon3.ai/attack-research/vulnerabilities/cve-2026-48558/",
+        "title": "Critical Command Execution Vulnerability Patched in Cisco ISE",
+        "url": "https://www.securityweek.com/critical-command-execution-vulnerability-patched-in-cisco-ise/",
+        "source": "SecurityWeek",
+        "date": "2026-06-18",
+        "reason": "思科ISE身份服务引擎曝出高危命令执行漏洞，攻击者可借此获取底层系统root权限，严重威胁企业网络基础设施安全。"
+      },
+      {
+        "title": "Oracle June 2026 Critical Security Patch Update Addresses 243 CVEs",
+        "url": "https://www.tenable.com/blog/oracle-june-2026-critical-security-patch-update-addresses-243-cves-cve-2026-35273",
         "source": "Unsafe.sh",
-        "date": "2026-06-15",
-        "reason": "披露SimpleHelp远程支持软件中OIDC身份验证绕过漏洞的细节及修复方案。"
+        "date": "2026-06-18",
+        "reason": "Oracle六月关键补丁更新修复了243个CVE漏洞，为企业级数据库和中间件的安全加固提供了重要的全局指导。"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "Rokarolla Banking Trojan Targets 200 Applications",
+        "url": "https://www.securityweek.com/rokarolla-banking-trojan-targets-200-applications/",
+        "source": "SecurityWeek",
+        "date": "2026-06-18",
+        "reason": "详细分析了针对200多个应用的新型Android银行木马Rokarolla，揭示了其强大的设备控制和敏感信息窃取能力。"
+      },
+      {
+        "title": "‘Popa’ Botnet Linked to Publicly-Traded Israeli Firm",
+        "url": "https://krebsonsecurity.com/2026/06/popa-botnet-linked-to-publicly-traded-israeli-firm/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-18",
+        "reason": "揭露了一个庞大Android僵尸网络背后的商业黑灰产链条，强调了移动端大规模恶意流量劫持的持续威胁。"
+      },
+      {
+        "title": "Apple fixes Beats Studio Buds flaw that let hackers spy on conversations",
+        "url": "https://www.bleepingcomputer.com/news/security/apple-fixes-beats-studio-buds-flaw-that-let-hackers-spy-on-conversations/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-18",
+        "reason": "苹果修复了Beats耳机的高危漏洞，该漏洞允许攻击者窃听对话，突显了可穿戴设备和蓝牙通信安全的盲区。"
+      },
+      {
+        "title": "Downloading iOS 26 iCloud Backups",
+        "url": "https://blog.elcomsoft.com/2026/06/downloading-ios-26-icloud-backups/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-18",
+        "reason": "介绍了针对iOS 26系统iCloud备份的最新提取技术，对移动端数据取证和隐私保护机制研究具有重要参考意义。"
+      },
+      {
+        "title": "Attacchi NFC, stanno aumentando i furti tramite smartphone Android",
+        "url": "https://www.cybersecurity360.it/news/attacchi-nfc-android/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-18",
+        "reason": "文章分析了基于Android设备的NFC攻击与窃取趋势，为移动非接触式支付和无感认证的安全防护提供了预警。"
       }
     ],
     "AI安全": [
       {
-        "title": "AI智能体的系统架构与安全治理：从输出风险到行动风险",
-        "url": "https://www.secrss.com/articles/91323",
-        "source": "安全内参",
-        "date": "2026-06-15",
-        "reason": "系统阐述了AI智能体在架构层面的安全治理，重点关注从输出到执行的风险演进。"
+        "title": "图片越糊越危险？西湖大学发现多模态大模型“攻击舒适区”",
+        "url": "https://sec.today/pulses/e74d4072-e22c-4a28-bfeb-e8c2b9c5628e/",
+        "source": "Sec-Today",
+        "date": "2026-06-18",
+        "reason": "揭示了多模态大模型在视觉退化区间下安全对齐机制失效的反直觉现象，为大模型视觉越狱提供了前沿研究视角。"
       },
       {
-        "title": "LiteLLM Vulnerability Chain Lets Low-Privilege Users Take Over AI Gateway Servers",
-        "url": "https://thehackernews.com/2026/06/litellm-vulnerability-chain-lets-low.html",
+        "title": "SearchLeak漏洞:微软365 Copilot如何沦为一键数据窃取工具",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&mid=2451187085&idx=1&sn=dfebfb0d691ba51a7ecdf6f8cb8e5d79",
+        "source": "Unsafe.sh",
+        "date": "2026-06-18",
+        "reason": "深度剖析了Microsoft 365 Copilot的SearchLeak漏洞，展示了攻击者如何利用AI交互特性实现一键敏感数据窃取。"
+      },
+      {
+        "title": "从低权限 Key 到 AI Gateway 接管：LiteLLM 漏洞链完整剖析",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzU3ODAyMjg4OQ==&mid=2247497782&idx=1&sn=26de363234b141e682c1fc30321013a1",
+        "source": "Unsafe.sh",
+        "date": "2026-06-18",
+        "reason": "完整剖析了针对LiteLLM AI网关的漏洞利用链，为企业级大模型基础设施的权限隔离与访问控制敲响警钟。"
+      },
+      {
+        "title": "Orphaned AI Agents: How to Find Hidden Access Risks Inside Your Network",
+        "url": "https://thehackernews.com/2026/06/orphaned-ai-agents-how-to-find-hidden.html",
         "source": "The Hacker News",
-        "date": "2026-06-15",
-        "reason": "揭示了LiteLLM代理服务中的漏洞链，展示了低权限用户如何接管AI网关服务器。"
+        "date": "2026-06-18",
+        "reason": "关注企业网络中游离状态AI智能体带来的隐藏访问风险，为AI资产的权限回收与身份治理提供了实用防御建议。"
       },
       {
-        "title": "One-Click Microsoft 365 Copilot Flaw Could Have Let Attackers Steal Emails, Files, and MFA Codes",
-        "url": "https://thehackernews.com/2026/06/one-click-microsoft-365-copilot-flaw.html",
-        "source": "The Hacker News",
-        "date": "2026-06-15",
-        "reason": "分析微软365 Copilot中的一键数据窃取漏洞，强调了AI集成应用带来的敏感数据暴露风险。"
-      },
-      {
-        "title": "只会yes，无视风险？AI软件开发的航行日志全面开源",
-        "url": "https://www.secrss.com/articles/91319",
-        "source": "安全内参",
-        "date": "2026-06-15",
-        "reason": "总结了AI辅助编程过程中潜在的代码风险和数据泄露隐患，对安全开发具有指导意义。"
+        "title": "打破传统AI逆向的新思路：多Agent、自主管理上下文",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458616781&idx=1&sn=da033ac7ab96ce635d060973a467e970",
+        "source": "Unsafe.sh",
+        "date": "2026-06-18",
+        "reason": "探讨了利用多智能体协同技术进行软件逆向分析的新思路，展示了AI技术在攻防安全领域的深度应用前景。"
       }
     ],
     "威胁情报": [
       {
-        "title": "工信部：关于防范VoidLink恶意软件的风险提示",
-        "url": "https://www.secrss.com/articles/91326",
-        "source": "安全内参",
-        "date": "2026-06-15",
-        "reason": "针对主要攻击Linux云环境的VoidLink恶意软件的风险预警，涉及供应链和服务器控制风险。"
+        "title": "IronWorm：利用 Linux 凭证与 eBPF 技术自动化供应链攻击",
+        "url": "https://sec.today/pulses/2ffbe42a-4d5d-4849-81f3-f5958fc4dd16/",
+        "source": "Sec-Today",
+        "date": "2026-06-18",
+        "reason": "披露了利用eBPF技术实现深度隐蔽的Linux自动化供应链攻击平台IronWorm，揭示了新型开源生态污染战术。"
       },
       {
-        "title": "OptinMonster WordPress plugin hacked in CDN supply-chain attack",
-        "url": "https://www.bleepingcomputer.com/news/security/optinmonster-wordpress-plugin-hacked-in-cdn-supply-chain-attack/",
+        "title": "DragonForce Hackers Abuse Microsoft Teams Relays to Hide Backdoor.Turn C2 Traffic",
+        "url": "https://thehackernews.com/2026/06/dragonforce-hackers-abuse-microsoft.html",
+        "source": "The Hacker News",
+        "date": "2026-06-18",
+        "reason": "详细分析了DragonForce勒索组织利用微软Teams中继隐藏C2流量的新型隐蔽通信技术，对流量监控提出新挑战。"
+      },
+      {
+        "title": "Microsoft Details Windows Clipper Malware Campaign Using USB LNK Worm and Tor-Based C2",
+        "url": "https://thehackernews.com/2026/06/microsoft-details-windows-clipper.html",
+        "source": "The Hacker News",
+        "date": "2026-06-18",
+        "reason": "微软披露了一种利用USB蠕虫和Tor网络传播的加密货币剪贴板劫持恶意软件活动，揭示了黑产的新型传播路径。"
+      },
+      {
+        "title": "INC Ransomware Emerges as Major RaaS Threat in 2026 with 830+ Victims Since 2023",
+        "url": "https://thehackernews.com/2026/06/inc-ransomware-claims-830-victims-since.html",
+        "source": "The Hacker News",
+        "date": "2026-06-18",
+        "reason": "全面复盘了INC勒索软件即服务组织的演化历程及其庞大受害者规模，为了解当前头部勒索团伙的运作模式提供情报。"
+      },
+      {
+        "title": "诺和诺德 1.3 TB 内部数据被盗，被勒索 2500 万美元",
+        "url": "https://www.solidot.org/story?sid=84619",
         "source": "Unsafe.sh",
-        "date": "2026-06-15",
-        "reason": "披露了针对知名WordPress插件的CDN供应链攻击事件，影响大量网站。"
-      },
-      {
-        "title": "Chinese hackers breach REDCap servers, steal medical research",
-        "url": "https://www.bleepingcomputer.com/news/security/chinese-hackers-breach-redcap-servers-steal-medical-research/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-15",
-        "reason": "威胁情报显示APT组织利用暴露的REDCap服务器窃取医疗科研机密数据。"
-      },
-      {
-        "title": "黑客盯上Arch Linux用户：超20个AUR软件包被植入了后门",
-        "url": "http://bbs.kanxue.com/thread-291615.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-06-15",
-        "reason": "分析Arch Linux AUR仓库遭大规模恶意软件供应链投毒的事件细节。"
+        "date": "2026-06-18",
+        "reason": "制药巨头诺和诺德遭遇TB级数据严重失窃，天价勒索事件反映了核心医疗与研发数据面临的严峻实战威胁。"
       }
     ],
     "安全工具": [
       {
-        "title": "GitHub - Zypherion-Technologies/HallWatch: Usermode detector that catches indirect syscalls.",
-        "url": "https://unsafe.sh/go-423212.html",
+        "title": "GitHub - Zypherion-Technologies/UnConfuserEx: A ConfuserEx2 deobfuscator",
+        "url": "https://unsafe.sh/go-424024.html",
         "source": "Unsafe.sh",
-        "date": "2026-06-15",
-        "reason": "一款开源的用户态检测工具，能够有效捕获间接系统调用，可用于提升安全产品的检测能力。"
+        "date": "2026-06-18",
+        "reason": "发布了一款针对ConfuserEx2的强大反混淆工具，支持控制流恢复和防篡改移除，为.NET恶意代码分析提供利器。"
       },
       {
-        "title": "Continuous PR Security Review",
-        "url": "https://projectdiscovery.io/blog/continuous-pr-security-review",
+        "title": "Yakit 新功能：Edit Binary 让上传包里的不可见字符可控了",
+        "url": "https://mp.weixin.qq.com/s?__biz=Mzk0MTM4NzIxMQ==&mid=2247529933&idx=1&sn=a19487238bfebbae679db1afd6f2d5b7",
         "source": "Unsafe.sh",
-        "date": "2026-06-15",
-        "reason": "介绍如何在CI/CD流水线中实现持续的PR安全审查，帮助开发团队尽早发现代码中的安全隐患。"
+        "date": "2026-06-18",
+        "reason": "Yakit推出Edit Binary新功能，解决了安全测试中数据包不可见字符的编辑难题，极大提升了Web渗透测试的精细度。"
       },
       {
-        "title": "Built an open-source tracker for cybersecurity learning",
-        "url": "https://unsafe.sh/go-423237.html",
+        "title": "VAXD update: public v1.00 release is now available",
+        "url": "https://unsafe.sh/go-423933.html",
         "source": "Unsafe.sh",
-        "date": "2026-06-15",
-        "reason": "一个开源的网络安全学习进度追踪工具，适合安全人员规划学习路线。"
+        "date": "2026-06-18",
+        "reason": "VAXD工具正式发布公开版本，为安全研究人员提供了处理和分析复杂底层数据的新型辅助工具。"
+      },
+      {
+        "title": "Scripting the disassembler: Local agentic reverse engineering through vbdec’s live COM object model",
+        "url": "https://blog.talosintelligence.com/scripting-the-disassembler/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-18",
+        "reason": "介绍了利用vbdec的COM对象模型编写脚本进行自动化反汇编的技术，为逆向工程提供了结合自动化代理的新颖思路。"
+      },
+      {
+        "title": "FlipCTL — our GUI framework for embedded Linux systems",
+        "url://blog.flipper.net/flipctl-our-gui-framework-for-embedded-linux-systems/",
+        "url": "https://blog.flipper.net/flipctl-our-gui-framework-for-embedded-linux-systems/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-18",
+        "reason": "Flipper Zero开源了其嵌入式Linux的GUI框架，为物联网安全研究者和硬件极客定制渗透工具提供了底层技术参考。"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "ITScape KVM 逃逸漏洞：公开 PoC 利用代码威胁云主机安全",
+        "url": "https://sec.today/pulses/3f644c82-bb07-4c02-9a2b-a019e2e61078/",
+        "source": "Sec-Today",
+        "date": "2026-06-18",
+        "reason": "深入剖析了针对KVM/arm64的严重逃逸漏洞，结合公开PoC详解了利用VGIC-ITS竞争条件绕过隔离的威胁，直击云虚拟化安全痛点。"
+      },
+      {
+        "title": "Apache CXF 框架近期曝出包含 JNDI 注入、OAuth2 认证绕过等严重安全漏洞",
+        "url": "https://sec.today/pulses/78959be9-4bb3-4b2a-8c06-0d2212b30174/",
+        "source": "Sec-Today",
+        "date": "2026-06-18",
+        "reason": "汇总并分析了Apache CXF框架的JNDI注入和OAuth2绕过等高危漏洞，这些缺陷极易导致云上Web服务被RCE或接管。"
+      },
+      {
+        "title": "F5 Patches Two Critical NGINX Open Source Flaws Enabling Remote Code Execution",
+        "url": "https://thehackernews.com/2026/06/f5-patches-two-critical-nginx-open.html",
+        "source": "The Hacker News",
+        "date": "2026-06-18",
+        "reason": "F5修复了NGINX开源版的多个严重RCE漏洞，这些漏洞直接威胁到全球大量云原生架构和反向代理基础设施的底层安全。"
+      },
+      {
+        "title": "Centralized AI Is a Massive Data Liability: What Enterprises Can Do To Mitigate Risks",
+        "url": "https://hackernoon.com/centralized-ai-is-a-massive-data-liability-what-enterprises-can-do-to-mitigate-risks?source=rss",
+        "source": "Unsafe.sh",
+        "date": "2026-06-18",
+        "reason": "探讨了企业采用集中式云AI服务所面临的巨大数据泄露责任，为云上大模型架构的数据隔离和风险缓解提出了架构级建议。"
       }
     ],
     "其他重要": [
       {
-        "title": "记某灰黑棋牌游戏逆向",
-        "url": "http://bbs.kanxue.com/thread-291590.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-06-15",
-        "reason": "详细记录了对多层加壳的Cocos2d-x手游进行逆向工程并还原请求签名的过程，移动端逆向实战价值极高。"
+        "title": "Klue OAuth breach linked to 'Icarus' Salesforce data theft attacks",
+        "url": "https://www.bleepingcomputer.com/news/security/klue-oauth-breach-linked-to-icarus-salesforce-data-theft-attacks/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-18",
+        "reason": "披露了利用Klue的OAuth凭证漏洞发起的“Icarus”供应链攻击事件，展示了SaaS生态中身份认证被劫持后引发的连锁数据失窃。"
       },
       {
-        "title": "Factoring \"short-sleeve\" RSA keys with polynomials",
-        "url": "https://unsafe.sh/go-423248.html",
+        "title": "ShapedPlugin update flow hacked to infect WordPress sites",
+        "url": "https://www.bleepingcomputer.com/news/security/shapedplugin-update-flow-hacked-to-infect-wordpress-sites/",
         "source": "Unsafe.sh",
-        "date": "2026-06-15",
-        "reason": "分享了一种利用多项式进行RSA密钥分解的密码学技术分析，具有学术研究价值。"
+        "date": "2026-06-18",
+        "reason": "多个WordPress插件的更新流遭到黑客劫持并实施供应链投毒，提醒广大站长和运维人员必须警惕第三方组件的更新校验。"
+      },
+      {
+        "title": "三个安全启动证书即将过期",
+        "url": "https://www.solidot.org/story?sid=84621",
+        "source": "Unsafe.sh",
+        "date": "2026-06-18",
+        "reason": "微软颁发的三个核心安全启动证书即将到期，这一底层PKI信任体系的重要变更可能影响大量遗留系统的正常启动。"
+      },
+      {
+        "title": "Police cleans nearly 15,000 SocGholish-infected sites tied to Evil Corp",
+        "url": "https://www.bleepingcomputer.com/news/security/law-enforcement-nukes-socgholish-malware-from-nearly-15-000-sites/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-18",
+        "reason": "国际执法部门成功清除了近1.5万个感染SocGholish恶意软件的网站，沉重打击了Evil Corp黑客组织的初期分发网络。"
       }
     ]
   },
-  "summary": "本批次重点分析了内核与虚拟机逃逸等深层漏洞，
+  "summary": "本批次精选了KVM逃逸、大模型网关接管、内核UAF提权等前沿安全研究，涵盖云与移动端威胁情报及实战测试工具。"
+}
