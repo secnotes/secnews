@@ -1,14 +1,182 @@
 {
-  "analysis_date": "2026-06-19",
-  "total_analyzed": 131,
+  "analysis_date": "2026-06-20",
+  "total_analyzed": 118,
   "categories": {
-    "漏洞研究": [],
-    "移动安全": [],
-    "AI安全": [],
-    "威胁情报": [],
-    "安全工具": [],
-    "云安全": [],
-    "其他重要": []
+    "漏洞研究": [
+      {
+        "title": "CVE-2026-40519：Nginx Proxy Manager 命令注入漏洞复现",
+        "url": "https://sec.today/pulses/21786726-6dd5-4ab8-9756-144fd4dbf7d3/",
+        "source": "Sec-Today",
+        "date": "2026-06-19",
+        "reason": "详细剖析了Nginx Proxy Manager的双重转义命令注入漏洞，并提供了完整的攻击链复现过程，对运维安全和代码审计极具参考价值。"
+      },
+      {
+        "title": "CVE-2026-21241：AFD.sys 中 Socket 通知处理 Race Condition 引发的 Use-After-Free LPE 漏洞",
+        "url": "https://sec.today/pulses/7528bf4b-0207-4360-8afd-0c75da0e69b4/",
+        "source": "Sec-Today",
+        "date": "2026-06-19",
+        "reason": "深入分析Windows AFD.sys底层竞争条件导致的UAF本地提权漏洞及其内核修复方案，具有很高的系统级漏洞研究价值。"
+      },
+      {
+        "title": "Squidbleed (CVE-2026-47729) - Heartbleed-style vulnerability that leaks internal memory",
+        "url": "https://unsafe.sh/go-424194.html",
+        "source": "Unsafe.sh",
+        "date": "2026-06-19",
+        "reason": "披露了影响所有版本Squid Proxy默认配置的内存泄漏漏洞，类似于Heartbleed，严重威胁数据安全，需引起广泛关注。"
+      },
+      {
+        "title": "哪吒监控面板高危漏洞（CVE-2026-53519）深度分析与修复指南",
+        "url": "https://blog.upx8.com/CVE-2026-53519",
+        "source": "Unsafe.sh",
+        "date": "2026-06-19",
+        "reason": "全面解析了哪吒监控面板的无认证高危漏洞，提供了深度的技术分析与切实的修复指南，对自建监控体系的安全防御至关重要。"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "Unpatchable 'usbliter8' Exploit Breaks Apple A12 and A13 SecureROM Boot Chain",
+        "url": "https://thehackernews.com/2026/06/unpatchable-usbliter8-exploit-breaks.html",
+        "source": "The Hacker News",
+        "date": "2026-06-19",
+        "reason": "披露了针对苹果A12和A13芯片SecureROM的无法修补的底层漏洞利用，对iOS设备越狱与底层硬件安全研究具有里程碑意义。"
+      },
+      {
+        "title": "Apple Patches Beats Studio Buds Flaw Letting Nearby Attackers Spy via Microphone",
+        "url": "https://thehackernews.com/2026/06/apple-patches-beats-studio-buds-flaw.html",
+        "source": "The Hacker News",
+        "date": "2026-06-19",
+        "reason": "揭示了苹果蓝牙耳机可能被附近攻击者利用进行窃听的漏洞，凸显了消费级无线物联网设备的潜在隐私风险。"
+      },
+      {
+        "title": "把 .o 变成 .ko：GKI 安全特性的铁幕",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458616782&idx=2&sn=bef4d5e72317a35c94b6d9a35359930f",
+        "source": "Unsafe.sh",
+        "date": "2026-06-19",
+        "reason": "深入探讨了Android GKI（通用内核映像）机制对内核模块加载的限制及其安全防御特性，对移动端底层攻防研究极具启发性。"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "AutoJack Attack Lets One Web Page Hijack AI Agent for Host Code Execution",
+        "url": "https://thehackernews.com/2026/06/autojack-attack-lets-one-web-page.html",
+        "source": "The Hacker News",
+        "date": "2026-06-19",
+        "reason": "披露了通过恶意网页劫持AI浏览智能体实现远程代码执行的攻击链，揭示了AI智能体作为新型攻击载体的潜在风险。"
+      },
+      {
+        "title": "AI Infrastructure Security: Pentesting MCP & Agentic Systems",
+        "url": "https://horizon3.ai/intelligence/blogs/ai-infrastructure-pentesting-and-security/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-19",
+        "reason": "系统性地探讨了针对MCP协议和AI智能体系统的渗透测试方法论，填补了AI基础设施实战安全评估的技术空白。"
+      },
+      {
+        "title": "图片越糊越危险？西湖大学发现多模态大模型“攻击舒适区”",
+        "url": "https://sec.today/pulses/e74d4072-e22c-4a28-bfeb-e8c2b9c5628e/",
+        "source": "Sec-Today",
+        "date": "2026-06-19",
+        "reason": "多模态大模型在视觉退化场景下的安全对齐失效研究，为防御长上下文视觉应用的越狱攻击提供了全新的防范思路。"
+      },
+      {
+        "title": "BloodHound MCP: Automating Active Directory Analysis with AI",
+        "url": "https://www.hackingarticles.in/bloodhound-mcp-automating-active-directory-analysis-with-ai/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-19",
+        "reason": "介绍了结合AI大模型自动化分析AD域攻击路径的实战应用，展示了AI技术在红队自动化工具中的落地与赋能。"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "FortiBleed: 86,000 Fortinet Device Credentials Compromised",
+        "url": "https://www.securityweek.com/fortibleed-86000-fortinet-device-credentials-compromised/",
+        "source": "SecurityWeek",
+        "date": "2026-06-19",
+        "reason": "报道了影响超8万台Fortinet设备的FortiBleed大规模凭证窃取活动，企业需立即排查暴露面以防范进一步入侵。"
+      },
+      {
+        "title": "Splunk Enterprise Vulnerability Exploited in Attacks Days After Disclosure",
+        "url": "https://www.securityweek.com/splunk-enterprise-vulnerability-exploited-in-attacks-days-after-disclosure/",
+        "source": "SecurityWeek",
+        "date": "2026-06-19",
+        "reason": "CISA紧急预警Splunk Enterprise未授权RCE漏洞在披露后迅速遭到野外利用，情报紧迫，需立即排查补丁落地情况。"
+      },
+      {
+        "title": "The Gentlemen RaaS Uses GentleKiller EDR Framework Targeting 400 Security Processes",
+        "url": "https://thehackernews.com/2026/06/the-gentlemen-raas-uses-gentlekiller.html",
+        "source": "The Hacker News",
+        "date": "2026-06-19",
+        "reason": "揭示了新兴勒索软件即服务搭配专属EDR终结者框架的最新战术，反映了终端对抗技术的持续升级与演变。"
+      },
+      {
+        "title": "Lazarus APT组织深度分析报告",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247496822&idx=1&sn=d0dc658573a986aa2ee1539ca63eb508",
+        "source": "Unsafe.sh",
+        "date": "2026-06-19",
+        "reason": "对知名朝鲜黑客组织Lazarus的深度分析，有助于安全团队了解APT的高阶攻击手法并优化威胁狩猎规则。"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "Burp Extensibility 2026: Awards, Talks, and Highlights",
+        "url": "https://portswigger.net/blog/burp-extensibility-2026-awards-talks-and-highlights",
+        "source": "Unsafe.sh",
+        "date": "2026-06-19",
+        "reason": "PortSwigger发布的Burp Suite扩展年度总结，汇总了当前最前沿的Web安全测试插件技术与实战应用实践。"
+      },
+      {
+        "title": "The Hacker News Recognizes ANY.RUN as the Best Security Investigation Platform 2026",
+        "url": "https://any.run/cybersecurity-blog/best-security-platform/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-19",
+        "reason": "介绍了交互式恶意软件分析沙箱ANY.RUN的最新功能更新，为安全分析师提供了高效的样本调查工具指引。"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "ITScape KVM 逃逸漏洞：公开 PoC 利用代码威胁云主机安全",
+        "url": "https://sec.today/pulses/3f644c82-bb07-4c02-9a2b-a019e2e61078/",
+        "source": "Sec-Today",
+        "date": "2026-06-19",
+        "reason": "深入剖析了KVM/arm64的竞争条件逃逸漏洞并附带PoC，直接威胁多租户云基础设施隔离边界，具有极高的云安全防御价值。"
+      },
+      {
+        "title": "Zombie COTables: Resurrecting Freed Memory to Escape VirtualBox",
+        "url": "https://sec.today/pulses/b66cc732-31b6-4d52-a690-c1560d9ae14a/",
+        "source": "Sec-Today",
+        "date": "2026-06-19",
+        "reason": "详尽分析了VirtualBox SVGA设备的UAF漏洞及完整逃逸链，为虚拟化云环境的安全研究提供了宝贵实战参考。"
+      },
+      {
+        "title": "IronWorm：利用 Linux 凭证与 eBPF 技术自动化供应链攻击",
+        "url": "https://sec.today/pulses/2ffbe42a-4d5d-4849-81f3-f5958fc4dd16/",
+        "source": "Sec-Today",
+        "date": "2026-06-19",
+        "reason": "揭示了利用eBPF技术实现隐蔽并自动化污染云原生与开发环境的供应链攻击手法，警示了云服务器横向移动的风险。"
+      }
+    ],
+    "其他重要": [
+      {
+        "title": "Operation Endgame Disrupts SocGholish Servers, Cleans 14,971 WordPress Sites",
+        "url": "https://thehackernews.com/2026/06/operation-endgame-disrupts-socgholish.html",
+        "source": "The Hacker News",
+        "date": "2026-06-19",
+        "reason": "多国联合执法行动成功打击SocGholish僵尸网络并清理大量被控网站，对遏制海量恶意脚本分发具有重大积极意义。"
+      },
+      {
+        "title": "Cybersecurity Firms Impacted by Klue Supply Chain Attack",
+        "url": "https://www.securityweek.com/cybersecurity-firms-impacted-by-klue-supply-chain-attack/",
+        "source": "SecurityWeek",
+        "date": "2026-06-19",
+        "reason": "第三方应用集成漏洞导致多家知名安全公司数据泄露，凸显了SaaS供应链中OAuth等集成机制的管控盲区。"
+      },
+      {
+        "title": "Forget Data Leakage: Shadow AI's Real Threat Is Access Control",
+        "url": "https://thehackernews.com/2026/06/forget-data-leakage-shadow-ais-real.html",
+        "source": "The Hacker News",
+        "date": "2026-06-19",
+        "reason": "视角独特地指出“影子AI”最核心的威胁在于失控的访问控制而非数据泄露，为企业AI安全治理提供了全新的战略指引。"
+      }
+    ]
   },
-  "summary": "AI分析完成，已筛选重要文章并分类"
+  "summary": "本批次文章涵盖了最新CVE漏洞复现、云虚拟化逃逸、AI智能体攻击面及重大APT情报，兼具技术深度与实战防御价值。"
 }
