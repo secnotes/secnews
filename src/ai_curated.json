@@ -1,132 +1,14 @@
 {
-  "analysis_date": "2026-06-21",
-  "total_analyzed": 57,
+  "analysis_date": "2026-06-22",
+  "total_analyzed": 79,
   "categories": {
-    "漏洞研究": [
-      {
-        "title": "论一种无show情况下从堆到劫持执行流的方法",
-        "url": "http://bbs.kanxue.com/thread-291642.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-06-20",
-        "reason": "文章深入探讨了在缺乏show功能的情况下，利用UAF和Tcache staching unlink等技术劫持执行流的实战利用方法，具有很高的技术深度。"
-      },
-      {
-        "title": "Hackers Exploit Gravity SMTP WordPress Plugin Bug to Expose API Keys",
-        "url": "https://thehackernews.com/2026/06/hackers-exploit-gravity-smtp-wordpress.html",
-        "source": "The Hacker News",
-        "date": "2026-06-20",
-        "reason": "披露了影响数万个WordPress网站的Gravity SMTP插件漏洞（CVE-2026-4020）及其被恶意利用导致API密钥泄露的最新情况。"
-      },
-      {
-        "title": "FortiBleed Exposes Global Credential-Spraying Operation",
-        "url": "https://securityaffairs.com/193931/hacking/fortibleed-exposes-global-credential-spraying-operation.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-20",
-        "reason": "分析了FortiBleed漏洞是如何暴露全球范围内的凭据喷洒攻击行动，对理解该漏洞的实际危害和攻击面有重要价值。"
-      },
-      {
-        "title": "REDCap exploitation in 2023",
-        "url": "http://www.boredhackerblog.info/2026/06/redcap-exploitation-in-2023.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-20",
-        "reason": "回顾并技术分析了针对REDCap系统的漏洞利用过程，为同类Web应用的安全测试和漏洞研究提供了参考。"
-      }
-    ],
-    "移动安全": [
-      {
-        "title": "面向复现的逆向工程实践：Hermes 在设备刷写、提权与 Frida 魔改中的自动化能力验证",
-        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458616783&idx=1&sn=219d3d357722602c80071a048c05a2b7",
-        "source": "Unsafe.sh",
-        "date": "2026-06-20",
-        "reason": "详细分享了在移动设备刷写和提权过程中的逆向工程自动化实践，以及对Frida框架的魔改经验，实战价值显著。"
-      },
-      {
-        "title": "sterrasec/apk-interceptor: Android deeplink, Intent, and WebView bridge assessment helper",
-        "url": "https://unsafe.sh/go-424231.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-20",
-        "reason": "介绍了一款专门用于评估和测试Android App中Deeplink、Intent及WebView桥接安全性的辅助工具，能极大提高移动安全审计效率。"
-      }
-    ],
-    "AI安全": [
-      {
-        "title": "Microsoft links Mastra AI supply chain attack to North Korean hackers",
-        "url": "https://www.bleepingcomputer.com/news/security/microsoft-links-mastra-ai-supply-chain-attack-to-north-korean-hackers/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-20",
-        "reason": "微软将近期针对Mastra AI的供应链攻击归因于朝鲜黑客组织，凸显了AI生态链和开发组件面临的新型供应链安全威胁。"
-      }
-    ],
-    "威胁情报": [
-      {
-        "title": "DarkHotel APT组织最新攻击活动深度分析",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247496831&idx=1&sn=b7a4b03c62f033c2ac4dc43d188f4d8d",
-        "source": "Unsafe.sh",
-        "date": "2026-06-20",
-        "reason": "对DarkHotel这一高级持续性威胁（APT）组织的最新攻击活动进行了深度剖析，提供了宝贵的战术、技术和程序（TTP）情报。"
-      },
-      {
-        "title": "New Prinz Eugen ransomware prioritizes recent files for encryption",
-        "url": "https://www.bleepingcomputer.com/news/security/new-prinz-eugen-ransomware-prioritizes-recent-files-for-encryption/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-20",
-        "reason": "报道了新型Prinz Eugen勒索软件的运作机制，其优先加密最新文件的策略旨在最大化破坏效率，值得企业防御者关注。"
-      },
-      {
-        "title": "Inside GentleKiller: The EDR-Killer Powering The Gentlemen",
-        "url": "https://securityaffairs.com/193941/uncategorized/inside-gentlekiller-the-edr-killer-powering-the-gentlemen.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-20",
-        "reason": "深入揭示了被名为The Gentlemen的勒索组织使用的GentleKiller工具的内部机制，展示了现代攻击者如何绕过端点检测与响应（EDR）系统。"
-      },
-      {
-        "title": "Threat Brief: Mitigating Large-Scale Credential Attacks",
-        "url": "https://unit42.paloaltonetworks.com/large-scale-credential-attacks/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-20",
-        "reason": "Palo Alto Unit 42发布的威胁简报，详细探讨了当前大规模密码喷洒和凭据窃取活动的缓解策略，对强化身份认证安全极具指导意义。"
-      },
-      {
-        "title": "CISA Warns of Active Exploitation Following FortiBleed Leak",
-        "url": "https://securityaffairs.com/193902/hacking/cisa-warns-of-active-exploitation-following-fortibleed-leak.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-20",
-        "reason": "美国网络安全和基础设施安全局（CISA）针对FortiBleed漏洞泄漏后的活跃利用发出警告，属于高优先级的实战威胁预警。"
-      }
-    ],
-    "安全工具": [
-      {
-        "title": "GitHub - lautarovculic/ioscpy: A macOS CLI that mirrors and controls a jailbroken iPhone over USB.",
-        "url": "https://unsafe.sh/go-424232.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-20",
-        "reason": "分享了一款开源的macOS命令行工具，能够通过USB对越狱iPhone进行镜像和完全控制，为iOS安全研究提供了实用辅助。"
-      }
-    ],
+    "漏洞研究": [],
+    "移动安全": [],
+    "AI安全": [],
+    "威胁情报": [],
+    "安全工具": [],
     "云安全": [],
-    "其他重要": [
-      {
-        "title": "【安全圈】国际足联后台曝高危漏洞 黑客能随意篡改全球世界杯直播",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077497&idx=1&sn=78843c56369db38734d325ad4542c041",
-        "source": "Unsafe.sh",
-        "date": "2026-06-20",
-        "reason": "曝出了国际足联（FIFA）后台系统存在的高危漏洞，此类针对大型国际赛事组织机构的漏洞披露具有极高的社会和安全影响。"
-      },
-      {
-        "title": "【安全圈】得克萨斯州发生数据泄露事件，超 300 万人驾照、护照信息遭窃",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077497&idx=3&sn=14b5ce28f4895871a11b24744bb9c029",
-        "source": "Unsafe.sh",
-        "date": "2026-06-20",
-        "reason": "报道了得克萨斯州发生的大规模敏感身份数据泄露事件，反映了政府机构在防范数据泄露方面面临的严峻挑战。"
-      },
-      {
-        "title": "JCPenney - 368,418 breached accounts",
-        "url": "https://haveibeenpwned.com/Breach/JCPenney",
-        "source": "Unsafe.sh",
-        "date": "2026-06-20",
-        "reason": "知名零售商JCPenney超36万个账户数据被泄露并在暗网流通，属于重要的企业数据安全事件。"
-      }
-    ]
+    "其他重要": []
   },
-  "summary": "本期涵盖了堆溢出漏洞利用、WordPress插件CVE、AI供应链攻击、APT组织动态、新型勒索软件及EDR绕过技术等高价值安全情报与技术分析。"
+  "summary": "AI分析完成，已筛选重要文章并分类"
 }
