@@ -1,173 +1,208 @@
-JSON Parse Error: Expecting ':' delimiter: line 69 column 41 (char 2803)
+JSON Parse Error: Expecting ':' delimiter: line 136 column 78 (char 5956)
 
-Raw Response (length=7006):
+Raw Response (length=8849):
 {
   "analysis_date": "2026-06-23",
-  "total_analyzed": 79,
+  "total_analyzed": 119,
   "batch_number": 1,
   "categories": {
     "漏洞研究": [
       {
-        "title": "论一种无show情况下从堆到劫持执行流的方法",
-        "url": "http://bbs.kanxue.com/thread-291642.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-06-21",
-        "reason": "深入探讨了在缺乏show功能的情况下利用UAF和Tcache Stashing Unlink劫持执行流的Pwn高级技术，具有很强的实战价值。"
+        "title": "usbliter8：利用DWC2下溢漏洞破坏苹果A12-A13芯片BootROM信任链",
+        "url": "https://sec.today/pulses/77cb3f3a-d766-4efd-b5f1-910c243f9962/",
+        "source": "Sec-Today",
+        "date": "2026-06-22",
+        "reason": "深入解析苹果A12/A13芯片的硬件级BootROM漏洞及绕过指针认证（PAC）的复杂利用链，揭示了无法通过软件修复的底层安全隐患。"
       },
       {
-        "title": "OpenBSD mpls_do_error: Remote Kernel Stack Disclosure via MPLS Label Stack Over-read",
-        "url": "https://seclists.org/fulldisclosure/2026/Jun/17",
-        "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "披露了OpenBSD内核中通过MPLS标签栈越界读取导致的远程内核栈信息泄露漏洞，属于最新系统底层的严重漏洞。"
+        "title": "FreeBSD KTLS本地权限提升漏洞(CVE-2026-45257)安全风险通告",
+        "url": "https://www.secrss.com/articles/91521",
+        "source": "安全内参",
+        "date": "2026-06-22",
+        "reason": "披露了FreeBSD系统中通过覆盖setuid二进制文件实现本地提权的高危漏洞，对服务器安全防护具有重要实战意义。"
       },
       {
-        "title": "PHP 8.5.7 `levenshtein()` signed-integer overflow",
-        "url": "https://seclists.org/fulldisclosure/2026/Jun/14",
-        "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "揭示了最新版PHP 8.5.7中`levenshtein()`函数的整数溢出漏洞，对PHP环境的漏洞挖掘和防御有直接参考意义。"
+        "title": "Decades-Old Squid Proxy Flaw ‘Squidbleed’ Can Expose User Data",
+        "url": "https://www.securityweek.com/decades-old-squid-proxy-flaw-squidbleed-can-expose-user-data/",
+        "source": "SecurityWeek",
+        "date": "2026-06-22",
+        "reason": "曝光了存在于Squid代理软件中长达29年的堆越界读取漏洞，该漏洞可导致用户的明文HTTP请求和凭证泄露。"
       },
       {
-        "title": "SEC Consult SA-20260617-0 :: Multiple Critical Vulnerabilities in Sprecher Automation SPRECON-E-C/-E-P/-E-T3",
-        "url": "https://seclists.org/fulldisclosure/2026/Jun/19",
+        "title": "How we found a bug in the hyper HTTP library",
+        "url": "https://blog.cloudflare.com/hyper-bug/",
         "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "针对工控系统（SPRECON-E）披露了多个严重漏洞，工控安全直接关系到关键基础设施稳定，极具技术重要性。"
+        "date": "2026-06-22",
+        "reason": "Cloudflare团队分享了在Rust编写的hyper HTTP库中发现底层漏洞的详细过程，对内存安全与模糊测试有极佳参考价值。"
+      },
+      {
+        "title": "Bypass of Bypass in Mozilla Firefox – CVE-2026-8971",
+        "url": "https://payatu.com/blog/bypass-of-bypass-in-mozilla-firefox-cve-2026-8971/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-22",
+        "reason": "详细分析了Firefox浏览器同源策略（SOP）绕过漏洞的多次补丁绕过历程，对浏览器漏洞研究具有深度启发。"
       }
     ],
     "移动安全": [
       {
-        "title": "usbliter8：苹果 A12/A13 BootROM 硬件漏洞的完整利用路径",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&mid=2451187115&idx=1&sn=7f5c9068ae5957b1cd79e9ece8c47195",
-        "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "详细解析了苹果A12/A13芯片BootROM的硬件级漏洞及其完整利用链，属于不可多得的底层移动安全研究成果。"
+        "title": "SoK：Android 设计层漏洞在 OpenHarmony 中重演：一项系统性研究",
+        "url": "https://sec.today/pulses/fe3d6443-0b22-4b9e-94c8-624ba49db75e/",
+        "source": "Sec-Today",
+        "date": "2026-06-22",
+        "reason": "首次系统性地将Android历史设计漏洞应用于OpenHarmony审计，揭示了新兴操作系统在设计同源性下潜藏的巨大风险。"
       },
       {
-        "title": "Note20 ABL Odin out-of-bounds read",
-        "url": "https://unsafe.sh/go-424337.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "针对三星Note20 Android Bootloader (ABL) 的越界读取漏洞分析，对研究安卓设备启动链安全有重要参考价值。"
+        "title": "Google Sets Sept. 30 Deadline for Android Developer Verification in Four Countries",
+        "url": "https://thehackernews.com/2026/06/google-sets-sept-30-deadline-for.html",
+        "source": "The Hacker News",
+        "date": "2026-06-22",
+        "reason": "Google即将在多国强制推行安卓开发者身份验证，此项政策将深刻影响移动应用供应链与生态安全的未来走向。"
       },
       {
-        "title": "APPLE-SA-06-16-2026-1 Beats Firmware Update 1B211",
-        "url": "https://seclists.org/fulldisclosure/2026/Jun/18",
+        "title": "A new unpatchable flaw in Apple chips opens the door to an iPhone jailbreak",
+        "url": "https://techcrunch.com/2026/06/22/a-new-unpatchable-flaw-in-apple-chips-opens-the-door-to-an-iphone-jailbreak/",
         "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "苹果官方发布的Beats设备固件安全更新，通常涉及底层蓝牙或系统连接漏洞的修复，需引起移动设备管理者关注。"
+        "date": "2026-06-22",
+        "reason": "商业间谍软件厂商公开了影响数百万iPhone的不可修补底层硬件漏洞，再次掀起针对iOS底层的攻防热潮。"
       }
     ],
     "AI安全": [
       {
-        "title": "AI-Powered Active Directory Pentesting with Claude, HexStrike AI & NetExec",
-        "url": "https://www.hackingarticles.in/ai-powered-active-directory-pentesting-with-claude-hexstrike-ai-netexec/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "展示了如何结合大模型（Claude）和自动化工具进行活动目录内网渗透测试，代表了AI在攻防实战中的前沿应用。"
+        "title": "Mythos：当攻防进入火器时代，防御策略和人的技能栈，都要重写",
+        "url": "https://sec.today/pulses/85ed36fc-800e-4072-8f29-53468a98c36e/",
+        "source": "Sec-Today",
+        "date": "2026-06-22",
+        "reason": "深刻剖析了AI Agent对网络安全攻防范式的颠覆性影响，提出了控制爆炸半径等企业级防御治理的新型落地路径。"
       },
       {
-        "title": "I reverse engineered Windows Copilot into a free OpenAI compatible API",
-        "url://unsafe.sh/go-424333.html",
-        "url": "https://unsafe.sh/go-424333.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "探讨了逆向Windows Copilot并提取API的技术实践，从安全角度揭示了本地AI客户端的潜在数据暴露与控制绕过风险。"
+        "title": "Researchers Detail DifyTap Flaws in Dify That Could Expose AI Chats Across Tenants",
+        "url": "https://thehackernews.com/2026/06/researchers-detail-difytap-flaws-in.html",
+        "source": "The Hacker News",
+        "date": "2026-06-22",
+        "reason": "披露了开源LLM应用开发平台Dify中的跨租户越权漏洞，凸显了快速发展的AI工作流平台在隔离机制上的严峻挑战。"
       },
       {
-        "title": "Examining deepfake detector robustness under social media re-encoding",
-        "url": "https://unsafe.sh/go-424352.html",
+        "title": "Microsoft fixes AutoGen Studio flaw that enabled code execution",
+        "url": "https://www.bleepingcomputer.com/news/security/microsoft-fixes-autogen-studio-flaw-that-enabled-code-execution/",
         "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "针对社交媒体平台转码对深度伪造检测器鲁棒性的影响进行了深入分析，是AI模型安全性与对抗性研究的重要课题。"
+        "date": "2026-06-22",
+        "reason": "微软修复了其AI工具AutoGen Studio中的远程代码执行漏洞链，警示了在引入AI开发框架时必须重视的供应链与代码执行风险。"
       },
       {
-        "title": "SecEBL: 基于意图识别的入侵检测",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzI1NTc1NTcwNg==&mid=2247484510&idx=1&sn=8c685aa656a7dd4608ac26ef7da675db",
+        "title": "【安全圈】13个字就能投毒AI搜索结果？ChatGPT和Gemini都中招了",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077524&idx=1&sn=25abaf541e635c8640e3714f3b3e1ac6",
         "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "介绍了一种结合AI意图识别技术的新型入侵检测系统，展示了AI在安全防御端的应用潜力。"
+        "date": "2026-06-22",
+        "reason": "揭示了利用极低成本和隐蔽字符对主流AI大模型搜索引擎进行数据投毒的新型攻击手法，实战威胁性极高。"
       }
     ],
     "威胁情报": [
       {
-        "title": "AryStinger botnet infected thousands of D-Link routers worldwide",
-        "url": "https://www.bleepingcomputer.com/news/security/arystinger-botnet-infected-thousands-of-d-link-routers-worldwide/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "报道了新发现的AryStinger僵尸网络大规模感染D-Link路由器的事件，反映了IoT设备正面临严峻的团伙化攻击。"
+        "title": "North Korean Hackers Blamed for Mastra NPM Supply Chain Attack",
+        "url": "https://www.securityweek.com/north-korean-hackers-blamed-for-mastra-npm-supply-chain-attack/",
+        "source": "SecurityWeek",
+        "date": "2026-06-22",
+        "reason": "归因分析了APT组织针对NPM开源包发动的供应链投毒攻击，揭示了针对加密货币与开发者生态的定向威胁趋势。"
       },
       {
-        "title": "【安全圈】FortiBleed 泄露事件暴露 73,000 台设备的 Fortinet VPN 凭证",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077511&idx=3&sn=810539bc317e4a1ac44ab8a822e67fc8",
+        "title": "FortiBleed campaign used custom FortiGate sniffer to steal credentials",
+        "url": "https://www.bleepingcomputer.com/news/security/fortibleed-campaign-used-custom-fortigate-sniffer-to-steal-credentials/",
         "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "FortiBleed事件导致大量企业VPN凭证泄露，属于近期重大且影响面广的企业级网络安全事件。"
+        "date": "2026-06-22",
+        "reason": "详细披露了针对FortiGate防火墙的大规模凭证窃取活动细节，提供了关于国家级APT组织活跃攻击的重要情报。"
       },
       {
-        "title": "全球流行勒索病毒家族加解密算法详解",
-        "url": "mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247496838&idx=1&sn=f93f9c99bdd4b45776a685cfe6f57d94",
-        "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "系统总结了当前主流勒索病毒的加解密算法机制，对应急响应和数据恢复工作具有极高的情报与实战参考价值。"
+        "title": "AryStinger Malware Infects 4,300 Legacy Routers to Build Reconnaissance Proxy Network",
+        "url": "https://thehackernews.com/2026/06/arystinger-malware-infects-4300-legacy.html",
+        "source": "The Hacker News",
+        "date": "2026-06-22",
+        "reason": "报告了新型恶意软件家族AryStinger感染大量遗留路由器并构建隐蔽代理网络的活动，对基础设施威胁监测具有极高价值。"
       },
       {
-        "title": "【安全圈】初级黑客在其 C2 下线后使用 Tailscale 和 OpenSSH 保持访问",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077511&idx=2&sn=762f450958e4b864e59c019aa5bc4c2f",
+        "title": "WhatsApp phishing attack uses fake business docs to hack PCs",
+        "url": "https://www.bleepingcomputer.com/news/security/whatsapp-phishing-attack-uses-fake-business-docs-to-hack-pcs/",
         "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "分析了攻击者在基础设施被摧毁后利用合法VPN和SSH隧道维持权限的隐蔽持久化战术（TTP）。"
+        "date": "2026-06-22",
+        "reason": "监测到利用WhatsApp分发带恶意宏的商业文档的钓鱼攻击活动，反映了社会工程学与通信软件结合的新型攻击趋势。"
       }
     ],
     "安全工具": [
       {
-        "title": "Scanning malicious websites with 'infinite' number of VPN tunnels (Part 1)",
-        "url": "https://unsafe.sh/go-424350.html",
-        "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "介绍了一种利用无限VPN隧道网络扫描恶意网站的开源工具与实战方法，对于情报收集和匿名安全分析非常有帮助。"
+        "title": "通过AI agent+通用大模型，实现海量告警研判分析实践",
+        "url": "https://www.secrss.com/articles/91501",
+        "source": "安全内参",
+        "date": "2026-06-22",
+        "reason": "详细分享了利用AI Agent结合通用大模型进行海量安全告警自动化研判的工程化实践，对提升企业安全运营效率极具参考价值。"
       },
       {
-        "title": "Scrutari - forensic statistical analyzer for opaque firmware blobs",
-        "url": "https://unsafe.sh/go-424335.html",
+        "title": "Introducing Patch the Planet",
+        "url://blog.trailofbits.com/2026/06/22/introducing-patch-the-planet/",
+        "url": "https://blog.trailofbits.com/2026/06/22/introducing-patch-the-planet/",
         "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "推出了一款针对不透明固件二进制文件的取证统计分析工具，填补了物联网和硬件安全分析工具的空白。"
+        "date": "2026-06-22",
+        "reason": "著名安全团队Trail of Bits介绍了其集中审计并修补开源生态系统漏洞的项目，为社区提供了高质量的威胁缓解工具和思路。"
       },
       {
-        "title": "My first responsible disclosure: a government portal vulnerability that ended up getting fixed",
-        "url": "https://unsafe.sh/go-424340.html",
+        "title": "Webshells Remain Popular, (Mon, Jun 22nd)",
+        "url": "https://isc.sans.edu/diary/rss/33096",
         "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "通过一个政府网站漏洞挖掘和响应披露的真实案例，分享了漏洞扫描器辅助与手工测试结合的高效工具链用法。"
+        "date": "2026-06-22",
+        "reason": "SANS ISC对目前流行Webshell植入技术与检测方法的最新总结，对红蓝对抗人员和应急响应团队具有实战指导意义。"
       }
     ],
     "云安全": [
       {
-        "title": "SEC Consult SA-20260618-0 :: Hardcoded Root Cloud Credentials in Application Binaries in Silver Leaf Technologies - Worksnaps.net Worksnaps",
-        "url": "https://seclists.org/fulldisclosure/2026/Jun/21",
+        "title": "The Global Namespace Risk: Universal Bucket Hijacking Technique for Cloud Data Exfiltration",
+        "url": "https://unit42.paloaltonetworks.com/cloud-bucket-hijacking-risks/",
         "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "披露了应用二进制文件中硬编码云服务根凭证的严重漏洞，这是开发中常见但极易引发大规模云端数据泄露的典型风险。"
+        "date": "2026-06-22",
+        "reason": "详细剖析了跨云平台的通用存储桶劫持技术及数据外发风险，对云环境下的数据防泄漏配置和防御具有极高实战警示。"
       },
       {
-        "title": "CVE-2025-68624: Cross-Tenant Authentication Bypass by Spoofing in N-able Mail Assure",
-        "url": "https://seclists.org/fulldisclosure/2026/Jun/10",
+        "title": "Bypassing Conditional Access policies that have a resource exclusion",
+        "url": "https://dirkjanm.io/bypassing-conditional-access-with-resource-exclusion/",
         "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "公开了SaaS平台N-able Mail Assure中因欺骗导致的跨租户身份验证绕过漏洞，直击云环境多租户隔离的核心痛点。"
+        "date": "2026-06-22",
+        "reason": "深入探讨了Azure AD条件访问策略中资源排除配置的缺陷及其导致的验证绕过手法，为云身份与权限边界安全提供重要启示。"
+      },
+      {
+        "title": "Attackers Exploit Gravity SMTP Plugin Flaw to Harvest Valuable WordPress Data",
+        "url": "https://www.securityweek.com/attackers-exploit-gravity-smtp-plugin-flaw-to-harvest-valuable-wordpress-data/",
+        "source": "SecurityWeek",
+        "date": "2026-06-22",
+        "reason": "披露了攻击者利用WordPress流行插件漏洞窃取API密钥和令牌的活动，提醒云托管站点需严密防范插件级配置风险。"
       }
     ],
     "其他重要": [
       {
-        "title": "疑似黑客劫持短信预警系统在巴西各地发送警报短信",
-        "url": "https://www.solidot.org/story?sid=84634",
-        "source": "Unsafe.sh",
-        "date": "2026-06-21",
-        "reason": "涉及国家级公共预警基础设施被黑客劫持的重大事件，反映出关键基础设施通信系统的脆弱性及其广泛的社会影响。"
+        "title": "Anthropic最强AI数小时攻破NSA全密级系统，美国次日紧急封杀模型",
+        "url": "http://bbs.kanxue.com/thread-291749.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-06-22",
+        "reason": "报道了顶级AI模型在授权演练中数小时渗透NSA机密系统的重大事件，凸显了AI在国家级高级威胁演练中的颠覆性破坏力。"
+      },
+      {
+        "title": "Steam Workshop 会话劫持：Wallpaper Engine 恶意壁纸利用技术分析",
+        "url": "https://sec.today/pulses/1eed4cbb-3db4-4c9f-999f-b64233bf9b79/",
+        "source": "Sec-Today",
+        "date": "2026-06-22",
+        "reason": "深入分析了利用Steam创意工坊的UGC机制进行大规模会话劫持的攻击链，揭示了热门软件分发平台零信任机制的安全盲区。"
+      },
+      {
+        "title": "Canada’s Spy Agency Used First-of-Its-Kind Warrant to Clean Botnet-Infected Devices",
+        "url": "https://thehackernews.com/2026/06/canadas-spy-agency-used-first-of-its.html",
+        "source": "The Hacker News",
+        "date": "2026-06-22",
+        "reason": "加拿大情报机构通过法律授权主动介入并清除境内受控僵尸网络设备，为国家级网络空间主动防御提供了史无前例的执法先例。"
+      },
+      {
+        "title": "多地用户收到虚假警告信息！巴西国家应急警报平台疑遭入侵后下线",
+        "url": "https://www.secrss.com/articles/91520",
+        "source": "安全内参",
+        "date": "2026-06-22",
+        "reason": "国家级公共应急警报系统被黑客攻破并发送虚假通知，突显了关键基础设施和社会公共服务网络安全防护的脆弱性。"
       }
     ]
   },
-  "summary": "本期重点筛选了包含OpenBSD与PHP的最新CVE漏洞研究、苹果芯片硬核利用技术、结合大模型的AD域渗透工具，以及FortiBleed和勒索病毒等关键威胁情报。"
+  "summary": "本批次文章涵盖大量前沿软硬件漏洞、AI攻防最新实践及活跃供应链攻击威胁，技术深度与实战价值极高。"
 }
