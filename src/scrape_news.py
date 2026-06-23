@@ -813,253 +813,83 @@ class SecurityNewsAggregator:
             logger.error(f"Error scraping Anquanke: {str(e)}")
 
     def scrape_freebuf(self):
-        """Scrape https://www.freebuf.com/ for security news using Playwright with human-like slider simulation"""
-        logger.info("Scraping FreeBuf...")
+        """Scrape https://www.freebuf.com/feed RSS feed for security news"""
+        logger.info("Scraping FreeBuf RSS feed...")
         try:
-            from playwright.sync_api import sync_playwright
-            import time
-            import random
+            import xml.etree.ElementTree as ET
 
-            def generate_human_trajectory(start_x, end_x, steps=35):
-                """Generate human-like sliding trajectory: fast start, slow end, with jitter"""
-                trajectory = []
-                total_distance = end_x - start_x
+            # Fetch RSS feed
+            response = session.get('https://www.freebuf.com/feed', proxies=get_proxies(), timeout=20)
+            response.raise_for_status()
 
-                # Add overshoot at the end (humans often overshoot slightly)
-                overshoot = random.uniform(5, 15)
-                final_x = end_x + overshoot
+            # Parse XML
+            root = ET.fromstring(response.content)
 
-                for i in range(steps):
-                    progress = i / steps
-                    # Use cubic ease-out for more natural curve
-                    eased_progress = 1 - pow(1 - progress, 3)
+            # RSS namespace
+            namespaces = {'rss': 'http://purl.org/rss/1.0/modules/content/'}
 
-                    # Add some acceleration at the start
-                    if progress < 0.3:
-                        eased_progress = eased_progress * 1.2
-
-                    x = start_x + (final_x - start_x) * eased_progress
-
-                    # Add random jitter (decreasing at end)
-                    jitter_amount = 3 * (1 - progress)  # Less jitter at end
-                    jitter = random.uniform(-jitter_amount, jitter_amount)
-                    x += jitter
-
-                    # Clamp to reasonable range
-                    x = max(start_x, min(final_x + 10, x))
-
-                    trajectory.append(x)
-
-                # Add final settling position (move back from overshoot)
-                trajectory.append(end_x + random.uniform(-2, 2))
-
-                return trajectory
-
-            with sync_playwright() as p:
-                # Check if proxy is available
-                proxies = get_proxies()
-                launch_args = [
-                    '--disable-blink-features=AutomationControlled',  # Hide automation
-                    '--disable-dev-shm-usage',
-                    '--no-sandbox',
-                    '--disable-setuid-sandbox',
-                    '--disable-infobars',
-                    '--disable-breakpoint',
-                    '--disable-component-update',
-                    '--disable-background-networking',
-                    '--disable-sync',
-                    '--metrics-recording-only',
-                    '--disable-default-apps',
-                    '--mute-audio',
-                    '--no-first-run',
-                    '--enable-features=NetworkService,NetworkServiceInProcess',
-                ]
-
-                if proxies:
-                    logger.info("Using proxy for FreeBuf")
-                    proxy_server = PROXY_URL.replace('https://', '').replace('http://', '')
-                    launch_args.append(f'--proxy-server={proxy_server}')
-
-                # Launch browser with stealth settings to hide headless detection
-                browser = p.chromium.launch(
-                    headless=True,
-                    args=launch_args
-                )
-                context = browser.new_context(
-                    user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-                    viewport={'width': 1280, 'height': 720},
-                    locale='zh-CN',
-                    timezone_id='Asia/Shanghai',
-                )
-                page = context.new_page()
-
-                # Inject stealth scripts to hide webdriver and automation detection
-                page.add_init_script("""
-                    // Hide webdriver property
-                    Object.defineProperty(navigator, 'webdriver', {
-                        get: () => undefined
-                    });
-
-                    // Mock plugins
-                    Object.defineProperty(navigator, 'plugins', {
-                        get: () => [1, 2, 3, 4, 5]
-                    });
-
-                    // Mock languages
-                    Object.defineProperty(navigator, 'languages', {
-                        get: () => ['zh-CN', 'zh', 'en']
-                    });
-
-                    // Hide chrome automation
-                    window.chrome = {
-                        runtime: {},
-                        loadTimes: function() {},
-                        csi: function() {},
-                        app: {}
-                    };
-                """)
-
-                # Navigate to FreeBuf homepage
-                page.goto('https://www.freebuf.com/', timeout=60000)
-                time.sleep(2)
-
-                # Check page title to see if we're on verification page
-                page_title = page.title()
-                logger.info(f"FreeBuf page title: {page_title}")
-
-                # Check if WAF slider verification is present
-                slider_selector = '#aliyunCaptcha-sliding-slider'
-                try:
-                    slider = page.wait_for_selector(slider_selector, timeout=5000)
-                    logger.info("FreeBuf WAF slider detected, attempting to bypass...")
-
-                    # Get slider bounding box
-                    box = slider.bounding_box()
-
-                    # Get slider track/container width (the full sliding area)
-                    track = page.query_selector('.nc-container')
-                    if track:
-                        track_box = track.bounding_box()
-                        track_width = track_box['width']
-                    else:
-                        # Default track width if not found
-                        track_width = 570
-
-                    if box:
-                        # Start from center of slider
-                        start_x = box['x'] + box['width'] / 2
-                        start_y = box['y'] + box['height'] / 2
-
-                        # End position: slide to the end of track minus slider width
-                        end_x = box['x'] + track_width - box['width']
-
-                        logger.info(f"Slider: start_x={start_x}, end_x={end_x}, distance={end_x-start_x}")
-
-                        # Random delay before action (simulate human reaction)
-                        time.sleep(random.uniform(0.3, 0.6))
-
-                        # Mouse press (mousedown)
-                        page.mouse.move(start_x, start_y)
-                        time.sleep(random.uniform(0.05, 0.15))
-                        page.mouse.down()
-                        time.sleep(random.uniform(0.15, 0.25))
-
-                        # Generate and execute human-like trajectory
-                        trajectory = generate_human_trajectory(start_x, end_x, steps=35)
-                        for i, x in enumerate(trajectory):
-                            # Random small y jitter
-                            y = start_y + random.uniform(-3, 3)
-                            page.mouse.move(x, y)
-                            # Variable delay between steps (slower at end)
-                            delay = random.uniform(0.01, 0.05) * (1 + i / len(trajectory))
-                            time.sleep(delay)
-
-                        # Random delay before release
-                        time.sleep(random.uniform(0.1, 0.3))
-                        page.mouse.up()
-
-                        # Wait for verification to complete
-                        logger.info("Slider simulation completed, waiting for verification...")
-                        time.sleep(5)
-
-                except Exception as e:
-                    logger.warning(f"Slider not found or interaction failed: {str(e)}")
-                    # If slider not found, we might be on the actual page already
-                    if "验证" not in page_title and "verification" not in page_title.lower():
-                        logger.info("No WAF detected, proceeding to extract articles")
-
-                # Wait for page to load after verification
-                time.sleep(3)
-
-                # Get page content
-                content = page.content()
-                soup = BeautifulSoup(content, 'html.parser')
-
-                browser.close()
-
-            # Find articles - FreeBuf uses various article container classes
             articles_found = 0
 
-            # Try different selectors for article items
-            selectors = [
-                ('div.article-item', 'a'),
-                ('div.news-item', 'a'),
-                ('div.feed-item', 'a'),
-                ('article', 'a'),
-                ('.card-item', 'a'),
-            ]
+            # Find all items in RSS feed
+            items = root.findall('.//item')
+            logger.info(f"Found {len(items)} items in FreeBuf RSS feed")
 
-            for container_class, link_tag in selectors:
-                containers = soup.find_all('div', class_=container_class) if 'div' in container_class else soup.find_all(container_class)
+            for item in items[:30]:  # Limit to 30 articles
+                try:
+                    # Extract basic elements
+                    title_elem = item.find('title')
+                    link_elem = item.find('link')
+                    desc_elem = item.find('description')
+                    pub_date_elem = item.find('pubDate')
 
-                if containers:
-                    logger.info(f"Found {len(containers)} FreeBuf articles with selector '{container_class}'")
+                    if title_elem is None or link_elem is None:
+                        continue
 
-                    for container in containers[:20]:  # Limit to 20 articles
+                    title = title_elem.text
+                    url = link_elem.text
+
+                    # Skip non-article links
+                    if not title or len(title) < 5 or '/tag/' in url or '/author/' in url:
+                        continue
+
+                    # Clean description (remove HTML tags)
+                    description = ''
+                    if desc_elem is not None and desc_elem.text:
+                        # Simple HTML tag removal
+                        import re
+                        description = re.sub(r'<[^>]+>', '', desc_elem.text)
+                        description = description.strip()[:200]
+
+                    # Parse date
+                    date = datetime.now().strftime('%Y-%m-%d')
+                    if pub_date_elem is not None and pub_date_elem.text:
                         try:
-                            link = container.find(link_tag)
-                            if link and link.get('href'):
-                                title = link.text.strip()
-                                url = link.get('href')
-                                if not url.startswith('http'):
-                                    url = urljoin('https://www.freebuf.com/', url)
+                            # Parse RFC 2822 date format
+                            from email.utils import parsedate_to_datetime
+                            dt = parsedate_to_datetime(pub_date_elem.text)
+                            date = dt.strftime('%Y-%m-%d')
+                        except:
+                            pass
 
-                                # Skip non-article links
-                                if not title or len(title) < 5 or '/tag/' in url or '/author/' in url:
-                                    continue
+                    article = {
+                        'title': self.decode_html_entities(title),
+                        'url': url,
+                        'source': 'FreeBuf',
+                        'description': description,
+                        'date': date,
+                        'category': 'news'
+                    }
+                    self.articles['news'].append(article)
+                    articles_found += 1
 
-                                # Extract description
-                                desc_elem = container.find('p') or container.find('div', class_='desc') or container.find('div', class_='summary')
-                                description = desc_elem.text.strip()[:200] if desc_elem else ''
+                except Exception as e:
+                    logger.warning(f"Error processing FreeBuf article: {str(e)}")
+                    continue
 
-                                # Extract date
-                                date = datetime.now().strftime('%Y-%m-%d')
-                                time_elem = container.find('time') or container.find('span', class_='time') or container.find('span', class_='date')
-                                if time_elem:
-                                    time_text = time_elem.text.strip()
-                                    date_match = re.search(r'(\d{4}[-/]\d{1,2}[-/]\d{1,2})', time_text)
-                                    if date_match:
-                                        date = date_match.group(1).replace('/', '-')
+            logger.info(f"Found {articles_found} FreeBuf articles from RSS feed")
 
-                                article = {
-                                    'title': self.decode_html_entities(title),
-                                    'url': url,
-                                    'source': 'FreeBuf',
-                                    'description': description,
-                                    'date': date,
-                                    'category': 'news'
-                                }
-                                self.articles['news'].append(article)
-                                articles_found += 1
-
-                        except Exception as e:
-                            logger.warning(f"Error processing FreeBuf article: {str(e)}")
-                            continue
-
-                    if articles_found > 0:
-                        break
-
-            logger.info(f"Found {articles_found} FreeBuf articles")
+        except Exception as e:
+            logger.error(f"Error scraping FreeBuf: {str(e)}")
 
         except ImportError:
             logger.warning("Playwright not available, skipping FreeBuf")
@@ -1953,7 +1783,7 @@ class SecurityNewsAggregator:
 
         # News-focused sources
         self.scrape_anquanke()
-        # self.scrape_freebuf()  # Temporarily disabled due to Aliyun WAF protection (405 error)
+        self.scrape_freebuf()
         self.scrape_secrss()
         self.scrape_the_hacker_news()
         self.scrape_security_week()
