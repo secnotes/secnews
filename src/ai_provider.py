@@ -304,8 +304,86 @@ class AIProvider:
 
         return "\n".join(lines)
 
+    def _clean_json_text(self, text: str) -> str:
+        """
+        Clean and fix common JSON formatting issues in AI responses.
+        Main issues handled:
+        1. Invalid lines that are not key-value pairs (delete them)
+        2. Duplicate keys (keep the last occurrence)
+
+        Strategy: Remove any line that doesn't match valid JSON patterns.
+        """
+        import re
+        lines = text.split('\n')
+        result_lines = []
+        # Track keys in current object scope
+        object_keys = {}
+        brace_depth = 0
+        array_depth = 0
+
+        # Patterns for valid JSON lines
+        # 1. "key": "value" (quoted string)
+        # 2. "key": number or boolean (unquoted value)
+        # 3. "key": { or "key": [
+        # 4. { } [ ] (brackets)
+        valid_patterns = [
+            r'^\s*"\w+":\s*"[^"]*"[,\}]?\s*$',        # "key": "value"
+            r'^\s*"\w+":\s*\d+[,}\}]?\s*$',           # "key": number
+            r'^\s*"\w+":\s*(true|false|null)[,\}]?\s*$',  # "key": boolean/null
+            r'^\s*"\w+":\s*[\[{]\s*$',                # "key": { or "key": [
+            r'^\s*[{}\[\]]\s*$',                     # { } [ ]
+            r'^\s*[}\]],?\s*$',                      # } }, ] ],
+        ]
+
+        def is_valid_json_line(line: str) -> bool:
+            """Check if a line matches valid JSON patterns"""
+            stripped = line.strip()
+            # Empty lines are valid
+            if not stripped:
+                return True
+            # Check against patterns
+            for pattern in valid_patterns:
+                if re.match(pattern, stripped):
+                    return True
+            return False
+
+        for i, line in enumerate(lines):
+            stripped = line.strip()
+
+            # Track brace/bracket depth
+            brace_depth += stripped.count('{') - stripped.count('}')
+            array_depth += stripped.count('[') - stripped.count(']')
+
+            # Check if line is valid JSON
+            if not is_valid_json_line(line):
+                logger.debug(f"Removed invalid line {i + 1}: {stripped[:50]}...")
+                # Skip this line (delete invalid lines)
+                continue
+
+            # Check for duplicate keys
+            key_match = re.match(r'^\s*"([^"]+)":', stripped)
+            if key_match and brace_depth == 1:
+                key = key_match.group(1)
+                if key in object_keys:
+                    # Remove previous occurrence
+                    prev_line_idx = object_keys[key]
+                    logger.debug(f"Removed duplicate key '{key}' at line {prev_line_idx + 1}")
+                    result_lines[prev_line_idx] = None  # Mark for deletion
+                object_keys[key] = len(result_lines)
+
+            # Reset object_keys when exiting object
+            if brace_depth == 0:
+                object_keys.clear()
+
+            result_lines.append(line)
+
+        # Filter out None values (deleted lines)
+        result_lines = [line for line in result_lines if line is not None]
+
+        return '\n'.join(result_lines)
+
     def _parse_json_response(self, response: str) -> Dict[str, Any]:
-        """Parse JSON from AI response, handling markdown code blocks"""
+        """Parse JSON from AI response, handling markdown code blocks and common errors"""
         # Remove markdown code blocks if present
         text = response.strip()
         if text.startswith('```json'):
@@ -316,18 +394,21 @@ class AIProvider:
             text = text[:-3]
         text = text.strip()
 
+        # Clean duplicate keys and other issues
+        text = self._clean_json_text(text)
+
         try:
             return json.loads(text)
         except json.JSONDecodeError as e:
             logger.error(f"Failed to parse AI response as JSON: {e}")
-            # Save raw response for debugging
+            # Save cleaned response for debugging
             script_dir = os.path.dirname(os.path.abspath(__file__))
             debug_file = os.path.join(script_dir, 'ai_response_debug.txt')
             with open(debug_file, 'w', encoding='utf-8') as f:
                 f.write(f"JSON Parse Error: {e}\n\n")
-                f.write(f"Raw Response (length={len(text)}):\n")
+                f.write(f"Cleaned Response (length={len(text)}):\n")
                 f.write(text)
-            logger.info(f"Raw response saved to {debug_file} for debugging")
+            logger.info(f"Cleaned response saved to {debug_file} for debugging")
             # Return empty structure on parse failure
             return {
                 "analysis_date": "",
