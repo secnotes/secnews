@@ -1,174 +1,132 @@
 {
-  "analysis_date": "2026-06-28",
-  "total_analyzed": 86,
+  "analysis_date": "2026-06-29",
+  "total_analyzed": 64,
   "categories": {
-    "漏洞研究": [
-      {
-        "title": "Build your own vulnerability harness",
-        "url": "https://sec.today/pulses/363bcb3d-cbb5-42ef-902b-d9a86f38174c/",
-        "source": "Sec-Today",
-        "date": "2026-06-27",
-        "reason": "提出了一种模型无关的安全编排架构，解决AI上下文限制痛点，显著提升漏洞检测覆盖率与准确性。"
-      },
-      {
-        "title": "挖掘 Hyper 库中的竞态条件：Cloudflare 六周调试之旅",
-        "url": "https://sec.today/pulses/1c78ef6f-c227-467d-a4bd-77e14cb94c05/",
-        "source": "Sec-Today",
-        "date": "2026-06-27",
-        "reason": "详述了Rust hyper 库中极难复现的竞态条件调试过程，对高性能边缘计算系统的稳定性与底层漏洞挖掘具有极高参考价值。"
-      },
-      {
-        "title": "libssh2 开源 SSH 客户端库存在严重漏洞 CVE-2026-55200",
-        "url": "https://sec.today/pulses/627a73d8-4c7f-4438-8091-6b1ffdfa1c76/",
-        "source": "Sec-Today",
-        "date": "2026-06-27",
-        "reason": "披露了CVSS 9.2的高危漏洞，未认证攻击者可通过特制SSH数据包触发整数溢出导致堆缓冲区溢出。"
-      },
-      {
-        "title": "DirtyClone: Fourth Linux Kernel Flaw in Six Weeks Escalates to Root",
-        "url": "https://securityaffairs.com/194338/uncategorized/dirtyclone-fourth-linux-kernel-flaw-in-six-weeks-escalates-to-root.html",
-        "source": "SecurityAffairs",
-        "date": "2026-06-27",
-        "reason": "最新披露的Linux内核提权漏洞DirtyClone，可导致系统权限完全沦陷，实战威胁极大。"
-      },
-      {
-        "title": "探索CVE-2026-31431的热补丁修复方案",
-        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458617012&idx=1&sn=7807b0af5bbb8bd7d1a6b67e998cf678",
-        "source": "Unsafe.sh",
-        "date": "2026-06-27",
-        "reason": "针对最新CVE的Linux热补丁修复方案技术分析，具有实际运维和防护的实战指导价值。"
-      }
-    ],
+    "漏洞研究": [],
     "移动安全": [
       {
-        "title": "Apple Beats Studio Buds 蓝牙芯片漏洞允许未授权窃听 (CVE-2025-20701)",
-        "url": "https://sec.today/pulses/6afba710-e15c-40ea-85e4-8146cb043a23/",
-        "source": "Sec-Today",
-        "date": "2026-06-27",
-        "reason": "揭示了耳机蓝牙芯片的开源代码缺陷，攻击者无需配对即可激活设备麦克风进行实时窃听。"
+        "title": "【安全圈】三星 Galaxy 手机被曝高危安全漏洞",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077584&idx=1&sn=2e19796b96a8daf5fd98c9b38425cca3",
+        "source": "Unsafe.sh",
+        "date": "2026-06-28",
+        "reason": "披露了三星Galaxy手机的高危安全漏洞，对移动设备安全具有直接的实战影响和防护价值。"
       },
       {
-        "title": "三星 KNOX FIVE 组件八年潜伏 UAF 漏洞暴露 Galaxy 设备内核攻击风险",
-        "url": "https://sec.today/pulses/d329fee4-e64c-457c-860e-3ccdb6f92d04/",
-        "source": "Sec-Today",
-        "date": "2026-06-27",
-        "reason": "深入剖析了Android内核中的UAF漏洞利用，展示了如何构造利用原语绕过KCFI保护机制。"
+        "title": "【安全圈】波兰捣毁与数百万美元加密货币盗窃案相关的 SIM 卡交换团伙",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077584&idx=2&sn=24d77703c0c3db547cadcd8a4b91e0cb",
+        "source": "Unsafe.sh",
+        "date": "2026-06-28",
+        "reason": "报道了针对SIM卡交换攻击的跨国打击行动，提供了关于移动端社会工程学攻击的最新威胁情报。"
       }
     ],
     "AI安全": [
       {
-        "title": "恶意Skill基准来了：3维攻击向量，15类恶意行为，108个有效攻击单元",
-        "url": "https://sec.today/pulses/7c0ccc27-0fdd-484b-93b6-d1c6e1ad189b/",
-        "source": "Sec-Today",
-        "date": "2026-06-27",
-        "reason": "首次建立包含近四千样本的恶意 Agent Skill 运行时验证基准，精准量化了现有检测工具在应对指令注入时的不足。"
-      },
-      {
-        "title": "AutoJack：利用三重漏洞链劫持 Microsoft AutoGen Studio 代理实现远程代码执行",
-        "url": "https://sec.today/pulses/3fc47849-493a-49f6-8cac-b329afb77c43/",
-        "source": "Sec-Today",
-        "date": "2026-06-27",
-        "reason": "展示了恶意网页如何突破本地信任边界利用AI代理实现RCE，深刻警示了AI框架中本地服务身份隔离机制的缺失风险。"
-      },
-      {
-        "title": "Clean GitHub repo tricks AI coding agents into running malware",
-        "url": "https://www.bleepingcomputer.com/news/security/clean-github-repo-tricks-ai-coding-agents-into-running-malware/",
-        "source": "BleepingComputer",
-        "date": "2026-06-27",
-        "reason": "揭示了看似干净的GitHub仓库如何诱导AI编码智能体执行恶意命令的新型攻击向量，对AI代码助手安全敲响警钟。"
-      },
-      {
-        "title": "Harnessing Harnesses - Climbing the LLM Hills",
-        "url": "https://blog.zsec.uk/harnessing-harnesses/",
+        "title": "GLM-5.2漏洞挖掘能力达到Mythos水平",
+        "url": "https://blog.upx8.com/GLM-5-2%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98%E8%83%BD%E5%8A%9B%E8%BE%BE%E5%88%B0Mythos%E6%B0%B4%E5%B9%B3",
         "source": "Unsafe.sh",
-        "date": "2026-06-27",
-        "reason": "深入探讨了针对大语言模型(LLM)的安全测试工具框架及其利用方式，具有前沿攻防技术参考价值。"
+        "date": "2026-06-28",
+        "reason": "介绍了智谱AI发布的GLM-5.2模型在漏洞挖掘方面的卓越能力，体现了大模型在攻防安全场景的深度应用。"
       },
       {
-        "title": "OpenAI曝作弊门：GPT-5.6创史上最高作弊率",
-        "url": "https://www.secrss.com/articles/91674",
-        "source": "安全内参",
-        "date": "2026-06-27",
-        "reason": "披露了最新AI模型在安全测试中表现出的异常欺骗性行为，引发对AI系统对齐与底层安全控制的深度担忧。"
+        "title": "LLM对齐与越狱攻防技术",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247496874&idx=1&sn=d0cb067a7f568bd1225e563f45ed0a7e",
+        "source": "Unsafe.sh",
+        "date": "2026-06-28",
+        "reason": "探讨了大语言模型的对齐技术和越狱攻防手段，对于理解和防御AI系统安全威胁具有重要技术价值。"
+      },
+      {
+        "title": "【安全圈】新型 Gaslight macOS 恶意软件利用提示注入扰乱 AI 辅助分析",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077584&idx=3&sn=400d5763c8746914d79931cdb7e87349",
+        "source": "Unsafe.sh",
+        "date": "2026-06-28",
+        "reason": "揭示了一种新型利用AI提示注入技术的macOS恶意软件，展示了AI辅助分析被恶意操纵的新型攻击面。"
+      },
+      {
+        "title": "No AI Agent Without Identity (Part 3): Delegation, HITL, and Identity Propagation",
+        "url": "https://hackernoon.com/no-ai-agent-without-identity-part-3-delegation-hitl-and-identity-propagation?source=rss",
+        "source": "Unsafe.sh",
+        "date": "2026-06-28",
+        "reason": "深入探讨了AI Agent的安全身份验证、授权委托及身份传播等安全架构问题，为AI安全的落地实践提供了参考。"
       }
     ],
     "威胁情报": [
       {
-        "title": "供应链攻击：Shadowbyt3$ 通过 TinyPulse 泄露任天堂美国员工数据",
-        "url": "https://sec.today/pulses/cfffe221-d511-4129-bcd2-51fafc1f58e2/",
-        "source": "Sec-Today",
-        "date": "2026-06-27",
-        "reason": "剖析了针对第三方HR平台的多租户架构供应链攻击，揭示了敏感数据泄露带来的长期身份盗用等风险。"
-      },
-      {
-        "title": "New FBI Alert: Russian Intelligence Uses Signal Recovery Keys to Access Messages",
-        "url": "https://securityaffairs.com/194360/intelligence/new-fbi-alert-russian-intelligence-uses-signal-recovery-keys-to-access-messages.html",
-        "source": "SecurityAffairs",
-        "date": "2026-06-27",
-        "reason": "FBI警告俄罗斯情报部门正在利用Signal等加密通讯软件的恢复密钥来绕过端到端加密访问目标通信。"
-      },
-      {
-        "title": "Chinese Framework Powers 200,000 Scam Sites",
-        "url": "https://www.securityweek.com/chinese-framework-powers-200000-scam-sites/",
-        "source": "SecurityWeek",
-        "date": "2026-06-27",
-        "reason": "披露威胁行为者利用合法开发工具包构建海量投资诈骗基础设施的黑产模式，对防范金融诈骗具情报价值。"
-      },
-      {
-        "title": "中国U盘藏病毒 潜伏日本防卫系统一年",
-        "url": "https://blog.upx8.com/%E4%B8%AD%E5%9B%BDU%E7%9B%98%E8%97%8F%E7%97%85%E6%AF%92-%E6%BD%9C%E4%BC%8F%E6%97%A5%E6%9C%AC%E9%98%B2%E5%8D%AB%E7%B3%BB%E7%BB%9F%E4%B8%80%E5%B9%B4",
+        "title": "针对一国家开展开源情报收集框架",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&mid=2451187446&idx=1&sn=98636d62c7f755c20927c0631e874bfe",
         "source": "Unsafe.sh",
-        "date": "2026-06-27",
-        "reason": "曝光了通过物理介质U盘进行的高级持久性威胁(APT)潜伏攻击，展示了物理隔离系统被突破的真实案例。"
+        "date": "2026-06-28",
+        "reason": "系统性介绍了针对国家级目标的开源情报（OSINT）收集框架，对情报分析具有极高的实战指导意义。"
       },
       {
-        "title": "【安全圈】苹果印度代工厂遭黑客入侵 海量新机机密文件流入暗网",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077571&idx=1&sn=d7f4d998f528d5fc6959d0667e8d301d",
+        "title": "Instagram OSINT Techniques",
+        "url": "https://secjuice.com/instagram-osint-techniques/",
         "source": "Unsafe.sh",
-        "date": "2026-06-27",
-        "reason": "披露了针对跨国科技企业供应链的重大数据泄露事件，涉及海量核心机密文件，影响深远。"
+        "date": "2026-06-28",
+        "reason": "总结了在Instagram平台上进行开源情报收集的实用技巧，有助于安全人员进行信息收集与目标溯源。"
+      },
+      {
+        "title": "Data breach exposes up to 14.2 million email logins at six ISPs",
+        "url": "https://www.bleepingcomputer.com/news/security/data-breach-exposes-up-to-142-million-email-logins-at-six-isps/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-28",
+        "reason": "披露了日本KDDI等六大ISP超千万级别账号泄露的重大数据泄露事件，属于高威胁级别的安全情报。"
+      },
+      {
+        "title": "Anche la Cina sviluppa l’AI per la cyber: ecco Tulongfeng, quali impatti",
+        "url": "https://www.cybersecurity360.it/cybersecurity-nazionale/anche-la-cina-sviluppa-lai-per-la-cyber-ecco-tulongfeng-quali-impatti/",
+        "source": "Unsafe.sh",
+        "date": "2026-06-28",
+        "reason": "分析了国内AI网络安全平台（土龙蜂）的发展及其在网络安全领域的影响，提供了宏观层面的威胁趋势洞察。"
       }
     ],
     "安全工具": [
       {
-        "title": "CTFs aren't Designed to Train Investigators. Hashclue is.",
-        "url": "https://secjuice.com/hashclue/",
+        "title": "YARA-X 1.18.0 and 1.19.0 Release, (Sun, Jun 28th)",
+        "url": "https://isc.sans.edu/diary/rss/33106",
         "source": "Unsafe.sh",
-        "date": "2026-06-27",
-        "reason": "介绍了一款名为Hashclue的取证调查框架，填补了传统CTF比赛在真实碎片化线索调查取证训练上的空白。"
+        "date": "2026-06-28",
+        "reason": "发布了威胁狩猎和恶意软件分析利器YARA-X的最新版本，对安全研究人员的日常分析工作有直接帮助。"
       },
       {
-        "title": "覆盖12大技术栈类别的93款开源情报工具",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&mid=2451187441&idx=1&sn=86bc4296a5c582b30712030cc3b05fa2",
+        "title": "第166篇：希水涵Web日志分析工具v0.43 更新，新增多个分析模块、大幅提升性能",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzkzMjI1NjI3Ng==&mid=2247488423&idx=1&sn=da75b5a2d0b75705c4d9efa17c111209",
         "source": "Unsafe.sh",
-        "date": "2026-06-27",
-        "reason": "全面汇总了涵盖多技术栈的开源情报(OSINT)收集工具，为红蓝对抗和安全研究提供实用的工具集参考。"
+        "date": "2026-06-28",
+        "reason": "介绍了一款实用的Web日志分析工具的重大更新，对蓝队应急响应和日常安全运维具有较高实用价值。"
       },
       {
-        "title": "不同数据库被”拖库”特征-托管vs自建+是/否开启审计日志取证实测",
-        "url": "https://zgao.top/%e4%b8%8d%e5%90%8c%e6%95%b0%e6%8d%ae%e5%ba%93%e8%a2%ab%e6%8b%96%e5%ba%93%e7%89%b9%e5%be%81-%e6%89%98%e7%ae%a1vs%e8%87%aa%e5%bb%ba%e6%98%af%e5%90%a6%e5%bc%80%e5%90%af%e5%ae%a1%e8%ae%a1%e6%97%a5/",
+        "title": "IP Crawl – 发现你身边的公共摄像头？",
+        "url": "https://www.appinn.com/ip-crawl/",
         "source": "Unsafe.sh",
-        "date": "2026-06-27",
-        "reason": "针对数据库被脱库场景进行了详细的取证特征分析和实战测试，为真实应急响应工作提供了极具价值的判断依据。"
+        "date": "2026-06-28",
+        "reason": "提供了一个探测公共网络摄像头的工具，可用于暴露面梳理和物联网资产安全测绘。"
       }
     ],
-    "云安全": [],
-    "其他重要": [
+    "云安全": [
       {
-        "title": "AI引发开源软件“漏洞末日”：oss-security 面临崩溃危机",
-        "url": "https://sec.today/pulses/66f37055-1e97-4739-9374-781c15f05369/",
-        "source": "Sec-Today",
-        "date": "2026-06-27",
-        "reason": "探讨了AI技术滥用导致开源软件漏洞报告激增带来的处理效率与社区危机，对行业生态发展有重要预警意义。"
+        "title": "Policy-Driven Security and Governance in Kubernetes AI Platforms",
+        "url": "https://hackernoon.com/policy-driven-security-and-governance-in-kubernetes-ai-platforms?source=rss",
+        "source": "Unsafe.sh",
+        "date": "2026-06-28",
+        "reason": "探讨了Kubernetes AI平台中策略驱动的安全与治理，对保护云原生AI基础设施的安全架构设计具有指导意义。"
       },
       {
-        "title": "A deep dive into SmallVector::push_back",
-        "url": "https://maskray.me/blog/2026-06-27-a-deep-dive-into-smallvector-push-back",
+        "title": "日拱一卒：美国云服务出口管制正在形成闭环",
+        "url": "https://www.secrss.com/articles/91682",
+        "source": "安全内参",
+        "date": "2026-06-28",
+        "reason": "深入剖析了美国针对云服务出口管制和KYC制度的合规要求，对跨国企业的云资产合规与安全部署影响深远。"
+      }
+    ],
+    "其他重要": [
+      {
+        "title": "【资料】《渗透测试员笔记》《地缘政治风险指数开源框架》《人工智能失控风险》",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651156402&idx=1&sn=10a1fcd389df07d63da4b8ebcb7faca8",
         "source": "Unsafe.sh",
-        "date": "2026-06-27",
-        "reason": "对LLVM中最常用容器SmallVector的底层机制进行深度剖析，有助于安全研究员深入理解底层编译原理及规避潜在内存破坏漏洞。"
+        "date": "2026-06-28",
+        "reason": "分享了一系列优质的安全与风险评估资料，涵盖渗透测试、开源情报框架及AI风险，具有较高的学习参考价值。"
       }
     ]
   },
-  "summary": "本批次筛选出31篇高价值文章，重点覆盖AI安全风险、Linux内核高危漏洞（DirtyClone等）、主流开源组件CVE以及近期重大APT供应链攻击情报。"
+  "summary": "本批次文章侧重于AI安全、OSINT情报与云安全治理，包含大模型攻防、数据泄露事件及多款实用安全工具更新。"
 }
