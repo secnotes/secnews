@@ -1,132 +1,168 @@
 {
-  "analysis_date": "2026-06-29",
-  "total_analyzed": 64,
+  "analysis_date": "2026-06-30",
+  "total_analyzed": 120,
   "categories": {
-    "漏洞研究": [],
-    "移动安全": [
+    "漏洞研究": [
       {
-        "title": "【安全圈】三星 Galaxy 手机被曝高危安全漏洞",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077584&idx=1&sn=2e19796b96a8daf5fd98c9b38425cca3",
-        "source": "Unsafe.sh",
-        "date": "2026-06-28",
-        "reason": "披露了三星Galaxy手机的高危安全漏洞，对移动设备安全具有直接的实战影响和防护价值。"
+        "title": "Linux Kernel DirtyClone本地权限提升漏洞(CVE-2026-43503)安全风险通告",
+        "url": "https://www.secrss.com/articles/91697",
+        "source": "安全内参",
+        "date": "2026-06-29",
+        "reason": "利用该漏洞攻击者可通过网络数据包修改内存中的特权二进制文件实现提权，具备极高的实战威胁与底层研究价值。"
       },
       {
-        "title": "【安全圈】波兰捣毁与数百万美元加密货币盗窃案相关的 SIM 卡交换团伙",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077584&idx=2&sn=24d77703c0c3db547cadcd8a4b91e0cb",
-        "source": "Unsafe.sh",
-        "date": "2026-06-28",
-        "reason": "报道了针对SIM卡交换攻击的跨国打击行动，提供了关于移动端社会工程学攻击的最新威胁情报。"
+        "title": "Public PoC Released for Critical libssh2 CVE-2026-55200 Client-Side SSH Flaw",
+        "url": "https://thehackernews.com/2026/06/public-poc-released-for-critical.html",
+        "source": "The Hacker News",
+        "date": "2026-06-29",
+        "reason": "libssh2高危漏洞的PoC现已公开，恶意SSH服务器可触发客户端内存损坏，对大量基础设施组件构成直接风险。"
+      },
+      {
+        "title": "Hackers now exploit critical Oracle E-Business flaw in attacks",
+        "url": "https://www.bleepingcomputer.com/news/security/new-oracle-e-business-suite-flaw-now-exploited-in-attacks/",
+        "source": "BleepingComputer",
+        "date": "2026-06-29",
+        "reason": "Oracle E-Business Suite的关键漏洞（CVE-2026-46817）已在野被利用，攻击者可借此未授权访问并窃取企业敏感凭证。"
+      },
+      {
+        "title": "Critical SimpleHelp flaw exploited to deploy new stealer malware",
+        "url": "https://www.bleepingcomputer.com/news/security/hackers-exploit-critical-simplehelp-flaw-deploy-new-djinn-infostealer-taskweaver-malware/",
+        "source": "BleepingComputer",
+        "date": "2026-06-29",
+        "reason": "SimpleHelp远程支持软件的严重漏洞正被黑客用于部署 Djinn 窃密木马，值得IT运维和安全团队高度警惕。"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "WhatsApp is Finally Getting Usernames to Help Keep Phone Numbers Private",
+        "url": "https://thehackernews.com/2026/06/whatsapp-is-finally-getting-usernames.html",
+        "source": "The Hacker News",
+        "date": "2026-06-29",
+        "reason": "WhatsApp全面推出用户名功能以保护手机号隐私，此更新对增强数十亿用户的移动通信隐私具有重大意义。"
+      },
+      {
+        "title": "【安全圈】FBI：俄罗斯黑客现在将目标对准 Signal 备份恢复密钥",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077594&idx=3&sn=db11f41c05f81482706b2f3af32cd074",
+        "source": "安全圈",
+        "date": "2026-06-29",
+        "reason": "揭露了俄罗斯APT组织针对Signal等移动端加密通信软件的钓鱼与窃密新手法，具有强烈的实战预警价值。"
+      },
+      {
+        "title": "US Offers $10 Million Bounty for Russian State Hackers as Messaging App Attacks Evolve",
+        "url": "https://www.securityweek.com/us-offers-10-million-bounty-for-russian-state-hackers-as-messaging-app-attacks-evolve/",
+        "source": "SecurityWeek",
+        "date": "2026-06-29",
+        "reason": "详细描述了针对美国政府官员的Signal和WhatsApp移动端网络钓鱼攻击演变过程及背后的国家级黑客团伙。"
       }
     ],
     "AI安全": [
       {
-        "title": "GLM-5.2漏洞挖掘能力达到Mythos水平",
-        "url": "https://blog.upx8.com/GLM-5-2%E6%BC%8F%E6%B4%9E%E6%8C%96%E6%8E%98%E8%83%BD%E5%8A%9B%E8%BE%BE%E5%88%B0Mythos%E6%B0%B4%E5%B9%B3",
-        "source": "Unsafe.sh",
-        "date": "2026-06-28",
-        "reason": "介绍了智谱AI发布的GLM-5.2模型在漏洞挖掘方面的卓越能力，体现了大模型在攻防安全场景的深度应用。"
+        "title": "Researchers Demo New Claude Code Attack Using Harmless-Looking Repositories to Hijack Developer Machines",
+        "url": "https://www.securityweek.com/new-attack-abuses-claude-code-and-harmless-looking-repositories-to-hijack-developer-machines/",
+        "source": "SecurityWeek",
+        "date": "2026-06-29",
+        "reason": "演示了利用间接提示词注入攻击Claude Code执行反弹shell的新型AI攻击面，对AI开发环境安全极具警示意义。"
       },
       {
-        "title": "LLM对齐与越狱攻防技术",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247496874&idx=1&sn=d0cb067a7f568bd1225e563f45ed0a7e",
-        "source": "Unsafe.sh",
-        "date": "2026-06-28",
-        "reason": "探讨了大语言模型的对齐技术和越狱攻防手段，对于理解和防御AI系统安全威胁具有重要技术价值。"
+        "title": "Agentic AI Has an Identity Problem and Attackers Know It",
+        "url": "https://www.bleepingcomputer.com/news/security/agentic-ai-has-an-identity-problem-and-attackers-know-it/",
+        "source": "BleepingComputer",
+        "date": "2026-06-29",
+        "reason": "深入探讨了智能体AI在身份验证与访问管理（IAM）方面的安全隐患，是AI安全治理的前沿焦点话题。"
       },
       {
-        "title": "【安全圈】新型 Gaslight macOS 恶意软件利用提示注入扰乱 AI 辅助分析",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077584&idx=3&sn=400d5763c8746914d79931cdb7e87349",
-        "source": "Unsafe.sh",
-        "date": "2026-06-28",
-        "reason": "揭示了一种新型利用AI提示注入技术的macOS恶意软件，展示了AI辅助分析被恶意操纵的新型攻击面。"
-      },
-      {
-        "title": "No AI Agent Without Identity (Part 3): Delegation, HITL, and Identity Propagation",
-        "url": "https://hackernoon.com/no-ai-agent-without-identity-part-3-delegation-hitl-and-identity-propagation?source=rss",
-        "source": "Unsafe.sh",
-        "date": "2026-06-28",
-        "reason": "深入探讨了AI Agent的安全身份验证、授权委托及身份传播等安全架构问题，为AI安全的落地实践提供了参考。"
+        "title": "AI安全案例分析 | Miasma 蠕虫攻击微软 GitHub",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzkyMTI0NjA3OA==&mid=2247495259&idx=1&sn=adebb88353849918e5d284d45187fc02",
+        "source": "看雪/微信",
+        "date": "2026-06-29",
+        "reason": "通过Miasma蠕虫针对GitHub的攻击案例分析，揭示了AI在自动化代码仓库生态攻击中的潜在滥用风险。"
       }
     ],
     "威胁情报": [
       {
-        "title": "针对一国家开展开源情报收集框架",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&mid=2451187446&idx=1&sn=98636d62c7f755c20927c0631e874bfe",
-        "source": "Unsafe.sh",
-        "date": "2026-06-28",
-        "reason": "系统性介绍了针对国家级目标的开源情报（OSINT）收集框架，对情报分析具有极高的实战指导意义。"
+        "title": "Mustang Panda Uses Zoho WorkDrive as Command Channel in Indian Government Attacks",
+        "url": "https://thehackernews.com/2026/06/mustang-panda-uses-zoho-workdrive-as.html",
+        "source": "The Hacker News",
+        "date": "2026-06-29",
+        "reason": "披露了APT组织Mustang Panda滥用合法云盘服务作为C2信道攻击印度政府的最新战术、技术和程序(TTP)。"
       },
       {
-        "title": "Instagram OSINT Techniques",
-        "url": "https://secjuice.com/instagram-osint-techniques/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-28",
-        "reason": "总结了在Instagram平台上进行开源情报收集的实用技巧，有助于安全人员进行信息收集与目标溯源。"
+        "title": "From Bing Search to Ransomware: Bumblebee and AdaptixC2 Deliver Akira",
+        "url": "https://thedfirreport.com/2026/06/29/from-bing-search-to-ransomware-bumblebee-and-adaptixc2-deliver-akira-3/",
+        "source": "The DFIR Report",
+        "date": "2026-06-29",
+        "reason": "详尽还原了从SEO中毒到部署Akira勒索软件的完整攻击链，对防守方溯源分析和应急响应极具参考价值。"
       },
       {
-        "title": "Data breach exposes up to 14.2 million email logins at six ISPs",
-        "url": "https://www.bleepingcomputer.com/news/security/data-breach-exposes-up-to-142-million-email-logins-at-six-isps/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-28",
-        "reason": "披露了日本KDDI等六大ISP超千万级别账号泄露的重大数据泄露事件，属于高威胁级别的安全情报。"
+        "title": "StegoAd: How 119 Fake Browser Extensions Stole Credentials and Ran Ad Fraud for Two Years",
+        "url": "https://securityaffairs.com/194409/malware/stegoad-how-119-fake-browser-extensions-stole-credentials-and-ran-ad-fraud-for-two-years.html",
+        "source": "SecurityAffairs",
+        "date": "2026-06-29",
+        "reason": "揭秘了持续两年的大规模恶意扩展黑产运动，展现了隐写术在凭证窃取和广告欺诈中的高级实战应用。"
       },
       {
-        "title": "Anche la Cina sviluppa l’AI per la cyber: ecco Tulongfeng, quali impatti",
-        "url": "https://www.cybersecurity360.it/cybersecurity-nazionale/anche-la-cina-sviluppa-lai-per-la-cyber-ecco-tulongfeng-quali-impatti/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-28",
-        "reason": "分析了国内AI网络安全平台（土龙蜂）的发展及其在网络安全领域的影响，提供了宏观层面的威胁趋势洞察。"
+        "title": "236,000 DCloud Uni-App Sites Used in Crypto Scams, Phishing, and Wallet Drainers",
+        "url": "https://thehackernews.com/2026/06/236000-dcloud-uni-app-sites-used-in.html",
+        "source": "The Hacker News",
+        "date": "2026-06-29",
+        "reason": "揭露了数十万合法跨平台开发框架站点被武器化用于加密货币诈骗与钓鱼的庞大黑产网络现状。"
       }
     ],
     "安全工具": [
       {
-        "title": "YARA-X 1.18.0 and 1.19.0 Release, (Sun, Jun 28th)",
-        "url": "https://isc.sans.edu/diary/rss/33106",
-        "source": "Unsafe.sh",
-        "date": "2026-06-28",
-        "reason": "发布了威胁狩猎和恶意软件分析利器YARA-X的最新版本，对安全研究人员的日常分析工作有直接帮助。"
+        "title": "把四款主流EDR的检测逻辑拆出来本地运行",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&mid=2451187465&idx=1&sn=50fbade6ea2e6c7eeb059e26fad2609f",
+        "source": "微信",
+        "date": "2026-06-29",
+        "reason": "提供了提取并独立运行主流EDR检测逻辑的思路，对红蓝对抗人员分析和绕过安全软件具有极高实战价值。"
       },
       {
-        "title": "第166篇：希水涵Web日志分析工具v0.43 更新，新增多个分析模块、大幅提升性能",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzkzMjI1NjI3Ng==&mid=2247488423&idx=1&sn=da75b5a2d0b75705c4d9efa17c111209",
+        "title": "TRAWL: Self-hosted scraping engine — bypasses any JS challenge & captcha",
+        "url": "https://unsafe.sh/go-425947.html",
         "source": "Unsafe.sh",
-        "date": "2026-06-28",
-        "reason": "介绍了一款实用的Web日志分析工具的重大更新，对蓝队应急响应和日常安全运维具有较高实用价值。"
+        "date": "2026-06-29",
+        "reason": "介绍了一款能够绕过多种主流JS挑战与验证码的自建抓取引擎，可用于自动化渗透测试和资产信息收集。"
       },
       {
-        "title": "IP Crawl – 发现你身边的公共摄像头？",
-        "url": "https://www.appinn.com/ip-crawl/",
-        "source": "Unsafe.sh",
-        "date": "2026-06-28",
-        "reason": "提供了一个探测公共网络摄像头的工具，可用于暴露面梳理和物联网资产安全测绘。"
+        "title": "Adding some Automation to the favicon.ico method of Host Recon",
+        "url": "https://isc.sans.edu/diary/rss/33110",
+        "source": "SANS ISC",
+        "date": "2026-06-29",
+        "reason": "分享了内网渗透中利用 favicon.ico 进行主机指纹侦察的自动化改进工作流，能有效提升红队侦查效率。"
       }
     ],
     "云安全": [
       {
-        "title": "Policy-Driven Security and Governance in Kubernetes AI Platforms",
-        "url": "https://hackernoon.com/policy-driven-security-and-governance-in-kubernetes-ai-platforms?source=rss",
-        "source": "Unsafe.sh",
-        "date": "2026-06-28",
-        "reason": "探讨了Kubernetes AI平台中策略驱动的安全与治理，对保护云原生AI基础设施的安全架构设计具有指导意义。"
-      },
-      {
-        "title": "日拱一卒：美国云服务出口管制正在形成闭环",
-        "url": "https://www.secrss.com/articles/91682",
-        "source": "安全内参",
-        "date": "2026-06-28",
-        "reason": "深入剖析了美国针对云服务出口管制和KYC制度的合规要求，对跨国企业的云资产合规与安全部署影响深远。"
+        "title": "【安全圈】Amazon Q 漏洞使恶意代码仓库可窃取云凭据",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077594&idx=2&sn=40ec8125a630cd3027a7e95340a34fbc",
+        "source": "安全圈",
+        "date": "2026-06-29",
+        "reason": "披露了AWS AI助手Amazon Q存在漏洞，攻击者可通过诱导访问恶意代码库窃取企业云环境凭证，危害严重。"
       }
     ],
     "其他重要": [
       {
-        "title": "【资料】《渗透测试员笔记》《地缘政治风险指数开源框架》《人工智能失控风险》",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651156402&idx=1&sn=10a1fcd389df07d63da4b8ebcb7faca8",
-        "source": "Unsafe.sh",
-        "date": "2026-06-28",
-        "reason": "分享了一系列优质的安全与风险评估资料，涵盖渗透测试、开源情报框架及AI风险，具有较高的学习参考价值。"
+        "title": "运营商巨头重大数据泄露：超1420万用户邮箱密码遭窃取",
+        "url": "https://www.secrss.com/articles/91704",
+        "source": "安全内参",
+        "date": "2026-06-29",
+        "reason": "日本KDDI因第三方软件漏洞导致超千万级用户敏感数据泄露，凸显了供应链安全管理的薄弱环节与数据存储风险。"
+      },
+      {
+        "title": "《网络数据安全风险评估办法》重点内容解读",
+        "url": "https://www.secrss.com/articles/91696",
+        "source": "安全内参",
+        "date": "2026-06-29",
+        "reason": "对我国最新发布的网络数据安全合规评估要求进行了深度解读，为企业数据合规建设和审计提供了实操指引。"
+      },
+      {
+        "title": "Hijacked npm and Go Packages Use VS Code Tasks to Deploy Python Infostealer",
+        "url": "https://thehackernews.com/2026/06/hijacked-npm-and-go-packages-use-vs.html",
+        "source": "The Hacker News",
+        "date": "2026-06-29",
+        "reason": "软件供应链攻击再添新样本，揭示了通过劫持开发包并借助IDE任务静默部署窃密木马的实战利用方式。"
       }
     ]
   },
-  "summary": "本批次文章侧重于AI安全、OSINT情报与云安全治理，包含大模型攻防、数据泄露事件及多款实用安全工具更新。"
+  "summary": "本批次文章涵盖大量最新CVE漏洞预警、AI及云环境下的新型攻击面分析，以及活跃APT组织的威胁情报，实战和技术研究价值极高。"
 }
