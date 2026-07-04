@@ -1,72 +1,58 @@
 {
-  "analysis_date": "2026-07-03",
-  "total_analyzed": 126,
+  "analysis_date": "2026-07-04",
+  "total_analyzed": 125,
   "categories": {
     "漏洞研究": [
-      {
-        "title": "代号'pedit COW'的严重漏洞（CVE-2026-46331）存在于 Linux 内核的 net/sched act_pedit 流量控制子系统中",
-        "url": "https://sec.today/pulses/021e1241-b3f1-4a8b-a141-acf28454b660/",
-        "source": "Sec-Today",
-        "date": "2026-07-02",
-        "reason": "深入分析了Linux内核子系统中的COW机制验证顺序错误漏洞，揭示了非特权用户获取CAP_NET_ADMIN权限并污染内存的利用路径，实战价值极高。"
-      },
       {
         "title": "【漏洞速递】Nginx Proxy Manager远程代码执行漏洞（CVE-2026-40519）",
         "url": "https://sec.today/pulses/8489bc3f-0843-46c5-8af1-9f1b05df039a/",
         "source": "Sec-Today",
-        "date": "2026-07-02",
-        "reason": "披露了影响大量容器的Nginx Proxy Manager高危RCE漏洞，详细解析了如何绕过不完善的字符串过滤逻辑实现远程代码执行。"
+        "date": "2026-07-03",
+        "reason": "披露了广泛使用的 Nginx Proxy Manager 中的严重 RCE 漏洞，影响大量容器部署，实战价值极高。"
       },
       {
-        "title": "Vim 编辑器近期爆发了一系列严重安全漏洞",
-        "url": "https://sec.today/pulses/1886906c-269c-4439-bc2d-e40172835b78/",
+        "title": "代号'pedit COW'的严重漏洞（CVE-2026-46331）存在于 Linux 内核",
+        "url": "https://sec.today/pulses/021e1241-b3f1-4a8b-a141-acf28454b660/",
         "source": "Sec-Today",
-        "date": "2026-07-02",
-        "reason": "详细剖析了Vim编辑器在拼写折叠及自动补全功能中存在的栈帧损坏和潜在代码执行漏洞，对开发环境安全防御具有直接指导意义。"
+        "date": "2026-07-03",
+        "reason": "深入剖析 Linux 内核子系统中的 COW 机制验证缺陷，揭示了非特权用户如何提权并污染共享内存。"
       },
       {
-        "title": "SharePoint RCE CVE-2026-45659 Added to CISA KEV After Active Exploitation",
-        "url": "https://thehackernews.com/2026/07/sharepoint-rce-cve-2026-45659-added-to.html",
+        "title": "Adobe ColdFusion路径穿越漏洞(CVE-2026-48282)安全风险通告",
+        "url": "https://www.secrss.com/articles/91865",
+        "source": "安全内参",
+        "date": "2026-07-03",
+        "reason": "分析了 Adobe ColdFusion 的路径穿越漏洞细节，攻击者可借此绕过目录限制读取任意文件。"
+      },
+      {
+        "title": "Unpatched Flaws Disclosed in Filesystem Bundled Into Millions of Embedded Devices",
+        "url": "https://thehackernews.com/2026/07/unpatched-flaws-disclosed-in-filesystem.html",
         "source": "The Hacker News",
-        "date": "2026-07-02",
-        "reason": "被CISA列入已知被利用漏洞目录的高危SharePoint RCE漏洞，表明其已被活跃利用，企业需紧急关注并修补。"
-      },
-      {
-        "title": "ClamAV曝高危漏洞：远程投毒即可“打崩”杀毒引擎",
-        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458617262&idx=3&sn=4b442adefc6b975648d669dffbdd4c31",
-        "source": "Unsafe.sh",
-        "date": "2026-07-02",
-        "reason": "揭示了开源杀毒引擎ClamAV的高危漏洞，攻击者可通过特制文件导致服务崩溃，反映了安全防护工具自身的安全隐患。"
+        "date": "2026-07-03",
+        "reason": "披露了数百万嵌入式设备中使用的 FatFs 文件系统库的未修补漏洞，具有广泛的物联网安全影响。"
       }
     ],
     "移动安全": [
       {
-        "title": "哪吒汽车、月城公交、数字人SDK等32款APP及SDK被通报",
-        "url": "https://www.secrss.com/articles/91823",
-        "source": "安全内参",
-        "date": "2026-07-02",
-        "reason": "官方最新通报的违规收集个人信息和过度索取权限的移动应用列表，对移动应用合规性检测具有直接参考价值。"
+        "title": "如何在vmp中找到查表aes的密钥",
+        "url": "http://bbs.kanxue.com/thread-287905.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-03",
+        "reason": "详细讲解了在海量汇编代码中定位和提取 VMP 保护下的 AES 密钥的实战逆向分析方法。"
       },
       {
-        "title": "Apple’s Hide My Email doesn’t hide it very well",
-        "url": "https://www.malwarebytes.com/blog/news/2026/07/apples-hide-my-email-doesnt-hide-it-very-well",
-        "source": "Unsafe.sh",
-        "date": "2026-07-02",
-        "reason": "研究人员发现苹果隐私邮件中继功能存在设计缺陷，对于关注苹果生态隐私保护的移动安全研究人员有一定启发。"
+        "title": "PamStealer Uses Fake Maccy Sites and PAM Checks to Steal Mac Login Passwords",
+        "url": "https://thehackernews.com/2026/07/pamstealer-uses-fake-maccy-sites-and.html",
+        "source": "The Hacker News",
+        "date": "2026-07-03",
+        "reason": "揭示了针对 macOS 平台的新型信息窃取木马 PamStealer 的传播链和利用 PAM 验证的窃密手段。"
       },
       {
-        "title": "来自 Google 的 Android 恶意程序",
-        "url": "https://www.solidot.org/story?sid=84740",
-        "source": "Unsafe.sh",
-        "date": "2026-07-02",
-        "reason": "F-Droid警告Google向数十亿设备推送了疑似具有恶意特征的系统级应用，探讨了移动生态中系统级信任边界的风险。"
-      },
-      {
-        "title": "APPLE-SA-06-29-2026-1 iOS 26.5.2 and iPadOS 26.5.2",
-        "url": "https://seclists.org/fulldisclosure/2026/Jul/11",
-        "source": "Unsafe.sh",
-        "date": "2026-07-02",
-        "reason": "苹果官方发布的iOS和iPadOS系统安全更新公告，涵盖了移动端最新的底层漏洞修复详情。"
+        "title": "使用AI还原腾讯点选验证码算法-动态jsvmp",
+        "url": "http://bbs.kanxue.com/thread-290124.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-03",
+        "reason": "结合 AI 技术与逆向工程，展示了如何自动化还原复杂的动态 JS 验证码（jsvmp）算法逻辑。"
       }
     ],
     "AI安全": [
@@ -74,144 +60,108 @@
         "title": "AI coding agents can be tricked into installing malware via 'clean' GitHub repositories",
         "url": "https://sec.today/pulses/c7e15f8c-413a-460f-a57a-45cf7ec1a0af/",
         "source": "Sec-Today",
-        "date": "2026-07-02",
-        "reason": "揭示了利用DNS文本记录和间接操作诱导AI编程助手执行恶意代码的新型攻击手法，直击当前AI安全防御的盲区。"
-      },
-      {
-        "title": "构建自主 AI 智能体的安全边界：OpenAI Codex 在 Windows 端的沙盒架构演进",
-        "url": "https://sec.today/pulses/417cfce9-8ab7-45ad-b24a-62e40b2f1d34/",
-        "source": "Sec-Today",
-        "date": "2026-07-02",
-        "reason": "详细解析了OpenAI在Windows平台上通过双层硬隔离架构构建AI Agent沙盒的底层技术，为本地AI安全落地提供了极佳参考范本。"
+        "date": "2026-07-03",
+        "reason": "深度揭示了 AI 编程代理的间接提示词注入风险，展示了如何利用看似无害的仓库诱导 AI 执行恶意代码。"
       },
       {
         "title": "ClawHavoc：揭示通过排名操纵与隐蔽反序列化造成的最大规模 AI Agent 供应链攻击",
         "url": "https://sec.today/pulses/9174b69e-7b33-4994-aaf7-4aab6c97e760/",
         "source": "Sec-Today",
-        "date": "2026-07-02",
-        "reason": "深入分析了针对AI Agent生态的大规模供应链投毒事件，指出了传统特征匹配在防御隐蔽RCE攻击时的局限性。"
+        "date": "2026-07-03",
+        "reason": "分析了针对 AI 代理生态的严重供应链投毒事件，强调了防御机制向基于行为链推理转型的必要性。"
       },
       {
-        "title": "‘BioShocking’ Attack Tricks AI Browsers Into Stealing Credentials",
-        "url": "https://www.securityweek.com/bioshocking-attack-tricks-ai-browsers-into-stealing-credentials/",
+        "title": "Agentic AI Used to Conduct Ransomware Attack via Langflow",
+        "url": "https://www.securityweek.com/agentic-ai-used-to-conduct-ransomware-attack-via-langflow/",
         "source": "SecurityWeek",
-        "date": "2026-07-02",
-        "reason": "介绍了通过上下文操纵使AI浏览器突破安全护栏并窃取敏感凭据的攻击方式，对AI智能体的越狱防御有重要启示。"
+        "date": "2026-07-03",
+        "reason": "演示了 LLM 代理如何结合已知漏洞利用与实时推理，自动化完成复杂的多阶段勒索软件攻击。"
       },
       {
-        "title": "AI Agent Exploits Langflow RCE to Automate Database Ransomware Attack",
-        "url": "https://thehackernews.com/2026/07/ai-agent-exploits-langflow-rce-to.html",
-        "source": "The Hacker News",
-        "date": "2026-07-02",
-        "reason": "报道了首个由AI Agent从始至终自动发起的数据库勒索攻击，展示了AI在自动化攻击实战化应用中的巨大威胁。"
+        "title": "Critical Cursor AI Code Editor Flaws Could Lead to OS-Level Remote Code Execution",
+        "url": "https://www.securityweek.com/critical-cursor-ai-ide-flaws-could-lead-to-os-level-remote-code-execution/",
+        "source": "SecurityWeek",
+        "date": "2026-07-03",
+        "reason": "披露了流行 AI 代码编辑器 Cursor 的零点击沙箱逃逸漏洞，可导致底层操作系统级别的远程代码执行。"
       }
     ],
     "威胁情报": [
       {
-        "title": "Ransomware Groups Turn to Citrix Bleed 2, BYOVD, and Supply Chain Credentials",
-        "url": "https://thehackernews.com/2026/07/ransomware-groups-turn-to-citrix-bleed.html",
-        "source": "The Hacker News",
-        "date": "2026-07-02",
-        "reason": "详细剖析了Anubis等勒索组织利用Citrix Bleed 2及供应链凭据进行初始访问的最新攻击趋势，具有极高的防御情报价值。"
+        "title": "APT组织Turla最新网络攻击武器StockStay深度分析",
+        "url": "https://www.secrss.com/articles/91837",
+        "source": "安全内参",
+        "date": "2026-07-03",
+        "reason": "深入剖析了 APT 组织 Turla 的新型攻击武器 StockStay，提供了关键的时间线与技战术对比。"
       },
       {
-        "title": "ToddyCat-Linked Umbrij Malware Abuses OAuth to Access Gmail via Google API",
-        "url": "https://thehackernews.com/2026/07/toddycat-linked-umbrij-malware-abuses.html",
+        "title": "New Avalon Malware Framework Packs CrownX Ransomware Capabilities",
+        "url": "https://thehackernews.com/2026/07/new-avalon-malware-framework-packs.html",
         "source": "The Hacker News",
-        "date": "2026-07-02",
-        "reason": "揭示了APT组织ToddyCat利用新型恶意软件滥用OAuth和Google API实现隐蔽邮件窃取的战术技战术（TTPs）。"
+        "date": "2026-07-03",
+        "reason": "揭示了一个未记录的模块化恶意软件框架 Avalon，分析其通过多阶段钓鱼绕过传统防御的技战术。"
       },
       {
-        "title": "FortiBleed Campaign Linked to INC, Lynx Ransomware Attacks",
-        "url": "https://www.securityweek.com/fortibleed-campaign-linked-to-inc-lynx-ransomware-attacks/",
+        "title": "Armored Likho Targets Government Agencies, Power Sector with BusySnake Stealer",
+        "url": "https://thehackernews.com/2026/07/armored-likho-targets-government.html",
+        "source": "The Hacker News",
+        "date": "2026-07-03",
+        "reason": "披露了针对多国政府和电力部门的 APT 组织 Armored Likho 及其专用的 BusySnake 窃密木马。"
+      },
+      {
+        "title": "Google, FBI Disrupt NetNut Residential Proxy Network Powered by Millions of Devices",
+        "url": "https://www.securityweek.com/google-fbi-disrupt-netnut-residential-proxy-network-powered-by-millions-of-devices/",
         "source": "SecurityWeek",
-        "date": "2026-07-02",
-        "reason": "威胁情报显示数万FortiGate防火墙凭据被盗并直接关联到INC和Lynx勒索攻击，表明针对网络边界的攻击态势依然严峻。"
-      },
-      {
-        "title": "New ChocoPoC RAT Targets Vulnerability Researchers via Fake PoC Exploit Repos",
-        "url": "https://thehackernews.com/2026/07/new-chocopoc-rat-targets-vulnerability.html",
-        "source": "The Hacker News",
-        "date": "2026-07-02",
-        "reason": "揭露了针对安全研究人员的定向投毒攻击，攻击者通过伪造PoC代码库传播木马，提醒红蓝人员在实战中需加强防范。"
-      },
-      {
-        "title": "Google Disrupts NetNut Residential Proxy Network Spanning 2 Million Home Devices",
-        "url": "https://thehackernews.com/2026/07/google-disrupts-netnut-residential.html",
-        "source": "The Hacker News",
-        "date": "2026-07-02",
-        "reason": "报道了Google与FBI等联合打击超大规模住宅代理网络NetNut的行动，对追踪掩盖源头的僵尸网络活动极具情报价值。"
+        "date": "2026-07-03",
+        "reason": "报道了执法机构打击庞大代理网络 NetNut 的重要行动，该网络为数百万被控设备提供流量伪装服务。"
       }
     ],
     "安全工具": [
       {
-        "title": "I built a fast, terminal-based static analyzer for quick malware triage (Rust)",
-        "url": "https://unsafe.sh/go-426779.html",
-        "source": "Unsafe.sh",
-        "date": "2026-07-02",
-        "reason": "介绍了一款基于Rust开发的终端快速恶意软件静态分析工具，适合红蓝双方在实战中进行高效的样本初步筛选。"
+        "title": "从0到1实现NPT无痕Hook——内存虚拟化Hook技术全解析",
+        "url": "http://bbs.kanxue.com/thread-291859.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-03",
+        "reason": "深入解析了基于 AMD NPT 的内存虚拟化无痕 Hook 技术的设计思路与底层实现，极具底层安全技术价值。"
       },
       {
-        "title": "cfgrip - PE/ELF x86/x64 CFG extractor",
-        "url": "https://unsafe.sh/go-426718.html",
+        "title": "XenForo XSS CVE Scanner — Passive Detection Tool for CVE-2026-35055, CVE-2026-35054, CVE-2026-35057",
+        "url": "https://cxsecurity.com/issue/WLB-2026070004",
         "source": "Unsafe.sh",
-        "date": "2026-07-02",
-        "reason": "分享了一款能够提取PE和ELF格式文件控制流图（CFG）的实用工具，对二进制逆向工程研究有直接帮助。"
+        "date": "2026-07-03",
+        "reason": "针对近期 XenForo 曝出的多个 XSS 漏洞（CVE-2026-35055 等）发布的被动扫描检测工具。"
       },
       {
-        "title": "How We Added WebAuthn to a Browser-Based RDP Client",
-        "url": "https://unit42.paloaltonetworks.com/webauthn-added-to-browser-based-rdp/",
+        "title": "Suricata Caught It. Zeek Explained It. Here’s Why You Need Both.",
+        "url": "https://infosecwriteups.com/suricata-caught-it-zeek-explained-it-heres-why-you-need-both-3aef6c9f357f",
         "source": "Unsafe.sh",
-        "date": "2026-07-02",
-        "reason": "详细说明了如何将WebAuthn无密码身份验证安全集成到基于浏览器的RDP客户端中，为安全工具开发提供了创新思路。"
-      },
-      {
-        "title": "Sandfly's Agentless Linux EDR + AI Are a Powerful Combo",
-        "url": "https://sandflysecurity.com/blog/sandflys-agentless-linux-edr-ai-are-a-powerful-combo",
-        "source": "Unsafe.sh",
-        "date": "2026-07-02",
-        "reason": "探讨了无代理Linux EDR与AI技术结合的强大潜力，展示了AI在终端防御工具中的前沿应用场景。"
+        "date": "2026-07-03",
+        "reason": "对比分析了 Suricata 和 Zeek 在网络流量监控中的优势，探讨了结合使用两者以提升蓝队检测能力的实战方法。"
       }
     ],
-    "云安全": [
-      {
-        "title": "Gitea act_runner容器逃逸漏洞(CVE-2026-58053)安全风险通告",
-        "url": "https://www.secrss.com/articles/91750",
-        "source": "安全内参",
-        "date": "2026-07-02",
-        "reason": "披露了Gitea CI/CD组件中的容器逃逸漏洞，攻击者可借此获取宿主机命名空间和权限，对DevSecOps环境构成巨大威胁。"
-      }
-    ],
+    "云安全": [],
     "其他重要": [
       {
-        "title": "隐蔽的Windows注入：劫持Win32k回调分发机制执行Shellcode",
-        "url": "https://sec.today/pulses/00b08391-0ede-48f5-9b3b-d21c42fcfe16/",
-        "source": "Sec-Today",
-        "date": "2026-07-02",
-        "reason": "提出了一种通过内联重定向合法回调函数入口点的Windows新型注入技术，对EDR绕过和终端高级攻防研究极具价值。"
+        "title": "North Korea-Linked npm Packages Mimic Rollup Polyfills to Steal Developer Secrets",
+        "url": "https://thehackernews.com/2026/07/north-korea-linked-npm-packages-mimic.html",
+        "source": "The Hacker News",
+        "date": "2026-07-03",
+        "reason": "揭示了与朝鲜有关的攻击者通过发布恶意 npm 包伪装成 Rollup polyfills 来实施供应链攻击并窃取开发者机密。"
       },
       {
-        "title": "ConsentFix and ClickFix: How Microsoft 365 Accounts are Hijacked in 3 Seconds",
-        "url": "https://www.bleepingcomputer.com/news/security/consentfix-and-clickfix-how-microsoft-365-accounts-are-hijacked-in-3-seconds/",
-        "source": "Unsafe.sh",
-        "date": "2026-07-02",
-        "reason": "揭示了仅需3秒即可通过ClickFix手法劫持M365账户的社会工程学攻击链，对提升企业员工安全意识有重要意义。"
+        "title": "Medtronic Data Breach Impacts 3.8 Million People",
+        "url": "https://www.securityweek.com/medtronic-data-breach-impacts-3-8-million-people/",
+        "source": "SecurityWeek",
+        "date": "2026-07-03",
+        "reason": "医疗科技巨头 Medtronic 发生大规模数据泄露，超 380 万患者的敏感个人和医疗信息被窃取。"
       },
       {
-        "title": "FBI Seizes NetNut Proxy Platform, Popa Botnet",
-        "url": "https://krebsonsecurity.com/2026/07/fbi-seizes-netnut-proxy-platform-popa-botnet/",
-        "source": "Unsafe.sh",
-        "date": "2026-07-02",
-        "reason": "报道了FBI联合行业伙伴摧毁大型代理网络和僵尸网络的重磅事件，反映了近期全球网络犯罪基础设施的打击成果。"
-      },
-      {
-        "title": "How we broke Rhysida ransomware encryption",
-        "url": "https://unsafe.sh/go-426780.html",
-        "source": "Unsafe.sh",
-        "date": "2026-07-02",
-        "reason": "详细讲解了逆向并破解Rhysida勒索软件加密算法的过程，对于勒索软件应急响应和数据恢复具有极高的实战价值。"
+        "title": "马来西亚数字停车服务被黑后中断超3天：驾驶员无法缴费 持续收到罚单",
+        "url": "https://www.secrss.com/articles/91880",
+        "source": "安全内参",
+        "date": "2026-07-03",
+        "reason": "报道了马来西亚数字停车服务遭遇严重黑客攻击导致全国大面积服务中断的真实网络安全事件及其社会影响。"
       }
     ]
   },
-  "summary": "本批次分析涵盖了Linux内核、Nginx等高危漏洞，AI代理安全威胁及防护架构，以及Citrix、FortiGate等关键基础设施的最新攻击情报。"
+  "summary": "本批次聚焦AI代理安全、Linux内核高危漏洞及APT攻击情报，涵盖多维度的实战化安全研究内容。"
 }
