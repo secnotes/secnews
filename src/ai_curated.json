@@ -1,153 +1,203 @@
 {
-  "analysis_date": "2026-07-06",
-  "total_analyzed": 73,
+  "analysis_date": "2026-07-07",
+  "total_analyzed": 120,
   "categories": {
     "漏洞研究": [
       {
-        "title": "【安全圈】Linux本地权限提升漏洞「Bad Epoll」曝光：CVSS 7.8",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077708&idx=3&sn=864b0445b461bd238e8f78e65a4e38ec",
-        "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "披露了最新的Linux本地权限提升高危漏洞，具有极高的实战价值和修复紧迫性。"
+        "title": "Linux再曝“秒提权”0day：一个看不见的6指令窗口，黑客可直通root",
+        "url": "http://bbs.kanxue.com/thread-291892.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-06",
+        "reason": "披露了Linux内核epoll子系统的高危0day漏洞（CVE-2026-46242），存在极高的本地提权风险和实战价值。"
       },
       {
-        "title": "I Found an Unauthenticated Attachment Disclosure Bug in a WordPress Support Plugin",
-        "url": "url_50",
-        "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "详细记录了WordPress插件中未授权附件泄露漏洞的挖掘过程，对Web安全研究者具有参考价值。"
+        "title": "Citrix NetScaler内存越界读取漏洞(CVE-2026-8451)安全风险通告",
+        "url": "https://www.secrss.com/articles/91923",
+        "source": "安全内参",
+        "date": "2026-07-06",
+        "reason": "关注Citrix NetScaler的高危越界读取漏洞，攻击者可借此导致拒绝服务或读取设备敏感内存数据。"
       },
       {
-        "title": "3 Hidden Bugs That Stop Cross-Origin SVG Badges From Loading",
-        "url": "https://hackernoon.com/3-hidden-bugs-that-stop-cross-origin-svg-badges-from-loading?source=rss",
-        "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "深入探讨了跨域SVG加载机制中隐藏的安全漏洞，具有一定的前端安全技术深度。"
+        "title": "16-Year-Old Linux KVM Flaw Lets Guest VMs Escape to Host on Intel and AMD x86 Systems",
+        "url": "https://thehackernews.com/2026/07/16-year-old-linux-kvm-flaw-lets-guest.html",
+        "source": "The Hacker News",
+        "date": "2026-07-06",
+        "reason": "揭示了存在16年之久的Linux KVM虚拟机逃逸漏洞（CVE-2026-33111），对云虚拟化环境构成重大安全威胁。"
       },
       {
-        "title": "Has anyone made progress reverse engineering the IntelME system?",
-        "url": "https://unsafe.sh/go-427127.html",
-        "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "针对Intel ME底层系统的逆向工程探讨，对硬件安全和底层漏洞研究非常有价值。"
+        "title": "Adobe ColdFusion flaw CVE-2026-48282 now exploited in the wild",
+        "url": "https://securityaffairs.com/194837/hacking/adobe-coldfusion-flaw-cve-2026-48282-now-exploited-in-the-wild.html",
+        "source": "SecurityAffairs",
+        "date": "2026-07-06",
+        "reason": "Adobe ColdFusion漏洞已被在野利用，属于具有极高修复紧迫性的最新高危CVE。"
+      },
+      {
+        "title": "Microsoft Windows Installer Folder Delete Privilege Escalation",
+        "url": "https://blog.exodusintel.com/2026/07/06/microsoft-windows-installer-folder-delete-privilege-escalation/",
+        "source": "Exodus Intel",
+        "date": "2026-07-06",
+        "reason": "详细分析了Windows Installer的权限提升漏洞利用技术，具有很好的漏洞研究深度和参考价值。"
       }
     ],
     "移动安全": [
       {
-        "title": "针对欧洲议员的Pegasus间谍软件的苹果手机活动痕迹",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&mid=2451187558&idx=1&sn=a7f4a608b7543b99e9e2f4fea3f3b30b",
+        "title": "anti-token 纯算法分析",
+        "url": "http://bbs.kanxue.com/thread-291889.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-06",
+        "reason": "深入解析了拼多多Android客户端的anti-token纯算法，展示了结合AI进行逆向分析的高级实战技巧。"
+      },
+      {
+        "title": "【安全圈】PamStealer 伪装 macOS 剪贴板管理器窃取数据",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077722&idx=1&sn=bdaa7e14cde52df5111a1a50052adb7b",
         "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "分析了针对iOS设备的Pegasus高级间谍软件活动痕迹，是高级移动端APT攻击的典型研究案例。"
+        "date": "2026-07-06",
+        "reason": "揭露了针对macOS系统的新型信息窃取木马PamStealer，提醒苹果生态防御者关注此类恶意伪装手段。"
       }
     ],
     "AI安全": [
       {
-        "title": "被AI标记恶意后，这家公司选择起诉网安巨头Palo Alto",
-        "url": "https://www.secrss.com/articles/91886",
+        "title": "GuardFall：数十年前的 Shell 注入绕过开源 AI 编程代理的安全检查",
+        "url": "https://sec.today/pulses/5f0c2622-d9e5-44d0-b263-e66aed865027/",
+        "source": "Sec-Today",
+        "date": "2026-07-06",
+        "reason": "创新性地展示了利用基础Shell语法绕过AI编程代理过滤机制的方法，指出了AI代码安全防护的根本盲区。"
+      },
+      {
+        "title": "BioShocking 攻击：利用上下文感知操纵绕过 AI 浏览器安全护栏",
+        "url": "https://sec.today/pulses/33f70f26-33c3-4276-bbef-7c7827c755a1/",
+        "source": "Sec-Today",
+        "date": "2026-07-06",
+        "reason": "揭示了通过上下文操纵诱导AI浏览器突破安全逻辑的新型攻击技术，暴露出大模型对上下文过度依赖的系统性缺陷。"
+      },
+      {
+        "title": "中毒的 MCP 工具描述导致 AI Agent 静默泄露数据",
+        "url": "https://sec.today/pulses/5939d111-8397-4a50-8f6e-4627d7e3013f/",
+        "source": "Sec-Today",
+        "date": "2026-07-06",
+        "reason": "针对MCP协议元数据投毒攻击的研究，揭示了AI代理供应链的薄弱环节，为当前企业部署AI提供了重要防御警示。"
+      },
+      {
+        "title": "Prompt Injection Attacks Trick AI Agents Into Making Crypto Payments",
+        "url": "https://www.securityweek.com/2026/07/06/prompt-injection-attacks-trick-ai-agents-into-making-crypto-payments/",
+        "source": "SecurityWeek",
+        "date": "2026-07-06",
+        "reason": "实战演示了利用间接提示词注入攻击诱导AI代理进行加密货币支付，凸显了AI自动化执行带来的实质性资产损失风险。"
+      },
+      {
+        "title": "首个AI勒索攻击曝光：从侦查入侵到数据加密，全程自主完成",
+        "url": "https://www.secrss.com/articles/91914",
         "source": "安全内参",
-        "date": "2026-07-05",
-        "reason": "探讨了安全产品中AI归因错误导致误报的法律纠纷，反映了AI在网安领域的应用风险。"
-      },
-      {
-        "title": "派早报：阿里禁用 Claude 模型",
-        "url": "https://sspai.com/post/111973",
-        "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "报道了因后门风险大厂禁用AI模型的事件，突显了引入第三方AI工具的供应链安全隐患。"
-      },
-      {
-        "title": "阿图因 AI 在 CyberGym 测试中超过了 Mythos",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzI0NDA5MDYyNA==&mid=2648257333&idx=1&sn=56dd46b9d6783e2e04e1308d4001b056",
-        "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "展示了AI智能体在网络安全攻防靶场中的实战测试表现，反映了AI在攻防对抗中的最新进展。"
-      },
-      {
-        "title": "赛博菩萨 Cloudflare，AI 爬虫最严厉的父亲",
-        "url": "https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&mid=2653109834&idx=1&sn=440d714cf0506c1fad9a3789c7594157",
-        "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "介绍了Cloudflare针对恶意AI爬虫的防御措施，对保护网站内容资产免受AI侵害有实战意义。"
+        "date": "2026-07-06",
+        "reason": "记录了首个全流程由AI智能体驱动的勒索软件攻击事件，标志着勒索攻击正式步入AI自动化时代。"
       }
     ],
     "威胁情报": [
       {
-        "title": "Medtronic Notifies 3.8 Million After ShinyHunters Data Breach",
-        "url": "https://securityaffairs.com/194788/cyber-crime/medtronic-notifies-3-8-million-after-shinyhunters-data-breach.html",
-        "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "知名黑客组织ShinyHunters对医疗巨头发起的大规模数据泄露事件，包含重要IoC与攻击情报。"
+        "title": "Iran-Linked Hackers Use New Cavern C2 Framework to Target Israeli Organizations",
+        "url": "https://thehackernews.com/2026/07/iran-linked-hackers-use-new-cavern-c2.html",
+        "source": "The Hacker News",
+        "date": "2026-07-06",
+        "reason": "披露了伊朗背景APT组织使用的全新模块化C2框架Cavern，提供了重要的国家级黑客攻击基础设施情报。"
       },
       {
-        "title": "【资料】伊朗国家媒体与国内网络如何在美国本土驱动影响力行动",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzI2MTE0NTE3Mw==&mid=2651156449&idx=1&sn=b465f22dee2c94a47635f16f190152fa",
-        "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "深度剖析了国家级APT背景的信息战和影响力操作战术，是高价值的地缘威胁情报资料。"
+        "title": "Suspected China-Nexus Hackers Use Fake Indian Tax Filing Utility to Deploy DcRAT",
+        "url": "https://thehackernews.com/2026/07/suspected-china-nexus-hackers-use-fake.html",
+        "source": "The Hacker News",
+        "date": "2026-07-06",
+        "reason": "报道了利用虚假税务工具分发DcRAT的针对性攻击活动，具有社工钓鱼与商业远控木马结合的典型特征。"
       },
       {
-        "title": "【安全圈】2026年上半年网络安全事件盘点",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077708&idx=1&sn=2f6049007afc7ed092fe6433dc292706",
-        "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "对半年度重大网络安全事件进行了全面梳理，有助于快速掌握宏观安全威胁态势。"
+        "title": "North Korean Hackers Target Open Source Developers in Supply Chain Attacks",
+        "url": "https://www.securityweek.com/2026/07/06/north-korean-hackers-target-open-source-developers-in-supply-chain-attacks/",
+        "source": "SecurityWeek",
+        "date": "2026-07-06",
+        "reason": "揭示了朝鲜黑客组织大规模入侵开源包仓库的PolinRider行动，对全球软件开发供应链构成严重威胁。"
       },
       {
-        "title": "SECURITY AFFAIRS MALWARE NEWSLETTER ROUND 104",
-        "url": "https://securityaffairs.com/194785/uncategorized/security-affairs-malware-newsletter-round-104.html",
+        "title": "FBI FLASH 报告：TeamPCP 攻陷开发工具，发动大规模供应链攻击",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzI2NTg4OTc5Nw==&mid=2247526510&idx=2&sn=50f4976701325e79599b23d3f3ac6513",
         "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "汇总了近期的恶意软件活动动态与演变趋势，为安全防御团队提供持续的情报参考。"
+        "date": "2026-07-06",
+        "reason": "基于FBI情报分析TeamPCP利用开发工具发起的大规模供应链攻击，对内网安全和开发环境防御有直接指导意义。"
+      },
+      {
+        "title": "Windows 11 设备标识符被用于逮捕网络勒索组织成员",
+        "url": "https://www.solidot.org/story?sid=84764",
+        "source": "Solidot",
+        "date": "2026-07-06",
+        "reason": "展示了执法部门如何利用Windows设备标识符追踪并逮捕Scattered Spider勒索组织成员，具有取证溯源的参考价值。"
       }
     ],
     "安全工具": [
       {
-        "title": "When Dragons Misplace Elves: Fixing Ghidra’s Broken ELF Export",
-        "url": "https://unsafe.sh/go-427135.html",
-        "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "分享了知名逆向分析利器Ghidra在处理ELF文件导出时的修复技巧，对逆向工程师非常实用。"
+        "title": "Web Application Penetration Testing Enum - Cheatsheet & Checklist",
+        "url": "https://www.hackingdream.net/2026/07/web-application-penetration-testing-enum-cheatsheet-checklist.html",
+        "source": "Hacking Dream",
+        "date": "2026-07-06",
+        "reason": "提供了一份全面且实用的Web应用渗透测试枚举阶段速查表，对实战安全测试极具参考价值。"
       },
       {
-        "title": "Dive Into Malware Forensics: A Walkthrough of REMnux",
-        "url": "https://infosecwriteups.com/dive-into-malware-forensics-a-walkthrough-of-remnux-the-redux-88f17ab2a96a?source=rss----7b722bfd1b8d---4",
-        "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "详细介绍了如何使用专用分析系统REMnux进行恶意软件取证，具有极高的实战操作价值。"
-      },
-      {
-        "title": "Wazuh SIEM Deployment with Multi-OS Agents",
-        "url": "https://infosecwriteups.com/wazuh-siem-deployment-with-multi-os-agents-09e80e1821e9?source=rss----7b722bfd1b8d---4",
-        "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "提供了开源SIEM工具Wazuh跨系统代理部署的实战指南，对企业建设安全运营中心有帮助。"
-      },
-      {
-        "title": "AdversaryGraph v5.0: From CTI Mapping to Attack Simulation and SIEM Validation",
-        "url": "https://infosecwriteups.com/adversarygraph-v5-0-from-cti-mapping-to-attack-simulation-and-siem-validation-21873b2a6c39?source=rss----7b722bfd1b8d---4",
-        "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "介绍了一款结合ATT&CK映射、攻击模拟和SIEM规则验证的自托管威胁情报分析工作台。"
-      },
-      {
-        "title": "Advanced Time Travel Debugging in Binary Ninja with Xusheng Li",
-        "url": "https://unsafe.sh/go-427104.html",
-        "source": "Unsafe.sh",
-        "date": "2026-07-05",
-        "reason": "探讨了在主流逆向工具Binary Ninja中进行高级时间旅行调试的技术，非常适合高级漏洞挖掘。"
-      }
-    ],
-    "云安全": [],
-    "其他重要": [
-      {
-        "title": "美国地方政府被发现向黑客支付100万美元封口费",
-        "url": "https://www.landian.news/archives/113787.html",
+        "title": "整理Windows 全架构 Hook 技术图谱：从 Ring3 到固件层 34 种实现",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458617318&idx=1&sn=5bb9c918f99546ab31778053178b87d1",
         "source": "Unsafe.sh",
         "date": "2026-07-06",
-        "reason": "勒索软件谈判与防御的典型反面案例，深刻揭示了向黑客支付赎金的巨大风险与不可控性。"
+        "reason": "系统总结了Windows全架构的34种Hook技术实现方式，是安全开发、EDR绕过与底层防御的极佳参考资料。"
+      },
+      {
+        "title": "Playing Around With ADIDNS RPC Internals",
+        "url": "https://unsafe.sh/go-427378.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-06",
+        "reason": "深入剖析了活动目录集成DNS RPC的内部机制，对内网渗透工具开发和域环境安全分析有启发意义。"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "SecToday Next (Amazon Q Developer 扩展关键安全漏洞)",
+        "url": "https://sec.today/pulses/cd2000f7-b6ff-4499-adf6-8e89e61aebc0/",
+        "source": "Sec-Today",
+        "date": "2026-07-06",
+        "reason": "披露了Amazon Q Developer扩展中的严重RCE漏洞，攻击者可利用恶意仓库的MCP配置文件控制云开发环境。"
+      },
+      {
+        "title": "Threat Actors Probe Gitea Docker Flaw CVE-2026-20896 13 Days After Disclosure",
+        "url": "https://thehackernews.com/2026/07/threat-actors-probe-gitea-docker-flaw.html",
+        "source": "The Hacker News",
+        "date": "2026-07-06",
+        "reason": "报道了针对Gitea Docker容器关键漏洞的在野探测和利用尝试，提醒云原生开发团队密切关注代码仓库安全。"
+      },
+      {
+        "title": "5 insights from Frost & Sullivan’s 2025 Frost Radar™ for Cloud Security Posture Management",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/07/06/5-insights-from-frost-sullivans-2025-frost-radar-for-cloud-security-posture-management/",
+        "source": "Microsoft Security",
+        "date": "2026-07-06",
+        "reason": "探讨了云安全态势管理(CSPM)领域的最新趋势与五大洞察，为企业构建多维云防御体系提供战略参考。"
+      }
+    ],
+    "其他重要": [
+      {
+        "title": "欧盟后量子密码迁移的战略政策、实践评析与启示",
+        "url": "https://www.secrss.com/articles/91930",
+        "source": "安全内参",
+        "date": "2026-07-06",
+        "reason": "深入分析了欧盟在后量子密码(PQC)迁移方面的战略布局和落地实践，对宏观密码体系升级极具前瞻性指导价值。"
+      },
+      {
+        "title": "New TrojPix Attack Leaks Data From Air-Gapped Systems via Video Cable Emissions",
+        "url": "https://thehackernews.com/2026/07/new-trojpix-attack-leaks-data-from-air.html",
+        "source": "The Hacker News",
+        "date": "2026-07-06",
+        "reason": "介绍了一种通过视频线缆电磁辐射从物理隔离系统窃取数据的新型攻击手法，扩展了对极端场景下隐蔽泄密通道的认知。"
+      },
+      {
+        "title": "新加坡网安局发布2025/2026网络安全态势报告",
+        "url": "https://www.secrss.com/articles/91902",
+        "source": "安全内参",
+        "date": "2026-07-06",
+        "reason": "概述了新加坡在AI驱动的威胁格局下加强国家网络防御的举措和宏观态势，提供高维度的安全视野。"
       }
     ]
   },
-  "summary": "本批次文章涵盖了Linux高危提权漏洞、AI安全风险及事件、最新黑客攻击情报，并包含多款安全分析工具的实战指南，整体技术价值较高。"
+  "summary": "本批次文章涵盖了AI Agent及大模型代理漏洞利用、Linux内核0day与提权技术、云原生开发环境威胁以及国家级APT供应链攻击等极具实战价值的核心安全情报。"
 }
