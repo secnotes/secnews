@@ -1,224 +1,209 @@
 {
-  "analysis_date": "2026-07-08",
-  "total_analyzed": 128,
+  "analysis_date": "2026-07-09",
+  "total_analyzed": 127,
   "categories": {
     "漏洞研究": [
       {
-        "title": "潜伏16年！KVM 跨架构逃逸漏洞曝光，AWS、GCP 全线告急",
-        "url": "http://bbs.kanxue.com/thread-291903.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-07-07",
-        "reason": "披露了潜伏16年之久的Linux KVM跨架构逃逸漏洞，影响主流云服务商，技术价值极高。"
+        "title": "Bad Epoll：Linux 内核竞态条件漏洞导致 Android 系统 Root 提权",
+        "url": "https://sec.today/pulses/5e32c613-c0ed-45ca-a164-c658dc9b60ff/",
+        "source": "Sec-Today",
+        "date": "2026-07-08",
+        "reason": "揭示了高危Linux内核竞态条件漏洞，可实现99%成功率的Android Root提权，极具实战利用价值。"
       },
       {
-        "title": "Linux再曝“秒提权”0day：一个看不见的6指令窗口，黑客可直通root",
-        "url": "http://bbs.kanxue.com/thread-291892.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-07-07",
-        "reason": "分析了Linux内核epoll子系统的0day提权漏洞（CVE-2026-46242），涉及UAF竞态条件，具有极高实战威胁。"
+        "title": "15-Year-Old GhostLock Flaw Enables Root and Container Escape on Most Linux Distros",
+        "url": "https://thehackernews.com/2026/07/15-year-old-ghostlock-flaw-enables-root.html",
+        "source": "The Hacker News",
+        "date": "2026-07-08",
+        "reason": "披露存在15年之久的Linux内核漏洞，允许普通用户获取Root权限并进行容器逃逸，影响主流Linux发行版。"
       },
       {
-        "title": "Critical Adobe ColdFusion Vulnerability Exploited in Attacks",
-        "url": "https://www.securityweek.com/critical-adobe-coldfusion-vulnerability-exploited-in-attacks/",
-        "source": "SecurityWeek",
-        "date": "2026-07-07",
-        "reason": "Adobe ColdFusion的预认证文件上传和路径遍历漏洞已遭野外攻击，具有极高的紧急响应价值。"
-      },
-      {
-        "title": "BadSuccessor — Exploiting delegated Managed Service Accounts in Windows Server 2025",
-        "url": "https://infosecwriteups.com/badsuccessor-exploiting-delegated-managed-service-accounts-in-windows-server-2025-0f2c84223bbb?source=rss----7b722bfd1b8d---4",
+        "title": "CVE-2026-9181 | Esri ArcGIS Server Pre-Authentication Path Traversal Vulnerability",
+        "url": "https://horizon3.ai/attack-research/vulnerabilities/cve-2026-9181/",
         "source": "Unsafe.sh",
-        "date": "2026-07-07",
-        "reason": "深入剖析了Windows Server 2025中委托托管服务账户的漏洞利用技术，为域安全攻防提供新思路。"
+        "date": "2026-07-08",
+        "reason": "详细分析了Esri ArcGIS Server的未授权路径遍历高危漏洞，关键基础设施面临严重的攻击面暴露风险。"
       },
       {
-        "title": "Critical Gitea Flaw Under Active Exploitation, Researchers Warn",
-        "url": "https://www.securityweek.com/critical-gitea-flaw-under-active-exploitation-researchers-warn/",
-        "source": "SecurityWeek",
-        "date": "2026-07-07",
-        "reason": "Gitea严重认证绕过漏洞已处于被活跃利用状态，可直接暴露私有仓库代码及机密信息。"
+        "title": "Using a Single Variable to Gain a Controlled Write",
+        "url": "https://unsafe.sh/go-427794.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-08",
+        "reason": "介绍了利用单个变量实现可控内存写入的高级漏洞利用技术，对漏洞发掘与利用开发具有较高参考价值。"
       }
     ],
     "移动安全": [
       {
-        "title": "anti-token 纯算法分析",
-        "url": "http://bbs.kanxue.com/thread-291889.htm?style=1",
+        "title": "某Android SMS 木马逆向分析",
+        "url": "http://bbs.kanxue.com/thread-291907.htm?style=1",
         "source": "看雪论坛",
-        "date": "2026-07-07",
-        "reason": "针对拼多多APP的anti-token算法进行了深度的纯算法逆向分析，具备较高的移动安全实战参考价值。"
+        "date": "2026-07-08",
+        "reason": "详尽剖析了真实环境中Android木马的静态特征与动态下发机制，提供了完整的实战逆向分析思路。"
       },
       {
-        "title": "RedWing MaaS Packages Android Bank Fraud as a Telegram Rental Service",
-        "url": "https://thehackernews.com/2026/07/redwing-maas-packages-android-bank.html",
-        "source": "The Hacker News",
-        "date": "2026-07-07",
-        "reason": "披露了通过Telegram出租的新型Android银行木马即服务，揭示了移动端金融欺诈的最新威胁趋势。"
+        "title": "boXX纯算 sp sig libyzwg.so",
+        "url": "http://bbs.kanxue.com/thread-291914.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-08",
+        "reason": "深入解析了某App的纯算法签名与参数加密底层逻辑，是移动安全逆向工程的优质实战案例。"
       },
       {
-        "title": "Defense-in-depth strategies for securing mobile applications - Ryan Lloyd - ASW #390",
-        "url": "http://sites.libsyn.com/18678/defense-in-depth-strategies-for-securing-mobile-applications-ryan-lloyd-asw-390",
+        "title": "Parser-Schwachstellen in Mobilfunk-Protokollen",
+        "url": "https://smartphone-attack-vector.de/parser-schwachstellen-mobilfunk-protokolle/",
         "source": "Unsafe.sh",
-        "date": "2026-07-07",
-        "reason": "探讨了移动端应用程序的深度防御策略，为移动端安全建设提供了系统性的防护指南。"
+        "date": "2026-07-08",
+        "reason": "探讨了移动通信协议底层的解析器安全漏洞，揭示了非传统应用层之外的新型移动网络攻击面。"
+      },
+      {
+        "title": "libmsaoaidsec.so 检测监测——绕过 Hook 脚本",
+        "source": "Unsafe.sh",
+        "date": "2026-07-08",
+        "reason": "分享了针对特定安全检测SO文件的Hook绕过实战脚本，对安卓逆向分析人员规避环境检测很有帮助。"
       }
     ],
     "AI安全": [
       {
-        "title": "SecToday Next",
-        "url": "https://sec.today/pulses/cd2000f7-b6ff-4499-adf6-8e89e61aebc0/",
+        "title": "伪造 API 文档武器化：针对 AI 代理的间接提示注入攻击",
+        "url": "https://sec.today/pulses/5af6ff73-3365-46a2-95df-15aee733470a/",
         "source": "Sec-Today",
-        "date": "2026-07-07",
-        "reason": "揭示了Amazon Q Developer扩展因自动加载恶意MCP配置引发的关键漏洞，直击AI开发工具供应链安全。"
+        "date": "2026-07-08",
+        "reason": "揭示了通过SEO投毒和伪造元数据对AI代理进行间接提示注入的新型攻击手法，为加固RAG管道提供实战预警。"
       },
       {
-        "title": "GuardFall：数十年前的 Shell 注入绕过开源 AI 编程代理的安全检查",
-        "url": "https://sec.today/pulses/5f0c2622-d9e5-44d0-b263-e66aed865027/",
+        "title": "DuneSlide：通过 Cursor IDE 提示注入实现零点击远程代码执行 (CVE-2026-50548/50549)",
+        "url": "https://sec.today/pulses/09cb64e7-ff35-4bdf-9134-bc8ab39d6a5c/",
         "source": "Sec-Today",
-        "date": "2026-07-07",
-        "reason": "证明了利用基础Shell语法即可绕过主流AI编码代理的安全过滤，提出了基于Shell解析逻辑的防御新思路。"
+        "date": "2026-07-08",
+        "reason": "披露了针对热门AI编程工具Cursor IDE的严重零点击RCE漏洞，展示了提示注入演变为系统级安全威胁的路径。"
       },
       {
-        "title": "BioShocking 攻击：利用上下文感知操纵绕过 AI 浏览器安全护栏",
-        "url": "https://sec.today/pulses/33f70f26-33c3-4276-bbef-7c7827c755a1/",
-        "source": "Sec-Today",
-        "date": "2026-07-07",
-        "reason": "披露了通过上下文操纵诱导AI浏览器突破安全逻辑的新型攻击技术，暴露了大模型依赖上下文的系统性缺陷。"
+        "title": "Critical Vulnerability Exposes GitHub Agentic Workflows to Prompt Injection",
+        "url": "https://www.securityweek.com/critical-vulnerability-exposes-github-agentic-workflows-to-prompt-injection/",
+        "source": "SecurityWeek",
+        "date": "2026-07-08",
+        "reason": "分析了通过构造恶意GitHub Issue触发提示注入漏洞，进而非授权窃取私有仓库数据的AI工作流安全风险。"
       },
       {
-        "title": "中毒的 MCP 工具描述导致 AI Agent 静默泄露数据",
-        "url": "https://sec.today/pulses/5939d111-8397-4a50-8f6e-4627d7e3013f/",
-        "source": "Sec-Today",
-        "date": "2026-07-07",
-        "reason": "剖析了针对AI代理的“工具描述投毒”攻击，展示了篡改MCP元数据即可让合规代理静默窃取数据的威胁。"
-      },
-      {
-        "title": "Public GitHub Issue Could Trick GitHub Agentic Workflows Into Leaking Private Repo Data",
-        "url": "https://thehackernews.com/2026/07/public-github-issue-could-trick-github.html",
+        "title": "GitHub Copilot Refuses Harmful Requests in Chat, Then Writes Them in Code",
+        "url": "https://thehackernews.com/2026/07/github-copilot-refuses-harmful-requests.html",
         "source": "The Hacker News",
-        "date": "2026-07-07",
-        "reason": "揭示了利用公开Issue欺骗GitHub Agentic Workflows泄露私有代码库的安全风险，极具AI自动化工作流防护启示。"
+        "date": "2026-07-08",
+        "reason": "探讨了AI编程助手在分步骤请求下绕过自身安全限制的越狱行为，强调了AI辅助开发工具安全边界验证的重要性。"
       }
     ],
     "威胁情报": [
       {
-        "title": "DEBULL Tooling Abuses Microsoft Device-Code Flow to Target M365 Accounts",
-        "url": "https://thehackernews.com/2026/07/debull-tooling-abuses-microsoft-device.html",
-        "source": "The Hacker News",
-        "date": "2026-07-07",
-        "reason": "针对利用微软设备代码流程网络钓鱼M365账户的DEBULL工具进行了深度剖析，揭示了针对云服务的钓鱼新态势。"
+        "title": "ChocoPoC：利用虚假 PoC 仓库通过依赖项植入的针对研究员的 RAT",
+        "url": "https://sec.today/pulses/898572c5-f8c4-4a39-a350-ed7e8ee8c12a/",
+        "source": "Sec-Today",
+        "date": "2026-07-08",
+        "reason": "曝光了针对安全研究人员的精准供应链攻击手法，利用伪造的Python依赖包绕过代码审查植入恶意木马。"
       },
       {
-        "title": "Suspected China-Aligned Hackers Exploit Roundcube Flaws Against Universities",
-        "url": "https://thehackernews.com/2026/07/suspected-china-aligned-hackers-exploit.html",
+        "title": "China-Linked UAT-7810 Expands ORB Network With New LONGLEASH Malware",
+        "url": "https://thehackernews.com/2026/07/china-linked-uat-7810-expands-orb.html",
         "source": "The Hacker News",
-        "date": "2026-07-07",
-        "reason": "披露了疑似具有中国背景的黑客组织利用Roundcube漏洞攻击北美高校的情报，具有明确的APT追踪价值。"
+        "date": "2026-07-08",
+        "reason": "追踪了特定APT组织通过定制恶意软件入侵边缘网络设备，扩大其操作中继箱（ORB）网络的最新攻击动向。"
       },
       {
-        "title": "Iran-Linked Hackers Using Modular C&C Framework in Cyberattacks",
-        "url": "https://www.securityweek.com/iran-linked-hackers-using-modular-cc-framework-in-cyberattacks/",
+        "title": "SCMBANKER Malware Uses ClickFix Lures to Target Mexican Banking Users",
+        "url": "https://thehackernews.com/2026/07/scmbanker-malware-uses-clickfix-lures.html",
+        "source": "The Hacker News",
+        "date": "2026-07-08",
+        "reason": "报道了利用ClickFix诱饵针对墨西哥金融用户的新型银行木马攻击活动，揭示了社会工程学的新伪装形式。"
+      },
+      {
+        "title": "Accenture Confirms Data Breach After Hacker Claims Source Code Theft",
+        "url": "https://www.securityweek.com/accenture-confirms-data-breach-after-hacker-claims-source-code-theft/",
         "source": "SecurityWeek",
-        "date": "2026-07-07",
-        "reason": "揭示了伊朗背景威胁行为者使用模块化C&C框架针对高价值目标的攻击活动，展示了现代恶意软件的适应性。"
-      },
-      {
-        "title": "Vidar Stealer Unmasked: Code Signing Abuse, Go Loaders and File Inflation",
-        "url": "https://unsafe.sh/go-427607.html",
-        "source": "Unsafe.sh",
-        "date": "2026-07-07",
-        "reason": "详细剖析了Vidar信息窃取木马的最新技术特征，包括代码签名滥用及加载器机制，对终端检测具有极高参考意义。"
+        "date": "2026-07-08",
+        "reason": "分析全球头部咨询公司Accenture确认源代码被盗的数据泄露事件，反映了企业核心知识产权资产面临的严峻威胁。"
       }
     ],
     "安全工具": [
       {
-        "title": "RedAmon：串联侦察、漏洞利用与后渗透的 AI 安全工具",
-        "url": "https://www.anquanke.com/post/id/315747",
-        "source": "安全客",
-        "date": "2026-07-07",
-        "reason": "介绍了一款融合AI技术的综合性渗透测试工具，涵盖从信息收集到后渗透的完整攻击链，极具工程参考价值。"
-      },
-      {
-        "title": "T3MP3ST 安全框架：集成 35 款工具，将 AI 代码智能体转化为零日漏洞挖掘器",
-        "url": "https://www.anquanke.com/post/id/315732",
-        "source": "安全客",
-        "date": "2026-07-07",
-        "reason": "展示了将AI代码智能体转化为自动化零日漏洞挖掘框架的前沿工具实践，具有高度的技术前瞻性。"
-      },
-      {
-        "title": "JWTweak v2.1: A Guided, Offline Toolkit for Modern JWT Attacks",
-        "url": "https://infosecwriteups.com/jwtweak-v2-1-a-guided-offline-toolkit-for-modern-jwt-attacks-d951fa31f964?source=rss----7b722bfd1b8d---4",
+        "title": "mcpfz-probe: an eBPF runtime probe that catches what an MCP server actually does during fuzzing",
+        "url": "https://unsafe.sh/go-427805.html",
         "source": "Unsafe.sh",
-        "date": "2026-07-07",
-        "reason": "推荐了一款现代化的离线JWT攻击工具包，能够自动生成完整的攻击计划，为Web安全测试人员提供实用辅助。"
+        "date": "2026-07-08",
+        "reason": "介绍了一款基于eBPF技术的运行时探针工具，可在模糊测试期间深度监控MCP服务器的实际系统调用行为。"
       },
       {
-        "title": "SecSuite—— 搭载人工智能的开源情报、Web 与 API 安全综合测试工具",
-        "url": "https://www.anquanke.com/post/id/315743",
-        "source": "安全客",
-        "date": "2026-07-07",
-        "reason": "介绍了一款集成了AI能力的OSINT及Web/API安全评估套件，适合安全团队用于自动化漏洞挖掘。"
+        "title": "Wireless Pentesting with Claude Using the Aircrack MCP Server",
+        "url": "https://www.hackingarticles.in/wireless-pentesting-with-claude-using-the-aircrack-mcp-server/",
+        "source": "Unsafe.sh",
+        "date": "2026-07-08",
+        "reason": "演示了如何结合Claude AI与Aircrack MCP Server实现自动化的无线网络安全渗透测试，展现了AI赋能红队工具的潜力。"
+      },
+      {
+        "title": "Drift Corpus: 240+ 2026 Windows kernel patches diffed, with assembly and breakpoints to reproduce",
+        "url": "https://unsafe.sh/go-427793.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-08",
+        "reason": "提供了一个包含240多个Windows内核补丁差异对比及复现断点信息的庞大数据集，是1-day漏洞研究人员的宝贵资料。"
+      },
+      {
+        "title": "Windows Privilege Escalation: SeDebugPrivilege",
+        "url": "https://www.hackingarticles.in/windows-privilege-escalation-sedebugprivilege/",
+        "source": "Unsafe.sh",
+        "date": "2026-07-08",
+        "reason": "详细演示了如何滥用SeDebugPrivilege权限实现Windows系统提权的完整过程，是红队和渗透测试的实用操作指南。"
       }
     ],
     "云安全": [
       {
-        "title": "No Rules, No Locks: Firebase Misconfiguration and the Borrowers It Left Behind",
-        "url": "https://infosecwriteups.com/no-rules-no-locks-firebase-misconfiguration-and-the-borrowers-it-left-behind-90d568038414?source=rss----7b722bfd1b8d---4",
-        "source": "Unsafe.sh",
-        "date": "2026-07-07",
-        "reason": "深入探讨了Firebase因默认安全规则缺失而导致的大规模数据泄露问题，具有很高的云上资产排雷价值。"
+        "title": "潜伏16年！KVM 跨架构逃逸漏洞曝光，AWS、GCP 全线告急",
+        "url": "http://bbs.kanxue.com/thread-291903.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-08",
+        "reason": "曝光了潜伏16年之久的KVM虚拟机跨架构逃逸漏洞，对AWS、GCP等主流公有云底层架构构成重大安全威胁。"
       },
       {
-        "title": "The HTTP 303 SSRF Hack : From Python HTTP Client Defaults to AWS Credential Exfiltration.",
-        "url": "https://infosecwriteups.com/the-http-303-hack-from-python-http-client-defaults-to-aws-credential-exfiltration-a-deep-dive-bfaece6c3805?source=rss----7b722bfd1b8d---4",
+        "title": "【安全圈】新的 Januscape Linux 漏洞允许在 Intel 和 AMD 设备上实现虚拟机逃逸",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077749&idx=3&sn=b6213ef302076e810b733f47e915bdb1",
         "source": "Unsafe.sh",
-        "date": "2026-07-07",
-        "reason": "详细解析了利用HTTP 303重定向及Python客户端默认行为实施SSRF攻击并窃取AWS云凭据的完整利用链。"
+        "date": "2026-07-08",
+        "reason": "揭示了名为Januscape的新型Linux漏洞，允许攻击者在主流硬件平台上实现虚拟机逃逸，直接影响云环境隔离边界。"
       },
       {
-        "title": "Rogue Agent Flaw Could Have Let Attackers Hijack Google Dialogflow CX Chatbots",
-        "url": "https://thehackernews.com/2026/07/rogue-agent-flaw-could-have-let.html",
-        "source": "The Hacker News",
-        "date": "2026-07-07",
-        "reason": "披露了Google Cloud Dialogflow CX中的跨租户隔离漏洞，攻击者可借此劫持同一项目下的其他聊天机器人。"
+        "title": "Google Dialogflow CX Bug Allowed Attackers to Hijack AI Conversations",
+        "url": "https://www.securityweek.com/google-dialogflow-cx-bug-allowed-attackers-to-hijack-ai-conversations/",
+        "source": "SecurityWeek",
+        "date": "2026-07-08",
+        "reason": "披露了Google Cloud Dialogflow CX中的严重漏洞，攻击者可利用该漏洞静默劫持AI对话并窃取同项目云环境数据。"
       },
       {
-        "title": "Reducing Microsoft Sentinel Costs Without Compromising Detection",
-        "url": "https://blog.nviso.eu/2026/07/07/reducing-microsoft-sentinel-costs-without-compromising-detection-part-2-the-firewall-quest/",
+        "title": "HPC AI Workloads Need Runtime Security. The Architecture Already Exists.",
+        "url": "https://www.sentinelone.com/blog/hpc-ai-workloads-need-runtime-security-the-architecture-already-exists/",
         "source": "Unsafe.sh",
-        "date": "2026-07-07",
-        "reason": "分享了在不影响云安全检测能力的前提下，优化并降低Microsoft Sentinel运营成本的实战经验。"
+        "date": "2026-07-08",
+        "reason": "探讨了高性能计算（HPC）环境在运行AI大模型工作负载时面临的安全挑战，并提出了基于现有架构的运行时防护思路。"
       }
     ],
     "其他重要": [
       {
-        "title": "某电网电表数据遭大规模非法篡改，损失逾7000万元",
-        "url": "https://www.secrss.com/articles/91947",
-        "source": "安全内参",
-        "date": "2026-07-07",
-        "reason": "报道了希腊电网电表遭大规模数据篡改进行电力盗窃的重大事件，为工控与物联网安全敲响警钟。"
+        "title": "通过在身份验证期间在电子邮件 OTP 和 TOTP 之间切换来绕过 2FA | CN-SEC 中文网",
+        "url": "https://sec.today/pulses/3c5fa054-190c-4219-a86f-e286440c97ce/",
+        "source": "Sec-Today",
+        "date": "2026-07-08",
+        "reason": "揭露了身份验证流程中通过在OTP和TOTP间切换绕过双因素认证的逻辑缺陷，为所有实施MFA的系统敲响警钟。"
       },
       {
-        "title": "Court Filing Reveals Windows Device ID Helped FBI Trace Alleged Scattered Spider Hacker",
-        "url": "https://thehackernews.com/2026/07/court-filing-reveals-windows-device-id.html",
+        "title": "TrojPix：基于像素操纵的隔空系统高速电磁数据窃取攻击",
+        "url": "https://sec.today/pulses/4dca129a-4066-43ab-9194-7390b8fdf0b0/",
+        "source": "Sec-Today",
+        "date": "2026-07-08",
+        "reason": "报道了利用HDMI线缆电磁辐射进行物理隔离系统数据窃取的创新研究，突破了传统隔离网络的安全边界。"
+      },
+      {
+        "title": "GitHub 'Verified' Commits Can Be Rewritten Into New Hashes Without Breaking Signatures",
+        "url": "https://thehackernews.com/2026/07/github-verified-commits-can-be.html",
         "source": "The Hacker News",
-        "date": "2026-07-07",
-        "reason": "法庭文件披露FBI利用Windows持久化设备ID追踪到Scattered Spider黑客组织嫌疑人，具有数字取证参考意义。"
-      },
-      {
-        "title": "关键信息基础设施后量子密码迁移安全风险与责任重构研究",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&mid=2664264359&idx=1&sn=82848e8deef3dd9212ff44b0c417b15a",
-        "source": "Unsafe.sh",
-        "date": "2026-07-07",
-        "reason": "针对关基设施在后量子密码迁移过程中的安全风险进行了深度探讨，对行业长远规划具有战略指导价值。"
-      },
-      {
-        "title": "CERT/CC Warns of Hidden Admin Backdoor in Tenda Router Firmware",
-        "url": "https://thehackernews.com/2026/07/certcc-warns-of-hidden-admin-backdoor.html",
-        "source": "The Hacker News",
-        "date": "2026-07-07",
-        "reason": "腾达路由器固件被曝存在未记录的身份验证后门，可获取网络设备的管理员权限，威胁内网边界安全。"
+        "date": "2026-07-08",
+        "reason": "指出GitHub已签名提交的哈希可以被重写且不破坏签名验证，打破了软件供应链完整性校验的传统假设。"
       }
     ]
   },
-  "summary": "本批次文章全面覆盖了AI安全、最新高危漏洞、云安全配置失误及多起重大网络攻击事件，展现了AI赋能攻击与防御的双面性，具有极高技术参考价值。"
+  "summary": "本批次文章涵盖了AI代理武器化、云平台虚拟机逃逸及内核级高危漏洞，重点反映了AI辅助工具引入的新型攻击面与底层架构的深层威胁。"
 }
