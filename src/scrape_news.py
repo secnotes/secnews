@@ -1546,7 +1546,24 @@ class SecurityNewsAggregator:
             import time
 
             with sync_playwright() as p:
-                browser = p.chromium.launch(headless=True, args=['--disable-blink-features=AutomationControlled'])
+                # Prefer system Google Chrome (no bundled-Chromium download required when installed);
+                # fall back to bundled Chromium if Chrome is not present (e.g. minimal CI runners).
+                def _launch_browser(extra_args=None):
+                    args = ['--disable-blink-features=AutomationControlled']
+                    if extra_args:
+                        args.extend(extra_args)
+                    try:
+                        browser = p.chromium.launch(headless=True, channel='chrome', args=args)
+                        logger.info("SecurityWeek: using system Google Chrome")
+                        return browser
+                    except Exception as e:
+                        logger.info(
+                            f"SecurityWeek: system Chrome unavailable ({type(e).__name__}: {e}), "
+                            f"falling back to bundled Chromium"
+                        )
+                        return p.chromium.launch(headless=True, args=args)
+
+                browser = _launch_browser()
                 context = browser.new_context(
                     user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
                     viewport={'width': 1280, 'height': 720}
@@ -1561,10 +1578,7 @@ class SecurityNewsAggregator:
                     logger.info(f"Using proxy for SecurityWeek: {proxy_server}")
                     # Relaunch with proxy
                     browser.close()
-                    browser = p.chromium.launch(
-                        headless=True,
-                        args=['--disable-blink-features=AutomationControlled', f'--proxy-server={proxy_server}']
-                    )
+                    browser = _launch_browser(extra_args=[f'--proxy-server={proxy_server}'])
                     context = browser.new_context(
                         user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
                         viewport={'width': 1280, 'height': 720}

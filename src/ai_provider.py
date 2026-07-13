@@ -383,33 +383,67 @@ class AIProvider:
         return '\n'.join(result_lines)
 
     def _parse_json_response(self, response: str) -> Dict[str, Any]:
-        """Parse JSON from AI response, handling markdown code blocks and common errors"""
-        # Remove markdown code blocks if present
+        """Parse JSON from AI response, handling markdown code blocks and common errors
+
+        Strategy: try increasingly invasive recovery steps so most well-formed
+        responses are parsed unmodified.
+        1. Strip ```json fences and parse directly.
+        2. If the model wrapped JSON in prose, slice between first '{' and last '}'.
+        3. As a last resort, run the line-by-line cleaner (lossy) and try again.
+        """
+        # Step 1 — strip markdown code fences if present
         text = response.strip()
         if text.startswith('```json'):
             text = text[7:]
-        if text.startswith('```'):
+        elif text.startswith('```'):
             text = text[3:]
         if text.endswith('```'):
             text = text[:-3]
         text = text.strip()
 
-        # Clean duplicate keys and other issues
-        text = self._clean_json_text(text)
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        debug_file = os.path.join(script_dir, 'ai_response_debug.txt')
 
+        def _save_debug(reason, raw, stripped, cleaned):
+            with open(debug_file, 'w', encoding='utf-8') as f:
+                f.write(f"{reason}\n\n")
+                f.write(f"--- Raw AI Response (length={len(raw)}) ---\n")
+                f.write(raw)
+                f.write(f"\n\n--- After Markdown Strip (length={len(stripped)}) ---\n")
+                f.write(stripped)
+                if cleaned is not None:
+                    f.write(f"\n\n--- After Clean (length={len(cleaned)}) ---\n")
+                    f.write(cleaned)
+
+        last_error = None
+
+        # Try 1 — direct parse of markdown-stripped text (preserves everything)
         try:
             return json.loads(text)
         except json.JSONDecodeError as e:
+            last_error = e
+            logger.debug(f"Direct parse failed: {e}")
+
+        # Try 2 — extract JSON object embedded in surrounding prose
+        first_brace = text.find('{')
+        last_brace = text.rfind('}')
+        if first_brace != -1 and last_brace > first_brace:
+            candidate = text[first_brace:last_brace + 1]
+            try:
+                return json.loads(candidate)
+            except json.JSONDecodeError as e:
+                last_error = e
+                logger.debug(f"Brace-slice parse failed: {e}")
+
+        # Try 3 — aggressive line-by-line cleanup (lossy)
+        cleaned = self._clean_json_text(text)
+        try:
+            return json.loads(cleaned)
+        except json.JSONDecodeError as e:
+            last_error = e
             logger.error(f"Failed to parse AI response as JSON: {e}")
-            # Save cleaned response for debugging
-            script_dir = os.path.dirname(os.path.abspath(__file__))
-            debug_file = os.path.join(script_dir, 'ai_response_debug.txt')
-            with open(debug_file, 'w', encoding='utf-8') as f:
-                f.write(f"JSON Parse Error: {e}\n\n")
-                f.write(f"Cleaned Response (length={len(text)}):\n")
-                f.write(text)
-            logger.info(f"Cleaned response saved to {debug_file} for debugging")
-            # Return empty structure on parse failure
+            _save_debug(f"JSON Parse Error: {e}", response, text, cleaned)
+            logger.info(f"Raw and cleaned responses saved to {debug_file} for debugging")
             return {
                 "analysis_date": "",
                 "total_analyzed": 0,

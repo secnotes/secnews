@@ -1,14 +1,188 @@
 {
   "analysis_date": "2026-07-13",
-  "total_analyzed": 75,
+  "total_analyzed": 118,
   "categories": {
-    "漏洞研究": [],
-    "移动安全": [],
-    "AI安全": [],
-    "威胁情报": [],
-    "安全工具": [],
-    "云安全": [],
+    "漏洞研究": [
+      {
+        "title": "SharePoint 远程代码执行 CVE-2025-53770 PoC 发布：利用 XSD 导入绕过 XmlValidator",
+        "url": "https://sec.today/pulses/5d1ba979-273f-41dd-b039-ef43eede5ede/",
+        "source": "Sec-Today",
+        "date": "2026-07-12",
+        "reason": "野外已大规模武器化利用的SharePoint关键RCE，提供完整PoC与XSD导入绕过补丁的技术细节，防御团队急需关注"
+      },
+      {
+        "title": "签名可塑性：在不破坏签名的情况下重写 GitHub 已验证 Commit",
+        "url": "https://sec.today/pulses/faa1bfd3-b72d-41ca-8564-5fd26ec595e3/",
+        "source": "Sec-Today",
+        "date": "2026-07-12",
+        "reason": "无需私钥即可生成不同哈希值的已验证提交，绕过哈希黑名单机制，对软件供应链信任模型具有紧迫的现实威胁"
+      },
+      {
+        "title": "Vulnerabilities of Realtek SD card reader driver, part2",
+        "url": "https://sec.today/pulses/5b338891-a0bb-4db6-aac5-e068187e4a46/",
+        "source": "Sec-Today",
+        "date": "2026-07-12",
+        "reason": "用户态直接操控DMA控制器读写物理内存，完整复现从寄存器暴露到DMA攻击的实战路径，硬件级内存窃取的标杆案例"
+      },
+      {
+        "title": "Analysis of the Recent HTTP.sys 9.8 RCE: Kernel-Level Integer Overflow & WinDbg Reproduction",
+        "url": "https://unsafe.sh/go-428426.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-12",
+        "reason": "Windows内核HTTP.sys组件9.8分高危RCE的整数溢出漏洞分析，结合WinDbg完整复现，对蓝队修复有直接价值"
+      },
+      {
+        "title": "iCagenda and Balbooa Forms Joomla Flaws Reportedly Exploited as Zero-Days",
+        "url": "https://thehackernews.com/2026/07/icagenda-and-balbooa-forms-joomla-flaws.html",
+        "source": "The Hacker News",
+        "date": "2026-07-13",
+        "reason": "CISA已将两个Joomla扩展最高严重度漏洞纳入已知被利用漏洞目录，野外已被作为零日利用"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "RedHook Android 恶意软件新版本利用 Wireless ADB 获取 Shell 访问权限",
+        "url": "http://0.0.0.0:8080/post/64455",
+        "source": "Unsafe.sh",
+        "date": "2026-07-13",
+        "reason": "新型Android恶意软件变种利用Wireless ADB绕过防护直接获取Shell权限，对企业移动终端管理提出新挑战"
+      },
+      {
+        "title": "Hand-crafted 974-byte Android 14 APK (API 34) — Bypassing build-tool bloat by exploiting PackageInstaller structure",
+        "url": "https://unsafe.sh/go-428425.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-12",
+        "reason": "通过手工构造974字节极简APK绕过构建工具膨胀，深入理解Android PackageInstaller结构，对移动安全研究极具技术价值"
+      },
+      {
+        "title": "APKXHunter v1.0.0 — an open-source Android Static Analysis Framework",
+        "url": "https://unsafe.sh/go-428393.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-12",
+        "reason": "开源Android静态分析框架发布，为移动恶意软件分析提供新工具"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "当AI Coding编出不存在的包：53个可注册幻觉依赖如何变成供应链入口",
+        "url": "https://sec.today/pulses/5664511d-144a-4be6-bd3c-03ac542323b8/",
+        "source": "Sec-Today",
+        "date": "2026-07-12",
+        "reason": "揭示slopsquatting新型供应链攻击范式，跨模型共同编造的127个高风险包名构成可复用攻击面，企业需将AI生成依赖视为不可信输入"
+      },
+      {
+        "title": "Rogue Agent：Google Dialogflow CX 关键漏洞利用共享运行时实现跨 Agent 劫持",
+        "url": "https://sec.today/pulses/5d942c4f-c015-49be-bb12-18c7a1cdd0f6/",
+        "source": "Sec-Today",
+        "date": "2026-07-12",
+        "reason": "单一代码块编辑权限即可劫持同项目所有Agent并窃取敏感数据，暴露云原生AI环境中沙箱隔离失效与权限模型设计缺陷"
+      },
+      {
+        "title": "SecToday Next - GitLost漏洞：GitHub Agentic Workflows间接提示注入",
+        "url": "https://sec.today/pulses/3b6ef433-af35-43d5-950c-ff9c7c698486/",
+        "source": "Sec-Today",
+        "date": "2026-07-12",
+        "reason": "无需凭证即可通过公共仓库Issue注入隐藏指令劫持特权AI Agent，揭示Agentic Workflow架构性信任缺陷"
+      },
+      {
+        "title": "Someone Is Scanning for Your MCP Servers and AI Assistant Credentials",
+        "url": "https://isc.sans.edu/diary/rss/33150",
+        "source": "SANS ISC",
+        "date": "2026-07-13",
+        "reason": "SANS捕获到针对MCP服务器和AI助手凭证的大规模主动扫描活动，反映AI基础设施已成为现实攻击目标"
+      },
+      {
+        "title": "深度神经网络中统计上不可检测的后门",
+        "url": "https://paper.seebug.org/3500",
+        "source": "Unsafe.sh",
+        "date": "2026-07-13",
+        "reason": "学术前沿研究提出深度神经网络中统计上不可检测的后门攻击，对AI供应链与模型安全具有深远影响"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "Misconfigured Server Reveals Three Evilginx Phishing Operations Targeting Microsoft 365",
+        "url": "https://thehackernews.com/2026/07/misconfigured-server-reveals-three.html",
+        "source": "The Hacker News",
+        "date": "2026-07-13",
+        "reason": "攻击者配置错误暴露三个针对Microsoft 365的活跃Evilginx钓鱼行动，提供完整基础设施情报"
+      },
+      {
+        "title": "幽灵账户滥用 GitHub API 进行大规模侦察活动",
+        "url": "http://0.0.0.0:8080/post/64454",
+        "source": "Unsafe.sh",
+        "date": "2026-07-13",
+        "reason": "揭示利用幽灵账户通过GitHub API实施大规模自动化侦察的新兴威胁活动模式"
+      },
+      {
+        "title": "澳大利亚警告：全球性攻击活动瞄准存在漏洞的 CMS 平台",
+        "url": "http://0.0.0.0:8080/post/64453",
+        "source": "Unsafe.sh",
+        "date": "2026-07-13",
+        "reason": "澳大利亚网络安全中心发布全球性CMS漏洞利用攻击活动预警，影响面广需立即关注"
+      },
+      {
+        "title": "Progress Told ShareFile Customers to Pull the Plug on Their Servers",
+        "url": "https://securityaffairs.com/195194/hacking/progress-told-sharefile-customers-to-pull-the-plug-on-their-servers-heres-what-we-know.html",
+        "source": "Security Affairs",
+        "date": "2026-07-12",
+        "reason": "Progress建议ShareFile客户立即断开服务器，涉及关键文件共享平台供应链重大安全事件"
+      },
+      {
+        "title": "【安全圈】勒索软件谈判顾问勾结黑客反向收割客户，被判近六年监禁",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077805&idx=1&sn=6b6595acfb0550598252fee7c782f905",
+        "source": "Unsafe.sh",
+        "date": "2026-07-12",
+        "reason": "勒索软件谈判顾问与黑客合谋的双重勒索犯罪被判刑，揭示勒索软件生态中的内幕信任危机"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "本地漏洞研究流水线发布：14B代码模型驱动自动化漏洞挖掘",
+        "url": "https://www.freebuf.com/articles/sectool/489929.html",
+        "source": "FreeBuf",
+        "date": "2026-07-12",
+        "reason": "14B本地代码模型驱动漏洞挖掘流水线，在Linux Kernel等大型项目验证，提供穷举式自动化漏洞研究新思路"
+      },
+      {
+        "title": "ObfusGit：一款防止 AI 抓取公共仓库的 Python 加密工具",
+        "url": "https://sec.today/pulses/e624c203-aa49-40aa-932d-6909d61af31e/",
+        "source": "Sec-Today",
+        "date": "2026-07-12",
+        "reason": "本地LLM快速生成的实用工具，自动加密机制保护公开代码免遭AI爬取训练，开源社区代码知识产权保护新方案"
+      },
+      {
+        "title": "Pocket Disasm — parallel headless binary analysis through one IDALib MCP endpoint",
+        "url": "https://unsafe.sh/go-428424.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-12",
+        "reason": "通过单一IDALib MCP端点实现并行无头二进制分析，逆向工程与恶意软件分析效率工具的重要突破"
+      },
+      {
+        "title": "MaFrida v0.3.0 is out!",
+        "url": "https://unsafe.sh/go-428427.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-12",
+        "reason": "Frida移动端动态分析工具的新版本发布，对移动安全研究具有工具价值"
+      },
+      {
+        "title": "5秒挖出15年Linux漏洞，AI却让无辜记者成了偷车嫌犯",
+        "url": "https://www.secrss.com/articles/92084",
+        "source": "安全内参",
+        "date": "2026-07-12",
+        "reason": "AI驱动漏洞挖掘工具在Linux内核中发现潜伏15年的高危漏洞，展现AI在安全研究中的实战价值与潜在风险"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "Method to Bypass AWS IP WHITELISTING",
+        "url": "https://unsafe.sh/go-428406.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-12",
+        "reason": "披露绕过AWS IP白名单控制的方法，对依赖IP白名单的云安全架构具有重要警示意义"
+      }
+    ],
     "其他重要": []
   },
-  "summary": "AI分析完成，已筛选重要文章并分类"
+  "summary": "本批次聚焦AI供应链攻击与高危漏洞，涵盖SharePoint RCE PoC、Git签名可塑性、Dialogflow跨Agent劫持及slopsquatting等前沿威胁。"
 }
