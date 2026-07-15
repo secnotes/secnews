@@ -1,188 +1,217 @@
 {
-  "analysis_date": "2026-07-14",
-  "total_analyzed": 118,
+  "analysis_date": "2026-07-15",
+  "total_analyzed": 121,
   "categories": {
     "漏洞研究": [
       {
-        "title": "JDK 21 虚拟线程模型下 Web 应用会话上下文串扰漏洞的挖掘与利用",
-        "url": "https://xz.aliyun.com/news/92509",
-        "source": "先知社区",
-        "date": "2026-07-13",
-        "reason": "JDK 21虚拟线程引入的隐蔽会话越权漏洞深度分析，具有新颖性和实战价值"
+        "title": "一加ACE5至尊版 kernel 6.6.89尝试利用GhostLock / IonStack 进行root提权",
+        "url": "http://bbs.kanxue.com/thread-291972.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-14",
+        "reason": "CVE-2026-43499 GhostLock/IonStack内核漏洞利用链原理解析，附带OnePlus 13T内核适配实战，技术深度极高"
       },
       {
-        "title": "Zimbra Patches Critical Code Execution Vulnerability",
-        "url": "https://www.securityweek.com/zimbra-patches-critical-code-execution-vulnerability/",
+        "title": "Microsoft Patches Record 622 Flaws, Including Two Zero-Days Under Active Attack",
+        "url": "https://thehackernews.com/2026/07/microsoft-patches-record-622-flaws.html",
+        "source": "The Hacker News",
+        "date": "2026-07-14",
+        "reason": "微软史上最大Patch Tuesday，包含两个已被在野利用的零日漏洞（Active Directory和SharePoint），影响面广需优先修补"
+      },
+      {
+        "title": "11 Old Microsoft-Signed Linux UEFI Shims Could Let Attackers Bypass Secure Boot",
+        "url": "https://thehackernews.com/2026/07/11-old-microsoft-signed-linux-uefi.html",
+        "source": "The Hacker News",
+        "date": "2026-07-14",
+        "reason": "11个微软签名的旧UEFI Shim可绕过Secure Boot，影响几乎所有使用UEFI的Linux系统，供应链级底层威胁"
+      },
+      {
+        "title": "7 Severe Vulnerabilities Patched in VMware Avi Load Balancer",
+        "url": "https://www.securityweek.com/7-severe-vulnerabilities-patched-in-vmware-avi-load-balancer/",
         "source": "SecurityWeek",
-        "date": "2026-07-13",
-        "reason": "Zimbra邮件系统关键RCE漏洞，恶意代码嵌入邮件即可执行，影响广泛"
+        "date": "2026-07-14",
+        "reason": "VMware Avi负载均衡器7个严重漏洞可导致身份绕过、远程代码执行和提权，云基础设施关键组件风险极高"
       },
       {
-        "title": "RabbitMQ Vulnerability Threatens Enterprise Systems",
-        "url": "https://www.securityweek.com/rabbitmq-vulnerability-threatens-enterprise-systems/",
-        "source": "SecurityWeek",
-        "date": "2026-07-13",
-        "reason": "未认证攻击者可获取OAuth客户端密钥并控制企业级消息中间件"
-      },
-      {
-        "title": "Dell BIOS Passwords: Weak XOR Encryption Allows Recovery from SPI Flash (CVE-2026-40639)",
-        "url": "https://unsafe.sh/go-428517.html",
+        "title": "Smashing the ServiceNow Sandbox – Pre Authentication RCE",
+        "url": "https://unsafe.sh/go-428767.html",
         "source": "Unsafe.sh",
-        "date": "2026-07-13",
-        "reason": "Dell BIOS密码弱加密硬件级漏洞，可从SPI Flash恢复"
-      },
-      {
-        "title": "Windows Privilege Escalation: SeTakeOwnershipPrivilege",
-        "url": "https://www.hackingarticles.in/windows-privilege-escalation-setakeownershipprivilege/",
-        "source": "HackingArticles",
-        "date": "2026-07-13",
-        "reason": "Windows提权实操技术详解，利用SeTakeOwnershipPrivilege进行权限提升"
+        "date": "2026-07-14",
+        "reason": "ServiceNow Sandbox预认证远程代码执行漏洞详情披露，企业广泛使用，影响面极大"
       }
     ],
-    "移动安全": [],
+    "移动安全": [
+      {
+        "title": "电动牙刷小程序\"越权控制\"逆向",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458617595&idx=1&sn=35241f6e1cca7d4384db0abb5b1a6048",
+        "source": "Unsafe.sh",
+        "date": "2026-07-14",
+        "reason": "IoT设备微信小程序越权控制漏洞逆向案例，反映移动端IoT控制类应用普遍存在的鉴权缺陷"
+      },
+      {
+        "title": "Is it possible to unlock bootloader and flash a modified kernel without complete factory reset? [Android14]",
+        "url": "https://unsafe.sh/go-428814.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-14",
+        "reason": "Android 14 Bootloader解锁与内核刷写机制讨论，涉及安卓底层安全策略演进"
+      }
+    ],
     "AI安全": [
       {
-        "title": "Ghostcommit 攻击：恶意提示藏入图片，劫持Agent实施窃取",
-        "url": "https://www.anquanke.com/post/id-315788",
-        "source": "安全客",
-        "date": "2026-07-13",
-        "reason": "新型AI Agent提示词注入攻击，在图片中隐藏恶意指令劫持AI代码审查Agent"
-      },
-      {
-        "title": "New MemGhost Attack Plants Persistent False Memories in AI Agents Through One Email",
-        "url": "https://thehackernews.com/2026/07/new-memghost-attack-plants-persistent.html",
+        "title": "Grok Build Uploaded Entire Git Repositories to xAI Storage, Not Just Files It Read",
+        "url": "https://thehackernews.com/2026/07/grok-build-uploads-entire-git.html",
         "source": "The Hacker News",
-        "date": "2026-07-13",
-        "reason": "通过单封邮件向AI Agent注入持久性虚假记忆的攻击技术"
+        "date": "2026-07-14",
+        "reason": "xAI Grok Build CLI工具上传整个Git仓库（含全部commit历史）到云存储，AI编程助手数据泄露风险严重"
       },
       {
-        "title": "Attacker Uses Suspected AI-Generated PowerShell Script to Map Active Directory",
-        "url": "https://thehackernews.com/2026/07/attacker-uses-suspected-ai-generated.html",
+        "title": "全网大规模扫描来袭！MCP、AI密钥、大模型接口全遭猎捕",
+        "url": "http://bbs.kanxue.com/thread-292012.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-14",
+        "reason": "黑客全网扫描窃取AI配置与云权限，MCP协议、AI API密钥成为新型攻击目标，威胁规模空前"
+      },
+      {
+        "title": "Source-reviewing 200+ self-hosted multi-tenant AI/SaaS apps for tenant isolation: 78 leaked across tenants",
+        "url": "https://unsafe.sh/go-428768.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-14",
+        "reason": "对200+自托管多租户AI/SaaS应用源码审计发现78个租户隔离泄露，揭示AI应用层严重数据隔离缺陷"
+      },
+      {
+        "title": "Researchers Say Claude for Chrome Flaw Lets Rogue Extensions Trigger Gmail Reads",
+        "url": "https://thehackernews.com/2026/07/claude-for-chrome-flaw-lets-other.html",
         "source": "The Hacker News",
-        "date": "2026-07-13",
-        "reason": "攻击者使用疑似AI生成的PowerShell脚本进行AD枚举，AI辅助攻击实战案例"
+        "date": "2026-07-14",
+        "reason": "Claude for Chrome漏洞致任意浏览器扩展可触发对Gmail/Docs等敏感数据的读取，AI Agent权限失控"
       },
       {
-        "title": "Ghostcommit attack hides malicious AI instructions in images",
-        "url": "https://www.malwarebytes.com/blog/ai/2026/07/ghostcommit-attack-hides-malicious-ai-instructions-in-images",
-        "source": "Malwarebytes",
-        "date": "2026-07-13",
-        "reason": "Ghostcommit PoC详细技术分析，揭示AI代码助手被劫持的完整攻击链"
-      },
-      {
-        "title": "Introducing Precursor: detecting agentic behavior with continuous client-side signals",
-        "url": "https://blog.cloudflare.com/introducing-precursor/",
-        "source": "Cloudflare",
-        "date": "2026-07-13",
-        "reason": "Cloudflare推出检测Agent行为的客户端安全工具，应对AI Agent安全风险"
+        "title": "【安全圈】一封邮件就能让AI\"失忆\"并被操控：MemGhost攻击曝光",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077833&idx=3&sn=f8a9e72e6123467bfc11601e9f3d29c3",
+        "source": "Unsafe.sh",
+        "date": "2026-07-14",
+        "reason": "MemGhost攻击通过单封邮件操纵AI Agent记忆并触发未授权操作，AI供应链新型攻击向量"
       }
     ],
     "威胁情报": [
       {
-        "title": "UTG-Q-1000团伙近期仿冒Zinst等软件分发银狐木马新变种",
-        "url": "https://www.secrss.com/articles/92096",
-        "source": "安全内参",
-        "date": "2026-07-13",
-        "reason": "国内活跃黑产团伙UTG-Q-1000新变种银狐木马威胁情报"
-      },
-      {
-        "title": "Google and Microsoft Pull ModHeader With 1.6 Million Installs After Dormant Collector Found",
-        "url": "https://thehackernews.com/2026/07/google-and-microsoft-pull-modheader.html",
+        "title": "LabubaRAT Masquerades as NVIDIA Software to Control Windows Hosts",
+        "url": "https://thehackernews.com/2026/07/labubarat-masquerades-as-nvidia.html",
         "source": "The Hacker News",
-        "date": "2026-07-13",
-        "reason": "160万安装量的浏览器扩展被发现隐藏历史数据收集器，Chrome和Edge已下架"
+        "date": "2026-07-14",
+        "reason": "Rust编写的新型RAT伪装成NVIDIA软件，针对Windows主机，载荷和规避技术新颖"
       },
       {
-        "title": "Forg365 PhaaS Targets Microsoft 365 with Device Code and AitM Session Theft",
-        "url": "https://thehackernews.com/2026/07/forg365-phaas-targets-microsoft-365.html",
+        "title": "148 npm Packages Disguised as Student Proxies Turned Browsers Into a DDoS Botnet",
+        "url": "https://thehackernews.com/2026/07/148-npm-packages-disguised-as-student.html",
         "source": "The Hacker News",
-        "date": "2026-07-13",
-        "reason": "新型钓鱼即服务平台，结合设备码钓鱼、AitM会话窃取及AI技术针对M365"
+        "date": "2026-07-14",
+        "reason": "148个npm包伪装学生代理将用户浏览器变成DDoS僵尸网络，供应链攻击规模庞大"
       },
       {
-        "title": "Threat Intelligence Report: JADEPUFFER Agentic Ransomware and Automated Extortion",
-        "url": "https://krypt3ia.wordpress.com/2026/07/13/threat-intelligence-report-jadepuffer-agentic-ransomware-and-automated-extortion/",
-        "source": "Unsafe.sh",
-        "date": "2026-07-13",
-        "reason": "新型Agentic勒索软件威胁情报报告，具备自动化勒索能力"
-      },
-      {
-        "title": "Misconfigured Server Reveals Three Evilginx Phishing Operations Targeting Microsoft 365",
-        "url": "https://thehackernews.com/2026/07/misconfigured-server-reveals-three.html",
+        "title": "Microsoft Maps Three Salesforce Attack Paths Tied to a Year of ShinyHunters Activity",
+        "url": "https://thehackernews.com/2026/07/microsoft-maps-year-long-shinyhunters.html",
         "source": "The Hacker News",
-        "date": "2026-07-13",
-        "reason": "攻击者配置错误意外暴露三套针对M365的Evilginx钓鱼操作基础设施"
+        "date": "2026-07-14",
+        "reason": "微软绘制ShinyHunters针对Salesforce环境的三大攻击路径，APT级持续数据勒索活动"
+      },
+      {
+        "title": "Multiple Jscrambler Packages Impacted by Supply Chain Attack",
+        "url": "https://www.securityweek.com/multiple-jscrambler-packages-impacted-by-supply-chain-attack/",
+        "source": "SecurityWeek",
+        "date": "2026-07-14",
+        "reason": "Jscrambler多个NPM包遭供应链投毒植入跨平台凭据窃取器，影响大量Web应用"
+      },
+      {
+        "title": "US, Allies Warn of Russian Cyberattacks Targeting Critical Infrastructure Routers",
+        "url": "https://www.securityweek.com/us-allies-warn-of-russian-cyberattacks-targeting-critical-infrastructure-routers/",
+        "source": "SecurityWeek",
+        "date": "2026-07-14",
+        "reason": "美英欧联合警告俄罗斯APT针对关键基础设施路由器发起攻击，国家级威胁预警"
       }
     ],
     "安全工具": [
       {
-        "title": "I built an open-source Python network scanner with a GUI using Scapy and Nmap",
-        "url": "https://unsafe.sh/go-428626.html",
+        "title": "How Pentera Turns AI Security Workflows into Validation Engines",
+        "url": "https://thehackernews.com/2026/07/how-pentera-turns-ai-security-workflows.html",
+        "source": "The Hacker News",
+        "date": "2026-07-14",
+        "reason": "Pentera将AI安全Agent工作流转化为自动化验证引擎，代表AI辅助安全工具落地方向"
+      },
+      {
+        "title": "Hacking the Hackers: Can You Still Deceive an AI Attacker?",
+        "url": "https://horizon3.ai/downloads/whitepapers/hacking-the-hackers/",
         "source": "Unsafe.sh",
-        "date": "2026-07-13",
-        "reason": "基于Scapy和Nmap的开源Python GUI网络扫描器，实战工具"
+        "date": "2026-07-14",
+        "reason": "当前最大规模AI攻击者受控实验研究，关于网络欺骗技术的有效性数据极具参考价值"
       },
       {
-        "title": "Rust-proof your code with our new Testing Handbook chapter",
-        "url": "https://blog.trailofbits.com/2026/07/13/rust-proof-your-code-with-our-new-testing-handbook-chapter/",
-        "source": "Trail of Bits",
-        "date": "2026-07-13",
-        "reason": "Trail of Bits发布Rust安全测试手册章节，专业安全测试指南"
+        "title": "A broken DNSSEC rollover took down .AL. Now 1.1.1.1 tells you when validation is bypassed",
+        "url": "https://blog.cloudflare.com/dnssec-nta-ede-33/",
+        "source": "Unsafe.sh",
+        "date": "2026-07-14",
+        "reason": "Cloudflare 1.1.1.1新增DNSSEC NTA和EDE-33扩展，可识别验证绕过事件，DNS安全防护能力升级"
       },
       {
-        "title": "绿盟智能渗透测试系统2.0即将首发——绿盟科技AI安全创新成果发布会",
-        "url": "https://blog.nsfocus.net/直播预告-绿盟智能渗透测试系统2-0即将首发-绿盟/",
-        "source": "绿盟科技",
-        "date": "2026-07-13",
-        "reason": "绿盟科技推出AI驱动智能渗透测试系统2.0，应对秒级漏洞挖掘挑战"
+        "title": "Ready for macOS Threats: Expanding Your SOC's Cross-Platform Analysis with ANY.RUN",
+        "url": "https://hackernoon.com/ready-for-macos-threats-expanding-your-socs-cross-platform-analysis-with-anyrun",
+        "source": "Unsafe.sh",
+        "date": "2026-07-14",
+        "reason": "ANY.RUN沙箱支持macOS威胁分析，SOC跨平台威胁狩猎能力补齐"
       }
     ],
     "云安全": [
       {
-        "title": "Defending SaaS-based applications against ShinyHunters OAuth abuse",
-        "url": "https://www.microsoft.com/en-us/security/blog/2026/07/13/defending-saas-based-applications-against-shinyhunters-oauth-abuse/",
-        "source": "Microsoft",
-        "date": "2026-07-13",
-        "reason": "微软针对ShinyHunters组织OAuth滥用的SaaS应用防御分析"
+        "title": "RabbitMQ Flaws Could Leak OAuth Secrets and Expose Cross-Tenant Queue Metadata",
+        "url": "https://thehackernews.com/2026/07/rabbitmq-flaws-could-leak-oauth-secrets.html",
+        "source": "The Hacker News",
+        "date": "2026-07-14",
+        "reason": "消息中间件RabbitMQ两个访问控制缺陷可泄露OAuth密钥及跨租户队列元数据，云服务多租户隔离问题"
       },
       {
-        "title": "Microsoft Entra ID security updates: Passkeys are the default authentication method in Entra ID",
-        "url": "https://www.microsoft.com/en-us/security/blog/2026/07/13/microsoft-entra-id-security-updates-passkeys-are-the-default-authentication-method-in-entra-id/",
-        "source": "Microsoft",
-        "date": "2026-07-13",
-        "reason": "Microsoft Entra ID将Passkey设为默认认证方式，身份安全重大更新"
+        "title": "OAuth Client ID Spoofing Lets Attackers Validate Stolen Microsoft Entra Credentials",
+        "url": "https://thehackernews.com/2026/07/oauth-client-id-spoofing-lets-attackers.html",
+        "source": "The Hacker News",
+        "date": "2026-07-14",
+        "reason": "OAuth客户端ID伪造技术被多个威胁行为者武器化，可绕过遥测验证窃取的Entra凭据，云身份安全重大风险"
       },
       {
-        "title": "Why cloud security is mission-critical for federal civilian and defense agencies",
-        "url": "https://www.tenable.com/blog/fedramp-high-il5-federal-government-cloud-security",
-        "source": "Tenable",
-        "date": "2026-07-13",
-        "reason": "联邦政府云安全FedRAMP High/IL5合规性与韧性建设的关键分析"
+        "title": "ServiceNow 严重漏洞导致远程攻击者执行恶意代码",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzI2NTg4OTc5Nw==&mid=2247526614&idx=1&sn=52998f2ed993d525f8db65adf3507e3a",
+        "source": "Unsafe.sh",
+        "date": "2026-07-14",
+        "reason": "ServiceNow严重预认证RCE漏洞被披露，国内外多家大型企业依赖该平台，影响面巨大"
       }
     ],
     "其他重要": [
       {
-        "title": "EU Targets Russian Intelligence Officers Accused of Running a Yearslong Cyber Spying Campaign",
-        "url": "https://www.securityweek.com/eu-targets-russian-intelligence-officers-accused-of-running-a-yearslong-cyber-spying-campaign/",
-        "source": "SecurityWeek",
-        "date": "2026-07-13",
-        "reason": "欧盟制裁俄罗斯情报官员的网络间谍活动，重大地缘政治安全事件"
+        "title": "停产六周即破产：德国37年纺织老厂之死，揭示网络攻击最残酷的真相",
+        "url": "https://www.anquanke.com/post/id/315803",
+        "source": "安全客",
+        "date": "2026-07-14",
+        "reason": "德国37年纺织老厂因网络攻击停产六周直接破产，反映勒索攻击对传统制造业的毁灭性打击"
       },
       {
-        "title": "Lessons Learned from CISA's Recent GitHub Leak",
-        "url": "https://krebsonsecurity.com/2026/07/lessons-learned-from-cisas-recent-github-leak/",
-        "source": "KrebsOnSecurity",
-        "date": "2026-07-13",
-        "reason": "CISA GitHub泄露事件复盘分析，政府机构供应链安全教训"
+        "title": "Malware Hits Japan's Largest Taxi Company Nihon Kotsu, Services Temporarily Suspended",
+        "url": "https://securityaffairs.com/195305/cyber-crime/malware-hits-japans-largest-taxi-company-nihon-kotsu-services-temporarily-suspended.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-14",
+        "reason": "日本最大出租车运营商日本交通遭恶意软件攻击被迫停运，重大基础设施安全事件"
       },
       {
-        "title": "Progress Prompts ShareFile Storage Zone Controller Shutdown Amid Security Concerns",
-        "url": "https://www.securityweek.com/progress-prompts-sharefile-storage-zone-controller-shutdown-amid-security-concerns/",
+        "title": "U.S. Sanctions First VPN Service and Malware Cryptor Seller Over Ransomware Support",
+        "url": "https://thehackernews.com/2026/07/us-sanctions-first-vpn-service-and.html",
+        "source": "The Hacker News",
+        "date": "2026-07-14",
+        "reason": "美国财政部首次制裁VPN服务商和恶意软件加密器销售商，针对勒索软件生态的执法里程碑"
+      },
+      {
+        "title": "Pentagon Suspends CMMC Phase 2 as It Rethinks Contractor Cybersecurity Rules",
+        "url": "https://www.securityweek.com/pentagon-suspends-cmmc-phase-2-as-it-rethinks-contractor-cybersecurity-rules/",
         "source": "SecurityWeek",
-        "date": "2026-07-13",
-        "reason": "Progress要求客户紧急关停ShareFile存储控制器，重大企业安全事件"
+        "date": "2026-07-14",
+        "reason": "美国国防部暂停CMMC第二阶段要求，重新审视国防承包商网络安全合规框架，政策方向重大调整"
       }
     ]
   },
-  "summary": "AI分析完成，已筛选重要文章并分类"
+  "summary": "微软622漏洞史上最大补丁周，含两条零日；AI工具与SaaS成新攻击面；多起勒索事件导致企业停产破产。"
 }
