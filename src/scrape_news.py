@@ -2038,7 +2038,7 @@ def _generate_ai_curated_html(ai_curated):
 
     result_html = f'''
     <div class="ai-summary">
-        <h3>🤖 AI智能分析</h3>
+        <h3>🤖 AI智能分析 <span class="model-badge" title="本批次 AI 精选所用模型">{html.escape(ai_curated.get('model', 'unknown'))}</span></h3>
         <div class="ai-summary-text">{html.escape(summary)}</div>
     </div>
     {"".join(categories_html)}
@@ -2528,6 +2528,20 @@ def generate_html(articles, output_file=None, ai_curated=None):
             border-left: 3px solid #667eea;
         }}
 
+        .model-badge {{
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            font-size: 0.7rem;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-weight: 500;
+            margin-left: 10px;
+            vertical-align: middle;
+            letter-spacing: 0.3px;
+            box-shadow: 0 1px 3px rgba(102, 126, 234, 0.3);
+        }}
+
         .ai-article {{
             background: white;
             border-radius: 8px;
@@ -2683,6 +2697,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
                     <p>分析日期: {ai_curated.get('analysis_date', '-') if ai_curated else '-'}</p>
                     <p>筛选文章: {sum(len(arts) for arts in ai_curated.get('categories', {}).values()) if ai_curated else 0} 篇</p>
                     <p>原始文章: {ai_curated.get('total_analyzed', 0) if ai_curated else 0} 篇</p>
+                    <p>模型来源: <code style="background:#e9ecef;padding:1px 6px;border-radius:3px;">{html.escape(ai_curated.get('model', '-')) if ai_curated else '-'}</code></p>
                 </div>
             </div>
         </aside>

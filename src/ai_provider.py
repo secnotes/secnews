@@ -259,6 +259,7 @@ class AIProvider:
         """Merge results from multiple batches into a single result"""
         merged = {
             "analysis_date": datetime.now().strftime('%Y-%m-%d'),
+            "model": self.model,
             "total_analyzed": len(original_articles),
             "categories": {},
             "summary": "",
