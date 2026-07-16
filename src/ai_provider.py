@@ -200,7 +200,14 @@ class AIProvider:
 
             system_prompt = """你是一位网络安全领域的专业分析师。你的任务是分析安全文章，筛选出重要内容并进行分类。
 你需要根据文章标题和描述判断其主题和重要性，将文章分配到合适的分类中。
-请保持客观、专业，优先关注有实际技术价值的内容。"""
+请保持客观、专业，优先关注有实际技术价值的内容。
+
+## 严格输出规则（违反任何一条 = 输出失败）
+1. 唯一输出：一个 JSON 对象。禁止 <think> 推理块、前言、说明、markdown ``` 围栏等任何额外字符。
+2. JSON 字符串值内部严禁出现未转义的 ASCII 双引号 (")。中文短语如需强调，必须使用「」、『』或全角双引号（“金鹰计划”），绝不能用英文双引号。
+3. 反例（绝对禁止）："reason":"美国"金鹰计划"启动"  ← 这里的英文 " 会破坏 JSON
+4. 正例（正确）："reason":"美国「金鹰计划」启动"  或  "reason":"美国“金鹰计划”启动"（全角）
+5. JSON 必须能被 Python json.loads() 直接解析。"""
 
             prompt = f"""请分析以下安全文章，筛选出重要的内容并按主题分类。
 
@@ -217,10 +224,15 @@ class AIProvider:
 {articles_text}
 
 ## 输出格式
-请严格按照以下 JSON 格式返回，不要添加任何额外内容：
+只输出一个 JSON 对象，前后不要任何额外字符。严格按此结构：
 ```json
 {{"analysis_date":"YYYY-MM-DD","total_analyzed":{len(batch_articles)},"batch_number":{batch_num + 1},"categories":{{"漏洞研究":[{{"title":"文章标题","url":"文章链接","source":"来源","date":"日期","reason":"推荐理由"}}]}},"summary":"本批次分析摘要（50字以内）"}}
 ```
+
+## 红线提醒
+- 不要输出 <think>...</think> 推理块
+- 不要用 ```json``` 围栏（直接输出 JSON 即可）
+- reason 字段中如有中文短语加引号，用「」『』或全角""，不能用英文 "
 
 请开始分析并返回 JSON 结果。"""
 
@@ -310,10 +322,38 @@ class AIProvider:
         Main issues handled:
         1. Invalid lines that are not key-value pairs (delete them)
         2. Duplicate keys (keep the last occurrence)
+        3. Single-line compact JSON: AI models (e.g., MiniMax-M3, GPT-4) often
+           return one-line JSON. The regex patterns below assume one key per
+           line, so a multi-thousand-char single-line JSON would be dropped
+           entirely. Detect and short-circuit before line-by-line processing.
 
-        Strategy: Remove any line that doesn't match valid JSON patterns.
+        Strategy: First, scan for any line that is itself a complete JSON
+        object (starts with '{', ends with '}', length >= 50 chars). If found
+        and parses, return it as-is. Otherwise, fall back to line-by-line
+        cleanup.
         """
         import re
+        import json as _json
+
+        # Single-line compact JSON detection.
+        # Without this short-circuit, a 9000+ char one-line JSON would be
+        # dropped entirely by the line-by-line regex matcher below (no single
+        # line matches "one key per line" patterns when the JSON is compact).
+        for line in text.split('\n'):
+            stripped = line.strip()
+            if stripped.startswith('{') and stripped.endswith('}') and len(stripped) >= 50:
+                try:
+                    _json.loads(stripped)
+                    logger.debug(
+                        f"Single-line JSON detected ({len(stripped)} chars); "
+                        "returning as-is"
+                    )
+                    return stripped
+                except _json.JSONDecodeError:
+                    # Candidate isn't actually valid JSON (e.g., contains
+                    # unescaped quotes from model output). Keep scanning.
+                    continue
+
         lines = text.split('\n')
         result_lines = []
         # Track keys in current object scope
