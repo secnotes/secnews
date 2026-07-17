@@ -1,217 +1,225 @@
 {
-  "analysis_date": "2026-07-15",
-  "total_analyzed": 145,
+  "analysis_date": "2026-07-17",
+  "model": "MiniMax-M3",
+  "total_analyzed": 118,
   "categories": {
     "漏洞研究": [
       {
-        "title": "一行未认证请求打满 CVSS 10 分，SonicWall SMA 1000 这两个零日正在被一把梭（CVE-2026-15409 + CVE-2026-15410）",
-        "url": "https://www.freebuf.com/articles/vuls/490465.html",
-        "source": "FreeBuf",
-        "date": "2026-07-15",
-        "reason": "SonicWall SMA 1000两个零日漏洞正在被积极利用，CVSS满分10分，远程未认证即可获取管理员权限，影响面广，需紧急修补。"
+        "title": "又撕微软！无补丁 LegacyHive 0day，低权限可读取管理员注册表数据",
+        "url": "http://bbs.kanxue.com/thread-292035.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-16",
+        "reason": "Windows本地提权零日漏洞公开完整PoC，影响全补丁桌面/服务器系统且微软无修复方案，威胁等级极高"
       },
       {
-        "title": "Windows BitLocker 被曝0Day漏洞：攻击者可绕过磁盘加密保护",
-        "url": "https://www.freebuf.com/articles/system/490380.html",
-        "source": "FreeBuf",
-        "date": "2026-07-15",
-        "reason": "BitLocker磁盘加密0Day漏洞被曝物理接触即可绕过，对企业数据保护构成致命威胁，属高危硬件级安全风险。"
-      },
-      {
-        "title": "2026年7月补丁星期二：史上最大规模更新，单月621个CVE",
-        "url": "https://www.freebuf.com/articles/es/490321.html",
-        "source": "FreeBuf",
-        "date": "2026-07-14",
-        "reason": "微软7月补丁日发布创纪录621个CVE修复，含两个已被积极利用的零日漏洞（AD FS提权与SharePoint未认证RCE），具有重大实战参考价值。"
-      },
-      {
-        "title": "Researcher Drops New Windows Zero-Day PoC Hours After Microsoft Patch Tuesday",
-        "url": "https://thehackernews.com/2026/07/researcher-drops-new-windows-zero-day.html",
+        "title": "Zoom Patches Critical Windows Flaw That Could Enable Account Takeover",
+        "url": "https://thehackernews.com/2026/07/zoom-patches-critical-windows-flaw-that.html",
         "source": "The Hacker News",
-        "date": "2026-07-15",
-        "reason": "安全研究员Chaotic Eclipse在微软补丁发布数小时后即公开LegacyHive PoC利用，针对完全补丁的Windows系统，影响Windows用户配置文件服务。"
+        "date": "2026-07-16",
+        "reason": "Zoom Workplace Windows高危漏洞CVE-2026-53412可导致账户接管，CVSS评分处于关键级别"
       },
       {
-        "title": "SAP Patches CVSS 9.9 NetWeaver ABAP Flaw That Could Expose or Modify Data",
-        "url": "https://thehackernews.com/2026/07/sap-patches-cvss-99-netweaver-abap-flaw.html",
-        "source": "The Hacker News",
-        "date": "2026-07-14",
-        "reason": "SAP NetWeaver ABAP高危漏洞CVSS 9.9分，可暴露或修改企业核心数据，对运行SAP的关基设施构成严重威胁。"
+        "title": "F5 Patches Multiple NGINX, BIG-IP Vulnerabilities",
+        "url": "https://www.securityweek.com/f5-patches-multiple-nginx-big-ip-vulnerabilities/",
+        "source": "SecurityWeek",
+        "date": "2026-07-16",
+        "reason": "F5多款产品存在多个高危漏洞，攻击者可执行命令、泄露内存、修改配置，影响广泛部署的关键基础设施"
+      },
+      {
+        "title": "CVE-2026-32201等四个Microsoft SharePoint Server漏洞FAQ",
+        "url": "https://www.tenable.com/blog/cve-2026-32201-cve-2026-45659-cve-2026-56164-faq-sharepoint-server-exploitation",
+        "source": "Tenable",
+        "date": "2026-07-16",
+        "reason": "四个SharePoint Server漏洞已被CISA确认在野利用，严重威胁企业核心协作系统安全"
+      },
+      {
+        "title": "Old UEFI Shims Expose Systems to Secure Boot Bypass",
+        "url": "https://www.securityweek.com/old-uefi-shims-expose-systems-to-secure-boot-bypass/",
+        "source": "SecurityWeek",
+        "date": "2026-07-16",
+        "reason": "微软签名的旧版UEFI Shim引导程序可绕过Secure Boot，跨所有操作系统均受影响"
       }
     ],
     "移动安全": [
       {
-        "title": "一加ACE5至尊版 kernel 6.6.89尝试利用GhostLock / IonStack 进行root提权",
-        "url": "http://bbs.kanxue.com/thread-291972.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-07-14",
-        "reason": "详细记录CVE-2026-43499（GhostLock）在OnePlus 13T内核6.6上的实战利用过程，涵盖IonStack利用链完整技术细节，技术深度极高。"
+        "title": "New ClickLock macOS Stealer Kills Apps Every 210ms Until Victims Type Their Password",
+        "url": "https://thehackernews.com/2026/07/new-clicklock-macos-stealer-kills-apps.html",
+        "source": "The Hacker News",
+        "date": "2026-07-16",
+        "reason": "新型macOS信息窃取恶意软件通过社交工程和持续进程终止迫使用户输入密码，已影响超100名用户"
       },
       {
-        "title": "Android ARM64 内核态内存访问与隐蔽交互机制逆向分析",
-        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458617607&idx=1&sn=16b716cce03ecf76194c87154fe32799",
-        "source": "看雪微信公众号",
-        "date": "2026-07-15",
-        "reason": "针对Android ARM64内核态内存访问与隐蔽交互机制的深度逆向分析，对移动安全研究者和Root/反Root对抗有重要参考价值。"
+        "title": "The backlash against Flock cameras is spreading",
+        "url": "https://www.malwarebytes.com/blog/news/2026/07/the-backlash-against-flock-cameras-is-spreading",
+        "source": "Malwarebytes",
+        "date": "2026-07-16",
+        "reason": "Flock风格ALPR车牌识别系统存在严重隐私和公民自由风险，反对该监控技术的浪潮正在扩散"
       },
       {
-        "title": "A12 usbliter8 BootROM sigpatches",
-        "url": "https://blog.elcomsoft.com/2026/07/a12-usbliter8-bootrom-sigpatches/",
-        "source": "Elcomsoft Blog",
-        "date": "2026-07-15",
-        "reason": "A12 BootROM底层漏洞利用技术分析，BootROM漏洞在iOS取证和安全研究领域具有极高价值，属于移动安全底层突破性研究。"
-      },
-      {
-        "title": "向量嵌入安全-嵌入反转相似性攻击与向量数据库威胁分析",
-        "url": "https://www.freebuf.com/articles/mobile/490376.html",
-        "source": "FreeBuf",
-        "date": "2026-07-15",
-        "reason": "深入剖析向量嵌入的非加密本质及反转攻击威胁，对移动端AI应用安全和向量数据库部署有重要警示意义。"
+        "title": "Samsung backs down on threat to delete health data",
+        "url": "https://www.malwarebytes.com/blog/privacy/2026/07/samsung-backs-down-on-threat-to-delete-health-data",
+        "source": "Malwarebytes",
+        "date": "2026-07-16",
+        "reason": "三星曾威胁删除用户付费健康数据引发强烈反弹，凸显健康设备数据所有权争议"
       }
     ],
     "AI安全": [
       {
-        "title": "GPT-5.6 Sol Ultra 从安全补丁构建完整 Chrome 利用链",
-        "url": "https://www.freebuf.com/articles/ai-security/490562.html",
-        "source": "FreeBuf",
-        "date": "2026-07-15",
-        "reason": "前沿大模型可从安全补丁自动构建完整Chrome漏洞利用链，预示AI驱动的漏洞利用可规模化，安全团队补丁响应窗口急剧缩短。"
+        "title": "OpenAI秘密开发大模型超级黑客，攻击成功率高达84%",
+        "url": "https://www.secrss.com/articles/92223",
+        "source": "安全内参",
+        "date": "2026-07-16",
+        "reason": "OpenAI内部训练的GPT-Red模型自动化攻击成功率远超人类红队专家，揭示AI攻防技术新格局"
       },
       {
-        "title": "黑客借助 Gemini CLI 在六分钟内构建实时 C&C 僵尸网络",
-        "url": "https://www.freebuf.com/articles/ai-security/490544.html",
-        "source": "FreeBuf",
-        "date": "2026-07-15",
-        "reason": "黑客仅用六分钟借助Gemini CLI让AI自主构建并迁移C&C僵尸网络，AI完成89%工作，开创AI辅助恶意软件开发的标志性事件。"
+        "title": "Gemini CLI被滥用操控僵尸网络，还主动提了59次优化建议",
+        "url": "https://www.secrss.com/articles/92214",
+        "source": "安全内参",
+        "date": "2026-07-16",
+        "reason": "Gemini CLI工具被恶意利用操控僵尸网络，AI工具武器化威胁具象化，凸显供应链风险"
       },
       {
-        "title": "你从 HuggingFace 下的模型可能不是原作者上传的：AI 供应链攻击链全拆解",
-        "url": "https://www.freebuf.com/articles/ai-security/490271.html",
-        "source": "FreeBuf",
-        "date": "2026-07-14",
-        "reason": "系统拆解HuggingFace模型供应链攻击链，涵盖safetensors、权重加载、版本锁定等防御机制，是AI供应链安全必读内容。"
+        "title": "New Agent Data Injection Attack Can Make AI Agents Misclick or Run Attacker Commands",
+        "url": "https://thehackernews.com/2026/07/new-agent-data-injection-attack-can.html",
+        "source": "The Hacker News",
+        "date": "2026-07-16",
+        "reason": "数据注入攻击可使AI代理误点击或执行攻击者命令，对Agentic AI应用安全构成实质性威胁"
       },
       {
-        "title": "工具返回值里藏一段指令就能劫持 LLM Agent：function calling 的信任边界在哪",
-        "url": "https://www.freebuf.com/articles/ai-security/490272.html",
-        "source": "FreeBuf",
-        "date": "2026-07-14",
-        "reason": "揭示LLM Agent的function calling返回值注入攻击，深入探讨AI Agent信任边界设计问题，对Agent安全开发极具指导意义。"
+        "title": "OpenAI's GPT-Red Automates Prompt Injection Testing to Harden GPT-5.6 Sol",
+        "url": "https://thehackernews.com/2026/07/openais-gpt-red-automates-prompt.html",
+        "source": "The Hacker News",
+        "date": "2026-07-16",
+        "reason": "GPT-Red规模化自动发现提示注入漏洞，用于在GPT-5.6广泛部署前加固安全性"
       },
       {
-        "title": "The Memory Heist - How I tricked Claude into leaking your deepest, darkest secrets",
-        "url": "https://unsafe.sh/go-428988.html",
-        "source": "Unsafe.sh",
-        "date": "2026-07-15",
-        "reason": "通过攻击Claude的记忆机制窃取用户隐私数据，展示LLM记忆功能的潜在安全风险，对AI助手隐私保护设计有重要启示。"
+        "title": "Claude Code and DeepSeek Powered Chinese Cyber Espionage Campaign",
+        "url": "https://securityaffairs.com/195474/ai/claude-code-and-deepseek-powered-chinese-cyber-espionage-campaign.html",
+        "source": "Security Affairs",
+        "date": "2026-07-16",
+        "reason": "中国APT组织利用Claude Code和DeepSeek等AI工具实施网络间谍活动，AI被国家级行为者武器化"
       }
     ],
     "威胁情报": [
       {
-        "title": "伊朗利用电信漏洞实时监视美军位置，疑似用于作战打击行动",
-        "url": "https://www.secrss.com/articles/92181",
-        "source": "安全内参",
-        "date": "2026-07-15",
-        "reason": "伊朗通过SS7协议漏洞对美军中东人员进行实时定位追踪，疑似用于作战打击，属国家级APT高价值情报。"
-      },
-      {
-        "title": "Compromised AsyncAPI npm Packages Deliver Multi-Stage Botnet Malware",
-        "url": "https://thehackernews.com/2026/07/compromised-asyncapi-npm-packages.html",
+        "title": "Two Scattered Spider Hackers Get 5.5 Years Each for £29 Million TfL Hack",
+        "url": "https://thehackernews.com/2026/07/two-scattered-spider-hackers-get-55.html",
         "source": "The Hacker News",
-        "date": "2026-07-15",
-        "reason": "AsyncAPI命名空间四个npm包遭供应链投毒，每周日下载量达200万次，传播多阶段僵尸网络加载器，影响面极广。"
+        "date": "2026-07-16",
+        "reason": "Scattered Spider两名成员因伦敦交通局2900万英镑黑客攻击分别获刑5.5年，重大网络犯罪司法判决"
       },
       {
-        "title": "TuxBot v3: Inside an IoT Botnet Framework With LLM-Assisted Development",
-        "url": "https://unit42.paloaltonetworks.com/tuxbot-v3-evolution-iot-botnet/",
-        "source": "Palo Alto Unit 42",
-        "date": "2026-07-15",
-        "reason": "Unit 42披露TuxBot v3 Evolution物联网僵尸网络框架，具备LLM辅助开发特征，标志IoT僵尸网络进入AI辅助开发时代。"
+        "title": "New TELEPUZ Malware Spreads via ClickFix to Steal Data and Run Commands",
+        "url": "https://thehackernews.com/2026/07/new-telepuz-malware-spreads-via.html",
+        "source": "The Hacker News",
+        "date": "2026-07-16",
+        "reason": "新型模块化恶意软件TELEPUZ通过ClickFix社工传播，具备完整数据窃取和远程命令执行能力"
       },
       {
-        "title": "疑似APT-C-26（Lazarus）组织升级监控程序的攻击行动分析",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzUyMjk4NzExMA==&mid=2247508744&idx=1&sn=889208d4f2064dc4dfe6edf3649a73b5",
-        "source": "安全圈微信公众号",
-        "date": "2026-07-15",
-        "reason": "朝鲜背景的Lazarus组织升级其监控程序发起新攻击行动，属于高级持续性威胁情报，对金融与加密行业预警意义重大。"
+        "title": "Daxin Resurfaces in Taiwan Alongside Stupig Pre-Login SYSTEM Backdoor",
+        "url": "https://thehackernews.com/2026/07/daxin-resurfaces-in-taiwan-alongside.html",
+        "source": "The Hacker News",
+        "date": "2026-07-16",
+        "reason": "中国关联的高级恶意软件Daxin沉寂四年后重现身台湾制造业，同时披露新型Stupig预登录后门"
       },
       {
-        "title": "OkoBot: new sophisticated malware framework targets cryptocurrency users",
-        "url": "https://securelist.com/okobot-framework-targets-cryptocurrency-wallets/120660/",
-        "source": "Securelist",
-        "date": "2026-07-15",
-        "reason": "OkoBot新型恶意软件框架专门针对硬件钱包用户，通过注入Ledger与Trezor应用窃取助记词，针对加密货币用户威胁持续升级。"
+        "title": "GoSerpent: a persistent threat evolves with sophisticated data collection and exfiltration",
+        "url": "https://securelist.com/goserpent-backdoor-in-southeast-asia/120687/",
+        "source": "Kaspersky Securelist",
+        "date": "2026-07-16",
+        "reason": "东南亚APT组织使用GoSerpent后门具备持久化驻留和复杂数据外传能力，跨多行业渗透"
+      },
+      {
+        "title": "The TTF Trap: A Global Campaign of a Low-Detection Lua Loader",
+        "url": "https://feeds.fortinet.com/~/960560447/0/fortinet/blog/threat-research~The-TTF-Trap-A-Global-Campaign-of-a-LowDetection-Lua-Loader",
+        "source": "Fortinet",
+        "date": "2026-07-16",
+        "reason": "全球性低检测率Lua Loader恶意活动，利用TTF字体文件隐蔽分发载荷规避检测"
       }
     ],
     "安全工具": [
       {
-        "title": "「首发，前沿大模型突破渗透测试新范式」——绿盟智能渗透测试系统2.0正式发布",
-        "url": "https://blog.nsfocus.net/%e9%a6%96%e5%8f%91%ef%bc%8c%e5%89%8d%e6%b2%bf%e5%a4%a7%e6%a8%a1%e5%9e%8b%e7%aa%81%e7%a0%b4%e6%b8%97%e9%80%8f%e6%b5%8b%e8%af%95%e6%96%b0%e8%8c%83%e5%bc%8f-%e7%bb%bf/",
-        "source": "绿盟科技",
-        "date": "2026-07-15",
-        "reason": "绿盟科技发布AI-PTS 2.0智能渗透测试系统，前沿大模型赋能渗透测试新范式，代表AI安全工具产品化重要进展。"
+        "title": "Oak Emerges From Stealth Mode With $60 Million in Funding",
+        "url": "https://www.securityweek.com/oak-emerges-from-stealth-mode-with-60-million-in-funding/",
+        "source": "SecurityWeek",
+        "date": "2026-07-16",
+        "reason": "Oak公司推出AI驱动的身份操作系统统管企业全部身份，获6000万美元融资"
       },
       {
-        "title": "从5700条告警到11条真实威胁：默安智能体降噪与研判实践",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzIzODQxMjM2NQ==&mid=2247501887&idx=1&sn=9965e1adbf76962f630446dea24c2c50",
-        "source": "默安微信公众号",
-        "date": "2026-07-15",
-        "reason": "默安科技展示AI智能体将5700条告警降噪至11条真实威胁的实战案例，对SOC团队告警疲劳问题解决具有实操参考价值。"
+        "title": "1999 Called and It Wants It's Exploits Back - PSW #935",
+        "url": "http://sites.libsyn.com/18678/1999-called-and-it-wants-its-exploits-back-psw-935",
+        "source": "Paul's Security Weekly",
+        "date": "2026-07-16",
+        "reason": "安全播客节目分享开源安全工具的技术细节和历史漏洞回顾"
       },
       {
-        "title": "AgentGuard 2.1 上线！一站式落地《智能体部署使用安全指引》",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzU4NzUxOTI0OQ==&mid=2247499339&idx=1&sn=7d331ee6224bc729cebdfc5cb9f1a299",
-        "source": "安全圈微信公众号",
-        "date": "2026-07-15",
-        "reason": "AgentGuard 2.1版本正式落地智能体安全部署指引，为AI Agent在企业中的安全落地提供合规化工具支撑。"
+        "title": "The best defenders build AI agents together: Join Tenable for Swarm at Black Hat 26",
+        "url": "https://www.tenable.com/blog/black-hat-2026-swarm-event-build-AI-security-agents",
+        "source": "Tenable",
+        "date": "2026-07-16",
+        "reason": "Black Hat 26 Tenable Swarm聚焦协作构建AI安全代理，代表安全工具研发新方向"
       }
     ],
     "云安全": [
       {
-        "title": "SASE Has An AI Blind Spot. Inspecting Packets Is No Longer Enough.",
-        "url": "https://thehackernews.com/2026/07/sase-has-ai-blind-spot-inspecting.html",
+        "title": "Unpatched Shark Vacuum Flaw Could Let Attackers Control Other Vacuums Region-Wide",
+        "url": "https://thehackernews.com/2026/07/unpatched-shark-vacuum-flaw-could-let.html",
         "source": "The Hacker News",
-        "date": "2026-07-15",
-        "reason": "指出SASE传统报文检测模式在AI工作流进入浏览器后已不再适用，企业云安全架构面临新的AI盲区挑战。"
+        "date": "2026-07-16",
+        "reason": "Shark扫地机器人证书漏洞允许攻击者跨AWS区域远程控制其他设备，IoT云认证安全警示"
       },
       {
-        "title": "RabbitMQ Flaws Could Leak OAuth Secrets and Expose Cross-Tenant Queue Metadata",
-        "url": "https://thehackernews.com/2026/07/rabbitmq-flaws-could-leak-oauth-secrets.html",
-        "source": "The Hacker News",
-        "date": "2026-07-14",
-        "reason": "消息中间件RabbitMQ两个访问控制漏洞可泄露OAuth客户端密钥并暴露跨租户队列元数据，对多租户云环境构成严重威胁。"
+        "title": "AI Data Centers Are Being Built Faster Than They Can Be Secured",
+        "url": "https://www.securityweek.com/ai-data-centers-are-being-built-faster-than-they-can-be-secured/",
+        "source": "SecurityWeek",
+        "date": "2026-07-16",
+        "reason": "AI数据中心建设速度超越安全防护能力，传统数据中心设计无法应对新型风险"
       },
       {
-        "title": "全网大规模扫描来袭：MCP、AI密钥、大模型接口全遭猎捕",
-        "url": "https://www.secrss.com/articles/92143",
-        "source": "安全内参",
-        "date": "2026-07-14",
-        "reason": "黑客大规模扫描窃取MCP配置、AI API密钥及云权限，反映云原生与AI基础设施已成为攻击者的重点目标，威胁面持续扩大。"
+        "title": "Least privilege for AI agents: Identity, access, and tool binding",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/07/least-privilege-for-ai-agents-identity-access-and-tool-binding/",
+        "source": "Microsoft Security",
+        "date": "2026-07-16",
+        "reason": "探讨AI智能体最小权限原则与工具绑定机制，是云环境AI工作负载安全的核心议题"
       }
     ],
     "其他重要": [
       {
-        "title": "停产六周即破产：德国37年纺织老厂之死，揭示网络攻击最残酷的真相",
-        "url": "https://www.anquanke.com/post/id/315803",
-        "source": "安全客",
-        "date": "2026-07-14",
-        "reason": "德国37年纺织老厂ZEGO遭网络攻击停产六周即破产，揭示网络攻击对制造业实体经济的毁灭性影响，属典型工业安全案例。"
-      },
-      {
-        "title": "微软认证的UEFI引导程序，反倒成了绕过安全启动的捷径",
-        "url": "https://www.secrss.com/articles/92152",
+        "title": "全球知名安全投资人：未来十年可能是网络安全最黑暗时期",
+        "url": "https://www.secrss.com/articles/92195",
         "source": "安全内参",
-        "date": "2026-07-14",
-        "reason": "ESET披露微软签名的UEFI引导程序可被滥用绕过Secure Boot安全启动，属底层固件级信任链安全重大隐患，影响所有Windows设备。"
+        "date": "2026-07-16",
+        "reason": "业内知名投资人警告未来十年是网络安全风险最集中时期，反映行业宏观趋势忧虑"
       },
       {
-        "title": "U.S. CISA adds SonicWall and Microsoft flaws to its Known Exploited Vulnerabilities catalog",
-        "url": "https://securityaffairs.com/195383/security/u-s-cisa-adds-sonicwall-and-microsoft-flaws-to-its-known-exploited-vulnerabilities-catalog.html",
-        "source": "Security Affairs",
-        "date": "2026-07-15",
-        "reason": "CISA将SonicWall与微软最新漏洞纳入已知被利用漏洞目录，反映这些漏洞在美国关键基础设施安全中的紧迫性，具有政策与合规参考价值。"
+        "title": "AI, Automation and Attacks: Unpacking the Unit 42 2026 Global Incident Response Report",
+        "url": "https://unit42.paloaltonetworks.com/ai-incident-response-report/",
+        "source": "Unit 42 (Palo Alto Networks)",
+        "date": "2026-07-16",
+        "reason": "Unit 42 2026全球事件响应报告基于一线情报分析AI、自动化与攻击趋势，权威行业洞察"
+      },
+      {
+        "title": "Managing the Transition from SMS and Voice to Passkeys: Microsoft Deadline",
+        "url": "https://www.guidepointsecurity.com/blog/managing-the-transition-from-sms-and-voice-to-passkeys-microsoft-deadline/",
+        "source": "Guidepoint Security",
+        "date": "2026-07-16",
+        "reason": "微软即将弃用SMS和语音身份验证，企业需规划迁移至Passkeys的认证方案"
+      },
+      {
+        "title": "【安全圈】82%的恶意攻击，还是从你的邮箱进来",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077869&idx=3&sn=68e6083d960d99e9f1ce86b730e987ee",
+        "source": "安全圈",
+        "date": "2026-07-16",
+        "reason": "统计数据显示82%恶意攻击仍以邮件为初始入口，强调邮件安全的核心防御地位"
+      },
+      {
+        "title": "微软7月安全更新多个产品高危漏洞通告",
+        "url": "https://blog.nsfocus.net/%e5%be%ae%e8%bd%af7%e6%9c%88%e5%ae%89%e5%85%a8%e6%9b%b4%e6%96%b0%e5%a4%9a%e4%b8%aa%e4%ba%a7%e5%93%81%e9%ab%98%e5%8d%b1%e6%bc%8f%e6%b4%9e%e9%80%9a%e5%91%8a/",
+        "source": "绿盟科技",
+        "date": "2026-07-16",
+        "reason": "微软7月安全更新覆盖多个产品高危漏洞，可造成权限提升和远程代码执行"
       }
     ]
   },
-  "summary": "本批次聚焦微软7月补丁日622个CVE、SonicWall与AI供应链等热点，多领域AI安全与APT情报交织。"
+  "summary": "本批次聚焦零日漏洞披露、AI安全攻防与重大攻击事件，涵盖LegacyHive、SharePoint等高危漏洞以及GPT-Red等AI前沿动向"
 }
