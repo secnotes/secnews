@@ -1,15 +1,161 @@
 {
-  "analysis_date": "2026-07-19",
+  "analysis_date": "2026-07-20",
   "model": "MiniMax-M3",
-  "total_analyzed": 104,
+  "total_analyzed": 92,
   "categories": {
-    "漏洞研究": [],
-    "移动安全": [],
-    "AI安全": [],
-    "威胁情报": [],
-    "安全工具": [],
+    "漏洞研究": [
+      {
+        "title": "Critical NGINX Vulnerability Can Crash Workers and May Allow Remote Code Execution",
+        "url": "https://thehackernews.com/2026/07/critical-nginx-vulnerability-can-crash.html",
+        "source": "The Hacker News",
+        "date": "2026-07-19",
+        "reason": "NGINX高危堆缓冲区溢出漏洞CVE-2026-42533，可导致远程代码执行，影响面极广"
+      },
+      {
+        "title": "15-Year-Old Pre-Auth nginx RCE Across 13 Call Sites: Two-Pass Capture Clobbering CVE-2026-42533",
+        "url": "https://govuln.com/news/url/ZNdE",
+        "source": "Unsafe.sh",
+        "date": "2026-07-19",
+        "reason": "深入技术分析NGINX存在15年的预认证RCE漏洞，涉及13个调用点的双遍捕获破坏机制"
+      },
+      {
+        "title": "WordPress 7.0.2: Two Core Bugs to Pre-Auth RCE",
+        "url": "https://govuln.com/news/url/g80P",
+        "source": "Unsafe.sh",
+        "date": "2026-07-19",
+        "reason": "WordPress核心框架两个核心漏洞组合实现预认证RCE，威胁海量网站安全"
+      },
+      {
+        "title": "Chrome 148修复3个严重级，已遭实际利用",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077917&idx=3&sn=12e96b390fb1234635a936e1fd70176e",
+        "source": "安全圈",
+        "date": "2026-07-19",
+        "reason": "Chrome浏览器修复3个严重级漏洞且已遭野外利用，需紧急更新防护"
+      },
+      {
+        "title": "Linux Kernel 7.0 DRM UAF LPE Exploit",
+        "url": "https://cxsecurity.com/issue/WLB-2026070008",
+        "source": "cxsecurity",
+        "date": "2026-07-19",
+        "reason": "Linux内核7.0最新版本UAF漏洞本地提权利用代码，影响广泛"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "xLOC – 纯网页实现 iOS 虚拟定位，据说可过丁丁",
+        "url": "https://www.appinn.com/ios-location-online/",
+        "source": "Appinn",
+        "date": "2026-07-19",
+        "reason": "纯网页实现iOS虚拟定位工具绕过校验，反映移动端位置伪造与反欺诈攻防"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "存储型间接提示注入与人机双视图防护架构",
+        "url": "https://www.secrss.com/articles/92279",
+        "source": "安全内参",
+        "date": "2026-07-19",
+        "reason": "提出DualView防护架构重新定义提示注入为跨上下文数据流安全问题"
+      },
+      {
+        "title": "模型供应链安全与水印",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247496916&idx=1&sn=dfc2c7feebf633aa1301bbdbd1e1135b",
+        "source": "微信公众号",
+        "date": "2026-07-19",
+        "reason": "深入探讨AI模型供应链安全风险与水印防护技术"
+      },
+      {
+        "title": "Langflow 1.3.0 Remote Code Execution",
+        "url": "https://cxsecurity.com/issue/WLB-2026070007",
+        "source": "cxsecurity",
+        "date": "2026-07-19",
+        "reason": "热门AI工作流工具Langflow存在RCE漏洞，影响AI应用部署安全"
+      },
+      {
+        "title": "PraisonAI CodeAgent ≤ 1.6.77 Remote Code Execution via Unsandboxed LLM Code Execution",
+        "url": "https://cxsecurity.com/issue/WLB-2026070005",
+        "source": "cxsecurity",
+        "date": "2026-07-19",
+        "reason": "AI Agent工具因LLM代码执行未沙箱化导致RCE漏洞，反映AI Agent安全风险"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "UAC-0145 Uses ClickFix CAPTCHAs to Infect Ukrainian Devices with Malware",
+        "url": "https://thehackernews.com/2026/07/uac-0145-uses-clickfix-captchas-to.html",
+        "source": "The Hacker News",
+        "date": "2026-07-19",
+        "reason": "俄APT组织UAC-0145利用ClickFix社会工程学策略攻击乌克兰目标"
+      },
+      {
+        "title": "SonicWall SMA Zero-Days Exploited Before Disclosure to Gain Root Access",
+        "url": "https://thehackernews.com/2026/07/sonicwall-sma-zero-days-exploited.html",
+        "source": "The Hacker News",
+        "date": "2026-07-19",
+        "reason": "SonicWall SMA VPN零日漏洞在披露前已被未知威胁组织利用获取root权限"
+      },
+      {
+        "title": "A Peek Inside the Media Land Bulletproof Hosting Provider",
+        "url": "https://ddanchev.blogspot.com/2026/07/a-peek-inside-media-land-bulletproof.html",
+        "source": "Danchev Blog",
+        "date": "2026-07-19",
+        "reason": "深度分析Media Land防弹托管服务商及其支持的网络犯罪活动"
+      },
+      {
+        "title": "Scans for Hikvision Intelligent Security API",
+        "url": "https://isc.sans.edu/diary/rss/33164",
+        "source": "SANS ISC",
+        "date": "2026-07-19",
+        "reason": "海康威视智能安全API遭大规模扫描攻击，反映IoT摄像头持续面临威胁"
+      },
+      {
+        "title": "数据 -> 信息 -> 情报：威胁情报实践的现实思考",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzU0MzgyMzM2Nw==&mid=2247487042&idx=1&sn=8e440b3d1d5c9233a6805ebbca535efb",
+        "source": "微信公众号",
+        "date": "2026-07-19",
+        "reason": "威胁情报从数据到情报转化的实践方法论与现实思考"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "Vuln Scanner that chains security tools and generate AI poc and reports",
+        "url": "https://unsafe.sh/go-429608.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-19",
+        "reason": "集成多种安全工具链并利用AI自动生成POC和漏洞报告的新型扫描器"
+      }
+    ],
     "云安全": [],
-    "其他重要": []
+    "其他重要": [
+      {
+        "title": "Intel 酷睿 CPU Management Engine 固件研究与分析逆向（二）实战DCI链接与ME解锁尝试",
+        "url": "http://bbs.kanxue.com/thread-291962.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-19",
+        "reason": "Intel ME固件逆向与Intel-SA-00086漏洞实战研究，硬件安全技术深度极高"
+      },
+      {
+        "title": "施耐德 M580 工业控制器固件安全分析与解密研究",
+        "url": "http://bbs.kanxue.com/thread-291945.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-19",
+        "reason": "施耐德Modicon M580工业控制器固件解密与安全分析，涉及关键基础设施"
+      },
+      {
+        "title": "艾默生DeltaV DCS控制器 固件安全分析研究",
+        "url": "http://bbs.kanxue.com/thread-291946.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-19",
+        "reason": "艾默生DeltaV DCS分布式控制系统固件安全分析，工控安全重要参考"
+      },
+      {
+        "title": "字节编码工具TRAE存在恶意插件问题 未及时同步导致开发者安装的插件可能是带毒的",
+        "url": "https://www.landian.news/archives/113974.html",
+        "source": "蓝点网",
+        "date": "2026-07-19",
+        "reason": "字节跳动开发工具TRAE插件市场未及时下架恶意插件，存在供应链风险"
+      }
+    ]
   },
-  "summary": "AI分析完成，已筛选重要文章并分类"
+  "summary": "本批次涉及NGINX/WordPress重大RCE漏洞、AI安全、工控固件及APT攻击情报"
 }
