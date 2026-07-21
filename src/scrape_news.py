@@ -2697,7 +2697,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
                     <p>分析日期: {ai_curated.get('analysis_date', '-') if ai_curated else '-'}</p>
                     <p>筛选文章: {sum(len(arts) for arts in ai_curated.get('categories', {}).values()) if ai_curated else 0} 篇</p>
                     <p>原始文章: {ai_curated.get('total_analyzed', 0) if ai_curated else 0} 篇</p>
-                    <p>模型来源: <code style="background:#e9ecef;padding:1px 6px;border-radius:3px;">{html.escape(ai_curated.get('model', '-')) if ai_curated else '-'}</code></p>
+                    <p>模型来源: {html.escape(ai_curated.get('model', '-')) if ai_curated else '-'}</p>
                 </div>
             </div>
         </aside>
