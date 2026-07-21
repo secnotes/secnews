@@ -1,161 +1,175 @@
 {
-  "analysis_date": "2026-07-20",
+  "analysis_date": "2026-07-21",
   "model": "MiniMax-M3",
-  "total_analyzed": 92,
+  "total_analyzed": 118,
   "categories": {
     "漏洞研究": [
       {
-        "title": "Critical NGINX Vulnerability Can Crash Workers and May Allow Remote Code Execution",
-        "url": "https://thehackernews.com/2026/07/critical-nginx-vulnerability-can-crash.html",
+        "title": "New 7-Zip Vulnerability Could Let Crafted XZ Archives Run Code During Extraction",
+        "url": "https://thehackernews.com/2026/07/new-7-zip-vulnerability-could-let.html",
         "source": "The Hacker News",
-        "date": "2026-07-19",
-        "reason": "NGINX高危堆缓冲区溢出漏洞CVE-2026-42533，可导致远程代码执行，影响面极广"
+        "date": "2026-07-20",
+        "reason": "7-Zip严重堆缓冲区溢出漏洞CVE-2026-14266，打开特制XZ压缩包即可执行任意代码，影响广泛使用的开源归档工具"
       },
       {
-        "title": "15-Year-Old Pre-Auth nginx RCE Across 13 Call Sites: Two-Pass Capture Clobbering CVE-2026-42533",
-        "url": "https://govuln.com/news/url/ZNdE",
-        "source": "Unsafe.sh",
-        "date": "2026-07-19",
-        "reason": "深入技术分析NGINX存在15年的预认证RCE漏洞，涉及13个调用点的双遍捕获破坏机制"
+        "title": "SonicWall Zero-Days Exploited to Deliver Custom Malware for Weeks Before Patch",
+        "url": "https://www.securityweek.com/sonicwall-zero-days-exploited-to-deliver-custom-malware-for-weeks-before-patch/",
+        "source": "SecurityWeek",
+        "date": "2026-07-20",
+        "reason": "SonicWall两个零日漏洞CVE-2026-15409和CVE-2026-15410在补丁发布前已被利用数周，威胁组织UTA0533投递定制恶意软件"
       },
       {
-        "title": "WordPress 7.0.2: Two Core Bugs to Pre-Auth RCE",
-        "url": "https://govuln.com/news/url/g80P",
-        "source": "Unsafe.sh",
-        "date": "2026-07-19",
-        "reason": "WordPress核心框架两个核心漏洞组合实现预认证RCE，威胁海量网站安全"
+        "title": "Chrome 150 Update Patches Severe Memory Safety Bugs",
+        "url": "https://www.securityweek.com/chrome-150-update-patches-severe-memory-safety-bugs/",
+        "source": "SecurityWeek",
+        "date": "2026-07-20",
+        "reason": "Chrome 150修复六个严重和高危UAF内存安全漏洞，建议浏览器用户尽快升级"
       },
       {
-        "title": "Chrome 148修复3个严重级，已遭实际利用",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652077917&idx=3&sn=12e96b390fb1234635a936e1fd70176e",
-        "source": "安全圈",
-        "date": "2026-07-19",
-        "reason": "Chrome浏览器修复3个严重级漏洞且已遭野外利用，需紧急更新防护"
+        "title": "WP2Shell WordPress Vulnerabilities Exploited in the Wild",
+        "url": "https://www.securityweek.com/wp2shell-wordpress-vulnerabilities-exploited-in-the-wild/",
+        "source": "SecurityWeek",
+        "date": "2026-07-20",
+        "reason": "WordPress核心SQL注入与远程代码执行链CVE-2026-60137和CVE-2026-63030披露后迅速被大规模野外利用"
       },
       {
-        "title": "Linux Kernel 7.0 DRM UAF LPE Exploit",
-        "url": "https://cxsecurity.com/issue/WLB-2026070008",
-        "source": "cxsecurity",
-        "date": "2026-07-19",
-        "reason": "Linux内核7.0最新版本UAF漏洞本地提权利用代码，影响广泛"
+        "title": "CVE-2026-42533: Critical NGINX Bug Could Turn HTTP Requests Into Server Takeovers",
+        "url": "https://securityaffairs.com/195674/hacking/cve-2026-42533-critical-nginx-bug-could-turn-http-requests-into-server-takeovers.html",
+        "source": "Security Affairs",
+        "date": "2026-07-20",
+        "reason": "NGINX潜伏15年的关键漏洞CVE-2026-42533，可通过特制HTTP请求远程控制服务器，影响面极大"
       }
     ],
     "移动安全": [
       {
-        "title": "xLOC – 纯网页实现 iOS 虚拟定位，据说可过丁丁",
-        "url": "https://www.appinn.com/ios-location-online/",
-        "source": "Appinn",
-        "date": "2026-07-19",
-        "reason": "纯网页实现iOS虚拟定位工具绕过校验，反映移动端位置伪造与反欺诈攻防"
+        "title": "Android 内核无痕 Hook 框架设计思路和避坑指北",
+        "url": "http://bbs.kanxue.com/thread-292066.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-20",
+        "reason": "Android内核无痕Hook框架的完整设计与实现细节，对逆向工程和安全研究有较高参考价值"
+      },
+      {
+        "title": "Android Native 网络协议中请求加密、签名生成与响应解密机制逆向分析",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458617674&idx=1&sn=1b7ae39f01539779f0183831fa2c2c6a",
+        "source": "微信",
+        "date": "2026-07-20",
+        "reason": "针对Android Native层网络协议加密签名机制的深度逆向分析实战案例"
+      },
+      {
+        "title": "Reversing GetOfflineDeviceUniqueID: How Windows Derives Its Offline Device ID",
+        "url": "https://unsafe.sh/go-429790.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-20",
+        "reason": "深入分析Windows离线设备ID的生成机制，对设备指纹与端点安全研究具有参考意义"
       }
     ],
     "AI安全": [
       {
-        "title": "存储型间接提示注入与人机双视图防护架构",
-        "url": "https://www.secrss.com/articles/92279",
+        "title": "Agent最大的风险，不是幻觉，而是权限",
+        "url": "https://www.secrss.com/articles/92309",
         "source": "安全内参",
-        "date": "2026-07-19",
-        "reason": "提出DualView防护架构重新定义提示注入为跨上下文数据流安全问题"
+        "date": "2026-07-20",
+        "reason": "深入分析AI Agent权限治理的核心问题，指出企业应聚焦于决策权边界而非功能访问控制"
       },
       {
-        "title": "模型供应链安全与水印",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247496916&idx=1&sn=dfc2c7feebf633aa1301bbdbd1e1135b",
-        "source": "微信公众号",
-        "date": "2026-07-19",
-        "reason": "深入探讨AI模型供应链安全风险与水印防护技术"
+        "title": "World's Largest AI Model Repository Hugging Face Breached by Autonomous AI Agent",
+        "url": "https://thehackernews.com/2026/07/worlds-largest-ai-model-repository.html",
+        "source": "The Hacker News",
+        "date": "2026-07-20",
+        "reason": "Hugging Face遭自主AI Agent攻击，内部数据集和服务凭证泄露，揭示AI代理本身成为新型攻击向量"
       },
       {
-        "title": "Langflow 1.3.0 Remote Code Execution",
-        "url": "https://cxsecurity.com/issue/WLB-2026070007",
-        "source": "cxsecurity",
-        "date": "2026-07-19",
-        "reason": "热门AI工作流工具Langflow存在RCE漏洞，影响AI应用部署安全"
+        "title": "Russian-Speaking Hacker Uses Google Gemini CLI to Control Botnet of Eight Dental Clinic PCs",
+        "url": "https://thehackernews.com/2026/07/russian-speaking-hacker-uses-google.html",
+        "source": "The Hacker News",
+        "date": "2026-07-20",
+        "reason": "俄语黑客滥用Google Gemini CLI工具控制僵尸网络，首次出现AI被武器化用于指挥Botnet的真实案例"
       },
       {
-        "title": "PraisonAI CodeAgent ≤ 1.6.77 Remote Code Execution via Unsandboxed LLM Code Execution",
-        "url": "https://cxsecurity.com/issue/WLB-2026070005",
-        "source": "cxsecurity",
-        "date": "2026-07-19",
-        "reason": "AI Agent工具因LLM代码执行未沙箱化导致RCE漏洞，反映AI Agent安全风险"
+        "title": "Capital One Open Sources AI-Powered 'VulnHunter' Security Tool",
+        "url": "https://www.securityweek.com/capital-one-open-sources-ai-powered-vulnhunter-security-tool/",
+        "source": "SecurityWeek",
+        "date": "2026-07-20",
+        "reason": "Capital One开源基于Agentic AI的漏洞挖掘工具VulnHunter，可识别可利用缺陷并推荐修复方案"
+      },
+      {
+        "title": "AI漏洞挖掘激增 企业急需重构漏洞管理体系",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzUyMDQ4OTkyMg==&mid=2247554083&idx=1&sn=de36ce68dca4d7804ebec938f9120ed8",
+        "source": "微信",
+        "date": "2026-07-20",
+        "reason": "探讨AI驱动漏洞挖掘快速增长背景下企业漏洞管理体系的变革需求与应对策略"
       }
     ],
     "威胁情报": [
       {
-        "title": "UAC-0145 Uses ClickFix CAPTCHAs to Infect Ukrainian Devices with Malware",
-        "url": "https://thehackernews.com/2026/07/uac-0145-uses-clickfix-captchas-to.html",
+        "title": "FakeGit Campaign Uses 7,600 GitHub Repositories to Spread SmartLoader Malware",
+        "url": "https://thehackernews.com/2026/07/fakegit-campaign-uses-7600-github.html",
         "source": "The Hacker News",
-        "date": "2026-07-19",
-        "reason": "俄APT组织UAC-0145利用ClickFix社会工程学策略攻击乌克兰目标"
+        "date": "2026-07-20",
+        "reason": "FakeGit攻击活动利用近7600个恶意GitHub仓库分发SmartLoader，其中800余个伪装为AI技能或MCP服务器"
       },
       {
-        "title": "SonicWall SMA Zero-Days Exploited Before Disclosure to Gain Root Access",
-        "url": "https://thehackernews.com/2026/07/sonicwall-sma-zero-days-exploited.html",
+        "title": "HollowGraph Malware Hides C2 and Stolen Files in Microsoft 365 Events Dated 2050",
+        "url": "https://thehackernews.com/2026/07/hollowgraph-malware-hides-c2-and-stolen.html",
         "source": "The Hacker News",
-        "date": "2026-07-19",
-        "reason": "SonicWall SMA VPN零日漏洞在披露前已被未知威胁组织利用获取root权限"
+        "date": "2026-07-20",
+        "reason": "新型间谍软件HollowGraph劫持Microsoft 365日历作为C2通道，将操作指令和窃取数据伪装为2050年的日历事件"
       },
       {
-        "title": "A Peek Inside the Media Land Bulletproof Hosting Provider",
-        "url": "https://ddanchev.blogspot.com/2026/07/a-peek-inside-media-land-bulletproof.html",
-        "source": "Danchev Blog",
-        "date": "2026-07-19",
-        "reason": "深度分析Media Land防弹托管服务商及其支持的网络犯罪活动"
+        "title": "Russian Intelligence Hacks IP Cameras to Spy on Military Logistics Across NATO States and Ukraine",
+        "url": "https://thehackernews.com/2026/07/russian-intelligence-hacks-ip-cameras.html",
+        "source": "The Hacker News",
+        "date": "2026-07-20",
+        "reason": "俄罗斯情报机构系统性劫持欧洲和乌克兰联网安防摄像头，监视北约军事运输与武器运输路线"
       },
       {
-        "title": "Scans for Hikvision Intelligent Security API",
-        "url": "https://isc.sans.edu/diary/rss/33164",
-        "source": "SANS ISC",
-        "date": "2026-07-19",
-        "reason": "海康威视智能安全API遭大规模扫描攻击，反映IoT摄像头持续面临威胁"
+        "title": "SleeperGem Uses Three Malicious RubyGems Packages to Target Developer Machines",
+        "url": "https://thehackernews.com/2026/07/sleepergem-uses-three-malicious.html",
+        "source": "The Hacker News",
+        "date": "2026-07-20",
+        "reason": "SleeperGem供应链攻击针对Ruby生态系统，通过三个恶意gem包入侵开发者机器"
       },
       {
-        "title": "数据 -> 信息 -> 情报：威胁情报实践的现实思考",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzU0MzgyMzM2Nw==&mid=2247487042&idx=1&sn=8e440b3d1d5c9233a6805ebbca535efb",
-        "source": "微信公众号",
-        "date": "2026-07-19",
-        "reason": "威胁情报从数据到情报转化的实践方法论与现实思考"
+        "title": "Fake games spread stealers with RenPy Loader, MSBuild and EtherHiding",
+        "url": "https://www.malwarebytes.com/blog/threat-intel/2026/07/fake-games-spread-stealers-with-renpy-loader-msbuild-and-etherhiding",
+        "source": "Malwarebytes",
+        "date": "2026-07-20",
+        "reason": "利用虚假游戏、模组和破解软件传播窃密软件的恶意活动，结合RenPy加载器、MSBuild和EtherHiding技术"
       }
     ],
     "安全工具": [
       {
-        "title": "Vuln Scanner that chains security tools and generate AI poc and reports",
-        "url": "https://unsafe.sh/go-429608.html",
+        "title": "The Agentic SOC: Transforming Data into Defensive Velocity",
+        "url": "https://www.sentinelone.com/blog/the-agentic-soc-transforming-data-into-defensive-velocity/",
+        "source": "SentinelOne",
+        "date": "2026-07-20",
+        "reason": "探讨Agentic SOC如何将数据转化为防御速度，应对SOC规模化和自动化挑战"
+      },
+      {
+        "title": "Automating Volatility 3",
+        "url": "https://unsafe.sh/go-429835.html",
         "source": "Unsafe.sh",
-        "date": "2026-07-19",
-        "reason": "集成多种安全工具链并利用AI自动生成POC和漏洞报告的新型扫描器"
+        "date": "2026-07-20",
+        "reason": "Volatility 3内存取证框架的自动化实践，对应急响应与事件分析具有实用价值"
       }
     ],
-    "云安全": [],
-    "其他重要": [
+    "云安全": [
       {
-        "title": "Intel 酷睿 CPU Management Engine 固件研究与分析逆向（二）实战DCI链接与ME解锁尝试",
-        "url": "http://bbs.kanxue.com/thread-291962.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-07-19",
-        "reason": "Intel ME固件逆向与Intel-SA-00086漏洞实战研究，硬件安全技术深度极高"
+        "title": "Cloudflare Internal DNS is now generally available",
+        "url": "https://blog.cloudflare.com/internal-dns/",
+        "source": "Cloudflare",
+        "date": "2026-07-20",
+        "reason": "Cloudflare内部DNS服务正式商用，为企业提供安全的内网DNS解析与管理能力"
       },
       {
-        "title": "施耐德 M580 工业控制器固件安全分析与解密研究",
-        "url": "http://bbs.kanxue.com/thread-291945.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-07-19",
-        "reason": "施耐德Modicon M580工业控制器固件解密与安全分析，涉及关键基础设施"
-      },
-      {
-        "title": "艾默生DeltaV DCS控制器 固件安全分析研究",
-        "url": "http://bbs.kanxue.com/thread-291946.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-07-19",
-        "reason": "艾默生DeltaV DCS分布式控制系统固件安全分析，工控安全重要参考"
-      },
-      {
-        "title": "字节编码工具TRAE存在恶意插件问题 未及时同步导致开发者安装的插件可能是带毒的",
-        "url": "https://www.landian.news/archives/113974.html",
-        "source": "蓝点网",
-        "date": "2026-07-19",
-        "reason": "字节跳动开发工具TRAE插件市场未及时下架恶意插件，存在供应链风险"
+        "title": "Storage Agent Family: Agent 时代，重构云存储的「人机交互」",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247520980&idx=1&sn=3473de7e69a0d88739c1684a4abfff7e",
+        "source": "微信",
+        "date": "2026-07-20",
+        "reason": "AI Agent时代下云存储人机交互重构方案的探索，涉及云存储与AI协同的新模式"
       }
-    ]
+    ],
+    "其他重要": []
   },
-  "summary": "本批次涉及NGINX/WordPress重大RCE漏洞、AI安全、工控固件及APT攻击情报"
+  "summary": "本批次聚焦高危漏洞披露、AI安全事件及供应链攻击等热点话题"
 }
