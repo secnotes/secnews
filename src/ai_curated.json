@@ -1,43 +1,43 @@
 {
-  "analysis_date": "2026-07-21",
+  "analysis_date": "2026-07-22",
   "model": "MiniMax-M3",
-  "total_analyzed": 118,
+  "total_analyzed": 122,
   "categories": {
     "漏洞研究": [
       {
-        "title": "New 7-Zip Vulnerability Could Let Crafted XZ Archives Run Code During Extraction",
-        "url": "https://thehackernews.com/2026/07/new-7-zip-vulnerability-could-let.html",
+        "title": "2026年了，核弹还是fastjson，fastjson1.2.83 RCE是怎么回事？",
+        "url": "https://lorexxar.cn/2026/07/21/fs1-2-83rce/",
+        "source": "Unsafe.sh",
+        "date": "2026-07-21",
+        "reason": "深入分析Fastjson 1.2.83版本无需gadget即可RCE的漏洞原理，技术深度高，影响面广"
+      },
+      {
+        "title": "Critical SharePoint RCE CVE-2026-50522 Under Active Exploitation After Public PoC",
+        "url": "https://thehackernews.com/2026/07/critical-sharepoint-rce-cve-2026-50522.html",
         "source": "The Hacker News",
-        "date": "2026-07-20",
-        "reason": "7-Zip严重堆缓冲区溢出漏洞CVE-2026-14266，打开特制XZ压缩包即可执行任意代码，影响广泛使用的开源归档工具"
+        "date": "2026-07-21",
+        "reason": "微软7月补丁日修复的SharePoint RCE漏洞已被公开PoC并遭在野利用，威胁等级极高"
       },
       {
-        "title": "SonicWall Zero-Days Exploited to Deliver Custom Malware for Weeks Before Patch",
-        "url": "https://www.securityweek.com/sonicwall-zero-days-exploited-to-deliver-custom-malware-for-weeks-before-patch/",
-        "source": "SecurityWeek",
-        "date": "2026-07-20",
-        "reason": "SonicWall两个零日漏洞CVE-2026-15409和CVE-2026-15410在补丁发布前已被利用数周，威胁组织UTA0533投递定制恶意软件"
+        "title": "Critical ServiceNow AI Platform Flaw Exploited for Unauthenticated Code Execution",
+        "url": "https://thehackernews.com/2026/07/critical-servicenow-ai-platform-flaw.html",
+        "source": "The Hacker News",
+        "date": "2026-07-21",
+        "reason": "ServiceNow AI平台CVE-2026-6875高危RCE漏洞在披露后数天内即遭利用，攻击窗口极短"
       },
       {
-        "title": "Chrome 150 Update Patches Severe Memory Safety Bugs",
-        "url": "https://www.securityweek.com/chrome-150-update-patches-severe-memory-safety-bugs/",
-        "source": "SecurityWeek",
-        "date": "2026-07-20",
-        "reason": "Chrome 150修复六个严重和高危UAF内存安全漏洞，建议浏览器用户尽快升级"
+        "title": "Zimbra Patches Critical SNMP Command Injection and Four XSS Vulnerabilities",
+        "url": "https://thehackernews.com/2026/07/zimbra-patches-critical-snmp-command.html",
+        "source": "The Hacker News",
+        "date": "2026-07-21",
+        "reason": "Zimbra修复SNMP组件命令注入等9个安全漏洞，邮件系统广泛受影响，需及时更新"
       },
       {
-        "title": "WP2Shell WordPress Vulnerabilities Exploited in the Wild",
-        "url": "https://www.securityweek.com/wp2shell-wordpress-vulnerabilities-exploited-in-the-wild/",
-        "source": "SecurityWeek",
-        "date": "2026-07-20",
-        "reason": "WordPress核心SQL注入与远程代码执行链CVE-2026-60137和CVE-2026-63030披露后迅速被大规模野外利用"
-      },
-      {
-        "title": "CVE-2026-42533: Critical NGINX Bug Could Turn HTTP Requests Into Server Takeovers",
-        "url": "https://securityaffairs.com/195674/hacking/cve-2026-42533-critical-nginx-bug-could-turn-http-requests-into-server-takeovers.html",
-        "source": "Security Affairs",
-        "date": "2026-07-20",
-        "reason": "NGINX潜伏15年的关键漏洞CVE-2026-42533，可通过特制HTTP请求远程控制服务器，影响面极大"
+        "title": "Writeup & POC: CVE-2026-49176 Windows WalletService to SYSTEM (LPE)",
+        "url": "https://unsafe.sh/go-430135.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-21",
+        "reason": "Windows WalletService本地提权至SYSTEM的完整漏洞利用分析与POC，对攻防研究有实战价值"
       }
     ],
     "移动安全": [
@@ -45,131 +45,146 @@
         "title": "Android 内核无痕 Hook 框架设计思路和避坑指北",
         "url": "http://bbs.kanxue.com/thread-292066.htm?style=1",
         "source": "看雪论坛",
-        "date": "2026-07-20",
-        "reason": "Android内核无痕Hook框架的完整设计与实现细节，对逆向工程和安全研究有较高参考价值"
+        "date": "2026-07-21",
+        "reason": "Android内核级无痕Hook框架的完整设计与实现细节，技术深度突出，适合安全研究人员参考"
       },
       {
-        "title": "Android Native 网络协议中请求加密、签名生成与响应解密机制逆向分析",
-        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458617674&idx=1&sn=1b7ae39f01539779f0183831fa2c2c6a",
-        "source": "微信",
-        "date": "2026-07-20",
-        "reason": "针对Android Native层网络协议加密签名机制的深度逆向分析实战案例"
-      },
-      {
-        "title": "Reversing GetOfflineDeviceUniqueID: How Windows Derives Its Offline Device ID",
-        "url": "https://unsafe.sh/go-429790.html",
-        "source": "Unsafe.sh",
-        "date": "2026-07-20",
-        "reason": "深入分析Windows离线设备ID的生成机制，对设备指纹与端点安全研究具有参考意义"
+        "title": "Open-Source Android AI Agents Could Let Invisible Screen Text Run Code on Host PCs",
+        "url": "https://thehackernews.com/2026/07/open-source-android-ai-agents-could-let.html",
+        "source": "The Hacker News",
+        "date": "2026-07-21",
+        "reason": "开源Android AI智能体可被不可见屏幕文本劫持，进而入侵宿主机，攻击链新颖"
       }
     ],
     "AI安全": [
       {
-        "title": "Agent最大的风险，不是幻觉，而是权限",
-        "url": "https://www.secrss.com/articles/92309",
-        "source": "安全内参",
-        "date": "2026-07-20",
-        "reason": "深入分析AI Agent权限治理的核心问题，指出企业应聚焦于决策权边界而非功能访问控制"
-      },
-      {
-        "title": "World's Largest AI Model Repository Hugging Face Breached by Autonomous AI Agent",
-        "url": "https://thehackernews.com/2026/07/worlds-largest-ai-model-repository.html",
+        "title": "AWS Kiro Flaw Let a Poisoned Web Page Rewrite Its Config and Run Code",
+        "url": "https://thehackernews.com/2026/07/aws-kiro-flaw-let-poisoned-web-page.html",
         "source": "The Hacker News",
-        "date": "2026-07-20",
-        "reason": "Hugging Face遭自主AI Agent攻击，内部数据集和服务凭证泄露，揭示AI代理本身成为新型攻击向量"
+        "date": "2026-07-21",
+        "reason": "AWS的Kiro AI编码IDE可通过网页隐藏文本被篡改配置并执行任意代码，揭示AI Agent供应链新攻击面"
       },
       {
-        "title": "Russian-Speaking Hacker Uses Google Gemini CLI to Control Botnet of Eight Dental Clinic PCs",
-        "url": "https://thehackernews.com/2026/07/russian-speaking-hacker-uses-google.html",
+        "title": "New ENCFORGE Ransomware Targets AI Model Files in Langflow RCE Attack",
+        "url": "https://thehackernews.com/2026/07/new-encforge-ransomware-targets-ai.html",
         "source": "The Hacker News",
-        "date": "2026-07-20",
-        "reason": "俄语黑客滥用Google Gemini CLI工具控制僵尸网络，首次出现AI被武器化用于指挥Botnet的真实案例"
+        "date": "2026-07-21",
+        "reason": "新型勒索软件ENCFORGE专门加密AI模型文件，AI资产保护面临新型威胁"
       },
       {
-        "title": "Capital One Open Sources AI-Powered 'VulnHunter' Security Tool",
-        "url": "https://www.securityweek.com/capital-one-open-sources-ai-powered-vulnhunter-security-tool/",
-        "source": "SecurityWeek",
-        "date": "2026-07-20",
-        "reason": "Capital One开源基于Agentic AI的漏洞挖掘工具VulnHunter，可识别可利用缺陷并推荐修复方案"
+        "title": "Your AI agent's config is now the payload: How attackers are targeting the developer agent harness",
+        "url": "https://www.tenable.com/blog/ai-coding-assistant-agent-harness-attacks",
+        "source": "Tenable",
+        "date": "2026-07-21",
+        "reason": "Tenable披露攻击者通过投毒AI编程助手配置文件实现持久化，揭示AI开发工具的新型攻击面"
       },
       {
-        "title": "AI漏洞挖掘激增 企业急需重构漏洞管理体系",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzUyMDQ4OTkyMg==&mid=2247554083&idx=1&sn=de36ce68dca4d7804ebec938f9120ed8",
-        "source": "微信",
-        "date": "2026-07-20",
-        "reason": "探讨AI驱动漏洞挖掘快速增长背景下企业漏洞管理体系的变革需求与应对策略"
+        "title": "Hugging Face 遭 AI 智能体「自主攻破」，内部生产环境凭证泄露",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458617685&idx=2&sn=3576c99cbddde96deca2e8b6179c7eee",
+        "source": "Unsafe.sh",
+        "date": "2026-07-21",
+        "reason": "Hugging Face被AI智能体利用恶意数据集触发代码执行，泄露内部生产环境凭证，影响重大"
+      },
+      {
+        "title": "Google Launches Gemini 3.5 Flash Cyber AI to Find and Fix Software Vulnerabilities",
+        "url": "https://thehackernews.com/2026/07/google-launches-gemini-35-flash-cyber.html",
+        "source": "The Hacker News",
+        "date": "2026-07-21",
+        "reason": "Google DeepMind发布专用于漏洞发现与修复的Gemini 3.5 Flash Cyber AI模型，AI赋能安全的里程碑事件"
       }
     ],
     "威胁情报": [
       {
-        "title": "FakeGit Campaign Uses 7,600 GitHub Repositories to Spread SmartLoader Malware",
-        "url": "https://thehackernews.com/2026/07/fakegit-campaign-uses-7600-github.html",
-        "source": "The Hacker News",
-        "date": "2026-07-20",
-        "reason": "FakeGit攻击活动利用近7600个恶意GitHub仓库分发SmartLoader，其中800余个伪装为AI技能或MCP服务器"
+        "title": "New HollowGraph Malware Abuses Microsoft 365 Calendar for C&C Communication",
+        "url": "https://www.securityweek.com/new-hollowgraph-malware-abuses-microsoft-365-calendar-for-cc-communication/",
+        "source": "SecurityWeek",
+        "date": "2026-07-21",
+        "reason": "HollowGraph恶意软件滥用M365日历功能作为C2双向通信通道，利用合法服务隐藏流量手法新颖"
       },
       {
-        "title": "HollowGraph Malware Hides C2 and Stolen Files in Microsoft 365 Events Dated 2050",
-        "url": "https://thehackernews.com/2026/07/hollowgraph-malware-hides-c2-and-stolen.html",
-        "source": "The Hacker News",
-        "date": "2026-07-20",
-        "reason": "新型间谍软件HollowGraph劫持Microsoft 365日历作为C2通道，将操作指令和窃取数据伪装为2050年的日历事件"
+        "title": "Iran War Cyber Threat Landscape | A Midyear Assessment on What Matters",
+        "url": "https://www.sentinelone.com/labs/iran-war-cyber-threat-landscape-a-midyear-assessment-on-what-matters/",
+        "source": "SentinelOne",
+        "date": "2026-07-21",
+        "reason": "SentinelLABS发布的伊朗战争网络威胁中期评估，地缘政治驱动的网络攻击趋势分析价值高"
       },
       {
-        "title": "Russian Intelligence Hacks IP Cameras to Spy on Military Logistics Across NATO States and Ukraine",
-        "url": "https://thehackernews.com/2026/07/russian-intelligence-hacks-ip-cameras.html",
+        "title": "Qilin Ransomware Attackers Exploit PAN-OS Authentication Bypass for Initial Access",
+        "url": "https://thehackernews.com/2026/07/qilin-ransomware-attackers-exploit-pan.html",
         "source": "The Hacker News",
-        "date": "2026-07-20",
-        "reason": "俄罗斯情报机构系统性劫持欧洲和乌克兰联网安防摄像头，监视北约军事运输与武器运输路线"
+        "date": "2026-07-21",
+        "reason": "Qilin勒索软件团伙利用PAN-OS认证绕过漏洞部署勒索软件，攻击链完整值得跟踪"
       },
       {
-        "title": "SleeperGem Uses Three Malicious RubyGems Packages to Target Developer Machines",
-        "url": "https://thehackernews.com/2026/07/sleepergem-uses-three-malicious.html",
-        "source": "The Hacker News",
-        "date": "2026-07-20",
-        "reason": "SleeperGem供应链攻击针对Ruby生态系统，通过三个恶意gem包入侵开发者机器"
-      },
-      {
-        "title": "Fake games spread stealers with RenPy Loader, MSBuild and EtherHiding",
-        "url": "https://www.malwarebytes.com/blog/threat-intel/2026/07/fake-games-spread-stealers-with-renpy-loader-msbuild-and-etherhiding",
+        "title": "New ClickLock Stealer locks your Mac until you hand over your password",
+        "url": "https://www.malwarebytes.com/blog/news/2026/07/new-clicklock-stealer-locks-your-mac-until-you-hand-over-your-password",
         "source": "Malwarebytes",
-        "date": "2026-07-20",
-        "reason": "利用虚假游戏、模组和破解软件传播窃密软件的恶意活动，结合RenPy加载器、MSBuild和EtherHiding技术"
+        "date": "2026-07-21",
+        "reason": "新型模块化macOS信息窃取软件ClickLock通过ClickFix钓鱼投递，锁定Mac直至用户交出密码"
+      },
+      {
+        "title": "A new extortion cocktail: office printers, small ransoms, and BitLocker",
+        "url": "https://securelist.com/new-extortion-scheme-printers-bitlocker/120718/",
+        "source": "Kaspersky Securelist",
+        "date": "2026-07-21",
+        "reason": "Kaspersky披露的办公室打印机+BitLocker组合勒索新模式，攻击手段结合物理设备值得警惕"
       }
     ],
     "安全工具": [
       {
-        "title": "The Agentic SOC: Transforming Data into Defensive Velocity",
-        "url": "https://www.sentinelone.com/blog/the-agentic-soc-transforming-data-into-defensive-velocity/",
-        "source": "SentinelOne",
-        "date": "2026-07-20",
-        "reason": "探讨Agentic SOC如何将数据转化为防御速度，应对SOC规模化和自动化挑战"
+        "title": "Pwn2Own Ireland 2026 – New Targets and Categories",
+        "url": "https://www.thezdi.com/blog/2026/7/21/pwn2own-ireland-2026-new-targets-and-categories",
+        "source": "Trend Zero Day Initiative",
+        "date": "2026-07-21",
+        "reason": "Pwn2Own爱尔兰2026公布新目标和类别，零日漏洞研究的标志性赛事，对漏洞研究人员有指导意义"
       },
       {
-        "title": "Automating Volatility 3",
-        "url": "https://unsafe.sh/go-429835.html",
-        "source": "Unsafe.sh",
-        "date": "2026-07-20",
-        "reason": "Volatility 3内存取证框架的自动化实践，对应急响应与事件分析具有实用价值"
+        "title": "Introducing Internal Network Scanning: see your network the way an attacker inside it would",
+        "url": "https://projectdiscovery.io/blog/introducing-internal-network-scanning-see-your-network-the-way-an-attacker-inside-it-would",
+        "source": "ProjectDiscovery",
+        "date": "2026-07-21",
+        "reason": "ProjectDiscovery发布内部网络扫描功能，模拟攻击者视角发现内部资产风险，对蓝队防御有实用价值"
+      },
+      {
+        "title": "Why Exposure Management Is Replacing Vulnerability Management",
+        "url": "https://horizon3.ai/intelligence/blogs/exposure-vs-vulnerability-management/",
+        "source": "Horizon3.ai",
+        "date": "2026-07-21",
+        "reason": "从漏洞管理向暴露面管理的范式转变思考，对安全运营战略有参考价值"
       }
     ],
     "云安全": [
       {
-        "title": "Cloudflare Internal DNS is now generally available",
-        "url": "https://blog.cloudflare.com/internal-dns/",
-        "source": "Cloudflare",
-        "date": "2026-07-20",
-        "reason": "Cloudflare内部DNS服务正式商用，为企业提供安全的内网DNS解析与管理能力"
-      },
-      {
-        "title": "Storage Agent Family: Agent 时代，重构云存储的「人机交互」",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247520980&idx=1&sn=3473de7e69a0d88739c1684a4abfff7e",
-        "source": "微信",
-        "date": "2026-07-20",
-        "reason": "AI Agent时代下云存储人机交互重构方案的探索，涉及云存储与AI协同的新模式"
+        "title": "New Bit2Watt Attack Could Let Cloud Tenants Disrupt Power Grids Without an Exploit",
+        "url": "https://thehackernews.com/2026/07/new-bit2watt-attack-could-let-cloud.html",
+        "source": "The Hacker News",
+        "date": "2026-07-21",
+        "reason": "Bit2Watt攻击仅凭普通GPU访问即可影响数据中心电力负载，无需漏洞利用即能威胁电网安全"
       }
     ],
-    "其他重要": []
+    "其他重要": [
+      {
+        "title": "N-day is Becoming N-Hour. Patching Faster Won't Save You.",
+        "url": "https://thehackernews.com/2026/07/n-day-is-becoming-n-hour-patching.html",
+        "source": "The Hacker News",
+        "date": "2026-07-21",
+        "reason": "提出N-day向N-hour演化的趋势，传统补丁响应模式已失效，对安全战略有重要启示"
+      },
+      {
+        "title": "Trump Orders Defense Contractors to Map Software, Suppliers Across Critical Supply Chains",
+        "url": "https://www.securityweek.com/trump-orders-defense-contractors-to-map-software-suppliers-across-critical-supply-chains/",
+        "source": "SecurityWeek",
+        "date": "2026-07-21",
+        "reason": "美国行政令要求国防承包商全面梳理软件供应链，反映国家级软件供应链安全治理趋势"
+      },
+      {
+        "title": "中央网信委印发《深化互联网协议第六版（IPv6）技术创新和融合应用实施方案（2026—2030年）》",
+        "url": "https://www.secrss.com/articles/92348",
+        "source": "安全内参",
+        "date": "2026-07-21",
+        "reason": "国家层面IPv6技术创新和融合应用实施方案，关系到未来5年网络基础设施演进方向"
+      }
+    ]
   },
-  "summary": "本批次聚焦高危漏洞披露、AI安全事件及供应链攻击等热点话题"
+  "summary": "本批次聚焦Fastjson 1.2.83 RCE、SharePoint/ServiceNow高危漏洞在野利用，以及AI Agent供应链攻击新趋势。"
 }
