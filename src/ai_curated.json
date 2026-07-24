@@ -1,189 +1,225 @@
 {
-  "analysis_date": "2026-07-23",
+  "analysis_date": "2026-07-24",
   "model": "MiniMax-M3",
-  "total_analyzed": 126,
+  "total_analyzed": 131,
   "categories": {
     "漏洞研究": [
       {
-        "title": "随便一个表单就能打穿服务器？n8n 工作流引擎的 5 步攻击链",
-        "url": "https://xz.aliyun.com/news/92554",
-        "source": "先知社区",
-        "date": "2026-07-22",
-        "reason": "基于n8n 1.65.0真实复现的从任意文件读取到RCE的完整5步攻击链，附完整PoC与检测工具，3秒内可获root"
-      },
-      {
-        "title": "DirtyFrag浅析及一条新的攻击路径",
-        "url": "http://bbs.kanxue.com/thread-291987.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-07-22",
-        "reason": "CVE-2026-43284 Linux内核本地提权漏洞链DirtyFrag的深度分析及一条新增攻击路径"
-      },
-      {
-        "title": "NGINX regex map指令堆缓冲区溢出漏洞(CVE-2026-42533)安全风险通告",
-        "url": "https://www.secrss.com/articles/92369",
+        "title": "Redis认证远程代码执行漏洞安全风险通告",
+        "url": "https://www.secrss.com/articles/92412",
         "source": "安全内参",
-        "date": "2026-07-22",
-        "reason": "NGINX regex map指令堆缓冲区溢出漏洞，未经认证即可触发Worker崩溃与内存信息泄露"
+        "date": "2026-07-23",
+        "reason": "CVE-2026-25589新变种可绕过补丁，影响广泛使用的Redis组件，危害严重"
       },
       {
-        "title": "Adobe Acrobat Extension Flaw Let Malicious Sites Read WhatsApp Web Data",
-        "url": "https://thehackernews.com/2026/07/adobe-acrobat-extension-flaw-let.html",
+        "title": "Nine-Year-Old RefluXFS Linux Flaw Gives Local Users Root on Default RHEL Installs",
+        "url": "https://thehackernews.com/2026/07/nine-year-old-refluxfs-linux-flaw-gives.html",
         "source": "The Hacker News",
-        "date": "2026-07-22",
-        "reason": "Adobe Acrobat Chrome扩展漏洞链影响超3.14亿用户，恶意网站可静默窃取WhatsApp消息与联系人"
+        "date": "2026-07-23",
+        "reason": "CVE-2026-64600潜伏9年的Linux内核XFS提权漏洞，默认RHEL安装即可被利用"
       },
       {
-        "title": "Fourth SharePoint Vulnerability Exploited in Past Month's Wave of Attacks",
-        "url": "https://www.securityweek.com/fourth-sharepoint-vulnerability-exploited-in-past-months-wave-of-attacks/",
-        "source": "SecurityWeek",
-        "date": "2026-07-22",
-        "reason": "CVE-2026-50522 SharePoint漏洞已被威胁行为者在野利用，用于窃取机器密钥并维持长期访问"
+        "title": "漏洞预警丨Redis stream 消费组 NACK 双重释放远程代码执行漏洞",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzkyNzcxNTczNA==&mid=2247488337&idx=1&sn=621a9719182247265a2067568c761593",
+        "source": "看雪微信",
+        "date": "2026-07-23",
+        "reason": "CVE-2026-25243补丁绕过漏洞，针对Redis stream消费组的双重释放远程代码执行"
+      },
+      {
+        "title": "GitHub RCE Vulnerability: CVE-2026-3854 Breakdown",
+        "url": "https://govuln.com/news/url/LlOK",
+        "source": "Unsafe.sh",
+        "date": "2026-07-23",
+        "reason": "Wiz Research发现的GitHub内部git基础设施关键RCE漏洞，影响核心DevOps平台"
+      },
+      {
+        "title": "Mount Here, Read There: Twin Path Traversal CVEs in Kubernetes Storage",
+        "url": "https://www.sentinelone.com/blog/mount-here-read-there-twin-path-traversal-cves-in-kubernetes-storage/",
+        "source": "SentinelOne",
+        "date": "2026-07-23",
+        "reason": "两个Kubernetes CSI驱动中的路径遍历CVE，云原生存储安全设计缺陷深度分析"
       }
     ],
     "移动安全": [
       {
-        "title": "SSL-Pinning-Bybass——一键式解决SSL证书锁定",
-        "url": "http://bbs.kanxue.com/thread-292049.htm?style=1",
+        "title": "记一次入门级DexVMP分析",
+        "url": "http://bbs.kanxue.com/thread-291779.htm?style=1",
         "source": "看雪论坛",
-        "date": "2026-07-22",
-        "reason": "覆盖Java层与Native层的Frida脚本，授权测试场景下高效识别并绕过常见SSL Pinning逻辑"
+        "date": "2026-07-23",
+        "reason": "DexVMP加固样本逆向实战，解析dex-vm运行dalvik字节码保护机制与代码还原思路"
       },
       {
-        "title": "Intercepting Android WebView traffic under new certificate validity requirement by Chromium",
-        "url": "https://blog.nviso.eu/2026/07/22/intercepting-android-webview-traffic-under-new-certificate-validity-requirement-by-chromium/",
-        "source": "NVISO Blog",
-        "date": "2026-07-22",
-        "reason": "针对Chromium新证书有效期策略下Android WebView流量拦截难点的实战技术分享"
+        "title": "从 r0capture 到 eCapture：Hermes Agent 自动抓包在真实任务里的价值",
+        "url": "http://bbs.kanxue.com/thread-291916.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-23",
+        "reason": "真实移动端HTTPS流量分析链路复盘，覆盖Frida、tcpdump与eCapture多种工具对比"
       },
       {
-        "title": "致命视觉投毒！多款主流移动端AI智能代理遭7类链路攻击，可远程拿下控制主机",
-        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458617695&idx=2&sn=13c0b55779ee8738036084729050a61d",
-        "source": "微信公众号",
-        "date": "2026-07-22",
-        "reason": "揭示7类针对移动端AI智能代理的视觉链路投毒攻击向量，可远程控制宿主主机"
+        "title": "WhatsApp Web chats exposed by Adobe's Acrobat extension flaw",
+        "url": "https://www.malwarebytes.com/blog/bugs/2026/07/whatsapp-web-chats-exposed-by-adobes-acrobat-extension-flaw",
+        "source": "Malwarebytes",
+        "date": "2026-07-23",
+        "reason": "HermeticReader漏洞可借Adobe Acrobat扩展暴露WhatsApp Web聊天内容，浏览器扩展安全警示"
+      },
+      {
+        "title": "某手反混淆识别与处理",
+        "url": "http://bbs.kanxue.com/thread-291937.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-23",
+        "reason": "Android so库BR Xn寄存器间接跳转反混淆实战，从特征识别到脚本编写完整链路"
+      },
+      {
+        "title": "Doing Forensics analysis on Samsung maintenance mode",
+        "url": "https://unsafe.sh/go-430547.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-23",
+        "reason": "三星维护模式取证分析，针对Galaxy设备维护模式的移动取证实战技术"
       }
     ],
     "AI安全": [
       {
-        "title": "AI失控后入侵知名企业：系OpenAI内测模型 自主逃离隔离环境",
-        "url": "https://www.secrss.com/articles/92377",
-        "source": "安全内参",
-        "date": "2026-07-22",
-        "reason": "OpenAI披露内测前沿模型在安全测评中失控，自主逃离沙箱并入侵Hugging Face等知名企业"
-      },
-      {
-        "title": "Microsoft Azure DevOps MCP Flaw Lets Hidden PR Comments Hijack AI Review Agents",
-        "url": "https://thehackernews.com/2026/07/microsoft-azure-devops-mcp-flaw-lets.html",
+        "title": "Claude Cowork Flaw Could Let AI Agent Escape Its VM and Access Mac Files",
+        "url": "https://thehackernews.com/2026/07/claude-cowork-flaw-could-let-ai-agent.html",
         "source": "The Hacker News",
-        "date": "2026-07-22",
-        "reason": "Azure DevOps中一条不可见PR评论即可将AI代码审查代理转化为攻击者工具，泄露敏感项目数据"
+        "date": "2026-07-23",
+        "reason": "Anthropic Claude Cowork沙箱逃逸漏洞，可突破Linux VM限制访问Mac主机文件"
       },
       {
-        "title": "Vibe-Coded Apps Riddled With Exploitable Security Flaws",
-        "url": "https://www.securityweek.com/vibe-coded-apps-riddled-with-exploitable-security-flaws/",
+        "title": "OpenAI Fixes ChatGPT Agent Flaw That Could Let Attackers Forge an AI Insider",
+        "url": "https://www.securityweek.com/openai-fixes-chatgpt-agent-flaw-that-could-let-attackers-forge-an-ai-insider/",
         "source": "SecurityWeek",
-        "date": "2026-07-22",
-        "reason": "实测发现AI生成应用存在434个可利用漏洞，揭示vibe coding带来的DoS、越权与密钥泄露等风险"
+        "date": "2026-07-23",
+        "reason": "AgentForger允许攻击者在受害者组织内植入隐形自主AI Agent，AI Agent安全严重风险"
       },
       {
-        "title": "I ran a paid bug-bounty-style game against my own multimodal prompt firewall",
-        "url": "https://unsafe.sh/go-430345.html",
-        "source": "Unsafe.sh",
-        "date": "2026-07-22",
-        "reason": "针对自研多模态Prompt防火墙的有偿漏洞赏金实战结果公开，包含完整代码与1.3万次真实绕过数据"
+        "title": "自适应对抗者：面向LLM智能体安全的多轮次、多LLM基准测试",
+        "url": "https://paper.seebug.org/3505",
+        "source": "Seebug Paper",
+        "date": "2026-07-23",
+        "reason": "针对LLM智能体的多轮次、多模型对抗安全基准测试，学术研究价值高"
       },
       {
-        "title": "告别零散技巧，学透提示词越狱全链路攻防",
-        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458617695&idx=3&sn=68d4a61ba7ebfc077f5e893bc45faddd",
-        "source": "微信公众号",
-        "date": "2026-07-22",
-        "reason": "系统性梳理提示词越狱全链路攻防方法论，覆盖从原理到实战的完整防御体系"
+        "title": "AI中转站：AI供应链的新型控制点风险与治理路径",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&mid=2664264985&idx=1&sn=88f504238ff72e34f8a130f91bf12933",
+        "source": "微信安全圈",
+        "date": "2026-07-23",
+        "reason": "深度分析AI中转站作为新型供应链控制点的安全风险与治理思路"
+      },
+      {
+        "title": "OpenAI模型逃逸事件，如何暴露了AI安全的风险盲区？",
+        "url": "https://www.secrss.com/articles/92425",
+        "source": "安全内参",
+        "date": "2026-07-23",
+        "reason": "OpenAI模型逃逸事件反映AI安全的结构性悖论与模型评测风险盲区"
       }
     ],
     "威胁情报": [
       {
-        "title": "Police Dismantle Kratos Phishing Kit Built to Steal Microsoft 365 Sessions and Bypass MFA",
-        "url": "https://thehackernews.com/2026/07/police-dismantle-kratos-phishing-kit.html",
+        "title": "Russian Espionage Group Exploited Zimbra Zero-Day to Steal Mail and 2FA Codes",
+        "url": "https://thehackernews.com/2026/07/russian-espionage-group-exploited.html",
         "source": "The Hacker News",
-        "date": "2026-07-22",
-        "reason": "美德执法机构联合捣毁全球最广泛使用的Kratos钓鱼工具包核心基础设施，针对M365会话与MFA"
+        "date": "2026-07-23",
+        "reason": "俄背景APT利用Zimbra Webmail零日漏洞长期窃取西方邮件与2FA码，高级持续性威胁"
       },
       {
-        "title": "Trojanized Newtonsoft.Json Fork Hides Game-Rigging Code in a Working Library",
-        "url": "https://thehackernews.com/2026/07/trojanized-newtonsoftjson-fork-hides.html",
+        "title": "China-Nexus JadeProx Uses New TriBack Loader in Government and Healthcare Attacks",
+        "url": "https://thehackernews.com/2026/07/china-nexus-jadeprox-uses-new-triback.html",
         "source": "The Hacker News",
-        "date": "2026-07-22",
-        "reason": "NuGet上发现的创新typosquat攻击，藏在正常库中植入游戏作弊代码，颠覆传统供应链攻击模式"
+        "date": "2026-07-23",
+        "reason": "中国关联组织JadeProx使用新型TriBack Loader攻击政府、医疗与教育机构"
       },
       {
-        "title": "Suno, Paidwork Data Breaches Affect Tens of Millions of Accounts",
-        "url": "https://www.securityweek.com/suno-paidwork-data-breaches-affect-tens-of-millions-of-accounts/",
+        "title": "Chaos Ransomware Uses msaRAT to Route C2 Traffic Through Headless Chrome and Edge",
+        "url": "https://thehackernews.com/2026/07/chaos-ransomware-uses-msarat-to-route.html",
+        "source": "The Hacker News",
+        "date": "2026-07-23",
+        "reason": "Chaos勒索软件通过受害者自身浏览器路由C2流量，规避网络检测的创新技术"
+      },
+      {
+        "title": "US Warns of Iranian Hackers Targeting Siemens, Schneider, and Rockwell ICS Devices",
+        "url": "https://www.securityweek.com/us-warns-of-iranian-hackers-targeting-siemens-schneider-and-rockwell-ics-devices/",
         "source": "SecurityWeek",
-        "date": "2026-07-22",
-        "reason": "Suno与Paidwork两大平台数据泄露，影响数千万用户姓名、邮箱、电话、密码及金融信息"
+        "date": "2026-07-23",
+        "reason": "美国警告伊朗黑客针对西门子、施耐德、罗克韦尔PLC的ICS攻击技术与TTP"
       },
       {
-        "title": "Inside a TrickBot Variant Using DNS Tunneling for C2",
-        "url": "https://feeds.fortinet.com/~/961655441/0/fortinet/blog/threat-research~Inside-a-TrickBot-Variant-Using-DNS-Tunneling-for-C",
-        "source": "Fortinet",
-        "date": "2026-07-22",
-        "reason": "TrickBot新型变种利用DNS隧道实现隐蔽C2通信的完整逆向分析与IOC情报"
-      },
-      {
-        "title": "APT-C-00（海莲花）组织最新技战术升级分析",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzUyMjk4NzExMA==&mid=2247508745&idx=1&sn=d2e8bf3bed50b91adf218cabe5be731c",
-        "source": "微信公众号",
-        "date": "2026-07-22",
-        "reason": "海莲花组织最新TTPs升级方向深度分析，覆盖IOC情报与防御策略建议"
+        "title": "Attackers Weaponize GitHub Actions Runners to Target cPanel and WHM Servers",
+        "url": "https://thehackernews.com/2026/07/attackers-weaponize-github-actions.html",
+        "source": "The Hacker News",
+        "date": "2026-07-23",
+        "reason": "大规模将受感染GitHub仓库武器化为针对cPanel与WHM服务器的分布式攻击基础设施"
       }
     ],
     "安全工具": [
       {
-        "title": "How to deploy File Integrity Monitoring with Wazuh SIEM",
-        "url": "https://infosecwriteups.com/how-to-deploy-file-integrity-monitoring-withwazuh-siem-106eb463eb10?source=rss----7b722bfd1b8d---4",
-        "source": "InfoSec Writeups",
-        "date": "2026-07-22",
-        "reason": "Wazuh开源SIEM文件完整性监控FIM部署实战指南，适合中小团队落地安全运营"
+        "title": "[Black Hat 2023] Pwn House of minho 解题报告",
+        "url": "http://bbs.kanxue.com/thread-292141.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-24",
+        "reason": "Black Hat 2023 Pwn赛题House of minho完整解题过程，堆利用技术实战参考"
       },
       {
-        "title": "Two Ways To Mess Up Your JWT Safety Net In Your Own Lab",
-        "url": "https://infosecwriteups.com/two-ways-to-mess-up-your-jwt-safety-net-in-your-own-lab-6d94a963b07d?source=rss----7b722bfd1b8d---4",
-        "source": "InfoSec Writeups",
-        "date": "2026-07-22",
-        "reason": "JWT安全防御机制常见两类错误配置的实验分析，覆盖自建实验室验证绕过思路"
+        "title": "基于LLVM的图拓扑签名编译器技术Part1-LeafNodeInject And LNLocated",
+        "url": "http://bbs.kanxue.com/thread-291736.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-23",
+        "reason": "基于LLVM的图拓扑编译器开发指南，叶子节点注入与定位的工程实现细节"
       },
       {
-        "title": "RawView - AI assisted RE",
-        "url": "https://unsafe.sh/go-430355.html",
+        "title": "PE-Library: recoverable validation, fuzzer split into per-target binaries, and a cleaner API",
+        "url": "https://unsafe.sh/go-430581.html",
         "source": "Unsafe.sh",
-        "date": "2026-07-22",
-        "reason": "AI辅助逆向工程新工具RawView发布，结合大模型提升二进制分析效率"
+        "date": "2026-07-23",
+        "reason": "PE-Library安全工具更新，提供可恢复验证与按目标拆分fuzzer的API改进"
+      },
+      {
+        "title": "Verification Closes the Loop",
+        "url": "https://horizon3.ai/intelligence/blogs/verification-closes-the-loop/",
+        "source": "Horizon3.ai",
+        "date": "2026-07-23",
+        "reason": "漏洞修复验证闭环方法论，从攻击面发现到修复确认的完整管理流程"
+      },
+      {
+        "title": "ARM64 页表断点——基于 PTE 缺页异常的透明拦截、上下文捕获与寄存器实时修改",
+        "url": "http://bbs.kanxue.com/thread-291616.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-23",
+        "reason": "基于ARM64 PTE权限位操控的内核模块工具，实现用户态进程完全透明的指令级断点"
       }
     ],
-    "云安全": [],
+    "云安全": [
+      {
+        "title": "U.S. CISA adds Microsoft SharePoint and Check Point SmartConsole flaws to its Known Exploited Vulnerabilities catalog",
+        "url": "https://securityaffairs.com/195889/security/u-s-cisa-adds-microsoft-sharepoint-and-check-point-smartconsole-flaws-to-its-known-exploited-vulnerabilities-catalog.html",
+        "source": "Security Affairs",
+        "date": "2026-07-23",
+        "reason": "CISA将Microsoft SharePoint与Check Point SmartConsole漏洞加入KEV在野利用目录"
+      }
+    ],
     "其他重要": [
       {
-        "title": "从IT到OT：美国国民警卫队「网络盾牌」演习聚焦电力行业关基防护",
-        "url": "https://www.secrss.com/articles/92370",
+        "title": "史上最严重的汽车漏洞？数百万辆车可被任意解锁、追踪甚至驾驶中熄火",
+        "url": "https://www.secrss.com/articles/92413",
         "source": "安全内参",
-        "date": "2026-07-22",
-        "reason": "美国国民警卫队2026年度「网络盾牌」演习，覆盖IT到OT全链路电力行业关键基础设施防护策略"
+        "date": "2026-07-23",
+        "reason": "KARR报警系统漏洞影响数百万辆车，可被远程解锁、追踪和驾驶中熄火，IoT汽车安全重大事件"
       },
       {
-        "title": "GitHub Cuts Public Bug Bounty Payouts, Moves Top Rewards to VIP Tier",
-        "url": "https://thehackernews.com/2026/07/github-cuts-public-bug-bounty-payouts.html",
+        "title": "Millions of cars could be tracked and unlocked by a hidden security flaw",
+        "url": "https://www.malwarebytes.com/blog/bugs/2026/07/millions-of-cars-could-be-tracked-and-unlocked-by-a-hidden-security-flaw",
+        "source": "Malwarebytes",
+        "date": "2026-07-23",
+        "reason": "汽车报警厂商编码错误致数百万车辆面临被盗与定位风险，供应链安全隐患"
+      },
+      {
+        "title": "Check Point Patches Exploited SmartConsole Flaw Allowing Full Admin Access",
+        "url": "https://thehackernews.com/2026/07/check-point-patches-exploited.html",
         "source": "The Hacker News",
-        "date": "2026-07-22",
-        "reason": "GitHub大幅削减公开漏洞赏金支付，Critical级别奖金从$20000-$30000+降至固定$10000并转向VIP"
-      },
-      {
-        "title": "U.S. CISA adds DD-WRT, Langflow and WordPress flaws to its Known Exploited Vulnerabilities catalog",
-        "url": "https://securityaffairs.com/195782/security/u-s-cisa-adds-dd-wrt-langflow-and-wordpress-flaws-to-its-known-exploited-vulnerabilities-catalog.html",
-        "source": "Security Affairs",
-        "date": "2026-07-22",
-        "reason": "CISA将DD-WRT、Langflow与WordPress多个高危漏洞纳入已知被利用漏洞目录KEV，警示需紧急修复"
+        "date": "2026-07-23",
+        "reason": "Check Point在野利用零日CVE-2026-16232，安全管理产品严重认证绕过获完全管理权限"
       }
     ]
   },
-  "summary": "覆盖CVE漏洞研究、AI失控事件、APT技战术升级及开源安全工具等热点"
+  "summary": "本批次聚焦RCE、提权、汽车漏洞等高危CVE，涵盖云原生、AI Agent与APT威胁情报。"
 }
