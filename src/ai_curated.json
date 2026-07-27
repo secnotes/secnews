@@ -1,15 +1,225 @@
 {
-  "analysis_date": "2026-07-26",
+  "analysis_date": "2026-07-27",
   "model": "MiniMax-M3",
-  "total_analyzed": 84,
+  "total_analyzed": 82,
   "categories": {
-    "漏洞研究": [],
-    "移动安全": [],
-    "AI安全": [],
-    "威胁情报": [],
-    "安全工具": [],
-    "云安全": [],
-    "其他重要": []
+    "漏洞研究": [
+      {
+        "title": "hitcon-2016-babytrick 解题报告",
+        "url": "http://bbs.kanxue.com/thread-292157.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-26",
+        "reason": "HITCON 2016经典赛题复现，详解PHP反序列化漏洞利用与__destruct()魔术方法触发链，具有实战教学价值"
+      },
+      {
+        "title": "3 Ways JWTs Get Forged, and the One Rule That Stops Them All",
+        "url": "https://hackernoon.com/3-ways-jwts-get-forged-and-the-one-rule-that-stops-them-all?source=rss",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "系统梳理JWT伪造的三种常见攻击手法，并给出防御规则，对Web应用安全有直接参考价值"
+      },
+      {
+        "title": "Reverse engineering my Samsung Odyssey G5 monitor firmware",
+        "url": "https://unsafe.sh/go-431004.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "对三星显示器固件进行SPARC V8架构逆向工程，涉及隐藏工厂菜单和死代码分析，是硬件固件安全研究的优秀案例"
+      },
+      {
+        "title": "Scans for ESAFENET CDG 3 Document Management System Weak Logins",
+        "url": "https://isc.sans.edu/diary/rss/33184",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "SANS互联网风暴中心发布的ESAFENET文档管理系统弱口令扫描事件，反映真实漏洞利用趋势"
+      },
+      {
+        "title": "Rein's Agent Breakers Research Team Discovers Critical Vulnerabilities in Top U.S. Retailer's AI Shopping Agent",
+        "url": "https://unsafe.sh/go-430960.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "披露美国头部零售商AI购物代理的关键漏洞，代表AI Agent安全研究的前沿方向"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "最右APPv4.9.9登录协议分析",
+        "url": "http://bbs.kanxue.com/thread-291817.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-26",
+        "reason": "使用Fiddler、jadx、Frida等工具对Android应用登录协议进行完整逆向分析，具有移动安全实战参考价值"
+      },
+      {
+        "title": "GrapheneOS 警告在胁迫下删除手机数据可能会有法律后果",
+        "url": "https://www.solidot.org/story?sid=84926",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "GrapheneOS加固系统的胁迫密码机制及其法律风险分析，对移动数据保护策略有重要启示"
+      },
+      {
+        "title": "安卓GKI内核模块开发编译工具包开发与使用",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzU3MTY5MzQxMA==&mid=2247485369&idx=1&sn=0cc7abb85722c7d8533cd09b91355b26",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "通用内核映像（GKI）模块开发是Android内核安全研究的核心技术，适合安全研究员参考"
+      },
+      {
+        "title": "谷歌工程师提议禁止安卓ADB本地连接 Shizuku等高级应用将受到严重影响",
+        "url": "https://www.landian.news/archives/114073.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "安卓ADB本地连接限制提案将影响Shizuku等高级权限管理工具，反映Android平台安全策略的重要变化"
+      },
+      {
+        "title": "Technical WhatsApp timestamp question for forensic examiners",
+        "url": "https://unsafe.sh/go-430998.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "面向取证审查人员的WhatsApp时间戳分析技术，对移动端数字取证有直接价值"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "The Danger of \"Just Scrape It\" in AI Strategy",
+        "url": "https://hackernoon.com/the-danger-of-just-scrape-it-in-ai-strategy?source=rss",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "深入分析AI数据抓取策略的法律与合规风险，对AI训练数据合规具有重要警示意义"
+      },
+      {
+        "title": "Where found gosthgpt, fraudgpt, wormgpt or...",
+        "url": "https://unsafe.sh/go-431005.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "汇总WormGPT、FraudGPT等恶意AI工具的发现渠道，反映生成式AI被武器化的威胁态势"
+      },
+      {
+        "title": "What 239 Products Reveal About the Shape of AI Security",
+        "url": "https://zeltser.com/ai-security-market-shape",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "对239款AI安全产品进行市场格局分析，揭示AI安全领域的成熟度与不平衡发展"
+      },
+      {
+        "title": "How MCP Is Changing AI Agent Development",
+        "url": "https://hackernoon.com/how-mcp-is-changing-ai-agent-development?source=rss",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "MCP协议对AI Agent开发模式的影响分析，涉及Agent安全通信的关键技术演进"
+      },
+      {
+        "title": "Hugging Face遭入侵后要求OpenAI赔偿算力",
+        "url": "https://blog.upx8.com/Hugging-Face%E9%81%AD%E5%85%A5%E4%BE%B5%E5%90%8E%E8%A6%81%E6%B1%82OpenAI%E8%B5%94%E5%81%BF%E7%AE%97%E5%8A%9B",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "Hugging Face遭OpenAI失控智能体入侵事件，是AI Agent失控造成安全损失的标志性案例"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "Hackers Hijack Hotel Wi-Fi to Steal Microsoft 365 Credentials",
+        "url": "https://securityaffairs.com/196017/security/hackers-hijack-hotel-wi-fi-to-steal-microsoft-365-credentials.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "攻击者劫持酒店Wi-Fi窃取M365凭据的实战威胁情报，对商旅人员安全防护具有重要参考价值"
+      },
+      {
+        "title": "SECURITY AFFAIRS MALWARE NEWSLETTER ROUND 107",
+        "url": "https://securityaffairs.com/196037/malware/security-affairs-malware-newsletter-round-107.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "Security Affairs第107期恶意软件专题汇总，覆盖近期全球恶意软件威胁态势"
+      },
+      {
+        "title": "【安全圈】Notepad++ 插件悄然安装恶意软件",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652078019&idx=3&sn=90187063089624728ea3d48fac253b91",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "开发者工具插件供应链投毒事件，开发人员需警惕常用编辑器扩展的潜在风险"
+      },
+      {
+        "title": "Weekly Update 514: This Week in Data Breaches",
+        "url": "https://www.troyhunt.com/weekly-update-514/",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "Troy Hunt每周数据泄露事件回顾，包括澳大利亚Origin Energy重大泄露事件分析"
+      },
+      {
+        "title": "苹果因App Store上的假冒比特币钱包被起诉",
+        "url": "https://blog.upx8.com/%E8%8B%B9%E6%9E%9C%E5%9B%A0App-Store%E4%B8%8A%E7%9A%84%E5%81%87%E5%86%92%E6%AF%94%E7%89%B9%E5%B8%81%E9%92%B1%E5%8C%85%E8%A2%AB%E8%B5%B7%E8%AF%89",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "App Store假冒加密货币钱包致用户损失180万美元，反映移动应用商店的供应链安全威胁"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "[Open Source] Waypoint - A Ring-0 KMDF Virtual HID Mouse Driver with Lockless Shared-Memory IPC",
+        "url": "https://unsafe.sh/go-430983.html",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "开源Ring-0级虚拟HID鼠标驱动，采用无锁共享内存IPC机制，是Windows内核安全研究的优质工具"
+      },
+      {
+        "title": "Internet Explorer 扩展注册项与 COM 实现解析",
+        "url": "http://bbs.kanxue.com/thread-292127.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-26",
+        "reason": "通过KSwordARK项目实现IE扩展注册项与COM组件枚举，对Windows浏览器扩展安全分析有工具价值"
+      },
+      {
+        "title": "Credential Provider、Filter 与 PLAP 的 CLSID 枚举",
+        "url": "http://bbs.kanxue.com/thread-292173.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-07-26",
+        "reason": "枚举Windows凭据提供程序相关CLSID的安全工具，对Windows认证安全研究具有实用价值"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "【安全圈】华为云全球性故障：疑似 IAM 升级故障",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652078019&idx=1&sn=991838a24bde82c1239a701fdcdc0d6e",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "华为云全球性IAM升级故障事件，反映大型云服务商身份认证系统变更带来的业务连续性风险"
+      },
+      {
+        "title": "【安全圈】OpenAI 突发服务器故障，ChatGPT、Codex 出现宕机",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652078019&idx=2&sn=9d8980aee1c4002490cdc3bcf80489c3",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "OpenAI核心服务宕机事件，体现AI服务高度依赖单一云架构的供应链风险"
+      }
+    ],
+    "其他重要": [
+      {
+        "title": "国家安全部：AI造不了真相 篡改洗不掉血痕",
+        "url": "https://www.secrss.com/articles/92477",
+        "source": "安全内参",
+        "date": "2026-07-26",
+        "reason": "国家安全部就AI技术被境外势力滥用进行历史虚无主义宣传发出警示，涉及AI治理与信息战安全"
+      },
+      {
+        "title": "Cloudflare 将从 9 月 15 日起对新域名默认屏蔽 Google 爬虫",
+        "url": "https://www.solidot.org/story?sid=84924",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "Cloudflare默认屏蔽AI训练爬虫策略，反映互联网基础设施对AI数据采集的政策响应"
+      },
+      {
+        "title": "Production ML-DSA Verification in 350 Lines of Python",
+        "url": "https://words.filippo.io/mldsa-py/",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "Filippo Valsorda用350行Python实现生产级ML-DSA（后量子签名）验证，对密码学工程实现具有重要参考价值"
+      },
+      {
+        "title": "提供自动重置手机的密码 美一公民被起诉",
+        "url": "https://blog.upx8.com/%E6%8F%90%E4%BE%9B%E8%87%AA%E5%8A%A8%E9%87%8D%E7%BD%AE%E6%89%8B%E6%9C%BA%E7%9A%84%E5%AF%86%E7%A0%81-%E7%BE%8E%E4%B8%80%E5%85%AC%E6%B0%91%E8%A2%AB%E8%B5%B7%E8%AF%89",
+        "source": "Unsafe.sh",
+        "date": "2026-07-26",
+        "reason": "美国首例因使用手机胁迫密码清除数据被起诉的联邦案件，涉及边境电子取证与数据销毁的法律边界"
+      }
+    ]
   },
-  "summary": "AI分析完成，已筛选重要文章并分类"
+  "summary": "本批次82篇涵盖AI安全、漏洞研究、威胁情报为主，含云故障、移动安全及硬件逆向等热点。"
 }
