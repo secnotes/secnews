@@ -1,15 +1,196 @@
 {
-  "analysis_date": "2026-08-04",
+  "analysis_date": "2026-08-05",
   "model": "MiniMax-M3",
-  "total_analyzed": 129,
+  "total_analyzed": 123,
   "categories": {
-    "漏洞研究": [],
-    "移动安全": [],
-    "AI安全": [],
-    "威胁情报": [],
-    "安全工具": [],
-    "云安全": [],
+    "漏洞研究": [
+      {
+        "title": "MP4Box / GPAC 严重安全漏洞",
+        "url": "https://sec.today/pulses/5244a5bf-ae1f-4825-820d-cd44de7d5700/",
+        "source": "Sec-Today",
+        "date": "2026-08-05",
+        "reason": "GPAC MP4Box 多个高危漏洞，包含空指针解引用、堆缓冲区溢出与 UAF，攻击者可通过构造畸形 MP4/MPEG-2 TS 文件触发。"
+      },
+      {
+        "title": "Linux Kernel Open vSwitch 本地权限提升漏洞（CVE-2026-64531）",
+        "url": "https://www.secrss.com/articles/92785",
+        "source": "安全内参",
+        "date": "2026-08-04",
+        "reason": "Linux 内核 OVS 模块提权漏洞，普通用户可直接提升至 root，危害严重需优先修复。"
+      },
+      {
+        "title": "MariaDB 认证远程代码执行漏洞",
+        "url": "https://www.secrss.com/articles/92786",
+        "source": "安全内参",
+        "date": "2026-08-04",
+        "reason": "全程仅用 SQL 语句即可完成远程代码执行，PoC 与细节已公开，威胁极高。"
+      },
+      {
+        "title": "TP-Link Omada ZTP 漏洞链可导致全网接管",
+        "url": "https://www.securityweek.com/tp-link-omada-ztp-vulnerabilities-chain-into-full-network-takeover/",
+        "source": "SecurityWeek",
+        "date": "2026-08-04",
+        "reason": "Forescout 研究人员在 TP-Link Omada 网络生态中发现 15 个新漏洞，可链式利用实现网络完全接管。"
+      },
+      {
+        "title": "存在数十年的 BMC 漏洞影响上万台数据中心",
+        "url": "https://www.securityweek.com/decades-old-bmc-vulnerability-exposes-thousands-of-data-centers-to-attacks/",
+        "source": "SecurityWeek",
+        "date": "2026-08-04",
+        "reason": "超过 24000 个可联网的服务器管理接口在登录前泄露认证哈希，影响范围广。"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "XCSSET 新变种通过受感染 Xcode 项目攻击 macOS 开发者",
+        "url": "https://www.bleepingcomputer.com/news/security/new-xcsset-variant-targets-macos-devs-via-compromised-xcode-projects/",
+        "source": "BleepingComputer",
+        "date": "2026-08-04",
+        "reason": "XCSSET 新变种专门针对 Apple 开发者生态，通过感染的 Xcode 工程传播，威胁 iOS/macOS 开发链路。"
+      },
+      {
+        "title": "AI Agent 驱动 Android 逆向与 Root 漏洞实战训练营",
+        "url": "http://bbs.kanxue.com/thread-292285.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-08-04",
+        "reason": "结合 Agentic Security 思想探讨 AI 如何辅助 Android 复杂安全分析与 Root 漏洞挖掘，具技术参考价值。"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "GitHub AI Agent 翻车：提示注入漏洞可一句话窃取数据",
+        "url": "https://www.secrss.com/articles/92787",
+        "source": "安全内参",
+        "date": "2026-08-04",
+        "reason": "Noma Security 发现的 GitLost 提示注入漏洞，仅凭一句话就能诱导 GitHub Agentic Workflow 泄露数据。"
+      },
+      {
+        "title": "Google 删除 3 个 ADK AI 工作流：恶意 GitHub Issue 可触发特权 Agent",
+        "url": "https://thehackernews.com/2026/08/google-deletes-3-adk-ai-workflows-after.html",
+        "source": "The Hacker News",
+        "date": "2026-08-04",
+        "reason": "Pillar Security 证明，公开 GitHub Issue 可操纵分类 Agent 触发特权操作，揭示 Agent 间信任风险。"
+      },
+      {
+        "title": "Gemini Agent-to-Agent 攻击暴露密钥并篡改 PR",
+        "url": "https://www.securityweek.com/gemini-agent-to-agent-attack-exposed-secrets-enabled-pull-request-tampering/",
+        "source": "SecurityWeek",
+        "date": "2026-08-04",
+        "reason": "针对 Google ADK 的低权限 Agent 通过恶意 hand-off 提示污染高权限 Agent，实现密钥泄露与 PR 篡改。"
+      },
+      {
+        "title": "AI Agent 的记忆为何成为攻击者的数据金矿",
+        "url": "https://security.tencent.com/index.php/blog/msg/225",
+        "source": "Tencent Security",
+        "date": "2026-08-04",
+        "reason": "腾讯朱雀实验室披露 Memory Heist 攻击方式，攻击面从传统应用扩展到推理与长期记忆本身。"
+      },
+      {
+        "title": "前沿 AI 漏洞爆发：开源软件零日自动化工业化",
+        "url": "https://unit42.paloaltonetworks.com/frontier-ai-vulnerability-burst/",
+        "source": "Unit 42",
+        "date": "2026-08-04",
+        "reason": "Unit 42 报告前沿 AI 系统正根本改变漏洞发现动力学，实现零日漏洞自动化挖掘。"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "Greatness PhaaS 增加设备码钓鱼以绕过 MFA 并窃取 Token",
+        "url": "https://thehackernews.com/2026/08/greatness-phaas-adds-device-code.html",
+        "source": "The Hacker News",
+        "date": "2026-08-04",
+        "reason": "商业钓鱼即服务平台 Greatness 新增设备码钓鱼能力，可绕过 MFA 窃取账户令牌。"
+      },
+      {
+        "title": "Keyv 相关 npm 蠕虫投毒数百包并植入 Claude Code 与 VS Code Hooks",
+        "url": "https://thehackernews.com/2026/08/keyv-linked-npm-worm-poisons-hundreds.html",
+        "source": "The Hacker News",
+        "date": "2026-08-04",
+        "reason": "凭据窃取 npm 蠕虫从 Keyv/Cacheable 命名空间扩散至多个组织数百个包，影响面极广。"
+      },
+      {
+        "title": "DOUBLECUP 利用 ClickFix 与缓存 PNG 投放 CountLoader 与 DeviceManager RAT",
+        "url": "https://thehackernews.com/2026/08/doublecup-uses-clickfix-and-cached-pngs.html",
+        "source": "The Hacker News",
+        "date": "2026-08-04",
+        "reason": "俄罗斯 LaaS 服务 DOUBLECUP 利用 ClickFix 诱导缓存恶意 PNG，最终投递 RAT，攻击链隐蔽。"
+      },
+      {
+        "title": "伊朗对明尼苏达州水务系统发起网络攻击",
+        "url": "https://www.schneier.com/blog/archives/2026/08/iran-cyberattacks-against-minnesota-water-systems.html",
+        "source": "Schneier on Security",
+        "date": "2026-08-04",
+        "reason": "国家级威胁行为者针对美国关键基础设施水务系统的定向攻击尝试，具关基威胁示范效应。"
+      },
+      {
+        "title": "瑞士联邦 IT 机构因 SharePoint 漏洞被攻陷，200 账户失陷",
+        "url": "https://therecord.media/swiss-bit-foitt-hacked-possibly-sharepoint-vulnerabilities",
+        "source": "The Record",
+        "date": "2026-08-04",
+        "reason": "瑞士联邦信息通信技术办公室披露因 SharePoint 漏洞遭入侵，200 个账户受影响，是典型关基事件。"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "实现 EDR 不可见的网络通信：将 lwIP 移植到 NT 内核中",
+        "url": "http://bbs.kanxue.com/thread-292235.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-08-04",
+        "reason": "将轻量级 TCP/IP 协议栈移植到 NT 内核实现 EDR 不可见的网络通信，对端点防护研究有重要参考价值。"
+      },
+      {
+        "title": "Mallory 统一威胁情报、暴露上下文与响应架构",
+        "url": "https://hackernoon.com/mallory-unifies-threat-intelligence-exposure-context-and-response-into-one-architecture-for-teams",
+        "source": "HackerNoon",
+        "date": "2026-08-04",
+        "reason": "AI 原生威胁与暴露管理平台 Mallory 将情报、上下文与响应整合到统一架构。"
+      },
+      {
+        "title": "Burp AT 案例：如何发现被忽视多年的关键漏洞",
+        "url": "https://portswigger.net/blog/case-study-how-burp-at-helped-expose-whistleblower-reports-via-a-critical-vulnerability-that-was-overlooked-for-years",
+        "source": "PortSwigger",
+        "date": "2026-08-04",
+        "reason": "Burp 自动化测试辅助发现多年未被发现的高危漏洞，体现工具实战价值。"
+      },
+      {
+        "title": "ShellcodeRunner 反取证、提权与载荷分析",
+        "url": "https://unsafe.sh/go-432956.html",
+        "source": "Unsafe.sh",
+        "date": "2026-08-04",
+        "reason": "聚焦反取证、提权与载荷分析的工具集，对红队攻防与恶意软件分析具参考意义。"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "QuickFox 供应链攻击用于部署 FDMTP 植入",
+        "url": "https://feeds.fortinet.com/~/966214247/0/fortinet/blog/threat-research~QuickFox-Supply-Chain-Attack-Used-to-Deploy-FDMTP-Implant",
+        "source": "Fortinet",
+        "date": "2026-08-04",
+        "reason": "VPN 工具 QuickFox 遭供应链攻击用于部署 FDMTP 植入，云端边界设备信任链面临严峻考验。"
+      },
+      {
+        "title": "合法云平台如何助长钓鱼者绕过 MFA",
+        "url": "https://securelist.com/cloud-platforms-in-phishing/120832/",
+        "source": "Kaspersky Securelist",
+        "date": "2026-08-04",
+        "reason": "威胁行为者越来越多利用合法云服务规避检测，揭示云平台信任滥用与反钓鱼难题。"
+      },
+      {
+        "title": "意大利电信云服务商 Retelit 遭网络攻击却秘而不宣",
+        "url": "https://irpimedia.irpi.eu/retelit-operatore-cloud-e-telecomunicazioni-attacco-informatico/",
+        "source": "IRPI Media",
+        "date": "2026-08-04",
+        "reason": "意大利主要云与电信运营商 Retelit 遭网络攻击但未披露，云安全合规与披露义务值得关注。"
+      },
+      {
+        "title": "Cloudflare 发布 AI Agent 开发全生命周期与编程钱包",
+        "url": "https://blog.cloudflare.com/agent-development-lifecycle/",
+        "source": "Cloudflare Blog",
+        "date": "2026-08-04",
+        "reason": "Cloudflare 推出 Agent 开发全生命周期与可编程钱包，重塑云端 Agent 信任基础设施。"
+      }
+    ],
     "其他重要": []
   },
-  "summary": "AI分析完成，已筛选重要文章并分类"
+  "summary": "本批次重点覆盖高危漏洞、供应链攻击、AI Agent 安全与关基事件。"
 }
