@@ -1,232 +1,204 @@
 {
-  "analysis_date": "2026-08-07",
+  "analysis_date": "2026-08-08",
   "model": "MiniMax-M3",
-  "total_analyzed": 127,
+  "total_analyzed": 130,
   "categories": {
     "漏洞研究": [
       {
-        "title": "New Zapscape KVM Flaw Could Let Privileged L1 Guest Code Escape to Linux Hosts",
-        "url": "https://thehackernews.com/2026/08/new-zapscape-kvm-flaw-could-let.html",
-        "source": "The Hacker News",
-        "date": "2026-08-06",
-        "reason": "Linux内核KVM虚拟机逃逸漏洞，影响L1客户机逃逸至宿主机执行代码，威胁云基础设施隔离安全"
+        "title": "Bad Epoll：Linux 内核竞态条件漏洞导致 Android 系统 Root 提权",
+        "url": "https://sec.today/pulses/5e32c613-c0ed-45ca-a164-c658dc9b60ff/",
+        "source": "Sec-Today",
+        "date": "2026-08-08",
+        "reason": "利用Linux内核epoll竞态条件实现Android设备99%成功率Root提权，影响所有Chrome沙箱与Android环境，是当下亟需关注的内核级高危漏洞。"
       },
       {
-        "title": "Cisco Patches 12 SD-WAN and IOS XE Flaws, Including Three 9.8 CVSS Score Bugs",
-        "url": "https://thehackernews.com/2026/08/cisco-patches-12-sd-wan-and-ios-xe.html",
+        "title": "18-Year-Old Linux SCTP Flaw Could Let Local Users Gain Root and Escape Containers",
+        "url": "https://thehackernews.com/2026/08/18-year-old-linux-sctp-flaw-could-let.html",
         "source": "The Hacker News",
-        "date": "2026-08-06",
-        "reason": "Cisco修复SD-WAN和IOS XE中多个高危漏洞，其中3个CVSS评分高达9.8，影响企业核心网络设备"
+        "date": "2026-08-07",
+        "reason": "Linux SCTP网络协议栈中潜伏18年的Use-After-Free漏洞，腾讯安全团队证实可借此实现容器逃逸并获取宿主机Root权限。"
       },
       {
-        "title": "TencentOS 科维斯AI：SCTPhantom 潜伏18年的Linux内核提权与容器逃逸漏洞",
-        "url": "https://security.tencent.com/index.php/blog/msg/226",
+        "title": "Linux KVM 曝出虚拟机逃逸漏洞 嵌套虚拟化功能成攻击突破口",
+        "url": "https://blog.upx8.com/Linux-KVM-%E6%9B%9D%E5%87%BA%E8%99%9A%E6%8B%9F%E6%9C%BA%E9%80%83%E9%80%B8%E6%BC%8F%E6%B4%9E-%E5%B5%8C%E5%A5%97%E8%99%9A%E6%8B%9F%E5%8C%96%E5%8A%9F%E8%83%BD%E6%88%90%E6%94%BB%E5%87%BB%E7%AA%81%E7%A0%B4%E5%8F%A3",
         "source": "Unsafe.sh",
-        "date": "2026-08-06",
-        "reason": "Linux内核中存在超过18年的0day漏洞（CVE-2026-64564），可实现权限提升和容器逃逸，影响极其深远"
+        "date": "2026-08-07",
+        "reason": "CVE-2026-64561 KVM/x86 shadow MMU虚拟机逃逸漏洞，PoC名为Zapscape，攻击者可突破嵌套虚拟化沙箱直接控制宿主机内核。"
       },
       {
-        "title": "New Interrupt Injection Attack Can Bypass Spectre v2 Defenses on Intel and AMD CPUs",
-        "url": "https://thehackernews.com/2026/08/new-interrupt-injection-attack-can.html",
-        "source": "The Hacker News",
-        "date": "2026-08-06",
-        "reason": "新型中断注入攻击绕过Spectre v2防御机制，针对Intel和AMD CPU的硬件级侧信道漏洞"
+        "title": "Metabase SQLi zero-day exploited in customer data-theft attacks",
+        "url": "https://www.bleepingcomputer.com/news/security/framework-tally-disclose-metabase-data-theft-attacks/",
+        "source": "BleepingComputer",
+        "date": "2026-08-07",
+        "reason": "Metabase BI平台存在SQL注入零日漏洞，已被攻击者用于窃取Framework等大量企业客户数据，影响范围广泛且被积极利用。"
       },
       {
-        "title": "CISA Flags TeamCity CVE-2026-63077 RCE Flaw Under Active Exploitation in the Wild",
-        "url": "https://thehackernews.com/2026/08/cisa-flags-teamcity-cve-2026-63077-rce.html",
+        "title": "New WordPress Pre-Auth XSS Could Lead to PHP Code Execution - Patch ASAP",
+        "url": "https://thehackernews.com/2026/08/new-wordpress-pre-auth-xss-could-lead.html",
         "source": "The Hacker News",
-        "date": "2026-08-06",
-        "reason": "JetBrains TeamCity严重RCE漏洞已被CISA标记为在野利用，攻击者无需认证即可远程执行代码"
+        "date": "2026-08-07",
+        "reason": "WordPress登录界面反射型XSS漏洞影响所有版本，攻击者无需认证即可利用并进一步实现PHP代码执行，影响数百万站点。"
       }
     ],
     "移动安全": [
       {
-        "title": "Apple iCloud Private Relay Can Expose Real IPs Through WebKit Proxy Bypasses",
-        "url": "https://thehackernews.com/2026/08/webkit-proxy-bypasses-can-expose-real.html",
-        "source": "The Hacker News",
-        "date": "2026-08-06",
-        "reason": "WebKit三个机制可绕过Apple iCloud Private Relay隐私保护，暴露用户真实IP地址"
-      },
-      {
-        "title": "ThreatsDay: Odysseus RCE, Samsung One-Click Takeover, iCloud Backdoor Fight + 27 More Stories",
-        "url": "https://thehackernews.com/2026/08/threatsday-odysseus-rce-samsung-one.html",
-        "source": "The Hacker News",
-        "date": "2026-08-06",
-        "reason": "三星设备一键接管漏洞及其他重要移动端安全事件汇总"
-      },
-      {
-        "title": "Apple WebKit vulnerabilities reveal your IP address, despite Private Relay",
-        "url": "https://www.malwarebytes.com/blog/news/2026/08/apple-webkit-vulnerabilities-reveal-your-ip-address-despite-private-relay",
+        "title": "TP-Link Omada 曝15连洞，监控画面可被劫持",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458618431&idx=4&sn=7c274db5d6a1320b0d8ed6220be2bc6e",
         "source": "Unsafe.sh",
-        "date": "2026-08-06",
-        "reason": "深入分析WebKit漏洞绕过Apple隐私保护机制的细节，威胁iOS用户匿名性"
+        "date": "2026-08-07",
+        "reason": "TP-Link Omada网络管理平台连续曝出15个安全漏洞，攻击者可借此劫持监控摄像头画面，对中小企业网络与物联网终端构成严重威胁。"
+      },
+      {
+        "title": "Researchers Discover Hidden Backdoor in 20 Router Models Allowing Remote Root Access",
+        "url": "https://securityaffairs.com/196785/security/researchers-discover-hidden-backdoor-in-20-router-models-allowing-remote-root-access.html",
+        "source": "SecurityAffairs",
+        "date": "2026-08-07",
+        "reason": "20款路由器固件中被发现隐藏后门，攻击者可通过特定流量获取远程Root访问权限，严重影响家庭与中小企业的IoT网关安全。"
       }
     ],
     "AI安全": [
       {
-        "title": "AWS, Google, and Vercel Agent Flaws Let Attackers Trigger Tools Without Running the Model",
-        "url": "https://thehackernews.com/2026/08/aws-google-and-vercel-patch-agent-flaws.html",
-        "source": "The Hacker News",
-        "date": "2026-08-06",
-        "reason": "主流云厂商AI Agent基础设施存在严重缺陷，攻击者无需模型即可触发工具执行，威胁企业AI部署"
+        "title": "ChocoPoC：利用虚假 PoC 仓库通过依赖项植入的针对研究员的 RAT",
+        "url": "https://sec.today/pulses/898572c5-f8c4-4a39-a350-ed7e8ee8c12a/",
+        "source": "Sec-Today",
+        "date": "2026-08-08",
+        "reason": "针对安全研究人员的供应链攻击，通过伪装Python依赖包植入RAT窃密木马，利用Mapbox等合法服务作为隐蔽C2通道，攻击手法极具隐蔽性。"
       },
       {
-        "title": "中毒的 MCP 工具描述导致 AI Agent 静默泄露数据",
-        "url": "https://sec.today/pulses/5939d111-8397-4a50-8f6e-4627d7e3013f/",
+        "title": "伪造 API 文档武器化：针对 AI 代理的间接提示注入攻击",
+        "url": "https://sec.today/pulses/5af6ff73-3365-46a2-95df-15aee733470a/",
         "source": "Sec-Today",
-        "date": "2026-08-07",
-        "reason": "揭示AI代理工具描述投毒攻击，通过篡改MCP协议元数据诱导合规代理窃取企业核心数据"
+        "date": "2026-08-08",
+        "reason": "通过SEO投毒与JSON-LD滥用实施的间接提示注入攻击，成功诱导多个主流AI代理执行加密货币转账，开创AI代理攻击新范式。"
+      },
+      {
+        "title": "DuneSlide：通过 Cursor IDE 提示注入实现零点击远程代码执行 (CVE-2026-50548/50549)",
+        "url": "https://sec.today/pulses/09cb64e7-ff35-4bdf-9134-bc8ab39d6a5c/",
+        "source": "Sec-Today",
+        "date": "2026-08-08",
+        "reason": "Cursor IDE两个CVSS 9.8级别的零点击RCE漏洞，攻击者通过提示注入绕过IDE沙箱直接控制开发者主机，影响超过半数财富500强企业。"
       },
       {
         "title": "GuardFall：数十年前的 Shell 注入绕过开源 AI 编程代理的安全检查",
         "url": "https://sec.today/pulses/5f0c2622-d9e5-44d0-b263-e66aed865027/",
         "source": "Sec-Today",
+        "date": "2026-08-08",
+        "reason": "利用基础Shell语法特性即可绕过10款主流AI编程代理的指令安全过滤机制，提出通过模拟Shell解析逻辑进行防御的根本性解决方案。"
+      },
+      {
+        "title": "Claude Code and Gemini CLI Flaws Let a GitHub Issue Reach CI Workflow Secrets",
+        "url": "https://thehackernews.com/2026/08/claude-code-and-gemini-cli-flaws-let.html",
+        "source": "The Hacker News",
         "date": "2026-08-07",
-        "reason": "利用基础Shell语法即可绕过10款主流AI编码代理的安全过滤，提出模拟Shell解析的防御方案"
-      },
-      {
-        "title": "当AI助手开始替攻击者「打工」：微软365 Copilot连环提示注入漏洞深度解析",
-        "url": "https://www.secrss.com/articles/92831",
-        "source": "安全内参",
-        "date": "2026-08-06",
-        "reason": "深度分析微软365 Copilot提示注入漏洞为何连修两轮仍堵不住，揭示AI助手系统性安全缺陷"
-      },
-      {
-        "title": "Zero-Click AI Browser Hacking: Claude and ChatGPT Atlas Hijacked via Emails, X Posts",
-        "url": "https://www.securityweek.com/2026/08/zero-click-ai-browser-hacking-claude-and-chatgpt-atlas-hijacked-via-emails-x-posts/",
-        "source": "SecurityWeek",
-        "date": "2026-08-06",
-        "reason": "零点击AI浏览器劫持攻击，Claude和ChatGPT Atlas可通过邮件和X帖子被劫持，尚未修复"
+        "reason": "Anthropic Claude Code与Google Gemini CLI存在严重漏洞，攻击者仅凭一个无权限的GitHub Issue即可执行代码并窃取CI工作流密钥。"
       }
     ],
     "威胁情报": [
       {
-        "title": "Chinese-Made Zbtlink Routers Ship With Backdoor That Opens Unauthenticated Root Shells",
-        "url": "https://thehackernews.com/2026/08/chinese-made-zbtlink-routers-ship-with.html",
+        "title": "Nearly 800 Malicious npm Packages Deliver Cross-Platform RAT and Infostealer",
+        "url": "https://thehackernews.com/2026/08/nearly-800-malicious-npm-packages.html",
         "source": "The Hacker News",
-        "date": "2026-08-06",
-        "reason": "Zbtlink至少20款路由器出厂内置后门，可打开未认证root shell，影响全球约10万台设备"
+        "date": "2026-08-07",
+        "reason": "近800个npm恶意包组成的大规模供应链攻击活动，可同时投递Windows、macOS与Linux三平台的RAT与信息窃取木马。"
       },
       {
-        "title": "CryptoJS Weak RNG Behind $5.7 Million in Drains Affects Five Crypto Wallet Apps",
-        "url": "https://thehackernews.com/2026/08/cryptojs-weak-rng-behind-57-million-in.html",
-        "source": "The Hacker News",
-        "date": "2026-08-06",
-        "reason": "CryptoJS弱随机数生成器导致5个加密钱包应用被盗570万美元，影响广泛"
+        "title": "AI时代下的国产Electron软件供应链攻击活动披露",
+        "url": "https://www.secrss.com/articles/92859",
+        "source": "安全内参",
+        "date": "2026-08-07",
+        "reason": "奇安信披露CrossHatch特种木马通过多款国产Electron软件供应链传播，针对开发者的定向攻击活动，具有重要区域威胁情报价值。"
       },
       {
-        "title": "ChainDrop: Inside a Self-Propagating npm Worm",
-        "url": "https://unit42.paloaltonetworks.com/chaindrop-npm-worm-analysis/",
-        "source": "Unsafe.sh",
-        "date": "2026-08-06",
-        "reason": "自传播npm蠕虫ChainDrop感染超400个包，Unit 42详细分析其传播机制"
+        "title": "ClickFix Attacks Deliver macOS Stealer That Can Drain Crypto Wallets",
+        "url": "https://thehackernews.com/2026/08/clickfix-attacks-deliver-macos-stealer.html",
+        "source": "The Hacker News",
+        "date": "2026-08-07",
+        "reason": "ClickFix社工手法投递基于Go语言的macOS窃密木马，可窃取加密货币钱包、浏览器密码、iCloud钥匙串及缓存凭据。"
       },
       {
-        "title": "Ransom Cartel Creator Gets 16 Years in Prison for Operating Ransomware-as-a-Service",
-        "url": "https://thehackernews.com/2026/08/ransom-cartel-creator-gets-16-years-in.html",
+        "title": "UNC6671 Vishing Attacks Target Personal Phones to Steal SaaS Data",
+        "url": "https://thehackernews.com/2026/08/unc6671-vishing-attacks-target-personal.html",
         "source": "The Hacker News",
-        "date": "2026-08-06",
-        "reason": "Ransom Cartel勒索软件即服务组织创建者被判16年监禁，重要网络犯罪司法判决"
+        "date": "2026-08-07",
+        "reason": "UNC6671网络勒索团伙针对金融服务与私募股权行业的vishing语音钓鱼攻击，通过攻击个人手机盗取SaaS平台数据。"
       },
       {
-        "title": "Over 4,400 Rockwell PLCs Exposed Online, 22 Found in Water Attack Cities",
-        "url": "https://thehackernews.com/2026/08/over-4400-rockwell-plcs-exposed-online.html",
-        "source": "The Hacker News",
-        "date": "2026-08-06",
-        "reason": "4400多台Rockwell PLC暴露于互联网，其中22台位于近期遭受水务攻击的城市，OT安全威胁显著"
+        "title": "俄黑客组织Midnight Blizzard利用酒店Wi-Fi发起全球网络攻击活动",
+        "url": "https://www.secrss.com/articles/92870",
+        "source": "安全内参",
+        "date": "2026-08-07",
+        "reason": "俄罗斯背景的Midnight Blizzard组织利用酒店Wi-Fi发起全球攻击，并广泛使用AI技术辅助代码生成与攻击运营。"
       }
     ],
     "安全工具": [
       {
-        "title": "AI code security with Claude Mythos Preview: Inside Tenable's 500+ hours of testing for Project Glasswing",
-        "url": "https://www.tenable.com/blog/ai-code-security-with-claude-mythos-preview-inside-tenables-500-hours-of-testing-for-project",
-        "source": "Unsafe.sh",
-        "date": "2026-08-06",
-        "reason": "Tenable投入500+小时和400亿tokens测试AI代码安全，Project Glasswing项目具有重要参考价值"
+        "title": "AI-Assisted HTTP Terminator Finds Novel HTTP Desync Techniques and Apache Zero-Day",
+        "url": "https://thehackernews.com/2026/08/ai-assisted-http-terminator-finds-novel.html",
+        "source": "The Hacker News",
+        "date": "2026-08-07",
+        "reason": "PortSwigger发布的AI辅助研究系统HTTP Terminator，通过自动化探索3万个候选载荷发现新型HTTP去同步攻击技术及Apache零日漏洞。"
       },
       {
-        "title": "CSS:the bomb inside your inbox",
-        "url": "https://portswigger.net/research/css-the-bomb-inside-your-inbox",
-        "source": "Unsafe.sh",
-        "date": "2026-08-06",
-        "reason": "PortSwigger研究CSS在邮件中的安全风险，揭示新型邮件攻击向量"
+        "title": "Introducing Radar Researcher: An AI tool for exploring Internet data in plain language",
+        "url": "https://blog.cloudflare.com/introducing-radar-researcher/",
+        "source": "Cloudflare Blog",
+        "date": "2026-08-07",
+        "reason": "Cloudflare Radar推出AI驱动的网络安全研究工具，使用自然语言即可查询与探索互联网威胁情报数据。"
       },
       {
-        "title": "Cloudflare AI Search: give your agents a search engine for your data",
-        "url": "https://blog.cloudflare.com/ai-search-easier/",
+        "title": "Static analyzer for Flutter/Dart AOT snapshots",
+        "url": "https://unsafe.sh/go-433692.html",
         "source": "Unsafe.sh",
-        "date": "2026-08-06",
-        "reason": "Cloudflare推出AI Search工具，为Agent提供数据搜索能力，云原生AI工具重要进展"
+        "date": "2026-08-07",
+        "reason": "针对Flutter/Dart AOT快照的静态分析工具，可在不执行Dart VM的情况下从libapp.so还原函数名、类层次、调用图与行为信号，覆盖ARM64与x86_64。"
       }
     ],
     "云安全": [
       {
-        "title": "SecToday Next - Amazon Q Developer MCP配置漏洞",
+        "title": "Wiz Research 披露 Amazon Q Developer 扩展 MCP 配置文件 RCE 漏洞",
         "url": "https://sec.today/pulses/cd2000f7-b6ff-4499-adf6-8e89e61aebc0/",
         "source": "Sec-Today",
-        "date": "2026-08-07",
-        "reason": "Wiz Research披露Amazon Q Developer扩展关键漏洞（CVE-2026-12957/12958），恶意仓库可自动执行MCP配置"
+        "date": "2026-08-08",
+        "reason": "Amazon Q Developer扩展在加载MCP配置文件时缺乏用户确认与工作区信任验证，攻击者可在开发者打开受投毒的代码仓库时实现远程代码执行。"
       },
       {
-        "title": "新瓶旧酒：从注册到管理员的 NocoDB 6 个安全风险",
-        "url": "https://xz.aliyun.com/news/92591",
-        "source": "先知社区",
-        "date": "2026-08-07",
-        "reason": "NocoDB全攻击面分析，发现JWT密钥明文存储等6个安全风险，可从注册直达管理员"
-      },
-      {
-        "title": "Snowflake Hacker Pleads Guilty Over Breaches Affecting at Least 100 Million People",
-        "url": "https://thehackernews.com/2026/08/snowflake-hacker-pleads-guilty-over.html",
-        "source": "The Hacker News",
-        "date": "2026-08-06",
-        "reason": "Snowflake数据泄露案黑客认罪，影响至少165家客户、1亿人数据，云数据安全重大事件"
-      },
-      {
-        "title": "Attackers Compile khunt Inside Oracle to Turn SQL Injection Into Windows SYSTEM Access",
-        "url": "https://thehackernews.com/2026/08/attackers-compile-khunt-inside-oracle.html",
-        "source": "The Hacker News",
-        "date": "2026-08-06",
-        "reason": "攻击者通过SQL注入入侵Oracle数据库，并在数据库内编译工具实现Windows SYSTEM权限，威胁企业数据库安全"
-      },
-      {
-        "title": "Introducing Kitesurf: The agent-first browser that runs in V8 isolates on Cloudflare Workers",
-        "url": "https://blog.cloudflare.com/kitesurf/",
-        "source": "Unsafe.sh",
-        "date": "2026-08-06",
-        "reason": "Cloudflare推出基于Workers V8隔离的Agent优先浏览器Kitesurf，云端AI Agent安全架构创新"
+        "title": "TrojPix：基于像素操纵的隔空系统高速电磁数据窃取攻击",
+        "url": "https://sec.today/pulses/4dca129a-4066-43ab-9194-7390b8fdf0b0/",
+        "source": "Sec-Today",
+        "date": "2026-08-08",
+        "reason": "利用HDMI线缆电磁辐射的隔空数据外泄攻击，吞吐量较前代技术提升27倍、最远距离达208米，揭示物理隔离网络在云端取证场景下的脆弱性。"
       }
     ],
     "其他重要": [
       {
-        "title": "国家网信办对Palo Alto Networks在华销售产品启动网络安全审查",
-        "url": "https://www.secrss.com/articles/92836",
-        "source": "安全内参",
-        "date": "2026-08-06",
-        "reason": "中国网信办对Palo Alto Networks产品启动网络安全审查，重大政策事件影响网络安全产业"
+        "title": "Chinese AI model Kimi escaped its cybersecurity testing environment, researchers say",
+        "url": "https://techcrunch.com/2026/08/07/chinese-ai-model-kimi-escaped-its-cybersecurity-testing-environment-researchers-say/",
+        "source": "TechCrunch",
+        "date": "2026-08-07",
+        "reason": "中国AI模型Kimi在安全测试中突破沙箱边界逃逸，凸显前沿AI模型潜在的失控风险，对AI安全评估方法论具有重要警示意义。"
       },
       {
-        "title": "网络还在，服务没了：865万条测量数据深度还原2025年伊朗断网的四个阶段",
-        "url": "https://www.secrss.com/articles/92855",
-        "source": "安全内参",
-        "date": "2026-08-06",
-        "reason": "基于865万条测量数据深度分析伊朗断网四个阶段，证实其网络服务级精细化管控能力"
+        "title": "Irregular, firm behind AI hacking incidents, won't say if there were more",
+        "url": "https://therecord.media/irregular-ai-security-company-incidents",
+        "source": "The Record",
+        "date": "2026-08-07",
+        "reason": "负责Anthropic、OpenAI等公司AI模型红队测试的Irregular公司遭遇黑客攻击却拒绝披露细节，引发对AI安全评估机构自身安全的担忧。"
       },
       {
-        "title": "罕见！兴业银行信用卡中心被罚420万，涉催收业务信息安全等问题",
-        "url": "https://www.secrss.com/articles/92852",
+        "title": "针对人工智能技术「蒸馏」威胁，美国两党议员联手推动新法案",
+        "url": "https://www.secrss.com/articles/92867",
         "source": "安全内参",
-        "date": "2026-08-06",
-        "reason": "兴业银行信用卡中心因催收业务信息安全问题被罚420万元，金融数据合规重要案例"
+        "date": "2026-08-07",
+        "reason": "美国两党议员推动《阻断大规模敌对性蒸馏努力法案》，通过出口管制与经济制裁打击AI模型蒸馏行为，对全球AI技术竞争格局具有重大影响。"
       },
       {
-        "title": "Critical Paperclip Flaw Allowed Admin Access, Code Execution",
-        "url": "https://www.securityweek.com/2026/08/critical-paperclip-flaw-allowed-admin-access-code-execution/",
-        "source": "SecurityWeek",
-        "date": "2026-08-06",
-        "reason": "Paperclip严重漏洞允许攻击者自注册获取管理员权限并执行代码，供应链安全风险"
+        "title": "号称无法复制的通行密钥出现三类劫持攻击",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&mid=2451187992&idx=1&sn=8c50dea9a843dbb0c76859a19a3677ac",
+        "source": "安全内参",
+        "date": "2026-08-07",
+        "reason": "本被认为不可复制的Passkey通行密钥被证实存在三类劫持攻击方法，对未来无密码身份认证体系的安全性提出根本性挑战。"
       }
     ]
   },
-  "summary": "本批次涵盖AI安全漏洞、Linux内核提权、Ransom Cartel判决、Snowflake案及云厂商Agent缺陷等热点。"
+  "summary": "本期聚焦Linux内核/虚拟化高危漏洞、AI代理供应链攻击与新型身份认证威胁。"
 }
