@@ -1,15 +1,190 @@
 {
   "analysis_date": "2026-08-10",
-  "model": "MiniMax-M3",
-  "total_analyzed": 91,
+  "model": "qwen3.7-max",
+  "total_analyzed": 101,
   "categories": {
-    "漏洞研究": [],
-    "移动安全": [],
-    "AI安全": [],
-    "威胁情报": [],
-    "安全工具": [],
-    "云安全": [],
-    "其他重要": []
+    "漏洞研究": [
+      {
+        "title": "Bad Epoll：Linux 内核竞态条件漏洞导致 Android 系统 Root 提权",
+        "url": "https://sec.today/pulses/5e32c613-c0ed-45ca-a164-c658dc9b60ff/",
+        "source": "Sec-Today",
+        "date": "2026-08-10",
+        "reason": "揭示了高危Linux内核竞态条件漏洞，允许从Chrome沙箱或Android环境提权至root，具有极高的实战与底层研究价值。"
+      },
+      {
+        "title": "通过在身份验证期间在电子邮件 OTP 和 TOTP 之间切换来绕过 2FA",
+        "url": "https://sec.today/pulses/3c5fa054-190c-4219-a86f-e286440c97ce/",
+        "source": "Sec-Today",
+        "date": "2026-08-10",
+        "reason": "深刻暴露了多因素认证流程中「状态变更未校验」的致命逻辑缺陷，为身份验证系统的安全设计敲响警钟。"
+      },
+      {
+        "title": "DuneSlide：通过 Cursor IDE 提示注入实现零点击远程代码执行 (CVE-2026-50548/50549)",
+        "url": "https://sec.today/pulses/09cb64e7-ff35-4bdf-9134-bc8ab39d6a5c/",
+        "source": "Sec-Today",
+        "date": "2026-08-10",
+        "reason": "展示了攻击者如何利用LLM决策逻辑绕过沙箱机制接管开发者主机，标志着AI辅助开发工具面临的全新系统级威胁。"
+      },
+      {
+        "title": "新瓶旧酒：从注册到管理员的 NocoDB 6 个安全风险",
+        "url": "https://xz.aliyun.com/news/92591",
+        "source": "先知社区",
+        "date": "2026-08-10",
+        "reason": "对NocoDB进行了完整的攻击面分析，发现JWT密钥明文存储及多个旁路绕过缺陷，具有很强的Web漏洞挖掘实战参考价值。"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "Brute Force Screentime IPhone",
+        "url": "https://unsafe.sh/go-434006.html",
+        "source": "Unsafe.sh",
+        "date": "2026-08-09",
+        "reason": "探讨了针对iOS设备屏幕使用时间的暴力破解方法，对移动终端的访问控制策略研究具有参考意义。"
+      },
+      {
+        "title": "I am making a Emulator Bypass of a Lame Game 「Free Fire」",
+        "url": "https://unsafe.sh/go-434035.html",
+        "source": "Unsafe.sh",
+        "date": "2026-08-09",
+        "reason": "涉及移动端游戏在模拟器环境下的反作弊绕过与DLL注入技术，反映了移动端游戏安全对抗的最新实战细节。"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "伪造 API 文档武器化：针对 AI 代理的间接提示注入攻击",
+        "url": "https://sec.today/pulses/5af6ff73-3365-46a2-95df-15aee733470a/",
+        "source": "Sec-Today",
+        "date": "2026-08-10",
+        "reason": "揭示了通过SEO投毒和JSON-LD滥用诱导AI代理执行恶意支付指令的手法，为防御RAG管道和验证结构化数据提供关键预警。"
+      },
+      {
+        "title": "GuardFall：数十年前的 Shell 注入绕过开源 AI 编程代理的安全检查",
+        "url": "https://sec.today/pulses/5f0c2622-d9e5-44d0-b263-e66aed865027/",
+        "source": "Sec-Today",
+        "date": "2026-08-10",
+        "reason": "证明利用基础Shell语法特性即可绕过主流AI编码代理的指令过滤机制，提出了基于模拟Shell解析逻辑的根本性防御方案。"
+      },
+      {
+        "title": "BioShocking 攻击：利用上下文感知操纵绕过 AI 浏览器安全护栏",
+        "url": "https://sec.today/pulses/33f70f26-33c3-4276-bbef-7c7827c755a1/",
+        "source": "Sec-Today",
+        "date": "2026-08-10",
+        "reason": "暴露了大语言模型过度依赖上下文作为「真理」的系统性缺陷，成功复现了对主流AI浏览器安全逻辑的绕过。"
+      },
+      {
+        "title": "中毒的 MCP 工具描述导致 AI Agent 静默泄露数据",
+        "url": "https://sec.today/pulses/5939d111-8397-4a50-8f6e-4627d7e3013f/",
+        "source": "Sec-Today",
+        "date": "2026-08-10",
+        "reason": "揭示了针对AI代理的「工具描述投毒」攻击，证明篡改MCP协议元数据即可诱导合规代理窃取核心数据，极具前瞻性。"
+      },
+      {
+        "title": "Beyond Prompt Injection: Hacking Apple's Private Cloud Compute",
+        "url": "https://unsafe.sh/go-434029.html",
+        "source": "Unsafe.sh",
+        "date": "2026-08-09",
+        "reason": "深入探讨了苹果私有云计算架构中超越传统提示注入的高级攻击面，对云端AI基础设施的安全防护具有重要参考价值。"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "ChocoPoC：利用虚假 PoC 仓库通过依赖项植入的针对研究员的 RAT",
+        "url": "https://sec.today/pulses/898572c5-f8c4-4a39-a350-ed7e8ee8c12a/",
+        "source": "Sec-Today",
+        "date": "2026-08-10",
+        "reason": "揭示了针对安全研究人员的新型供应链攻击手法，利用研究人员验证漏洞的时间压力植入窃密木马，极具警示意义。"
+      },
+      {
+        "title": "2026-08-06: Remcos RAT (7.2.5 Pro) infection",
+        "url": "https://www.malware-traffic-analysis.net/2026/08/06/index.html",
+        "source": "Unsafe.sh",
+        "date": "2026-08-09",
+        "reason": "提供了Remcos RAT最新版本的流量分析与感染样本，为安全团队更新入侵检测规则和威胁狩猎提供了一手情报。"
+      },
+      {
+        "title": "U.S. Defense Manufacturer IEH Hit by Phishing Attack, Exposing Potentially Export-Controlled Data",
+        "url": "https://securityaffairs.com/196890/cyber-crime/u-s-defense-manufacturer-ieh-hit-by-phishing-attack-exposing-potentially-export-controlled-data.html",
+        "source": "Unsafe.sh",
+        "date": "2026-08-09",
+        "reason": "报道了美国国防制造商遭受钓鱼攻击导致敏感数据泄露的事件，反映了针对军工供应链的高级网络犯罪活动趋势。"
+      },
+      {
+        "title": "安全公司警告新型攻击方式：黑客利用甲骨文 Oracle 数据库作为系统攻击跳板",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&mid=2652078212&idx=3&sn=4e89ce48971bc5bba52fac7ad86b5d10",
+        "source": "Unsafe.sh",
+        "date": "2026-08-09",
+        "reason": "披露了黑客利用Oracle数据库作为内网横向移动和攻击跳板的新型战术，为企业数据库安全监控提供了新的威胁情报视角。"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "[Tool/Writeup] ALPC-Enumerator: A dynamic, userland C++ tool to enumerate ALPC ports and detect ALPC spoofing",
+        "url": "https://unsafe.sh/go-433977.html",
+        "source": "Unsafe.sh",
+        "date": "2026-08-09",
+        "reason": "开源了一款用于枚举ALPC端口并检测ALPC欺骗的动态C++工具，对Windows内核安全研究和红队武器库建设具有实用价值。"
+      },
+      {
+        "title": "if you're tired of fighting dvwa's setup.php, i made a one-command vuln lab",
+        "url": "https://unsafe.sh/go-433976.html",
+        "source": "Unsafe.sh",
+        "date": "2026-08-09",
+        "reason": "提供了一键部署的漏洞靶场环境，极大简化了安全研究人员和初学者搭建本地测试环境的流程，具有很高的社区实用价值。"
+      },
+      {
+        "title": "AI Wizard's Live: Reverse Engineering HoN 3.2.7 Multiplayer with Cheat Engine",
+        "url": "https://unsafe.sh/go-434041.html",
+        "source": "Unsafe.sh",
+        "date": "2026-08-10",
+        "reason": "展示了使用Cheat Engine对多人游戏进行逆向工程的实战过程，为游戏安全分析和内存调试工具的应用提供了生动案例。"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "Amazon Q Developer 扩展中的关键安全漏洞（CVE-2026-12957 和 CVE-2026-12958）",
+        "url": "https://sec.today/pulses/cd2000f7-b6ff-4499-adf6-8e89e61aebc0/",
+        "source": "Sec-Today",
+        "date": "2026-08-10",
+        "reason": "披露了Amazon Q Developer扩展中自动加载恶意MCP配置文件的严重漏洞，凸显了云原生AI开发工具在供应链和信任验证方面的风险。"
+      },
+      {
+        "title": "The OpenAI-Hugging Face Incident Was an Identity Failure Before It Was an AI Failure",
+        "url": "https://hackernoon.com/the-openai-hugging-face-incident-was-an-identity-failure-before-it-was-an-ai-failure?source=rss",
+        "source": "Unsafe.sh",
+        "date": "2026-08-09",
+        "reason": "深度剖析了OpenAI与Hugging Face安全事件背后的身份验证与权限管理缺陷，为云平台和AI服务的IAM架构设计提供反思。"
+      },
+      {
+        "title": "Cloudflare：AI 机器人流量已超越人类，预计五年后人机流量比达 1:1000",
+        "url": "https://blog.upx8.com/Cloudflare-AI-%E6%9C%BA%E5%99%A8%E4%BA%BA%E6%B5%81%E9%87%8F%E5%B7%B2%E8%B6%85%E8%B6%8A%E4%BA%BA%E7%B1%BB-%E9%A2%84%E8%AE%A1%E4%BA%94%E5%B9%B4%E5%90%8E%E4%BA%BA%E6%9C%BA%E6%B5%81%E9%87%8F%E6%AF%94%E8%BE%BE-1-1000",
+        "source": "Unsafe.sh",
+        "date": "2026-08-09",
+        "reason": "基于Cloudflare的宏观数据揭示了AI机器人流量对云端基础设施和Web防护策略带来的巨大压力，是云安全运营必须关注的趋势情报。"
+      }
+    ],
+    "其他重要": [
+      {
+        "title": "TrojPix：基于像素操纵的隔空系统高速电磁数据窃取攻击",
+        "url": "https://sec.today/pulses/4dca129a-4066-43ab-9194-7390b8fdf0b0/",
+        "source": "Sec-Today",
+        "date": "2026-08-10",
+        "reason": "揭示了利用HDMI电磁辐射进行远距离数据窃取的侧信道攻击，突破了传统物理隔离的防御假设，具有极高的学术与实战预警价值。"
+      },
+      {
+        "title": "HTTP/3 Trailer HEADERS Frame Triggers Unhandled Exception in Google ESF",
+        "url": "https://unsafe.sh/go-434015.html",
+        "source": "Unsafe.sh",
+        "date": "2026-08-09",
+        "reason": "发现了HTTP/3协议特定帧导致Google ESF服务挂起的未处理异常，对底层网络协议安全和云边缘节点的可用性防护具有研究价值。"
+      },
+      {
+        "title": "When terrible disclosure from the vendor results in zero days plus a fun dive in to bypassing full disk encryption",
+        "url": "https://unsafe.sh/go-434010.html",
+        "source": "Unsafe.sh",
+        "date": "2026-08-09",
+        "reason": "探讨了厂商糟糕的漏洞披露策略如何导致0day泛滥，并深入分享了绕过全盘加密的实战技术，兼具行业反思与技术深度。"
+      }
+    ]
   },
-  "summary": "AI分析完成，已筛选重要文章并分类"
+  "summary": "本批次重点收录AI代理投毒、Linux内核提权及侧信道电磁窃取等高价值威胁与前沿漏洞研究。"
 }
