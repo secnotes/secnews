@@ -1,59 +1,66 @@
 {
-  "analysis_date": "2026-08-12",
+  "analysis_date": "2026-08-13",
   "model": "qwen3.7-max",
-  "total_analyzed": 158,
+  "total_analyzed": 142,
   "categories": {
     "漏洞研究": [
       {
-        "title": "SharePoint 远程代码执行 CVE-2025-53770 PoC 发布：利用 XSD 导入绕过 XmlValidator",
-        "url": "https://sec.today/pulses/5d1ba979-273f-41dd-b039-ef43eede5ede/",
+        "title": "Vulnerabilities of Realtek SD card reader driver, part2",
+        "url": "https://sec.today/pulses/5b338891-a0bb-4db6-aac5-e068187e4a46/",
         "source": "Sec-Today",
-        "date": "2026-08-12",
-        "reason": "披露了SharePoint关键RCE漏洞的完整利用代码，该漏洞已在野外被大规模武器化，具有极高的防御与威胁狩猎价值。"
-      },
-      {
-        "title": "Bad Epoll：Linux 内核竞态条件漏洞导致 Android 系统 Root 提权",
-        "url": "https://sec.today/pulses/5e32c613-c0ed-45ca-a164-c658dc9b60ff/",
-        "source": "Sec-Today",
-        "date": "2026-08-12",
-        "reason": "揭示了极难复现的Linux内核时序攻击窗口，允许从沙箱或Android环境以极高成功率提权至root，是核心安全威胁。"
+        "date": "2026-08-13",
+        "reason": "详细复现了从寄存器暴露到利用SCSI命令触发DMA攻击的完整技术路径，为理解硬件级内存窃取提供了极具价值的实战案例。"
       },
       {
         "title": "签名可塑性：在不破坏签名的情况下重写 GitHub 已验证 Commit",
         "url": "https://sec.today/pulses/faa1bfd3-b72d-41ca-8564-5fd26ec595e3/",
         "source": "Sec-Today",
-        "date": "2026-08-12",
-        "reason": "揭示了Git签名提交的严重缺陷，攻击者无需私钥即可生成相同内容但不同哈希的已验证提交，对软件供应链信任模型影响深远。"
+        "date": "2026-08-13",
+        "reason": "揭示了Git签名提交中长期被忽视的严重缺陷，攻击者可通过签名编码变异绕过基于哈希的黑名单，对重塑软件供应链信任模型具有紧迫的现实意义。"
       },
       {
-        "title": "CopyEscape: Container-to-host arbitrary file write via docker cp (CVE-2026-17106)",
-        "url": "https://unsafe.sh/go-434509.html",
+        "title": "SharePoint 远程代码执行 CVE-2025-53770 PoC 发布：利用 XSD 导入绕过 XmlValidator",
+        "url": "https://sec.today/pulses/5d1ba979-273f-41dd-b039-ef43eede5ede/",
+        "source": "Sec-Today",
+        "date": "2026-08-13",
+        "reason": "独家披露了针对微软SharePoint Server关键RCE漏洞的完整利用代码，该漏洞已在野外被大规模武器化利用，为安全团队提供了紧急防御的关键技术细节。"
+      },
+      {
+        "title": "Bad Epoll：Linux 内核竞态条件漏洞导致 Android 系统 Root 提权",
+        "url": "https://sec.today/pulses/5e32c613-c0ed-45ca-a164-c658dc9b60ff/",
+        "source": "Sec-Today",
+        "date": "2026-08-13",
+        "reason": "揭示了允许普通用户从Chrome沙箱或Android环境中以极高成功率提升至root权限的高危内核竞态条件漏洞，是当下亟需关注的核心安全威胁。"
+      },
+      {
+        "title": "CVE-2026-53360: KVM SEV-SNP guest-to-host heap OOB and analysis of the upstream fix",
+        "url": "https://unsafe.sh/go-434711.html",
         "source": "Unsafe.sh",
-        "date": "2026-08-11",
-        "reason": "详细分析了通过docker cp实现容器到宿主机任意文件写入的逃逸漏洞，对容器化环境的安全防护具有重要警示意义。"
+        "date": "2026-08-12",
+        "reason": "深入分析了KVM SEV-SNP环境下的客户机到宿主机堆越界漏洞及其上游修复方案，对虚拟化逃逸和机密计算安全研究具有重要参考价值。"
       }
     ],
     "移动安全": [
       {
-        "title": "ART 底层执行链：从 ArtMethod::Invoke 看 FART 在 Android 12–16 为什么失效",
-        "url": "http://bbs.kanxue.com/thread-292312.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-08-11",
-        "reason": "深度解析Android ART运行时底层结构，探讨了FART脱壳工具在新版Android系统中失效的原因及修复思路。"
+        "title": "Android malware combo takes out loans and relays victims' credit cards",
+        "url": "https://www.bleepingcomputer.com/news/security/android-malware-combo-takes-out-loans-and-relays-victims-credit-cards/",
+        "source": "Unsafe.sh",
+        "date": "2026-08-12",
+        "reason": "分析了Android平台上新型恶意软件组合如何自动申请贷款并中继受害者信用卡信息，揭示了移动端金融欺诈的复杂攻击链。"
       },
       {
-        "title": "某商业级加固 Native Loader 与 VMP 解释器逆向分析实战",
-        "url": "http://bbs.kanxue.com/thread-292331.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-08-11",
-        "reason": "完整记录了从加壳到加密算法的逆向分析过程，结合真机SysTrace与unidbg离线模拟，实战指导价值极高。"
+        "title": "iOS Bluetooth PAN - Zero-Cost Ethernet Gateway (USB Port 62078)",
+        "url": "https://cxsecurity.com/issue/WLB-2026080005",
+        "source": "Unsafe.sh",
+        "date": "2026-08-12",
+        "reason": "探讨了利用iOS蓝牙PAN构建零成本以太网网关的技术细节，揭示了iOS底层网络接口和USB端口配置中潜在的安全风险。"
       },
       {
-        "title": "某PH钱包 App 注册协议分析：DynamicSecurity「WCSign」全链路还原",
-        "url": "http://bbs.kanxue.com/thread-292350.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-08-11",
-        "reason": "针对知名金融App的自研安全组件进行全链路协议还原，展示了严谨的「假设-实验-否证」逆向分析方法论。"
+        "title": "Signal adds new security feature to thwart man-in-the-middle attacks",
+        "url": "https://www.bleepingcomputer.com/news/security/signal-adds-new-security-feature-to-thwart-man-in-the-middle-attacks/",
+        "source": "Unsafe.sh",
+        "date": "2026-08-12",
+        "reason": "介绍了Signal新增的自动密钥验证功能以防御中间人攻击，展示了移动即时通讯加密协议在用户体验与安全性之间的持续演进。"
       }
     ],
     "AI安全": [
@@ -61,59 +68,52 @@
         "title": "当AI Coding编出不存在的包：53个可注册幻觉依赖如何变成供应链入口",
         "url": "https://sec.today/pulses/5664511d-144a-4be6-bd3c-03ac542323b8/",
         "source": "Sec-Today",
-        "date": "2026-08-12",
-        "reason": "揭示了slopsquatting这一新型供应链攻击范式，证明AI模型共同幻觉生成的包名可被恶意注册，警示企业加强AI依赖门禁。"
-      },
-      {
-        "title": "DuneSlide：通过 Cursor IDE 提示注入实现零点击远程代码执行 (CVE-2026-50548/50549)",
-        "url": "https://sec.today/pulses/09cb64e7-ff35-4bdf-9134-bc8ab39d6a5c/",
-        "source": "Sec-Today",
-        "date": "2026-08-12",
-        "reason": "展示了攻击者如何利用提示注入绕过AI IDE沙箱并接管开发者主机，标志着大模型逻辑本身已成为系统级攻击跳板。"
-      },
-      {
-        "title": "中毒的 MCP 工具描述导致 AI Agent 静默泄露数据",
-        "url": "https://sec.today/pulses/5939d111-8397-4a50-8f6e-4627d7e3013f/",
-        "source": "Sec-Today",
-        "date": "2026-08-12",
-        "reason": "证明了仅通过篡改MCP协议元数据即可诱导合规AI代理静默窃取核心数据，将AI安全焦点从内容生成转向代理行动供应链。"
+        "date": "2026-08-13",
+        "reason": "揭示了AI代码模型「共同幻觉」引发的slopsquatting供应链攻击新范式，警示企业必须将AI生成的依赖视为不可信输入。"
       },
       {
         "title": "伪造 API 文档武器化：针对 AI 代理的间接提示注入攻击",
         "url": "https://sec.today/pulses/5af6ff73-3365-46a2-95df-15aee733470a/",
         "source": "Sec-Today",
-        "date": "2026-08-12",
-        "reason": "揭示了利用SEO投毒和隐藏技术诱导AI代理执行恶意支付指令的手法，为防御者加固RAG管道提供了关键预警。"
+        "date": "2026-08-13",
+        "reason": "展示了攻击者如何利用SEO投毒和间接提示注入诱导AI代理执行加密货币转账，标志着网络攻击面已扩展至AI自主决策层。"
+      },
+      {
+        "title": "DuneSlide：通过 Cursor IDE 提示注入实现零点击远程代码执行 (CVE-2026-50548/50549)",
+        "url": "https://sec.today/pulses/09cb64e7-ff35-4bdf-9134-bc8ab39d6a5c/",
+        "source": "Sec-Today",
+        "date": "2026-08-13",
+        "reason": "揭示了通过提示注入绕过Cursor IDE沙箱机制实现零点击RCE的严重漏洞，表明大模型逻辑本身已成为系统级攻击的跳板。"
+      },
+      {
+        "title": "中毒的 MCP 工具描述导致 AI Agent 静默泄露数据",
+        "url": "https://sec.today/pulses/5939d111-8397-4a50-8f6e-4627d7e3013f/",
+        "source": "Sec-Today",
+        "date": "2026-08-13",
+        "reason": "证明了攻击者仅需篡改MCP协议的元数据即可诱导合规AI代理静默窃取企业核心数据，为当前企业部署AI代理提供了至关重要的防御警示。"
       }
     ],
     "威胁情报": [
       {
-        "title": "Sandworm-Linked UAC-0145 Uses Fake Job Interviews to Push VPN That Can Run Commands",
-        "url": "https://thehackernews.com/2026/08/sandworm-linked-uac-0145-uses-fake-job.html",
-        "source": "The Hacker News",
-        "date": "2026-08-11",
-        "reason": "披露了俄罗斯国家级APT组织Sandworm关联黑客利用虚假面试投放木马化VPN客户端的社会工程学攻击活动。"
-      },
-      {
-        "title": "Hackers Breach Polish Power Plant Controls via Private Cellular Network and Shut Turbine",
-        "url": "https://thehackernews.com/2026/08/hackers-breach-polish-power-plant.html",
-        "source": "The Hacker News",
-        "date": "2026-08-11",
-        "reason": "报道了攻击者通过私有蜂窝网络入侵波兰热电厂控制系统并关闭汽轮机的重大工控安全事件，凸显关键基础设施面临的严峻威胁。"
-      },
-      {
-        "title": "ChocoPoC：利用虚假 PoC 仓库通过依赖项植入的针对研究员的 RAT",
-        "url": "https://sec.today/pulses/898572c5-f8c4-4a39-a350-ed7e8ee8c12a/",
-        "source": "Sec-Today",
+        "title": "某电厂遭网络破坏攻击：生产中断，关键PLC被永久损坏",
+        "url": "https://www.secrss.com/articles/93020",
+        "source": "安全内参",
         "date": "2026-08-12",
-        "reason": "揭示了针对安全研究员的新型供应链攻击，攻击者将窃密木马隐藏于伪装的Python依赖包中，并利用合法服务下发指令。"
+        "reason": "披露了攻击者通过边缘网络渗透电力专网并永久损坏关键PLC的事件，揭示了针对工控系统的严重物理破坏威胁。"
       },
       {
-        "title": "Researchers Built a Fake Crypto Startup and Hired Three Suspected North Korean IT Workers",
-        "url": "https://thehackernews.com/2026/08/researchers-built-fake-crypto-startup.html",
+        "title": "Lazarus Exploits Windows Zero-Day to Gain SYSTEM Access and Deploy Backdoor",
+        "url": "https://thehackernews.com/2026/08/lazarus-exploits-windows-zero-day-to.html",
         "source": "The Hacker News",
-        "date": "2026-08-11",
-        "reason": "安全研究人员通过设立虚假加密公司，成功捕获并记录了疑似朝鲜IT工人渗透企业网络的完整行为轨迹。"
+        "date": "2026-08-12",
+        "reason": "追踪了Lazarus组织利用Windows最新零日漏洞获取SYSTEM权限并部署新型后门的活动，提供了针对国家级APT威胁的最新情报。"
+      },
+      {
+        "title": "Stealthy ‘City-Forum’ Attacks Target Salesforce and ServiceNow With Custom Toolset",
+        "url": "https://www.securityweek.com/stealthy-city-forum-attacks-target-salesforce-and-servicenow-with-custom-toolset/",
+        "source": "SecurityWeek",
+        "date": "2026-08-12",
+        "reason": "分析了「City-Forum」隐蔽攻击活动如何利用未授权访客访问窃取Salesforce和ServiceNow数据，揭示了针对SaaS平台的新型窃取手法。"
       }
     ],
     "安全工具": [
@@ -121,70 +121,70 @@
         "title": "ObfusGit：一款防止 AI 抓取公共仓库的 Python 加密工具",
         "url": "https://sec.today/pulses/e624c203-aa49-40aa-932d-6909d61af31e/",
         "source": "Sec-Today",
-        "date": "2026-08-12",
-        "reason": "介绍了一款通过自动加密机制抵御AI模型自动爬取的实用工具，为开源社区保护代码知识产权提供了低成本方案。"
+        "date": "2026-08-13",
+        "reason": "介绍了一款通过自动加密机制抵御AI模型爬取的实用工具，为开源社区在生成式AI时代保护代码知识产权提供了低成本思路。"
       },
       {
-        "title": "botstop.io - Does your Browser look like a Bot?",
-        "url": "https://incolumitas.com/2026/08/11/botstop-io/",
+        "title": "From Patch Tuesday to Pentest Wednesday®: How a Major Transportation Company Turned AWS Attack Paths Into Action",
+        "url": "https://horizon3.ai/intelligence/blogs/aws-attack-paths-pentest-wednesday/",
         "source": "Unsafe.sh",
-        "date": "2026-08-11",
-        "reason": "发布了一个用于检测浏览器指纹和自动化特征的工具，帮助开发者评估其爬虫或自动化脚本的隐蔽性。"
+        "date": "2026-08-12",
+        "reason": "展示了大型企业如何利用自动化渗透测试工具将AWS攻击路径转化为可执行的防御策略，体现了安全工具在云环境中的实战价值。"
       },
       {
-        "title": "当高频观测不再经过异常路径：Shadow Cave 与常驻式插桩架构",
-        "url": "http://bbs.kanxue.com/thread-292354.htm?style=1",
-        "source": "看雪论坛",
-        "date": "2026-08-11",
-        "reason": "提出了一种名为Shadow Cave的常驻式插桩架构，解决了传统动态插桩在高频观测场景下的性能开销与代码页破坏问题。"
+        "title": "Reverse-engineering an AVerMedia Game Capture HD II (TI DM368): serial access, firmware decryption, and AI-assisted custom firmware",
+        "url": "https://unsafe.sh/go-434738.html",
+        "source": "Unsafe.sh",
+        "date": "2026-08-12",
+        "reason": "详细记录了逆向工程AVerMedia采集卡的全过程，涵盖串口访问、固件解密及AI辅助开发，为硬件安全研究和逆向工程提供了优秀范例。"
       }
     ],
     "云安全": [
       {
-        "title": "兰德报告：面向AI推理数据中心的垂直安全工程架构",
-        "url": "https://www.secrss.com/articles/92987",
-        "source": "安全内参",
-        "date": "2026-08-11",
-        "reason": "探讨了高端AI算力中心和云基础设施的安全屏障建设，为云原生AI环境提供了宏观的安全工程架构指导。"
-      },
-      {
-        "title": "From Scanner Findings to Verifiable Web Application Risk",
-        "url": "https://horizon3.ai/customer-story/cloud-native-webapp-security-validation/",
-        "source": "Unsafe.sh",
-        "date": "2026-08-11",
-        "reason": "探讨了如何将云原生Web应用扫描器的潜在漏洞发现转化为可验证的实际风险，提升了云安全运营的有效性。"
-      },
-      {
-        "title": "SecToday Next",
-        "url": "https://sec.today/pulses/cd2000f7-b6ff-4499-adf6-8e89e61aebc0/",
-        "source": "Sec-Today",
+        "title": "Attackers Exploit VMware vCenter Vulnerability to Gain Persistent Remote Access",
+        "url": "https://thehackernews.com/2026/08/attackers-exploit-vmware-vcenter.html",
+        "source": "The Hacker News",
         "date": "2026-08-12",
-        "reason": "披露了Amazon Q Developer扩展中的关键漏洞，攻击者可通过投毒的MCP配置文件在云开发环境中实现远程代码执行。"
+        "reason": "报道了攻击者积极利用VMware vCenter严重漏洞获取持久化远程访问权限的事件，凸显了云基础设施核心组件的防护紧迫性。"
+      },
+      {
+        "title": "SAP Commerce Cloud Flaw Could Let Unauthenticated Attackers Execute Arbitrary Code",
+        "url": "https://thehackernews.com/2026/08/sap-commerce-cloud-flaw-could-let.html",
+        "source": "The Hacker News",
+        "date": "2026-08-12",
+        "reason": "披露了SAP Commerce Cloud最高危漏洞允许未授权攻击者执行任意代码，直接影响企业云端电商业务的安全基线。"
+      },
+      {
+        "title": "How to Automate IAM Least Privilege Policies in AWS Using Access Analyzer: A Quick Guide",
+        "url": "https://hackernoon.com/how-to-automate-iam-least-privilege-policies-in-aws-using-access-analyzer-a-quick-guide?source=rss",
+        "source": "Unsafe.sh",
+        "date": "2026-08-12",
+        "reason": "详解了如何使用AWS Access Analyzer自动化实施IAM最小权限策略，为提升云原生身份安全和降低越权风险提供了实操指南。"
       }
     ],
     "其他重要": [
       {
-        "title": "August 2026 Patch Tuesday: Microsoft Fixes 421 CVEs, One Exploited Zero-Day",
-        "url": "https://www.securityweek.com/august-2026-patch-tuesday-microsoft-fixes-421-cves-one-exploited-zero-day/",
+        "title": "通过在身份验证期间在电子邮件 OTP 和 TOTP 之间切换来绕过 2FA | CN-SEC 中文网",
+        "url": "https://sec.today/pulses/3c5fa054-190c-4219-a86f-e286440c97ce/",
+        "source": "Sec-Today",
+        "date": "2026-08-13",
+        "reason": "揭示了2FA认证流程中「状态变更未校验」的致命逻辑缺陷，允许攻击者直接切换认证方式并接管账户，对所有MFA系统具有警示意义。"
+      },
+      {
+        "title": "TrojPix：基于像素操纵的隔空系统高速电磁数据窃取攻击",
+        "url": "https://sec.today/pulses/4dca129a-4066-43ab-9194-7390b8fdf0b0/",
+        "source": "Sec-Today",
+        "date": "2026-08-13",
+        "reason": "报道了利用HDMI电磁辐射实现208米隔空数据窃取的新型侧信道攻击，突破了传统物理隔离的防御边界，极具前瞻预警价值。"
+      },
+      {
+        "title": "Chipmaker Patch Tuesday: Intel, AMD Fix Over 80 Vulnerabilities Combined",
+        "url": "https://www.securityweek.com/chipmaker-patch-tuesday-intel-amd-fix-over-80-vulnerabilities-combined/",
         "source": "SecurityWeek",
-        "date": "2026-08-11",
-        "reason": "微软发布8月补丁星期二，修复了421个CVE及一个正遭野外利用的Windows内核零日漏洞，是本月最重要的安全更新。"
-      },
-      {
-        "title": "Mozilla Revokes Firefox and Thunderbird Linux Signing Key After Key Lands in Private Repo",
-        "url": "https://thehackernews.com/2026/08/mozilla-revokes-firefox-and-thunderbird.html",
-        "source": "The Hacker News",
-        "date": "2026-08-11",
-        "reason": "Mozilla因私钥意外提交至私有仓库而紧急撤销Linux版Firefox和Thunderbird的GPG签名密钥，引发对软件供应链密钥管理的广泛关注。"
-      },
-      {
-        "title": "Cloudflare DDoS Threat Report H1 2026: 1 Tbps attacks soar as DNS floods and geopolitical tensions drive a new wave",
-        "url": "https://blog.cloudflare.com/ddos-threat-report-2026-h1/",
-        "source": "Unsafe.sh",
-        "date": "2026-08-11",
-        "reason": "Cloudflare发布2026年上半年DDoS威胁报告，指出超1Tbps的攻击激增，为应对大规模网络层和应用层DDoS提供了权威数据参考。"
+        "date": "2026-08-12",
+        "reason": "汇总了Intel与AMD联合修复的超80个芯片级漏洞，涵盖特权提升与代码执行，是硬件安全和底层计算基石的重要更新。"
       }
     ]
   },
-  "summary": "本批次聚焦AI代理供应链攻击、微软8月补丁星期二及多起高危零日漏洞，工控与云原生安全事件频发。"
+  "summary": "本批次聚焦AI代理供应链投毒、云原生RCE及工控物理破坏等前沿威胁，兼具深度漏洞分析与实战防御指南。"
 }
