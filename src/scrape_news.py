@@ -74,6 +74,30 @@ class SecurityNewsAggregator:
             return html.unescape(text)
         return text
 
+    def _relative_past_date(self, unit, quantity):
+        """Return a datetime `quantity` `unit`s before now, or None if unknown.
+
+        timedelta has no month or year unit, so months are approximated as
+        30 days and years as 365 days - accurate enough for relative-time
+        text like "1 month ago" on news cards.
+        """
+        now = datetime.now()
+        if unit == 'years':
+            return now - timedelta(days=quantity * 365)
+        if unit == 'months':
+            return now - timedelta(days=quantity * 30)
+        if unit == 'weeks':
+            return now - timedelta(weeks=quantity)
+        if unit == 'days':
+            return now - timedelta(days=quantity)
+        if unit == 'hours':
+            return now - timedelta(hours=quantity)
+        if unit == 'minutes':
+            return now - timedelta(minutes=quantity)
+        if unit == 'seconds':
+            return now - timedelta(seconds=quantity)
+        return None
+
     def _parse_relative_time(self, time_text):
         """Parse relative time text and return date string (YYYY-MM-DD)"""
         if not time_text:
@@ -81,6 +105,8 @@ class SecurityNewsAggregator:
 
         # English patterns
         english_patterns = [
+            (r'(\d+)\s*year[s]?\s*ago', 'years'),     # "1 year ago", "2 years ago"
+            (r'(\d+)\s*month[s]?\s*ago', 'months'),   # "1 month ago", "2 months ago"
             (r'(\d+)\s*week[s]?\s*ago', 'weeks'),
             (r'(\d+)\s*day[s]?\s*ago', 'days'),
             (r'(\d+)\s*hour[s]?\s*ago', 'hours'),
@@ -91,21 +117,16 @@ class SecurityNewsAggregator:
         for pattern, unit in english_patterns:
             match = re.search(pattern, time_text, re.IGNORECASE)
             if match:
-                quantity = int(match.group(1))
-                if unit == 'weeks':
-                    past_date = datetime.now() - timedelta(weeks=quantity)
-                elif unit == 'days':
-                    past_date = datetime.now() - timedelta(days=quantity)
-                elif unit == 'hours':
-                    past_date = datetime.now() - timedelta(hours=quantity)
-                elif unit == 'minutes':
-                    past_date = datetime.now() - timedelta(minutes=quantity)
-                elif unit == 'seconds':
-                    past_date = datetime.now() - timedelta(seconds=quantity)
-                return past_date.strftime('%Y-%m-%d')
+                past_date = self._relative_past_date(unit, int(match.group(1)))
+                if past_date:
+                    return past_date.strftime('%Y-%m-%d')
 
         # Chinese patterns
         chinese_patterns = [
+            (r'(\d+)\s*年\s*之\s*前', 'years'),        # "2年之前", "2 年 之前"
+            (r'(\d+)\s*年前', 'years'),                # "2年前"
+            (r'(\d+)\s*个\s*月\s*之\s*前', 'months'),   # "2个月之前", "2 个月 之前"
+            (r'(\d+)\s*个月前', 'months'),             # "2个月前"
             (r'(\d+)\s*周\s*之\s*前', 'weeks'),    # "2周之前", "2 周 之前"
             (r'(\d+)\s*周前', 'weeks'),             # "2周前"
             (r'(\d+)\s*天前', 'days'),              # "2天前"
@@ -117,18 +138,9 @@ class SecurityNewsAggregator:
         for pattern, unit in chinese_patterns:
             match = re.search(pattern, time_text)
             if match:
-                quantity = int(match.group(1))
-                if unit == 'weeks':
-                    past_date = datetime.now() - timedelta(weeks=quantity)
-                elif unit == 'days':
-                    past_date = datetime.now() - timedelta(days=quantity)
-                elif unit == 'hours':
-                    past_date = datetime.now() - timedelta(hours=quantity)
-                elif unit == 'minutes':
-                    past_date = datetime.now() - timedelta(minutes=quantity)
-                elif unit == 'seconds':
-                    past_date = datetime.now() - timedelta(seconds=quantity)
-                return past_date.strftime('%Y-%m-%d')
+                past_date = self._relative_past_date(unit, int(match.group(1)))
+                if past_date:
+                    return past_date.strftime('%Y-%m-%d')
 
         return None
 
@@ -288,65 +300,21 @@ class SecurityNewsAggregator:
                                     date = parsed_date
                                     date_found = True
 
-                        # Method 2: Look for text containing relative time (English format)
+                        # Method 2/3: Look for relative time text anywhere in the
+                        # card (English or Chinese). Reuses _parse_relative_time so
+                        # every unit - including "month(s) ago" / "year(s) ago" and
+                        # the Chinese equivalents - is handled consistently with the
+                        # <time> tag path above. Previously this inline copy only
+                        # knew week/day/hour/minute/second, so text like
+                        # "SecTodayBot • 1 month ago" matched nothing and silently
+                        # fell back to today's date.
                         if not date_found:
                             card_text = card.get_text()
-                            # English relative time patterns (with or without space)
-                            english_patterns = [
-                                r'(\d+)\s*week[s]?\s*ago',     # "2 weeks ago", "1 week ago"
-                                r'(\d+)\s*day[s]?\s*ago',      # "2 days ago", "2day ago"
-                                r'(\d+)\s*hour[s]?\s*ago',     # "2 hours ago"
-                                r'(\d+)\s*minute[s]?\s*ago',   # "2 minutes ago"
-                                r'(\d+)\s*second[s]?\s*ago',   # "2 seconds ago"
-                            ]
-                            for pattern in english_patterns:
-                                match = re.search(pattern, card_text, re.IGNORECASE)
-                                if match:
-                                    quantity = int(match.group(1))
-                                    if 'week' in pattern.lower():
-                                        past_date = datetime.now() - timedelta(weeks=quantity)
-                                    elif 'day' in pattern.lower():
-                                        past_date = datetime.now() - timedelta(days=quantity)
-                                    elif 'hour' in pattern.lower():
-                                        past_date = datetime.now() - timedelta(hours=quantity)
-                                    elif 'minute' in pattern.lower():
-                                        past_date = datetime.now() - timedelta(minutes=quantity)
-                                    elif 'second' in pattern.lower():
-                                        past_date = datetime.now() - timedelta(seconds=quantity)
-                                    date = past_date.strftime('%Y-%m-%d')
-                                    date_found = True
-                                    logger.debug(f"Found date from English pattern: {date}")
-                                    break
-
-                        # Method 3: Chinese relative time patterns
-                        if not date_found:
-                            card_text = card.get_text()
-                            chinese_patterns = [
-                                (r'(\d+)\s*周\s*之\s*前', 'weeks'),    # "2周之前", "2 周 之前"
-                                (r'(\d+)\s*周前', 'weeks'),             # "2周前"
-                                (r'(\d+)\s*天前', 'days'),              # "2天前"
-                                (r'(\d+)\s*小时前', 'hours'),           # "2小时前"
-                                (r'(\d+)\s*分钟前', 'minutes'),         # "2分钟前"
-                                (r'(\d+)\s*秒前', 'seconds'),           # "2秒前"
-                            ]
-                            for pattern, unit in chinese_patterns:
-                                match = re.search(pattern, card_text)
-                                if match:
-                                    quantity = int(match.group(1))
-                                    if unit == 'weeks':
-                                        past_date = datetime.now() - timedelta(weeks=quantity)
-                                    elif unit == 'days':
-                                        past_date = datetime.now() - timedelta(days=quantity)
-                                    elif unit == 'hours':
-                                        past_date = datetime.now() - timedelta(hours=quantity)
-                                    elif unit == 'minutes':
-                                        past_date = datetime.now() - timedelta(minutes=quantity)
-                                    elif unit == 'seconds':
-                                        past_date = datetime.now() - timedelta(seconds=quantity)
-                                    date = past_date.strftime('%Y-%m-%d')
-                                    date_found = True
-                                    logger.debug(f"Found date from Chinese pattern: {date}")
-                                    break
+                            parsed_date = self._parse_relative_time(card_text)
+                            if parsed_date:
+                                date = parsed_date
+                                date_found = True
+                                logger.debug(f"Found date from relative time text: {date}")
 
                         # Method 4: Look for explicit date patterns as backup
                         if not date_found:
