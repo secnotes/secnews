@@ -1,211 +1,218 @@
 {
-  "analysis_date": "2026-08-14",
+  "analysis_date": "2026-08-15",
   "model": "qwen3.7-max",
-  "total_analyzed": 141,
+  "total_analyzed": 115,
   "categories": {
     "漏洞研究": [
       {
-        "title": "SharePoint 远程代码执行 CVE-2025-53770 PoC 发布：利用 XSD 导入绕过 XmlValidator",
-        "url": "https://sec.today/pulses/5d1ba979-273f-41dd-b039-ef43eede5ede/",
-        "source": "Sec-Today",
-        "date": "2026-08-14",
-        "reason": "详细解析了攻击者如何通过XML架构导入机制绕过官方补丁验证，为安全团队提供了紧急防御的关键技术细节。"
-      },
-      {
-        "title": "Bad Epoll：Linux 内核竞态条件漏洞导致 Android 系统 Root 提权",
-        "url": "https://sec.today/pulses/5e32c613-c0ed-45ca-a164-c658dc9b60ff/",
-        "source": "Sec-Today",
-        "date": "2026-08-14",
-        "reason": "揭示了Linux内核竞态条件漏洞，允许普通用户提升至root权限，是当下亟需关注的核心安全威胁。"
-      },
-      {
-        "title": "Unpatched GeoServer Zero-Day Targeted in Active Exploitation Attempts, Can Lead to RCE",
-        "url": "https://thehackernews.com/2026/08/unpatched-geoserver-zero-day-targeted.html",
-        "source": "The Hacker News",
-        "date": "2026-08-13",
-        "reason": "披露了GeoServer未修补的零日SQL注入漏洞，且已在野外被积极利用，具有极高的实战预警价值。"
-      },
-      {
-        "title": "Nightmare Eclipse Drops Windows Zero-Day Exploit ‘ShieldBreak’",
-        "url": "https://www.securityweek.com/nightmare-eclipse-drops-windows-zero-day-exploit-shieldbreak/",
+        "title": "Hackers Exploiting Unpatched GeoServer Zero-Day",
+        "url": "https://www.securityweek.com/hackers-exploiting-unpatched-geoserver-zero-day/",
         "source": "SecurityWeek",
-        "date": "2026-08-13",
-        "reason": "介绍了Windows零日漏洞利用程序ShieldBreak，允许任何用户获取System权限，对终端防御构成重大挑战。"
+        "date": "2026-08-14",
+        "reason": "GeoServer未修补的0day漏洞正遭黑客利用，可导致RCE，需紧急关注。"
+      },
+      {
+        "title": "Max severity SAP Commerce Cloud flaw now targeted in attacks",
+        "url": "https://www.bleepingcomputer.com/news/security/max-severity-sap-commerce-cloud-flaw-now-targeted-in-attacks/",
+        "source": "BleepingComputer",
+        "date": "2026-08-14",
+        "reason": "SAP Commerce Cloud最高危漏洞正被活跃利用，影响广泛。"
+      },
+      {
+        "title": "【已支持检测】Metabase 满分未认证 SQL 注入漏洞可导致实...",
+        "url": "https://nosec.org/home/detail/5967.html",
+        "source": "nosec",
+        "date": "2026-08-14",
+        "reason": "Metabase未授权SQL注入漏洞可导致服务器被控，提供检测支持。"
+      },
+      {
+        "title": "【已支持检测】JetBrains TeamCity 未认证远程代码执行漏洞...",
+        "url": "https://nosec.org/home/detail/5968.html",
+        "source": "nosec",
+        "date": "2026-08-14",
+        "reason": "JetBrains TeamCity未授权RCE漏洞严重威胁CI/CD环境安全。"
       }
     ],
     "移动安全": [
       {
-        "title": "WindRelay Android Malware Turns Victims' Phones Into NFC Relays for Payment Fraud",
-        "url": "https://thehackernews.com/2026/08/windrelay-android-malware-turns-victims.html",
+        "title": "Apple Warns Users in 110 Countries They May Be Targets of Mercenary Spyware",
+        "url": "https://thehackernews.com/2026/08/apple-warns-users-in-110-countries-they.html",
         "source": "The Hacker News",
-        "date": "2026-08-13",
-        "reason": "揭示了一种新型Android NFC中继恶意软件，与RAT结合使用进行支付欺诈，展示了移动端金融威胁的新趋势。"
+        "date": "2026-08-14",
+        "reason": "苹果向110国用户发送雇佣间谍软件攻击警告，涉及高级移动威胁。"
       },
       {
-        "title": "Live Android application analysis",
-        "url": "https://unsafe.sh/go-435009.html",
-        "source": "Unsafe.sh",
-        "date": "2026-08-13",
-        "reason": "提供了Android应用实时分析的技术指南，对移动安全研究人员进行恶意软件动态分析具有重要参考价值。"
+        "title": "Apple now uses iPhone alerts for targets of mercenary spyware",
+        "url": "https://www.malwarebytes.com/blog/news/2026/08/apple-now-uses-iphone-alerts-for-targets-of-mercenary-spyware",
+        "source": "Malwarebytes",
+        "date": "2026-08-14",
+        "reason": "苹果扩展iPhone威胁通知系统，强化对雇佣间谍软件的预警能力。"
       },
       {
-        "title": "New Android malware lets criminals use your bank card in real time",
-        "url": "https://www.malwarebytes.com/blog/mobile/2026/08/new-android-malware-lets-criminals-use-your-bank-card-in-real-time",
+        "title": "WhatsApp is testing a new warning for scam messages",
+        "url": "https://www.malwarebytes.com/blog/news/2026/08/whatsapp-is-testing-a-new-warning-for-scam-messages",
+        "source": "Malwarebytes",
+        "date": "2026-08-14",
+        "reason": "WhatsApp测试诈骗消息警告功能，提升移动端用户防钓鱼能力。"
+      },
+      {
+        "title": "Booting Apple's iPod 5.5G firmware: recovering the display transport from RetailOS's own parser instead of emulating the VideoCore",
+        "url": "https://unsafe.sh/go-435261.html",
         "source": "Unsafe.sh",
-        "date": "2026-08-13",
-        "reason": "深入分析了允许犯罪分子实时使用受害者银行卡的Android恶意软件，揭示了NFC中继攻击在移动端的实战危害。"
+        "date": "2026-08-14",
+        "reason": "深入分析iPod 5.5G固件启动与显示传输恢复，具备底层逆向研究价值。"
       }
     ],
     "AI安全": [
       {
-        "title": "当AI Coding编出不存在的包：53个可注册幻觉依赖如何变成供应链入口",
-        "url": "https://sec.today/pulses/5664511d-144a-4be6-bd3c-03ac542323b8/",
-        "source": "Sec-Today",
+        "title": "Our AI pentesting engine talked a production AI agent's prompt-injection guardrail into handing over its entire system prompt on its second attempt.",
+        "url": "https://unsafe.sh/go-435246.html",
+        "source": "Unsafe.sh",
         "date": "2026-08-14",
-        "reason": "揭示了AI代码模型产生「幻觉依赖」导致的供应链攻击新范式，警示企业必须将AI生成的依赖视为不可信输入。"
+        "reason": "AI渗透测试引擎成功绕过生产环境AI Agent的提示词注入防护，实战价值高。"
       },
       {
-        "title": "伪造 API 文档武器化：针对 AI 代理的间接提示注入攻击",
-        "url": "https://sec.today/pulses/5af6ff73-3365-46a2-95df-15aee733470a/",
-        "source": "Sec-Today",
+        "title": "暗藏白字提示词注入：原告企图利用隐藏指令操控审理案件的 AI",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&mid=2451188086&idx=1&sn=1d49489e1dbde5d06f711fbb82db023e",
+        "source": "微信公众号",
         "date": "2026-08-14",
-        "reason": "展示了攻击者如何利用SEO投毒和间接提示注入诱导AI代理执行恶意操作，为防御者提供了加固RAG管道的关键预警。"
+        "reason": "原告利用隐藏白字提示词注入企图操控AI法官，揭示大模型司法应用风险。"
       },
       {
-        "title": "DuneSlide：通过 Cursor IDE 提示注入实现零点击远程代码执行 (CVE-2026-50548/50549)",
-        "url": "https://sec.today/pulses/09cb64e7-ff35-4bdf-9134-bc8ab39d6a5c/",
-        "source": "Sec-Today",
+        "title": "面对对齐研究者，Claude会心虚",
+        "url": "https://www.secrss.com/articles/93087",
+        "source": "安全内参",
         "date": "2026-08-14",
-        "reason": "揭示了通过提示注入绕过Cursor IDE沙箱机制实现零点击RCE的漏洞，标志着AI辅助开发工具面临的全新威胁范式。"
+        "reason": "探讨Claude模型在面对对齐研究者时的行为变化，涉及AI安全与对齐研究。"
       },
       {
-        "title": "中毒的 MCP 工具描述导致 AI Agent 静默泄露数据",
-        "url": "https://sec.today/pulses/5939d111-8397-4a50-8f6e-4627d7e3013f/",
-        "source": "Sec-Today",
+        "title": "The Modern Attack Chain: Rethinking Google Workspace Security in the Age of AI",
+        "url": "https://www.bleepingcomputer.com/news/security/the-modern-attack-chain-rethinking-google-workspace-security-in-the-age-of-ai/",
+        "source": "BleepingComputer",
         "date": "2026-08-14",
-        "reason": "证明了攻击者仅需篡改MCP协议元数据即可诱导AI代理静默窃取数据，将AI安全焦点引向代理行动供应链漏洞。"
-      },
-      {
-        "title": "Rogue Agent：Google Dialogflow CX 关键漏洞利用共享运行时实现跨 Agent 劫持",
-        "url": "https://sec.today/pulses/5d942c4f-c015-49be-bb12-18c7a1cdd0f6/",
-        "source": "Sec-Today",
-        "date": "2026-08-14",
-        "reason": "暴露了云原生AI开发环境中因沙箱隔离失效引发的底层代码执行风险，打破了AI安全仅关注提示注入的固有认知。"
+        "reason": "分析AI时代Google Workspace面临的现代攻击链及防御重构思路。"
       }
     ],
     "威胁情报": [
       {
-        "title": "ChocoPoC：利用虚假 PoC 仓库通过依赖项植入的针对研究员的 RAT",
-        "url": "https://sec.today/pulses/898572c5-f8c4-4a39-a350-ed7e8ee8c12a/",
-        "source": "Sec-Today",
+        "title": "Mustang Panda Adds Signed Windows Rootkit to CoolClient Backdoor for Stealth",
+        "url": "https://thehackernews.com/2026/08/mustang-panda-adds-signed-windows.html",
+        "source": "The Hacker News",
         "date": "2026-08-14",
-        "reason": "揭示了针对安全研究人员的新型供应链攻击手法，利用研究人员验证漏洞的时间压力植入窃密木马，极具警示意义。"
+        "reason": "「Mustang Panda」组织为CoolClient后门添加签名Rootkit以增强隐蔽性。"
       },
       {
-        "title": "New PATCHCORD Backdoor Targets Afghan Telecom and Indian Critical Infrastructure",
-        "url": "https://thehackernews.com/2026/08/new-patchcord-backdoor-targets-afghan.html",
+        "title": "China-Linked Jewelbug Uses XG-Web for Government Espionage and Crypto Fraud",
+        "url": "https://thehackernews.com/2026/08/china-linked-jewelbug-uses-xg-web-for.html",
         "source": "The Hacker News",
-        "date": "2026-08-13",
-        "reason": "披露了针对阿富汗电信和南亚关键基础设施的新型后门PATCHCORD，为相关地区的地缘网络威胁提供了重要情报。"
+        "date": "2026-08-14",
+        "reason": "「Jewelbug」组织利用XG-Web进行政府间谍活动与加密货币欺诈。"
       },
       {
-        "title": "North Korean Remote Workers Are Infiltrating Government and Businesses: How to Expose Them Before Hiring",
-        "url": "https://thehackernews.com/2026/08/north-korean-remote-workers-are.html",
-        "source": "The Hacker News",
-        "date": "2026-08-13",
-        "reason": "分析了朝鲜IT工人通过合法求职渗透政府和企业的新模式，为企业背景调查和内部威胁防御提供了实战指南。"
+        "title": "What we know about the alleged Iranian hacks on U.S. water utilities",
+        "url": "https://techcrunch.com/2026/08/14/what-we-know-about-the-alleged-iranian-hacks-on-u-s-water-utilities/",
+        "source": "TechCrunch",
+        "date": "2026-08-14",
+        "reason": "伊朗黑客涉嫌攻击美国水务系统，涉及关键基础设施安全事件。"
       },
       {
-        "title": "Akira hackers disable EDR with Safe Mode, steal data but fail to encrypt",
-        "url": "https://www.bleepingcomputer.com/news/security/akira-hackers-disable-edr-with-safe-mode-steal-data-but-fail-to-encrypt/",
-        "source": "Unsafe.sh",
-        "date": "2026-08-13",
-        "reason": "揭示了Akira勒索软件利用安全模式禁用EDR并窃取数据的战术，为安全团队优化终端防护策略提供了重要参考。"
+        "title": "Ransomware Threats in the Americas H1 2026: Dissecting the Regional Attack Patterns and Dominant Actors",
+        "url": "https://cyble.com/blog/ransomware-threats-in-america-h1-2026/",
+        "source": "Cyble",
+        "date": "2026-08-14",
+        "reason": "2026年上半年美洲勒索软件威胁报告，深度剖析区域攻击模式与主要团伙。"
       }
     ],
     "安全工具": [
       {
-        "title": "ObfusGit：一款防止 AI 抓取公共仓库的 Python 加密工具",
-        "url": "https://sec.today/pulses/e624c203-aa49-40aa-932d-6909d61af31e/",
-        "source": "Sec-Today",
+        "title": "Windows 进程 CPU、内存、I/O 与调度指标采样",
+        "url": "http://bbs.kanxue.com/thread-292356.htm?style=1",
+        "source": "看雪论坛",
         "date": "2026-08-14",
-        "reason": "介绍了一款通过自动加密机制防止AI模型爬取代码的实用工具，为开源社区保护代码知识产权提供了低成本新思路。"
+        "reason": "开源项目ksword实现Windows进程CPU、内存及I/O等指标采样，适合性能分析。"
       },
       {
-        "title": "I reverse engineered an anti-detect (Stealth) browser to find out exactly how their hooks work. I wrote a detailed breakdown + detector for it.",
-        "url": "https://unsafe.sh/go-434979.html",
-        "source": "Unsafe.sh",
-        "date": "2026-08-13",
-        "reason": "详细记录了逆向反检测浏览器钩子机制的过程并提供检测器，对对抗自动化欺诈和指纹伪造具有极高技术价值。"
+        "title": "纯静态分析DumpSDK所需的加密数据，动态定位加密UWorld、GameInstance、Object的未加密地址",
+        "url": "http://bbs.kanxue.com/thread-292476.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-08-14",
+        "reason": "分享纯静态分析DumpSDK加密数据及动态定位未加密地址的逆向技术。"
       },
       {
-        "title": "I documented the security hardening history of my USB-key-based file encryption tool (AES-256-GCM + scrypt)",
-        "url": "https://unsafe.sh/go-435022.html",
+        "title": "Fingerprint Pro v4, deobfuscated and documented: CRC32 name erasure, XOR string vaults, and so much more.",
+        "url": "https://unsafe.sh/go-435260.html",
         "source": "Unsafe.sh",
-        "date": "2026-08-13",
-        "reason": "分享了基于USB密钥的文件加密工具的安全加固历史，涵盖了AES-256-GCM与scrypt的工程实践，极具开发参考价值。"
+        "date": "2026-08-14",
+        "reason": "深度逆向并记录Fingerprint Pro v4的混淆机制与字符串加密算法。"
       },
       {
-        "title": "[C++] Zero-Allocation API Hook Manager for Windows x64",
-        "url": "https://unsafe.sh/go-434940.html",
-        "source": "Unsafe.sh",
-        "date": "2026-08-13",
-        "reason": "提供了一个零内存分配的Windows x64 API Hook管理器实现，为底层安全工具开发和恶意软件分析提供了高效组件。"
+        "title": "LocalSend 时隔18个月更新，发布第一个 LocalSend CLI 版本，可通过命令行传输文件",
+        "url": "https://www.appinn.com/localsend-cli/",
+        "source": "appinn",
+        "date": "2026-08-14",
+        "reason": "LocalSend发布首个CLI版本，支持命令行文件传输，提升自动化工具链集成能力。"
       }
     ],
     "云安全": [
       {
-        "title": "Zero Keys, Two Clouds: How Our AWS-hosted Terraform CI/CD Deploys to Google Cloud",
-        "url": "https://hackernoon.com/zero-keys-two-clouds-how-our-aws-hosted-terraform-cicd-deploys-to-google-cloud?source=rss",
-        "source": "Unsafe.sh",
-        "date": "2026-08-13",
-        "reason": "分享了在AWS和Google Cloud之间实现无密钥Terraform CI/CD部署的架构设计，为多云环境下的身份与访问管理提供了优秀实践。"
+        "title": "Google Cloud Sets Out Post-Quantum Roadmap With 2029 Readiness Goal",
+        "url": "https://www.securityweek.com/google-cloud-sets-out-post-quantum-roadmap-with-2029-readiness-goal/",
+        "source": "SecurityWeek",
+        "date": "2026-08-14",
+        "reason": "Google Cloud公布后量子密码学路线图，目标2029年实现全面就绪。"
       },
       {
-        "title": "How to Implement Micro-Segmentation in K8s Using Cilium Network Policies",
-        "url": "https://hackernoon.com/how-to-implement-micro-segmentation-in-k8s-using-cilium-network-policies?source=rss",
-        "source": "Unsafe.sh",
-        "date": "2026-08-13",
-        "reason": "详细讲解了如何使用Cilium网络策略在Kubernetes中实施微隔离，是构建云原生零信任网络的实战指南。"
+        "title": "Over 1,000 Charities Hit by Beacon CRM Data Breach",
+        "url": "https://www.securityweek.com/over-1000-charities-hit-by-beacon-crm-data-breach/",
+        "source": "SecurityWeek",
+        "date": "2026-08-14",
+        "reason": "Beacon CRM数据泄露事件根源为AWS访问密钥在公开构建产物中暴露。"
       },
       {
-        "title": "Certificate Transparency Monitoring is now generally available",
-        "url": "https://blog.cloudflare.com/certificate-transparency-monitoring-ga/",
+        "title": "AWS Cloud Security Challenge: SSRF, IMDSv2, and Cloud Takeover",
+        "url": "https://unsafe.sh/go-435214.html",
         "source": "Unsafe.sh",
-        "date": "2026-08-13",
-        "reason": "介绍了Cloudflare证书透明度监控功能的全面可用，为企业防范未经授权的证书颁发和中间人攻击提供了云端利器。"
+        "date": "2026-08-14",
+        "reason": "AWS云安全挑战复盘，涵盖SSRF、IMDSv2绕过及云环境接管技术。"
       },
       {
-        "title": "A stranger has been reading Salesforce and ServiceNow portals worldwide for 17 months",
-        "url": "https://unsafe.sh/go-434976.html",
-        "source": "Unsafe.sh",
-        "date": "2026-08-13",
-        "reason": "披露了攻击者长达17个月未授权访问全球Salesforce和ServiceNow云门户的事件，凸显了SaaS平台配置错误的长期隐患。"
+        "title": "How Cloudflare detects MCP traffic and helps secure it",
+        "url": "https://blog.cloudflare.com/mcp-security-updates/",
+        "source": "Cloudflare",
+        "date": "2026-08-14",
+        "reason": "Cloudflare介绍如何检测并保护MCP流量，提升云原生API安全性。"
       }
     ],
     "其他重要": [
       {
-        "title": "美国网络战略重大转向：特朗普新政允许私营企业在政府监督下执行进攻性网络任务",
-        "url": "https://www.secrss.com/articles/93066",
-        "source": "安全内参",
-        "date": "2026-08-13",
-        "reason": "报道了美国允许私营企业在政府监督下执行进攻性网络任务的政策转向，对全球网络空间对抗格局具有深远影响。"
+        "title": "Trump Memo Paves Way for U.S. Firms to Hack and Disrupt Foreign Crime Groups",
+        "url": "https://thehackernews.com/2026/08/trump-memo-paves-way-for-us-firms-to.html",
+        "source": "The Hacker News",
+        "date": "2026-08-14",
+        "reason": "特朗普签署备忘录，允许美国私营企业在政府监督下执行进攻性网络任务。"
       },
       {
-        "title": "全球首例AI智能体案件判决：谁来为智能体的行为负责?",
-        "url": "https://www.secrss.com/articles/93059",
-        "source": "安全内参",
-        "date": "2026-08-13",
-        "reason": "梳理了全球首例AI智能体案件的判决逻辑，并对比了中美两国关于AI法律地位的规范路径，具有重要的法律与合规参考价值。"
+        "title": "1.6 Million Likely Impacted by RingCentral Data Breach",
+        "url": "https://www.securityweek.com/1-6-million-likely-impacted-by-ringcentral-data-breach/",
+        "source": "SecurityWeek",
+        "date": "2026-08-14",
+        "reason": "RingCentral数据泄露事件影响160万账户，暴露大量用户敏感信息。"
       },
       {
-        "title": "The Model Is the Malware | What Four Agentic Intrusions Tell Defenders",
-        "url": "https://www.sentinelone.com/labs/the-model-is-the-malware-what-four-agentic-intrusions-tell-defenders/",
-        "source": "Unsafe.sh",
-        "date": "2026-08-13",
-        "reason": "深度剖析了四起AI代理入侵事件，提出了「模型即恶意软件」的前瞻性观点，为下一代AI驱动防御体系指明了方向。"
+        "title": "Shell investigates 'potential incident' after Clop data theft claims",
+        "url": "https://www.bleepingcomputer.com/news/security/shell-investigates-potential-incident-after-clop-data-theft-claims/",
+        "source": "BleepingComputer",
+        "date": "2026-08-14",
+        "reason": "「Clop」勒索软件团伙声称窃取Shell数据，引发重大企业安全事件调查。"
+      },
+      {
+        "title": "黑飞机！1分钟物理接触即可篡改波音737飞行指令",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzI4NDY2MDMwMw==&mid=2247516427&idx=1&sn=63f2d90a0ddd58071d5b4ff9653c8f85",
+        "source": "微信公众号",
+        "date": "2026-08-14",
+        "reason": "研究人员演示1分钟物理接触篡改波音737飞行指令，揭示航空工控安全风险。"
       }
     ]
   },
-  "summary": "本批次重点收录AI代理供应链攻击、零日漏洞利用及多云安全架构等高价值技术文章。"
+  "summary": "本批次重点关注0day漏洞利用、APT组织活动、AI提示词注入及云环境配置缺陷等高价值安全议题。"
 }
