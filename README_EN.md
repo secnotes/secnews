@@ -1,26 +1,8 @@
-**[简体中文](README.md)** | English
-
 # Security News Aggregator
 
+**[简体中文](README.md)** | English
+
 An automated security news aggregation platform that collects technical articles and news from major security communities every day, and uses AI to curate and categorize the important content.
-
-## Project Structure
-
-```
-.
-├── src/                    # Source code
-│   ├── scrape_news.py      # Main scraper script
-│   ├── ai_provider.py      # AI analysis module
-│   ├── translator.py       # AI translation module
-│   ├── articles.json       # Scraped raw data
-│   ├── ai_curated.json     # AI-curated data
-│   └── .env                # Local AI configuration (not committed to git)
-├── docs/                   # Generated website
-│   └── index.html          # Generated static page
-├── .github/workflows/      # GitHub Actions workflows
-│   └── daily_update.yml    # Daily auto-update workflow
-└── requirements.txt        # Python dependencies
-```
 
 ## Data Sources
 

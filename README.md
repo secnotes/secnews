@@ -1,26 +1,8 @@
-简体中文 | **[English](README_EN.md)**
-
 # 安全资讯聚合平台
 
+简体中文 | **[English](README_EN.md)**
+
 一个自动化的安全资讯聚合平台，每日自动收集来自各大安全社区的技术文章和新闻资讯，并通过AI智能筛选和分类重要内容。
-
-## 项目结构
-
-```
-.
-├── src/                    # 源代码目录
-│   ├── scrape_news.py      # 主爬虫脚本
-│   ├── ai_provider.py      # AI分析模块
-│   ├── translator.py       # AI翻译模块
-│   ├── articles.json       # 爬取的原始数据
-│   ├── ai_curated.json     # AI精选数据
-│   └── .env                # 本地AI配置（不提交到git）
-├── docs/                   # 生成的网页文件目录
-│   └── index.html          # 生成的静态网页
-├── .github/workflows/      # GitHub Actions 工作流
-│   └── daily_update.yml    # 每日自动更新工作流
-└── requirements.txt        # Python依赖包列表
-```
 
 ## 数据源
 
