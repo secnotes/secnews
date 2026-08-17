@@ -16,6 +16,11 @@ import re
 import html
 import sys
 
+# Translation module (translate_all is a no-op without an AI API key;
+# CATEGORY_EN / SOURCE_EN are plain dicts used when rendering bilingual
+# category and source names)
+from translator import translate_all, CATEGORY_EN, SOURCE_EN
+
 # Import brotli support to enable automatic decompression
 try:
     import brotli
@@ -858,14 +863,6 @@ class SecurityNewsAggregator:
 
         except Exception as e:
             logger.error(f"Error scraping FreeBuf: {str(e)}")
-
-        except ImportError:
-            logger.warning("Playwright not available, skipping FreeBuf")
-        except Exception as e:
-            logger.error(f"Error scraping FreeBuf: {str(e)}")
-
-        except Exception as e:
-            logger.error(f"Error scraping FreeBuf RSS: {str(e)}")
 
     def scrape_secrss(self):
         """Scrape https://www.secrss.com/ for security news"""
@@ -1951,10 +1948,26 @@ class SecurityNewsAggregator:
             self.articles = {'tech': [], 'news': []}
 
 
-def _generate_ai_curated_html(ai_curated):
+def _generate_ai_curated_html(ai_curated, bilingual=False):
     """Generate HTML for AI curated view"""
     if not ai_curated:
         return '<div class="no-ai-data"><p>🤖 AI精选数据暂未生成</p></div>'
+
+    def _dual(zh_text, en_text, fallback):
+        """Dual-language spans; falls back to the original text when no translation"""
+        if bilingual and (zh_text or en_text):
+            zh_text = zh_text or fallback
+            en_text = en_text or fallback
+            return (f'<span class="lang-zh">{html.escape(zh_text)}</span>'
+                    f'<span class="lang-en">{html.escape(en_text)}</span>')
+        return html.escape(fallback)
+
+    def _T(zh, en):
+        """Static label: dual-language spans when bilingual"""
+        if bilingual:
+            return (f'<span class="lang-zh">{zh}</span>'
+                    f'<span class="lang-en">{en}</span>')
+        return zh
 
     categories_html = []
     category_icons = {
@@ -1973,41 +1986,61 @@ def _generate_ai_curated_html(ai_curated):
             continue
 
         icon = category_icons.get(category_name, '📌')
+
+        if bilingual:
+            name_html = (f'<span class="lang-zh">{icon} {html.escape(category_name)}</span>'
+                         f'<span class="lang-en">{icon} {html.escape(CATEGORY_EN.get(category_name, category_name))}</span>')
+        else:
+            name_html = f'{icon} {html.escape(category_name)}'
+
         articles_html = []
 
         for article in articles:
-            title = article.get('title', 'No Title')
             url = article.get('url', '')
             source = article.get('source', '')
             date = article.get('date', '')
-            reason = article.get('reason', '')
+
+            title_html = _dual(article.get('title_zh'), article.get('title_en'), article.get('title', 'No Title'))
+
+            if bilingual:
+                meta_source = (f'<span class="lang-zh">来源: {html.escape(source)}</span>'
+                               f'<span class="lang-en">Source: {html.escape(SOURCE_EN.get(source, source))}</span>')
+                meta_date = (f'<span class="lang-zh">日期: </span>'
+                             f'<span class="lang-en">Date: </span>{date}')
+            else:
+                meta_source = f'来源: {html.escape(source)}'
+                meta_date = f'日期: {date}'
+
+            reason_html = ''
+            if article.get('reason'):
+                reason_inner = _dual(article.get('reason_zh'), article.get('reason_en'), article['reason'])
+                reason_label = _T('💡 推荐理由: ', '💡 Reason: ')
+                reason_html = f'<div class="ai-article-reason">{reason_label}{reason_inner}</div>'
 
             articles_html.append(f'''
             <div class="ai-article">
                 <div class="ai-article-title">
-                    <a href="{url}" target="_blank">{html.escape(title)}</a>
+                    <a href="{url}" target="_blank">{title_html}</a>
                 </div>
                 <div class="ai-meta">
-                    <span>来源: {source}</span>
-                    <span>日期: {date}</span>
+                    <span>{meta_source}</span>
+                    <span>{meta_date}</span>
                 </div>
-                {f'<div class="ai-article-reason">💡 推荐理由: {html.escape(reason)}</div>' if reason else ''}
+                {reason_html}
             </div>''')
 
         categories_html.append(f'''
         <div class="ai-category">
-            <h3 class="ai-category-title">{icon} {category_name}</h3>
+            <h3 class="ai-category-title">{name_html}</h3>
             {"".join(articles_html)}
         </div>''')
 
-    summary = ai_curated.get('summary', '')
-    analysis_date = ai_curated.get('analysis_date', '')
-    total_analyzed = ai_curated.get('total_analyzed', 0)
+    summary_html = _dual(ai_curated.get('summary_zh'), ai_curated.get('summary_en'), ai_curated.get('summary', ''))
 
     result_html = f'''
     <div class="ai-summary">
-        <h3>🤖 AI智能分析 <span class="model-badge" title="本批次 AI 精选所用模型">{html.escape(ai_curated.get('model', 'unknown'))}</span></h3>
-        <div class="ai-summary-text">{html.escape(summary)}</div>
+        <h3>{_T('🤖 AI智能分析', '🤖 AI Analysis')} <span class="model-badge" title="本批次 AI 精选所用模型">{html.escape(ai_curated.get('model', 'unknown'))}</span></h3>
+        <div class="ai-summary-text">{summary_html}</div>
     </div>
     {"".join(categories_html)}
     '''
@@ -2015,7 +2048,7 @@ def _generate_ai_curated_html(ai_curated):
     return result_html
 
 
-def _generate_ai_category_nav(ai_curated):
+def _generate_ai_category_nav(ai_curated, bilingual=False):
     """Generate category navigation for AI sidebar"""
     if not ai_curated:
         return ''
@@ -2037,8 +2070,13 @@ def _generate_ai_category_nav(ai_curated):
         if articles:
             icon = category_icons.get(category_name, '📌')
             count = len(articles)
+            if bilingual:
+                label = (f'<span class="lang-zh">{icon} {category_name} ({count})</span>'
+                         f'<span class="lang-en">{icon} {CATEGORY_EN.get(category_name, category_name)} ({count})</span>')
+            else:
+                label = f'{icon} {category_name} ({count})'
             # Create anchor link to category section
-            nav_items.append(f'<li onclick="scrollToCategory(\'{category_name}\')">{icon} {category_name} ({count})</li>')
+            nav_items.append(f'<li onclick="scrollToCategory(\'{category_name}\')">{label}</li>')
 
     return ''.join(nav_items)
 
@@ -2083,6 +2121,264 @@ def generate_html(articles, output_file=None, ai_curated=None):
     for article in articles['tech'] + articles['news']:
         all_dates.add(article['date'])
     sorted_dates = sorted(list(all_dates), reverse=True)
+
+    # Bilingual support: dual-language rendering only kicks in when the
+    # articles actually carry translation fields (i.e. an AI key was
+    # configured at scrape time). Without them the output is identical
+    # to the original single-language page.
+    def _has_translation(article):
+        """Article has both language versions of the title"""
+        return bool(article.get('title_zh')) and bool(article.get('title_en'))
+
+    translations_available = any(
+        _has_translation(a) for a in articles['tech'] + articles['news']
+    )
+    curated_bilingual = bool(ai_curated) and any(
+        a.get('title_zh') and a.get('title_en')
+        for arts in ai_curated.get('categories', {}).values() for a in arts
+    )
+
+    def _dual_spans(zh_text, en_text, fallback):
+        """Dual-language spans: Chinese visible by default, English in EN mode.
+        Missing translations fall back to the original text."""
+        zh_text = zh_text or fallback
+        en_text = en_text or fallback
+        return (f'<span class="lang-zh">{html.escape(zh_text)}</span>'
+                f'<span class="lang-en">{html.escape(en_text)}</span>')
+
+    def render_article_title(article):
+        if translations_available and _has_translation(article):
+            inner = _dual_spans(article.get('title_zh'), article.get('title_en'), article['title'])
+            return f'<a href="{article["url"]}" target="_blank">{inner}</a>'
+        return f'<a href="{article["url"]}" target="_blank">{html.escape(article["title"])}</a>'
+
+    def render_article_description(article):
+        desc = truncate_description(article["description"])
+        if not desc:
+            return ''
+        if translations_available and _has_translation(article):
+            inner = _dual_spans(article.get('description_zh'), article.get('description_en'), desc)
+            return f'<p class="article-description">{inner}</p>'
+        return f'<p class="article-description">{html.escape(desc)}</p>'
+
+    def T(zh, en):
+        """Static UI label: dual-language spans when bilingual, plain zh otherwise"""
+        if translations_available:
+            return (f'<span class="lang-zh">{zh}</span>'
+                    f'<span class="lang-en">{en}</span>')
+        return zh
+
+    def render_article_source(article):
+        """Card source line: translate the known Chinese source names in EN mode"""
+        source = article['source']
+        if translations_available:
+            en = SOURCE_EN.get(source, source)
+            return (f'<div class="article-source"><span class="lang-zh">来源: {html.escape(source)}</span>'
+                    f'<span class="lang-en">Source: {html.escape(en)}</span></div>')
+        return f'<div class="article-source">来源: {html.escape(source)}</div>'
+
+    def render_article_date(article):
+        if translations_available:
+            return (f'<div class="article-date"><span class="lang-zh">发布日期: </span>'
+                    f'<span class="lang-en">Date: </span>{article["date"]}</div>')
+        return f'<div class="article-date">发布日期: {article["date"]}</div>'
+
+    # Fragments injected into the template below. Kept as plain (non-f)
+    # strings so their braces don't need escaping. Empty when no
+    # translations exist -> template renders exactly as before.
+    lang_css = ''
+    lang_toggle_html = ''
+    lang_js = ''
+    lang_restore_js = ''
+
+    if translations_available or curated_bilingual:
+        lang_css = """
+        /* Bilingual content: Chinese by default, English only in EN mode */
+        .lang-en { display: none; }
+        body.lang-mode-en .lang-zh { display: none; }
+        body.lang-mode-en .lang-en { display: inline; }
+        """
+
+    if translations_available:
+        lang_toggle_html = '''
+            <button class="float-btn" id="lang-toggle-btn" onclick="toggleLang()" title="切换到 English" style="font-weight: 700;"><span class="lang-zh">EN</span><span class="lang-en">中</span></button>
+        '''
+        lang_js = """
+        function toggleLang() {
+            setLang(currentLang === 'zh' ? 'en' : 'zh');
+        }
+        function setLang(lang) {
+            currentLang = lang;
+            document.body.classList.toggle('lang-mode-en', lang === 'en');
+            localStorage.setItem('news-lang', lang);
+            var langBtn = document.getElementById('lang-toggle-btn');
+            if (langBtn) {
+                langBtn.title = lang === 'zh' ? '切换到 English' : 'Switch to Chinese';
+            }
+            var searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.placeholder = t('输入关键词搜索...', 'Type keyword to search...');
+            }
+            var themeBtn = document.getElementById('theme-toggle');
+            if (themeBtn) {
+                var dark = document.body.classList.contains('theme-dark');
+                themeBtn.title = dark ? t('日间模式', 'Light mode') : t('夜间模式', 'Dark mode');
+            }
+            var topBtn = document.getElementById('back-to-top');
+            if (topBtn) {
+                topBtn.title = t('回到顶部', 'Back to top');
+            }
+            applyFilters();
+        }
+        """
+        lang_restore_js = """
+            const savedLang = localStorage.getItem('news-lang');
+            if (savedLang === 'en' || savedLang === 'zh') {
+                setLang(savedLang);
+            }
+        """
+
+    # Always present so filter JS can stay language-aware; on non-bilingual
+    # pages t() simply returns the Chinese text and nothing else changes.
+    lang_i18n_stub = f"""
+        var currentLang = 'zh';
+        function t(zh, en) {{ return currentLang === 'en' ? en : zh; }}
+        var BILINGUAL = {'true' if translations_available else 'false'};
+        var SOURCE_NAME_EN = {json.dumps(SOURCE_EN, ensure_ascii=False)};
+    """
+
+    # Floating controls + dark theme work on every page (no API key needed)
+    static_css = """
+        /* Floating controls: theme + language (top-right), back-to-top (bottom-right) */
+        .float-controls {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 1000;
+        }
+        .float-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            cursor: pointer;
+            font-size: 1.05rem;
+            line-height: 1;
+            transition: all 0.2s ease;
+        }
+        .float-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .float-btn.active {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 24px;
+            right: 16px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-size: 1.3rem;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 1000;
+        }
+        #back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Dark theme (body.theme-dark) */
+        body.theme-dark { background-color: #1a1d24; color: #d8dce3; }
+        body.theme-dark .sidebar,
+        body.theme-dark .filters,
+        body.theme-dark .stats,
+        body.theme-dark .article-card,
+        body.theme-dark .ai-article,
+        body.theme-dark .ai-category-nav,
+        body.theme-dark .multi-select-dropdown,
+        body.theme-dark .multi-select-header,
+        body.theme-dark .no-ai-data { background: #22262f; color: #d8dce3; }
+        body.theme-dark .section-title,
+        body.theme-dark .filter-group label,
+        body.theme-dark h4 { color: #c2c8d4; border-bottom-color: #343a46; }
+        body.theme-dark .section-title { border-bottom-color: #343a46; }
+        body.theme-dark .article-title a,
+        body.theme-dark .ai-article-title a,
+        body.theme-dark .footer a,
+        body.theme-dark .ai-category-nav li { color: #8ab4f8; }
+        body.theme-dark .article-title a:hover,
+        body.theme-dark .ai-article-title a:hover,
+        body.theme-dark .footer a:hover,
+        body.theme-dark .ai-category-nav li:hover { color: #aecbfa; }
+        body.theme-dark .article-description,
+        body.theme-dark .ai-summary-text,
+        body.theme-dark .ai-article-reason { color: #aeb6c2; }
+        body.theme-dark .article-source,
+        body.theme-dark .article-date,
+        body.theme-dark .ai-meta { color: #8b93a1; }
+        body.theme-dark .view-toggle { background: #14171c; }
+        body.theme-dark .view-toggle-btn { color: #9aa3b0; }
+        body.theme-dark .view-toggle-btn.active { background: #22262f; color: #8ab4f8; }
+        body.theme-dark .footer { border-top-color: #343a46; color: #8b93a1; }
+        body.theme-dark .multi-select-option:hover { background: #2a2f3a; }
+        body.theme-dark .ai-info-box { background: #14171c; color: #9aa3b0; }
+        /* Theme toggle icon driven by CSS so it matches pre-paint theme */
+        .theme-icon-sun { display: none; }
+        body.theme-dark .theme-icon-moon { display: none; }
+        body.theme-dark .theme-icon-sun { display: inline; }
+        body.theme-dark .float-btn {
+            background: #2a303c;
+            color: #e2e6ee;
+            border: 1px solid #414a5c;
+        }
+        body.theme-dark .float-btn:hover {
+            background: #333b49;
+        }
+        body.theme-dark .float-btn.active {
+            outline-color: #8ab4f8;
+        }
+        body.theme-dark .ai-category-title { color: #c2c8d4; border-bottom-color: #667eea; }
+        body.theme-dark .filter-group select,
+        body.theme-dark .filter-group input {
+            background: #14171c;
+            color: #d8dce3;
+            border-color: #343a46;
+        }
+    """
+    static_js = """
+        function toggleTheme() {
+            var dark = document.body.classList.toggle('theme-dark');
+            localStorage.setItem('news-theme', dark ? 'dark' : 'light');
+            var btn = document.getElementById('theme-toggle');
+            btn.title = dark ? t('日间模式', 'Light mode') : t('夜间模式', 'Dark mode');
+        }
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        window.addEventListener('scroll', function() {
+            document.getElementById('back-to-top').classList.toggle('show', window.scrollY > 600);
+        });
+    """
+
+    # Subtitle: tagline + data freshness date (bilingual when available)
+    update_date = datetime.now().strftime('%Y-%m-%d')
+    subtitle_zh = f'汇聚最新网络安全资讯 · 更新于 {update_date}'
+    subtitle_en = f'Latest security news · Updated {update_date}'
 
     html_content = f"""<!DOCTYPE html>
 <html lang="zh-CN">
@@ -2398,7 +2694,6 @@ def generate_html(articles, output_file=None, ai_curated=None):
             color: #667eea;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }}
-        }}
 
         /* Sidebar sections */
         .sidebar-section {{
@@ -2561,13 +2856,46 @@ def generate_html(articles, output_file=None, ai_curated=None):
             background: #f8f9fa;
             border-radius: 8px;
         }}
-    </style>
+
+        .ai-info-box {{
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            color: #666;
+        }}
+    {static_css}{lang_css}</style>
 </head>
 <body>
+    <script>
+        // Apply saved theme (falling back to the system preference) and saved
+        // language BEFORE first paint to avoid a light-theme flash on dark pages
+        (function () {{
+            var theme = null;
+            try {{ theme = localStorage.getItem('news-theme'); }} catch (e) {{}}
+            var dark = theme === 'dark' ||
+                (!theme && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+            if (dark) document.body.classList.add('theme-dark');
+            try {{
+                if (localStorage.getItem('news-lang') === 'en') {{
+                    document.body.classList.add('lang-mode-en');
+                }}
+            }} catch (e) {{}}
+        }})();
+    </script>
+    <!-- Floating controls: theme (always) + language (bilingual pages only) -->
+    <div class="float-controls">
+        <button class="float-btn" id="theme-toggle" onclick="toggleTheme()" title="夜间模式">
+            <span class="theme-icon-moon">🌙</span><span class="theme-icon-sun">☀️</span>
+        </button>
+        {lang_toggle_html}
+    </div>
+    <button id="back-to-top" onclick="scrollToTop()" title="Back to top / 回到顶部">↑</button>
     <div class="container">
         <header>
-            <h1>网络安全资讯聚合</h1>
-            <div class="subtitle">Cybersecurity News Aggregator - 汇聚最新网络安全资讯</div>
+            <h1>{T('网络安全资讯聚合', 'Cybersecurity News')}</h1>
+            <div class="subtitle">{T(subtitle_zh, subtitle_en)}</div>
         </header>
 
         <main class="main-content">
@@ -2575,27 +2903,27 @@ def generate_html(articles, output_file=None, ai_curated=None):
             <!-- Original View (All Articles) -->
             <div class="original-view" id="original-view">
             <div class="category-section">
-                <h2 class="section-title">🎯 技术文章 (Technical Articles)</h2>
+                <h2 class="section-title">{T('🎯 技术文章', '🎯 Technical Articles')}</h2>
                 <div class="articles-grid" id="tech-articles">
                     {"".join([f'''
                     <div class="article-card" data-date="{article['date']}">
-                        <div class="article-source">来源: {article['source']}</div>
-                        <h3 class="article-title"><a href="{article['url']}" target="_blank">{html.escape(article['title'])}</a></h3>
-                        {f'<p class="article-description">{html.escape(truncate_description(article["description"]))}</p>' if article["description"] else ''}
-                        <div class="article-date">发布日期: {article['date']}</div>
+                        {render_article_source(article)}
+                        <h3 class="article-title">{render_article_title(article)}</h3>
+                        {render_article_description(article)}
+                        {render_article_date(article)}
                     </div>''' for article in tech_sorted])}
                 </div>
             </div>
 
             <div class="category-section">
-                <h2 class="section-title">📰 安全新闻 (Security News)</h2>
+                <h2 class="section-title">{T('📰 安全新闻', '📰 Security News')}</h2>
                 <div class="articles-grid" id="news-articles">
                     {"".join([f'''
                     <div class="article-card" data-date="{article['date']}">
-                        <div class="article-source">来源: {article['source']}</div>
-                        <h3 class="article-title"><a href="{article['url']}" target="_blank">{html.escape(article['title'])}</a></h3>
-                        {f'<p class="article-description">{html.escape(truncate_description(article["description"]))}</p>' if article["description"] else ''}
-                        <div class="article-date">发布日期: {article['date']}</div>
+                        {render_article_source(article)}
+                        <h3 class="article-title">{render_article_title(article)}</h3>
+                        {render_article_description(article)}
+                        {render_article_date(article)}
                     </div>''' for article in news_sorted])}
                 </div>
             </div>
@@ -2603,22 +2931,22 @@ def generate_html(articles, output_file=None, ai_curated=None):
 
             <!-- AI Curated View -->
             <div class="ai-view" id="ai-view">
-                {_generate_ai_curated_html(ai_curated) if ai_curated else '<div class="no-ai-data"><p>🤖 AI精选数据暂未生成</p><p>请启用 --ai-curate 参数来生成AI精选内容</p></div>'}
+                {_generate_ai_curated_html(ai_curated, bilingual=curated_bilingual) if ai_curated else '<div class="no-ai-data"><p>🤖 AI精选数据暂未生成</p><p>请启用 --ai-curate 参数来生成AI精选内容</p></div>'}
             </div>
         </main>
 
         <aside class="sidebar">
             <!-- View Toggle Buttons -->
             <div class="view-toggle">
-                <button class="view-toggle-btn" onclick="switchView('ai')">🤖 AI精选</button>
-                <button class="view-toggle-btn active" onclick="switchView('original')">📚 全部文章</button>
+                <button class="view-toggle-btn" onclick="switchView('ai')">{T('🤖 AI精选', '🤖 AI Curated')}</button>
+                <button class="view-toggle-btn active" onclick="switchView('original')">{T('📚 全部文章', '📚 All Articles')}</button>
             </div>
 
             <!-- Original Sidebar (Filters) -->
             <div class="sidebar-section" id="original-sidebar">
                 <div class="filters">
                     <div class="filter-group">
-                        <label>📅 按日期筛选:</label>
+                        <label>{T('📅 按日期筛选:', '📅 Filter by Date:')}</label>
                         <div class="multi-select" id="date-select">
                             <div class="multi-select-header" onclick="toggleDropdown('date-select')">全部日期</div>
                             <div class="multi-select-dropdown">
@@ -2628,7 +2956,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
                     </div>
 
                     <div class="filter-group">
-                        <label>🏢 按来源筛选:</label>
+                        <label>{T('🏢 按来源筛选:', '🏢 Filter by Source:')}</label>
                         <div class="multi-select" id="source-select">
                             <div class="multi-select-header" onclick="toggleDropdown('source-select')">全部来源[不包含Unsafe]</div>
                             <div class="multi-select-dropdown" id="source-dropdown"></div>
@@ -2636,36 +2964,36 @@ def generate_html(articles, output_file=None, ai_curated=None):
                     </div>
 
                     <div class="filter-group">
-                        <label for="search-input">🔍 搜索关键词:</label>
+                        <label for="search-input">{T('🔍 搜索关键词:', '🔍 Search:')}</label>
                         <input type="text" id="search-input" placeholder="输入关键词搜索..." onkeyup="applyFilters()">
                     </div>
 
-                    <button onclick="clearAllFilters()" style="margin-top: 10px; padding: 8px 16px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">清除筛选</button>
+                    <button onclick="clearAllFilters()" style="margin-top: 10px; padding: 8px 16px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">{T('清除筛选', 'Clear Filters')}</button>
                 </div>
 
                 <div style="margin-top: 1.5rem;">
-                    <h4>统计信息</h4>
+                    <h4>{T('统计信息', 'Statistics')}</h4>
                     <p id="visible-count">当前显示: {default_visible_count}</p>
-                    <p>总文章数: {len(tech_sorted) + len(news_sorted)}</p>
-                    <p>技术文章: {len(tech_sorted)}</p>
-                    <p>安全新闻: {len(news_sorted)}</p>
-                    <p>更新日期: {datetime.now().strftime('%Y-%m-%d')}</p>
+                    <p>{T('总文章数', 'Total Articles')}: {len(tech_sorted) + len(news_sorted)}</p>
+                    <p>{T('技术文章', 'Technical Articles')}: {len(tech_sorted)}</p>
+                    <p>{T('安全新闻', 'Security News')}: {len(news_sorted)}</p>
+                    <p>{T('更新日期', 'Updated')}: {datetime.now().strftime('%Y-%m-%d')}</p>
                 </div>
             </div>
 
             <!-- AI Sidebar (Category Navigation) -->
             <div class="sidebar-section hidden" id="ai-sidebar">
                 <div class="ai-category-nav">
-                    <h4>📋 分类目录</h4>
+                    <h4>{T('📋 分类目录', '📋 Categories')}</h4>
                     <ul>
-                        {_generate_ai_category_nav(ai_curated) if ai_curated else '<li style="color:#666">暂无分类数据</li>'}
+                        {_generate_ai_category_nav(ai_curated, bilingual=curated_bilingual) if ai_curated else '<li style="color:#666">暂无分类数据</li>'}
                     </ul>
                 </div>
-                <div style="margin-top: 1rem; padding: 0.5rem; background: #f8f9fa; border-radius: 4px; font-size: 0.85rem; color: #666;">
-                    <p>分析日期: {ai_curated.get('analysis_date', '-') if ai_curated else '-'}</p>
-                    <p>筛选文章: {sum(len(arts) for arts in ai_curated.get('categories', {}).values()) if ai_curated else 0} 篇</p>
-                    <p>原始文章: {ai_curated.get('total_analyzed', 0) if ai_curated else 0} 篇</p>
-                    <p>模型来源: {html.escape(ai_curated.get('model', '-')) if ai_curated else '-'}</p>
+                <div class="ai-info-box">
+                    <p>{T('分析日期', 'Analysis Date')}: {ai_curated.get('analysis_date', '-') if ai_curated else '-'}</p>
+                    <p>{T('筛选文章', 'Curated')}: {sum(len(arts) for arts in ai_curated.get('categories', {}).values()) if ai_curated else 0}{T(' 篇', '')}</p>
+                    <p>{T('原始文章', 'Analyzed')}: {ai_curated.get('total_analyzed', 0) if ai_curated else 0}{T(' 篇', '')}</p>
+                    <p>{T('模型来源', 'Model')}: {html.escape(ai_curated.get('model', '-')) if ai_curated else '-'}</p>
                 </div>
             </div>
         </aside>
@@ -2685,13 +3013,15 @@ def generate_html(articles, output_file=None, ai_curated=None):
                     📄 Json data
                 </a>
             </p>
-            <p>安全资讯聚合平台 | 更新时间: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
-            <p>数据来源: Sec-Today, 先知社区, Project Zero, Seebug Paper, 腾讯安全, 安全客, 安全内参, SecurityWeek, The Hacker News, 看雪</p>
-            <p>如有侵权，请联系删除</p>
+            <p>{T('安全资讯聚合平台', 'Security News Aggregator')} | {T('更新时间', 'Updated')}: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
+            <p>{T('数据来源', 'Sources')}: {('<span class="lang-zh">Sec-Today, 先知社区, Project Zero, Seebug Paper, 腾讯安全, 安全客, 安全内参, SecurityWeek, The Hacker News, 看雪</span><span class="lang-en">Sec-Today, Xianzhi, Project Zero, Seebug Paper, Tencent Security, Anquanke, SecRSS, SecurityWeek, The Hacker News, Kanxue</span>' if translations_available else 'Sec-Today, 先知社区, Project Zero, Seebug Paper, 腾讯安全, 安全客, 安全内参, SecurityWeek, The Hacker News, 看雪')}</p>
+            <p>{T('如有侵权，请联系删除', 'Contact us for removal if any content infringes copyright')}</p>
         </div>
     </div>
 
     <script>
+        {lang_i18n_stub}
+        {static_js}
         document.addEventListener('click', function(e) {{
             if (!e.target.closest('.multi-select')) {{
                 document.querySelectorAll('.multi-select-dropdown').forEach(d => d.classList.remove('show'));
@@ -2711,15 +3041,27 @@ def generate_html(articles, output_file=None, ai_curated=None):
             }}
         }}
 
+        {lang_js}
+        function cardSource(card) {{
+            var el = card.querySelector('.article-source');
+            // On bilingual pages read the Chinese span so the value matches
+            // the source filter options
+            var zh = el.querySelector('.lang-zh');
+            return (zh || el).textContent.replace('来源: ', '');
+        }}
+
         window.onload = function() {{
-            // 初始化来源下拉框
+            {lang_restore_js}// 初始化来源下拉框
             const sources = new Set();
             document.querySelectorAll('.article-card').forEach(card => {{
-                sources.add(card.querySelector('.article-source').textContent.replace('来源: ', ''));
+                sources.add(cardSource(card));
             }});
             const dropdown = document.getElementById('source-dropdown');
             Array.from(sources).sort().forEach((source, i) => {{
-                dropdown.innerHTML += '<div class="multi-select-option"><input type="checkbox" id="source-' + i + '" value="' + source + '"> ' + source + '</div>';
+                var label = BILINGUAL
+                    ? '<span class="lang-zh">' + source + '</span><span class="lang-en">' + (SOURCE_NAME_EN[source] || source) + '</span>'
+                    : source;
+                dropdown.innerHTML += '<div class="multi-select-option"><input type="checkbox" id="source-' + i + '" value="' + source + '"> ' + label + '</div>';
             }});
 
             // 绑定checkbox事件
@@ -2736,14 +3078,14 @@ def generate_html(articles, output_file=None, ai_curated=None):
             const searchTerm = document.getElementById('search-input').value.toLowerCase();
 
             // 更新下拉框标题
-            document.querySelector('#date-select .multi-select-header').textContent = selectedDates.length ? (selectedDates.length > 1 ? selectedDates.length + '项已选' : selectedDates[0]) : '全部日期';
-            document.querySelector('#source-select .multi-select-header').textContent = selectedSources.length ? (selectedSources.length > 1 ? selectedSources.length + '项已选' : selectedSources[0]) : '全部来源[不包含Unsafe]';
+            document.querySelector('#date-select .multi-select-header').textContent = selectedDates.length ? (selectedDates.length > 1 ? selectedDates.length + t('项已选', ' selected') : selectedDates[0]) : t('全部日期', 'All dates');
+            document.querySelector('#source-select .multi-select-header').textContent = selectedSources.length ? (selectedSources.length > 1 ? selectedSources.length + t('项已选', ' selected') : (currentLang === 'en' ? (SOURCE_NAME_EN[selectedSources[0]] || selectedSources[0]) : selectedSources[0])) : t('全部来源[不包含Unsafe]', 'All sources');
 
             // 筛选文章
             let visibleCount = 0;
             document.querySelectorAll('.article-card').forEach(card => {{
                 const cardDate = card.getAttribute('data-date');
-                const cardSource = card.querySelector('.article-source').textContent.replace('来源: ', '');
+                const cardSource = window.cardSource(card);
                 const title = card.querySelector('.article-title').textContent.toLowerCase();
                 const desc = card.querySelector('.article-description')?.textContent.toLowerCase() || '';
 
@@ -2754,14 +3096,14 @@ def generate_html(articles, output_file=None, ai_curated=None):
                 card.style.display = match ? 'flex' : 'none';
                 if (match) visibleCount++;
             }});
-            document.getElementById('visible-count').textContent = '当前显示: ' + visibleCount;
+            document.getElementById('visible-count').textContent = t('当前显示: ', 'Showing: ') + visibleCount;
         }}
 
         function clearAllFilters() {{
             document.querySelectorAll('.multi-select input[type="checkbox"]').forEach(cb => cb.checked = false);
             document.getElementById('search-input').value = '';
-            document.querySelector('#date-select .multi-select-header').textContent = '全部日期';
-            document.querySelector('#source-select .multi-select-header').textContent = '全部来源[不包含Unsafe]';
+            document.querySelector('#date-select .multi-select-header').textContent = t('全部日期', 'All dates');
+            document.querySelector('#source-select .multi-select-header').textContent = t('全部来源[不包含Unsafe]', 'All sources');
             document.querySelectorAll('.multi-select-dropdown').forEach(d => d.classList.remove('show'));
             applyFilters();
         }}
@@ -2828,6 +3170,8 @@ def main():
                         help='AI model name (default: from AI_MODEL env var, or gpt-4o-mini)')
     parser.add_argument('--ai-base-url', type=str, default=None,
                         help='AI API base URL (default: auto-inferred from model)')
+    parser.add_argument('--no-translate', action='store_true',
+                        help='Disable AI translation even when an API key is available')
     args = parser.parse_args()
 
     aggregator = SecurityNewsAggregator()
@@ -2850,6 +3194,23 @@ def main():
         if ai_curated:
             aggregator.save_ai_curated_json(ai_curated)
 
+    # AI translation (automatic when an API key is available; silently
+    # skipped otherwise so behavior without a key is unchanged)
+    translated = False
+    if not args.no_translate:
+        translated = translate_all(
+            aggregator.articles,
+            curated=ai_curated,
+            api_key=args.ai_key,
+            model=args.ai_model,
+            base_url=args.ai_base_url,
+        )
+        if translated:
+            # Re-save the data files, now carrying bilingual fields
+            aggregator.save_articles_json()
+            if ai_curated:
+                aggregator.save_ai_curated_json(ai_curated)
+
     # Generate HTML page (this will go to project root docs directory)
     generate_html(aggregator.articles, ai_curated=ai_curated)
 
@@ -2859,6 +3220,8 @@ def main():
     if ai_curated:
         total_curated = sum(len(arts) for arts in ai_curated.get('categories', {}).values())
         print(f"- AI精选: {total_curated} 篇")
+    if translated:
+        print("- 双语翻译: 已启用 (网页支持 中文/English 切换)")
     print(f"已生成 docs/index.html 文件")
 
 

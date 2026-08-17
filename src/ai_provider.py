@@ -166,7 +166,7 @@ class AIProvider:
         Args:
             articles: List of article dicts with title, url, description, date, source
             categories: List of category names (defaults to predefined security categories)
-            batch_size: Number of articles per batch (default 50)
+            batch_size: Number of articles per batch (default 200)
 
         Returns:
             Dict with categorized articles and analysis metadata
