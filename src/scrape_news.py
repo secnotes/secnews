@@ -2359,6 +2359,70 @@ def generate_html(articles, output_file=None, ai_curated=None):
             color: #d8dce3;
             border-color: #343a46;
         }
+
+        /* Mobile: sidebar becomes a slide-in drawer opened by the ☰ button */
+        #sidebar-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1050;
+        }
+        #sidebar-toggle {
+            display: none;
+        }
+        .sidebar-close {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            #sidebar-toggle {
+                display: block;
+            }
+            /* The inline sidebar is redundant on mobile now that the ☰
+               button opens it as a centered dialog - hide it from the
+               page flow; body.sidebar-open re-displays it as the popup */
+            .sidebar {
+                display: none;
+            }
+            body.sidebar-open #sidebar-backdrop {
+                display: block;
+            }
+            body.sidebar-open {
+                overflow: hidden;
+            }
+            body.sidebar-open .sidebar {
+                display: block;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: min(90vw, 400px);
+                max-height: 85vh;
+                margin: 0;
+                overflow-y: auto;
+                z-index: 1100;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+                padding-top: 3rem;
+            }
+            body.sidebar-open .sidebar-close {
+                display: block;
+                position: absolute;
+                top: 12px;
+                right: 12px;
+                width: 32px;
+                height: 32px;
+                border: none;
+                border-radius: 50%;
+                background: #f0f0f0;
+                color: #333;
+                font-size: 1rem;
+                cursor: pointer;
+            }
+            body.theme-dark .sidebar-close {
+                background: #2a303c;
+                color: #e2e6ee;
+            }
+        }
     """
     static_js = """
         function toggleTheme() {
@@ -2372,6 +2436,15 @@ def generate_html(articles, output_file=None, ai_curated=None):
         }
         window.addEventListener('scroll', function() {
             document.getElementById('back-to-top').classList.toggle('show', window.scrollY > 600);
+        });
+        function toggleSidebar(forceOpen) {
+            var open = typeof forceOpen === 'boolean'
+                ? forceOpen
+                : !document.body.classList.contains('sidebar-open');
+            document.body.classList.toggle('sidebar-open', open);
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') toggleSidebar(false);
         });
     """
 
@@ -2411,6 +2484,9 @@ def generate_html(articles, output_file=None, ai_curated=None):
 
         .main-content {{
             grid-column: 1;
+            /* Grid item: allow shrinking below min-content so long
+               unbreakable words cannot push cards past the viewport */
+            min-width: 0;
         }}
 
         .sidebar {{
@@ -2564,6 +2640,11 @@ def generate_html(articles, output_file=None, ai_curated=None):
             height: 100%;
             display: flex;
             flex-direction: column;
+            /* Grid/flex items default to min-width:auto, so a long URL or
+               CVE id would overflow the card past the screen edge on
+               mobile; allow the card to shrink and long words to wrap */
+            min-width: 0;
+            overflow-wrap: break-word;
         }}
 
         .article-card[data-date] {{
@@ -2812,6 +2893,8 @@ def generate_html(articles, output_file=None, ai_curated=None):
             margin-bottom: 1rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             transition: transform 0.2s, box-shadow 0.2s;
+            min-width: 0;
+            overflow-wrap: break-word;
         }}
 
         .ai-article:hover {{
@@ -2884,14 +2967,16 @@ def generate_html(articles, output_file=None, ai_curated=None):
             }} catch (e) {{}}
         }})();
     </script>
-    <!-- Floating controls: theme (always) + language (bilingual pages only) -->
+    <!-- Floating controls: sidebar drawer (mobile only), theme, language -->
     <div class="float-controls">
+        <button class="float-btn" id="sidebar-toggle" onclick="toggleSidebar()" title="筛选面板 / Filters">☰</button>
         <button class="float-btn" id="theme-toggle" onclick="toggleTheme()" title="夜间模式">
             <span class="theme-icon-moon">🌙</span><span class="theme-icon-sun">☀️</span>
         </button>
         {lang_toggle_html}
     </div>
     <button id="back-to-top" onclick="scrollToTop()" title="Back to top / 回到顶部">↑</button>
+    <div id="sidebar-backdrop" onclick="toggleSidebar(false)"></div>
     <div class="container">
         <header>
             <h1>{T('网络安全资讯聚合', 'Cybersecurity News')}</h1>
@@ -2936,6 +3021,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         </main>
 
         <aside class="sidebar">
+            <button class="sidebar-close" onclick="toggleSidebar(false)" title="关闭 / Close">✕</button>
             <!-- View Toggle Buttons -->
             <div class="view-toggle">
                 <button class="view-toggle-btn" onclick="switchView('ai')">{T('🤖 AI精选', '🤖 AI Curated')}</button>
