@@ -29,6 +29,12 @@
 
         .main-content {
             grid-column: 1;
+            /* One sheet: header + article lists live on a single card,
+               mirroring the dailycve layout (sidebar is its own card) */
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             /* Grid item: allow shrinking below min-content so long
                unbreakable words cannot push cards past the viewport */
             min-width: 0;
@@ -40,29 +46,40 @@
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            align-self: start;
+            height: fit-content;
             position: sticky;
             top: 20px;
+            max-height: 90vh;  /* dailycve-style: cap so the sticky card never
+                                  outgrows the viewport and slides cleanly to
+                                  bottom-align with the main card */
+            overflow-y: auto;  /* tall filter lists scroll inside the card */
         }
 
+        /* Slim inner scrollbar for the sidebar (dailycve-style) */
+        .sidebar::-webkit-scrollbar { width: 8px; }
+        .sidebar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 4px; }
+        .sidebar::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 4px; }
+        .sidebar::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
+        .sidebar { scrollbar-width: thin; scrollbar-color: #c1c1c1 #f1f1f1; }
+
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            /* dailycve-style editorial header: sits inside the main-content
+               card, a bottom rule separating the headline from the content */
             text-align: center;
-            padding: 2rem 0;
+            padding: 0.5rem 0 15px;
             margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid #d1d5db;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.2em;  /* match dailycve h1 */
+            color: #1f2937;    /* dailycve --headline-color */
             margin-bottom: 0.5rem;
         }
 
         .subtitle {
             font-size: 1.1rem;
-            opacity: 0.9;
+            color: #6c757d;
         }
 
         .filters {
@@ -163,11 +180,10 @@
         }
 
         .section-title {
-            font-size: 1.8rem;
+            font-size: 1.6em;  /* scaled with the dailycve-matched h1 (2.2em) */
             color: #495057;
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid #dee2e6;
         }
 
         .articles-grid {
@@ -178,6 +194,7 @@
 
         .article-card {
             background: white;
+            border: 1px solid #e0e0e0;  /* dailycve-style: border separates inner cards on the white sheet */
             border-radius: 8px;
             padding: 1.5rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -236,13 +253,11 @@
         }
 
         .footer {
-            grid-column: 1 / -1;
             text-align: center;
             padding: 2rem 0;
             color: #6c757d;
             font-size: 0.9rem;
             margin-top: 3rem;
-            border-top: 1px solid #dee2e6;
         }
 
         .footer a {
@@ -273,6 +288,10 @@
             .sidebar {
                 grid-column: 1;
                 position: static;
+                /* single-column flow: no sticky card, so no viewport cap */
+                height: auto;
+                max-height: none;
+                overflow-y: visible;
             }
         }
 
@@ -281,8 +300,12 @@
                 padding: 10px;
             }
 
+            .main-content {
+                padding: 1rem;  /* slimmer than the 1.5rem desktop padding, dailycve-style */
+            }
+
             h1 {
-                font-size: 2rem;
+                font-size: 1.75em;
             }
 
             .articles-grid {
@@ -317,7 +340,7 @@
 
         .view-toggle-btn.active {
             background: white;
-            color: #667eea;
+            color: #4f46e5;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
@@ -391,7 +414,6 @@
             color: #495057;
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
-            border-bottom: 2px solid #667eea;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -400,7 +422,6 @@
         .ai-summary {
             padding: 0.5rem 0 1.5rem 0;
             margin-bottom: 2rem;
-            border-bottom: 1px solid #dee2e6;
         }
 
         .ai-summary h3 {
@@ -414,12 +435,12 @@
             color: #555;
             line-height: 1.7;
             padding-left: 1rem;
-            border-left: 3px solid #667eea;
+            border-left: 3px solid #4f46e5;
         }
 
         .model-badge {
             display: inline-block;
-            background: #667eea;
+            background: #4f46e5;  /* dailycve --ai-badge-bg */
             color: white;
             font-size: 0.7rem;
             padding: 3px 12px;
@@ -428,11 +449,12 @@
             margin-left: 10px;
             vertical-align: middle;
             letter-spacing: 0.3px;
-            box-shadow: 0 1px 3px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 1px 3px rgba(79, 70, 229, 0.3);
         }
 
         .ai-article {
             background: white;
+            border: 1px solid #e0e0e0;  /* same inner-card border as .article-card */
             border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 1rem;
@@ -467,7 +489,6 @@
             font-size: 0.9rem;
             margin-top: 0.5rem;
             padding-top: 0.5rem;
-            border-top: 1px dashed #ddd;
         }
 
         .ai-meta {
@@ -521,7 +542,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
         .float-btn.active {
-            outline: 2px solid #667eea;
+            outline: 2px solid #4f46e5;
             outline-offset: 2px;
         }
         #back-to-top {
@@ -532,7 +553,7 @@
             height: 44px;
             border-radius: 50%;
             border: none;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #4f46e5;  /* dailycve --ai-accent */
             color: white;
             font-size: 1.3rem;
             cursor: pointer;
@@ -549,6 +570,7 @@
 
         /* Dark theme (body.theme-dark) */
         body.theme-dark { background-color: #1a1d24; color: #d8dce3; }
+        body.theme-dark .main-content,
         body.theme-dark .sidebar,
         body.theme-dark .filters,
         body.theme-dark .stats,
@@ -558,10 +580,15 @@
         body.theme-dark .multi-select-dropdown,
         body.theme-dark .multi-select-header,
         body.theme-dark .no-ai-data { background: #22262f; color: #d8dce3; }
+        body.theme-dark .article-card,
+        body.theme-dark .ai-article { border-color: #343a46; }
+        body.theme-dark .sidebar { scrollbar-color: #4a5160 #1a1e25; }
+        body.theme-dark .sidebar::-webkit-scrollbar-track { background: #1a1e25; }
+        body.theme-dark .sidebar::-webkit-scrollbar-thumb { background: #4a5160; }
+        body.theme-dark .sidebar::-webkit-scrollbar-thumb:hover { background: #5a6373; }
         body.theme-dark .section-title,
         body.theme-dark .filter-group label,
-        body.theme-dark h4 { color: #c2c8d4; border-bottom-color: #343a46; }
-        body.theme-dark .section-title { border-bottom-color: #343a46; }
+        body.theme-dark h4 { color: #c2c8d4; }
         body.theme-dark .article-title a,
         body.theme-dark .ai-article-title a,
         body.theme-dark .footer a,
@@ -579,7 +606,7 @@
         body.theme-dark .view-toggle { background: #14171c; }
         body.theme-dark .view-toggle-btn { color: #9aa3b0; }
         body.theme-dark .view-toggle-btn.active { background: #22262f; color: #8ab4f8; }
-        body.theme-dark .footer { border-top-color: #343a46; color: #8b93a1; }
+        body.theme-dark .footer { color: #8b93a1; }
         body.theme-dark .multi-select-option:hover { background: #2a2f3a; }
         body.theme-dark .ai-info-box { background: #14171c; color: #9aa3b0; }
         /* Theme toggle icon driven by CSS so it matches pre-paint theme */
@@ -597,13 +624,91 @@
         body.theme-dark .float-btn.active {
             outline-color: #8ab4f8;
         }
-        body.theme-dark .ai-category-title { color: #c2c8d4; border-bottom-color: #667eea; }
+        body.theme-dark header { border-bottom-color: #343a46; }
+        body.theme-dark h1 { color: #d8dce3; }
+        body.theme-dark .subtitle { color: #8b93a1; }
+        body.theme-dark .ai-category-title { color: #c2c8d4; }
         body.theme-dark .filter-group select,
         body.theme-dark .filter-group input {
             background: #14171c;
             color: #d8dce3;
             border-color: #343a46;
         }
+
+        /* GitHub corner ribbon (top-left) — the standard top-right ribbon
+           SVG mirrored into the top-left corner, same as dailycve */
+        .github-corner-svg {
+            fill: #24292e;
+            color: #ffffff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            border: 0;
+            transform: translateX(80px) scaleX(-1);
+            transform-origin: 0 0;
+            z-index: 1000;
+            transition: fill 0.3s ease;
+        }
+        body.theme-dark .github-corner-svg {
+            fill: #d1d5db;
+            color: #1f2937;
+        }
+        .github-corner:hover .octo-arm { animation: octocat-wave 560ms ease-in-out; }
+        @keyframes octocat-wave {
+            0%, 100% { transform: rotate(0); }
+            20%, 60% { transform: rotate(-25deg); }
+            40%, 80% { transform: rotate(10deg); }
+        }
+        @media (max-width: 500px) {
+            .github-corner:hover .octo-arm { animation: none; }
+            .github-corner .octo-arm { animation: octocat-wave 560ms ease-in-out; }
+        }
+
+        /* Subtitle date picker: typography, not chrome (dailycve-style).
+           Dark theme adapts automatically via currentColor inheritance. */
+        .subtitle .title-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+        }
+        .subtitle #news-date-select {
+            font-size: inherit;
+            font-family: inherit;
+            font-weight: 600;
+            color: inherit;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+            padding: 2px 6px;
+            cursor: pointer;
+            transition: border-color 0.2s ease;
+        }
+        .subtitle #news-date-select:hover,
+        .subtitle #news-date-select:focus {
+            border-bottom-color: currentColor;
+            outline: none;
+        }
+        .subtitle #news-date-select.load-error { border-bottom-color: #d32f2f; }
+        .date-nav-btn {
+            width: 20px;
+            height: 20px;
+            border: none;
+            border-radius: 5px;
+            background: transparent;
+            color: inherit;
+            font-size: 0.9rem;
+            line-height: 1;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.45;
+            transition: opacity 0.2s ease;
+        }
+        .subtitle .title-date:hover .date-nav-btn,
+        .date-nav-btn:focus { opacity: 1; }
+        .date-nav-btn:disabled { opacity: 0.15; cursor: default; }
 
         /* Mobile: sidebar becomes a slide-in drawer opened by the ☰ button */
         #sidebar-backdrop {
@@ -692,6 +797,14 @@
             } catch (e) {}
         })();
     </script>
+    <!-- GitHub corner ribbon (top-left), same as dailycve -->
+    <a href="https://github.com/secnotes/secnews" class="github-corner" aria-label="View source on GitHub">
+        <svg width="80" height="80" viewBox="0 0 250 250" class="github-corner-svg" aria-hidden="true">
+            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z" class="github-corner-bg"></path>
+            <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+            <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+        </svg>
+    </a>
     <!-- Floating controls: sidebar drawer (mobile only), theme, language -->
     <div class="float-controls">
         <button class="float-btn" id="sidebar-toggle" onclick="toggleSidebar()" title="筛选面板 / Filters">☰</button>
@@ -705,12 +818,12 @@
     <button id="back-to-top" onclick="scrollToTop()" title="Back to top / 回到顶部">↑</button>
     <div id="sidebar-backdrop" onclick="toggleSidebar(false)"></div>
     <div class="container">
-        <header>
-            <h1><span class="lang-zh">网络安全资讯聚合</span><span class="lang-en">Cybersecurity News</span></h1>
-            <div class="subtitle"><span class="lang-zh">汇聚最新网络安全资讯 · 更新于 2026-08-21</span><span class="lang-en">Latest security news · Updated 2026-08-21</span></div>
-        </header>
-
         <main class="main-content">
+            <header>
+                <h1><span class="lang-zh">网络安全资讯聚合</span><span class="lang-en">Cybersecurity News</span></h1>
+                <div class="subtitle"><span class="lang-zh">汇聚最新网络安全资讯 · 更新于 </span><span class="lang-en">Latest security news · Updated </span><span class="title-date"><button class="date-nav-btn" id="news-date-prev" onclick="stepNewsDate(-1)" aria-label="前一天 / Previous day">‹</button><select id="news-date-select" onchange="switchNewsDate(this.value)" aria-label="报告日期 / Report date"></select><button class="date-nav-btn" id="news-date-next" onclick="stepNewsDate(1)" aria-label="后一天 / Next day">›</button></span></div>
+            </header>
+
             <!-- View Toggle Buttons -->
             <!-- Original View (All Articles) -->
             <div class="original-view" id="original-view">
@@ -2264,10 +2377,10 @@ JumpServer 是一款开源特权访问管理（PAM）系统……</span><span cl
                 <div style="margin-top: 1.5rem;">
                     <h4><span class="lang-zh">统计信息</span><span class="lang-en">Statistics</span></h4>
                     <p id="visible-count">当前显示: 88</p>
-                    <p><span class="lang-zh">总文章数</span><span class="lang-en">Total Articles</span>: 173</p>
-                    <p><span class="lang-zh">技术文章</span><span class="lang-en">Technical Articles</span>: 25</p>
-                    <p><span class="lang-zh">安全新闻</span><span class="lang-en">Security News</span>: 148</p>
-                    <p><span class="lang-zh">更新日期</span><span class="lang-en">Updated</span>: 2026-08-21</p>
+                    <p id="stat-total"><span class="lang-zh">总文章数</span><span class="lang-en">Total Articles</span>: 173</p>
+                    <p id="stat-tech"><span class="lang-zh">技术文章</span><span class="lang-en">Technical Articles</span>: 25</p>
+                    <p id="stat-news"><span class="lang-zh">安全新闻</span><span class="lang-en">Security News</span>: 148</p>
+                    <p id="stat-date"><span class="lang-zh">更新日期</span><span class="lang-en">Updated</span>: 2026-08-21</p>
                 </div>
             </div>
 
@@ -2275,11 +2388,11 @@ JumpServer 是一款开源特权访问管理（PAM）系统……</span><span cl
             <div class="sidebar-section hidden" id="ai-sidebar">
                 <div class="ai-category-nav">
                     <h4><span class="lang-zh">📋 分类目录</span><span class="lang-en">📋 Categories</span></h4>
-                    <ul>
+                    <ul id="ai-category-nav-list">
                         <li onclick="scrollToCategory('漏洞研究')"><span class="lang-zh">🐛 漏洞研究 (5)</span><span class="lang-en">🐛 Vulnerability Research (5)</span></li><li onclick="scrollToCategory('移动安全')"><span class="lang-zh">📱 移动安全 (3)</span><span class="lang-en">📱 Mobile Security (3)</span></li><li onclick="scrollToCategory('AI安全')"><span class="lang-zh">🤖 AI安全 (5)</span><span class="lang-en">🤖 AI Security (5)</span></li><li onclick="scrollToCategory('威胁情报')"><span class="lang-zh">🔍 威胁情报 (5)</span><span class="lang-en">🔍 Threat Intelligence (5)</span></li><li onclick="scrollToCategory('安全工具')"><span class="lang-zh">🔧 安全工具 (5)</span><span class="lang-en">🔧 Security Tools (5)</span></li><li onclick="scrollToCategory('云安全')"><span class="lang-zh">☁️ 云安全 (4)</span><span class="lang-en">☁️ Cloud Security (4)</span></li><li onclick="scrollToCategory('其他重要')"><span class="lang-zh">⭐ 其他重要 (5)</span><span class="lang-en">⭐ Other Important (5)</span></li>
                     </ul>
                 </div>
-                <div class="ai-info-box">
+                <div class="ai-info-box" id="ai-info-box">
                     <p><span class="lang-zh">分析日期</span><span class="lang-en">Analysis Date</span>: 2026-08-21</p>
                     <p><span class="lang-zh">筛选文章</span><span class="lang-en">Curated</span>: 32<span class="lang-zh"> 篇</span><span class="lang-en"></span></p>
                     <p><span class="lang-zh">原始文章</span><span class="lang-en">Analyzed</span>: 117<span class="lang-zh"> 篇</span><span class="lang-en"></span></p>
@@ -2287,8 +2400,12 @@ JumpServer 是一款开源特权访问管理（PAM）系统……</span><span cl
                 </div>
             </div>
         </aside>
+    </div>
 
-        <div class="footer">
+    <!-- Footer sits OUTSIDE .container (dailycve-style): the sticky
+         sidebar is constrained by the container's content box, so an
+         in-grid footer row would let the slid-down sidebar invade it -->
+    <div class="footer">
             <p>
                 © 2026 <a href="https://github.com/secnotes" target="_blank">Security Notes</a>
                 <span class="separator">|</span>
@@ -2299,14 +2416,13 @@ JumpServer 是一款开源特权访问管理（PAM）系统……</span><span cl
                     Star on GitHub
                 </a>
                 <span class="separator">|</span>
-                <a href="https://github.com/secnotes/secnews/blob/main/src/articles.json" target="_blank">
+                <a href="https://github.com/secnotes/secnews/tree/main/docs/data" target="_blank">
                     📄 Json data
                 </a>
             </p>
-            <p><span class="lang-zh">安全资讯聚合平台</span><span class="lang-en">Security News Aggregator</span> | <span class="lang-zh">更新时间</span><span class="lang-en">Updated</span>: 2026-08-21 00:43:03</p>
+            <p><span class="lang-zh">安全资讯聚合平台</span><span class="lang-en">Security News Aggregator</span> | <span class="lang-zh">更新时间</span><span class="lang-en">Updated</span>: 2026-08-21 07:50:12</p>
             <p><span class="lang-zh">数据来源</span><span class="lang-en">Sources</span>: <span class="lang-zh">Sec-Today, 先知社区, Project Zero, Seebug Paper, 腾讯安全, 安全客, 安全内参, SecurityWeek, The Hacker News, 看雪</span><span class="lang-en">Sec-Today, Xianzhi, Project Zero, Seebug Paper, Tencent Security, Anquanke, SecRSS, SecurityWeek, The Hacker News, Kanxue</span></p>
             <p><span class="lang-zh">如有侵权，请联系删除</span><span class="lang-en">Contact us for removal if any content infringes copyright</span></p>
-        </div>
     </div>
 
     <script>
@@ -2315,6 +2431,8 @@ JumpServer 是一款开源特权访问管理（PAM）系统……</span><span cl
         function t(zh, en) { return currentLang === 'en' ? en : zh; }
         var BILINGUAL = true;
         var SOURCE_NAME_EN = {"腾讯安全": "Tencent Security", "先知社区": "Xianzhi Community", "安全客": "Anquanke", "安全内参": "SecRSS", "看雪论坛": "Kanxue Forum"};
+        var CATEGORY_NAME_EN = {"漏洞研究": "Vulnerability Research", "移动安全": "Mobile Security", "AI安全": "AI Security", "威胁情报": "Threat Intelligence", "安全工具": "Security Tools", "云安全": "Cloud Security", "其他重要": "Other Important"};
+        window.NEWS_CURRENT_DATE = '2026-08-21';
     
         
         function toggleTheme() {
@@ -2394,30 +2512,258 @@ JumpServer 是一款开源特权访问管理（PAM）系统……</span><span cl
             return (zh || el).textContent.replace('来源: ', '');
         }
 
+        
+        // ---------- subtitle date switcher (dailycve-style) ----------
+        var newsDates = [];                 // manifest dates, newest first
+        var currentNewsDate = window.NEWS_CURRENT_DATE;
+        var AI_CATEGORY_ICONS = {'漏洞研究':'🐛','移动安全':'📱','AI安全':'🤖','威胁情报':'🔍','安全工具':'🔧','云安全':'☁️','其他重要':'⭐'};
+
+        function esc(s) {
+            return String(s == null ? '' : s)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+        function dataUrlFor(d) { return 'data/' + d.slice(0, 4) + '/articles_' + d.replace(/-/g, '') + '.json'; }
+        function aiUrlFor(d) { return 'ai/' + d.slice(0, 4) + '/ai_curated_' + d.replace(/-/g, '') + '.json'; }
+
+        // Bilingual helpers mirroring the server-side T()/_dual_spans()
+        function Tjs(zh, en) {
+            return BILINGUAL ? '<span class="lang-zh">' + zh + '</span><span class="lang-en">' + en + '</span>' : zh;
+        }
+        function dualSpans(zh, en, fallback) {
+            return '<span class="lang-zh">' + esc(zh || fallback) + '</span>' +
+                   '<span class="lang-en">' + esc(en || fallback) + '</span>';
+        }
+        function hasTr(a) { return !!(a && a.title_zh && a.title_en); }
+
+        // Mirror of the Python article-card markup
+        function renderCard(a) {
+            var bil = BILINGUAL && hasTr(a);
+            var src;
+            if (BILINGUAL) {
+                src = '<div class="article-source"><span class="lang-zh">来源: ' + esc(a.source) + '</span>' +
+                      '<span class="lang-en">Source: ' + esc(SOURCE_NAME_EN[a.source] || a.source) + '</span></div>';
+            } else {
+                src = '<div class="article-source">来源: ' + esc(a.source) + '</div>';
+            }
+            var title = bil
+                ? '<a href="' + esc(a.url) + '" target="_blank">' + dualSpans(a.title_zh, a.title_en, a.title) + '</a>'
+                : '<a href="' + esc(a.url) + '" target="_blank">' + esc(a.title) + '</a>';
+            var desc = '';
+            if (a.description) {
+                var d = a.description.length > 500 ? a.description.slice(0, 500) + '...' : a.description;
+                desc = bil
+                    ? '<p class="article-description">' + dualSpans(a.description_zh, a.description_en, d) + '</p>'
+                    : '<p class="article-description">' + esc(d) + '</p>';
+            }
+            var dateLine = BILINGUAL
+                ? '<div class="article-date"><span class="lang-zh">发布日期: </span><span class="lang-en">Date: </span>' + esc(a.date) + '</div>'
+                : '<div class="article-date">发布日期: ' + esc(a.date) + '</div>';
+            return '<div class="article-card" data-date="' + esc(a.date) + '">' + src +
+                   '<h3 class="article-title">' + title + '</h3>' + desc + dateLine + '</div>';
+        }
+
+        // Mirror of _generate_ai_curated_html() + _generate_ai_category_nav()
+        function renderAiView(c) {
+            var el = document.getElementById('ai-view');
+            if (!el) return;
+            if (!c || !c.categories) {
+                el.innerHTML = '<div class="no-ai-data"><p>🤖 AI精选数据暂未生成</p></div>';
+                renderAiSidebar(null, '');
+                return;
+            }
+            var bil = false;
+            Object.keys(c.categories).forEach(function(k) {
+                (c.categories[k] || []).forEach(function(a) { if (a.title_zh && a.title_en) bil = true; });
+            });
+            function dual(zh, en, fb) {
+                return (bil && (zh || en)) ? dualSpans(zh, en, fb) : esc(fb);
+            }
+            function lbl(zh, en) { return bil ? '<span class="lang-zh">' + zh + '</span><span class="lang-en">' + en + '</span>' : zh; }
+
+            var out = '<div class="ai-summary"><h3>' + lbl('🤖 AI智能分析', '🤖 AI Analysis') +
+                ' <span class="model-badge" title="本批次 AI 精选所用模型">' + esc(c.model || 'unknown') + '</span></h3>' +
+                '<div class="ai-summary-text">' + dual(c.summary_zh, c.summary_en, c.summary || '') + '</div></div>';
+
+            var nav = '';
+            Object.keys(c.categories).forEach(function(name) {
+                var arts = c.categories[name] || [];
+                if (!arts.length) return;
+                var icon = AI_CATEGORY_ICONS[name] || '📌';
+                var nameHtml = bil
+                    ? '<span class="lang-zh">' + icon + ' ' + esc(name) + '</span><span class="lang-en">' + icon + ' ' + esc(CATEGORY_NAME_EN[name] || name) + '</span>'
+                    : icon + ' ' + esc(name);
+                var cards = arts.map(function(a) {
+                    var titleHtml = dual(a.title_zh, a.title_en, a.title || 'No Title');
+                    var meta;
+                    if (bil) {
+                        meta = '<span><span class="lang-zh">来源: ' + esc(a.source) + '</span><span class="lang-en">Source: ' + esc(SOURCE_NAME_EN[a.source] || a.source) + '</span></span>' +
+                               '<span><span class="lang-zh">日期: </span><span class="lang-en">Date: </span>' + esc(a.date) + '</span>';
+                    } else {
+                        meta = '<span>来源: ' + esc(a.source) + '</span><span>日期: ' + esc(a.date) + '</span>';
+                    }
+                    var reason = a.reason
+                        ? '<div class="ai-article-reason">' + lbl('💡 推荐理由: ', '💡 Reason: ') + dual(a.reason_zh, a.reason_en, a.reason) + '</div>'
+                        : '';
+                    return '<div class="ai-article"><div class="ai-article-title"><a href="' + esc(a.url) + '" target="_blank">' + titleHtml + '</a></div>' +
+                           '<div class="ai-meta">' + meta + '</div>' + reason + '</div>';
+                }).join('');
+                out += '<div class="ai-category"><h3 class="ai-category-title">' + nameHtml + '</h3>' + cards + '</div>';
+                var label = bil
+                    ? '<span class="lang-zh">' + icon + ' ' + esc(name) + ' (' + arts.length + ')</span><span class="lang-en">' + icon + ' ' + esc(CATEGORY_NAME_EN[name] || name) + ' (' + arts.length + ')</span>'
+                    : icon + ' ' + esc(name) + ' (' + arts.length + ')';
+                nav += '<li data-cat="' + esc(name) + '" onclick="scrollToCategory(this.dataset.cat)">' + label + '</li>';
+            });
+            el.innerHTML = out;
+            renderAiSidebar(c, nav);
+        }
+
+        function renderAiSidebar(c, nav) {
+            var list = document.getElementById('ai-category-nav-list');
+            var box = document.getElementById('ai-info-box');
+            if (list) list.innerHTML = c ? (nav || '') : '<li style="color:#666">暂无分类数据</li>';
+            if (!box) return;
+            var curated = 0;
+            if (c) Object.keys(c.categories || {}).forEach(function(k) { curated += (c.categories[k] || []).length; });
+            box.innerHTML =
+                '<p>' + Tjs('分析日期', 'Analysis Date') + ': ' + esc(c ? (c.analysis_date || '-') : '-') + '</p>' +
+                '<p>' + Tjs('筛选文章', 'Curated') + ': ' + curated + Tjs(' 篇', '') + '</p>' +
+                '<p>' + Tjs('原始文章', 'Analyzed') + ': ' + (c ? (c.total_analyzed || 0) : 0) + Tjs(' 篇', '') + '</p>' +
+                '<p>' + Tjs('模型来源', 'Model') + ': ' + esc(c ? (c.model || '-') : '-') + '</p>';
+        }
+
+        // Rebuild sidebar filter options from the currently rendered cards
+        // (factored out of the original window.onload so date switches reuse it)
+        function rebuildFilterOptions() {
+            var dates = {};
+            var sources = {};
+            document.querySelectorAll('.article-card').forEach(function(card) {
+                dates[card.getAttribute('data-date')] = 1;
+                sources[cardSource(card)] = 1;
+            });
+            var dateDropdown = document.querySelector('#date-select .multi-select-dropdown');
+            if (dateDropdown) {
+                dateDropdown.innerHTML = Object.keys(dates).sort().reverse().map(function(d, i) {
+                    return '<div class="multi-select-option"><input type="checkbox" id="date-' + i + '" value="' + d + '"> ' + d + '</div>';
+                }).join('');
+            }
+            var dropdown = document.getElementById('source-dropdown');
+            if (dropdown) {
+                dropdown.innerHTML = '';
+                Object.keys(sources).sort().forEach(function(source, i) {
+                    var label = BILINGUAL
+                        ? '<span class="lang-zh">' + source + '</span><span class="lang-en">' + (SOURCE_NAME_EN[source] || source) + '</span>'
+                        : source;
+                    dropdown.innerHTML += '<div class="multi-select-option"><input type="checkbox" id="source-' + i + '" value="' + source + '"> ' + label + '</div>';
+                });
+            }
+            document.querySelectorAll('.multi-select-dropdown input[type="checkbox"]').forEach(function(cb) {
+                cb.addEventListener('change', applyFilters);
+            });
+            document.querySelectorAll('.multi-select-dropdown').forEach(function(dd) { dd.classList.remove('show'); });
+            var dateHeader = document.querySelector('#date-select .multi-select-header');
+            if (dateHeader) dateHeader.textContent = t('全部日期', 'All dates');
+            var sourceHeader = document.querySelector('#source-select .multi-select-header');
+            if (sourceHeader) sourceHeader.textContent = t('全部来源[不包含Unsafe]', 'All sources');
+        }
+
+        function updateStats(data) {
+            var tech = (data.tech || []).length;
+            var news = (data.news || []).length;
+            document.getElementById('stat-total').innerHTML = Tjs('总文章数', 'Total Articles') + ': ' + (tech + news);
+            document.getElementById('stat-tech').innerHTML = Tjs('技术文章', 'Technical Articles') + ': ' + tech;
+            document.getElementById('stat-news').innerHTML = Tjs('安全新闻', 'Security News') + ': ' + news;
+            document.getElementById('stat-date').innerHTML = Tjs('更新日期', 'Updated') + ': ' + currentNewsDate;
+        }
+
+        function applyNewsDate(data) {
+            var byDateDesc = function(a, b) { return b.date.localeCompare(a.date); };
+            document.getElementById('tech-articles').innerHTML = (data.tech || []).slice().sort(byDateDesc).map(renderCard).join('');
+            document.getElementById('news-articles').innerHTML = (data.news || []).slice().sort(byDateDesc).map(renderCard).join('');
+            rebuildFilterOptions();
+            updateStats(data);
+            applyFilters();
+        }
+
+        function loadAiDate(dateStr) {
+            fetch(aiUrlFor(dateStr)).then(function(r) { return r.ok ? r.json() : null; })
+                .then(renderAiView)
+                .catch(function() { renderAiView(null); });
+        }
+
+        function loadNewsDate(dateStr) {
+            if (!dateStr || dateStr === currentNewsDate) return Promise.resolve(false);
+            return fetch(dataUrlFor(dateStr)).then(function(r) {
+                if (!r.ok) throw new Error('HTTP ' + r.status);
+                return r.json();
+            }).then(function(data) {
+                currentNewsDate = dateStr;
+                applyNewsDate(data);
+                loadAiDate(dateStr);
+                location.hash = dateStr;
+                setNewsDateSelect();
+                return true;
+            }).catch(function(err) {
+                console.warn('Failed to load news for ' + dateStr + ':', err);
+                var sel = document.getElementById('news-date-select');
+                if (sel) {
+                    sel.value = currentNewsDate;
+                    sel.classList.add('load-error');
+                    setTimeout(function() { sel.classList.remove('load-error'); }, 1500);
+                }
+                return false;
+            });
+        }
+
+        function switchNewsDate(v) { loadNewsDate(v); }
+
+        // newsDates is newest-first: › (delta=+1) moves toward newer, ‹ toward older
+        function stepNewsDate(delta) {
+            var idx = newsDates.indexOf(currentNewsDate);
+            if (idx === -1) return;
+            var target = newsDates[idx - delta];
+            if (target) loadNewsDate(target);
+        }
+
+        function setNewsDateSelect() {
+            var sel = document.getElementById('news-date-select');
+            if (sel) sel.value = currentNewsDate;
+            var idx = newsDates.indexOf(currentNewsDate);
+            var prev = document.getElementById('news-date-prev');   // older
+            var next = document.getElementById('news-date-next');   // newer
+            if (prev) prev.disabled = idx === -1 || idx >= newsDates.length - 1;
+            if (next) next.disabled = idx <= 0;
+        }
+
+        // Browser back/forward between visited dates
+        window.addEventListener('hashchange', function() {
+            var d = decodeURIComponent(location.hash.replace(/^#/, ''));
+            if (d && d !== currentNewsDate && newsDates.indexOf(d) !== -1) loadNewsDate(d);
+        });
+    
+
         window.onload = function() {
             
             const savedLang = localStorage.getItem('news-lang');
             if (savedLang === 'en' || savedLang === 'zh') {
                 setLang(savedLang);
             }
-        // 初始化来源下拉框
-            const sources = new Set();
-            document.querySelectorAll('.article-card').forEach(card => {
-                sources.add(cardSource(card));
-            });
-            const dropdown = document.getElementById('source-dropdown');
-            Array.from(sources).sort().forEach((source, i) => {
-                var label = BILINGUAL
-                    ? '<span class="lang-zh">' + source + '</span><span class="lang-en">' + (SOURCE_NAME_EN[source] || source) + '</span>'
-                    : source;
-                dropdown.innerHTML += '<div class="multi-select-option"><input type="checkbox" id="source-' + i + '" value="' + source + '"> ' + label + '</div>';
-            });
-
-            // 绑定checkbox事件
-            document.querySelectorAll('.multi-select-dropdown input[type="checkbox"]').forEach(cb => {
-                cb.addEventListener('change', applyFilters);
+        
+            // 副标题日期控件：日期清单来自 data/index.json；hash 深链优先
+            fetch('data/index.json').then(function(r) { return r.ok ? r.json() : null; }).then(function(m) {
+                newsDates = (m && m.dates && m.dates.length) ? m.dates : [window.NEWS_CURRENT_DATE];
+                var sel = document.getElementById('news-date-select');
+                if (sel) sel.innerHTML = newsDates.map(function(d) { return '<option value="' + d + '">' + d + '</option>'; }).join('');
+                setNewsDateSelect();
+                var hash = decodeURIComponent(location.hash.replace(/^#/, ''));
+                if (newsDates.includes(hash) && hash !== currentNewsDate) loadNewsDate(hash);
+            }).catch(function() {
+                newsDates = [window.NEWS_CURRENT_DATE];
+                setNewsDateSelect();
             });
 
+            // 初始化筛选下拉框（来源+日期）并应用筛选
+            rebuildFilterOptions();
             applyFilters();
         };
 
