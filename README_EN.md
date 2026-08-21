@@ -129,16 +129,6 @@ Set the following Secrets and Variables in your GitHub repository:
    - `AI_MODEL` (recommended): model name, e.g. `glm-5.1`, `gpt-4o-mini`, `deepseek-chat`
    - `AI_BASE_URL` (recommended): API base URL; for Alibaba Bailian use `https://dashscope.aliyuncs.com/compatible-mode/v1`
 
-**Common configurations:**
-
-| Service | AI_MODEL | AI_BASE_URL |
-|---------|----------|-------------|
-| OpenAI | gpt-4o-mini | https://api.openai.com/v1 |
-| DeepSeek | deepseek-chat | https://api.deepseek.com/v1 |
-| Zhipu AI (official) | glm-4-plus | https://open.bigmodel.cn/api/paas/v4 |
-| Alibaba Bailian (GLM) | glm-5.1 | https://dashscope.aliyuncs.com/compatible-mode/v1 |
-| Moonshot | moonshot-v1-8k | https://api.moonshot.cn/v1 |
-
 Notes:
 - `AI_MODEL` and `AI_BASE_URL` are non-sensitive and belong under the Variables tab
 - Both Alibaba Bailian and Zhipu AI offer GLM models but with different API endpoints - pick the URL matching the platform you use

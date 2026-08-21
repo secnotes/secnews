@@ -99,6 +99,15 @@ def _dated_archive_path(kind, filename_prefix, date=None):
                         f"{filename_prefix}_{d.strftime('%Y%m%d')}.json")
 
 
+# Keep articles published today or yesterday (48h sliding window). Feeds
+# lag behind publication and the CI runs at 00:00 UTC (= 08:00 CST), so a
+# today-only window would permanently drop articles; the one-day overlap
+# also self-heals a failed run. Applied centrally in main() so individual
+# scrapers stay as-is, and it bounds what each dated archive contains:
+# with the in-page date picker, every day's view holds only fresh items.
+MAX_ARTICLE_AGE_DAYS = 1
+
+
 class SecurityNewsAggregator:
     def __init__(self):
         self.articles = {
@@ -1905,6 +1914,26 @@ class SecurityNewsAggregator:
         logger.info(f"Found {len(recent_articles)} articles from the last {days} days")
         return recent_articles
 
+    def filter_to_recent_days(self, max_age_days=MAX_ARTICLE_AGE_DAYS):
+        """Drop articles published before (today - max_age_days), in place.
+
+        Compared by date string (not datetime) so anything dated yesterday
+        survives regardless of the current time of day; articles with an
+        unparseable date are kept, and future dates (source timezone skew)
+        pass naturally.
+        """
+        cutoff = (datetime.now() - timedelta(days=max_age_days)).strftime('%Y-%m-%d')
+        before = len(self.articles['tech']) + len(self.articles['news'])
+        for section in ('tech', 'news'):
+            self.articles[section] = [
+                a for a in self.articles[section]
+                if not re.match(r'\d{4}-\d{2}-\d{2}$', a.get('date') or '')
+                or a['date'] >= cutoff
+            ]
+        after = len(self.articles['tech']) + len(self.articles['news'])
+        logger.info(f"Freshness filter (>= {cutoff}): {before} -> {after} articles "
+                    f"({before - after} dropped as older than {max_age_days} day(s))")
+
     def ai_curate_articles(self, days=2, api_key=None, model=None, base_url=None):
         """Use AI to analyze and categorize recent articles
 
@@ -2021,141 +2050,15 @@ class SecurityNewsAggregator:
             self.articles = {'tech': [], 'news': []}
 
 
-def _generate_ai_curated_html(ai_curated, bilingual=False):
-    """Generate HTML for AI curated view"""
-    if not ai_curated:
-        return '<div class="no-ai-data"><p>🤖 AI精选数据暂未生成</p></div>'
-
-    def _dual(zh_text, en_text, fallback):
-        """Dual-language spans; falls back to the original text when no translation"""
-        if bilingual and (zh_text or en_text):
-            zh_text = zh_text or fallback
-            en_text = en_text or fallback
-            return (f'<span class="lang-zh">{html.escape(zh_text)}</span>'
-                    f'<span class="lang-en">{html.escape(en_text)}</span>')
-        return html.escape(fallback)
-
-    def _T(zh, en):
-        """Static label: dual-language spans when bilingual"""
-        if bilingual:
-            return (f'<span class="lang-zh">{zh}</span>'
-                    f'<span class="lang-en">{en}</span>')
-        return zh
-
-    categories_html = []
-    category_icons = {
-        '漏洞研究': '🐛',
-        '移动安全': '📱',
-        'AI安全': '🤖',
-        '威胁情报': '🔍',
-        '安全工具': '🔧',
-        '云安全': '☁️',
-        '其他重要': '⭐',
-    }
-
-    categories = ai_curated.get('categories', {})
-    for category_name, articles in categories.items():
-        if not articles:
-            continue
-
-        icon = category_icons.get(category_name, '📌')
-
-        if bilingual:
-            name_html = (f'<span class="lang-zh">{icon} {html.escape(category_name)}</span>'
-                         f'<span class="lang-en">{icon} {html.escape(CATEGORY_EN.get(category_name, category_name))}</span>')
-        else:
-            name_html = f'{icon} {html.escape(category_name)}'
-
-        articles_html = []
-
-        for article in articles:
-            url = article.get('url', '')
-            source = article.get('source', '')
-            date = article.get('date', '')
-
-            title_html = _dual(article.get('title_zh'), article.get('title_en'), article.get('title', 'No Title'))
-
-            if bilingual:
-                meta_source = (f'<span class="lang-zh">来源: {html.escape(source)}</span>'
-                               f'<span class="lang-en">Source: {html.escape(SOURCE_EN.get(source, source))}</span>')
-                meta_date = (f'<span class="lang-zh">日期: </span>'
-                             f'<span class="lang-en">Date: </span>{date}')
-            else:
-                meta_source = f'来源: {html.escape(source)}'
-                meta_date = f'日期: {date}'
-
-            reason_html = ''
-            if article.get('reason'):
-                reason_inner = _dual(article.get('reason_zh'), article.get('reason_en'), article['reason'])
-                reason_label = _T('💡 推荐理由: ', '💡 Reason: ')
-                reason_html = f'<div class="ai-article-reason">{reason_label}{reason_inner}</div>'
-
-            articles_html.append(f'''
-            <div class="ai-article">
-                <div class="ai-article-title">
-                    <a href="{url}" target="_blank">{title_html}</a>
-                </div>
-                <div class="ai-meta">
-                    <span>{meta_source}</span>
-                    <span>{meta_date}</span>
-                </div>
-                {reason_html}
-            </div>''')
-
-        categories_html.append(f'''
-        <div class="ai-category">
-            <h3 class="ai-category-title">{name_html}</h3>
-            {"".join(articles_html)}
-        </div>''')
-
-    summary_html = _dual(ai_curated.get('summary_zh'), ai_curated.get('summary_en'), ai_curated.get('summary', ''))
-
-    result_html = f'''
-    <div class="ai-summary">
-        <h3>{_T('🤖 AI智能分析', '🤖 AI Analysis')} <span class="model-badge" title="本批次 AI 精选所用模型">{html.escape(ai_curated.get('model', 'unknown'))}</span></h3>
-        <div class="ai-summary-text">{summary_html}</div>
-    </div>
-    {"".join(categories_html)}
-    '''
-
-    return result_html
-
-
-def _generate_ai_category_nav(ai_curated, bilingual=False):
-    """Generate category navigation for AI sidebar"""
-    if not ai_curated:
-        return ''
-
-    category_icons = {
-        '漏洞研究': '🐛',
-        '移动安全': '📱',
-        'AI安全': '🤖',
-        '威胁情报': '🔍',
-        '安全工具': '🔧',
-        '云安全': '☁️',
-        '其他重要': '⭐',
-    }
-
-    categories = ai_curated.get('categories', {})
-    nav_items = []
-
-    for category_name, articles in categories.items():
-        if articles:
-            icon = category_icons.get(category_name, '📌')
-            count = len(articles)
-            if bilingual:
-                label = (f'<span class="lang-zh">{icon} {category_name} ({count})</span>'
-                         f'<span class="lang-en">{icon} {CATEGORY_EN.get(category_name, category_name)} ({count})</span>')
-            else:
-                label = f'{icon} {category_name} ({count})'
-            # Create anchor link to category section
-            nav_items.append(f'<li onclick="scrollToCategory(\'{category_name}\')">{label}</li>')
-
-    return ''.join(nav_items)
-
-
 def generate_html(articles, output_file=None, ai_curated=None):
-    """Generate HTML page with collected articles, optionally including AI curated view"""
+    """Generate the client-rendered HTML shell.
+
+    The page carries no article markup: every day (today included) is
+    fetched from the JSON archives (data/<year>/articles_*.json and
+    ai/<year>/ai_curated_*.json) and rendered by loadNewsDate() in the
+    browser. ``articles``/``ai_curated`` are still inspected to decide
+    whether the bilingual UI applies.
+    """
 
     # 如果没有指定输出文件，则默认为项目根目录下的docs/index.html
     if output_file is None:
@@ -2174,26 +2077,10 @@ def generate_html(articles, output_file=None, ai_curated=None):
     import os
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
 
-    # Sort articles by date (most recent first)
-    tech_sorted = sorted(articles['tech'], key=lambda x: x['date'], reverse=True)
-    news_sorted = sorted(articles['news'], key=lambda x: x['date'], reverse=True)
-
-    # Calculate default visible count (excluding Unsafe.sh)
-    default_visible_count = len([a for a in tech_sorted + news_sorted if a['source'] != 'Unsafe.sh'])
-
-    # Function to truncate description if too long
-    def truncate_description(desc, max_length=500):
-        if not desc:
-            return desc
-        if len(desc) > max_length:
-            return desc[:max_length] + "..."
-        return desc
-
-    # Get all unique dates for the filter dropdown
-    all_dates = set()
-    for article in articles['tech'] + articles['news']:
-        all_dates.add(article['date'])
-    sorted_dates = sorted(list(all_dates), reverse=True)
+    # The page is a client-rendered shell: no article markup is baked in
+    # here. Every day (today included) is fetched from the JSON archives
+    # by loadNewsDate() in the browser, so article data lives only in
+    # docs/data/ and docs/ai/.
 
     # Bilingual support: dual-language rendering only kicks in when the
     # articles actually carry translation fields (i.e. an AI key was
@@ -2211,50 +2098,12 @@ def generate_html(articles, output_file=None, ai_curated=None):
         for arts in ai_curated.get('categories', {}).values() for a in arts
     )
 
-    def _dual_spans(zh_text, en_text, fallback):
-        """Dual-language spans: Chinese visible by default, English in EN mode.
-        Missing translations fall back to the original text."""
-        zh_text = zh_text or fallback
-        en_text = en_text or fallback
-        return (f'<span class="lang-zh">{html.escape(zh_text)}</span>'
-                f'<span class="lang-en">{html.escape(en_text)}</span>')
-
-    def render_article_title(article):
-        if translations_available and _has_translation(article):
-            inner = _dual_spans(article.get('title_zh'), article.get('title_en'), article['title'])
-            return f'<a href="{article["url"]}" target="_blank">{inner}</a>'
-        return f'<a href="{article["url"]}" target="_blank">{html.escape(article["title"])}</a>'
-
-    def render_article_description(article):
-        desc = truncate_description(article["description"])
-        if not desc:
-            return ''
-        if translations_available and _has_translation(article):
-            inner = _dual_spans(article.get('description_zh'), article.get('description_en'), desc)
-            return f'<p class="article-description">{inner}</p>'
-        return f'<p class="article-description">{html.escape(desc)}</p>'
-
     def T(zh, en):
         """Static UI label: dual-language spans when bilingual, plain zh otherwise"""
         if translations_available:
             return (f'<span class="lang-zh">{zh}</span>'
                     f'<span class="lang-en">{en}</span>')
         return zh
-
-    def render_article_source(article):
-        """Card source line: translate the known Chinese source names in EN mode"""
-        source = article['source']
-        if translations_available:
-            en = SOURCE_EN.get(source, source)
-            return (f'<div class="article-source"><span class="lang-zh">来源: {html.escape(source)}</span>'
-                    f'<span class="lang-en">Source: {html.escape(en)}</span></div>')
-        return f'<div class="article-source">来源: {html.escape(source)}</div>'
-
-    def render_article_date(article):
-        if translations_available:
-            return (f'<div class="article-date"><span class="lang-zh">发布日期: </span>'
-                    f'<span class="lang-en">Date: </span>{article["date"]}</div>')
-        return f'<div class="article-date">发布日期: {article["date"]}</div>'
 
     # Fragments injected into the template below. Kept as plain (non-f)
     # strings so their braces don't need escaping. Empty when no
@@ -2336,6 +2185,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         // ---------- subtitle date switcher (dailycve-style) ----------
         var newsDates = [];                 // manifest dates, newest first
         var currentNewsDate = window.NEWS_CURRENT_DATE;
+        var newsLoaded = false;             // true once a day's JSON has rendered
         var AI_CATEGORY_ICONS = {'漏洞研究':'🐛','移动安全':'📱','AI安全':'🤖','威胁情报':'🔍','安全工具':'🔧','云安全':'☁️','其他重要':'⭐'};
 
         function esc(s) {
@@ -2346,7 +2196,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         function dataUrlFor(d) { return 'data/' + d.slice(0, 4) + '/articles_' + d.replace(/-/g, '') + '.json'; }
         function aiUrlFor(d) { return 'ai/' + d.slice(0, 4) + '/ai_curated_' + d.replace(/-/g, '') + '.json'; }
 
-        // Bilingual helpers mirroring the server-side T()/_dual_spans()
+        // Bilingual helpers (all card markup is rendered JS-side now)
         function Tjs(zh, en) {
             return BILINGUAL ? '<span class="lang-zh">' + zh + '</span><span class="lang-en">' + en + '</span>' : zh;
         }
@@ -2356,7 +2206,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         }
         function hasTr(a) { return !!(a && a.title_zh && a.title_en); }
 
-        // Mirror of the Python article-card markup
+        // The one and only article-card renderer (initial load + date switches)
         function renderCard(a) {
             var bil = BILINGUAL && hasTr(a);
             var src;
@@ -2383,7 +2233,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
                    '<h3 class="article-title">' + title + '</h3>' + desc + dateLine + '</div>';
         }
 
-        // Mirror of _generate_ai_curated_html() + _generate_ai_category_nav()
+        // The one and only AI-view renderer (initial load + date switches)
         function renderAiView(c) {
             var el = document.getElementById('ai-view');
             if (!el) return;
@@ -2441,7 +2291,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         function renderAiSidebar(c, nav) {
             var list = document.getElementById('ai-category-nav-list');
             var box = document.getElementById('ai-info-box');
-            if (list) list.innerHTML = c ? (nav || '') : '<li style="color:#666">暂无分类数据</li>';
+            if (list) list.innerHTML = c ? (nav || '') : '<li style="color: var(--text-3)">暂无分类数据</li>';
             if (!box) return;
             var curated = 0;
             if (c) Object.keys(c.categories || {}).forEach(function(k) { curated += (c.categories[k] || []).length; });
@@ -2488,18 +2338,16 @@ def generate_html(articles, output_file=None, ai_curated=None):
         }
 
         function updateStats(data) {
-            var tech = (data.tech || []).length;
-            var news = (data.news || []).length;
-            document.getElementById('stat-total').innerHTML = Tjs('总文章数', 'Total Articles') + ': ' + (tech + news);
-            document.getElementById('stat-tech').innerHTML = Tjs('技术文章', 'Technical Articles') + ': ' + tech;
-            document.getElementById('stat-news').innerHTML = Tjs('安全新闻', 'Security News') + ': ' + news;
+            var total = (data.tech || []).length + (data.news || []).length;
+            document.getElementById('stat-total').innerHTML = Tjs('总文章数', 'Total Articles') + ': ' + total;
             document.getElementById('stat-date').innerHTML = Tjs('更新日期', 'Updated') + ': ' + currentNewsDate;
         }
 
         function applyNewsDate(data) {
+            // Archives keep the tech/news split; the page shows one merged list
             var byDateDesc = function(a, b) { return b.date.localeCompare(a.date); };
-            document.getElementById('tech-articles').innerHTML = (data.tech || []).slice().sort(byDateDesc).map(renderCard).join('');
-            document.getElementById('news-articles').innerHTML = (data.news || []).slice().sort(byDateDesc).map(renderCard).join('');
+            var cards = (data.tech || []).concat(data.news || []).slice().sort(byDateDesc).map(renderCard).join('');
+            document.getElementById('articles-grid').innerHTML = cards;
             rebuildFilterOptions();
             updateStats(data);
             applyFilters();
@@ -2512,12 +2360,13 @@ def generate_html(articles, output_file=None, ai_curated=None):
         }
 
         function loadNewsDate(dateStr) {
-            if (!dateStr || dateStr === currentNewsDate) return Promise.resolve(false);
+            if (!dateStr || (newsLoaded && dateStr === currentNewsDate)) return Promise.resolve(false);
             return fetch(dataUrlFor(dateStr)).then(function(r) {
                 if (!r.ok) throw new Error('HTTP ' + r.status);
                 return r.json();
             }).then(function(data) {
                 currentNewsDate = dateStr;
+                newsLoaded = true;
                 applyNewsDate(data);
                 loadAiDate(dateStr);
                 location.hash = dateStr;
@@ -2525,6 +2374,11 @@ def generate_html(articles, output_file=None, ai_curated=None):
                 return true;
             }).catch(function(err) {
                 console.warn('Failed to load news for ' + dateStr + ':', err);
+                if (!newsLoaded) {
+                    // Initial load failure: the shell ships no baked-in content
+                    var grid = document.getElementById('articles-grid');
+                    if (grid) grid.innerHTML = '<div class="grid-message">' + t('⚠️ 资讯数据加载失败，请通过 HTTP 访问本页后刷新', '⚠️ Failed to load data. Serve this page over HTTP and refresh.') + '</div>';
+                }
                 var sel = document.getElementById('news-date-select');
                 if (sel) {
                     sel.value = currentNewsDate;
@@ -2578,8 +2432,9 @@ def generate_html(articles, output_file=None, ai_curated=None):
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            border: none;
-            background: white;
+            border: 1px solid var(--float-btn-border);
+            background: var(--float-btn-bg);
+            color: var(--float-btn-fg);
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
             cursor: pointer;
             font-size: 1.05rem;
@@ -2588,10 +2443,11 @@ def generate_html(articles, output_file=None, ai_curated=None):
         }
         .float-btn:hover {
             transform: translateY(-2px);
+            background: var(--float-btn-bg-hover);
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
         .float-btn.active {
-            outline: 2px solid #4f46e5;
+            outline: 2px solid var(--accent);
             outline-offset: 2px;
         }
         #back-to-top {
@@ -2602,8 +2458,8 @@ def generate_html(articles, output_file=None, ai_curated=None):
             height: 44px;
             border-radius: 50%;
             border: none;
-            background: #4f46e5;  /* dailycve --ai-accent */
-            color: white;
+            background: var(--accent);  /* dailycve --ai-accent */
+            color: var(--accent-on);
             font-size: 1.3rem;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0,0,0,0.25);
@@ -2617,72 +2473,22 @@ def generate_html(articles, output_file=None, ai_curated=None):
             visibility: visible;
         }
 
-        /* Dark theme (body.theme-dark) */
-        body.theme-dark { background-color: #1a1d24; color: #d8dce3; }
-        body.theme-dark .main-content,
-        body.theme-dark .sidebar,
-        body.theme-dark .filters,
-        body.theme-dark .stats,
-        body.theme-dark .article-card,
-        body.theme-dark .ai-article,
-        body.theme-dark .ai-category-nav,
-        body.theme-dark .multi-select-dropdown,
-        body.theme-dark .multi-select-header,
-        body.theme-dark .no-ai-data { background: #22262f; color: #d8dce3; }
-        body.theme-dark .article-card,
-        body.theme-dark .ai-article { border-color: #343a46; }
-        body.theme-dark .sidebar { scrollbar-color: #4a5160 #1a1e25; }
-        body.theme-dark .sidebar::-webkit-scrollbar-track { background: #1a1e25; }
-        body.theme-dark .sidebar::-webkit-scrollbar-thumb { background: #4a5160; }
-        body.theme-dark .sidebar::-webkit-scrollbar-thumb:hover { background: #5a6373; }
-        body.theme-dark .section-title,
-        body.theme-dark .filter-group label,
-        body.theme-dark h4 { color: #c2c8d4; }
-        body.theme-dark .article-title a,
-        body.theme-dark .ai-article-title a,
-        body.theme-dark .footer a,
-        body.theme-dark .ai-category-nav li { color: #8ab4f8; }
-        body.theme-dark .article-title a:hover,
-        body.theme-dark .ai-article-title a:hover,
-        body.theme-dark .footer a:hover,
-        body.theme-dark .ai-category-nav li:hover { color: #aecbfa; }
-        body.theme-dark .article-description,
-        body.theme-dark .ai-summary-text,
-        body.theme-dark .ai-article-reason { color: #aeb6c2; }
-        body.theme-dark .article-source,
-        body.theme-dark .article-date,
-        body.theme-dark .ai-meta { color: #8b93a1; }
-        body.theme-dark .view-toggle { background: #14171c; }
-        body.theme-dark .view-toggle-btn { color: #9aa3b0; }
-        body.theme-dark .view-toggle-btn.active { background: #22262f; color: #8ab4f8; }
-        body.theme-dark .footer { color: #8b93a1; }
-        body.theme-dark .multi-select-option:hover { background: #2a2f3a; }
-        body.theme-dark .ai-info-box { background: #14171c; color: #9aa3b0; }
-        /* Theme toggle icon driven by CSS so it matches pre-paint theme */
+        /* Grid-level status line (loading / load error): the shell's
+           placeholder inside the articles grid and the AI view */
+        .grid-message {
+            grid-column: 1 / -1;
+            padding: 56px 0;
+            text-align: center;
+            color: var(--text-3);
+            font-size: 15px;
+        }
+
+        /* Dark theme: colors flip via the CSS variables declared on
+           body.theme-dark (see :root token block above) — no per-element
+           overrides needed. Only the toggle-icon visibility rules remain. */
         .theme-icon-sun { display: none; }
         body.theme-dark .theme-icon-moon { display: none; }
         body.theme-dark .theme-icon-sun { display: inline; }
-        body.theme-dark .float-btn {
-            background: #2a303c;
-            color: #e2e6ee;
-            border: 1px solid #414a5c;
-        }
-        body.theme-dark .float-btn:hover {
-            background: #333b49;
-        }
-        body.theme-dark .float-btn.active {
-            outline-color: #8ab4f8;
-        }
-        body.theme-dark header { border-bottom-color: #343a46; }
-        body.theme-dark h1 { color: #d8dce3; }
-        body.theme-dark .subtitle { color: #8b93a1; }
-        body.theme-dark .ai-category-title { color: #c2c8d4; }
-        body.theme-dark .filter-group select,
-        body.theme-dark .filter-group input {
-            background: #14171c;
-            color: #d8dce3;
-            border-color: #343a46;
-        }
 
         /* GitHub corner ribbon (top-left) — the standard top-right ribbon
            SVG mirrored into the top-left corner, same as dailycve */
@@ -2729,7 +2535,10 @@ def generate_html(articles, output_file=None, ai_curated=None):
             border: none;
             border-bottom: 2px solid transparent;
             border-radius: 0;
-            padding: 2px 6px;
+            /* no top padding: keeps the date on the subtitle's baseline;
+               the 2px bottom padding reserves room for the hover underline */
+            padding: 0 2px 2px;
+            line-height: inherit;
             cursor: pointer;
             transition: border-color 0.2s ease;
         }
@@ -2738,15 +2547,15 @@ def generate_html(articles, output_file=None, ai_curated=None):
             border-bottom-color: currentColor;
             outline: none;
         }
-        .subtitle #news-date-select.load-error { border-bottom-color: #d32f2f; }
+        .subtitle #news-date-select.load-error { border-bottom-color: var(--danger); }
         .date-nav-btn {
-            width: 20px;
-            height: 20px;
+            width: 16px;
+            height: 16px;
             border: none;
-            border-radius: 5px;
+            border-radius: 4px;
             background: transparent;
             color: inherit;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             line-height: 1;
             cursor: pointer;
             display: inline-flex;
@@ -2810,16 +2619,12 @@ def generate_html(articles, output_file=None, ai_curated=None):
                 right: 12px;
                 width: 32px;
                 height: 32px;
-                border: none;
+                border: 1px solid var(--float-btn-border);
                 border-radius: 50%;
-                background: #f0f0f0;
-                color: #333;
+                background: var(--float-btn-bg);
+                color: var(--float-btn-fg);
                 font-size: 1rem;
                 cursor: pointer;
-            }
-            body.theme-dark .sidebar-close {
-                background: #2a303c;
-                color: #e2e6ee;
             }
         }
     """
@@ -2854,6 +2659,51 @@ def generate_html(articles, output_file=None, ai_curated=None):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>网络安全资讯聚合 - Cybersecurity News Aggregator</title>
     <style>
+        /* Design tokens: one palette, two themes. Light values on :root,
+           dark values flipped by body.theme-dark - rules below reference
+           the vars, so dark mode needs no per-element color overrides. */
+        :root {{
+            --page-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-1: #1f2937;      /* headings */
+            --text-2: #4b5563;      /* body copy */
+            --text-3: #6b7280;      /* secondary: sources, dates, footer */
+            --border-strong: #d1d5db;
+            --border-weak: #e5e7eb;
+            --fill-subtle: #f3f4f6; /* inset fills, hover wells */
+            --accent: #0f766e;      /* solid accent: badges, header rule */
+            --accent-text: #0f766e; /* text links (AA on white) */
+            --accent-hover: #115e59;
+            --accent-on: #ffffff;  /* text on accent-filled surfaces */
+            --danger: #d32f2f;
+            --scrollbar-thumb: #c1c1c1;
+            --scrollbar-track: #f1f1f1;
+            --float-btn-bg: #ffffff;
+            --float-btn-fg: #333333;
+            --float-btn-border: transparent;
+            --float-btn-bg-hover: #ffffff;
+        }}
+        body.theme-dark {{
+            --page-bg: #1a1d24;
+            --card-bg: #22262f;
+            --text-1: #d8dce3;
+            --text-2: #c2c8d4;
+            --text-3: #8b93a1;
+            --border-strong: #343a46;
+            --border-weak: #2a303c;
+            --fill-subtle: #14171c;
+            --accent: #2dd4bf;
+            --accent-text: #5eead4;
+            --accent-hover: #99f6e4;
+            --accent-on: #14171c;  /* dark text: light accent fills need it for contrast */
+            --danger: #ef5350;
+            --scrollbar-thumb: #4a5160;
+            --scrollbar-track: #1a1e25;
+            --float-btn-bg: #2a303c;
+            --float-btn-fg: #e2e6ee;
+            --float-btn-border: #414a5c;
+            --float-btn-bg-hover: #333b49;
+        }}
         * {{
             margin: 0;
             padding: 0;
@@ -2863,8 +2713,8 @@ def generate_html(articles, output_file=None, ai_curated=None):
         body {{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            color: var(--text-2);
+            background-color: var(--page-bg);
         }}
 
         .container {{
@@ -2880,7 +2730,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
             grid-column: 1;
             /* One sheet: header + article lists live on a single card,
                mirroring the dailycve layout (sidebar is its own card) */
-            background: white;
+            background: var(--card-bg);
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -2891,7 +2741,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
 
         .sidebar {{
             grid-column: 2;
-            background: white;
+            background: var(--card-bg);
             padding: 1.5rem;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -2906,33 +2756,33 @@ def generate_html(articles, output_file=None, ai_curated=None):
 
         /* Slim inner scrollbar for the sidebar (dailycve-style) */
         .sidebar::-webkit-scrollbar {{ width: 8px; }}
-        .sidebar::-webkit-scrollbar-track {{ background: #f1f1f1; border-radius: 4px; }}
-        .sidebar::-webkit-scrollbar-thumb {{ background: #c1c1c1; border-radius: 4px; }}
-        .sidebar::-webkit-scrollbar-thumb:hover {{ background: #a8a8a8; }}
-        .sidebar {{ scrollbar-width: thin; scrollbar-color: #c1c1c1 #f1f1f1; }}
+        .sidebar::-webkit-scrollbar-track {{ background: var(--scrollbar-track); border-radius: 4px; }}
+        .sidebar::-webkit-scrollbar-thumb {{ background: var(--scrollbar-thumb); border-radius: 4px; }}
+        .sidebar::-webkit-scrollbar-thumb:hover {{ background: var(--scrollbar-thumb); filter: brightness(0.85); }}
+        .sidebar {{ scrollbar-width: thin; scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track); }}
 
         header {{
             /* dailycve-style editorial header: sits inside the main-content
-               card, a bottom rule separating the headline from the content */
+               card, an accent rule separating the headline from the content */
             text-align: center;
             padding: 0.5rem 0 15px;
             margin-bottom: 2rem;
-            border-bottom: 3px solid #d1d5db;
+            border-bottom: 3px solid var(--accent);
         }}
 
         h1 {{
             font-size: 2.2em;  /* match dailycve h1 */
-            color: #1f2937;    /* dailycve --headline-color */
+            color: var(--text-1);
             margin-bottom: 0.5rem;
         }}
 
         .subtitle {{
             font-size: 1.1rem;
-            color: #6c757d;
+            color: var(--text-3);
         }}
 
         .filters {{
-            background: white;
+            background: var(--card-bg);
             padding: 1.5rem;
             border-radius: 8px;
             margin-bottom: 1.5rem;
@@ -2947,15 +2797,17 @@ def generate_html(articles, output_file=None, ai_curated=None):
             display: block;
             margin-bottom: 0.5rem;
             font-weight: bold;
-            color: #495057;
+            color: var(--text-2);
         }}
 
         .filter-group select, .filter-group input {{
             width: 100%;
             padding: 0.5rem;
-            border: 1px solid #ddd;
+            border: 1px solid var(--border-strong);
             border-radius: 4px;
             font-size: 0.9rem;
+            background: var(--fill-subtle);
+            color: var(--text-1);
         }}
 
         .multi-select {{
@@ -2966,12 +2818,12 @@ def generate_html(articles, output_file=None, ai_curated=None):
         .multi-select-header {{
             width: 100%;
             padding: 0.5rem;
-            border: 1px solid #ddd;
+            border: 1px solid var(--border-strong);
             border-radius: 4px;
-            background: white url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%23666" d="M2 4l4 4 4-4"/></svg>') no-repeat right 0.5rem center;
+            background: var(--card-bg) url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="%23666" d="M2 4l4 4 4-4"/></svg>') no-repeat right 0.5rem center;
             cursor: pointer;
             font-size: 0.9rem;
-            color: #333;
+            color: var(--text-2);
         }}
 
         .multi-select-dropdown {{
@@ -2979,8 +2831,8 @@ def generate_html(articles, output_file=None, ai_curated=None):
             top: 100%;
             left: 0;
             right: 0;
-            background: white;
-            border: 1px solid #ddd;
+            background: var(--card-bg);
+            border: 1px solid var(--border-strong);
             border-radius: 4px;
             margin-top: 2px;
             max-height: 200px;
@@ -3012,11 +2864,11 @@ def generate_html(articles, output_file=None, ai_curated=None):
         }}
 
         .multi-select-option:hover {{
-            background: #f5f5f5;
+            background: var(--fill-subtle);
         }}
 
         .stats {{
-            background: white;
+            background: var(--card-bg);
             padding: 1rem;
             border-radius: 8px;
             text-align: center;
@@ -3028,13 +2880,6 @@ def generate_html(articles, output_file=None, ai_curated=None):
             margin-bottom: 3rem;
         }}
 
-        .section-title {{
-            font-size: 1.6em;  /* scaled with the dailycve-matched h1 (2.2em) */
-            color: #495057;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-        }}
-
         .articles-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -3042,8 +2887,8 @@ def generate_html(articles, output_file=None, ai_curated=None):
         }}
 
         .article-card {{
-            background: white;
-            border: 1px solid #e0e0e0;  /* dailycve-style: border separates inner cards on the white sheet */
+            background: var(--card-bg);
+            border: 1px solid var(--border-weak);  /* dailycve-style: border separates inner cards on the white sheet */
             border-radius: 8px;
             padding: 1.5rem;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -3069,28 +2914,28 @@ def generate_html(articles, output_file=None, ai_curated=None):
 
         .article-source {{
             font-size: 0.85rem;
-            color: #6c757d;
+            color: var(--text-3);
             margin-bottom: 0.5rem;
         }}
 
         .article-title {{
             font-size: 1.1rem;
             margin-bottom: 0.75rem;
-            color: #212529;
+            color: var(--text-1);
         }}
 
         .article-title a {{
-            color: #007bff;
+            color: var(--accent-text);
             text-decoration: none;
         }}
 
         .article-title a:hover {{
-            color: #0056b3;
+            color: var(--accent-hover);
             text-decoration: underline;
         }}
 
         .article-description {{
-            color: #495057;
+            color: var(--text-2);
             font-size: 0.95rem;
             margin-bottom: 1rem;
             flex-grow: 1;
@@ -3098,19 +2943,19 @@ def generate_html(articles, output_file=None, ai_curated=None):
 
         .article-date {{
             font-size: 0.85rem;
-            color: #6c757d;
+            color: var(--text-3);
         }}
 
         .footer {{
             text-align: center;
             padding: 2rem 0;
-            color: #6c757d;
+            color: var(--text-3);
             font-size: 0.9rem;
             margin-top: 3rem;
         }}
 
         .footer a {{
-            color: #007bff;
+            color: var(--accent-text);
             text-decoration: none;
         }}
 
@@ -3165,7 +3010,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         /* View toggle buttons - segmented control style */
         .view-toggle {{
             display: inline-flex;
-            background: #f0f0f0;
+            background: var(--fill-subtle);
             border-radius: 24px;
             padding: 4px;
             margin-bottom: 1rem;
@@ -3175,7 +3020,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
             padding: 8px 16px;
             border: none;
             background: transparent;
-            color: #666;
+            color: var(--text-3);
             border-radius: 20px;
             cursor: pointer;
             font-size: 0.9rem;
@@ -3184,12 +3029,12 @@ def generate_html(articles, output_file=None, ai_curated=None):
         }}
 
         .view-toggle-btn:hover {{
-            color: #333;
+            color: var(--text-2);
         }}
 
         .view-toggle-btn.active {{
-            background: white;
-            color: #4f46e5;
+            background: var(--card-bg);
+            color: var(--accent);
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }}
 
@@ -3204,14 +3049,14 @@ def generate_html(articles, output_file=None, ai_curated=None):
 
         /* AI category navigation */
         .ai-category-nav {{
-            background: white;
+            background: var(--card-bg);
             border-radius: 8px;
             padding: 1rem;
         }}
 
         .ai-category-nav h4 {{
             margin-bottom: 0.75rem;
-            color: #495057;
+            color: var(--text-2);
         }}
 
         .ai-category-nav ul {{
@@ -3222,14 +3067,14 @@ def generate_html(articles, output_file=None, ai_curated=None):
 
         .ai-category-nav li {{
             padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid var(--border-weak);
             cursor: pointer;
-            color: #007bff;
+            color: var(--accent-text);
             transition: all 0.2s ease;
         }}
 
         .ai-category-nav li:hover {{
-            color: #0056b3;
+            color: var(--accent-hover);
             padding-left: 5px;
         }}
 
@@ -3260,7 +3105,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
 
         .ai-category-title {{
             font-size: 1.4rem;
-            color: #495057;
+            color: var(--text-2);
             margin-bottom: 1rem;
             padding-bottom: 0.5rem;
             display: flex;
@@ -3275,22 +3120,22 @@ def generate_html(articles, output_file=None, ai_curated=None):
 
         .ai-summary h3 {{
             margin-bottom: 0.75rem;
-            color: #333;
+            color: var(--text-1);
             font-size: 1.2rem;
             font-weight: 600;
         }}
 
         .ai-summary-text {{
-            color: #555;
+            color: var(--text-2);
             line-height: 1.7;
             padding-left: 1rem;
-            border-left: 3px solid #4f46e5;
+            border-left: 3px solid var(--accent);
         }}
 
         .model-badge {{
             display: inline-block;
-            background: #4f46e5;  /* dailycve --ai-badge-bg */
-            color: white;
+            background: var(--accent);  /* dailycve --ai-badge-bg */
+            color: var(--accent-on);
             font-size: 0.7rem;
             padding: 3px 12px;
             border-radius: 12px;
@@ -3302,8 +3147,8 @@ def generate_html(articles, output_file=None, ai_curated=None):
         }}
 
         .ai-article {{
-            background: white;
-            border: 1px solid #e0e0e0;  /* same inner-card border as .article-card */
+            background: var(--card-bg);
+            border: 1px solid var(--border-weak);  /* same inner-card border as .article-card */
             border-radius: 8px;
             padding: 1.5rem;
             margin-bottom: 1rem;
@@ -3325,7 +3170,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         }}
 
         .ai-article-title a {{
-            color: #007bff;
+            color: var(--accent-text);
             text-decoration: none;
         }}
 
@@ -3334,7 +3179,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         }}
 
         .ai-article-reason {{
-            color: #666;
+            color: var(--text-3);
             font-size: 0.9rem;
             margin-top: 0.5rem;
             padding-top: 0.5rem;
@@ -3343,29 +3188,34 @@ def generate_html(articles, output_file=None, ai_curated=None):
         .ai-meta {{
             display: flex;
             gap: 1rem;
-            color: #888;
+            color: var(--text-3);
             font-size: 0.85rem;
         }}
 
         .no-ai-data {{
             text-align: center;
             padding: 2rem;
-            color: #666;
-            background: #f8f9fa;
+            color: var(--text-3);
+            background: var(--fill-subtle);
             border-radius: 8px;
         }}
 
         .ai-info-box {{
             margin-top: 1rem;
             padding: 0.5rem;
-            background: #f8f9fa;
+            background: var(--fill-subtle);
             border-radius: 4px;
             font-size: 0.85rem;
-            color: #666;
+            color: var(--text-3);
         }}
     {static_css}{lang_css}</style>
 </head>
 <body>
+    <noscript>
+        <div style="max-width: 640px; margin: 24px auto; padding: 14px 20px; text-align: center; border: 1px solid #d32f2f; border-radius: 8px; color: #d32f2f;">
+            本页资讯数据由 JavaScript 从 JSON 加载，请启用 JavaScript 后刷新 / JavaScript is required to load the news data.
+        </div>
+    </noscript>
     <script>
         // Apply saved theme (falling back to the system preference) and saved
         // language BEFORE first paint to avoid a light-theme flash on dark pages
@@ -3403,7 +3253,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
     <div class="container">
         <main class="main-content">
             <header>
-                <h1>{T('网络安全资讯聚合', 'Cybersecurity News')}</h1>
+                <h1>🛡️ {T('网络安全资讯聚合', 'Cybersecurity News')}</h1>
                 <div class="subtitle">{T('汇聚最新网络安全资讯 · 更新于 ', 'Latest security news · Updated ')}<span class="title-date"><button class="date-nav-btn" id="news-date-prev" onclick="stepNewsDate(-1)" aria-label="前一天 / Previous day">‹</button><select id="news-date-select" onchange="switchNewsDate(this.value)" aria-label="报告日期 / Report date"></select><button class="date-nav-btn" id="news-date-next" onclick="stepNewsDate(1)" aria-label="后一天 / Next day">›</button></span></div>
             </header>
 
@@ -3411,35 +3261,15 @@ def generate_html(articles, output_file=None, ai_curated=None):
             <!-- Original View (All Articles) -->
             <div class="original-view" id="original-view">
             <div class="category-section">
-                <h2 class="section-title">{T('🎯 技术文章', '🎯 Technical Articles')}</h2>
-                <div class="articles-grid" id="tech-articles">
-                    {"".join([f'''
-                    <div class="article-card" data-date="{article['date']}">
-                        {render_article_source(article)}
-                        <h3 class="article-title">{render_article_title(article)}</h3>
-                        {render_article_description(article)}
-                        {render_article_date(article)}
-                    </div>''' for article in tech_sorted])}
-                </div>
-            </div>
-
-            <div class="category-section">
-                <h2 class="section-title">{T('📰 安全新闻', '📰 Security News')}</h2>
-                <div class="articles-grid" id="news-articles">
-                    {"".join([f'''
-                    <div class="article-card" data-date="{article['date']}">
-                        {render_article_source(article)}
-                        <h3 class="article-title">{render_article_title(article)}</h3>
-                        {render_article_description(article)}
-                        {render_article_date(article)}
-                    </div>''' for article in news_sorted])}
+                <div class="articles-grid" id="articles-grid">
+                    <div class="grid-message">{T('⏳ 正在加载资讯…', '⏳ Loading news…')}</div>
                 </div>
             </div>
             </div>
 
             <!-- AI Curated View -->
             <div class="ai-view" id="ai-view">
-                {_generate_ai_curated_html(ai_curated, bilingual=curated_bilingual) if ai_curated else '<div class="no-ai-data"><p>🤖 AI精选数据暂未生成</p><p>请启用 --ai-curate 参数来生成AI精选内容</p></div>'}
+                <div class="grid-message">{T('⏳ 正在加载AI精选…', '⏳ Loading AI picks…')}</div>
             </div>
         </main>
 
@@ -3458,9 +3288,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
                         <label>{T('📅 按日期筛选:', '📅 Filter by Date:')}</label>
                         <div class="multi-select" id="date-select">
                             <div class="multi-select-header" onclick="toggleDropdown('date-select')">全部日期</div>
-                            <div class="multi-select-dropdown">
-                                {''.join([f'<div class="multi-select-option"><input type="checkbox" id="date-{i}" value="{date}"> {date}</div>' for i, date in enumerate(sorted_dates)])}
-                            </div>
+                            <div class="multi-select-dropdown"></div>
                         </div>
                     </div>
 
@@ -3477,16 +3305,14 @@ def generate_html(articles, output_file=None, ai_curated=None):
                         <input type="text" id="search-input" placeholder="输入关键词搜索..." onkeyup="applyFilters()">
                     </div>
 
-                    <button onclick="clearAllFilters()" style="margin-top: 10px; padding: 8px 16px; background: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer;">{T('清除筛选', 'Clear Filters')}</button>
+                    <button onclick="clearAllFilters()" style="margin-top: 10px; padding: 8px 16px; background: var(--fill-subtle); color: var(--text-2); border: 1px solid var(--border-strong); border-radius: 4px; cursor: pointer;">{T('清除筛选', 'Clear Filters')}</button>
                 </div>
 
                 <div style="margin-top: 1.5rem;">
                     <h4>{T('统计信息', 'Statistics')}</h4>
-                    <p id="visible-count">当前显示: {default_visible_count}</p>
-                    <p id="stat-total">{T('总文章数', 'Total Articles')}: {len(tech_sorted) + len(news_sorted)}</p>
-                    <p id="stat-tech">{T('技术文章', 'Technical Articles')}: {len(tech_sorted)}</p>
-                    <p id="stat-news">{T('安全新闻', 'Security News')}: {len(news_sorted)}</p>
-                    <p id="stat-date">{T('更新日期', 'Updated')}: {datetime.now().strftime('%Y-%m-%d')}</p>
+                    <p id="visible-count">{T('当前显示', 'Showing')}: 0</p>
+                    <p id="stat-total">{T('总文章数', 'Total Articles')}: 0</p>
+                    <p id="stat-date">{T('更新日期', 'Updated')}: {update_date}</p>
                 </div>
             </div>
 
@@ -3495,14 +3321,14 @@ def generate_html(articles, output_file=None, ai_curated=None):
                 <div class="ai-category-nav">
                     <h4>{T('📋 分类目录', '📋 Categories')}</h4>
                     <ul id="ai-category-nav-list">
-                        {_generate_ai_category_nav(ai_curated, bilingual=curated_bilingual) if ai_curated else '<li style="color:#666">暂无分类数据</li>'}
+                        <li style="color: var(--text-3)">…</li>
                     </ul>
                 </div>
                 <div class="ai-info-box" id="ai-info-box">
-                    <p>{T('分析日期', 'Analysis Date')}: {ai_curated.get('analysis_date', '-') if ai_curated else '-'}</p>
-                    <p>{T('筛选文章', 'Curated')}: {sum(len(arts) for arts in ai_curated.get('categories', {}).values()) if ai_curated else 0}{T(' 篇', '')}</p>
-                    <p>{T('原始文章', 'Analyzed')}: {ai_curated.get('total_analyzed', 0) if ai_curated else 0}{T(' 篇', '')}</p>
-                    <p>{T('模型来源', 'Model')}: {html.escape(ai_curated.get('model', '-')) if ai_curated else '-'}</p>
+                    <p>{T('分析日期', 'Analysis Date')}: -</p>
+                    <p>{T('筛选文章', 'Curated')}: 0{T(' 篇', '')}</p>
+                    <p>{T('原始文章', 'Analyzed')}: 0{T(' 篇', '')}</p>
+                    <p>{T('模型来源', 'Model')}: -</p>
                 </div>
             </div>
         </aside>
@@ -3566,22 +3392,20 @@ def generate_html(articles, output_file=None, ai_curated=None):
 
         window.onload = function() {{
             {lang_restore_js}
-            // 副标题日期控件：日期清单来自 data/index.json；hash 深链优先
+            // 日期清单来自 data/index.json；hash 深链优先。页面不含文章
+            // 数据 —— 当天也一样走 loadNewsDate() fetch 渲染。
             fetch('data/index.json').then(function(r) {{ return r.ok ? r.json() : null; }}).then(function(m) {{
                 newsDates = (m && m.dates && m.dates.length) ? m.dates : [window.NEWS_CURRENT_DATE];
                 var sel = document.getElementById('news-date-select');
                 if (sel) sel.innerHTML = newsDates.map(function(d) {{ return '<option value="' + d + '">' + d + '</option>'; }}).join('');
                 setNewsDateSelect();
                 var hash = decodeURIComponent(location.hash.replace(/^#/, ''));
-                if (newsDates.includes(hash) && hash !== currentNewsDate) loadNewsDate(hash);
+                loadNewsDate(newsDates.includes(hash) ? hash : currentNewsDate);
             }}).catch(function() {{
                 newsDates = [window.NEWS_CURRENT_DATE];
                 setNewsDateSelect();
+                loadNewsDate(currentNewsDate);
             }});
-
-            // 初始化筛选下拉框（来源+日期）并应用筛选
-            rebuildFilterOptions();
-            applyFilters();
         }};
 
         function applyFilters() {{
@@ -3690,6 +3514,10 @@ def main():
 
     # Scrape all sources (unsafe crawler only enabled with --unsafe flag)
     aggregator.scrape_all_sources(include_unsafe=args.unsafe)
+
+    # Keep only fresh articles so each dated archive (and thus each day's
+    # view in the date picker) holds today's + yesterday's items only
+    aggregator.filter_to_recent_days()
 
     # Save raw data
     aggregator.save_articles_json()

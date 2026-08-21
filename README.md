@@ -129,16 +129,6 @@ python scrape_news.py --unsafe --ai-curate \
    - `AI_MODEL`（推荐）：AI模型名称，如 `glm-5.1`、`gpt-4o-mini`、`deepseek-chat`
    - `AI_BASE_URL`（推荐）：API地址，如使用阿里百练需设置为 `https://dashscope.aliyuncs.com/compatible-mode/v1`
 
-**常见配置示例：**
-
-| AI服务 | AI_MODEL | AI_BASE_URL |
-|-------|---------|------------|
-| OpenAI | gpt-4o-mini | https://api.openai.com/v1 |
-| DeepSeek | deepseek-chat | https://api.deepseek.com/v1 |
-| 智谱AI官方 | glm-4-plus | https://open.bigmodel.cn/api/paas/v4 |
-| 阿里百练(GLM) | glm-5.1 | https://dashscope.aliyuncs.com/compatible-mode/v1 |
-| Moonshot | moonshot-v1-8k | https://api.moonshot.cn/v1 |
-
 注意：
 - `AI_MODEL` 和 `AI_BASE_URL` 为非敏感配置，应设置在 Variables 标签下
 - 阿里百练和智谱AI官方都提供GLM模型，但API地址不同，需根据使用的平台选择正确的地址
