@@ -1,22 +1,29 @@
-# 安全资讯聚合平台
+<div align="center">
+
+# 🛡️ 安全资讯聚合平台
 
 简体中文 | **[English](README_EN.md)**
 
+[![Daily Update](https://github.com/secnotes/secnews/actions/workflows/daily_update.yml/badge.svg)](https://github.com/secnotes/secnews/actions/workflows/daily_update.yml)
+[![Last Commit](https://img.shields.io/github/last-commit/secnotes/secnews)](https://github.com/secnotes/secnews/commits/main)
+[![License: MIT](https://img.shields.io/github/license/secnotes/secnews)](https://github.com/secnotes/secnews/blob/main/LICENSE)
+![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-3776ab?logo=python&logoColor=white)
+
+[![Sec-Today](https://img.shields.io/badge/Sec--Today-555?style=flat-square)](https://sec.today/pulses/)
+[![腾讯安全](https://img.shields.io/badge/腾讯安全-555?style=flat-square)](https://sectoday.tencent.com/)
+[![先知社区](https://img.shields.io/badge/先知社区-555?style=flat-square)](https://xz.aliyun.com/news)
+[![Project Zero](https://img.shields.io/badge/Project_Zero-555?style=flat-square)](https://projectzero.google/)
+[![SeeBug Paper](https://img.shields.io/badge/SeeBug_Paper-555?style=flat-square)](https://paper.seebug.org/)
+[![安全客](https://img.shields.io/badge/安全客-555?style=flat-square)](https://www.anquanke.com/)
+[![FreeBuf](https://img.shields.io/badge/FreeBuf-555?style=flat-square)](https://www.freebuf.com/)
+[![安全内参](https://img.shields.io/badge/安全内参-555?style=flat-square)](https://www.secrss.com/)
+[![SecurityWeek](https://img.shields.io/badge/SecurityWeek-555?style=flat-square)](https://www.securityweek.com/)
+[![The Hacker News](https://img.shields.io/badge/The_Hacker_News-555?style=flat-square)](https://thehackernews.com/)
+[![看雪论坛](https://img.shields.io/badge/看雪论坛-555?style=flat-square)](https://bbs.kanxue.com/)
+
 一个自动化的安全资讯聚合平台，每日自动收集来自各大安全社区的技术文章和新闻资讯，并通过AI智能筛选和分类重要内容。
 
-## 数据源
-
-- **Sec-Today**: https://sec.today/pulses/
-- **腾讯安全**: https://sectoday.tencent.com/
-- **先知社区**: https://xz.aliyun.com/news
-- **Project Zero**: https://projectzero.google/
-- **SeeBug Paper**: https://paper.seebug.org/
-- **安全客**: https://www.anquanke.com/
-- **FreeBuf**: https://www.freebuf.com/
-- **安全内参**: https://www.secrss.com/
-- **SecurityWeek**: https://www.securityweek.com/
-- **The Hacker News**: https://thehackernews.com/
-- **看雪论坛**: https://bbs.kanxue.com/
+</div>
 
 ## 功能特性
 

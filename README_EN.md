@@ -1,22 +1,29 @@
-# Security News Aggregator
+<div align="center">
+
+# 🛡️ Security News Aggregator
 
 **[简体中文](README.md)** | English
 
+[![Daily Update](https://github.com/secnotes/secnews/actions/workflows/daily_update.yml/badge.svg)](https://github.com/secnotes/secnews/actions/workflows/daily_update.yml)
+[![Last Commit](https://img.shields.io/github/last-commit/secnotes/secnews)](https://github.com/secnotes/secnews/commits/main)
+[![License: MIT](https://img.shields.io/github/license/secnotes/secnews)](https://github.com/secnotes/secnews/blob/main/LICENSE)
+![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-3776ab?logo=python&logoColor=white)
+
+[![Sec-Today](https://img.shields.io/badge/Sec--Today-555?style=flat-square)](https://sec.today/pulses/)
+[![Tencent Security](https://img.shields.io/badge/Tencent_Security-555?style=flat-square)](https://sectoday.tencent.com/)
+[![Xianzhi Community](https://img.shields.io/badge/Xianzhi_Community-555?style=flat-square)](https://xz.aliyun.com/news)
+[![Project Zero](https://img.shields.io/badge/Project_Zero-555?style=flat-square)](https://projectzero.google/)
+[![SeeBug Paper](https://img.shields.io/badge/SeeBug_Paper-555?style=flat-square)](https://paper.seebug.org/)
+[![Anquanke](https://img.shields.io/badge/Anquanke-555?style=flat-square)](https://www.anquanke.com/)
+[![FreeBuf](https://img.shields.io/badge/FreeBuf-555?style=flat-square)](https://www.freebuf.com/)
+[![SecRSS](https://img.shields.io/badge/SecRSS-555?style=flat-square)](https://www.secrss.com/)
+[![SecurityWeek](https://img.shields.io/badge/SecurityWeek-555?style=flat-square)](https://www.securityweek.com/)
+[![The Hacker News](https://img.shields.io/badge/The_Hacker_News-555?style=flat-square)](https://thehackernews.com/)
+[![Kanxue Forum](https://img.shields.io/badge/Kanxue_Forum-555?style=flat-square)](https://bbs.kanxue.com/)
+
 An automated security news aggregation platform that collects technical articles and news from major security communities every day, and uses AI to curate and categorize the important content.
 
-## Data Sources
-
-- **Sec-Today**: https://sec.today/pulses/
-- **Tencent Security**: https://sectoday.tencent.com/
-- **Xianzhi Community**: https://xz.aliyun.com/news
-- **Project Zero**: https://projectzero.google/
-- **SeeBug Paper**: https://paper.seebug.org/
-- **Anquanke**: https://www.anquanke.com/
-- **FreeBuf**: https://www.freebuf.com/
-- **SecRSS**: https://www.secrss.com/
-- **SecurityWeek**: https://www.securityweek.com/
-- **The Hacker News**: https://thehackernews.com/
-- **Kanxue Forum**: https://bbs.kanxue.com/
+</div>
 
 ## Features
 
