@@ -53,8 +53,25 @@ session.headers.update({
 })
 session.verify = False  # Ignore SSL errors (useful for proxy connections)
 
-# Proxy configuration (can be set via environment variable or config file)
+# Proxy configuration (can be set via environment variable or .env file)
 # Set HTTPS_PROXY environment variable, e.g., export HTTPS_PROXY=https://127.0.0.1:10808
+# Load .env (same locations as ai_provider.py: src/.env, project_root/.env, ./.env)
+# before reading PROXY_URL below, so a proxy configured in .env reaches the
+# crawlers. Existing environment variables are never overridden.
+try:
+    from dotenv import load_dotenv
+    _script_dir = os.path.dirname(os.path.abspath(__file__))
+    for _env_path in (
+        os.path.join(_script_dir, '.env'),                       # src/.env
+        os.path.join(os.path.dirname(_script_dir), '.env'),      # project_root/.env
+        '.env',                                                   # current working directory
+    ):
+        if os.path.exists(_env_path):
+            load_dotenv(_env_path)
+            break
+except ImportError:
+    pass  # python-dotenv not installed, rely on environment variables
+
 PROXY_URL = os.environ.get('HTTPS_PROXY', os.environ.get('HTTP_PROXY', None))
 
 def get_proxies():
@@ -65,6 +82,22 @@ def get_proxies():
             'https': PROXY_URL
         }
     return None
+
+def _docs_dir():
+    """Project docs directory (generated HTML and dated data archives live here)"""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    return os.path.join(os.path.dirname(script_dir), 'docs')
+
+
+def _dated_archive_path(kind, filename_prefix, date=None):
+    """Dated archive path mirroring the dailycve layout:
+    docs/data/2026/articles_20260821.json
+    docs/ai/2026/ai_curated_20260821.json
+    """
+    d = date or datetime.now()
+    return os.path.join(_docs_dir(), kind, str(d.year),
+                        f"{filename_prefix}_{d.strftime('%Y%m%d')}.json")
+
 
 class SecurityNewsAggregator:
     def __init__(self):
@@ -1913,32 +1946,72 @@ class SecurityNewsAggregator:
             logger.error(f"Error during AI curation: {str(e)}")
             return None
 
-    def save_ai_curated_json(self, curated_data, filename='ai_curated.json'):
-        """Save AI curated data to a JSON file"""
+    def save_ai_curated_json(self, curated_data, filename=None):
+        """Save AI curated data to a dated archive: docs/ai/<year>/ai_curated_<YYYYMMDD>.json
+
+        An explicit filename (used by tests or one-off exports) overrides the
+        dated path.
+        """
         if not curated_data:
             logger.warning("No AI curated data to save")
             return
 
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        full_path = os.path.join(script_dir, filename)
+        full_path = filename or _dated_archive_path('ai', 'ai_curated')
+        os.makedirs(os.path.dirname(full_path), exist_ok=True)
 
         with open(full_path, 'w', encoding='utf-8') as f:
             json.dump(curated_data, f, ensure_ascii=False, indent=2)
 
         logger.info(f"AI curated data saved to {full_path}")
 
-    def save_articles_json(self, filename='articles.json'):
-        """Save articles to a JSON file"""
-        import os
-        # Create full path relative to the script location
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        full_path = os.path.join(script_dir, filename)
+    def save_articles_json(self, filename=None):
+        """Save articles to a dated archive: docs/data/<year>/articles_<YYYYMMDD>.json"""
+        full_path = filename or _dated_archive_path('data', 'articles')
+        os.makedirs(os.path.dirname(full_path), exist_ok=True)
         with open(full_path, 'w', encoding='utf-8') as f:
             json.dump(self.articles, f, ensure_ascii=False, indent=2)
         logger.info(f"Articles saved to {full_path}")
+        self._write_data_manifest()
 
-    def load_articles_json(self, filename='articles.json'):
-        """Load articles from a JSON file"""
+    def _write_data_manifest(self):
+        """Write docs/data/index.json listing every date that has a data file
+        (newest first), mirroring the dailycve layout"""
+        data_dir = os.path.join(_docs_dir(), 'data')
+        dates = []
+        if os.path.isdir(data_dir):
+            for entry in os.listdir(data_dir):
+                year_dir = os.path.join(data_dir, entry)
+                if os.path.isdir(year_dir) and entry.isdigit():
+                    for fn in os.listdir(year_dir):
+                        m = re.match(r'articles_(\d{8})\.json$', fn)
+                        if m:
+                            s = m.group(1)
+                            dates.append(f"{s[:4]}-{s[4:6]}-{s[6:]}")
+        dates.sort(reverse=True)
+
+        os.makedirs(data_dir, exist_ok=True)
+        manifest_path = os.path.join(data_dir, 'index.json')
+        with open(manifest_path, 'w', encoding='utf-8') as f:
+            json.dump({'dates': dates}, f, ensure_ascii=False, indent=2)
+        logger.info(f"Data manifest saved to {manifest_path}")
+
+    def load_articles_json(self, filename=None):
+        """Load articles from the most recent dated archive (or a given file)"""
+        if filename is None:
+            candidates = []
+            data_dir = os.path.join(_docs_dir(), 'data')
+            if os.path.isdir(data_dir):
+                for entry in os.listdir(data_dir):
+                    year_dir = os.path.join(data_dir, entry)
+                    if os.path.isdir(year_dir) and entry.isdigit():
+                        for fn in os.listdir(year_dir):
+                            if re.match(r'articles_\d{8}\.json$', fn):
+                                candidates.append(os.path.join(year_dir, fn))
+            if not candidates:
+                logger.info("No article archives found, starting with empty articles")
+                self.articles = {'tech': [], 'news': []}
+                return
+            filename = max(candidates)
         try:
             with open(filename, 'r', encoding='utf-8') as f:
                 self.articles = json.load(f)
@@ -3095,7 +3168,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
                     Star on GitHub
                 </a>
                 <span class="separator">|</span>
-                <a href="https://github.com/secnotes/secnews/blob/main/src/articles.json" target="_blank">
+                <a href="https://github.com/secnotes/secnews/tree/main/docs/data" target="_blank">
                     📄 Json data
                 </a>
             </p>
@@ -3309,6 +3382,10 @@ def main():
     if translated:
         print("- 双语翻译: 已启用 (网页支持 中文/English 切换)")
     print(f"已生成 docs/index.html 文件")
+    now = datetime.now()
+    print(f"数据存档: docs/data/{now.year}/articles_{now.strftime('%Y%m%d')}.json")
+    if ai_curated:
+        print(f"AI精选存档: docs/ai/{now.year}/ai_curated_{now.strftime('%Y%m%d')}.json")
 
 
 if __name__ == "__main__":

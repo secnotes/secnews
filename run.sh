@@ -12,5 +12,6 @@ python3 scrape_news.py
 
 echo "运行完成！"
 echo "检查输出文件:"
-echo "- articles.json (原始数据)"
+echo "- docs/data/<年>/articles_<日期>.json (原始数据存档)"
+echo "- docs/ai/<年>/ai_curated_<日期>.json (AI精选存档)"
 echo "- docs/index.html (生成的静态网页)"

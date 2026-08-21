@@ -53,6 +53,11 @@ The project uses GitHub Actions to run daily at 00:00 UTC, refreshing the latest
 
 The generated page is at `docs/index.html` and can be opened directly in a browser.
 
+Raw data and AI curation results are archived by date:
+- `docs/data/<year>/articles_<YYYYMMDD>.json` - raw article data
+- `docs/ai/<year>/ai_curated_<YYYYMMDD>.json` - AI curated results
+- `docs/data/index.json` - manifest of archived dates (newest first)
+
 ## AI Curation
 
 ### Overview
@@ -82,7 +87,7 @@ This project uses OpenAI-compatible APIs and supports the following services:
 
 **Option 1: environment variables**
 
-Create a `.env` file in the `src/` directory:
+Create a `.env` file in the project root (or in `src/` - both locations are read):
 ```env
 AI_API_KEY=your-api-key-here
 AI_MODEL=gpt-4o-mini

@@ -53,6 +53,11 @@
 
 生成的网页将位于 `docs/index.html`，可以直接在浏览器中打开查看。
 
+原始数据与AI精选结果按日期存档：
+- `docs/data/<年>/articles_<YYYYMMDD>.json` - 原始文章数据
+- `docs/ai/<年>/ai_curated_<YYYYMMDD>.json` - AI精选结果
+- `docs/data/index.json` - 数据存档日期清单（新日期在前）
+
 ## AI精选功能
 
 ### 功能说明
@@ -82,7 +87,7 @@ AI精选功能会分析最近2天的安全文章，筛选出重要内容并按�
 
 **方式一：使用环境变量**
 
-在 `src/` 目录下创建 `.env` 文件：
+在项目根目录下创建 `.env` 文件（放在 `src/` 目录下也可以，两者都会被读取）：
 ```env
 AI_API_KEY=your-api-key-here
 AI_MODEL=gpt-4o-mini
