@@ -451,44 +451,66 @@ class SecurityNewsAggregator:
             logger.error(f"Error scraping Sec-Today: {str(e)}")
 
     def scrape_tencent_security(self):
-        """Scrape https://sectoday.tencent.com/ for tech articles"""
-        logger.info("Scraping Tencent Security (sectoday.tencent.com)...")
+        """Scrape https://sectoday.tencent.com/api/atom.xml (玄武实验室每日安全)
+        for tech articles.
+
+        The site's pages are JS-rendered MUI components, so the old HTML
+        scrape (MuiPaper-root cards) had been matching nothing and the
+        source silently produced 0 articles; the feed endpoint returns
+        plain RSS 2.0 (despite the atom.xml name) that parses directly.
+        Note: the feed itself has gone quiet before (stale for weeks in
+        2026-07/08), which the unified "Found N (fetched M)" line makes
+        visible in logs.
+        """
+        logger.info("Scraping Tencent Security (atom feed)...")
         try:
-            response = session.get("https://sectoday.tencent.com/", timeout=10)
+            import xml.etree.ElementTree as ET
+            from email.utils import parsedate_to_datetime
+
+            response = session.get("https://sectoday.tencent.com/api/atom.xml",
+                                   headers={'Accept': 'application/rss+xml, application/xml;q=0.9, */*;q=0.8'},
+                                   timeout=20)
             response.raise_for_status()
 
-            soup = BeautifulSoup(response.content, 'html.parser')
-            cards = soup.find_all('div', class_='MuiPaper-root')
+            root = ET.fromstring(response.content)
+            items = root.findall('.//item')
 
-            for card in cards:  # Process all available cards
+            for item in items:
                 try:
-                    # Look for links in the card
-                    link_tags = card.find_all('a')
-                    for link_tag in link_tags:
-                        href = link_tag.get('href')
-                        if href and '/detail/' in href:  # Likely an article link
-                            title = self.decode_html_entities(link_tag.text.strip()) or 'No Title'
-                            url = urljoin("https://sectoday.tencent.com/", href)
+                    title = (item.findtext('title') or '').strip()
+                    url = (item.findtext('link') or '').strip()
+                    if not title or not url:
+                        continue
 
-                            # Extract description if available
-                            p_tags = card.find_all('p')
-                            description = self.decode_html_entities(p_tags[0].text.strip()) if p_tags else ''
+                    description = (item.findtext('description') or '').strip()
+                    description = description[:200] + '...' if len(description) > 200 else description
 
-                            # Add to tech articles
-                            article = {
-                                'title': title,
-                                'url': url,
-                                'source': '腾讯安全',
-                                'description': description,
-                                'date': datetime.now().strftime('%Y-%m-%d'),
-                                'category': 'tech'
-                            }
-                            self.articles['tech'].append(article)
-                            break  # Processed the first valid link
+                    # pubDate is UTC ("Sun, 26 Jul 2026 03:35:35 +0000");
+                    # convert to the local date the freshness filter compares
+                    date = datetime.now().strftime('%Y-%m-%d')
+                    pub_date_text = (item.findtext('pubDate') or '').strip()
+                    if pub_date_text:
+                        try:
+                            parsed_date = parsedate_to_datetime(pub_date_text)
+                            date = parsed_date.astimezone().strftime('%Y-%m-%d')
+                        except Exception:
+                            pass
+
+                    article = {
+                        'title': self.decode_html_entities(title),
+                        'url': url,
+                        'source': '腾讯安全',
+                        'description': self.decode_html_entities(description),
+                        'date': date,
+                        'category': 'tech'
+                    }
+                    self.articles['tech'].append(article)
+
                 except Exception as e:
-                    logger.warning(f"Error processing Tencent Security card: {str(e)}")
+                    logger.warning(f"Error processing Tencent Security feed item: {str(e)}")
                     continue
-            self._log_found('腾讯安全', 'tech', fetched=len(cards))
+
+            self._log_found('腾讯安全', 'tech', fetched=len(items))
         except Exception as e:
             logger.error(f"Error scraping Tencent Security: {str(e)}")
 
@@ -1034,234 +1056,93 @@ class SecurityNewsAggregator:
             logger.error(f"Error scraping Secrss: {str(e)}")
 
     def scrape_seebug_paper(self):
-        """Scrape https://paper.seebug.org/ for security research papers (tech)"""
-        logger.info("Scraping SeeBug Paper...")  # currently disabled in scrape_all_sources (WAF)
+        """Scrape https://paper.seebug.org/rss for security research papers (tech)
+
+        The HTML pages sit behind an aggressive WAF (521 even with
+        browser-like headers), but the RSS endpoint is served without the
+        shield, so the old HTML scraping was replaced by plain feed
+        parsing.
+
+        TLS note: the server only serves its leaf certificate (the Let's
+        Encrypt intermediate is missing from the chain), so strict
+        verification fails with CERTIFICATE_VERIFY_FAILED. We still try
+        verifying first, and only fall back to an unverified request for
+        this single feed when that specific error occurs - better than
+        the blanket verify=False the HTML scraper used.
+        """
+        logger.info("Scraping SeeBug Paper (RSS)...")
         try:
-            # Create a specialized session for SeeBug Paper to handle anti-bot measures
-            import time
+            import xml.etree.ElementTree as ET
+            from email.utils import parsedate_to_datetime
 
-            # Create a new session with more realistic headers
-            seebug_session = requests.Session()
-            seebug_session.verify = False  # Ignore SSL errors
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'application/rss+xml, application/xml;q=0.9, */*;q=0.8',
+            }
 
-            # Set headers to mimic a real browser
-            seebug_session.headers.update({
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.64',
-                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-                'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7',
-                'Accept-Encoding': 'gzip, deflate, br',
-                'Connection': 'keep-alive',
-                'Upgrade-Insecure-Requests': '1',
-                'Sec-Fetch-Dest': 'document',
-                'Sec-Fetch-Mode': 'navigate',
-                'Sec-Fetch-Site': 'none',
-                'Cache-Control': 'max-age=0'
-            })
-
-            # First, try to establish a session by getting the main page
-            response = seebug_session.get("https://paper.seebug.org/", timeout=20)
-
-            # Add a delay to simulate human-like behavior
-            time.sleep(2)
-
-            # If first request was blocked, try again
-            if response.status_code in [403, 503, 521, 522, 524]:
-                # Add additional delays and different headers
-                time.sleep(5)
-                seebug_session.headers.update({
-                    'Referer': 'https://google.com/',
-                    'Sec-Ch-Ua': '"Not_A Brand";v="8", "Chromium";v="120"',
-                    'Sec-Ch-Ua-Mobile': '?0',
-                    'Sec-Ch-Ua-Platform': '"Windows"'
-                })
-                response = seebug_session.get("https://paper.seebug.org/", timeout=20)
-
-            # Check response status
-            if response.status_code in [403, 503, 521, 522, 524]:
-                logger.warning(f"SeeBug Paper blocked the request (status: {response.status_code}), server may be protected by shield.")
-                return  # Exit gracefully if still blocked
+            # Strict TLS first; the server's chain is missing the Let's
+            # Encrypt intermediate, so verification legitimately fails and
+            # we retry just this feed unverified
+            response = None
+            try:
+                response = requests.get("https://paper.seebug.org/rss",
+                                        headers=headers, timeout=20)
+            except requests.exceptions.SSLError:
+                logger.warning("SeeBug Paper TLS verification failed "
+                               "(incomplete server chain), retrying unverified")
+                response = requests.get("https://paper.seebug.org/rss",
+                                        headers=headers, timeout=20, verify=False)
 
             response.raise_for_status()
 
-            soup = BeautifulSoup(response.content, 'html.parser')
+            root = ET.fromstring(response.content)
+            items = root.findall('.//item')
 
-            # Alternative approach: look for common blog/article patterns if main-inner isn't available
-            # Try multiple selectors to find articles
-
-            # First, try the specified selector
-            articles_found = False
-            fetched_count = 0
-            main_inner_divs = soup.find_all('div', class_='main-inner')
-
-            if main_inner_divs:
-                fetched_count = len(main_inner_divs)
-
-                for main_div in main_inner_divs:
-                    try:
-                        # Look for post-header inside main-inner
-                        post_headers = main_div.find_all('div', class_='post-header')
-
-                        for post_header in post_headers:
-                            # Find the link in the post-header
-                            link_tag = post_header.find('a')
-
-                            if link_tag:
-                                title = self.decode_html_entities(link_tag.text.strip()) or 'No Title'
-                                url = link_tag.get('href')
-                                if url and not url.startswith('http'):
-                                    url = urljoin("https://paper.seebug.org/", url)
-
-                                # Extract description from nearby elements (typically post-excerpt)
-                                description = ''
-
-                                # Look for the post-excerpt in the parent context
-                                parent = post_header.find_parent()
-                                if parent:
-                                    excerpt_elem = parent.find('div', class_='post-excerpt') or \
-                                                 parent.find('p', class_='post-excerpt') or \
-                                                 parent.find('div', class_='post-content') or \
-                                                 parent.find('div', class_='excerpt')
-
-                                    if excerpt_elem:
-                                        description = self.decode_html_entities(excerpt_elem.get_text(strip=True)[:200] + "..." if len(excerpt_elem.get_text(strip=True)) > 200 else excerpt_elem.get_text(strip=True))
-
-                                # Extract date from post-meta or time element
-                                date = datetime.now().strftime('%Y-%m-%d')  # Default fallback
-
-                                # Look for date in the post-header or nearby
-                                time_elem = post_header.find('time') or post_header.find('span', class_='post-date') or post_header.find('span', class_='date')
-                                if time_elem:
-                                    time_text = time_elem.get_text(strip=True)
-                                    import re
-                                    # Try to extract date in format like "2026-01-29" or "January 29, 2026"
-                                    date_match = re.search(r'(\d{4}[-/]\d{2}[-/]\d{2})', time_text)
-                                    if date_match:
-                                        extracted_date = date_match.group(1)
-                                        try:
-                                            parsed_date = datetime.strptime(extracted_date.replace('/', '-'), '%Y-%m-%d')
-                                            date = parsed_date.strftime('%Y-%m-%d')
-                                        except ValueError:
-                                            pass
-                                    else:
-                                        # Try month-day-year format
-                                        month_day_year_patterns = [
-                                            r'(\w+\s+\d{1,2},?\s+\d{4})',  # Month DD, YYYY
-                                            r'(\d{1,2}\s+\w+\s+\d{4})'      # DD Month YYYY
-                                        ]
-                                        for pattern in month_day_year_patterns:
-                                            date_match = re.search(pattern, time_text)
-                                            if date_match:
-                                                try:
-                                                    parsed_date = datetime.strptime(date_match.group(1), '%B %d, %Y')
-                                                    date = parsed_date.strftime('%Y-%m-%d')
-                                                    break
-                                                except ValueError:
-                                                    try:
-                                                        parsed_date = datetime.strptime(date_match.group(1), '%b %d, %Y')
-                                                        date = parsed_date.strftime('%Y-%m-%d')
-                                                        break
-                                                    except ValueError:
-                                                        try:
-                                                            # Try DD Month YYYY format
-                                                            parsed_date = datetime.strptime(date_match.group(1), '%d %B %Y')
-                                                            date = parsed_date.strftime('%Y-%m-%d')
-                                                            break
-                                                        except ValueError:
-                                                            continue
-
-                                # Add to tech articles as specified (these are security tech papers)
-                                article = {
-                                    'title': title,
-                                    'url': url,
-                                    'source': 'Seebug Paper',
-                                    'description': description,
-                                    'date': date,
-                                    'category': 'tech'  # Security research papers belong to tech category
-                                }
-                                self.articles['tech'].append(article)
-                                articles_found = True
-                    except Exception as e:
-                        logger.warning(f"Error processing SeeBug Paper item in main-inner: {str(e)}")
+            for item in items:
+                try:
+                    title = (item.findtext('title') or '').strip()
+                    url = (item.findtext('link') or '').strip()
+                    if not title or not url:
                         continue
-            else:
-                # Try alternative selectors if main-inner isn't found
-                logger.info("main-inner not found, trying alternative selectors...")
 
-                # Look for other common article selectors
-                alternative_selectors = [
-                    'article',  # Standard article tag
-                    'div.post',  # Posts in div with post class
-                    'div.entry',  # Entries in div with entry class
-                    'div.article',  # Articles in div with article class
-                    'div.list-item',  # List items
-                    '.post-item',  # Post items with class
-                ]
+                    # Description arrives as CDATA text shaped like
+                    # "作者：... 原文链接：... 摘要 <abstract>"
+                    description = (item.findtext('description') or '').strip()
+                    m = re.search(r'摘要\s*(.*)', description, re.S)
+                    if m:
+                        description = m.group(1).strip()
+                    description = description[:200] + '...' if len(description) > 200 else description
 
-                for selector in alternative_selectors:
-                    alternative_elements = soup.select(selector)
-                    if alternative_elements:
-                        fetched_count = len(alternative_elements)
+                    # pubDate like "Thu, 20 Aug 2026 16:49:44 +0800" (RFC 822)
+                    date = datetime.now().strftime('%Y-%m-%d')
+                    pub_date_text = (item.findtext('pubDate') or '').strip()
+                    if pub_date_text:
+                        try:
+                            parsed_date = parsedate_to_datetime(pub_date_text)
+                            date = parsed_date.strftime('%Y-%m-%d')
+                        except Exception:
+                            pass
 
-                        for element in alternative_elements[:10]:  # Limit to first 10 to avoid too many
-                            try:
-                                # Try to find a link in the element
-                                link_tag = element.find('a')
+                    article = {
+                        'title': self.decode_html_entities(title),
+                        'url': url,
+                        'source': 'Seebug Paper',
+                        'description': self.decode_html_entities(description),
+                        'date': date,
+                        'category': 'tech'
+                    }
+                    self.articles['tech'].append(article)
 
-                                if link_tag:
-                                    title = self.decode_html_entities(link_tag.text.strip()) or 'No Title'
-                                    url = link_tag.get('href')
-                                    if url and not url.startswith('http'):
-                                        url = urljoin("https://paper.seebug.org/", url)
+                except Exception as e:
+                    logger.warning(f"Error processing SeeBug Paper RSS item: {str(e)}")
+                    continue
 
-                                    # Extract description
-                                    description = ''
-                                    desc_elem = element.find('p') or element.find('div', class_='content') or element.find('div', class_='summary')
-                                    if desc_elem:
-                                        description = self.decode_html_entities(desc_elem.get_text(strip=True)[:200] + "..." if len(desc_elem.get_text(strip=True)) > 200 else desc_elem.get_text(strip=True))
-
-                                    # Extract date
-                                    date = datetime.now().strftime('%Y-%m-%d')
-                                    date_elem = element.find('time') or element.find('span', class_='date') or element.find('span', class_='time')
-                                    if date_elem:
-                                        date_text = date_elem.get_text(strip=True)
-                                        import re
-                                        date_match = re.search(r'(\d{4}[-/]\d{2}[-/]\d{2})', date_text)
-                                        if date_match:
-                                            extracted_date = date_match.group(1)
-                                            try:
-                                                parsed_date = datetime.strptime(extracted_date.replace('/', '-'), '%Y-%m-%d')
-                                                date = parsed_date.strftime('%Y-%m-%d')
-                                            except ValueError:
-                                                pass
-
-                                    article = {
-                                        'title': title,
-                                        'url': url,
-                                        'source': 'Seebug Paper',
-                                        'description': description,
-                                        'date': date,
-                                        'category': 'tech'
-                                    }
-                                    self.articles['tech'].append(article)
-                                    articles_found = True
-
-                            except Exception as e:
-                                logger.warning(f"Error processing SeeBug Paper alternative element: {str(e)}")
-                                continue
-                        break  # Stop after finding one valid selector
-
-            if not articles_found:
-                logger.info("No articles found on SeeBug Paper site - may be protected by shield")
-
-            self._log_found('Seebug Paper', 'tech', fetched=fetched_count)
+            self._log_found('Seebug Paper', 'tech', fetched=len(items))
 
         except requests.exceptions.RequestException as e:
-            if "521" in str(e) or "403" in str(e) or "503" in str(e):
-                logger.warning(f"SeeBug Paper is protected by shield (got {type(e).__name__}: {str(e)})")
-            else:
-                logger.error(f"Network error while scraping SeeBug Paper: {str(e)}")
+            logger.warning(f"Network error while scraping SeeBug Paper RSS: {str(e)}")
         except Exception as e:
-            logger.error(f"Error scraping SeeBug Paper: {str(e)}")
+            logger.error(f"Error scraping SeeBug Paper RSS: {str(e)}")
 
     def scrape_kanxue(self):
         """Scrape https://www.kanxue.com/ for security tech articles"""
@@ -1842,7 +1723,7 @@ class SecurityNewsAggregator:
         self.scrape_tencent_security()
         self.scrape_xz_aliyun()
         self.scrape_project_zero()
-        # self.scrape_seebug_paper()  # Temporarily disabled due to Aliyun WAF protection (521 error)
+        self.scrape_seebug_paper()  # RSS-based; HTML pages remain WAF-blocked (521)
         self.scrape_kanxue()
 
         # News-focused sources
