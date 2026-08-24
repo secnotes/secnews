@@ -107,6 +107,24 @@ def _dated_archive_path(kind, filename_prefix, date=None):
 # with the in-page date picker, every day's view holds only fresh items.
 MAX_ARTICLE_AGE_DAYS = 1
 
+# English display names for per-source log lines ("Scraping X..." /
+# "Found N articles on X"), keyed by the article 'source' field so the
+# count helper and the scraper logs stay in sync
+SOURCE_LOG_NAMES = {
+    'Sec-Today': 'Sec-Today',
+    '腾讯安全': 'Tencent Security',
+    '先知社区': 'Xianzhi',
+    'Project Zero': 'Project Zero',
+    'Seebug Paper': 'SeeBug Paper',
+    '看雪论坛': 'Kanxue',
+    '安全客': 'Anquanke',
+    'FreeBuf': 'FreeBuf',
+    '安全内参': 'SecRSS',
+    'The Hacker News': 'The Hacker News',
+    'SecurityWeek': 'SecurityWeek',
+    'Unsafe.sh': 'Unsafe.sh',
+}
+
 
 class SecurityNewsAggregator:
     def __init__(self):
@@ -114,6 +132,23 @@ class SecurityNewsAggregator:
             'tech': [],
             'news': []
         }
+
+    def _log_found(self, source, category, fetched=None):
+        """Emit the standardized per-source result line. Articles start
+        empty each run, so the source's current total in self.articles
+        equals what its scraper just added.
+
+        `fetched` is how many candidate items the source page/feed offered
+        (before parsing skips, filters and errors); when given, the line
+        shows both numbers so page-structure changes are visible in logs
+        (fetched suddenly at 0 while count holds => source layout changed).
+        """
+        display = SOURCE_LOG_NAMES.get(source, source)
+        count = sum(1 for a in self.articles[category] if a['source'] == source)
+        if fetched is None:
+            logger.info(f"Found {count} articles on {display}")
+        else:
+            logger.info(f"Found {count} articles on {display} (fetched {fetched})")
 
     def decode_html_entities(self, text):
         """Decode HTML entities in text"""
@@ -220,7 +255,7 @@ class SecurityNewsAggregator:
 
     def scrape_daily_security(self):
         """Scrape https://sec.today/pulses/ for security pulses (tech articles)"""
-        logger.info("Scraping Daily Security...")
+        logger.info("Scraping Sec-Today...")
         try:
             # First, try using cloudscraper which is specifically designed to handle Cloudflare
             try:
@@ -411,13 +446,13 @@ class SecurityNewsAggregator:
                 except Exception as e:
                     continue
 
-            logger.info(f"Completed scraping Daily Security, added {len(self.articles['tech'])} tech articles")
+            self._log_found('Sec-Today', 'tech', fetched=len(cards))
         except Exception as e:
-            logger.error(f"Error scraping Daily Security: {str(e)}")
+            logger.error(f"Error scraping Sec-Today: {str(e)}")
 
     def scrape_tencent_security(self):
         """Scrape https://sectoday.tencent.com/ for tech articles"""
-        logger.info("Scraping Tencent Security...")
+        logger.info("Scraping Tencent Security (sectoday.tencent.com)...")
         try:
             response = session.get("https://sectoday.tencent.com/", timeout=10)
             response.raise_for_status()
@@ -453,12 +488,13 @@ class SecurityNewsAggregator:
                 except Exception as e:
                     logger.warning(f"Error processing Tencent Security card: {str(e)}")
                     continue
+            self._log_found('腾讯安全', 'tech', fetched=len(cards))
         except Exception as e:
             logger.error(f"Error scraping Tencent Security: {str(e)}")
 
     def scrape_xz_aliyun(self):
         """Scrape https://xz.aliyun.com/news for security news (tech) using the proper GET request"""
-        logger.info("Scraping XZ Aliyun...")
+        logger.info("Scraping Xianzhi (xz.aliyun.com)...")
         try:
             # First, get the main page to extract CSRF token
             response = session.get("https://xz.aliyun.com/news", timeout=15)
@@ -636,6 +672,8 @@ class SecurityNewsAggregator:
             else:
                 logger.warning("Unexpected response structure from XZ Aliyun API")
 
+            self._log_found('先知社区', 'tech', fetched=len(cards))
+
         except Exception as e:
             logger.error(f"Error scraping XZ Aliyun: {str(e)}")
 
@@ -732,6 +770,7 @@ class SecurityNewsAggregator:
                 except Exception as e:
                     logger.warning(f"Error processing Project Zero item: {str(e)}")
                     continue
+            self._log_found('Project Zero', 'tech', fetched=len(grid_articles))
         except Exception as e:
             logger.error(f"Error scraping Project Zero: {str(e)}")
 
@@ -824,6 +863,8 @@ class SecurityNewsAggregator:
                     logger.warning(f"Error processing Anquanke item: {str(e)}")
                     continue
 
+            self._log_found('安全客', 'news', fetched=len(item_elements))
+
         except Exception as e:
             logger.error(f"Error scraping Anquanke: {str(e)}")
 
@@ -843,11 +884,8 @@ class SecurityNewsAggregator:
             # RSS namespace
             namespaces = {'rss': 'http://purl.org/rss/1.0/modules/content/'}
 
-            articles_found = 0
-
             # Find all items in RSS feed
             items = root.findall('.//item')
-            logger.info(f"Found {len(items)} items in FreeBuf RSS feed")
 
             for item in items[:30]:  # Limit to 30 articles
                 try:
@@ -895,20 +933,19 @@ class SecurityNewsAggregator:
                         'category': 'news'
                     }
                     self.articles['news'].append(article)
-                    articles_found += 1
 
                 except Exception as e:
                     logger.warning(f"Error processing FreeBuf article: {str(e)}")
                     continue
 
-            logger.info(f"Found {articles_found} FreeBuf articles from RSS feed")
+            self._log_found('FreeBuf', 'news', fetched=len(items))
 
         except Exception as e:
             logger.error(f"Error scraping FreeBuf: {str(e)}")
 
     def scrape_secrss(self):
         """Scrape https://www.secrss.com/ for security news"""
-        logger.info("Scraping Secrss...")
+        logger.info("Scraping SecRSS (secrss.com)...")
         try:
             response = session.get("https://www.secrss.com/", timeout=10)
             response.raise_for_status()
@@ -991,12 +1028,14 @@ class SecurityNewsAggregator:
                         except Exception as e:
                             logger.warning(f"Error processing Secrss item: {str(e)}")
                             continue
+            self._log_found('安全内参', 'news',
+                            fetched=len(list_items) if article_list_title and article_list_title.find_next_sibling('ul') else 0)
         except Exception as e:
             logger.error(f"Error scraping Secrss: {str(e)}")
 
     def scrape_seebug_paper(self):
         """Scrape https://paper.seebug.org/ for security research papers (tech)"""
-        logger.info("Scraping SeeBug Paper...")
+        logger.info("Scraping SeeBug Paper...")  # currently disabled in scrape_all_sources (WAF)
         try:
             # Create a specialized session for SeeBug Paper to handle anti-bot measures
             import time
@@ -1051,10 +1090,11 @@ class SecurityNewsAggregator:
 
             # First, try the specified selector
             articles_found = False
+            fetched_count = 0
             main_inner_divs = soup.find_all('div', class_='main-inner')
 
             if main_inner_divs:
-                logger.info(f"Found {len(main_inner_divs)} main-inner divs in SeeBug Paper")
+                fetched_count = len(main_inner_divs)
 
                 for main_div in main_inner_divs:
                     try:
@@ -1160,7 +1200,7 @@ class SecurityNewsAggregator:
                 for selector in alternative_selectors:
                     alternative_elements = soup.select(selector)
                     if alternative_elements:
-                        logger.info(f"Found {len(alternative_elements)} elements with selector '{selector}'")
+                        fetched_count = len(alternative_elements)
 
                         for element in alternative_elements[:10]:  # Limit to first 10 to avoid too many
                             try:
@@ -1213,6 +1253,8 @@ class SecurityNewsAggregator:
             if not articles_found:
                 logger.info("No articles found on SeeBug Paper site - may be protected by shield")
 
+            self._log_found('Seebug Paper', 'tech', fetched=fetched_count)
+
         except requests.exceptions.RequestException as e:
             if "521" in str(e) or "403" in str(e) or "503" in str(e):
                 logger.warning(f"SeeBug Paper is protected by shield (got {type(e).__name__}: {str(e)})")
@@ -1223,7 +1265,7 @@ class SecurityNewsAggregator:
 
     def scrape_kanxue(self):
         """Scrape https://www.kanxue.com/ for security tech articles"""
-        logger.info("Scraping KanXue...")
+        logger.info("Scraping Kanxue (kanxue.com)...")
         try:
             # Create a session with appropriate headers for KanXue
             kanxue_session = requests.Session()
@@ -1246,8 +1288,6 @@ class SecurityNewsAggregator:
             article_elements = soup.find_all(class_='media p-3 home_article bg-white')
 
             if article_elements:
-                logger.info(f"Found {len(article_elements)} articles on KanXue")
-
                 for element in article_elements:
                     try:
                         # Find the article link and title
@@ -1369,12 +1409,14 @@ class SecurityNewsAggregator:
                         logger.warning(f"Error processing KanXue article: {str(e)}")
                         continue
             else:
-                logger.info("Could not find articles with class 'media p-3 home_article bg-white' on KanXue")
+                logger.info("Could not find articles with class 'media p-3 home_article bg-white' on Kanxue")
+
+            self._log_found('看雪论坛', 'tech', fetched=len(article_elements))
 
         except requests.exceptions.RequestException as e:
-            logger.warning(f"Network error while scraping KanXue: {str(e)}")
+            logger.warning(f"Network error while scraping Kanxue: {str(e)}")
         except Exception as e:
-            logger.error(f"Error scraping KanXue: {str(e)}")
+            logger.error(f"Error scraping Kanxue: {str(e)}")
 
     def scrape_the_hacker_news(self):
         """Scrape https://thehackernews.com/ for security news"""
@@ -1420,11 +1462,9 @@ class SecurityNewsAggregator:
 
                 # Find articles in the blog-posts container
                 blog_posts_div = soup.find('div', class_='blog-posts clear')
+                body_posts = blog_posts_div.find_all('div', class_='body-post') if blog_posts_div else []
 
                 if blog_posts_div:
-                    # Find all body-post elements (article cards)
-                    body_posts = blog_posts_div.find_all('div', class_='body-post')
-
                     for body_post in body_posts:
                         try:
                             # Get the link
@@ -1481,6 +1521,8 @@ class SecurityNewsAggregator:
 
             else:
                 logger.warning(f"Failed to fetch The Hacker News: HTTP {response.status_code}")
+
+            self._log_found('The Hacker News', 'news', fetched=len(body_posts))
 
         except requests.exceptions.RequestException as e:
             logger.warning(f"Network error while scraping The Hacker News: {str(e)}")
@@ -1611,7 +1653,6 @@ class SecurityNewsAggregator:
 
             # Find all items in RSS feed
             items = soup.find_all('item')
-            logger.info(f"Found {len(items)} items in SecurityWeek RSS feed")
 
             for item in items:
                 try:
@@ -1665,7 +1706,7 @@ class SecurityNewsAggregator:
                     logger.warning(f"Error processing SecurityWeek RSS item: {str(e)}")
                     continue
 
-            logger.info(f"Found {len([a for a in self.articles['news'] if a['source'] == 'SecurityWeek'])} SecurityWeek articles")
+            self._log_found('SecurityWeek', 'news', fetched=len(items))
 
         except ImportError:
             logger.warning("Playwright not available, skipping SecurityWeek")
@@ -1695,6 +1736,7 @@ class SecurityNewsAggregator:
 
         try:
             proxies = get_proxies()
+            fetched_count = 0
 
             # Scrape first 5 pages to ensure we get recent articles
             for page_num in range(1, 6):
@@ -1708,6 +1750,7 @@ class SecurityNewsAggregator:
 
                     # Find all article links with class "paper_list"
                     articles = soup.find_all('a', class_='paper_list')
+                    fetched_count += len(articles)
 
                     for article_link in articles:
                         try:
@@ -1781,7 +1824,7 @@ class SecurityNewsAggregator:
                             logger.warning(f"Error processing Unsafe.sh article: {str(e)}")
                             continue
 
-                    logger.info(f"Found articles on Unsafe.sh page {page_num}")
+            self._log_found('Unsafe.sh', 'news', fetched=fetched_count)
 
         except Exception as e:
             logger.error(f"Error scraping Unsafe.sh: {str(e)}")
