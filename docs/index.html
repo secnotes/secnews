@@ -17,9 +17,9 @@
             --border-strong: #d1d5db;
             --border-weak: #e5e7eb;
             --fill-subtle: #f3f4f6; /* inset fills, hover wells */
-            --accent: #0f766e;      /* solid accent: badges, header rule */
-            --accent-text: #0f766e; /* text links (AA on white) */
-            --accent-hover: #115e59;
+            --accent: #1d9bf0;      /* solid accent: badges, header rule (X blue) */
+            --accent-text: #0c7ab8; /* text links (AA on white) */
+            --accent-hover: #0c7ab8;
             --accent-on: #ffffff;  /* text on accent-filled surfaces */
             --danger: #d32f2f;
             --scrollbar-thumb: #c1c1c1;
@@ -38,9 +38,9 @@
             --border-strong: #343a46;
             --border-weak: #2a303c;
             --fill-subtle: #14171c;
-            --accent: #2dd4bf;
-            --accent-text: #5eead4;
-            --accent-hover: #99f6e4;
+            --accent: #4aa8e8;
+            --accent-text: #7bc5f2;
+            --accent-hover: #9dd6f7;
             --accent-on: #14171c;  /* dark text: light accent fills need it for contrast */
             --danger: #ef5350;
             --scrollbar-thumb: #4a5160;
@@ -230,6 +230,22 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 1.5rem;
+        }
+
+        /* Section header for each card group (Media Articles / From X).
+           Spans the full grid row; font-size matches .ai-category-title
+           so the two views read at the same heading scale. No underline —
+           the page <h1> already carries the accent rule. */
+        .articles-section-header {
+            grid-column: 1 / -1;
+            margin-top: 1.5rem;
+            color: var(--text-1);
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        /* First group sits at the top of the grid — no extra top gap */
+        .articles-grid > .articles-section-header:first-of-type {
+            margin-top: 0;
         }
 
         .article-card {
@@ -489,7 +505,7 @@
             margin-left: 10px;
             vertical-align: middle;
             letter-spacing: 0.3px;
-            box-shadow: 0 1px 3px rgba(79, 70, 229, 0.3);
+            box-shadow: 0 1px 3px rgba(29, 155, 240, 0.3);
         }
 
         .ai-article {
@@ -553,6 +569,74 @@
             border-radius: 4px;
             font-size: 0.85rem;
             color: var(--text-3);
+        }
+
+        /* Tweet-style card (X source) */
+        .tweet-card {
+            /* No top accent border — keep tweet cards visually consistent
+               with web article cards; the 𝕏 badge is enough identity. */
+        }
+        .tweet-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+        .tweet-avatar {
+            width: 42px;
+            height: 42px;
+            min-width: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--fill-subtle);
+            border: 1px solid var(--border-weak);
+        }
+        .tweet-author {
+            flex: 1;
+            min-width: 0;
+        }
+        .tweet-name-line {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .tweet-name {
+            font-weight: 700;
+            color: var(--text-1);
+            font-size: 0.98rem;
+        }
+        .tweet-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #fff;
+            background: #1d9bf0;
+            border-radius: 4px;
+            padding: 1px 6px;
+            letter-spacing: 0.05em;
+        }
+        .tweet-badge::before {
+            content: "𝕏";
+        }
+        .tweet-meta {
+            color: var(--text-3);
+            font-size: 0.85rem;
+            margin-top: 2px;
+        }
+        .tweet-text {
+            color: var(--text-2);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+            overflow-wrap: break-word;
+        }
+        .tweet-text a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .tweet-text a:hover {
+            color: var(--accent-hover);
         }
     
         /* Floating controls: theme + language (top-right), back-to-top (bottom-right) */
@@ -841,16 +925,16 @@
             <!-- View Toggle Buttons -->
             <div class="view-toggle">
                 <button class="view-toggle-btn" onclick="switchView('ai')"><span class="lang-zh">🤖 AI精选</span><span class="lang-en">🤖 AI Curated</span></button>
-                <button class="view-toggle-btn active" onclick="switchView('original')"><span class="lang-zh">📚 全部文章</span><span class="lang-en">📚 All Articles</span></button>
+                <button class="view-toggle-btn active" onclick="switchView('original')"><span class="lang-zh">📚 全部资讯</span><span class="lang-en">📚 All News</span></button>
             </div>
 
             <!-- Original Sidebar (Filters) -->
             <div class="sidebar-section" id="original-sidebar">
                 <div class="filters">
                     <div class="filter-group">
-                        <label><span class="lang-zh">📅 按日期筛选:</span><span class="lang-en">📅 Filter by Date:</span></label>
-                        <div class="multi-select" id="date-select">
-                            <div class="multi-select-header" onclick="toggleDropdown('date-select')">全部日期</div>
+                        <label><span class="lang-zh">🏷️ 按类型筛选:</span><span class="lang-en">🏷️ Filter by Type:</span></label>
+                        <div class="multi-select" id="type-select">
+                            <div class="multi-select-header" onclick="toggleDropdown('type-select')"><span class="lang-zh">全部类型</span><span class="lang-en">All types</span></div>
                             <div class="multi-select-dropdown"></div>
                         </div>
                     </div>
@@ -874,7 +958,7 @@
                 <div style="margin-top: 1.5rem;">
                     <h4><span class="lang-zh">统计信息</span><span class="lang-en">Statistics</span></h4>
                     <p id="visible-count"><span class="lang-zh">当前显示</span><span class="lang-en">Showing</span>: 0</p>
-                    <p id="stat-total"><span class="lang-zh">总文章数</span><span class="lang-en">Total Articles</span>: 0</p>
+                    <p id="stat-total"><span class="lang-zh">总资讯数</span><span class="lang-en">Total News</span>: 0</p>
                     <p id="stat-date"><span class="lang-zh">更新日期</span><span class="lang-en">Updated</span>: 2026-08-26</p>
                 </div>
             </div>
@@ -915,7 +999,7 @@
                     📄 Json data
                 </a>
             </p>
-            <p><span class="lang-zh">安全资讯聚合平台</span><span class="lang-en">Security News Aggregator</span> | <span class="lang-zh">更新时间</span><span class="lang-en">Updated</span>: 2026-08-26 00:40:25</p>
+            <p><span class="lang-zh">安全资讯聚合平台</span><span class="lang-en">Security News Aggregator</span> | <span class="lang-zh">更新时间</span><span class="lang-en">Updated</span>: 2026-08-26 05:30:32</p>
             <p><span class="lang-zh">数据来源</span><span class="lang-en">Sources</span>: <span class="lang-zh">Sec-Today, 先知社区, Project Zero, Seebug Paper, 腾讯安全, 安全客, 安全内参, SecurityWeek, The Hacker News, 看雪</span><span class="lang-en">Sec-Today, Xianzhi, Project Zero, Seebug Paper, Tencent Security, Anquanke, SecRSS, SecurityWeek, The Hacker News, Kanxue</span></p>
             <p><span class="lang-zh">如有侵权，请联系删除</span><span class="lang-en">Contact us for removal if any content infringes copyright</span></p>
     </div>
@@ -927,6 +1011,7 @@
         var BILINGUAL = true;
         var SOURCE_NAME_EN = {"腾讯安全": "Tencent Security", "先知社区": "Xianzhi Community", "安全客": "Anquanke", "安全内参": "SecRSS", "看雪论坛": "Kanxue Forum"};
         var CATEGORY_NAME_EN = {"漏洞研究": "Vulnerability Research", "移动安全": "Mobile Security", "AI安全": "AI Security", "威胁情报": "Threat Intelligence", "安全工具": "Security Tools", "云安全": "Cloud Security", "其他重要": "Other Important"};
+        var TYPE_LABELS = {"web": {"zh": "媒体文章", "en": "Media Articles"}, "x": {"zh": "X 推特", "en": "X (Twitter)"}};
         window.NEWS_CURRENT_DATE = '2026-08-26';
     
         
@@ -1000,9 +1085,11 @@
         }
         
         function cardSource(card) {
+            // All rendered cards carry a data-source attribute; fall back to
+            // the DOM for safety (bilingual pages keep the source in a span)
+            if (card.dataset && card.dataset.source) return card.dataset.source;
             var el = card.querySelector('.article-source');
-            // On bilingual pages read the Chinese span so the value matches
-            // the source filter options
+            if (!el) return '';
             var zh = el.querySelector('.lang-zh');
             return (zh || el).textContent.replace('来源: ', '');
         }
@@ -1032,6 +1119,32 @@
         }
         function hasTr(a) { return !!(a && a.title_zh && a.title_en); }
 
+        // Helpers for the tweet-style card
+        function tweetCardHtml(a) {
+            var avatar = a.author_avatar ? '<img class="tweet-avatar" src="' + esc(a.author_avatar) + '" alt="">' : '<span class="tweet-avatar"></span>';
+            var displayName = esc(a.author_name || a.author_handle || '');
+            var handle = a.author_handle ? '@' + esc(a.author_handle) : '';
+            var text = a.description ? esc(a.description.length > 500 ? a.description.slice(0, 500) + '...' : a.description) : '';
+            var textHtml = BILINGUAL && (a.description_zh || a.description_en)
+                ? dualSpans(a.description_zh, a.description_en, a.description || '')
+                : text;
+            var meta = BILINGUAL
+                ? '<span class="lang-zh">' + handle + ' · ' + esc(a.date) + '</span>' +
+                  '<span class="lang-en">' + (a.author_handle ? '@' + esc(a.author_handle) : '') + ' · ' + esc(a.date) + '</span>'
+                : handle + ' · ' + esc(a.date);
+            return '<div class="tweet-header">' +
+                       avatar +
+                       '<div class="tweet-author">' +
+                           '<div class="tweet-name-line">' +
+                               '<span class="tweet-name">' + displayName + '</span>' +
+                               '<span class="tweet-badge"></span>' +
+                           '</div>' +
+                           '<div class="tweet-meta">' + meta + '</div>' +
+                       '</div>' +
+                   '</div>' +
+                   '<p class="tweet-text"><a href="' + esc(a.url) + '" target="_blank">' + textHtml + '</a></p>';
+        }
+
         // The one and only article-card renderer (initial load + date switches)
         function renderCard(a) {
             var bil = BILINGUAL && hasTr(a);
@@ -1041,6 +1154,9 @@
                       '<span class="lang-en">Source: ' + esc(SOURCE_NAME_EN[a.source] || a.source) + '</span></div>';
             } else {
                 src = '<div class="article-source">来源: ' + esc(a.source) + '</div>';
+            }
+            if (a.category === 'x') {
+                return '<div class="article-card tweet-card" data-date="' + esc(a.date) + '" data-category="' + esc(a.category || '') + '" data-source="' + esc(a.source) + '">' + tweetCardHtml(a) + '</div>';
             }
             var title = bil
                 ? '<a href="' + esc(a.url) + '" target="_blank">' + dualSpans(a.title_zh, a.title_en, a.title) + '</a>'
@@ -1055,7 +1171,7 @@
             var dateLine = BILINGUAL
                 ? '<div class="article-date"><span class="lang-zh">发布日期: </span><span class="lang-en">Date: </span>' + esc(a.date) + '</div>'
                 : '<div class="article-date">发布日期: ' + esc(a.date) + '</div>';
-            return '<div class="article-card" data-date="' + esc(a.date) + '">' + src +
+            return '<div class="article-card" data-date="' + esc(a.date) + '" data-category="' + esc(a.category || '') + '" data-source="' + esc(a.source) + '">' + src +
                    '<h3 class="article-title">' + title + '</h3>' + desc + dateLine + '</div>';
         }
 
@@ -1128,19 +1244,29 @@
                 '<p>' + Tjs('模型来源', 'Model') + ': ' + esc(c ? (c.model || '-') : '-') + '</p>';
         }
 
+        function cardMedium(category) {
+            // Old archives have category='tech' or 'news'; all web content maps to 'web'
+            return category === 'x' ? 'x' : 'web';
+        }
+
         // Rebuild sidebar filter options from the currently rendered cards
         // (factored out of the original window.onload so date switches reuse it)
         function rebuildFilterOptions() {
-            var dates = {};
+            var types = {};
             var sources = {};
             document.querySelectorAll('.article-card').forEach(function(card) {
-                dates[card.getAttribute('data-date')] = 1;
-                sources[cardSource(card)] = 1;
+                types[cardMedium(card.getAttribute('data-category'))] = 1;
+                sources[card.getAttribute('data-source') || cardSource(card)] = 1;
             });
-            var dateDropdown = document.querySelector('#date-select .multi-select-dropdown');
-            if (dateDropdown) {
-                dateDropdown.innerHTML = Object.keys(dates).sort().reverse().map(function(d, i) {
-                    return '<div class="multi-select-option"><input type="checkbox" id="date-' + i + '" value="' + d + '"> ' + d + '</div>';
+            // Fixed display order: web, x (only those present in today's cards)
+            var typeOrder = ['web', 'x'].filter(function(c) { return types[c]; });
+            var typeDropdown = document.querySelector('#type-select .multi-select-dropdown');
+            if (typeDropdown) {
+                typeDropdown.innerHTML = typeOrder.map(function(c, i) {
+                    var lbl = BILINGUAL
+                        ? '<span class="lang-zh">' + esc(TYPE_LABELS[c].zh) + '</span><span class="lang-en">' + esc(TYPE_LABELS[c].en) + '</span>'
+                        : esc(TYPE_LABELS[c].zh);
+                    return '<div class="multi-select-option"><input type="checkbox" id="type-' + i + '" value="' + c + '"> ' + lbl + '</div>';
                 }).join('');
             }
             var dropdown = document.getElementById('source-dropdown');
@@ -1157,23 +1283,44 @@
                 cb.addEventListener('change', applyFilters);
             });
             document.querySelectorAll('.multi-select-dropdown').forEach(function(dd) { dd.classList.remove('show'); });
-            var dateHeader = document.querySelector('#date-select .multi-select-header');
-            if (dateHeader) dateHeader.textContent = t('全部日期', 'All dates');
+            var typeHeader = document.querySelector('#type-select .multi-select-header');
+            if (typeHeader) typeHeader.textContent = t('全部类型', 'All types');
             var sourceHeader = document.querySelector('#source-select .multi-select-header');
             if (sourceHeader) sourceHeader.textContent = t('全部来源[不包含Unsafe]', 'All sources');
         }
 
         function updateStats(data) {
-            var total = (data.tech || []).length + (data.news || []).length;
-            document.getElementById('stat-total').innerHTML = Tjs('总文章数', 'Total Articles') + ': ' + total;
+            var total = (data.tech || []).length + (data.news || []).length + (data.web || []).length + (data.x || []).length;
+            document.getElementById('stat-total').innerHTML = Tjs('总资讯数', 'Total News') + ': ' + total;
             document.getElementById('stat-date').innerHTML = Tjs('更新日期', 'Updated') + ': ' + currentNewsDate;
         }
 
         function applyNewsDate(data) {
-            // Archives keep the tech/news split; the page shows one merged list
+            // Old archives use {tech,news}; new archives use {web,x}. Support both.
+            // Web articles first (sorted by date desc), then X tweets at the
+            // end as a separate group — the two card styles stay visually
+            // distinct instead of interleaved. Each group gets its own
+            // section header so the page reads as two titled sections.
             var byDateDesc = function(a, b) { return b.date.localeCompare(a.date); };
-            var cards = (data.tech || []).concat(data.news || []).slice().sort(byDateDesc).map(renderCard).join('');
-            document.getElementById('articles-grid').innerHTML = cards;
+            var webArticles = (data.tech || []).concat(data.news || []).concat(data.web || []).slice().sort(byDateDesc);
+            var xTweets = (data.x || []).slice().sort(byDateDesc);
+            var parts = [];
+            if (webArticles.length) {
+                parts.push('<div class="articles-section-header" data-category="web">' +
+                    Tjs('📰 媒体文章', '📰 Media Articles') +
+                    '</div>');
+                parts = parts.concat(webArticles.map(renderCard));
+            }
+            if (xTweets.length) {
+                // Section header spanning the full grid width; carries
+                // data-category='x' so the type filter hides it together
+                // with the tweets when X is unchecked.
+                parts.push('<div class="articles-section-header" data-category="x">' +
+                    Tjs('𝕏 来自 X', '𝕏 From X') +
+                    '</div>');
+                parts = parts.concat(xTweets.map(renderCard));
+            }
+            document.getElementById('articles-grid').innerHTML = parts.join('');
             rebuildFilterOptions();
             updateStats(data);
             applyFilters();
@@ -1266,28 +1413,44 @@
         };
 
         function applyFilters() {
-            const selectedDates = Array.from(document.querySelectorAll('#date-select input:checked')).map(cb => cb.value);
+            const selectedTypes = Array.from(document.querySelectorAll('#type-select input:checked')).map(cb => cb.value);
             const selectedSources = Array.from(document.querySelectorAll('#source-select input:checked')).map(cb => cb.value);
             const searchTerm = document.getElementById('search-input').value.toLowerCase();
 
             // 更新下拉框标题
-            document.querySelector('#date-select .multi-select-header').textContent = selectedDates.length ? (selectedDates.length > 1 ? selectedDates.length + t('项已选', ' selected') : selectedDates[0]) : t('全部日期', 'All dates');
+            document.querySelector('#type-select .multi-select-header').textContent = selectedTypes.length ? (selectedTypes.length > 1 ? selectedTypes.length + t('项已选', ' selected') : (currentLang === 'en' ? TYPE_LABELS[selectedTypes[0]].en : TYPE_LABELS[selectedTypes[0]].zh)) : t('全部类型', 'All types');
             document.querySelector('#source-select .multi-select-header').textContent = selectedSources.length ? (selectedSources.length > 1 ? selectedSources.length + t('项已选', ' selected') : (currentLang === 'en' ? (SOURCE_NAME_EN[selectedSources[0]] || selectedSources[0]) : selectedSources[0])) : t('全部来源[不包含Unsafe]', 'All sources');
 
             // 筛选文章
             let visibleCount = 0;
             document.querySelectorAll('.article-card').forEach(card => {
-                const cardDate = card.getAttribute('data-date');
+                const medium = cardMedium(card.getAttribute('data-category'));
                 const cardSource = window.cardSource(card);
-                const title = card.querySelector('.article-title').textContent.toLowerCase();
-                const desc = card.querySelector('.article-description')?.textContent.toLowerCase() || '';
+                const titleEl = card.querySelector('.article-title');
+                const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+                const descEl = card.querySelector('.article-description') || card.querySelector('.tweet-text');
+                const desc = descEl ? descEl.textContent.toLowerCase() : '';
 
-                const match = (selectedDates.length === 0 || selectedDates.includes(cardDate)) &&
+                const match = (selectedTypes.length === 0 || selectedTypes.includes(medium)) &&
                              (selectedSources.length === 0 || selectedSources.includes(cardSource)) &&
                              (searchTerm === '' || title.includes(searchTerm) || desc.includes(searchTerm)) &&
                              (selectedSources.includes('Unsafe.sh') || cardSource !== 'Unsafe.sh');
                 card.style.display = match ? 'flex' : 'none';
                 if (match) visibleCount++;
+            });
+            // X section header: hide when X is filtered out, or when no X
+            // tweet is visible (search/source narrowed it to zero)
+            document.querySelectorAll('.articles-section-header').forEach(function(h) {
+                var medium = cardMedium(h.getAttribute('data-category'));
+                // Header shows only if its medium passes the type filter AND
+                // at least one card of that medium is visible (search/source
+                // may have narrowed it to zero — hide the header then)
+                var anyVisible = false;
+                document.querySelectorAll('.article-card').forEach(function(c) {
+                    if (cardMedium(c.getAttribute('data-category')) === medium && c.style.display !== 'none') anyVisible = true;
+                });
+                var show = (selectedTypes.length === 0 || selectedTypes.includes(medium)) && anyVisible;
+                h.style.display = show ? 'block' : 'none';
             });
             document.getElementById('visible-count').textContent = t('当前显示: ', 'Showing: ') + visibleCount;
         }
@@ -1295,7 +1458,7 @@
         function clearAllFilters() {
             document.querySelectorAll('.multi-select input[type="checkbox"]').forEach(cb => cb.checked = false);
             document.getElementById('search-input').value = '';
-            document.querySelector('#date-select .multi-select-header').textContent = t('全部日期', 'All dates');
+            document.querySelector('#type-select .multi-select-header').textContent = t('全部类型', 'All types');
             document.querySelector('#source-select .multi-select-header').textContent = t('全部来源[不包含Unsafe]', 'All sources');
             document.querySelectorAll('.multi-select-dropdown').forEach(d => d.classList.remove('show'));
             applyFilters();

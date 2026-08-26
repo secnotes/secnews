@@ -83,6 +83,30 @@ def get_proxies():
         }
     return None
 
+
+def _load_x_accounts():
+    """Load X account screen names from x_accounts.txt at project root.
+
+    One per line; blank lines and lines starting with '#' are ignored.
+    A leading '@' is stripped. Returns [] when the file is absent (the X
+    source then stays disabled, mirroring translate_all's no-op-when-unset).
+    """
+    path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                        'x_accounts.txt')
+    accounts = []
+    if os.path.exists(path):
+        with open(path, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith('#'):
+                    continue
+                accounts.append(line.lstrip('@'))
+    if accounts:
+        logger.info(f"Loaded {len(accounts)} X account(s) from x_accounts.txt")
+    return accounts
+
+X_ACCOUNTS = _load_x_accounts()
+
 def _docs_dir():
     """Project docs directory (generated HTML and dated data archives live here)"""
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -122,6 +146,7 @@ SOURCE_LOG_NAMES = {
     '安全内参': 'SecRSS',
     'The Hacker News': 'The Hacker News',
     'SecurityWeek': 'SecurityWeek',
+    'Security Online': 'Security Online',
     'Unsafe.sh': 'Unsafe.sh',
 }
 
@@ -129,8 +154,8 @@ SOURCE_LOG_NAMES = {
 class SecurityNewsAggregator:
     def __init__(self):
         self.articles = {
-            'tech': [],
-            'news': []
+            'web': [],
+            'x': []
         }
 
     def _log_found(self, source, category, fetched=None):
@@ -440,13 +465,13 @@ class SecurityNewsAggregator:
                             'source': 'Sec-Today',
                             'description': description,
                             'date': date,
-                            'category': 'tech'
+                            'category': 'web'
                         }
-                        self.articles['tech'].append(article)
+                        self.articles['web'].append(article)
                 except Exception as e:
                     continue
 
-            self._log_found('Sec-Today', 'tech', fetched=len(cards))
+            self._log_found('Sec-Today', 'web', fetched=len(cards))
         except Exception as e:
             logger.error(f"Error scraping Sec-Today: {str(e)}")
 
@@ -502,15 +527,15 @@ class SecurityNewsAggregator:
                         'source': '腾讯安全',
                         'description': self.decode_html_entities(description),
                         'date': date,
-                        'category': 'tech'
+                        'category': 'web'
                     }
-                    self.articles['tech'].append(article)
+                    self.articles['web'].append(article)
 
                 except Exception as e:
                     logger.warning(f"Error processing Tencent Security feed item: {str(e)}")
                     continue
 
-            self._log_found('腾讯安全', 'tech', fetched=len(items))
+            self._log_found('腾讯安全', 'web', fetched=len(items))
         except Exception as e:
             logger.error(f"Error scraping Tencent Security: {str(e)}")
 
@@ -685,16 +710,16 @@ class SecurityNewsAggregator:
                                 'source': '先知社区',
                                 'description': description,
                                 'date': date,
-                                'category': 'tech'
+                                'category': 'web'
                             }
-                            self.articles['tech'].append(article)
+                            self.articles['web'].append(article)
                     except Exception as e:
                         logger.warning(f"Error processing XZ Aliyun item: {str(e)}")
                         continue
             else:
                 logger.warning("Unexpected response structure from XZ Aliyun API")
 
-            self._log_found('先知社区', 'tech', fetched=len(cards))
+            self._log_found('先知社区', 'web', fetched=len(cards))
 
         except Exception as e:
             logger.error(f"Error scraping XZ Aliyun: {str(e)}")
@@ -786,13 +811,13 @@ class SecurityNewsAggregator:
                             'source': 'Project Zero',
                             'description': description,
                             'date': date,
-                            'category': 'tech'
+                            'category': 'web'
                         }
-                        self.articles['tech'].append(article_dict)
+                        self.articles['web'].append(article_dict)
                 except Exception as e:
                     logger.warning(f"Error processing Project Zero item: {str(e)}")
                     continue
-            self._log_found('Project Zero', 'tech', fetched=len(grid_articles))
+            self._log_found('Project Zero', 'web', fetched=len(grid_articles))
         except Exception as e:
             logger.error(f"Error scraping Project Zero: {str(e)}")
 
@@ -877,15 +902,15 @@ class SecurityNewsAggregator:
                         'source': '安全客',
                         'description': description,
                         'date': date,
-                        'category': 'news'
+                        'category': 'web'
                     }
-                    self.articles['news'].append(article)
+                    self.articles['web'].append(article)
 
                 except Exception as e:
                     logger.warning(f"Error processing Anquanke item: {str(e)}")
                     continue
 
-            self._log_found('安全客', 'news', fetched=len(item_elements))
+            self._log_found('安全客', 'web', fetched=len(item_elements))
 
         except Exception as e:
             logger.error(f"Error scraping Anquanke: {str(e)}")
@@ -952,15 +977,15 @@ class SecurityNewsAggregator:
                         'source': 'FreeBuf',
                         'description': description,
                         'date': date,
-                        'category': 'news'
+                        'category': 'web'
                     }
-                    self.articles['news'].append(article)
+                    self.articles['web'].append(article)
 
                 except Exception as e:
                     logger.warning(f"Error processing FreeBuf article: {str(e)}")
                     continue
 
-            self._log_found('FreeBuf', 'news', fetched=len(items))
+            self._log_found('FreeBuf', 'web', fetched=len(items))
 
         except Exception as e:
             logger.error(f"Error scraping FreeBuf: {str(e)}")
@@ -1044,13 +1069,13 @@ class SecurityNewsAggregator:
                                     'source': '安全内参',
                                     'description': description,
                                     'date': date,
-                                    'category': 'news'
+                                    'category': 'web'
                                 }
-                                self.articles['news'].append(article)
+                                self.articles['web'].append(article)
                         except Exception as e:
                             logger.warning(f"Error processing Secrss item: {str(e)}")
                             continue
-            self._log_found('安全内参', 'news',
+            self._log_found('安全内参', 'web',
                             fetched=len(list_items) if article_list_title and article_list_title.find_next_sibling('ul') else 0)
         except Exception as e:
             logger.error(f"Error scraping Secrss: {str(e)}")
@@ -1129,15 +1154,15 @@ class SecurityNewsAggregator:
                         'source': 'Seebug Paper',
                         'description': self.decode_html_entities(description),
                         'date': date,
-                        'category': 'tech'
+                        'category': 'web'
                     }
-                    self.articles['tech'].append(article)
+                    self.articles['web'].append(article)
 
                 except Exception as e:
                     logger.warning(f"Error processing SeeBug Paper RSS item: {str(e)}")
                     continue
 
-            self._log_found('Seebug Paper', 'tech', fetched=len(items))
+            self._log_found('Seebug Paper', 'web', fetched=len(items))
 
         except requests.exceptions.RequestException as e:
             logger.warning(f"Network error while scraping SeeBug Paper RSS: {str(e)}")
@@ -1282,9 +1307,9 @@ class SecurityNewsAggregator:
                                 'source': '看雪论坛',
                                 'description': description,
                                 'date': date,
-                                'category': 'tech'  # KanXue is technology-focused
+                                'category': 'web'  # KanXue is technology-focused
                             }
-                            self.articles['tech'].append(article)
+                            self.articles['web'].append(article)
 
                     except Exception as e:
                         logger.warning(f"Error processing KanXue article: {str(e)}")
@@ -1292,7 +1317,7 @@ class SecurityNewsAggregator:
             else:
                 logger.info("Could not find articles with class 'media p-3 home_article bg-white' on Kanxue")
 
-            self._log_found('看雪论坛', 'tech', fetched=len(article_elements))
+            self._log_found('看雪论坛', 'web', fetched=len(article_elements))
 
         except requests.exceptions.RequestException as e:
             logger.warning(f"Network error while scraping Kanxue: {str(e)}")
@@ -1390,9 +1415,9 @@ class SecurityNewsAggregator:
                                             'source': 'The Hacker News',
                                             'description': description,
                                             'date': date,
-                                            'category': 'news'
+                                            'category': 'web'
                                         }
-                                        self.articles['news'].append(article)
+                                        self.articles['web'].append(article)
 
                         except Exception as e:
                             logger.warning(f"Error processing The Hacker News article: {str(e)}")
@@ -1403,7 +1428,7 @@ class SecurityNewsAggregator:
             else:
                 logger.warning(f"Failed to fetch The Hacker News: HTTP {response.status_code}")
 
-            self._log_found('The Hacker News', 'news', fetched=len(body_posts))
+            self._log_found('The Hacker News', 'web', fetched=len(body_posts))
 
         except requests.exceptions.RequestException as e:
             logger.warning(f"Network error while scraping The Hacker News: {str(e)}")
@@ -1579,20 +1604,181 @@ class SecurityNewsAggregator:
                             'source': 'SecurityWeek',
                             'description': description,
                             'date': date,
-                            'category': 'news'
+                            'category': 'web'
                         }
-                        self.articles['news'].append(article)
+                        self.articles['web'].append(article)
 
                 except Exception as e:
                     logger.warning(f"Error processing SecurityWeek RSS item: {str(e)}")
                     continue
 
-            self._log_found('SecurityWeek', 'news', fetched=len(items))
+            self._log_found('SecurityWeek', 'web', fetched=len(items))
 
         except ImportError:
             logger.warning("Playwright not available, skipping SecurityWeek")
         except Exception as e:
             logger.error(f"Error scraping SecurityWeek: {str(e)}")
+
+    def scrape_securityonline(self):
+        """Scrape https://securityonline.info/feed RSS for security news.
+
+        Plain RSS 2.0; requires a proxy in CN environments (the host is
+        reachable but slow/blocked without one). Replaces the coverage
+        previously pulled from @Daily_CyberSec tweets.
+        """
+        logger.info("Scraping Security Online RSS feed...")
+        try:
+            import xml.etree.ElementTree as ET
+            from email.utils import parsedate_to_datetime
+
+            response = session.get('https://securityonline.info/feed',
+                                   headers={'Accept': 'application/rss+xml, application/xml;q=0.9, */*;q=0.8'},
+                                   proxies=get_proxies(), timeout=25)
+            response.raise_for_status()
+
+            root = ET.fromstring(response.content)
+            items = root.findall('.//item')
+
+            for item in items[:30]:  # Limit to 30 articles
+                try:
+                    title = (item.findtext('title') or '').strip()
+                    url = (item.findtext('link') or '').strip()
+                    if not title or not url:
+                        continue
+
+                    # Description arrives as HTML; strip tags for the card
+                    description = ''
+                    desc_raw = item.findtext('description') or ''
+                    if desc_raw:
+                        description = re.sub(r'<[^>]+>', '', desc_raw).strip()
+                        description = description[:200] + '...' if len(description) > 200 else description
+
+                    # pubDate is RFC 822 ("Wed, 26 Aug 2026 08:01:36 +0000")
+                    date = datetime.now().strftime('%Y-%m-%d')
+                    pub_date_text = (item.findtext('pubDate') or '').strip()
+                    if pub_date_text:
+                        try:
+                            parsed_date = parsedate_to_datetime(pub_date_text)
+                            date = parsed_date.astimezone().strftime('%Y-%m-%d')
+                        except Exception:
+                            pass
+
+                    article = {
+                        'title': self.decode_html_entities(title),
+                        'url': url,
+                        'source': 'Security Online',
+                        'description': self.decode_html_entities(description),
+                        'date': date,
+                        'category': 'web'
+                    }
+                    self.articles['web'].append(article)
+
+                except Exception as e:
+                    logger.warning(f"Error processing Security Online RSS item: {str(e)}")
+                    continue
+
+            self._log_found('Security Online', 'web', fetched=len(items))
+
+        except Exception as e:
+            logger.error(f"Error scraping Security Online: {str(e)}")
+
+    def scrape_x_account(self, screen_name):
+        """Scrape one X account's recent tweets via SSR Schema.org microdata.
+
+        X server-side renders ~5 most-recent tweets as SocialMediaPosting
+        microdata for SEO, so a plain HTML fetch (no login, no guest
+        token, no JS) yields them directly. Returns early with an error
+        if the fetch fails; logs fetched=0 if the SSR markup is absent
+        (layout changed / blocked).
+        """
+        logger.info(f"Scraping X (@{screen_name})...")
+        try:
+            response = session.get(
+                f"https://x.com/{screen_name}",
+                headers={
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                                  'AppleWebKit/537.36 (KHTML, like Gecko) '
+                                  'Chrome/120.0.0.0 Safari/537.36',
+                    'Accept-Language': 'en-US,en;q=0.9',
+                },
+                timeout=20,
+            )
+            if response.status_code != 200:
+                logger.error(f"Failed to fetch x.com/{screen_name}: HTTP {response.status_code}")
+                return
+            soup = BeautifulSoup(response.content, 'html.parser')
+            articles = soup.find_all('article', attrs={'itemtype': 'https://schema.org/SocialMediaPosting'})
+
+            # Canonical screen name from SSR (handles case-insensitive input:
+            # /portswigger -> og:title "PortSwigger (@PortSwigger)")
+            canonical = screen_name
+            og_title = soup.find('meta', attrs={'property': 'og:title'})
+            if og_title and og_title.get('content'):
+                m = re.search(r'\(@([^)]+)\)', og_title['content'])
+                if m:
+                    canonical = m.group(1)
+            source_name = f'X (@{canonical})'
+
+            for art in articles:
+                try:
+                    def ip(name):
+                        meta = art.find('meta', attrs={'itemprop': name})
+                        return meta['content'] if meta and meta.has_attr('content') else ''
+                    text = ip('text')
+                    url = ip('url')
+                    if not text or not url:
+                        continue
+                    # Tweet has no title: first ~80 chars as title, full text as description
+                    title = text[:80] + ('…' if len(text) > 80 else '')
+                    # Date '2026-08-06T22:29:00.000Z' -> local YYYY-MM-DD
+                    # (matches Tencent's .astimezone() so the freshness filter
+                    # compares against the local cutoff consistently)
+                    date = datetime.now().strftime('%Y-%m-%d')
+                    iso = ip('datePublished')
+                    if iso:
+                        try:
+                            date = datetime.fromisoformat(iso.replace('Z', '+00:00')).astimezone().strftime('%Y-%m-%d')
+                        except ValueError:
+                            pass
+                    # Author block (avatar / display name / @handle) feeds the
+                    # tweet-style card; all fields optional, card degrades
+                    # gracefully when absent
+                    author_name = ''
+                    author_handle = canonical
+                    author_avatar = ''
+                    author_block = art.find('div', attrs={'itemprop': 'author'})
+                    if author_block:
+                        def aip(name):
+                            meta = author_block.find('meta', attrs={'itemprop': name})
+                            return meta['content'] if meta and meta.has_attr('content') else ''
+                        author_name = aip('name')
+                        author_handle = aip('alternateName') or canonical
+                        author_avatar = aip('image')
+                    self.articles['x'].append({
+                        'title': self.decode_html_entities(title),
+                        'url': url,
+                        'source': source_name,
+                        'description': self.decode_html_entities(text[:500] + ('...' if len(text) > 500 else '')),
+                        'date': date,
+                        'category': 'x',
+                        'author_name': author_name,
+                        'author_handle': author_handle,
+                        'author_avatar': author_avatar,
+                    })
+                except Exception as e:
+                    logger.warning(f"Error processing X tweet for @{screen_name}: {str(e)}")
+                    continue
+
+            self._log_found(source_name, 'x', fetched=len(articles))
+        except Exception as e:
+            logger.error(f"Error scraping X (@{screen_name}): {str(e)}")
+
+    def scrape_x(self):
+        """Scrape all X accounts listed in x_accounts.txt (no-op if absent/empty)."""
+        if not X_ACCOUNTS:
+            return
+        for screen_name in X_ACCOUNTS:
+            self.scrape_x_account(screen_name)
 
     def scrape_unsafe_sh(self):
         """Scrape https://unsafe.sh/ for security news - only articles within last 2 days"""
@@ -1697,15 +1883,15 @@ class SecurityNewsAggregator:
                                 'source': 'Unsafe.sh',
                                 'description': description,
                                 'date': date,
-                                'category': 'news'
+                                'category': 'web'
                             }
-                            self.articles['news'].append(article)
+                            self.articles['web'].append(article)
 
                         except Exception as e:
                             logger.warning(f"Error processing Unsafe.sh article: {str(e)}")
                             continue
 
-            self._log_found('Unsafe.sh', 'news', fetched=fetched_count)
+            self._log_found('Unsafe.sh', 'web', fetched=fetched_count)
 
         except Exception as e:
             logger.error(f"Error scraping Unsafe.sh: {str(e)}")
@@ -1732,6 +1918,10 @@ class SecurityNewsAggregator:
         self.scrape_secrss()
         self.scrape_the_hacker_news()
         self.scrape_security_week()
+        self.scrape_securityonline()
+
+        # X (Twitter) accounts configured via x_accounts.txt
+        self.scrape_x()
 
         # Unsafe.sh crawler (only when explicitly enabled)
         if include_unsafe:
@@ -1743,26 +1933,26 @@ class SecurityNewsAggregator:
         # Filter articles to keep only those published within the last 30 days
         self.filter_recent_articles(days=30)
 
-        logger.info(f"Scraping completed. Collected {len(self.articles['tech'])} tech articles and {len(self.articles['news'])} news articles")
+        logger.info(f"Scraping completed. Collected {len(self.articles['web'])} web articles and {len(self.articles['x'])} X tweets")
 
     def remove_duplicates(self):
         """Remove duplicate articles based on URL"""
         seen_urls = set()
-        unique_tech = []
-        unique_news = []
+        unique_web = []
+        unique_x = []
 
-        for article in self.articles['tech']:
+        for article in self.articles['web']:
             if article['url'] not in seen_urls:
                 seen_urls.add(article['url'])
-                unique_tech.append(article)
+                unique_web.append(article)
 
-        for article in self.articles['news']:
+        for article in self.articles['x']:
             if article['url'] not in seen_urls:
                 seen_urls.add(article['url'])
-                unique_news.append(article)
+                unique_x.append(article)
 
-        self.articles['tech'] = unique_tech
-        self.articles['news'] = unique_news
+        self.articles['web'] = unique_web
+        self.articles['x'] = unique_x
 
     def filter_recent_articles(self, days=30):
         """Filter articles to keep only those published within the specified number of days"""
@@ -1772,61 +1962,67 @@ class SecurityNewsAggregator:
 
         cutoff_date = datetime.now() - timedelta(days=days)
 
-        # Filter tech articles
-        filtered_tech = []
-        for article in self.articles['tech']:
+        # Filter web articles
+        filtered_web = []
+        for article in self.articles['web']:
             try:
                 # Parse the article date
                 article_date = datetime.strptime(article['date'], '%Y-%m-%d')
 
                 # Keep only articles newer than cutoff date
                 if article_date >= cutoff_date:
-                    filtered_tech.append(article)
+                    filtered_web.append(article)
                 else:
-                    logger.debug(f"Removing old tech article: {article['title']} (published on {article['date']})")
+                    logger.debug(f"Removing old web article: {article['title']} (published on {article['date']})")
             except ValueError:
                 # If date parsing fails, keep the article to be safe
-                logger.warning(f"Could not parse date for tech article: {article['date']}, keeping article")
-                filtered_tech.append(article)
+                logger.warning(f"Could not parse date for web article: {article['date']}, keeping article")
+                filtered_web.append(article)
 
-        # Filter news articles
-        filtered_news = []
-        for article in self.articles['news']:
+        # Filter X tweets
+        filtered_x = []
+        for article in self.articles['x']:
             try:
                 # Parse the article date
                 article_date = datetime.strptime(article['date'], '%Y-%m-%d')
 
                 # Keep only articles newer than cutoff date
                 if article_date >= cutoff_date:
-                    filtered_news.append(article)
+                    filtered_x.append(article)
                 else:
-                    logger.debug(f"Removing old news article: {article['title']} (published on {article['date']})")
+                    logger.debug(f"Removing old X tweet: {article['title']} (published on {article['date']})")
             except ValueError:
                 # If date parsing fails, keep the article to be safe
-                logger.warning(f"Could not parse date for news article: {article['date']}, keeping article")
-                filtered_news.append(article)
+                logger.warning(f"Could not parse date for X tweet: {article['date']}, keeping tweet")
+                filtered_x.append(article)
 
         original_counts = {
-            'tech': len(self.articles['tech']),
-            'news': len(self.articles['news'])
+            'web': len(self.articles['web']),
+            'x': len(self.articles['x'])
         }
 
-        self.articles['tech'] = filtered_tech
-        self.articles['news'] = filtered_news
+        self.articles['web'] = filtered_web
+        self.articles['x'] = filtered_x
 
         filtered_counts = {
-            'tech': len(self.articles['tech']),
-            'news': len(self.articles['news'])
+            'web': len(self.articles['web']),
+            'x': len(self.articles['x'])
         }
 
-        logger.info(f"Article filtering completed: {original_counts['tech']} -> {filtered_counts['tech']} tech articles, {original_counts['news']} -> {filtered_counts['news']} news articles")
+        logger.info(f"Article filtering completed: {original_counts['web']} -> {filtered_counts['web']} web articles, {original_counts['x']} -> {filtered_counts['x']} X tweets")
 
     def get_recent_articles(self, days=2):
-        """Get articles from the last N days"""
+        """Get web articles from the last N days.
+
+        X tweets are deliberately excluded: AI curation selects in-depth
+        articles with reasons, and tweet alerts largely duplicate what the
+        web sources already cover (see translate_all for the bilingual
+        pass, which DOES include X tweets).
+        """
         cutoff_date = datetime.now() - timedelta(days=days)
         recent_articles = []
 
-        for article in self.articles['tech'] + self.articles['news']:
+        for article in self.articles['web']:
             try:
                 article_date = datetime.strptime(article['date'], '%Y-%m-%d')
                 if article_date >= cutoff_date:
@@ -1835,7 +2031,7 @@ class SecurityNewsAggregator:
                 # Include article if date parsing fails
                 recent_articles.append(article)
 
-        logger.info(f"Found {len(recent_articles)} articles from the last {days} days")
+        logger.info(f"Found {len(recent_articles)} web articles from the last {days} days (X tweets excluded)")
         return recent_articles
 
     def filter_to_recent_days(self, max_age_days=MAX_ARTICLE_AGE_DAYS):
@@ -1847,14 +2043,14 @@ class SecurityNewsAggregator:
         pass naturally.
         """
         cutoff = (datetime.now() - timedelta(days=max_age_days)).strftime('%Y-%m-%d')
-        before = len(self.articles['tech']) + len(self.articles['news'])
-        for section in ('tech', 'news'):
+        before = len(self.articles['web']) + len(self.articles['x'])
+        for section in ('web', 'x'):
             self.articles[section] = [
                 a for a in self.articles[section]
                 if not re.match(r'\d{4}-\d{2}-\d{2}$', a.get('date') or '')
                 or a['date'] >= cutoff
             ]
-        after = len(self.articles['tech']) + len(self.articles['news'])
+        after = len(self.articles['web']) + len(self.articles['x'])
         logger.info(f"Freshness filter (>= {cutoff}): {before} -> {after} articles "
                     f"({before - after} dropped as older than {max_age_days} day(s))")
 
@@ -1962,7 +2158,7 @@ class SecurityNewsAggregator:
                                 candidates.append(os.path.join(year_dir, fn))
             if not candidates:
                 logger.info("No article archives found, starting with empty articles")
-                self.articles = {'tech': [], 'news': []}
+                self.articles = {'web': [], 'x': []}
                 return
             filename = max(candidates)
         try:
@@ -1971,7 +2167,7 @@ class SecurityNewsAggregator:
             logger.info(f"Articles loaded from {filename}")
         except FileNotFoundError:
             logger.info(f"{filename} not found, starting with empty articles")
-            self.articles = {'tech': [], 'news': []}
+            self.articles = {'web': [], 'x': []}
 
 
 def generate_html(articles, output_file=None, ai_curated=None):
@@ -2015,7 +2211,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         return bool(article.get('title_zh')) and bool(article.get('title_en'))
 
     translations_available = any(
-        _has_translation(a) for a in articles['tech'] + articles['news']
+        _has_translation(a) for a in articles['web'] + articles['x']
     )
     curated_bilingual = bool(ai_curated) and any(
         a.get('title_zh') and a.get('title_en')
@@ -2097,6 +2293,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         var BILINGUAL = {'true' if translations_available else 'false'};
         var SOURCE_NAME_EN = {json.dumps(SOURCE_EN, ensure_ascii=False)};
         var CATEGORY_NAME_EN = {json.dumps(CATEGORY_EN, ensure_ascii=False)};
+        var TYPE_LABELS = {json.dumps({'web': {'zh': '媒体文章', 'en': 'Media Articles'}, 'x': {'zh': 'X 推特', 'en': 'X (Twitter)'}}, ensure_ascii=False)};
         window.NEWS_CURRENT_DATE = '{update_date}';
     """
 
@@ -2130,6 +2327,32 @@ def generate_html(articles, output_file=None, ai_curated=None):
         }
         function hasTr(a) { return !!(a && a.title_zh && a.title_en); }
 
+        // Helpers for the tweet-style card
+        function tweetCardHtml(a) {
+            var avatar = a.author_avatar ? '<img class="tweet-avatar" src="' + esc(a.author_avatar) + '" alt="">' : '<span class="tweet-avatar"></span>';
+            var displayName = esc(a.author_name || a.author_handle || '');
+            var handle = a.author_handle ? '@' + esc(a.author_handle) : '';
+            var text = a.description ? esc(a.description.length > 500 ? a.description.slice(0, 500) + '...' : a.description) : '';
+            var textHtml = BILINGUAL && (a.description_zh || a.description_en)
+                ? dualSpans(a.description_zh, a.description_en, a.description || '')
+                : text;
+            var meta = BILINGUAL
+                ? '<span class="lang-zh">' + handle + ' · ' + esc(a.date) + '</span>' +
+                  '<span class="lang-en">' + (a.author_handle ? '@' + esc(a.author_handle) : '') + ' · ' + esc(a.date) + '</span>'
+                : handle + ' · ' + esc(a.date);
+            return '<div class="tweet-header">' +
+                       avatar +
+                       '<div class="tweet-author">' +
+                           '<div class="tweet-name-line">' +
+                               '<span class="tweet-name">' + displayName + '</span>' +
+                               '<span class="tweet-badge"></span>' +
+                           '</div>' +
+                           '<div class="tweet-meta">' + meta + '</div>' +
+                       '</div>' +
+                   '</div>' +
+                   '<p class="tweet-text"><a href="' + esc(a.url) + '" target="_blank">' + textHtml + '</a></p>';
+        }
+
         // The one and only article-card renderer (initial load + date switches)
         function renderCard(a) {
             var bil = BILINGUAL && hasTr(a);
@@ -2139,6 +2362,9 @@ def generate_html(articles, output_file=None, ai_curated=None):
                       '<span class="lang-en">Source: ' + esc(SOURCE_NAME_EN[a.source] || a.source) + '</span></div>';
             } else {
                 src = '<div class="article-source">来源: ' + esc(a.source) + '</div>';
+            }
+            if (a.category === 'x') {
+                return '<div class="article-card tweet-card" data-date="' + esc(a.date) + '" data-category="' + esc(a.category || '') + '" data-source="' + esc(a.source) + '">' + tweetCardHtml(a) + '</div>';
             }
             var title = bil
                 ? '<a href="' + esc(a.url) + '" target="_blank">' + dualSpans(a.title_zh, a.title_en, a.title) + '</a>'
@@ -2153,7 +2379,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
             var dateLine = BILINGUAL
                 ? '<div class="article-date"><span class="lang-zh">发布日期: </span><span class="lang-en">Date: </span>' + esc(a.date) + '</div>'
                 : '<div class="article-date">发布日期: ' + esc(a.date) + '</div>';
-            return '<div class="article-card" data-date="' + esc(a.date) + '">' + src +
+            return '<div class="article-card" data-date="' + esc(a.date) + '" data-category="' + esc(a.category || '') + '" data-source="' + esc(a.source) + '">' + src +
                    '<h3 class="article-title">' + title + '</h3>' + desc + dateLine + '</div>';
         }
 
@@ -2226,19 +2452,29 @@ def generate_html(articles, output_file=None, ai_curated=None):
                 '<p>' + Tjs('模型来源', 'Model') + ': ' + esc(c ? (c.model || '-') : '-') + '</p>';
         }
 
+        function cardMedium(category) {
+            // Old archives have category='tech' or 'news'; all web content maps to 'web'
+            return category === 'x' ? 'x' : 'web';
+        }
+
         // Rebuild sidebar filter options from the currently rendered cards
         // (factored out of the original window.onload so date switches reuse it)
         function rebuildFilterOptions() {
-            var dates = {};
+            var types = {};
             var sources = {};
             document.querySelectorAll('.article-card').forEach(function(card) {
-                dates[card.getAttribute('data-date')] = 1;
-                sources[cardSource(card)] = 1;
+                types[cardMedium(card.getAttribute('data-category'))] = 1;
+                sources[card.getAttribute('data-source') || cardSource(card)] = 1;
             });
-            var dateDropdown = document.querySelector('#date-select .multi-select-dropdown');
-            if (dateDropdown) {
-                dateDropdown.innerHTML = Object.keys(dates).sort().reverse().map(function(d, i) {
-                    return '<div class="multi-select-option"><input type="checkbox" id="date-' + i + '" value="' + d + '"> ' + d + '</div>';
+            // Fixed display order: web, x (only those present in today's cards)
+            var typeOrder = ['web', 'x'].filter(function(c) { return types[c]; });
+            var typeDropdown = document.querySelector('#type-select .multi-select-dropdown');
+            if (typeDropdown) {
+                typeDropdown.innerHTML = typeOrder.map(function(c, i) {
+                    var lbl = BILINGUAL
+                        ? '<span class="lang-zh">' + esc(TYPE_LABELS[c].zh) + '</span><span class="lang-en">' + esc(TYPE_LABELS[c].en) + '</span>'
+                        : esc(TYPE_LABELS[c].zh);
+                    return '<div class="multi-select-option"><input type="checkbox" id="type-' + i + '" value="' + c + '"> ' + lbl + '</div>';
                 }).join('');
             }
             var dropdown = document.getElementById('source-dropdown');
@@ -2255,23 +2491,44 @@ def generate_html(articles, output_file=None, ai_curated=None):
                 cb.addEventListener('change', applyFilters);
             });
             document.querySelectorAll('.multi-select-dropdown').forEach(function(dd) { dd.classList.remove('show'); });
-            var dateHeader = document.querySelector('#date-select .multi-select-header');
-            if (dateHeader) dateHeader.textContent = t('全部日期', 'All dates');
+            var typeHeader = document.querySelector('#type-select .multi-select-header');
+            if (typeHeader) typeHeader.textContent = t('全部类型', 'All types');
             var sourceHeader = document.querySelector('#source-select .multi-select-header');
             if (sourceHeader) sourceHeader.textContent = t('全部来源[不包含Unsafe]', 'All sources');
         }
 
         function updateStats(data) {
-            var total = (data.tech || []).length + (data.news || []).length;
-            document.getElementById('stat-total').innerHTML = Tjs('总文章数', 'Total Articles') + ': ' + total;
+            var total = (data.tech || []).length + (data.news || []).length + (data.web || []).length + (data.x || []).length;
+            document.getElementById('stat-total').innerHTML = Tjs('总资讯数', 'Total News') + ': ' + total;
             document.getElementById('stat-date').innerHTML = Tjs('更新日期', 'Updated') + ': ' + currentNewsDate;
         }
 
         function applyNewsDate(data) {
-            // Archives keep the tech/news split; the page shows one merged list
+            // Old archives use {tech,news}; new archives use {web,x}. Support both.
+            // Web articles first (sorted by date desc), then X tweets at the
+            // end as a separate group — the two card styles stay visually
+            // distinct instead of interleaved. Each group gets its own
+            // section header so the page reads as two titled sections.
             var byDateDesc = function(a, b) { return b.date.localeCompare(a.date); };
-            var cards = (data.tech || []).concat(data.news || []).slice().sort(byDateDesc).map(renderCard).join('');
-            document.getElementById('articles-grid').innerHTML = cards;
+            var webArticles = (data.tech || []).concat(data.news || []).concat(data.web || []).slice().sort(byDateDesc);
+            var xTweets = (data.x || []).slice().sort(byDateDesc);
+            var parts = [];
+            if (webArticles.length) {
+                parts.push('<div class="articles-section-header" data-category="web">' +
+                    Tjs('📰 媒体文章', '📰 Media Articles') +
+                    '</div>');
+                parts = parts.concat(webArticles.map(renderCard));
+            }
+            if (xTweets.length) {
+                // Section header spanning the full grid width; carries
+                // data-category='x' so the type filter hides it together
+                // with the tweets when X is unchecked.
+                parts.push('<div class="articles-section-header" data-category="x">' +
+                    Tjs('𝕏 来自 X', '𝕏 From X') +
+                    '</div>');
+                parts = parts.concat(xTweets.map(renderCard));
+            }
+            document.getElementById('articles-grid').innerHTML = parts.join('');
             rebuildFilterOptions();
             updateStats(data);
             applyFilters();
@@ -2595,9 +2852,9 @@ def generate_html(articles, output_file=None, ai_curated=None):
             --border-strong: #d1d5db;
             --border-weak: #e5e7eb;
             --fill-subtle: #f3f4f6; /* inset fills, hover wells */
-            --accent: #0f766e;      /* solid accent: badges, header rule */
-            --accent-text: #0f766e; /* text links (AA on white) */
-            --accent-hover: #115e59;
+            --accent: #1d9bf0;      /* solid accent: badges, header rule (X blue) */
+            --accent-text: #0c7ab8; /* text links (AA on white) */
+            --accent-hover: #0c7ab8;
             --accent-on: #ffffff;  /* text on accent-filled surfaces */
             --danger: #d32f2f;
             --scrollbar-thumb: #c1c1c1;
@@ -2616,9 +2873,9 @@ def generate_html(articles, output_file=None, ai_curated=None):
             --border-strong: #343a46;
             --border-weak: #2a303c;
             --fill-subtle: #14171c;
-            --accent: #2dd4bf;
-            --accent-text: #5eead4;
-            --accent-hover: #99f6e4;
+            --accent: #4aa8e8;
+            --accent-text: #7bc5f2;
+            --accent-hover: #9dd6f7;
             --accent-on: #14171c;  /* dark text: light accent fills need it for contrast */
             --danger: #ef5350;
             --scrollbar-thumb: #4a5160;
@@ -2808,6 +3065,22 @@ def generate_html(articles, output_file=None, ai_curated=None):
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 1.5rem;
+        }}
+
+        /* Section header for each card group (Media Articles / From X).
+           Spans the full grid row; font-size matches .ai-category-title
+           so the two views read at the same heading scale. No underline —
+           the page <h1> already carries the accent rule. */
+        .articles-section-header {{
+            grid-column: 1 / -1;
+            margin-top: 1.5rem;
+            color: var(--text-1);
+            font-size: 1.4rem;
+            font-weight: 700;
+        }}
+        /* First group sits at the top of the grid — no extra top gap */
+        .articles-grid > .articles-section-header:first-of-type {{
+            margin-top: 0;
         }}
 
         .article-card {{
@@ -3067,7 +3340,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
             margin-left: 10px;
             vertical-align: middle;
             letter-spacing: 0.3px;
-            box-shadow: 0 1px 3px rgba(79, 70, 229, 0.3);
+            box-shadow: 0 1px 3px rgba(29, 155, 240, 0.3);
         }}
 
         .ai-article {{
@@ -3131,6 +3404,74 @@ def generate_html(articles, output_file=None, ai_curated=None):
             border-radius: 4px;
             font-size: 0.85rem;
             color: var(--text-3);
+        }}
+
+        /* Tweet-style card (X source) */
+        .tweet-card {{
+            /* No top accent border — keep tweet cards visually consistent
+               with web article cards; the 𝕏 badge is enough identity. */
+        }}
+        .tweet-header {{
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }}
+        .tweet-avatar {{
+            width: 42px;
+            height: 42px;
+            min-width: 42px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--fill-subtle);
+            border: 1px solid var(--border-weak);
+        }}
+        .tweet-author {{
+            flex: 1;
+            min-width: 0;
+        }}
+        .tweet-name-line {{
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }}
+        .tweet-name {{
+            font-weight: 700;
+            color: var(--text-1);
+            font-size: 0.98rem;
+        }}
+        .tweet-badge {{
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #fff;
+            background: #1d9bf0;
+            border-radius: 4px;
+            padding: 1px 6px;
+            letter-spacing: 0.05em;
+        }}
+        .tweet-badge::before {{
+            content: "𝕏";
+        }}
+        .tweet-meta {{
+            color: var(--text-3);
+            font-size: 0.85rem;
+            margin-top: 2px;
+        }}
+        .tweet-text {{
+            color: var(--text-2);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+            overflow-wrap: break-word;
+        }}
+        .tweet-text a {{
+            color: inherit;
+            text-decoration: none;
+        }}
+        .tweet-text a:hover {{
+            color: var(--accent-hover);
         }}
     {static_css}{lang_css}</style>
 </head>
@@ -3202,16 +3543,16 @@ def generate_html(articles, output_file=None, ai_curated=None):
             <!-- View Toggle Buttons -->
             <div class="view-toggle">
                 <button class="view-toggle-btn" onclick="switchView('ai')">{T('🤖 AI精选', '🤖 AI Curated')}</button>
-                <button class="view-toggle-btn active" onclick="switchView('original')">{T('📚 全部文章', '📚 All Articles')}</button>
+                <button class="view-toggle-btn active" onclick="switchView('original')">{T('📚 全部资讯', '📚 All News')}</button>
             </div>
 
             <!-- Original Sidebar (Filters) -->
             <div class="sidebar-section" id="original-sidebar">
                 <div class="filters">
                     <div class="filter-group">
-                        <label>{T('📅 按日期筛选:', '📅 Filter by Date:')}</label>
-                        <div class="multi-select" id="date-select">
-                            <div class="multi-select-header" onclick="toggleDropdown('date-select')">全部日期</div>
+                        <label>{T('🏷️ 按类型筛选:', '🏷️ Filter by Type:')}</label>
+                        <div class="multi-select" id="type-select">
+                            <div class="multi-select-header" onclick="toggleDropdown('type-select')">{T('全部类型', 'All types')}</div>
                             <div class="multi-select-dropdown"></div>
                         </div>
                     </div>
@@ -3235,7 +3576,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
                 <div style="margin-top: 1.5rem;">
                     <h4>{T('统计信息', 'Statistics')}</h4>
                     <p id="visible-count">{T('当前显示', 'Showing')}: 0</p>
-                    <p id="stat-total">{T('总文章数', 'Total Articles')}: 0</p>
+                    <p id="stat-total">{T('总资讯数', 'Total News')}: 0</p>
                     <p id="stat-date">{T('更新日期', 'Updated')}: {update_date}</p>
                 </div>
             </div>
@@ -3305,9 +3646,11 @@ def generate_html(articles, output_file=None, ai_curated=None):
 
         {lang_js}
         function cardSource(card) {{
+            // All rendered cards carry a data-source attribute; fall back to
+            // the DOM for safety (bilingual pages keep the source in a span)
+            if (card.dataset && card.dataset.source) return card.dataset.source;
             var el = card.querySelector('.article-source');
-            // On bilingual pages read the Chinese span so the value matches
-            // the source filter options
+            if (!el) return '';
             var zh = el.querySelector('.lang-zh');
             return (zh || el).textContent.replace('来源: ', '');
         }}
@@ -3333,28 +3676,44 @@ def generate_html(articles, output_file=None, ai_curated=None):
         }};
 
         function applyFilters() {{
-            const selectedDates = Array.from(document.querySelectorAll('#date-select input:checked')).map(cb => cb.value);
+            const selectedTypes = Array.from(document.querySelectorAll('#type-select input:checked')).map(cb => cb.value);
             const selectedSources = Array.from(document.querySelectorAll('#source-select input:checked')).map(cb => cb.value);
             const searchTerm = document.getElementById('search-input').value.toLowerCase();
 
             // 更新下拉框标题
-            document.querySelector('#date-select .multi-select-header').textContent = selectedDates.length ? (selectedDates.length > 1 ? selectedDates.length + t('项已选', ' selected') : selectedDates[0]) : t('全部日期', 'All dates');
+            document.querySelector('#type-select .multi-select-header').textContent = selectedTypes.length ? (selectedTypes.length > 1 ? selectedTypes.length + t('项已选', ' selected') : (currentLang === 'en' ? TYPE_LABELS[selectedTypes[0]].en : TYPE_LABELS[selectedTypes[0]].zh)) : t('全部类型', 'All types');
             document.querySelector('#source-select .multi-select-header').textContent = selectedSources.length ? (selectedSources.length > 1 ? selectedSources.length + t('项已选', ' selected') : (currentLang === 'en' ? (SOURCE_NAME_EN[selectedSources[0]] || selectedSources[0]) : selectedSources[0])) : t('全部来源[不包含Unsafe]', 'All sources');
 
             // 筛选文章
             let visibleCount = 0;
             document.querySelectorAll('.article-card').forEach(card => {{
-                const cardDate = card.getAttribute('data-date');
+                const medium = cardMedium(card.getAttribute('data-category'));
                 const cardSource = window.cardSource(card);
-                const title = card.querySelector('.article-title').textContent.toLowerCase();
-                const desc = card.querySelector('.article-description')?.textContent.toLowerCase() || '';
+                const titleEl = card.querySelector('.article-title');
+                const title = titleEl ? titleEl.textContent.toLowerCase() : '';
+                const descEl = card.querySelector('.article-description') || card.querySelector('.tweet-text');
+                const desc = descEl ? descEl.textContent.toLowerCase() : '';
 
-                const match = (selectedDates.length === 0 || selectedDates.includes(cardDate)) &&
+                const match = (selectedTypes.length === 0 || selectedTypes.includes(medium)) &&
                              (selectedSources.length === 0 || selectedSources.includes(cardSource)) &&
                              (searchTerm === '' || title.includes(searchTerm) || desc.includes(searchTerm)) &&
                              (selectedSources.includes('Unsafe.sh') || cardSource !== 'Unsafe.sh');
                 card.style.display = match ? 'flex' : 'none';
                 if (match) visibleCount++;
+            }});
+            // X section header: hide when X is filtered out, or when no X
+            // tweet is visible (search/source narrowed it to zero)
+            document.querySelectorAll('.articles-section-header').forEach(function(h) {{
+                var medium = cardMedium(h.getAttribute('data-category'));
+                // Header shows only if its medium passes the type filter AND
+                // at least one card of that medium is visible (search/source
+                // may have narrowed it to zero — hide the header then)
+                var anyVisible = false;
+                document.querySelectorAll('.article-card').forEach(function(c) {{
+                    if (cardMedium(c.getAttribute('data-category')) === medium && c.style.display !== 'none') anyVisible = true;
+                }});
+                var show = (selectedTypes.length === 0 || selectedTypes.includes(medium)) && anyVisible;
+                h.style.display = show ? 'block' : 'none';
             }});
             document.getElementById('visible-count').textContent = t('当前显示: ', 'Showing: ') + visibleCount;
         }}
@@ -3362,7 +3721,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         function clearAllFilters() {{
             document.querySelectorAll('.multi-select input[type="checkbox"]').forEach(cb => cb.checked = false);
             document.getElementById('search-input').value = '';
-            document.querySelector('#date-select .multi-select-header').textContent = t('全部日期', 'All dates');
+            document.querySelector('#type-select .multi-select-header').textContent = t('全部类型', 'All types');
             document.querySelector('#source-select .multi-select-header').textContent = t('全部来源[不包含Unsafe]', 'All sources');
             document.querySelectorAll('.multi-select-dropdown').forEach(d => d.classList.remove('show'));
             applyFilters();
@@ -3479,8 +3838,8 @@ def main():
     generate_html(aggregator.articles, ai_curated=ai_curated)
 
     print(f"\n完成！共收集到:")
-    print(f"- 技术文章: {len(aggregator.articles['tech'])} 篇")
-    print(f"- 新闻: {len(aggregator.articles['news'])} 篇")
+    print(f"- 网站文章: {len(aggregator.articles['web'])} 篇")
+    print(f"- X 推文: {len(aggregator.articles['x'])} 篇")
     if ai_curated:
         total_curated = sum(len(arts) for arts in ai_curated.get('categories', {}).values())
         print(f"- AI精选: {total_curated} 篇")

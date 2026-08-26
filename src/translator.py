@@ -370,7 +370,7 @@ def translate_all(
         logger.warning(f"Translation skipped: {str(e)}")
         return False
 
-    all_articles = articles_data.get('tech', []) + articles_data.get('news', [])
+    all_articles = articles_data.get('web', []) + articles_data.get('x', [])
     count = translate_articles(all_articles, provider)
 
     if curated:
