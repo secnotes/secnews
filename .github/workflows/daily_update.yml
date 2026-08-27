@@ -2,8 +2,10 @@ name: Daily Security News Update
 
 on:
   schedule:
-    # Run daily at 00:00 (midnight) UTC
-    - cron: '0 0 * * *'
+    # Run daily at 00:07 UTC (Beijing 08:07). Off-peak minute to reduce
+    # GitHub Actions scheduling delay/skips (00:00 and round minutes like
+    # :10/:15/:30 carry the heaviest global load).
+    - cron: '7 0 * * *'
   workflow_dispatch: # Allow manual trigger
 
 jobs:

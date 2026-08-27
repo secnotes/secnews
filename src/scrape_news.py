@@ -1930,9 +1930,6 @@ class SecurityNewsAggregator:
         # Remove duplicates based on URL
         self.remove_duplicates()
 
-        # Filter articles to keep only those published within the last 30 days
-        self.filter_recent_articles(days=30)
-
         logger.info(f"Scraping completed. Collected {len(self.articles['web'])} web articles and {len(self.articles['x'])} X tweets")
 
     def remove_duplicates(self):
@@ -1953,63 +1950,6 @@ class SecurityNewsAggregator:
 
         self.articles['web'] = unique_web
         self.articles['x'] = unique_x
-
-    def filter_recent_articles(self, days=30):
-        """Filter articles to keep only those published within the specified number of days"""
-        from datetime import datetime, timedelta
-
-        logger.info(f"Filtering articles to keep only those published within the last {days} days...")
-
-        cutoff_date = datetime.now() - timedelta(days=days)
-
-        # Filter web articles
-        filtered_web = []
-        for article in self.articles['web']:
-            try:
-                # Parse the article date
-                article_date = datetime.strptime(article['date'], '%Y-%m-%d')
-
-                # Keep only articles newer than cutoff date
-                if article_date >= cutoff_date:
-                    filtered_web.append(article)
-                else:
-                    logger.debug(f"Removing old web article: {article['title']} (published on {article['date']})")
-            except ValueError:
-                # If date parsing fails, keep the article to be safe
-                logger.warning(f"Could not parse date for web article: {article['date']}, keeping article")
-                filtered_web.append(article)
-
-        # Filter X tweets
-        filtered_x = []
-        for article in self.articles['x']:
-            try:
-                # Parse the article date
-                article_date = datetime.strptime(article['date'], '%Y-%m-%d')
-
-                # Keep only articles newer than cutoff date
-                if article_date >= cutoff_date:
-                    filtered_x.append(article)
-                else:
-                    logger.debug(f"Removing old X tweet: {article['title']} (published on {article['date']})")
-            except ValueError:
-                # If date parsing fails, keep the article to be safe
-                logger.warning(f"Could not parse date for X tweet: {article['date']}, keeping tweet")
-                filtered_x.append(article)
-
-        original_counts = {
-            'web': len(self.articles['web']),
-            'x': len(self.articles['x'])
-        }
-
-        self.articles['web'] = filtered_web
-        self.articles['x'] = filtered_x
-
-        filtered_counts = {
-            'web': len(self.articles['web']),
-            'x': len(self.articles['x'])
-        }
-
-        logger.info(f"Article filtering completed: {original_counts['web']} -> {filtered_counts['web']} web articles, {original_counts['x']} -> {filtered_counts['x']} X tweets")
 
     def get_recent_articles(self, days=2):
         """Get web articles from the last N days.
