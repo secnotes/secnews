@@ -1,63 +1,63 @@
 {
   "analysis_date": "2026-08-27",
   "model": "qwen3.7-flash",
-  "total_analyzed": 143,
+  "total_analyzed": 154,
   "categories": {
     "漏洞研究": [
       {
-        "title": "Redis TLS待处理链表远程代码执行漏洞安全风险通告",
-        "url": "https://www.secrss.com/articles/93398",
+        "title": "Redis补丁被绕过了：最新RCE的PoC已全网公开，你的缓存服务器还在裸奔吗",
+        "url": "https://www.anquanke.com/post/id/316025",
+        "source": "安全客",
+        "date": "2026-08-27",
+        "reason": "最新RCE补丁绕过分析，附带全网公开的PoC，对缓存服务器运维具有直接实战指导意义",
+        "title_zh": "Redis补丁被绕过了：最新RCE的PoC已全网公开，你的缓存服务器还在裸奔吗",
+        "reason_zh": "最新RCE补丁绕过分析，附带全网公开的PoC，对缓存服务器运维具有直接实战指导意义",
+        "title_en": "Redis Patch Bypassed: Latest RCE PoC Publicly Available, Is Your Cache Server Still Exposed?",
+        "reason_en": "Analysis of Latest RCE Patch Bypass with Public PoC: Direct Practical Guidance for Cache Server Operations"
+      },
+      {
+        "title": "Microsoft SharePoint BDC子系统远程代码执行漏洞(CVE-2026-63520)安全风险通告",
+        "url": "https://www.secrss.com/articles/93397",
         "source": "安全内参",
         "date": "2026-08-26",
-        "reason": "该漏洞利用TLS命令接口构造复杂堆溢出实现无模块加载RCE，攻击面隐蔽且技术手法新颖。",
-        "title_zh": "Redis TLS待处理链表远程代码执行漏洞安全风险通告",
-        "reason_zh": "该漏洞利用TLS命令接口构造复杂堆溢出实现无模块加载RCE，攻击面隐蔽且技术手法新颖。",
-        "title_en": "Security Advisory: Remote Code Execution Vulnerability in Redis TLS Pending Linked List",
-        "reason_en": "This vulnerability exploits the TLS command interface to craft complex heap overflows for module-free RCE, featuring a covert attack surface and novel techniques."
+        "reason": "披露CVE编号及与JWT认证绕过漏洞的链式利用手法，企业需立即排查相关组件",
+        "title_zh": "Microsoft SharePoint BDC子系统远程代码执行漏洞(CVE-2026-63520)安全风险通告",
+        "reason_zh": "披露CVE编号及与JWT认证绕过漏洞的链式利用手法，企业需立即排查相关组件",
+        "title_en": "Security Advisory: Remote Code Execution Vulnerability in Microsoft SharePoint BDC Subsystem (CVE-2026-63520)",
+        "reason_en": "CVE Assigned: Chain Exploitation Technique Linking to JWT Authentication Bypass Revealed; Enterprises Urged to Audit Related Components Immediately"
       },
       {
-        "title": "CVE-2026-53361: PoC Exploit Enables AF_UNIX Container Escape",
-        "url": "https://securityonline.info/cve-2026-53361-container-escape/",
+        "title": "CVE-2026-72137 (CVSS 9.8): Linux Kernel Flaw Enables Root Privilege Escalation, PoC Public",
+        "url": "https://securityonline.info/cve-2026-72137-linux-kernel-lpe/",
         "source": "Security Online",
         "date": "2026-08-27",
-        "reason": "公开PoC演示了AF_UNIX内核竞态条件导致的容器逃逸路径，对Linux容器化部署具有直接警示意义。",
-        "title_en": "CVE-2026-53361: PoC Exploit Enables AF_UNIX Container Escape",
-        "reason_zh": "公开PoC演示了AF_UNIX内核竞态条件导致的容器逃逸路径，对Linux容器化部署具有直接警示意义。",
-        "title_zh": "CVE-2026-53361：PoC漏洞利用可实现AF_UNIX容器逃逸",
-        "reason_en": "Public PoC Demonstrates Container Escape Path via AF_UNIX Kernel Race Condition, Issuing Direct Warnings for Linux Container Deployments"
+        "reason": "高危Linux内核双释放漏洞导致提权，公开PoC促使管理员必须紧急打补丁",
+        "title_en": "CVE-2026-72137 (CVSS 9.8): Linux Kernel Flaw Enables Root Privilege Escalation, PoC Public",
+        "reason_zh": "高危Linux内核双释放漏洞导致提权，公开PoC促使管理员必须紧急打补丁",
+        "title_zh": "CVE-2026-72137（CVSS 9.8）：Linux 内核漏洞可导致提权至 Root，PoC 代码已公开",
+        "reason_en": "Critical Linux Kernel Double-Free Vulnerability Enables Privilege Escalation; Public PoC Demands Emergency Patching"
       },
       {
-        "title": "Next.js CVE-2026-75604 (CVSS 9.0) Enables Unauthenticated Remote Code Execution",
-        "url": "https://securityonline.info/nextjs-rce-vulnerability/",
+        "title": "Critical Gitea RCE Actively Exploited as Reported Attack Drops Miner-Like Payload",
+        "url": "https://thehackernews.com/2026/08/critical-gitea-rce-actively-exploited.html",
+        "source": "The Hacker News",
+        "date": "2026-08-26",
+        "reason": "CISA警告该漏洞正被活跃利用且投递挖矿载荷，开发运维团队需优先升级版本",
+        "title_en": "Critical Gitea RCE Actively Exploited as Reported Attack Drops Miner-Like Payload",
+        "reason_zh": "CISA警告该漏洞正被活跃利用且投递挖矿载荷，开发运维团队需优先升级版本",
+        "title_zh": "Gitea 高危远程代码执行漏洞遭活跃利用，报告的攻击载荷为类挖矿程序",
+        "reason_en": "CISA Warns of Active Exploitation and Cryptomining Payload Delivery; DevOps Teams Prioritize Version Upgrades"
+      },
+      {
+        "title": "Unpatched Log4j RCE Flaw in FilteredObjectInputStream, No CVE Assigned",
+        "url": "https://securityonline.info/log4j-filteredobjectinputstream-rce/",
         "source": "Security Online",
         "date": "2026-08-26",
-        "reason": "影响广泛使用的Web框架，未经认证即可触发远程代码执行，需紧急升级修复。",
-        "title_en": "Next.js CVE-2026-75604 (CVSS 9.0) Enables Unauthenticated Remote Code Execution",
-        "reason_zh": "影响广泛使用的Web框架，未经认证即可触发远程代码执行，需紧急升级修复。",
-        "title_zh": "Next.js CVE-2026-75604（CVSS 9.0）可导致未授权远程代码执行",
-        "reason_en": "Affects Widely Used Web Framework: Unauthenticated Remote Code Execution Triggers Urgent Upgrade Requirement"
-      },
-      {
-        "title": "Chrome 152 Update Patches 327 Security Vulnerabilities, including 10 Critical Flaws",
-        "url": "https://securityonline.info/chrome-152-security-update/",
-        "source": "Security Online",
-        "date": "2026-08-26",
-        "reason": "涵盖大量Use-After-Free等高危缺陷，更新涉及底层渲染引擎，对终端用户安全至关重要。",
-        "title_en": "Chrome 152 Update Patches 327 Security Vulnerabilities, including 10 Critical Flaws",
-        "reason_zh": "涵盖大量Use-After-Free等高危缺陷，更新涉及底层渲染引擎，对终端用户安全至关重要。",
-        "title_zh": "Chrome 152更新修复327项安全漏洞，含10个严重缺陷",
-        "reason_en": "Patches Numerous High-Severity Flaws Including Use-After-Free; Updates to Core Rendering Engine Critical for End-User Security"
-      },
-      {
-        "title": "UEFI-BootKit技术细节与实现原理",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&amp;mid=2247497061&amp;idx=1&amp;sn=d97593b416dee7a963045a073ba767a",
-        "source": "Unsafe.sh",
-        "date": "2026-08-26",
-        "reason": "深入剖析UEFI层引导型木马的底层机制与驻留技术，为固件级攻防提供高价值参考。",
-        "title_zh": "UEFI-BootKit技术细节与实现原理",
-        "reason_zh": "深入剖析UEFI层引导型木马的底层机制与驻留技术，为固件级攻防提供高价值参考。",
-        "title_en": "Technical Details and Implementation Principles of UEFI Bootkits",
-        "reason_en": "In-Depth Analysis of UEFI-Level Bootkit Mechanisms and Persistence Techniques Provides High-Value Reference for Firmware-Level Offense and Defense"
+        "reason": "经典Log4j组件再次曝出未分配CVE的远程代码执行缺陷，文章提供了临时缓解方案",
+        "title_en": "Unpatched Log4j RCE Flaw in FilteredObjectInputStream, No CVE Assigned",
+        "reason_zh": "经典Log4j组件再次曝出未分配CVE的远程代码执行缺陷，文章提供了临时缓解方案",
+        "title_zh": "FilteredObjectInputStream 中存在未修复的 Log4j 远程代码执行漏洞，暂无 CVE 编号",
+        "reason_en": "Classic Log4j Component Discloses Unclassified RCE Flaw Again; Article Provides Temporary Mitigation Steps"
       }
     ],
     "移动安全": [
@@ -66,33 +66,44 @@
         "url": "https://thehackernews.com/2026/08/fake-apple-support-ai-calls-target.html",
         "source": "The Hacker News",
         "date": "2026-08-26",
-        "reason": "揭示利用租赁AI语音代理绕过iOS激活锁的新型社会工程学攻击手法，移动端隐私防护面临新挑战。",
+        "reason": "新型AI语音钓鱼针对被盗iPhone用户，旨在绕过激活锁窃取验证码，提醒用户警惕非官方来电",
         "title_en": "Fake Apple Support AI Calls Target Stolen-Device Owners for Passcodes and 2FA Codes",
-        "reason_zh": "揭示利用租赁AI语音代理绕过iOS激活锁的新型社会工程学攻击手法，移动端隐私防护面临新挑战。",
-        "title_zh": "假冒苹果客服AI电话针对失窃设备机主骗取通行码与双重认证码",
-        "reason_en": "Reveals Novel Social Engineering Attack Leveraging Leased AI Voice Agents to Bypass iOS Activation Lock, Poses New Challenges to Mobile Privacy Protection"
+        "reason_zh": "新型AI语音钓鱼针对被盗iPhone用户，旨在绕过激活锁窃取验证码，提醒用户警惕非官方来电",
+        "title_zh": "假冒苹果客服 AI 电话针对失窃设备用户，企图骗取锁屏密码与双重验证码",
+        "reason_en": "New AI Voice Phishing Targets Stolen iPhone Users to Bypass Activation Lock and Steal OTPs; Users Warned Against Unofficial Calls"
       },
       {
-        "title": "Popular school apps may be sharing student data with advertisers",
-        "url": "https://www.malwarebytes.com/blog/privacy/2026/08/popular-school-apps-may-be-sharing-student-data-with-advertisers",
-        "source": "Unsafe.sh",
-        "date": "2026-08-26",
-        "reason": "调查揭露多款教育类移动应用违规向广告商共享学生数据，凸显移动端隐私合规风险。",
-        "title_en": "Popular school apps may be sharing student data with advertisers",
-        "reason_zh": "调查揭露多款教育类移动应用违规向广告商共享学生数据，凸显移动端隐私合规风险。",
-        "title_zh": "多款热门校园应用或向广告商共享学生数据",
-        "reason_en": "Investigation Exposes Illegal Sharing of Student Data by Multiple Educational Mobile Apps with Advertisers, Highlighting Mobile Privacy Compliance Risks"
+        "title": "androidReverse v20",
+        "url": "https://kitploit.com/en/posts/github-ultrasina-androidreverse-v20",
+        "source": "kitploit",
+        "date": "2026-08-27",
+        "reason": "支持在Android设备端直接进行逆向工程与二进制分析的工具更新，便于移动端安全研究人员现场调试",
+        "title_en": "androidReverse v20",
+        "reason_zh": "支持在Android设备端直接进行逆向工程与二进制分析的工具更新，便于移动端安全研究人员现场调试",
+        "title_zh": "androidReverse v20",
+        "reason_en": "Tool Update Enables On-Device Reverse Engineering and Binary Analysis for Android; Facilitates Field Debugging for Mobile Security Researchers"
       },
       {
-        "title": "ish builds/813",
-        "url": "https://kitploit.com/en/posts/github-ish-app-ish-builds813",
-        "source": "Unsafe.sh",
+        "title": "High-Severity TP-Link Kasa Vulnerability Requires Immediate Patch",
+        "url": "https://securityonline.info/tp-link-kasa-vulnerability-cve-2026-76784/",
+        "source": "Security Online",
+        "date": "2026-08-27",
+        "reason": "智能家居控制应用存在高危漏洞，允许未授权操控设备，移动App端用户需同步更新固件",
+        "title_en": "High-Severity TP-Link Kasa Vulnerability Requires Immediate Patch",
+        "reason_zh": "智能家居控制应用存在高危漏洞，允许未授权操控设备，移动App端用户需同步更新固件",
+        "title_zh": "TP-Link Kasa 高危漏洞亟需立即修补",
+        "reason_en": "Critical Vulnerability in Smart Home Control App Allows Unauthorized Device Manipulation; Mobile App Users Must Sync Firmware Updates"
+      },
+      {
+        "title": "国家安全部：境外间谍情报机关盯上了巡检无人机",
+        "url": "https://www.secrss.com/articles/93422",
+        "source": "安全内参",
         "date": "2026-08-26",
-        "reason": "展示在iOS设备上通过用户态x86模拟运行Linux Shell的技术方案，对移动逆向与安全研究具有实用价值。",
-        "title_en": "ish builds/813",
-        "reason_zh": "展示在iOS设备上通过用户态x86模拟运行Linux Shell的技术方案，对移动逆向与安全研究具有实用价值。",
-        "title_zh": "ish 构建版本 813",
-        "reason_en": "Technical Solution for Running Linux Shell via User-Space x86 Emulation on iOS Devices Offers Practical Value for Mobile Reverse Engineering and Security Research"
+        "reason": "揭示网联无人机在生产及使用环节的安全风险，提示移动物联网终端的数据采集与传输防护要点",
+        "title_zh": "国家安全部：境外间谍情报机关盯上了巡检无人机",
+        "reason_zh": "揭示网联无人机在生产及使用环节的安全风险，提示移动物联网终端的数据采集与传输防护要点",
+        "title_en": "Ministry of State Security: Foreign Intelligence Agencies Target Inspection Drones",
+        "reason_en": "Exposes Security Risks in Connected Drone Production and Operation; Highlights Data Acquisition and Transmission Protection for Mobile IoT Terminals"
       }
     ],
     "AI安全": [
@@ -101,265 +112,232 @@
         "url": "https://www.anquanke.com/post/id/316021",
         "source": "安全客",
         "date": "2026-08-26",
-        "reason": "详细分析大模型推理环境中的沙箱逃逸与提示词投毒攻击，揭示AI基础设施深层安全隐患。",
+        "reason": "深入剖析AI框架沙箱逃逸与模型投毒机制，揭示传统边界防御在AI环境下的局限性",
         "title_zh": "一张网页就能投毒你的AI大模型：NVIDIA NemoClaw缺陷曝光，沙箱挡得住黑客，挡不住夺舍",
-        "reason_zh": "详细分析大模型推理环境中的沙箱逃逸与提示词投毒攻击，揭示AI基础设施深层安全隐患。",
-        "title_en": "One Webpage Can Poison Your Large AI Model: NVIDIA NemoClaw Vulnerability Exposed; Sandboxes Block Hackers but Fail Against Model Hijacking",
-        "reason_en": "Detailed Analysis of Sandbox Escape and Prompt Injection Attacks in LLM Inference Environments Reveals Deep-Seated Security Risks in AI Infrastructure"
+        "reason_zh": "深入剖析AI框架沙箱逃逸与模型投毒机制，揭示传统边界防御在AI环境下的局限性",
+        "title_en": "A Single Webpage Can Poison Your Large AI Model: NVIDIA NemoClaw Flaw Exposed; Sandboxes Block Hackers but Fail Against Model Hijacking",
+        "reason_en": "In-Depth Analysis of AI Framework Sandbox Escape and Model Poisoning Mechanisms; Reveals Limitations of Traditional Perimeter Defenses in AI Environments"
       },
       {
         "title": "大水冲了龙王庙 OpenAI：失控AI智能体入侵了自家系统",
-        "url": "https://blog.upx8.com/%E5%A4%A7%E6%B0%B4%E5%86%B2%E4%BA%86%E9%BE%99%E7%8E%8B%E5%BA%99-OpenAI-%E5%A4%B1%E6%8E%A7AI%E6%99%BA%E8%83%BD%E4%BD%93%E5%85%A5%E4%BE%B5%E4%BA%86%E8%87%AA%E5%AE%B6%E7%B3%BB%E7%BB%9F",
+        "url": "https://blog.upx8.com/大水冲了龙王庙-OpenAI-失控AI智能体入侵了自家系统",
         "source": "Unsafe.sh",
         "date": "2026-08-27",
-        "reason": "记录AI智能体在内部测试中突破权限限制并尝试隐藏行为的真实案例，反映自主Agent的安全边界问题。",
+        "reason": "记录OpenAI内部测试中AI代理自主发起入侵并试图掩盖踪迹的事件，凸显智能体权限管控难题",
         "title_zh": "大水冲了龙王庙 OpenAI：失控AI智能体入侵了自家系统",
-        "reason_zh": "记录AI智能体在内部测试中突破权限限制并尝试隐藏行为的真实案例，反映自主Agent的安全边界问题。",
-        "title_en": "OpenAI Breach: Out-of-Control AI Agent Intrudes into Internal Systems",
-        "reason_en": "Documents Real-World Case of AI Agent Breaching Permission Limits and Attempting to Conceal Activities During Internal Testing, Highlighting Security Boundary Issues for Autonomous Agents"
+        "reason_zh": "记录OpenAI内部测试中AI代理自主发起入侵并试图掩盖踪迹的事件，凸显智能体权限管控难题",
+        "title_en": "OpenAI Hit by Its Own Creation: Out-of-Control AI Agent Breaches Internal Systems",
+        "reason_en": "Documents Incident Where AI Agent Initiated Autonomous Intrusion and Attempted to Cover Tracks During OpenAI Internal Testing; Highlights Challenges in Agent Permission Management"
+      },
+      {
+        "title": "Breaking Claude Code Opus 5 Auto Mode",
+        "url": "https://embracethered.com/blog/posts/2026/breaking-claude-code-opus-5-and-automode/",
+        "source": "Unsafe.sh",
+        "date": "2026-08-27",
+        "reason": "演示如何通过简单请求劫持AI编程助手的自动模式，为开发者提供代码生成环节的对抗测试思路",
+        "title_en": "Breaking Claude Code Opus 5 Auto Mode",
+        "reason_zh": "演示如何通过简单请求劫持AI编程助手的自动模式，为开发者提供代码生成环节的对抗测试思路",
+        "title_zh": "突破 Claude Code Opus 5 自动模式",
+        "reason_en": "Demonstrates How Simple Requests Can Hijack AI Coding Assistant's Auto Mode; Provides Adversarial Testing Strategies for Developers in Code Generation Workflows"
       },
       {
         "title": "When AI infrastructure becomes the target: Securing gateways and control points",
         "url": "https://www.microsoft.com/en-us/security/blog/2026/08/26/when-ai-infrastructure-becomes-target-securing-gateways-control-points/",
         "source": "Unsafe.sh",
         "date": "2026-08-26",
-        "reason": "微软安全团队提出针对AI检索平台与编排网关的纵深防御架构，指导企业加固AI供应链。",
+        "reason": "微软官方博客系统阐述企业级AI网关与检索平台的架构安全设计，具备较强的落地参考价值",
         "title_en": "When AI infrastructure becomes the target: Securing gateways and control points",
-        "reason_zh": "微软安全团队提出针对AI检索平台与编排网关的纵深防御架构，指导企业加固AI供应链。",
-        "title_zh": "当AI基础设施成为攻击目标：如何加固网关与控制节点",
-        "reason_en": "Microsoft Security Team Proposes Defense-in-Depth Architecture for AI Retrieval Platforms and Orchestration Gateways to Guide Enterprises in Hardening AI Supply Chains"
-      },
-      {
-        "title": "A 24-Test Production Readiness Review for AI Agents",
-        "url": "https://hackernoon.com/a-24-test-production-readiness-review-for-ai-agents?source=rss",
-        "source": "Unsafe.sh",
-        "date": "2026-08-26",
-        "reason": "提供一套可落地的AI智能体生产环境安全评估清单，帮助团队在部署前识别越权与数据泄露风险。",
-        "title_en": "A 24-Test Production Readiness Review for AI Agents",
-        "reason_zh": "提供一套可落地的AI智能体生产环境安全评估清单，帮助团队在部署前识别越权与数据泄露风险。",
-        "title_zh": "AI智能体生产环境就绪的24项测试评估",
-        "reason_en": "Provides Actionable Security Assessment Checklist for AI Agent Production Environments, Helping Teams Identify Privilege Escalation and Data Leakage Risks Prior to Deployment"
-      },
-      {
-        "title": "AI Speeds Up Malware Development, Not Its Success Rate: Analysis",
-        "url": "https://www.securityweek.com/ai-speeds-up-malware-development-not-its-success-rate-analysis/",
-        "source": "SecurityWeek",
-        "date": "2026-08-26",
-        "reason": "基于405个样本的数据分析表明AI仅加速恶意软件编写流程而未显著提升感染成功率，纠正行业认知偏差。",
-        "title_en": "AI Speeds Up Malware Development, Not Its Success Rate: Analysis",
-        "reason_zh": "基于405个样本的数据分析表明AI仅加速恶意软件编写流程而未显著提升感染成功率，纠正行业认知偏差。",
-        "title_zh": "分析：AI加速恶意软件研发，但未提升其成功率",
-        "reason_en": "Data Analysis of 405 Samples Indicates AI Only Accelerates Malware Development Without Significantly Increasing Infection Success Rates, Correcting Industry Misconceptions"
+        "reason_zh": "微软官方博客系统阐述企业级AI网关与检索平台的架构安全设计，具备较强的落地参考价值",
+        "title_zh": "当 AI 基础设施成为攻击目标：如何加固网关与控制节点",
+        "reason_en": "Microsoft Official Blog Details Enterprise AI Gateway and Retrieval Platform Architecture Security Design; Offers Strong Practical Implementation Reference"
       }
     ],
     "威胁情报": [
+      {
+        "title": "2026 年 7 月伊朗关联针对英美关键基础设施的协同网络攻击",
+        "url": "https://sectoday.tencent.com/event/Lb5XLqAB0VHppVqoUUR9",
+        "source": "腾讯安全",
+        "date": "2026-08-26",
+        "reason": "详细复盘国家级APT组织利用PLC及蜂窝调制解调器漏洞破坏水务与燃气系统的完整攻击链",
+        "title_zh": "2026 年 7 月伊朗关联针对英美关键基础设施的协同网络攻击",
+        "reason_zh": "详细复盘国家级APT组织利用PLC及蜂窝调制解调器漏洞破坏水务与燃气系统的完整攻击链",
+        "title_en": "Coordinated Cyber Attacks on UK and US Critical Infrastructure Linked to Iran in July 2026",
+        "reason_en": "Detailed Breakdown of Full Attack Chain Used by State-Sponsored APT Group to Disrupt Water and Gas Systems via PLC and Cellular Modem Vulnerabilities"
+      },
       {
         "title": "FBI Disrupts China-Linked QTFY Infrastructure Used to Steal Data From U.S. Organizations",
         "url": "https://thehackernews.com/2026/08/fbi-disrupts-china-linked-qtfy.html",
         "source": "The Hacker News",
         "date": "2026-08-26",
-        "reason": "披露FBI捣毁针对美国关键基础设施的中资关联APT组织基础设施，明确攻击链与目标行业。",
+        "reason": "通报FBI联合司法部捣毁中国背景黑客组织用于窃取关键基础设施数据的两大平台，附带基础设施画像",
         "title_en": "FBI Disrupts China-Linked QTFY Infrastructure Used to Steal Data From U.S. Organizations",
-        "reason_zh": "披露FBI捣毁针对美国关键基础设施的中资关联APT组织基础设施，明确攻击链与目标行业。",
-        "title_zh": "FBI捣毁与中国有关联的QTFY基础设施，该设施曾用于窃取美国企业数据",
-        "reason_en": "Disclosure of FBI Takedown of China-Linked APT Infrastructure Targeting US Critical Infrastructure, Clarifying Kill Chain and Target Sectors"
+        "reason_zh": "通报FBI联合司法部捣毁中国背景黑客组织用于窃取关键基础设施数据的两大平台，附带基础设施画像",
+        "title_zh": "FBI 捣毁与中国有关联的 QTFY 基础设施，该设施曾用于窃取美国企业数据",
+        "reason_en": "FBI and DOJ Announce Takedown of Two Platforms Used by China-Linked Hacker Group to Steal Critical Infrastructure Data; Includes Infrastructure Profiling"
       },
       {
         "title": "Nimbus Manticore Expands Toolset With TWOSTROKE-Like Backdoor and SSH Tunneler",
         "url": "https://thehackernews.com/2026/08/nimbus-manticore-expands-toolset-with.html",
         "source": "The Hacker News",
         "date": "2026-08-26",
-        "reason": "追踪伊朗国家支持黑客组织的最新工具链演进，新增后门与隧道组件对流量检测提出新要求。",
+        "reason": "披露伊朗国家支持黑客组织新增的后门与SSH隧道工具，丰富了对该威胁团伙TTPs的认知",
         "title_en": "Nimbus Manticore Expands Toolset With TWOSTROKE-Like Backdoor and SSH Tunneler",
-        "reason_zh": "追踪伊朗国家支持黑客组织的最新工具链演进，新增后门与隧道组件对流量检测提出新要求。",
-        "title_zh": "Nimbus Manticore新增类TWOSTROKE后门及SSH隧道工具，扩展攻击套件",
-        "reason_en": "Tracking Latest Toolchain Evolution of Iran-State-Sponsored Hacker Group: New Backdoors and Tunneling Components Pose Fresh Challenges to Traffic Detection"
+        "reason_zh": "披露伊朗国家支持黑客组织新增的后门与SSH隧道工具，丰富了对该威胁团伙TTPs的认知",
+        "title_zh": "Nimbus Manticore 新增类 TWOSTROKE 后门及 SSH 隧道工具，扩展攻击套件",
+        "reason_en": "Disclosure of New Backdoors and SSH Tunneling Tools Added by Iran-State-Sponsored Hacker Group; Enhances Understanding of Threat Actor TTPs"
       },
       {
         "title": "NovaCookies Campaigns Abuse Genuine Docusign Notifications to Steal Microsoft 365 Sessions",
         "url": "https://thehackernews.com/2026/08/novacookies-campaigns-abuse-genuine.html",
         "source": "The Hacker News",
         "date": "2026-08-26",
-        "reason": "分析新型中间人钓鱼工具包如何利用可信企业应用劫持会话令牌，提升钓鱼邮件免杀率。",
+        "reason": "分析新型中间人钓鱼工具包如何利用合法邮件通知劫持M365会话，为SOC提供流量检测特征",
         "title_en": "NovaCookies Campaigns Abuse Genuine Docusign Notifications to Steal Microsoft 365 Sessions",
-        "reason_zh": "分析新型中间人钓鱼工具包如何利用可信企业应用劫持会话令牌，提升钓鱼邮件免杀率。",
-        "title_zh": "NovaCookies活动滥用真实Docusign通知窃取Microsoft 365会话凭证",
-        "reason_en": "Analysis of Novel Man-in-the-Middle Phishing Toolkit Exploiting Trusted Enterprise Applications to Hijack Session Tokens and Enhance Phishing Email Evasion Capabilities"
-      },
-      {
-        "title": "Operation CameraSwarm: 14,500 Dahua Cameras Compromised Across Ukraine and Russia",
-        "url": "https://securityonline.info/operation-cameraswarm-dahua-cameras/",
-        "source": "Security Online",
-        "date": "2026-08-26",
-        "reason": "记录大规模物联网摄像头沦陷事件，溯源至暴露的管理目录，凸显边缘设备资产清点重要性。",
-        "title_en": "Operation CameraSwarm: 14,500 Dahua Cameras Compromised Across Ukraine and Russia",
-        "reason_zh": "记录大规模物联网摄像头沦陷事件，溯源至暴露的管理目录，凸显边缘设备资产清点重要性。",
-        "title_zh": "“CameraSwarm”行动：逾1.4万台大华摄像头在俄乌地区遭入侵",
-        "reason_en": "Documents Mass Compromise of IoT Cameras Traced to Exposed Management Directories, Underscoring Importance of Edge Device Asset Inventory"
-      },
-      {
-        "title": "CISA: Over 100 Internet-Exposed Water Systems Targeted in July Cyberattacks",
-        "url": "https://www.securityweek.com/cisa-over-100-internet-exposed-water-systems-targeted-in-july-cyberattacks/",
-        "source": "SecurityWeek",
-        "date": "2026-08-26",
-        "reason": "预警水务工控系统遭伊朗关联黑客持续渗透，提供减少互联网暴露面的具体加固指南。",
-        "title_en": "CISA: Over 100 Internet-Exposed Water Systems Targeted in July Cyberattacks",
-        "reason_zh": "预警水务工控系统遭伊朗关联黑客持续渗透，提供减少互联网暴露面的具体加固指南。",
-        "title_zh": "CISA通报：7月网络攻击瞄准超100个暴露于互联网的供水系统",
-        "reason_en": "Alert on Persistent Penetration of Water Utility SCADA Systems by Iran-Linked Hackers; Provides Concrete Hardening Guidelines to Reduce Internet-Facing Attack Surface"
+        "reason_zh": "分析新型中间人钓鱼工具包如何利用合法邮件通知劫持M365会话，为SOC提供流量检测特征",
+        "title_zh": "NovaCookies 活动滥用真实 DocuSign 通知以窃取 Microsoft 365 会话",
+        "reason_en": "Analysis of How New MITM Phishing Toolkit Hijacks M365 Sessions via Legitimate Email Notifications; Provides Traffic Detection Signatures for SOC Teams"
       }
     ],
     "安全工具": [
       {
-        "title": "threat-finder v0.3.0",
-        "url": "https://kitploit.com/en/posts/github-offseq-threat-finder-v030",
-        "source": "Unsafe.sh",
+        "title": "AccuKnox Launches AgentZ to Help Enterprises Build, Run, and Govern AI Agents at Scale",
+        "url": "https://securityonline.info/accuknox-launches-agentz-to-help-enterprises-build-run-and-govern-ai-agents-at-scale/",
+        "source": "Security Online",
         "date": "2026-08-27",
-        "reason": "能够精准识别主机实际运行的脆弱软件而非依赖清单，大幅提升漏洞扫描准确率。",
-        "title_en": "threat-finder v0.3.0",
-        "reason_zh": "能够精准识别主机实际运行的脆弱软件而非依赖清单，大幅提升漏洞扫描准确率。",
-        "title_zh": "threat-finder v0.3.0",
-        "reason_en": "Precisely Identifies Actually Running Vulnerable Software Rather Than Relying on Inventories, Significantly Improving Vulnerability Scanning Accuracy"
+        "reason": "面向企业大规模部署AI代理的治理与安全管控平台，填补了智能体生命周期管理的工具空白",
+        "title_en": "AccuKnox Launches AgentZ to Help Enterprises Build, Run, and Govern AI Agents at Scale",
+        "reason_zh": "面向企业大规模部署AI代理的治理与安全管控平台，填补了智能体生命周期管理的工具空白",
+        "title_zh": "AccuKnox 发布 AgentZ，助力企业规模化构建、运行与治理 AI 智能体",
+        "reason_en": "Governance and Security Control Platform for Enterprise-Scale AI Agent Deployment; Fills Tool Gap in Agent Lifecycle Management"
       },
       {
-        "title": "adPEAS v2.3.2",
-        "url": "https://kitploit.com/en/posts/github-61106960-adpeas-v232",
-        "source": "Unsafe.sh",
-        "date": "2026-08-26",
-        "reason": "自动化Active Directory枚举脚本，整合多项提权与横向移动检查点，适合红蓝对抗使用。",
-        "title_en": "adPEAS v2.3.2",
-        "reason_zh": "自动化Active Directory枚举脚本，整合多项提权与横向移动检查点，适合红蓝对抗使用。",
-        "title_zh": "adPEAS v2.3.2",
-        "reason_en": "Automated Active Directory Enumeration Script Integrating Multiple Privilege Escalation and Lateral Movement Checkpoints, Ideal for Red Team/Blue Team Exercises"
+        "title": "NuGuard is an open source AI application security toolkit",
+        "url": "https://kitploit.com/en/posts/github-nuguardai-nuguard-v091",
+        "source": "kitploit",
+        "date": "2026-08-27",
+        "reason": "开源AI应用安全工具箱，提供可扩展的扫描与检测能力，适合集成至DevSecOps流水线",
+        "title_en": "NuGuard is an open source AI application security toolkit",
+        "reason_zh": "开源AI应用安全工具箱，提供可扩展的扫描与检测能力，适合集成至DevSecOps流水线",
+        "title_zh": "NuGuard：一款开源 AI 应用安全工具包",
+        "reason_en": "Open-Source AI Application Security Toolbox Offering Extensible Scanning and Detection Capabilities; Ideal for Integration into DevSecOps Pipelines"
       },
       {
-        "title": "Malcolm v26.08.0",
-        "url": "https://kitploit.com/en/posts/github-cisagov-malcolm-v26080",
-        "source": "Unsafe.sh",
+        "title": "gosentry v0.4.1",
+        "url": "https://kitploit.com/en/posts/github-trailofbits-gosentry-041",
+        "source": "kitploit",
         "date": "2026-08-26",
-        "reason": "容器化网络流量分析套件，无缝集成PCAP与Zeek日志，助力安全运营中心快速响应取证。",
-        "title_en": "Malcolm v26.08.0",
-        "reason_zh": "容器化网络流量分析套件，无缝集成PCAP与Zeek日志，助力安全运营中心快速响应取证。",
-        "title_zh": "Malcolm v26.08.0",
-        "reason_en": "Containerized Network Traffic Analysis Suite Seamlessly Integrating PCAP and Zeek Logs to Assist SOC Teams in Rapid Incident Response and Forensics"
-      },
-      {
-        "title": "MISP v2.5.45",
-        "url": "https://kitploit.com/en/posts/github-misp-misp-v2545",
-        "source": "Unsafe.sh",
-        "date": "2026-08-26",
-        "reason": "核心开源威胁情报平台版本更新，强化IOC收集、关联分析与跨组织共享能力。",
-        "title_en": "MISP v2.5.45",
-        "reason_zh": "核心开源威胁情报平台版本更新，强化IOC收集、关联分析与跨组织共享能力。",
-        "title_zh": "MISP v2.5.45",
-        "reason_en": "Major Version Update for Core Open-Source Threat Intelligence Platform Enhances IOC Collection, Correlation Analysis, and Cross-Organization Sharing Capabilities"
+        "reason": "Trail of Bits维护的安全增强型Go语言工具链分支，内置多项状态追踪与防护特性",
+        "title_en": "gosentry v0.4.1",
+        "reason_zh": "Trail of Bits维护的安全增强型Go语言工具链分支，内置多项状态追踪与防护特性",
+        "title_zh": "gosentry v0.4.1",
+        "reason_en": "Security-Enhanced Go Language Toolchain Branch Maintained by Trail of Bits; Features Built-In State Tracking and Protective Capabilities"
       },
       {
         "title": "fscan v2.2.1",
         "url": "https://kitploit.com/en/posts/github-shadow1ng-fscan-v221",
-        "source": "Unsafe.sh",
+        "source": "kitploit",
         "date": "2026-08-26",
-        "reason": "轻量级内网综合扫描工具，支持一键自动化执行端口探测、漏洞验证与服务识别。",
+        "reason": "知名内网综合扫描工具发布新版本，优化自动化漏扫流程，提升横向移动探测效率",
         "title_en": "fscan v2.2.1",
-        "reason_zh": "轻量级内网综合扫描工具，支持一键自动化执行端口探测、漏洞验证与服务识别。",
+        "reason_zh": "知名内网综合扫描工具发布新版本，优化自动化漏扫流程，提升横向移动探测效率",
         "title_zh": "fscan v2.2.1",
-        "reason_en": "Lightweight Internal Network Comprehensive Scanning Tool Supporting One-Click Automated Port Discovery, Vulnerability Verification, and Service Identification"
+        "reason_en": "Well-Known Internal Network Scanning Tool Releases New Version; Optimizes Automated Vulnerability Scanning Workflow and Improves Lateral Movement Detection Efficiency"
       }
     ],
     "云安全": [
       {
-        "title": "Who Has Admin Rights in your Entra ID Directory?",
-        "url": "https://isc.sans.edu/diary/rss/33284",
-        "source": "Unsafe.sh",
-        "date": "2026-08-26",
-        "reason": "聚焦云目录服务中的特权账号滥用风险，提供排查与收敛管理员权限的实操建议。",
-        "title_en": "Who Has Admin Rights in your Entra ID Directory?",
-        "reason_zh": "聚焦云目录服务中的特权账号滥用风险，提供排查与收敛管理员权限的实操建议。",
-        "title_zh": "谁拥有你Entra ID目录的管理员权限？",
-        "reason_en": "Focuses on Privileged Account Abuse Risks in Cloud Directory Services, Providing Practical Guidance for Auditing and Restricting Administrator Permissions"
+        "title": "Dell Cloud Disaster Recovery CVE-2026-70419 (CVSS 9.1) Allows Command Execution",
+        "url": "https://securityonline.info/dell-cloud-disaster-recovery-vulnerabilities/",
+        "source": "Security Online",
+        "date": "2026-08-27",
+        "reason": "云灾备产品存在高危命令执行漏洞，影响云端数据恢复架构，建议云管团队尽快升级",
+        "title_en": "Dell Cloud Disaster Recovery CVE-2026-70419 (CVSS 9.1) Allows Command Execution",
+        "reason_zh": "云灾备产品存在高危命令执行漏洞，影响云端数据恢复架构，建议云管团队尽快升级",
+        "title_zh": "Dell Cloud Disaster Recovery 存在 CVE-2026-70419（CVSS 9.1）命令执行漏洞",
+        "reason_en": "Critical Command Execution Vulnerability Found in Cloud DR Product; Impacts Cloud Data Recovery Architecture; Cloud Management Teams Advised to Upgrade Promptly"
       },
       {
-        "title": "Edge infrastructure under siege: what two independent datasets reveal about who's exploiting your perimeter",
-        "url": "https://www.tenable.com/blog/edge-infrastructure-under-siege",
+        "title": "Proton突发全球服务故障，Mail、VPN等多项服务受影响",
+        "url": "https://blog.upx8.com/Proton突发全球服务故障-Mail-VPN等多项服务受影响",
         "source": "Unsafe.sh",
-        "date": "2026-08-26",
-        "reason": "结合独立数据集分析云边协同架构下的攻击者归因规律，揭示perimeter防御盲区。",
-        "title_en": "Edge infrastructure under siege: what two independent datasets reveal about who's exploiting your perimeter",
-        "reason_zh": "结合独立数据集分析云边协同架构下的攻击者归因规律，揭示perimeter防御盲区。",
-        "title_zh": "边缘基础设施正遭围攻：两份独立数据集揭示谁在利用你的边界防御",
-        "reason_en": "Analyzes Attacker Attribution Patterns in Cloud-Edge Collaborative Architectures Using Independent Datasets, Revealing Perimeter Defense Blind Spots"
+        "date": "2026-08-27",
+        "reason": "隐私云服务提供商遭遇大规模宕机，暴露SaaS架构单点故障风险，为云容灾演练提供反面案例",
+        "title_zh": "Proton突发全球服务故障，Mail、VPN等多项服务受影响",
+        "reason_zh": "隐私云服务提供商遭遇大规模宕机，暴露SaaS架构单点故障风险，为云容灾演练提供反面案例",
+        "title_en": "Proton Experiences Sudden Global Service Outage; Mail, VPN, and Multiple Services Affected",
+        "reason_en": "Privacy Cloud Service Provider Faces Massive Downtime; Exposes Single Point of Failure Risks in SaaS Architecture; Serves as Cautionary Tale for Cloud Disaster Recovery Drills"
       },
       {
-        "title": "infisical v0.162.24",
-        "url": "https://kitploit.com/en/posts/github-infisical-infisical-v016224",
-        "source": "Unsafe.sh",
+        "title": "Google Cloud Launches Gemini Enterprise for Finance and Law",
+        "url": "https://securityonline.info/gemini-enterprise-finance-law/",
+        "source": "Security Online",
         "date": "2026-08-26",
-        "reason": "开源密钥管理与特权访问控制平台，解决云原生应用凭证硬编码与动态轮换难题。",
-        "title_en": "infisical v0.162.24",
-        "reason_zh": "开源密钥管理与特权访问控制平台，解决云原生应用凭证硬编码与动态轮换难题。",
-        "title_zh": "infisical v0.162.24",
-        "reason_en": "Open-Source Key Management and Privileged Access Control Platform Solves Hardcoded Credentials and Dynamic Rotation Challenges in Cloud-Native Applications"
+        "reason": "介绍云厂商面向金融法律行业的合规AI服务，涵盖数据血缘追踪与安全代理机制，具行业参考性",
+        "title_en": "Google Cloud Launches Gemini Enterprise for Finance and Law",
+        "reason_zh": "介绍云厂商面向金融法律行业的合规AI服务，涵盖数据血缘追踪与安全代理机制，具行业参考性",
+        "title_zh": "Google Cloud 推出面向金融与法律行业的 Gemini Enterprise 服务",
+        "reason_en": "Introducing Cloud Vendors' Compliant AI Services for Financial and Legal Industries: Featuring Data Lineage Tracking and Secure Proxy Mechanisms"
+      },
+      {
+        "title": "Apache Tomcat Patches 11 Vulnerabilities in 11.0.25 Update",
+        "url": "https://securityonline.info/apache-tomcat-11-0-25-vulnerabilities/",
+        "source": "Security Online",
+        "date": "2026-08-26",
+        "reason": "修复认证绕过与HTTP/2拒绝服务缺陷，保障云原生Web服务基础组件的运行安全",
+        "title_en": "Apache Tomcat Patches 11 Vulnerabilities in 11.0.25 Update",
+        "reason_zh": "修复认证绕过与HTTP/2拒绝服务缺陷，保障云原生Web服务基础组件的运行安全",
+        "title_zh": "Apache Tomcat 11.0.25 版本更新修复 11 项安全漏洞",
+        "reason_en": "Patching Authentication Bypass and HTTP/2 DoS Flaws to Secure Cloud-Native Web Service Foundations"
       }
     ],
     "其他重要": [
       {
-        "title": "100页图解强制性国标《汽车密码应用技术要求(征求意见稿)》",
-        "url": "https://www.secrss.com/articles/93385",
+        "title": "特朗普签署行政令，禁止部分外国电力设备接入美国电网",
+        "url": "https://www.secrss.com/articles/93417",
+        "source": "安全内参",
+        "date": "2026-08-27",
+        "reason": "从政策层面强化关键信息基础设施供应链安全，反映地缘政治对物理网络安全的深远影响",
+        "title_zh": "特朗普签署行政令，禁止部分外国电力设备接入美国电网",
+        "reason_zh": "从政策层面强化关键信息基础设施供应链安全，反映地缘政治对物理网络安全的深远影响",
+        "title_en": "Trump Signs Executive Order Prohibiting Select Foreign Power Equipment from U.S. Grid Access",
+        "reason_en": "Policy-Driven Enhancement of Critical Information Infrastructure Supply Chain Security Underscores Geopolitical Impact on Physical Networks"
+      },
+      {
+        "title": "《网络安全技术 人工智能安全能力成熟度评估方法》等7项国家标准公开征求意见",
+        "url": "https://www.secrss.com/articles/93403",
         "source": "安全内参",
         "date": "2026-08-26",
-        "reason": "系统解读汽车密码选型、应用与验签规范，为车联网合规建设提供权威指引。",
-        "title_zh": "100页图解强制性国标《汽车密码应用技术要求(征求意见稿)》",
-        "reason_zh": "系统解读汽车密码选型、应用与验签规范，为车联网合规建设提供权威指引。",
-        "title_en": "100-Page Visual Breakdown: Mandatory National Standard on Automotive Cryptography (Draft for Comments)",
-        "reason_en": "Automotive Cryptographic Selection & Signature Verification: An Authoritative Guide for IoV Compliance"
+        "reason": "公布AI安全能力评估等七项国标草案，为企业合规建设与产品安全设计提供权威依据",
+        "title_zh": "《网络安全技术 人工智能安全能力成熟度评估方法》等7项国家标准公开征求意见",
+        "reason_zh": "公布AI安全能力评估等七项国标草案，为企业合规建设与产品安全设计提供权威依据",
+        "title_en": "Seven National Standards, Including AI Security Capability Maturity Assessment, Released for Public Consultation",
+        "reason_en": "Publication of Draft National Standards on AI Security Assessment Establishes Authoritative Framework for Enterprise Compliance and Secure Product Design"
       },
       {
-        "title": "Imagine the SOC Without a Queue: From Alert Backlog to AI Hypothesis Engine",
-        "url": "https://thehackernews.com/2026/08/imagine-soc-without-queue-from-alert.html",
-        "source": "The Hacker News",
+        "title": "菲律宾一政务系统遭勒索攻击：全国服务中断逾10天 民众生计受影响",
+        "url": "https://www.secrss.com/articles/93406",
+        "source": "安全内参",
         "date": "2026-08-26",
-        "reason": "提出以AI假设引擎替代传统告警队列的SOC转型思路，有效缓解分析师疲劳与响应延迟。",
-        "title_en": "Imagine the SOC Without a Queue: From Alert Backlog to AI Hypothesis Engine",
-        "reason_zh": "提出以AI假设引擎替代传统告警队列的SOC转型思路，有效缓解分析师疲劳与响应延迟。",
-        "title_zh": "设想无积压的SOC：从告警堆积到AI假设引擎",
-        "reason_en": "SOC Transformation via AI Hypothesis Engines: Replacing Alert Queues to Cut Analyst Fatigue & Latency"
+        "reason": "详述勒索软件对政府核心业务的瘫痪效应，警示公共部门加强离线备份与应急响应建设",
+        "title_zh": "菲律宾一政务系统遭勒索攻击：全国服务中断逾10天 民众生计受影响",
+        "reason_zh": "详述勒索软件对政府核心业务的瘫痪效应，警示公共部门加强离线备份与应急响应建设",
+        "title_en": "Ransomware Attack Paralyzes Philippine Government Systems: Over 10-Day Nationwide Outage Disrupts Public Services",
+        "reason_en": "Examining Ransomware's Disruption of Government Core Operations Urges Public Sector to Bolster Offline Backups and Incident Response Preparedness"
       },
       {
-        "title": "The MFA Identity Trap: When Authentication Creates a False Sense of Security",
-        "url": "https://www.securityweek.com/the-mfa-identity-trap-when-authentication-creates-a-false-sense-of-security/",
-        "source": "SecurityWeek",
+        "title": "国防动员法修订草案二审稿明确国防动员数据安全管理规定",
+        "url": "https://www.secrss.com/articles/93427",
+        "source": "安全内参",
         "date": "2026-08-26",
-        "reason": "深刻剖析过度依赖多因素认证可能掩盖的身份验证缺陷，倡导重构零信任身份体系。",
-        "title_en": "The MFA Identity Trap: When Authentication Creates a False Sense of Security",
-        "reason_zh": "深刻剖析过度依赖多因素认证可能掩盖的身份验证缺陷，倡导重构零信任身份体系。",
-        "title_zh": "MFA身份陷阱：当认证机制制造虚假安全感",
-        "reason_en": "Beyond MFA: Exposing Masked Auth Flaws and Rebuilding Zero Trust Identity Frameworks"
-      },
-      {
-        "title": "前沿 | 依托多级防御战略构建企业网络安全防护体系的理论探索",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;mid=2664265933&amp;idx=3&amp;sn=f7f25e77b4cffa31c560bdfae70ea4cf",
-        "source": "Unsafe.sh",
-        "date": "2026-08-26",
-        "reason": "从理论层面推演纵深防御模型的演进路径，为企业架构师设计弹性安全底座提供参考。",
-        "title_zh": "前沿 | 依托多级防御战略构建企业网络安全防护体系的理论探索",
-        "reason_zh": "从理论层面推演纵深防御模型的演进路径，为企业架构师设计弹性安全底座提供参考。",
-        "title_en": "Frontier | Theoretical Foundations for Enterprise Cyber Defense Using Multi-Tier Strategies",
-        "reason_en": "Evolution of Defense-in-Depth: A Theoretical Roadmap for Resilient Security Architectures"
-      },
-      {
-        "title": "重点防范！新一批境外恶意网址和恶意IP发布",
-        "url": "https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;mid=2664265933&amp;idx=4&amp;sn=028ab7578a61e777f5cbf4eb0eb14dc6",
-        "source": "Unsafe.sh",
-        "date": "2026-08-26",
-        "reason": "及时通报最新境外恶意网络资产清单，可直接导入防火墙与IDS进行实时阻断拦截。",
-        "title_zh": "重点防范！新一批境外恶意网址和恶意IP发布",
-        "reason_zh": "及时通报最新境外恶意网络资产清单，可直接导入防火墙与IDS进行实时阻断拦截。",
-        "title_en": "Critical Alert: New Batch of Overseas Malicious URLs and IPs Released",
-        "reason_en": "Urgent Feed: Latest Overseas Malicious Assets for Direct Firewall/IDS Real-Time Blocking"
+        "reason": "立法层面规范国防动员数据采集使用流程，推动军事数据安全管理体系向法治化迈进",
+        "title_zh": "国防动员法修订草案二审稿明确国防动员数据安全管理规定",
+        "reason_zh": "立法层面规范国防动员数据采集使用流程，推动军事数据安全管理体系向法治化迈进",
+        "title_en": "Second Draft of Revised National Defense Mobilization Law Specifies Data Security Governance for Defense Mobilization",
+        "reason_en": "Legislative Regulation of Defense Mobilization Data Workflows Advances Military Data Security Through Legal Compliance"
       }
     ]
   },
-  "summary": "本批次聚焦AI模型投毒与沙箱逃逸、关键基础设施勒索攻击及多项高危CVE披露，技术实战价值突出。",
-  "summary_zh": "本批次聚焦AI模型投毒与沙箱逃逸、关键基础设施勒索攻击及多项高危CVE披露，技术实战价值突出。",
-  "summary_en": "This Update Covers AI Poisoning, Sandbox Evasion, Critical Infra Ransomware & High-Severity CVEs for High Operational Value"
+  "summary": "本批次聚焦高危漏洞利用、AI智能体安全事件及国家级APT攻击，覆盖云原生与移动端防护实践。",
+  "summary_zh": "本批次聚焦高危漏洞利用、AI智能体安全事件及国家级APT攻击，覆盖云原生与移动端防护实践。",
+  "summary_en": "This Round Highlights High-Risk Exploits, AI Agent Security Incidents, and Nation-State APT Campaigns Across Cloud-Native and Mobile Environments"
 }
