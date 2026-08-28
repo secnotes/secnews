@@ -2512,22 +2512,9 @@ def generate_html(articles, output_file=None, ai_curated=None):
 
         function switchNewsDate(v) { loadNewsDate(v); }
 
-        // newsDates is newest-first: › (delta=+1) moves toward newer, ‹ toward older
-        function stepNewsDate(delta) {
-            var idx = newsDates.indexOf(currentNewsDate);
-            if (idx === -1) return;
-            var target = newsDates[idx - delta];
-            if (target) loadNewsDate(target);
-        }
-
         function setNewsDateSelect() {
             var sel = document.getElementById('news-date-select');
             if (sel) sel.value = currentNewsDate;
-            var idx = newsDates.indexOf(currentNewsDate);
-            var prev = document.getElementById('news-date-prev');   // older
-            var next = document.getElementById('news-date-next');   // newer
-            if (prev) prev.disabled = idx === -1 || idx >= newsDates.length - 1;
-            if (next) next.disabled = idx <= 0;
         }
 
         // Browser back/forward between visited dates
@@ -2643,11 +2630,12 @@ def generate_html(articles, output_file=None, ai_curated=None):
         /* Subtitle date picker: typography, not chrome (dailycve-style).
            Dark theme adapts automatically via currentColor inheritance. */
         .subtitle .title-date {
-            display: inline-flex;
-            align-items: center;
-            gap: 2px;
+            white-space: nowrap;
         }
         .subtitle #news-date-select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
             font-size: inherit;
             font-family: inherit;
             font-weight: 600;
@@ -2657,9 +2645,14 @@ def generate_html(articles, output_file=None, ai_curated=None):
             border-bottom: 2px solid transparent;
             border-radius: 0;
             /* no top padding: keeps the date on the subtitle's baseline;
-               the 2px bottom padding reserves room for the hover underline */
+               the 2px bottom padding reserves room for the hover underline.
+               appearance:none strips the native box/arrow so the date aligns
+               with the surrounding "更新于" text instead of sitting in a
+               taller centered control box. */
             padding: 0 2px 2px;
+            margin: 0;
             line-height: inherit;
+            vertical-align: baseline;
             cursor: pointer;
             transition: border-color 0.2s ease;
         }
@@ -2669,25 +2662,6 @@ def generate_html(articles, output_file=None, ai_curated=None):
             outline: none;
         }
         .subtitle #news-date-select.load-error { border-bottom-color: var(--danger); }
-        .date-nav-btn {
-            width: 16px;
-            height: 16px;
-            border: none;
-            border-radius: 4px;
-            background: transparent;
-            color: inherit;
-            font-size: 0.8rem;
-            line-height: 1;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0.45;
-            transition: opacity 0.2s ease;
-        }
-        .subtitle .title-date:hover .date-nav-btn,
-        .date-nav-btn:focus { opacity: 1; }
-        .date-nav-btn:disabled { opacity: 0.15; cursor: default; }
 
         /* Mobile: sidebar becomes a slide-in drawer opened by the ☰ button */
         #sidebar-backdrop {
@@ -3459,7 +3433,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         <main class="main-content">
             <header>
                 <h1>🛡️ {T('网络安全资讯聚合', 'Cybersecurity News')}</h1>
-                <div class="subtitle">{T('汇聚最新网络安全资讯 · 更新于 ', 'Latest security news · Updated ')}<span class="title-date"><button class="date-nav-btn" id="news-date-prev" onclick="stepNewsDate(-1)" aria-label="前一天 / Previous day">‹</button><select id="news-date-select" onchange="switchNewsDate(this.value)" aria-label="报告日期 / Report date"></select><button class="date-nav-btn" id="news-date-next" onclick="stepNewsDate(1)" aria-label="后一天 / Next day">›</button></span></div>
+                <div class="subtitle">{T('汇聚最新网络安全资讯 · 更新于 ', 'Latest security news · Updated ')}<span class="title-date"><select id="news-date-select" onchange="switchNewsDate(this.value)" aria-label="报告日期 / Report date"></select></span></div>
             </header>
 
             <!-- View Toggle Buttons -->
