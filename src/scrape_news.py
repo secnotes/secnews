@@ -2627,10 +2627,28 @@ def generate_html(articles, output_file=None, ai_curated=None):
             .github-corner .octo-arm { animation: octocat-wave 560ms ease-in-out; }
         }
 
-        /* Subtitle date picker: typography, not chrome (dailycve-style).
-           Dark theme adapts automatically via currentColor inheritance. */
+        /* Subtitle date picker: a light accent-tinted chip so the date
+           reads as a clickable control rather than plain inline text.
+           Dark theme adapts via the --accent tokens. appearance:none
+           strips the native box; the chevron is drawn on
+           .title-date::after so its color tracks --accent-text in both
+           themes (a background-image arrow couldn't). */
         .subtitle .title-date {
+            position: relative;
+            display: inline-block;
             white-space: nowrap;
+        }
+        .subtitle .title-date::after {
+            content: "";
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            width: 7px;
+            height: 7px;
+            border-right: 1.5px solid var(--accent-text);
+            border-bottom: 1.5px solid var(--accent-text);
+            transform: translateY(-65%) rotate(45deg);
+            pointer-events: none;
         }
         .subtitle #news-date-select {
             -webkit-appearance: none;
@@ -2639,29 +2657,42 @@ def generate_html(articles, output_file=None, ai_curated=None):
             font-size: inherit;
             font-family: inherit;
             font-weight: 600;
-            color: inherit;
-            background: transparent;
+            color: var(--accent-text);
+            background-color: color-mix(in srgb, var(--accent) 12%, transparent);
             border: none;
-            border-bottom: 2px solid transparent;
-            border-radius: 0;
-            /* no top padding: keeps the date on the subtitle's baseline;
-               the 2px bottom padding reserves room for the hover underline.
-               appearance:none strips the native box/arrow so the date aligns
-               with the surrounding "更新于" text instead of sitting in a
-               taller centered control box. */
-            padding: 0 2px 2px;
-            margin: 0;
+            border-radius: 6px;
+            /* right padding reserves room for the ::after chevron */
+            padding: 2px 26px 2px 8px;
+            margin: 0 0 0 2px;
             line-height: inherit;
             vertical-align: baseline;
             cursor: pointer;
-            transition: border-color 0.2s ease;
+            transition: background-color 0.2s ease, color 0.2s ease;
         }
         .subtitle #news-date-select:hover,
         .subtitle #news-date-select:focus {
-            border-bottom-color: currentColor;
+            background-color: color-mix(in srgb, var(--accent) 20%, transparent);
+            color: var(--accent-hover);
             outline: none;
         }
-        .subtitle #news-date-select.load-error { border-bottom-color: var(--danger); }
+        .subtitle #news-date-select.load-error {
+            background-color: color-mix(in srgb, var(--danger) 14%, transparent);
+            color: var(--danger);
+        }
+        /* Dark theme fix: color-mix with transparent yields a *translucent*
+           accent that, composited over the dark page bg, becomes a muddy
+           blue-grey — too close to the浅蓝 accent-text, so the date is
+           illegible. Use an opaque dark fill (slightly lifted from the page
+           bg) so the chip reads as a solid block; the accent-tinted text
+           stays readable against it. The option list is native-rendered,
+           so this only styles the closed chip. */
+        body.theme-dark .subtitle #news-date-select {
+            background-color: var(--border-weak);
+        }
+        body.theme-dark .subtitle #news-date-select:hover,
+        body.theme-dark .subtitle #news-date-select:focus {
+            background-color: var(--border-strong);
+        }
 
         /* Mobile: sidebar becomes a slide-in drawer opened by the ☰ button */
         #sidebar-backdrop {
@@ -3433,7 +3464,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         <main class="main-content">
             <header>
                 <h1>🛡️ {T('网络安全资讯聚合', 'Cybersecurity News')}</h1>
-                <div class="subtitle">{T('汇聚最新网络安全资讯 · 更新于 ', 'Latest security news · Updated ')}<span class="title-date"><select id="news-date-select" onchange="switchNewsDate(this.value)" aria-label="报告日期 / Report date"></select></span></div>
+                <div class="subtitle">{T('每日更新 · ', 'Updated daily · ')}<span class="title-date"><select id="news-date-select" onchange="switchNewsDate(this.value)" aria-label="报告日期 / Report date"></select></span></div>
             </header>
 
             <!-- View Toggle Buttons -->
