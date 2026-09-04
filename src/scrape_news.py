@@ -251,6 +251,41 @@ class SecurityNewsAggregator:
 
         return None
 
+    def _parse_x_time_label(self, label):
+        """Parse an X permalink time label into YYYY-MM-DD, or None.
+
+        X SSR permalinks are labeled with a compact relative time ("45s",
+        "16h", "2d") for recent tweets or an absolute date ("Aug 30",
+        "Mar 3, 2025") for older ones.
+        """
+        if not label:
+            return None
+        label = label.strip()
+
+        m = re.match(r'^(\d+)\s*([smhdw])$', label, re.IGNORECASE)
+        if m:
+            unit = {'s': 'seconds', 'm': 'minutes', 'h': 'hours',
+                    'd': 'days', 'w': 'weeks'}[m.group(2).lower()]
+            past_date = self._relative_past_date(unit, int(m.group(1)))
+            if past_date:
+                return past_date.strftime('%Y-%m-%d')
+            return None
+
+        for fmt in ('%b %d, %Y', '%B %d, %Y', '%b %d', '%B %d'):
+            try:
+                parsed = datetime.strptime(label, fmt)
+            except ValueError:
+                continue
+            if '%Y' not in fmt:
+                parsed = parsed.replace(year=datetime.now().year)
+                # A bare "Mon D" label can never be in the future; if it
+                # lands past today the tweet is from last year
+                if parsed > datetime.now():
+                    parsed = parsed.replace(year=parsed.year - 1)
+            return parsed.strftime('%Y-%m-%d')
+
+        return None
+
     def _decode_response_content(self, response):
         """
         Decode response content with proper encoding handling
@@ -1683,13 +1718,18 @@ class SecurityNewsAggregator:
             logger.error(f"Error scraping Security Online: {str(e)}")
 
     def scrape_x_account(self, screen_name):
-        """Scrape one X account's recent tweets via SSR Schema.org microdata.
+        """Scrape one X account's recent tweets from the server-rendered
+        profile page (no login, no guest token, no JS).
 
-        X server-side renders ~5 most-recent tweets as SocialMediaPosting
-        microdata for SEO, so a plain HTML fetch (no login, no guest
-        token, no JS) yields them directly. Returns early with an error
-        if the fetch fails; logs fetched=0 if the SSR markup is absent
-        (layout changed / blocked).
+        X dropped the Schema.org SocialMediaPosting microdata from its SSR
+        markup around 2026-08-30, so tweets are now located structurally:
+        each rendered tweet is an <article> containing a permalink anchor
+        href of /<handle>/status/<id> (media and action links append
+        /video/1 or use /i/status/ and never match that exact shape), the
+        tweet text sits in the first div[dir=auto], and the permalink's
+        label is the relative time ("16h", "2d") or a "Mon D" / "Mar 3,
+        2025" date. Returns early with an error if the fetch fails; logs
+        fetched=0 if no <article> is present (layout changed / blocked).
         """
         logger.info(f"Scraping X (@{screen_name})...")
         try:
@@ -1707,53 +1747,63 @@ class SecurityNewsAggregator:
                 logger.error(f"Failed to fetch x.com/{screen_name}: HTTP {response.status_code}")
                 return
             soup = BeautifulSoup(response.content, 'html.parser')
-            articles = soup.find_all('article', attrs={'itemtype': 'https://schema.org/SocialMediaPosting'})
+            articles = soup.find_all('article')
 
-            # Canonical screen name from SSR (handles case-insensitive input:
-            # /portswigger -> og:title "PortSwigger (@PortSwigger)")
+            # Canonical screen name and display name from SSR og:title
+            # (handles case-insensitive input: /portswigger -> og:title
+            # "PortSwigger (@PortSwigger) on X")
             canonical = screen_name
+            author_name = ''
             og_title = soup.find('meta', attrs={'property': 'og:title'})
             if og_title and og_title.get('content'):
-                m = re.search(r'\(@([^)]+)\)', og_title['content'])
+                m = re.search(r'^(.*)\s+\(@([^)]+)\)\s+on X$', og_title['content'])
                 if m:
-                    canonical = m.group(1)
+                    author_name = m.group(1).strip()
+                    canonical = m.group(2)
             source_name = f'X (@{canonical})'
+
+            # Permalink of one tweet: /<handle>/status/<id> and nothing else
+            status_re = re.compile(r'^/[A-Za-z0-9_]{1,15}/status/\d+$')
 
             for art in articles:
                 try:
-                    def ip(name):
-                        meta = art.find('meta', attrs={'itemprop': name})
-                        return meta['content'] if meta and meta.has_attr('content') else ''
-                    text = ip('text')
-                    url = ip('url')
-                    if not text or not url:
+                    url = None
+                    time_label = ''
+                    for link in art.find_all('a', href=True):
+                        if status_re.match(link['href']):
+                            url = urljoin('https://x.com/', link['href'])
+                            time_label = link.get_text(strip=True)
+                            break
+                    if not url:
                         continue
+                    # Tweet text: first non-empty div[dir=auto] (engagement
+                    # counters use span[dir=ltr], so they never match).
+                    # No separator / no per-node strip: boundary whitespace
+                    # lives in the text nodes themselves, so this preserves
+                    # "public #hashtag", "@mention" (the '@' and the
+                    # handle are separate nodes) and paragraph newlines
+                    text = ''
+                    for div in art.find_all('div', attrs={'dir': 'auto'}):
+                        text = div.get_text('', strip=False).strip()
+                        if text:
+                            break
+                    if not text:
+                        continue
+                    # Permalink label ("16h" / "Aug 30") -> local YYYY-MM-DD
+                    # so the freshness filter compares against the local
+                    # cutoff consistently; falls back to today when absent
+                    # or unparseable
+                    date = self._parse_x_time_label(time_label) \
+                        or datetime.now().strftime('%Y-%m-%d')
+                    # Avatar (first profile image on the card) and display
+                    # name feed the tweet-style card; all fields optional,
+                    # card degrades gracefully when absent
+                    author_avatar = ''
+                    img = art.find('img', src=re.compile(r'^https://pbs\.twimg\.com/profile_images/'))
+                    if img:
+                        author_avatar = img['src']
                     # Tweet has no title: first ~80 chars as title, full text as description
                     title = text[:80] + ('…' if len(text) > 80 else '')
-                    # Date '2026-08-06T22:29:00.000Z' -> local YYYY-MM-DD
-                    # (matches Tencent's .astimezone() so the freshness filter
-                    # compares against the local cutoff consistently)
-                    date = datetime.now().strftime('%Y-%m-%d')
-                    iso = ip('datePublished')
-                    if iso:
-                        try:
-                            date = datetime.fromisoformat(iso.replace('Z', '+00:00')).astimezone().strftime('%Y-%m-%d')
-                        except ValueError:
-                            pass
-                    # Author block (avatar / display name / @handle) feeds the
-                    # tweet-style card; all fields optional, card degrades
-                    # gracefully when absent
-                    author_name = ''
-                    author_handle = canonical
-                    author_avatar = ''
-                    author_block = art.find('div', attrs={'itemprop': 'author'})
-                    if author_block:
-                        def aip(name):
-                            meta = author_block.find('meta', attrs={'itemprop': name})
-                            return meta['content'] if meta and meta.has_attr('content') else ''
-                        author_name = aip('name')
-                        author_handle = aip('alternateName') or canonical
-                        author_avatar = aip('image')
                     self.articles['x'].append({
                         'title': self.decode_html_entities(title),
                         'url': url,
@@ -1762,7 +1812,7 @@ class SecurityNewsAggregator:
                         'date': date,
                         'category': 'x',
                         'author_name': author_name,
-                        'author_handle': author_handle,
+                        'author_handle': canonical,
                         'author_avatar': author_avatar,
                     })
                 except Exception as e:
