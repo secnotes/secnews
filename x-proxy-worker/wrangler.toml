@@ -1,0 +1,11 @@
+# Cloudflare Worker configuration for the secnews X profile proxy.
+# Deploy with `wrangler deploy` (see README.md), or paste worker.js into
+# the Cloudflare dashboard if you prefer not to install wrangler.
+
+name = "secnews-x-proxy"
+main = "worker.js"
+compatibility_date = "2026-09-05"
+
+# PROXY_TOKEN is a secret — do NOT put it in this file. Set it with:
+#   wrangler secret put PROXY_TOKEN
+# or in the dashboard: Settings → Variables and Secrets → Add (type: Secret).

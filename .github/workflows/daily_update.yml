@@ -40,6 +40,13 @@ jobs:
         AI_API_KEY: ${{ secrets.AI_API_KEY }}
         AI_MODEL: ${{ vars.AI_MODEL || 'gpt-4o-mini' }}
         AI_BASE_URL: ${{ vars.AI_BASE_URL }}
+        # Optional X profile proxy (Cloudflare Worker, see x-proxy-worker/README.md).
+        # x.com 403s the runner's Azure IP; empty values simply leave these unset
+        # and the X scraper falls back to a direct fetch.
+        # X_PROXY_BASE is non-sensitive: set it as a Variable (preferred, like
+        # AI_MODEL/AI_BASE_URL) or a Secret — either location works.
+        X_PROXY_BASE: ${{ vars.X_PROXY_BASE || secrets.X_PROXY_BASE }}
+        X_PROXY_TOKEN: ${{ secrets.X_PROXY_TOKEN }}
 
     - name: Commit and push changes
       run: |

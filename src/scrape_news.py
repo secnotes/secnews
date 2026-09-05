@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 import os
 import json
 import logging
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, urlencode
 import re
 import html
 import sys
@@ -106,6 +106,15 @@ def _load_x_accounts():
     return accounts
 
 X_ACCOUNTS = _load_x_accounts()
+
+# Headers for X profile fetches (same identity for direct and proxied
+# requests, so the SSR markup — and thus parsing — is identical either way)
+X_FETCH_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
+                  'AppleWebKit/537.36 (KHTML, like Gecko) '
+                  'Chrome/120.0.0.0 Safari/537.36',
+    'Accept-Language': 'en-US,en;q=0.9',
+}
 
 def _docs_dir():
     """Project docs directory (generated HTML and dated data archives live here)"""
@@ -1717,6 +1726,30 @@ class SecurityNewsAggregator:
         except Exception as e:
             logger.error(f"Error scraping Security Online: {str(e)}")
 
+    def _x_profile_urls(self, screen_name):
+        """Candidate URLs for fetching one X profile, in try order.
+
+        When X_PROXY_BASE points at the Cloudflare Worker from
+        x-proxy-worker/, that URL goes first: x.com 403s the CI runner's
+        Azure IP while the Worker's Cloudflare egress is currently allowed
+        (see x-proxy-worker/README.md). A direct x.com URL is always
+        appended last, so the scraper keeps working locally (or after the
+        Worker is decommissioned) with zero configuration.
+
+        Returns a list of (label, url) tuples, label used in failure logs
+        so it's visible which path broke.
+        """
+        urls = []
+        base = (os.environ.get('X_PROXY_BASE') or '').rstrip('/')
+        if base:
+            params = {'url': f'https://x.com/{screen_name}'}
+            token = os.environ.get('X_PROXY_TOKEN') or ''
+            if token:
+                params['token'] = token
+            urls.append(('worker', f"{base}/?{urlencode(params)}"))
+        urls.append(('direct', f'https://x.com/{screen_name}'))
+        return urls
+
     def scrape_x_account(self, screen_name):
         """Scrape one X account's recent tweets from the server-rendered
         profile page (no login, no guest token, no JS).
@@ -1728,25 +1761,32 @@ class SecurityNewsAggregator:
         /video/1 or use /i/status/ and never match that exact shape), the
         tweet text sits in the first div[dir=auto], and the permalink's
         label is the relative time ("16h", "2d") or a "Mon D" / "Mar 3,
-        2025" date. Returns early with an error if the fetch fails; logs
-        fetched=0 if no <article> is present (layout changed / blocked).
+        2025" date.
+
+        The page is fetched via _x_profile_urls() in order (Worker proxy
+        first when configured, then direct); every fetch failure is only
+        logged, never raised, so a broken X source never affects the other
+        scrapers. Logs fetched=0 if no <article> is present (layout
+        changed / blocked).
         """
         logger.info(f"Scraping X (@{screen_name})...")
         try:
-            response = session.get(
-                f"https://x.com/{screen_name}",
-                headers={
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) '
-                                  'AppleWebKit/537.36 (KHTML, like Gecko) '
-                                  'Chrome/120.0.0.0 Safari/537.36',
-                    'Accept-Language': 'en-US,en;q=0.9',
-                },
-                timeout=20,
-            )
-            if response.status_code != 200:
-                logger.error(f"Failed to fetch x.com/{screen_name}: HTTP {response.status_code}")
+            content = None
+            for label, url in self._x_profile_urls(screen_name):
+                try:
+                    response = session.get(url, headers=X_FETCH_HEADERS, timeout=25)
+                except Exception as e:
+                    logger.warning(f"Error fetching x.com/{screen_name} via {label}: {e}")
+                    continue
+                if response.status_code == 200:
+                    content = response.content
+                    break
+                logger.warning(f"Failed to fetch x.com/{screen_name} via {label}: "
+                               f"HTTP {response.status_code}")
+            if content is None:
+                logger.error(f"Failed to fetch x.com/{screen_name}: no fetch method succeeded")
                 return
-            soup = BeautifulSoup(response.content, 'html.parser')
+            soup = BeautifulSoup(content, 'html.parser')
             articles = soup.find_all('article')
 
             # Canonical screen name and display name from SSR og:title

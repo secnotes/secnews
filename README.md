@@ -142,6 +142,18 @@ python scrape_news.py --unsafe --ai-curate \
 - `AI_MODEL` 和 `AI_BASE_URL` 为非敏感配置，应设置在 Variables 标签下
 - 阿里百练和智谱AI官方都提供GLM模型，但API地址不同，需根据使用的平台选择正确的地址
 
+### X数据源代理（可选）
+
+2026-08-30 起 x.com 对数据中心 IP（含 GitHub Actions 的 Azure runner）直接返回
+403，X 爬虫在 CI 中无法直连。解决方案是一个免费的 Cloudflare Worker 转发代理，
+部署与配置说明见 [`x-proxy-worker/`](x-proxy-worker/README.md)：
+
+1. 按说明部署 Worker，获得地址并设置 `PROXY_TOKEN`
+2. 仓库中配置：**Variables** 添加 `X_PROXY_BASE`（Worker 地址），**Secrets** 添加
+   `X_PROXY_TOKEN`（token）
+
+不配置时 X 爬虫回退直连（本地走代理出口可用），失败仅记录日志、不影响其他数据源。
+
 ### 成本估算
 
 - 每日约分析100-150篇文章
