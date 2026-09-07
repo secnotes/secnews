@@ -19,7 +19,7 @@
 [![SecRSS](https://img.shields.io/badge/SecRSS-555?style=flat-square)](https://www.secrss.com/)
 [![SecurityWeek](https://img.shields.io/badge/SecurityWeek-555?style=flat-square)](https://www.securityweek.com/)
 [![The Hacker News](https://img.shields.io/badge/The_Hacker_News-555?style=flat-square)](https://thehackernews.com/)
-[![Security Online](https://img.shields.io/badge/Security_Online-555?style=flat-square)](https://securityonline.info/)
+[![Dark Reading](https://img.shields.io/badge/Dark_Reading-555?style=flat-square)](https://www.darkreading.com/)
 [![Kanxue Forum](https://img.shields.io/badge/Kanxue_Forum-555?style=flat-square)](https://bbs.kanxue.com/)
 [![X](https://img.shields.io/badge/X-1d9bf0?style=flat-square&logo=x&logoColor=white)](https://x.com)
 

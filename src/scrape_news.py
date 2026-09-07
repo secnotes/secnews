@@ -155,7 +155,7 @@ SOURCE_LOG_NAMES = {
     '安全内参': 'SecRSS',
     'The Hacker News': 'The Hacker News',
     'SecurityWeek': 'SecurityWeek',
-    'Security Online': 'Security Online',
+    'Dark Reading': 'Dark Reading',
     'Unsafe.sh': 'Unsafe.sh',
 }
 
@@ -1663,19 +1663,23 @@ class SecurityNewsAggregator:
         except Exception as e:
             logger.error(f"Error scraping SecurityWeek: {str(e)}")
 
-    def scrape_securityonline(self):
-        """Scrape https://securityonline.info/feed RSS for security news.
+    def scrape_dark_reading(self):
+        """Scrape https://www.darkreading.com/rss.xml for security news.
 
-        Plain RSS 2.0; requires a proxy in CN environments (the host is
-        reachable but slow/blocked without one). Replaces the coverage
-        previously pulled from @Daily_CyberSec tweets.
+        Replaced Security Online (securityonline.info) as a source: that
+        site has been unscrapeable since 2026-08-28 — it serves a
+        reCAPTCHA v3 "geo_verify" interstitial to non-browser clients,
+        drops datacenter IPs (the CI runner) at the TCP level, and its
+        /feed endpoint returns a WordPress 500 even when reached. Dark
+        Reading is a comparable high-volume news site with a plain RSS
+        2.0 feed that plain requests can fetch directly.
         """
-        logger.info("Scraping Security Online RSS feed...")
+        logger.info("Scraping Dark Reading RSS feed...")
         try:
             import xml.etree.ElementTree as ET
             from email.utils import parsedate_to_datetime
 
-            response = session.get('https://securityonline.info/feed',
+            response = session.get('https://www.darkreading.com/rss.xml',
                                    headers={'Accept': 'application/rss+xml, application/xml;q=0.9, */*;q=0.8'},
                                    proxies=get_proxies(), timeout=25)
             response.raise_for_status()
@@ -1690,14 +1694,14 @@ class SecurityNewsAggregator:
                     if not title or not url:
                         continue
 
-                    # Description arrives as HTML; strip tags for the card
+                    # Description may carry HTML; strip tags for the card
                     description = ''
                     desc_raw = item.findtext('description') or ''
                     if desc_raw:
                         description = re.sub(r'<[^>]+>', '', desc_raw).strip()
                         description = description[:200] + '...' if len(description) > 200 else description
 
-                    # pubDate is RFC 822 ("Wed, 26 Aug 2026 08:01:36 +0000")
+                    # pubDate is RFC 822 GMT ("Fri, 04 Sep 2026 15:57:31 GMT")
                     date = datetime.now().strftime('%Y-%m-%d')
                     pub_date_text = (item.findtext('pubDate') or '').strip()
                     if pub_date_text:
@@ -1710,7 +1714,7 @@ class SecurityNewsAggregator:
                     article = {
                         'title': self.decode_html_entities(title),
                         'url': url,
-                        'source': 'Security Online',
+                        'source': 'Dark Reading',
                         'description': self.decode_html_entities(description),
                         'date': date,
                         'category': 'web'
@@ -1718,13 +1722,13 @@ class SecurityNewsAggregator:
                     self.articles['web'].append(article)
 
                 except Exception as e:
-                    logger.warning(f"Error processing Security Online RSS item: {str(e)}")
+                    logger.warning(f"Error processing Dark Reading RSS item: {str(e)}")
                     continue
 
-            self._log_found('Security Online', 'web', fetched=len(items))
+            self._log_found('Dark Reading', 'web', fetched=len(items))
 
         except Exception as e:
-            logger.error(f"Error scraping Security Online: {str(e)}")
+            logger.error(f"Error scraping Dark Reading: {str(e)}")
 
     def _x_profile_urls(self, screen_name):
         """Candidate URLs for fetching one X profile, in try order.
@@ -2008,7 +2012,7 @@ class SecurityNewsAggregator:
         self.scrape_secrss()
         self.scrape_the_hacker_news()
         self.scrape_security_week()
-        self.scrape_securityonline()
+        self.scrape_dark_reading()
 
         # X (Twitter) accounts configured via x_accounts.txt
         self.scrape_x()
