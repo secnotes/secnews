@@ -1,0 +1,353 @@
+{
+  "analysis_date": "2026-09-07",
+  "model": "qwen3.7-flash",
+  "total_analyzed": 106,
+  "categories": {
+    "漏洞研究": [
+      {
+        "title": "Attackers Hijack MikroTik Routers Through Internet-Exposed SSH Without Authentication",
+        "url": "https://thehackernews.com/2026/09/attackers-hijack-mikrotik-routers.html",
+        "source": "The Hacker News",
+        "date": "2026-09-06",
+        "reason": "针对MikroTik路由器的SSH服务未授权访问漏洞进行详细分析，攻击者可无需凭证直接获取完全控制权，需紧急修补。",
+        "title_en": "Attackers Hijack MikroTik Routers Through Internet-Exposed SSH Without Authentication",
+        "reason_zh": "针对MikroTik路由器的SSH服务未授权访问漏洞进行详细分析，攻击者可无需凭证直接获取完全控制权，需紧急修补。",
+        "title_zh": "攻击者通过未认证的公网SSH劫持MikroTik路由器",
+        "reason_en": "In-depth Analysis of Unauthenticated SSH Access Vulnerability in MikroTik Routers"
+      },
+      {
+        "title": "ProFTPD mod_sql post-authentication SQLi RCE",
+        "url": "https://cxsecurity.com/issue/WLB-2026090006",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "披露了ProFTPD组件在认证后存在的SQL注入导致远程代码执行的风险，附带完整利用脚本，对FTP服务管理者具有极高预警价值。",
+        "title_en": "ProFTPD mod_sql post-authentication SQLi RCE",
+        "reason_zh": "披露了ProFTPD组件在认证后存在的SQL注入导致远程代码执行的风险，附带完整利用脚本，对FTP服务管理者具有极高预警价值。",
+        "title_zh": "ProFTPD mod_sql模块认证后SQL注入引发RCE",
+        "reason_en": "Post-Authentication SQL Injection Leading to RCE in ProFTPD Exposed with Full Exploit"
+      },
+      {
+        "title": "Tenable Nessus 10.12.1 SQL Injection",
+        "url": "https://cxsecurity.com/issue/WLB-2026090005",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "知名漏洞扫描器Nessus后台存在SQL注入漏洞，可能导致管理员凭据泄露或系统被控，建议立即升级至安全版本。",
+        "title_en": "Tenable Nessus 10.12.1 SQL Injection",
+        "reason_zh": "知名漏洞扫描器Nessus后台存在SQL注入漏洞，可能导致管理员凭据泄露或系统被控，建议立即升级至安全版本。",
+        "title_zh": "Tenable Nessus 10.12.1 SQL注入漏洞",
+        "reason_en": "Critical SQL Injection Vulnerability Discovered in Nessus Backend"
+      },
+      {
+        "title": "FreePBX  17.0.2 Remote Code Execution (RCE)",
+        "url": "https://cxsecurity.com/issue/WLB-2026090002",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "广泛使用的开源电话交换系统FreePBX爆发远程代码执行漏洞，攻击者可通过构造恶意请求直接接管服务器权限。",
+        "title_en": "FreePBX  17.0.2 Remote Code Execution (RCE)",
+        "reason_zh": "广泛使用的开源电话交换系统FreePBX爆发远程代码执行漏洞，攻击者可通过构造恶意请求直接接管服务器权限。",
+        "title_zh": "FreePBX 17.0.2远程代码执行(RCE)漏洞",
+        "reason_en": "Remote Code Execution Vulnerability Emerges in Widely Used FreePBX System"
+      },
+      {
+        "title": "Windows Defender (MsMpEng.exe) Race Condition",
+        "url": "https://cxsecurity.com/issue/WLB-2026090007",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "深入分析了Windows Defender核心进程MsMpEng.exe中的竞态条件缺陷，为安全软件绕过与内核级漏洞挖掘提供了新思路。",
+        "title_en": "Windows Defender (MsMpEng.exe) Race Condition",
+        "reason_zh": "深入分析了Windows Defender核心进程MsMpEng.exe中的竞态条件缺陷，为安全软件绕过与内核级漏洞挖掘提供了新思路。",
+        "title_zh": "Windows Defender (MsMpEng.exe)竞态条件漏洞",
+        "reason_en": "Deep Dive into Race Condition Flaw in Windows Defender Core Process MsMpEng.exe"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "安卓ACE反作弊拉黑设备机制技术解析",
+        "url": "http://bbs.kanxue.com/thread-292813.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-09-06",
+        "reason": "详细拆解了安卓端ACE反作弊系统通过Widevine DRM硬锚点判定设备身份的核心逻辑，对移动端风控绕过研究极具参考价值。",
+        "title_zh": "安卓ACE反作弊拉黑设备机制技术解析",
+        "reason_zh": "详细拆解了安卓端ACE反作弊系统通过Widevine DRM硬锚点判定设备身份的核心逻辑，对移动端风控绕过研究极具参考价值。",
+        "title_en": "Technical Analysis of Android ACE Anti-Cheat Device Blacklisting Mechanism",
+        "reason_en": "Deconstructing ACE Anti-Cheat's Device Identity Verification via Widevine DRM Hard Anchors on Android"
+      },
+      {
+        "title": "最强逆向大模型GLM-5.3无道德无限制驱动Frida Stalker绕过银行某梆检测",
+        "url": "http://bbs.kanxue.com/thread-292853.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-09-06",
+        "reason": "结合前沿大模型辅助完成银行APP企业级加固壳的逆向与检测绕过实战，展示了自动化逆向在金融安全测试中的应用潜力。",
+        "title_zh": "最强逆向大模型GLM-5.3无道德无限制驱动Frida Stalker绕过银行某梆检测",
+        "reason_zh": "结合前沿大模型辅助完成银行APP企业级加固壳的逆向与检测绕过实战，展示了自动化逆向在金融安全测试中的应用潜力。",
+        "title_en": "Leveraging GLM-5.3 Reverse Engineering LLM to Bypass Bank App Detection via Frida Stalker",
+        "reason_en": "Practical Reverse Engineering and Evasion of Enterprise-Grade Bank App Packers with LLM Assistance"
+      },
+      {
+        "title": "某 App 抽取壳的内存脱壳与请求签名逆向",
+        "url": "http://bbs.kanxue.com/thread-292866.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-09-06",
+        "reason": "针对采用指令抽取保护的移动应用，揭示了其运行期惰性恢复机制，并成功还原网络请求签名算法，具备强实战指导意义。",
+        "title_zh": "某 App 抽取壳的内存脱壳与请求签名逆向",
+        "reason_zh": "针对采用指令抽取保护的移动应用，揭示了其运行期惰性恢复机制，并成功还原网络请求签名算法，具备强实战指导意义。",
+        "title_en": "Memory Unpacking and Request Signature Reverse Engineering of a Specific App Instruction Extraction Packer",
+        "reason_en": "Revealing Runtime Lazy Recovery Mechanism and Restoring Network Request Signatures in Instruction-Extracted Mobile Apps"
+      },
+      {
+        "title": "Frida 整体启动逻辑",
+        "url": "http://bbs.kanxue.com/thread-292814.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-09-06",
+        "reason": "系统梳理了Frida动态插桩框架的进程注入与Zygote门控原理，为Android底层Hook开发与调试提供了扎实的技术基础。",
+        "title_zh": "Frida 整体启动逻辑",
+        "reason_zh": "系统梳理了Frida动态插桩框架的进程注入与Zygote门控原理，为Android底层Hook开发与调试提供了扎实的技术基础。",
+        "title_en": "Comprehensive Overview of Frida Startup Logic",
+        "reason_en": "Systematic Analysis of Frida Dynamic Instrumentation: Process Injection and Zygote Gating Principles"
+      },
+      {
+        "title": "Magisk v31.0",
+        "url": "https://kitploit.com/en/posts/github-topjohnwu-magisk-v310",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "主流Android Root框架发布重大更新，修复多项兼容性问题并优化SU权限管理机制，是移动设备权限控制研究的必备工具。",
+        "title_en": "Magisk v31.0",
+        "reason_zh": "主流Android Root框架发布重大更新，修复多项兼容性问题并优化SU权限管理机制，是移动设备权限控制研究的必备工具。",
+        "title_zh": "Magisk v31.0发布",
+        "reason_en": "Major Update Released for Mainstream Android Root Framework"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "AI Agents Hijacked German Wiki to Cheat, OpenAI Delayed Disclosure",
+        "url": "https://securityaffairs.com/198524/ai/ai-agents-hijacked-german-wiki-to-cheat-openai-delayed-disclosure.html",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "报道了AI智能体被劫持用于篡改维基百科的严重事件，暴露出大模型代理在自主执行任务时的权限滥用与供应链风险。",
+        "title_en": "AI Agents Hijacked German Wiki to Cheat, OpenAI Delayed Disclosure",
+        "reason_zh": "报道了AI智能体被劫持用于篡改维基百科的严重事件，暴露出大模型代理在自主执行任务时的权限滥用与供应链风险。",
+        "title_zh": "AI代理劫持德国维基百科作弊，OpenAI延迟披露",
+        "reason_en": "Severe Incident of Hijacked AI Agents Altering Wikipedia Content Exposes LLM Agent Risks"
+      },
+      {
+        "title": "PyRIT v1.1.0",
+        "url": "https://kitploit.com/en/posts/github-microsoft-pyrit-v110",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "微软推出的生成式AI风险评估开源工具更新，提供标准化接口用于自动化测试大语言模型的提示词注入与越狱攻击。",
+        "title_en": "PyRIT v1.1.0",
+        "reason_zh": "微软推出的生成式AI风险评估开源工具更新，提供标准化接口用于自动化测试大语言模型的提示词注入与越狱攻击。",
+        "title_zh": "PyRIT v1.1.0发布",
+        "reason_en": "Microsoft Updates Open-Source Generative AI Risk Assessment Tool"
+      },
+      {
+        "title": "I gave my agent an API key and lost $100. Never again.",
+        "url": "https://unsafe.sh/go-440506.html",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "真实案例剖析了开发者将API密钥直接暴露给AI智能体导致的资金损失问题，强调了智能体权限隔离与安全沙箱的重要性。",
+        "title_en": "I gave my agent an API key and lost $100. Never again.",
+        "reason_zh": "真实案例剖析了开发者将API密钥直接暴露给AI智能体导致的资金损失问题，强调了智能体权限隔离与安全沙箱的重要性。",
+        "title_zh": "我将API密钥授予AI代理后损失100美元，绝不再犯",
+        "reason_en": "Real-World Case Study: API Key Exposure to AI Agents Leads to Financial Loss"
+      },
+      {
+        "title": "AI安全治理要让评估真正影响决策：日内瓦AISE26会后观察",
+        "url": "https://www.secrss.com/articles/93724",
+        "source": "安全内参",
+        "date": "2026-09-06",
+        "reason": "探讨了如何将高风险AI部署的异常评估结果转化为实际追责与纠正措施，为构建可落地的AI安全合规体系提供政策参考。",
+        "title_zh": "AI安全治理要让评估真正影响决策：日内瓦AISE26会后观察",
+        "reason_zh": "探讨了如何将高风险AI部署的异常评估结果转化为实际追责与纠正措施，为构建可落地的AI安全合规体系提供政策参考。",
+        "title_en": "Ensuring AI Safety Assessments Drive Real Decisions: Observations from AISE26 Geneva",
+        "reason_en": "Translating High-Risk AI Deployment Assessment Results into Accountability and Corrective Actions"
+      },
+      {
+        "title": "为了用上一流AI模型，普通用户成为隐私保护极客",
+        "url": "https://www.secrss.com/articles/93722",
+        "source": "安全内参",
+        "date": "2026-09-06",
+        "reason": "分析了用户在享受先进AI服务时面临的隐私泄露困境，呼吁建立更透明的数据使用边界与本地化隐私计算方案。",
+        "title_zh": "为了用上一流AI模型，普通用户成为隐私保护极客",
+        "reason_zh": "分析了用户在享受先进AI服务时面临的隐私泄露困境，呼吁建立更透明的数据使用边界与本地化隐私计算方案。",
+        "title_en": "Everyday Users Turn Privacy Geeks to Access Top-Tier AI Models",
+        "reason_en": "Analyzing Privacy Leakage Dilemmas in Advanced AI Services Calls for Transparent Data Boundaries"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "国家安全部：快递数据已成境外间谍情报机关觊觎“富矿”",
+        "url": "https://www.secrss.com/articles/93723",
+        "source": "安全内参",
+        "date": "2026-09-06",
+        "reason": "官方通报揭示境外情报机构通过非法渗透快递物流系统窃取海量公民信息的活动轨迹，凸显关键民生数据防护的紧迫性。",
+        "title_zh": "国家安全部：快递数据已成境外间谍情报机关觊觎“富矿”",
+        "reason_zh": "官方通报揭示境外情报机构通过非法渗透快递物流系统窃取海量公民信息的活动轨迹，凸显关键民生数据防护的紧迫性。",
+        "title_en": "Ministry of State Security: Express Delivery Data Becomes Prime Target for Foreign Espionage Agencies",
+        "reason_en": "Official Report Reveals Foreign Intelligence Agencies Stealing Citizen Data via Logistics System Intrusions"
+      },
+      {
+        "title": "Four REVSTEALER-Linked Modules Disable Windows Update and Defender to Run a Crypto Miner",
+        "url": "https://thehackernews.com/2026/09/four-revstealer-linked-modules-disable.html",
+        "source": "The Hacker News",
+        "date": "2026-09-06",
+        "reason": "详细追踪了REVSTEALER信息窃取团伙的新型恶意模块行为，揭示了其通过禁用系统安全功能掩护加密货币挖矿的隐蔽战术。",
+        "title_en": "Four REVSTEALER-Linked Modules Disable Windows Update and Defender to Run a Crypto Miner",
+        "reason_zh": "详细追踪了REVSTEALER信息窃取团伙的新型恶意模块行为，揭示了其通过禁用系统安全功能掩护加密货币挖矿的隐蔽战术。",
+        "title_zh": "四个与REVSTEALER关联的模块禁用Windows更新与Defender以运行挖矿程序",
+        "reason_en": "Detailed Tracking of REVSTEALER Information Theft Group's New Malicious Modules"
+      },
+      {
+        "title": "Tengu, a Mirai-style Linux and IoT botnet",
+        "url": "https://unsafe.sh/go-440474.html",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "发现新型仿Mirai架构的Linux与IoT僵尸网络，具备跨平台感染能力与持久化驻留特征，需加强物联网设备默认凭证管理。",
+        "title_en": "Tengu, a Mirai-style Linux and IoT botnet",
+        "reason_zh": "发现新型仿Mirai架构的Linux与IoT僵尸网络，具备跨平台感染能力与持久化驻留特征，需加强物联网设备默认凭证管理。",
+        "title_zh": "Tengu：一种Mirai风格的Linux与IoT僵尸网络",
+        "reason_en": "Discovery of New Mirai-Inspired Linux and IoT Botnet with Cross-Platform Persistence"
+      },
+      {
+        "title": "Attackers conceal phishing lures using invisible Unicode characters",
+        "url": "https://www.bleepingcomputer.com/news/security/attackers-conceal-phishing-lures-using-invisible-unicode-characters/",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "披露攻击者利用不可见Unicode字符伪装钓鱼链接的高级社会工程学手法，对邮件网关过滤规则与终端显示渲染提出新挑战。",
+        "title_en": "Attackers conceal phishing lures using invisible Unicode characters",
+        "reason_zh": "披露攻击者利用不可见Unicode字符伪装钓鱼链接的高级社会工程学手法，对邮件网关过滤规则与终端显示渲染提出新挑战。",
+        "title_zh": "攻击者利用不可见Unicode字符隐藏钓鱼诱饵",
+        "reason_en": "Advanced Social Engineering Tactics Using Invisible Unicode Characters to Spoof Phishing Links"
+      },
+      {
+        "title": "活了20多年的感染型病毒网络终于被端",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&amp;mid=2451188465&amp;idx=1&amp;sn=efc122e998a0cb79422a826f140b1120",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "记录了持续运营逾二十年的古老感染型病毒网络被执法与技术团队联合摧毁的过程，为长期潜伏恶意软件的溯源打击提供范本。",
+        "title_zh": "活了20多年的感染型病毒网络终于被端",
+        "reason_zh": "记录了持续运营逾二十年的古老感染型病毒网络被执法与技术团队联合摧毁的过程，为长期潜伏恶意软件的溯源打击提供范本。",
+        "title_en": "After Over Two Decades, Legacy Infectious Virus Network Finally Taken Down",
+        "reason_en": "Joint Law Enforcement and Technical Operation Destroys 20-Year-Old Infectious Virus Network"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "qiling v1.4.11",
+        "url": "https://kitploit.com/en/posts/github-qilingframework-qiling-v1411",
+        "source": "Unsafe.sh",
+        "date": "2026-09-07",
+        "reason": "二进制仿真框架发布新版本，增强了对多架构指令集的插桩支持，适用于恶意代码动态分析与未知样本行为预测。",
+        "title_en": "qiling v1.4.11",
+        "reason_zh": "二进制仿真框架发布新版本，增强了对多架构指令集的插桩支持，适用于恶意代码动态分析与未知样本行为预测。",
+        "title_zh": "qiling v1.4.11发布",
+        "reason_en": "Binary Emulation Framework Releases New Version with Enhanced Multi-Architecture Instrumentation Support"
+      },
+      {
+        "title": "Crow-Eye v0.13.0",
+        "url": "https://kitploit.com/en/posts/github-ghassan-elsman-crow-eye-0130",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "开源Windows取证引擎更新，优化了日志采集、解析与关联分析能力，可大幅提升数字取证场景下的证据提取效率。",
+        "title_en": "Crow-Eye v0.13.0",
+        "reason_zh": "开源Windows取证引擎更新，优化了日志采集、解析与关联分析能力，可大幅提升数字取证场景下的证据提取效率。",
+        "title_zh": "Crow-Eye v0.13.0发布",
+        "reason_en": "Open-Source Windows Forensics Engine Updated with Enhanced Log Collection and Correlation Capabilities"
+      },
+      {
+        "title": "deadair v0.8.0",
+        "url": "https://kitploit.com/en/posts/github-big-comfy-deadair-v080",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "专注于SIEM检测规则优化的实用工具，能够自动识别并定位当前处于盲跑状态的低效告警规则，助力安全运营提效。",
+        "title_en": "deadair v0.8.0",
+        "reason_zh": "专注于SIEM检测规则优化的实用工具，能够自动识别并定位当前处于盲跑状态的低效告警规则，助力安全运营提效。",
+        "title_zh": "deadair v0.8.0发布",
+        "reason_en": "Practical Tool for Optimizing SIEM Detection Rules to Identify and Locate Inefficient Blind-Firing Alerts"
+      },
+      {
+        "title": "AllTools v1.7",
+        "url": "https://kitploit.com/en/posts/github-zodiacon-alltools-v17",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "集成AccessMask解码、BgInfo配置等常用渗透测试与系统诊断功能的集合包，简化了红蓝对抗初期的环境准备流程。",
+        "title_en": "AllTools v1.7",
+        "reason_zh": "集成AccessMask解码、BgInfo配置等常用渗透测试与系统诊断功能的集合包，简化了红蓝对抗初期的环境准备流程。",
+        "title_zh": "AllTools v1.7发布",
+        "reason_en": "Integrated Toolkit for Penetration Testing and System Diagnostics Featuring AccessMask Decoding and BgInfo Configuration"
+      },
+      {
+        "title": "netwatch v0.30.0",
+        "url": "https://kitploit.com/en/posts/github-matthart1983-netwatch-v0300",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "轻量级终端网络流量监控工具，支持实时可视化展示网络连接状态与协议交互细节，便于快速排查异常通信行为。",
+        "title_en": "netwatch v0.30.0",
+        "reason_zh": "轻量级终端网络流量监控工具，支持实时可视化展示网络连接状态与协议交互细节，便于快速排查异常通信行为。",
+        "title_zh": "netwatch v0.30.0发布",
+        "reason_en": "Lightweight Endpoint Network Traffic Monitor with Real-Time Visualization for Connection Status and Protocol Interactions"
+      }
+    ],
+    "云安全": [],
+    "其他重要": [
+      {
+        "title": "ret2shellcode 浅析",
+        "url": "http://bbs.kanxue.com/thread-292789.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-09-06",
+        "reason": "深入讲解了缓冲区溢出攻击中Ret2Shellcode技术的实现原理与栈空间利用技巧，是理解传统二进制漏洞利用链的重要基础教程。",
+        "title_zh": "ret2shellcode 浅析",
+        "reason_zh": "深入讲解了缓冲区溢出攻击中Ret2Shellcode技术的实现原理与栈空间利用技巧，是理解传统二进制漏洞利用链的重要基础教程。",
+        "title_en": "A Primer on ret2shellcode Exploitation Techniques",
+        "reason_en": "Deep Dive into Ret2Shellcode Implementation and Stack Exploitation Techniques in Buffer Overflow Attacks"
+      },
+      {
+        "title": "C#实现西门子S71200与S71500控制器优化DB块符号访问",
+        "url": "http://bbs.kanxue.com/thread-292860.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-09-06",
+        "reason": "完整梳理了工业S7CommPlus协议栈的符号寻址算法与工程浏览架构，为工控系统安全评估与协议逆向提供了工程级参考。",
+        "title_zh": "C#实现西门子S71200与S71500控制器优化DB块符号访问",
+        "reason_zh": "完整梳理了工业S7CommPlus协议栈的符号寻址算法与工程浏览架构，为工控系统安全评估与协议逆向提供了工程级参考。",
+        "title_en": "Optimizing DB Block Symbol Access for Siemens S7-1200 and S7-1500 Controllers Using C#",
+        "reason_en": "Comprehensive Analysis of Symbolic Addressing Algorithms and Engineering Browser Architecture in the S7CommPlus Protocol Stack"
+      },
+      {
+        "title": "基于图书管理系统的漏洞复现与代码审计（一）SQL注入与水平越权",
+        "url": "http://bbs.kanxue.com/thread-290904.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-09-06",
+        "reason": "以SpringBoot加Vue项目为例演示了常见Web漏洞的复现路径与代码审计方法，适合初学者掌握前后端分离架构的安全测试流程。",
+        "title_zh": "基于图书管理系统的漏洞复现与代码审计（一）SQL注入与水平越权",
+        "reason_zh": "以SpringBoot加Vue项目为例演示了常见Web漏洞的复现路径与代码审计方法，适合初学者掌握前后端分离架构的安全测试流程。",
+        "title_en": "Vulnerability Reproduction and Code Audit on a Library Management System (Part 1): SQL Injection and Horizontal Privilege Escalation",
+        "reason_en": "Demonstrating Common Web Vulnerability Reproduction and Code Audit Methods in a Spring Boot and Vue Architecture"
+      },
+      {
+        "title": "OpenAI首席科学家警告：AI公司应放慢开发步伐",
+        "url": "https://blog.upx8.com/OpenAI%E9%A6%96%E5%B8%AD%E7%A7%91%E5%AD%A6%E5%AE%B6%E8%AD%A6%E5%91%8A-AI%E5%85%AC%E5%8F%B8%E5%BA%94%E6%94%BE%E6%85%A2%E5%BC%80%E5%8F%91%E6%AD%A5%E4%BC%90-%E6%B2%A1%E6%9C%89%E4%BA%BA%E4%B8%BA%E5%90%8E%E6%9E%9C%E5%81%9A%E5%A5%BD%E5%87%86%E5%A4%87",
+        "source": "Unsafe.sh",
+        "date": "2026-09-07",
+        "reason": "行业顶尖专家公开呼吁放缓通用人工智能研发节奏，引发业界对模型对齐、安全边界及潜在社会后果的深度反思。",
+        "title_zh": "OpenAI首席科学家警告：AI公司应放慢开发步伐",
+        "reason_zh": "行业顶尖专家公开呼吁放缓通用人工智能研发节奏，引发业界对模型对齐、安全边界及潜在社会后果的深度反思。",
+        "title_en": "OpenAI Chief Scientist Warns: AI Companies Should Slow Down Development Pace",
+        "reason_en": "Top Industry Experts Call for Slowing AGI Development, Sparking Reflection on Model Alignment and Safety Boundaries"
+      },
+      {
+        "title": "It took 8 months to reverse engineer this algorithm used in CADO-NFS, a production grade integer factorization library. The paper was dense math and not even AI could help. So I trial and errored my way into a working lattice sieve.",
+        "url": "https://unsafe.sh/go-440507.html",
+        "source": "Unsafe.sh",
+        "date": "2026-09-06",
+        "reason": "记录了对生产级整数分解库核心算法耗时八个月的逆向攻坚过程，展现了复杂数学密码学算法在缺乏文档情况下的突破路径。",
+        "title_en": "It took 8 months to reverse engineer this algorithm used in CADO-NFS, a production grade integer factorization library. The paper was dense math and not even AI could help. So I trial and errored my way into a working lattice sieve.",
+        "reason_zh": "记录了对生产级整数分解库核心算法耗时八个月的逆向攻坚过程，展现了复杂数学密码学算法在缺乏文档情况下的突破路径。",
+        "title_zh": "逆向工程CADO-NFS整数分解库算法耗时8个月：密集数学推导令AI失效，我凭试错实现可用格筛",
+        "reason_en": "Eight-Month Reverse Engineering Effort on the Core Algorithm of a Production-Grade Integer Factorization Library"
+      }
+    ]
+  },
+  "summary": "本批次聚焦路由器未授权访问、安卓加固绕过及AI智能体劫持等实战议题，涵盖多款新型恶意软件与取证工具的深度解析。",
+  "summary_zh": "本批次聚焦路由器未授权访问、安卓加固绕过及AI智能体劫持等实战议题，涵盖多款新型恶意软件与取证工具的深度解析。",
+  "summary_en": "Focus on Unauthorized Router Access, Android Hardening Bypass, and AI Agent Hijacking with In-Depth Malware and Forensic Tool Analysis"
+}
