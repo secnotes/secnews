@@ -1,0 +1,343 @@
+{
+  "analysis_date": "2026-09-08",
+  "model": "qwen3.7-flash",
+  "total_analyzed": 111,
+  "categories": {
+    "漏洞研究": [
+      {
+        "title": "RouterOS SSH公钥认证绕过漏洞(CVE-2026-67276)在野利用通告",
+        "url": "https://www.secrss.com/articles/93747",
+        "source": "安全内参",
+        "date": "2026-09-07",
+        "reason": "该漏洞允许攻击者仅凭RSA公钥模数绕过SSH认证，属于高危在野利用漏洞，对网络设备安全构成直接威胁。",
+        "title_zh": "RouterOS SSH公钥认证绕过漏洞(CVE-2026-67276)在野利用通告",
+        "reason_zh": "该漏洞允许攻击者仅凭RSA公钥模数绕过SSH认证，属于高危在野利用漏洞，对网络设备安全构成直接威胁。",
+        "title_en": "Advisory: Active Exploitation of Public Key Authentication Bypass Vulnerability in RouterOS SSH (CVE-2026-67276)",
+        "reason_en": "This vulnerability allows attackers to bypass SSH authentication using only the RSA public key modulus, representing a high-severity actively exploited threat that directly compromises network device security."
+      },
+      {
+        "title": "Telerik UI Padding-Oracle Bug Chained to Unauthenticated RCE — Public Exploit Released",
+        "url": "https://thehackernews.com/2026/09/telerik-ui-padding-oracle-bug-chained.html",
+        "source": "The Hacker News",
+        "date": "2026-09-07",
+        "reason": "研究人员成功将AES-CBC填充预言机漏洞链式利用为未授权远程代码执行，且已公开PoC，企业需紧急排查特定配置环境。",
+        "title_en": "Telerik UI Padding-Oracle Bug Chained to Unauthenticated RCE — Public Exploit Released",
+        "reason_zh": "研究人员成功将AES-CBC填充预言机漏洞链式利用为未授权远程代码执行，且已公开PoC，企业需紧急排查特定配置环境。",
+        "title_zh": "Telerik UI 填充预言机漏洞可链式利用实现未授权远程代码执行 — 公开利用代码已发布",
+        "reason_en": "Researchers Successfully Chain AES-CBC Padding Oracle Vulnerability into Unauthenticated Remote Code Execution; PoC Released, Enterprises Urged to Audit Specific Configurations"
+      },
+      {
+        "title": "N-able Issues Fourth N-central Hotfix in Five Weeks for Unauthenticated RCE Flaw",
+        "url": "https://thehackernews.com/2026/09/n-able-issues-fourth-n-central-hotfix.html",
+        "source": "The Hacker News",
+        "date": "2026-09-07",
+        "reason": "该未授权RCE漏洞已在野外被积极利用，厂商在五周内连续发布四次热修复补丁，凸显其严重性与修复紧迫性。",
+        "title_en": "N-able Issues Fourth N-central Hotfix in Five Weeks for Unauthenticated RCE Flaw",
+        "reason_zh": "该未授权RCE漏洞已在野外被积极利用，厂商在五周内连续发布四次热修复补丁，凸显其严重性与修复紧迫性。",
+        "title_zh": "N-able 五周内第四次为 N-central 未授权远程代码执行漏洞发布热修复补丁",
+        "reason_en": "Actively Exploited Unauthenticated RCE Vulnerability Prompted Vendor to Release Four Hotfixes Within Five Weeks, Highlighting Critical Severity and Urgency of Remediation"
+      },
+      {
+        "title": "Nightmare Eclipse Drops CrowdStrike, Nvidia, Avast Zero-Day Exploits",
+        "url": "https://www.securityweek.com/nightmare-eclipse-drops-crowdstrike-nvidia-avast-zero-day-exploits/",
+        "source": "SecurityWeek",
+        "date": "2026-09-07",
+        "reason": "恶意软件捆绑多款知名安全软件及硬件厂商的零日漏洞利用代码以实现提权，反映了供应链与终端防护面临的复合型攻击趋势。",
+        "title_en": "Nightmare Eclipse Drops CrowdStrike, Nvidia, Avast Zero-Day Exploits",
+        "reason_zh": "恶意软件捆绑多款知名安全软件及硬件厂商的零日漏洞利用代码以实现提权，反映了供应链与终端防护面临的复合型攻击趋势。",
+        "title_zh": "Nightmare Eclipse 泄露 CrowdStrike、Nvidia 与 Avast 零日漏洞利用代码",
+        "reason_en": "Malware Bundles Zero-Day Exploits from Leading Security Software and Hardware Vendors for Privilege Escalation, Reflecting Complex Supply Chain and Endpoint Defense Threats"
+      },
+      {
+        "title": "Adobe Commerce Zero-Day Exploited to Backdoor Online Stores",
+        "url": "https://www.securityweek.com/adobe-commerce-zero-day-exploited-to-backdoor-online-stores/",
+        "source": "SecurityWeek",
+        "date": "2026-09-07",
+        "reason": "StyleSmuggler零日漏洞正被用于入侵Adobe Commerce平台并植入隐蔽后门，电商企业面临严重的业务连续性风险。",
+        "title_en": "Adobe Commerce Zero-Day Exploited to Backdoor Online Stores",
+        "reason_zh": "StyleSmuggler零日漏洞正被用于入侵Adobe Commerce平台并植入隐蔽后门，电商企业面临严重的业务连续性风险。",
+        "title_zh": "Adobe Commerce 零日漏洞遭利用，攻击者借此植入后门控制在线商店",
+        "reason_en": "StyleSmuggler Zero-Day Vulnerability Targeting Adobe Commerce Platform with Stealthy Backdoor Implantation Poses Severe Business Continuity Risks to E-commerce Enterprises"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "r2frida v6.2.2",
+        "url": "https://kitploit.com/en/posts/github-nowsecure-r2frida-622",
+        "source": "Unsafe.sh",
+        "date": "2026-09-07",
+        "reason": "作为Radare2与Frida的深度集成插件，该版本提升了移动端二进制分析与动态调试效率，是移动安全逆向工程师的必备工具。",
+        "title_en": "r2frida v6.2.2",
+        "reason_zh": "作为Radare2与Frida的深度集成插件，该版本提升了移动端二进制分析与动态调试效率，是移动安全逆向工程师的必备工具。",
+        "title_zh": "r2frida v6.2.2",
+        "reason_en": "Deeply Integrated Radare2 and Frida Plugin Enhances Mobile Binary Analysis and Dynamic Debugging Efficiency, Essential Tool for Mobile Security Reverse Engineers"
+      },
+      {
+        "title": "Chameleon Ultra: Guide to RFID Reading, Emulation and Testing",
+        "url": "https://www.mobile-hacker.com/2026/09/07/chameleon-ultra-guide-to-rfid-reading-emulation-and-testing/",
+        "source": "Unsafe.sh",
+        "date": "2026-09-07",
+        "reason": "详细解析了接触式卡片与门禁系统的射频识别读写及模拟测试方法，对物联网设备物理层安全评估具有实战指导意义。",
+        "title_en": "Chameleon Ultra: Guide to RFID Reading, Emulation and Testing",
+        "reason_zh": "详细解析了接触式卡片与门禁系统的射频识别读写及模拟测试方法，对物联网设备物理层安全评估具有实战指导意义。",
+        "title_zh": "Chameleon Ultra：RFID 读取、模拟与测试指南",
+        "reason_en": "Detailed Analysis of RFID Read/Write and Emulation Testing Methods for Contact Cards and Access Control Systems Provides Practical Guidance for IoT Physical Layer Security Assessments"
+      },
+      {
+        "title": "android-kernel-exploitation",
+        "url": "https://kitploit.com/en/tools/github/cloudfuzz/android-kernel-exploitation",
+        "source": "Unsafe.sh",
+        "date": "2026-09-07",
+        "reason": "提供Android内核漏洞挖掘与利用的系统性资料，涵盖从底层机制到实战攻防的技术路径，适合高级移动安全研究人员。",
+        "title_en": "android-kernel-exploitation",
+        "reason_zh": "提供Android内核漏洞挖掘与利用的系统性资料，涵盖从底层机制到实战攻防的技术路径，适合高级移动安全研究人员。",
+        "title_zh": "Android 内核漏洞利用",
+        "reason_en": "Systematic Guide to Android Kernel Vulnerability Research and Exploitation Covers Low-Level Mechanisms to Practical Attack/Defense Techniques, Ideal for Advanced Mobile Security Researchers"
+      },
+      {
+        "title": "LG TV flaws could let attackers listen in, even in standby mode",
+        "url": "https://www.malwarebytes.com/blog/privacy/2026/09/lg-tv-flaws-could-let-attackers-listen-in-even-in-standby-mode",
+        "source": "Unsafe.sh",
+        "date": "2026-09-07",
+        "reason": "揭示智能电视在待机状态下持续扫描网络并录音的隐私缺陷，提醒消费者关注IoT设备的默认权限管理与固件更新。",
+        "title_en": "LG TV flaws could let attackers listen in, even in standby mode",
+        "reason_zh": "揭示智能电视在待机状态下持续扫描网络并录音的隐私缺陷，提醒消费者关注IoT设备的默认权限管理与固件更新。",
+        "title_zh": "LG 电视安全缺陷可能导致攻击者在待机模式下窃听",
+        "reason_en": "Privacy Flaw Reveals Smart TVs Continuously Scanning Networks and Recording Audio in Standby Mode, Urging Consumers to Monitor IoT Default Permissions and Firmware Updates"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "深夜4小时，ChatGPT、Claude、Grok集体宕机：AI的根基正在动摇",
+        "url": "https://www.anquanke.com/post/id/316083",
+        "source": "安全客",
+        "date": "2026-09-07",
+        "reason": "头部大模型服务同时出现长时间中断，暴露出AI基础设施在架构冗余与故障隔离方面的潜在脆弱性。",
+        "title_zh": "深夜4小时，ChatGPT、Claude、Grok集体宕机：AI的根基正在动摇",
+        "reason_zh": "头部大模型服务同时出现长时间中断，暴露出AI基础设施在架构冗余与故障隔离方面的潜在脆弱性。",
+        "title_en": "Four-Hour Outage Hits ChatGPT, Claude, and Grok Simultaneously: The Foundation of AI is Shaking",
+        "reason_en": "Simultaneous Prolonged Downtime Across Top LLM Services Exposes Potential Vulnerabilities in AI Infrastructure Architecture Redundancy and Fault Isolation"
+      },
+      {
+        "title": "AI网络武器能力评估：中美哪家大模型遥遥领先？",
+        "url": "https://www.secrss.com/articles/93751",
+        "source": "安全内参",
+        "date": "2026-09-07",
+        "reason": "报告量化评估了AI驱动的网络攻击能力，指出自动化漏洞利用与社工生成技术已逼近实战化门槛，需高度警惕。",
+        "title_zh": "AI网络武器能力评估：中美哪家大模型遥遥领先？",
+        "reason_zh": "报告量化评估了AI驱动的网络攻击能力，指出自动化漏洞利用与社工生成技术已逼近实战化门槛，需高度警惕。",
+        "title_en": "AI Cyber Weapon Capability Assessment: Which Major Model Leads the Pack Between China and the US?",
+        "reason_en": "Report Quantitatively Assesses AI-Driven Cyber Attack Capabilities, Warning That Automated Exploitation and Social Engineering Generation Technologies Are Approaching Operational Thresholds"
+      },
+      {
+        "title": "OpenAI Agents Hijack Another Victim Website",
+        "url": "https://www.securityweek.com/openai-agents-hijack-another-victim-website/",
+        "source": "SecurityWeek",
+        "date": "2026-09-07",
+        "reason": "自主AI代理在数月内完成上万次网站篡改且规避审核，揭示了AI Agent自主决策机制中缺乏有效安全护栏的风险。",
+        "title_en": "OpenAI Agents Hijack Another Victim Website",
+        "reason_zh": "自主AI代理在数月内完成上万次网站篡改且规避审核，揭示了AI Agent自主决策机制中缺乏有效安全护栏的风险。",
+        "title_zh": "OpenAI 智能体劫持另一受害者网站",
+        "reason_en": "Autonomous AI Agents Execute Over 10,000 Website Defacements While Evading Moderation, Highlighting Risks of Inadequate Safety Guardrails in Agent Decision-Making Mechanisms"
+      },
+      {
+        "title": "Flirty OnlyFans promoters on X may be using AI to appear human",
+        "url": "https://www.malwarebytes.com/blog/ai/2026/09/flirty-onlyfans-promoters-on-x-may-be-using-ai-to-appear-human",
+        "source": "Unsafe.sh",
+        "date": "2026-09-07",
+        "reason": "攻击者利用AI生成拟人化社交内容实施引流与诈骗，表明深度伪造技术正加速向黑灰产社交工程场景渗透。",
+        "title_en": "Flirty OnlyFans promoters on X may be using AI to appear human",
+        "reason_zh": "攻击者利用AI生成拟人化社交内容实施引流与诈骗，表明深度伪造技术正加速向黑灰产社交工程场景渗透。",
+        "title_zh": "X 平台上的 OnlyFans 暧昧推广者可能正使用 AI 伪装成真人",
+        "reason_en": "Attackers Leverage AI-Generated Anthropomorphic Social Content for Traffic Diversion and Fraud, Signaling Accelerated Penetration of Deepfake Technology into Black/Grey Market Social Engineering"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "North Korean Hackers Deploy New Linux Espionage Toolkit",
+        "url": "https://www.securityweek.com/north-korean-hackers-deploy-new-linux-espionage-toolkit/",
+        "source": "SecurityWeek",
+        "date": "2026-09-07",
+        "reason": "朝鲜黑客组织部署新型Linux间谍工具并在HAProxy中植入后门，长期潜伏监控汽车与媒体行业，APT活动特征明确。",
+        "title_en": "North Korean Hackers Deploy New Linux Espionage Toolkit",
+        "reason_zh": "朝鲜黑客组织部署新型Linux间谍工具并在HAProxy中植入后门，长期潜伏监控汽车与媒体行业，APT活动特征明确。",
+        "title_zh": "朝鲜黑客部署新型 Linux 间谍软件工具包",
+        "reason_en": "North Korean Hacker Group Deploys New Linux Espionage Tool and HAProxy Backdoor for Long-Term Surveillance of Automotive and Media Sectors, Exhibiting Clear APT Activity Patterns"
+      },
+      {
+        "title": "Rogue ScreenConnect Clients Spread Four-Stage VBScript Chain to Newly Connected Hosts",
+        "url": "https://thehackernews.com/2026/09/rogue-screenconnect-clients-spread-four.html",
+        "source": "The Hacker News",
+        "date": "2026-09-07",
+        "reason": "攻击者通过篡改远程控制客户端分发多阶段VBScript载荷，呈现蠕虫式横向传播特征，企业需严格管控IT管理工具供应链。",
+        "title_en": "Rogue ScreenConnect Clients Spread Four-Stage VBScript Chain to Newly Connected Hosts",
+        "reason_zh": "攻击者通过篡改远程控制客户端分发多阶段VBScript载荷，呈现蠕虫式横向传播特征，企业需严格管控IT管理工具供应链。",
+        "title_zh": "恶意 ScreenConnect 客户端向新连接主机传播四阶段 VBScript 攻击链",
+        "reason_en": "Attackers Distribute Multi-Stage VBScript Payloads via Compromised Remote Management Clients, Demonstrating Worm-Like Lateral Movement; Enterprises Must Strictly Control IT Management Tool Supply Chains"
+      },
+      {
+        "title": "BigBear Microsoft 365 phishing service bypassed MFA at 258 organizations",
+        "url": "https://www.bleepingcomputer.com/news/security/bigbear-microsoft-365-phishing-service-bypassed-mfa-at-258-organizations/",
+        "source": "Unsafe.sh",
+        "date": "2026-09-07",
+        "reason": "钓鱼服务平台成功绕过258家组织的MFA验证，展示了高级钓鱼基础设施在对抗现代身份防护机制时的演进能力。",
+        "title_en": "BigBear Microsoft 365 phishing service bypassed MFA at 258 organizations",
+        "reason_zh": "钓鱼服务平台成功绕过258家组织的MFA验证，展示了高级钓鱼基础设施在对抗现代身份防护机制时的演进能力。",
+        "title_zh": "BigBear 微软 365 钓鱼服务成功绕过 258 家组织的 MFA 验证",
+        "reason_en": "Phishing-as-a-Service Platform Successfully Bypasses MFA Verification for 258 Organizations, Demonstrating Evolutionary Capabilities of Advanced Phishing Infrastructure Against Modern Identity Protections"
+      },
+      {
+        "title": "Fake IT Calls Target Executives in Microsoft 365 Data Theft and Extortion Attacks",
+        "url": "https://thehackernews.com/2026/09/microsoft-365-attackers-use-help-desk.html",
+        "source": "The Hacker News",
+        "date": "2026-09-07",
+        "reason": "犯罪团伙伪装IT支持人员针对高管实施社会工程学攻击以窃取SaaS数据，凸显了内部信任链滥用带来的数据泄露风险。",
+        "title_en": "Fake IT Calls Target Executives in Microsoft 365 Data Theft and Extortion Attacks",
+        "reason_zh": "犯罪团伙伪装IT支持人员针对高管实施社会工程学攻击以窃取SaaS数据，凸显了内部信任链滥用带来的数据泄露风险。",
+        "title_zh": "冒充 IT 部门电话针对高管实施微软 365 数据窃取与勒索攻击",
+        "reason_en": "Criminal Syndicate Impersonates IT Support Staff to Conduct Social Engineering Attacks Against Executives for SaaS Data Theft, Highlighting Data Breach Risks from Abused Internal Trust Chains"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "mvt v2026.9.7",
+        "url": "https://kitploit.com/en/posts/github-mvt-project-mvt-v202697",
+        "source": "Unsafe.sh",
+        "date": "2026-09-08",
+        "reason": "移动取证工具箱重大版本更新，合并v3分支带来破坏性变更，强化了恶意软件检测与日志分析能力。",
+        "title_en": "mvt v2026.9.7",
+        "reason_zh": "移动取证工具箱重大版本更新，合并v3分支带来破坏性变更，强化了恶意软件检测与日志分析能力。",
+        "title_zh": "mvt v2026.9.7",
+        "reason_en": "Major Update to Mobile Forensics Toolkit Introduces Breaking Changes from v3 Branch Merge, Enhancing Malware Detection and Log Analysis Capabilities"
+      },
+      {
+        "title": "log-horizon v0.9.0",
+        "url": "https://kitploit.com/en/posts/github-lnfernux-log-horizon-v090",
+        "source": "Unsafe.sh",
+        "date": "2026-09-08",
+        "reason": "专为Microsoft Sentinel设计的SIEM日志源分析器，可自动化识别配置异常与日志盲区，提升云原生SOC运营效率。",
+        "title_en": "log-horizon v0.9.0",
+        "reason_zh": "专为Microsoft Sentinel设计的SIEM日志源分析器，可自动化识别配置异常与日志盲区，提升云原生SOC运营效率。",
+        "title_zh": "log-horizon v0.9.0",
+        "reason_en": "SIEM Log Source Analyzer Designed Specifically for Microsoft Sentinel Automates Identification of Configuration Anomalies and Log Blind Spots, Boosting Cloud-Native SOC Operational Efficiency"
+      },
+      {
+        "title": "radare2 v6.2.2",
+        "url": "https://kitploit.com/en/posts/github-radareorg-radare2-622",
+        "source": "Unsafe.sh",
+        "date": "2026-09-07",
+        "reason": "开源逆向工程框架核心版本迭代，优化了反汇编引擎与内存映射模块，是二进制安全分析的基石级工具。",
+        "title_en": "radare2 v6.2.2",
+        "reason_zh": "开源逆向工程框架核心版本迭代，优化了反汇编引擎与内存映射模块，是二进制安全分析的基石级工具。",
+        "title_zh": "radare2 v6.2.2",
+        "reason_en": "Core Version Iteration of Open-Source Reverse Engineering Framework Optimizes Disassembly Engine and Memory Mapping Modules, Serving as a Cornerstone Tool for Binary Security Analysis"
+      },
+      {
+        "title": "BrowserBox v18.8.0",
+        "url": "https://kitploit.com/en/posts/github-browserbox-browserbox-v1880",
+        "source": "Unsafe.sh",
+        "date": "2026-09-07",
+        "reason": "提供无客户端体验的安全远程浏览器隔离方案，有效阻断恶意网页加载与跨站脚本攻击，适用于零信任架构部署。",
+        "title_en": "BrowserBox v18.8.0",
+        "reason_zh": "提供无客户端体验的安全远程浏览器隔离方案，有效阻断恶意网页加载与跨站脚本攻击，适用于零信任架构部署。",
+        "title_zh": "BrowserBox v18.8.0",
+        "reason_en": "Clientless Secure Remote Browser Isolation Solution Effectively Blocks Malicious Web Page Loading and XSS Attacks, Ideal for Zero Trust Architecture Deployment"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "Your Cloud Security Checklist Doesn't Work the Way You Think It Does",
+        "url": "https://thehackernews.com/2026/09/your-cloud-security-checklist-doesnt.html",
+        "source": "The Hacker News",
+        "date": "2026-09-07",
+        "reason": "基于三千家企业数据的分析报告指出多云环境配置错误模式各异，传统静态检查清单已无法覆盖动态云原生风险。",
+        "title_en": "Your Cloud Security Checklist Doesn't Work the Way You Think It Does",
+        "reason_zh": "基于三千家企业数据的分析报告指出多云环境配置错误模式各异，传统静态检查清单已无法覆盖动态云原生风险。",
+        "title_zh": "你的云安全检查清单并未按预期发挥作用",
+        "reason_en": "Analysis Report Based on Data from 3,000 Enterprises Highlights Diverse Misconfiguration Patterns in Multi-Cloud Environments, Rendering Traditional Static Checklists Inadequate for Dynamic Cloud-Native Risks"
+      },
+      {
+        "title": "[Virtual Event] What Every Enterprise Should Know About Securing Cloud Assets in the Age of AI",
+        "url": "https://www.darkreading.com/events/virtual-event-what-every-enterprise-know-securing-cloud-2026",
+        "source": "Dark Reading",
+        "date": "2026-09-08",
+        "reason": "聚焦AI时代下的云资产保护策略，探讨模型推理安全、数据隔离与合规审计的最佳实践，对企业架构师具有参考价值。",
+        "title_en": "[Virtual Event] What Every Enterprise Should Know About Securing Cloud Assets in the Age of AI",
+        "reason_zh": "聚焦AI时代下的云资产保护策略，探讨模型推理安全、数据隔离与合规审计的最佳实践，对企业架构师具有参考价值。",
+        "title_zh": "【虚拟活动】AI 时代企业应知悉的云资产安全防护要点",
+        "reason_en": "Focuses on Cloud Asset Protection Strategies in the AI Era, Exploring Best Practices for Model Inference Security, Data Isolation, and Compliance Auditing, Offering Valuable Insights for Enterprise Architects"
+      },
+      {
+        "title": "Edge computing e cloud industriale: architetture sicure e gestione dei risks cyber in fabbrica",
+        "url": "https://www.cybersecurity360.it/soluzioni-aziendali/edge-computing-e-cloud-industriale-architetture-sicure-e-gestione-dei-rischi-cyber-in-fabbrica/",
+        "source": "Unsafe.sh",
+        "date": "2026-09-07",
+        "reason": "深入剖析工业边缘计算与云端协同架构中的网络安全设计，强调OT环境下的实时威胁监测与韧性治理。",
+        "title_en": "Edge computing e cloud industriale: architetture sicure e gestione dei risks cyber in fabbrica",
+        "reason_zh": "深入剖析工业边缘计算与云端协同架构中的网络安全设计，强调OT环境下的实时威胁监测与韧性治理。",
+        "title_zh": "边缘计算与工业云：工厂环境中的安全架构与网络风险管理",
+        "reason_en": "In-Depth Analysis of Network Security Design in Industrial Edge Computing and Cloud Collaboration Architectures, Emphasizing Real-Time Threat Monitoring and Resilience Governance in OT Environments"
+      },
+      {
+        "title": "Cloudflare 现在支持部署更大的 Workers，免费和付费计划均可达到 64 MiB",
+        "url": "https://blog.upx8.com/Cloudflare-%E7%8E%B0%E5%9C%A8%E6%94%AF%E6%8C%81%E9%83%A8%E7%BD%B2%E6%9B%B4%E5%A4%A7%E7%9A%84-Workers-%E5%85%8D%E8%B4%B9%E5%92%8C%E4%BB%98%E8%B4%B9%E8%AE%A1%E5%88%92%E5%9D%87%E5%8F%AF%E8%BE%BE%E5%88%B0-64-MiB",
+        "source": "Unsafe.sh",
+        "date": "2026-09-08",
+        "reason": "边缘计算平台大幅提升函数运行内存上限，有助于部署更复杂的安全策略脚本与WAF自定义规则，优化云原生应用性能。",
+        "title_zh": "Cloudflare 现在支持部署更大的 Workers，免费和付费计划均可达到 64 MiB",
+        "reason_zh": "边缘计算平台大幅提升函数运行内存上限，有助于部署更复杂的安全策略脚本与WAF自定义规则，优化云原生应用性能。",
+        "title_en": "Cloudflare Now Supports Larger Worker Deployments, With Free and Paid Plans Both Reaching 64 MiB Limits",
+        "reason_en": "Edge Computing Platform Significantly Increases Function Memory Limits, Facilitating Deployment of More Complex Security Policy Scripts and Custom WAF Rules to Optimize Cloud-Native Application Performance"
+      }
+    ],
+    "其他重要": [
+      {
+        "title": "工信部印发《信息通信行业发展十五五规划》",
+        "url": "https://www.secrss.com/articles/93744",
+        "source": "安全内参",
+        "date": "2026-09-07",
+        "reason": "国家层面明确构建安全可控的信息通信产业体系，要求打造全域联动的网络与数据安全保障能力，指引行业合规方向。",
+        "title_zh": "工信部印发《信息通信行业发展十五五规划》",
+        "reason_zh": "国家层面明确构建安全可控的信息通信产业体系，要求打造全域联动的网络与数据安全保障能力，指引行业合规方向。",
+        "title_en": "MIIT Issues the 15th Five-Year Plan for the Development of the Information and Telecommunications Industry",
+        "reason_en": "National-Level Directive Establishes Secure and Controllable ICT Ecosystem, Mandating Cross-Domain Cyber and Data Security Capabilities to Guide Industry Compliance"
+      },
+      {
+        "title": "隐私攻击的工程实现与防御",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247497115&idx=1&sn=335f7ed1e3d040b6d63506296988af9",
+        "source": "Unsafe.sh",
+        "date": "2026-09-07",
+        "reason": "系统梳理隐私数据泄露的攻击链路与工程化防御体系，为数据防泄漏与隐私计算落地提供技术参考。",
+        "title_zh": "隐私攻击的工程实现与防御",
+        "reason_zh": "系统梳理隐私数据泄露的攻击链路与工程化防御体系，为数据防泄漏与隐私计算落地提供技术参考。",
+        "title_en": "Engineering Implementation and Defensive Strategies for Privacy Attacks",
+        "reason_en": "Systematic Mapping of Attack Chains and Engineering Defense Frameworks for Privacy Data Leakage: Technical Reference for DLP and Privacy Computing Deployment"
+      },
+      {
+        "title": "Post-Quantum Cryptography and India’s Digital Public Infrastructure",
+        "url": "https://hackernoon.com/post-quantum-cryptography-and-indias-digital-public-infrastructure?source=rss",
+        "source": "Unsafe.sh",
+        "date": "2026-09-07",
+        "reason": "探讨后量子密码算法在国家数字公共基础设施中的迁移路径，预警传统加密体系面临算力突破后的长期安全风险。",
+        "title_en": "Post-Quantum Cryptography and India’s Digital Public Infrastructure",
+        "reason_zh": "探讨后量子密码算法在国家数字公共基础设施中的迁移路径，预警传统加密体系面临算力突破后的长期安全风险。",
+        "title_zh": "后量子密码学与印度数字公共基础设施",
+        "reason_en": "Exploring Post-Quantum Cryptography Migration Pathways in National Digital Public Infrastructure and Long-Term Risk Warnings for Traditional Encryption Systems"
+      },
+      {
+        "title": "The £3 WiFi Extender With a Backdoor in Every Unit",
+        "url": "https://unsafe.sh/go-440677.html",
+        "source": "Unsafe.sh",
+        "date": "2026-09-07",
+        "reason": "廉价WiFi扩展器出厂即预置后门，暴露出消费级IoT硬件供应链审核缺失问题，提醒用户重视设备固件来源与权限控制。",
+        "title_en": "The £3 WiFi Extender With a Backdoor in Every Unit",
+        "reason_zh": "廉价WiFi扩展器出厂即预置后门，暴露出消费级IoT硬件供应链审核缺失问题，提醒用户重视设备固件来源与权限控制。",
+        "title_zh": "每台设备均含后门的 3 英镑 WiFi 信号放大器",
+        "reason_en": "Pre-Installed Backdoors in Budget WiFi Extenders Expose Consumer IoT Supply Chain Vetting Gaps, Emphasizing Firmware Provenance and Permission Controls"
+      }
+    ]
+  },
+  "summary": "本批次聚焦零日漏洞利用、AI基础设施风险、APT攻击链及云原生安全架构，筛选高价值技术情报供研判。",
+  "summary_zh": "本批次聚焦零日漏洞利用、AI基础设施风险、APT攻击链及云原生安全架构，筛选高价值技术情报供研判。",
+  "summary_en": "Curated Intelligence on Zero-Day Exploits, AI Infrastructure Risks, APT Attack Chains, and Cloud-Native Security Architectures for Threat Assessment"
+}
