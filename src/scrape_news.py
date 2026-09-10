@@ -2544,7 +2544,17 @@ def generate_html(articles, output_file=None, ai_curated=None):
             // distinct instead of interleaved. Each group gets its own
             // section header so the page reads as two titled sections.
             var byDateDesc = function(a, b) { return b.date.localeCompare(a.date); };
-            var webArticles = (data.tech || []).concat(data.news || []).concat(data.web || []).slice().sort(byDateDesc);
+            // Web cards: described articles first, description-less ones go
+            // last (each group still date desc) so the blank-heavy short
+            // cards cluster at the end of the list instead of sitting
+            // side by side with full cards mid-list
+            var hasDesc = function(a) { return !!(a.description && a.description.trim()); };
+            var byDescThenDate = function(a, b) {
+                var da = hasDesc(a), db = hasDesc(b);
+                if (da !== db) return da ? -1 : 1;
+                return byDateDesc(a, b);
+            };
+            var webArticles = (data.tech || []).concat(data.news || []).concat(data.web || []).slice().sort(byDescThenDate);
             var xTweets = (data.x || []).slice().sort(byDateDesc);
             var parts = [];
             if (webArticles.length) {
