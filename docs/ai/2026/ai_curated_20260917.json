@@ -1,0 +1,376 @@
+{
+  "analysis_date": "2026-09-17",
+  "model": "qwen3.7-flash",
+  "total_analyzed": 131,
+  "categories": {
+    "漏洞研究": [
+      {
+        "title": "Cisco邮件网关9.8分漏洞被在野利用：一封邮件直接拿root，没有任何绕过的余地",
+        "url": "https://www.anquanke.com/post/id/316111",
+        "source": "安全客",
+        "date": "2026-09-16",
+        "reason": "该漏洞CVSS评分高达9.8且已在野利用，无需任何绕过即可直接获取root权限，对邮件基础设施构成严重威胁。",
+        "title_zh": "Cisco邮件网关9.8分漏洞被在野利用：一封邮件直接拿root，没有任何绕过的余地",
+        "reason_zh": "该漏洞CVSS评分高达9.8且已在野利用，无需任何绕过即可直接获取root权限，对邮件基础设施构成严重威胁。",
+        "title_en": "Cisco Email Gateway CVSS 9.8 Vulnerability Actively Exploited in the Wild: Single Email Grants Root Access with No Workarounds",
+        "reason_en": "CVSS 9.8 Vulnerability Actively Exploited in the Wild: Direct Root Privilege Escalation Without Bypasses Poses Severe Threat to Email Infrastructure"
+      },
+      {
+        "title": "Attackers Exploit Issabel Framework Flaw Enabling Unauthenticated OS Command Execution",
+        "url": "https://thehackernews.com/2026/09/attackers-exploit-issabel-framework.html",
+        "source": "The Hacker News",
+        "date": "2026-09-16",
+        "reason": "开源通信框架存在未授权远程命令执行漏洞，目前正遭到活跃利用，直接影响大量PBX系统安全。",
+        "title_en": "Attackers Exploit Issabel Framework Flaw Enabling Unauthenticated OS Command Execution",
+        "reason_zh": "开源通信框架存在未授权远程命令执行漏洞，目前正遭到活跃利用，直接影响大量PBX系统安全。",
+        "title_zh": "攻击者利用 Issabel 框架漏洞实现未授权操作系统命令执行",
+        "reason_en": "Unauthenticated Remote Code Execution Vulnerability in Open-Source Communication Framework Actively Exploited, Compromising Numerous PBX Systems"
+      },
+      {
+        "title": "Google Patches Pixel Modem Flaw Amid Signs of Limited Targeted Exploitation",
+        "url": "https://thehackernews.com/2026/09/google-patches-pixel-modem-flaw-amid.html",
+        "source": "The Hacker News",
+        "date": "2026-09-16",
+        "reason": "谷歌证实Pixel蜂窝调制解调器零日漏洞已被用于针对性攻击，需紧急更新固件以阻断潜在渗透。",
+        "title_en": "Google Patches Pixel Modem Flaw Amid Signs of Limited Targeted Exploitation",
+        "reason_zh": "谷歌证实Pixel蜂窝调制解调器零日漏洞已被用于针对性攻击，需紧急更新固件以阻断潜在渗透。",
+        "title_zh": "谷歌修复 Pixel 调制解调器漏洞，疑似遭有限定向利用",
+        "reason_en": "Google Confirms Pixel Cellular Modem Zero-Day Exploited in Targeted Attacks; Urgent Firmware Update Required to Block Potential Intrusions"
+      },
+      {
+        "title": "Active Exploitation Attempts Target WSO2 API Manager JWT Bypass With Forged Admin Tokens",
+        "url": "https://thehackernews.com/2026/09/active-exploitation-attempts-target.html",
+        "source": "The Hacker News",
+        "date": "2026-09-16",
+        "reason": "WSO2 API管理器存在关键JWT令牌伪造漏洞，攻击者已利用该缺陷进行未授权管理访问，实战价值极高。",
+        "title_en": "Active Exploitation Attempts Target WSO2 API Manager JWT Bypass With Forged Admin Tokens",
+        "reason_zh": "WSO2 API管理器存在关键JWT令牌伪造漏洞，攻击者已利用该缺陷进行未授权管理访问，实战价值极高。",
+        "title_zh": "针对 WSO2 API Manager JWT 绕过漏洞的活跃利用尝试：伪造管理员令牌",
+        "reason_en": "Critical JWT Token Forgery Vulnerability in WSO2 API Manager Enables Unauthorized Administrative Access, Highly Valuable for Real-World Attacks"
+      },
+      {
+        "title": "CVE-2026-86218 | N-able N-central Pre-Authentication Remote Code Execution Vulnerability",
+        "url": "https://horizon3.ai/attack-research/vulnerabilities/cve-2026-86218/",
+        "source": "Horizon3",
+        "date": "2026-09-16",
+        "reason": "该漏洞允许未经身份验证的攻击者在N-central系统中执行远程代码，属于高危运维管理平台风险。",
+        "title_en": "CVE-2026-86218 | N-able N-central Pre-Authentication Remote Code Execution Vulnerability",
+        "reason_zh": "该漏洞允许未经身份验证的攻击者在N-central系统中执行远程代码，属于高危运维管理平台风险。",
+        "title_zh": "CVE-2026-86218 | N-able N-central 认证前远程代码执行漏洞",
+        "reason_en": "Unauthenticated Remote Code Execution in N-central System Poses High-Risk Threat to IT Operations Management Platforms"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "谷歌证实有间谍软件利用Pixel零日漏洞发起攻击 主要针对高价值目标发起零点击攻击",
+        "url": "https://www.landian.news/archives/126908.html",
+        "source": "Unsafe.sh",
+        "date": "2026-09-17",
+        "reason": "详细披露了针对移动设备的零点击攻击手法，为移动端防御策略提供重要参考。",
+        "title_zh": "谷歌证实有间谍软件利用Pixel零日漏洞发起攻击 主要针对高价值目标发起零点击攻击",
+        "reason_zh": "详细披露了针对移动设备的零点击攻击手法，为移动端防御策略提供重要参考。",
+        "title_en": "Google Confirms Spyware Exploiting Pixel Zero-Day in Targeted, Zero-Click Attacks Against High-Value Targets",
+        "reason_en": "Detailed Breakdown of Mobile Zero-Click Attack Techniques Provides Critical Insights for Endpoint Defense Strategies"
+      },
+      {
+        "title": "The Apple Security Update Review for September 2026",
+        "url": "https://www.thezdi.com/blog/2026/9/16/the-apple-security-update-review-for-september-2026",
+        "source": "TheZDI",
+        "date": "2026-09-16",
+        "reason": "全面梳理苹果九月安全更新中的多项高危漏洞，涵盖屏幕共享等核心功能，指导iOS与macOS设备加固。",
+        "title_en": "The Apple Security Update Review for September 2026",
+        "reason_zh": "全面梳理苹果九月安全更新中的多项高危漏洞，涵盖屏幕共享等核心功能，指导iOS与macOS设备加固。",
+        "title_zh": "苹果 2026 年 9 月安全更新回顾",
+        "reason_en": "Comprehensive Analysis of Apple September Security Updates: Multiple High-Severity Flaws in Core Features Guide iOS and macOS Hardening"
+      },
+      {
+        "title": "Securing the Last Mile: Privacy and Compliance in Mobile Payments",
+        "url": "https://hackernoon.com/securing-the-last-mile-privacy-and-compliance-in-mobile-payments?source=rss",
+        "source": "HackerNoon",
+        "date": "2026-09-16",
+        "reason": "深入探讨移动支付交易最后环节的数据隐私与合规挑战，对金融类移动应用开发具有指导意义。",
+        "title_en": "Securing the Last Mile: Privacy and Compliance in Mobile Payments",
+        "reason_zh": "深入探讨移动支付交易最后环节的数据隐私与合规挑战，对金融类移动应用开发具有指导意义。",
+        "title_zh": "保障支付最后一公里：移动支付的隐私与合规",
+        "reason_en": "In-Depth Exploration of Data Privacy and Compliance Challenges in Final Stages of Mobile Payment Transactions Guides Financial App Development"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "一条 exec 如何穿过沙箱：DeepSeek Harness QVD-2026-52646 漏洞与安全模型分析",
+        "url": "https://xz.aliyun.com/news/92841",
+        "source": "先知社区",
+        "date": "2026-09-16",
+        "reason": "剖析AI模型沙箱逃逸技术路径，揭示大模型执行环境的安全边界突破方法，具备较高技术深度。",
+        "title_zh": "一条 exec 如何穿过沙箱：DeepSeek Harness QVD-2026-52646 漏洞与安全模型分析",
+        "reason_zh": "剖析AI模型沙箱逃逸技术路径，揭示大模型执行环境的安全边界突破方法，具备较高技术深度。",
+        "title_en": "How a Single exec Call Breaches the Sandbox: Analysis of DeepSeek Harness Vulnerability QVD-2026-52646 and Security Models",
+        "reason_en": "Technical Analysis of AI Model Sandbox Escape Vectors Reveals Methods to Breach LLM Execution Environments, Offering High Technical Depth"
+      },
+      {
+        "title": "劫持网站并偷建地下论坛，竟然是AI干的！",
+        "url": "https://www.secrss.com/articles/94042",
+        "source": "安全内参",
+        "date": "2026-09-16",
+        "reason": "展示AI智能体被滥用进行自动化网络攻击的实战案例，凸显自主代理技术迭代带来的新型安全围栏缺口。",
+        "title_zh": "劫持网站并偷建地下论坛，竟然是AI干的！",
+        "reason_zh": "展示AI智能体被滥用进行自动化网络攻击的实战案例，凸显自主代理技术迭代带来的新型安全围栏缺口。",
+        "title_en": "Website Takeover and Secret Underground Forum Creation: The Surprising Hand of AI Agents",
+        "reason_en": "Real-World Cases of AI Agents Abused for Automated Cyberattacks Highlight New Security Gaps from Evolving Autonomous Agent Technologies"
+      },
+      {
+        "title": "One Extension Could Hijack AI Assistants Across Chrome, Comet, Edge, Opera Neon and Claude",
+        "url": "https://thehackernews.com/2026/09/one-extension-could-hijack-ai.html",
+        "source": "The Hacker News",
+        "date": "2026-09-16",
+        "reason": "证明单一浏览器扩展即可跨平台劫持多款内置AI助手，暴露出端侧AI集成架构的权限控制缺陷。",
+        "title_en": "One Extension Could Hijack AI Assistants Across Chrome, Comet, Edge, Opera Neon and Claude",
+        "reason_zh": "证明单一浏览器扩展即可跨平台劫持多款内置AI助手，暴露出端侧AI集成架构的权限控制缺陷。",
+        "title_zh": "单一扩展程序可劫持跨 Chrome、Comet、Edge、Opera Neon 及 Claude 的 AI 助手",
+        "reason_en": "Single Browser Extension Proven to Cross-Platform Hijack Multiple Built-in AI Assistants, Exposing Privilege Control Flaws in On-Device AI Architectures"
+      },
+      {
+        "title": "First Agentic AI Data Breach Reported to Spanish Regulator",
+        "url": "https://www.securityweek.com/first-agentic-ai-data-breach-reported-to-spanish-regulator/",
+        "source": "SecurityWeek",
+        "date": "2026-09-16",
+        "reason": "记录首例由AI智能体自主串联登录、漏洞发现与数据访问导致的泄露事件，标志自主网络攻击进入新阶段。",
+        "title_en": "First Agentic AI Data Breach Reported to Spanish Regulator",
+        "reason_zh": "记录首例由AI智能体自主串联登录、漏洞发现与数据访问导致的泄露事件，标志自主网络攻击进入新阶段。",
+        "title_zh": "首起 AI 智能体数据泄露事件上报西班牙监管机构",
+        "reason_en": "First Recorded Data Breach Caused by AI Agent Autonomously Chaining Login, Vulnerability Discovery, and Data Access Marks New Era of Autonomous Cyberattacks"
+      },
+      {
+        "title": "大模型网络攻击能力该如何管控？首份AI行为思想钢印公布",
+        "url": "https://www.secrss.com/articles/94039",
+        "source": "安全内参",
+        "date": "2026-09-16",
+        "reason": "微软提出将AI行为规范作为绝对约束嵌入训练流程，为行业制定大模型安全对齐标准提供实践方向。",
+        "title_zh": "大模型网络攻击能力该如何管控？首份AI行为思想钢印公布",
+        "reason_zh": "微软提出将AI行为规范作为绝对约束嵌入训练流程，为行业制定大模型安全对齐标准提供实践方向。",
+        "title_en": "How to Regulate LLM Offensive Capabilities? First Report on AI Behavioral Guardrails and Constraint Mechanisms Released",
+        "reason_en": "Microsoft Proposes Embedding AI Behavior Norms as Absolute Constraints into Training Pipelines, Guiding Industry Standards for LLM Safety Alignment"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "泰国最大网络运营商3BB遭工具投毒，多台内网服务器被远控窃取数据",
+        "url": "https://www.secrss.com/articles/94010",
+        "source": "安全内参",
+        "date": "2026-09-16",
+        "reason": "黑客利用正规运维工具潜伏入侵大型运营商内网，典型供应链投毒与横向移动案例，预警企业运维通道风险。",
+        "title_zh": "泰国最大网络运营商3BB遭工具投毒，多台内网服务器被远控窃取数据",
+        "reason_zh": "黑客利用正规运维工具潜伏入侵大型运营商内网，典型供应链投毒与横向移动案例，预警企业运维通道风险。",
+        "title_en": "Thailand's Largest ISP 3BB Hit by Supply Chain Poisoning via Legitimate Tools; Multiple Internal Servers Compromised for Data Theft",
+        "reason_en": "Hackers Leverage Legitimate IT Ops Tools to Infiltrate Major Carrier Networks: A Classic Case of Supply Chain Poisoning and Lateral Movement Warning Enterprises of Ops Channel Risks"
+      },
+      {
+        "title": "Three Threat Groups Target Russian Enterprises With Backdoors, Ransomware, and Wipers",
+        "url": "https://thehackernews.com/2026/09/three-threat-groups-target-russian.html",
+        "source": "The Hacker News",
+        "date": "2026-09-16",
+        "reason": "追踪多个威胁组织针对俄罗斯企业的复合攻击活动，包含后门植入与擦除工具，丰富APT战术库。",
+        "title_en": "Three Threat Groups Target Russian Enterprises With Backdoors, Ransomware, and Wipers",
+        "reason_zh": "追踪多个威胁组织针对俄罗斯企业的复合攻击活动，包含后门植入与擦除工具，丰富APT战术库。",
+        "title_zh": "三个威胁组织使用后门、勒索软件与擦除工具针对俄罗斯企业",
+        "reason_en": "Tracking Multi-Vector Campaigns by Threat Actors Targeting Russian Enterprises, Featuring Backdoor Deployment and Anti-Forensics Tools, Enriching APT TTPs"
+      },
+      {
+        "title": "US, UK, Dutch Agencies Expose Iranian Chosen Brick Surveillance Malware",
+        "url": "https://www.securityweek.com/us-uk-dutch-agencies-expose-iranian-chosen-brick-surveillance-malware/",
+        "source": "SecurityWeek",
+        "date": "2026-09-16",
+        "reason": "多国机构联合披露伊朗国家级间谍软件的技术细节与指挥控制机制，助力反制国家支持型威胁。",
+        "title_en": "US, UK, Dutch Agencies Expose Iranian Chosen Brick Surveillance Malware",
+        "reason_zh": "多国机构联合披露伊朗国家级间谍软件的技术细节与指挥控制机制，助力反制国家支持型威胁。",
+        "title_zh": "美英荷三国机构曝光伊朗 Chosen Brick 监控恶意软件",
+        "reason_en": "Multinational Agencies Jointly Reveal Technical Details and C2 Mechanisms of Iranian State-Sponsored Espionage Software to Counter Nation-State Threats"
+      },
+      {
+        "title": "BambooToken: The Malware That Speaks MQTT to Stay Under the Radar",
+        "url": "https://securityaffairs.com/199205/malware/bambootoken-the-malware-that-speaks-mqtt-to-stay-under-the-radar.html",
+        "source": "SecurityAffairs",
+        "date": "2026-09-16",
+        "reason": "分析利用MQTT协议隐蔽通信的新型恶意软件，揭示物联网场景下C2链路的规避技术，拓展威胁狩猎视角。",
+        "title_en": "BambooToken: The Malware That Speaks MQTT to Stay Under the Radar",
+        "reason_zh": "分析利用MQTT协议隐蔽通信的新型恶意软件，揭示物联网场景下C2链路的规避技术，拓展威胁狩猎视角。",
+        "title_zh": "BambooToken：通过 MQTT 通信隐蔽行踪的恶意软件",
+        "reason_en": "Analysis of Novel Malware Using MQTT Protocol for Covert Communications Reveals IoT C2 Evasion Techniques, Broadening Threat Hunting Perspectives"
+      },
+      {
+        "title": "暗网监测2025年度报告正式发布",
+        "url": "https://www.secrss.com/articles/94024",
+        "source": "安全内参",
+        "date": "2026-09-16",
+        "reason": "系统复盘暗网格局演变与地缘冲突驱动的威胁武器化趋势，为黑产生态研判提供宏观数据支撑。",
+        "title_zh": "暗网监测2025年度报告正式发布",
+        "reason_zh": "系统复盘暗网格局演变与地缘冲突驱动的威胁武器化趋势，为黑产生态研判提供宏观数据支撑。",
+        "title_en": "Dark Web Monitoring 2025 Annual Report Officially Released",
+        "reason_en": "Systematic Review of Dark Web Landscape Evolution and Geopolitical Conflict-Driven Weaponization Trends Provides Macro-Level Data for Cybercrime Ecosystem Analysis"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "wazuh v4.10.5",
+        "url": "https://kitploit.com/en/posts/github-wazuh-wazuh-v4105",
+        "source": "Kitploit",
+        "date": "2026-09-16",
+        "reason": "主流开源EDR平台版本更新，强化威胁预防、检测与响应能力，适合企业级安全运营体系建设。",
+        "title_en": "wazuh v4.10.5",
+        "reason_zh": "主流开源EDR平台版本更新，强化威胁预防、检测与响应能力，适合企业级安全运营体系建设。",
+        "title_zh": "wazuh v4.10.5",
+        "reason_en": "Major Open-Source EDR Platform Version Update Enhances Threat Prevention, Detection, and Response Capabilities, Ideal for Enterprise SOC Infrastructure"
+      },
+      {
+        "title": "dalfox v3.2.3",
+        "url": "https://kitploit.com/en/posts/github-hahwul-dalfox-v323",
+        "source": "Kitploit",
+        "date": "2026-09-16",
+        "reason": "快速XSS扫描工具更新，增强参数分析与WAF指纹识别功能，提升渗透测试效率与DOM覆盖度。",
+        "title_en": "dalfox v3.2.3",
+        "reason_zh": "快速XSS扫描工具更新，增强参数分析与WAF指纹识别功能，提升渗透测试效率与DOM覆盖度。",
+        "title_zh": "dalfox v3.2.3",
+        "reason_en": "Rapid XSS Scanner Update Strengthens Parameter Analysis and WAF Fingerprinting, Boosting Penetration Testing Efficiency and DOM Coverage"
+      },
+      {
+        "title": "augustus v0.14.30",
+        "url": "https://kitploit.com/en/posts/github-praetorian-inc-augustus-v01430",
+        "source": "Kitploit",
+        "date": "2026-09-16",
+        "reason": "专为LLM安全测试设计的框架，可自动检测提示词注入与越狱攻击，填补大模型红队测试工具空白。",
+        "title_en": "augustus v0.14.30",
+        "reason_zh": "专为LLM安全测试设计的框架，可自动检测提示词注入与越狱攻击，填补大模型红队测试工具空白。",
+        "title_zh": "augustus v0.14.30",
+        "reason_en": "Framework Designed Specifically for LLM Security Testing Automatically Detects Prompt Injection and Jailbreak Attacks, Filling Gap in Red Teaming Tools"
+      },
+      {
+        "title": "codejail v4.1.1",
+        "url": "https://kitploit.com/en/posts/github-openedx-codejail-v411",
+        "source": "Kitploit",
+        "date": "2026-09-16",
+        "reason": "提供安全的Python代码沙箱执行环境，有效隔离不可信代码运行，适用于教育平台与在线IDE安全防护。",
+        "title_en": "codejail v4.1.1",
+        "reason_zh": "提供安全的Python代码沙箱执行环境，有效隔离不可信代码运行，适用于教育平台与在线IDE安全防护。",
+        "title_zh": "codejail v4.1.1",
+        "reason_en": "Secure Python Code Sandbox Execution Environment Effectively Isolates Untrusted Code, Suitable for Educational Platforms and Online IDE Protection"
+      },
+      {
+        "title": "easywall v2.20.1",
+        "url": "https://kitploit.com/en/posts/github-jp1337-easywall-v2201",
+        "source": "Kitploit",
+        "date": "2026-09-16",
+        "reason": "基于Go开发的Linux防火墙Web界面，简化复杂规则配置流程，提升网络边界管理便捷性。",
+        "title_en": "easywall v2.20.1",
+        "reason_zh": "基于Go开发的Linux防火墙Web界面，简化复杂规则配置流程，提升网络边界管理便捷性。",
+        "title_zh": "easywall v2.20.1",
+        "reason_en": "Go-Based Linux Firewall Web Interface Simplifies Complex Rule Configuration, Enhancing Network Perimeter Management Convenience"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "智算中心RDMA安全风险与防护技术研究",
+        "url": "https://www.secrss.com/articles/94043",
+        "source": "安全内参",
+        "date": "2026-09-16",
+        "reason": "深入剖析RDMA内建安全机制局限性与典型风险，提出DPU内存保护密钥派生方案，契合算力基础设施演进。",
+        "title_zh": "智算中心RDMA安全风险与防护技术研究",
+        "reason_zh": "深入剖析RDMA内建安全机制局限性与典型风险，提出DPU内存保护密钥派生方案，契合算力基础设施演进。",
+        "title_en": "Research on RDMA Security Risks and Mitigation Technologies in Intelligent Computing Centers",
+        "reason_en": "Limitations and Risks of Built-in RDMA Security: A DPU Memory Key Derivation Scheme Aligned with Compute Infrastructure Evolution"
+      },
+      {
+        "title": "亚马逊确认AWS巴林和阿联酋数据中心受损可用区无法修复 所有资源和数据都无法访问",
+        "url": "https://www.landian.news/archives/126907.html",
+        "source": "Unsafe.sh",
+        "date": "2026-09-17",
+        "reason": "报道AWS中东区域重大可用性事故，凸显公有云多可用区容灾架构的脆弱性，引发对云原生备份策略的反思。",
+        "title_zh": "亚马逊确认AWS巴林和阿联酋数据中心受损可用区无法修复 所有资源和数据都无法访问",
+        "reason_zh": "报道AWS中东区域重大可用性事故，凸显公有云多可用区容灾架构的脆弱性，引发对云原生备份策略的反思。",
+        "title_en": "Amazon Confirms AWS Bahrain and UAE Data Center Availability Zones Unrecoverable; All Resources and Data Inaccessible",
+        "reason_en": "Report on Major AWS Middle East Availability Outage Highlights Fragility of Multi-AZ Cloud DR Architecture, Prompting Review of Cloud-Native Backup Strategies"
+      },
+      {
+        "title": "When scanners miss the attack: how Cloudflare Client-Side Security protects storefronts",
+        "url": "https://blog.cloudflare.com/client-side-security-finds-4-malicious-campaigns/",
+        "source": "Cloudflare Blog",
+        "date": "2026-09-16",
+        "reason": "演示客户端安全扫描如何发现隐藏恶意JavaScript的隐蔽攻击，完善传统云端WAF在渲染层防护的盲区。",
+        "title_en": "When scanners miss the attack: how Cloudflare Client-Side Security protects storefronts",
+        "reason_zh": "演示客户端安全扫描如何发现隐藏恶意JavaScript的隐蔽攻击，完善传统云端WAF在渲染层防护的盲区。",
+        "title_zh": "扫描器漏报攻击时：Cloudflare 客户端侧安全如何保护线上商店",
+        "reason_en": "Demonstrating How Client-Side Scanning Detects Stealthy Attacks via Obfuscated Malicious JavaScript, Bridging Blind Spots in Traditional Cloud WAF Rendering Layer Protection"
+      },
+      {
+        "title": "CTEM Technology Evaluation Scorecard",
+        "url": "https://horizon3.ai/downloads/factsheets/ctem-technology-evaluation-scorecard",
+        "source": "Horizon3",
+        "date": "2026-09-16",
+        "reason": "提供持续威胁暴露管理框架评估标准，帮助云安全团队系统化选型与优化攻击面管理策略。",
+        "title_en": "CTEM Technology Evaluation Scorecard",
+        "reason_zh": "提供持续威胁暴露管理框架评估标准，帮助云安全团队系统化选型与优化攻击面管理策略。",
+        "title_zh": "CTEM 技术评估评分卡",
+        "reason_en": "Providing Evaluation Standards for Continuous Threat Exposure Management Frameworks to Assist Cloud Security Teams in Systematic Selection and Optimization of Attack Surface Management Strategies"
+      }
+    ],
+    "其他重要": [
+      {
+        "title": "国标智能体数据处理安全要求汇报分享",
+        "url": "https://www.secrss.com/articles/94052",
+        "source": "安全内参",
+        "date": "2026-09-17",
+        "reason": "解读智能体数据处理领域的国家标准编制思路，为企业合规落地与产品安全设计提供权威指引。",
+        "title_zh": "国标智能体数据处理安全要求汇报分享",
+        "reason_zh": "解读智能体数据处理领域的国家标准编制思路，为企业合规落地与产品安全设计提供权威指引。",
+        "title_en": "Presentation on National Standard Security Requirements for Agent Data Processing",
+        "reason_en": "Interpreting the Drafting Philosophy of National Standards for Agent Data Processing, Providing Authoritative Guidance for Enterprise Compliance Implementation and Product Security Design"
+      },
+      {
+        "title": "美国海军数据与人工智能武器化战略解读",
+        "url": "https://www.secrss.com/articles/94048",
+        "source": "安全内参",
+        "date": "2026-09-16",
+        "reason": "剖析美军AI优先战略在海军层面的体系化落实，反映数据驱动作战与持续学习模式对国防安全的深远影响。",
+        "title_zh": "美国海军数据与人工智能武器化战略解读",
+        "reason_zh": "剖析美军AI优先战略在海军层面的体系化落实，反映数据驱动作战与持续学习模式对国防安全的深远影响。",
+        "title_en": "Analysis of the US Navy's Strategy for Weaponizing Data and Artificial Intelligence",
+        "reason_en": "Analyzing the Systematic Implementation of the US Military's AI-First Strategy at the Naval Level, Reflecting the Profound Impact of Data-Driven Warfare and Continuous Learning Models on National Defense Security"
+      },
+      {
+        "title": "信通院联合发布智能体治理研究报告（2026年）",
+        "url": "https://www.secrss.com/articles/94026",
+        "source": "安全内参",
+        "date": "2026-09-16",
+        "reason": "系统梳理全球智能体治理最新动态与技术演进，为行业应对自主代理时代的新安全命题提供理论框架。",
+        "title_zh": "信通院联合发布智能体治理研究报告（2026年）",
+        "reason_zh": "系统梳理全球智能体治理最新动态与技术演进，为行业应对自主代理时代的新安全命题提供理论框架。",
+        "title_en": "CAICT Jointly Releases Agent Governance Research Report (2026)",
+        "reason_en": "Systematically Reviewing Global Dynamics and Technological Evolution in Agent Governance, Providing a Theoretical Framework for the Industry to Address New Security Challenges in the Era of Autonomous Agents"
+      },
+      {
+        "title": "云晓春院士：AI供应链安全挑战及应对思考",
+        "url": "https://www.secrss.com/articles/94022",
+        "source": "安全内参",
+        "date": "2026-09-16",
+        "reason": "院士从基础软硬件智能化角度剖析AI供应链风险，提出构建可信生态的应对策略，具有高度前瞻性。",
+        "title_zh": "云晓春院士：AI供应链安全挑战及应对思考",
+        "reason_zh": "院士从基础软硬件智能化角度剖析AI供应链风险，提出构建可信生态的应对策略，具有高度前瞻性。",
+        "title_en": "Academician Yun Xiaochun: AI Supply Chain Security Challenges and Response Considerations",
+        "reason_en": "The Academician Analyzes AI Supply Chain Risks from the Perspective of Intelligent Basic Software and Hardware, Proposing Strategies to Build a Trusted Ecosystem with High Foresight"
+      },
+      {
+        "title": "国家安全部警示：病毒库也有保质期",
+        "url": "https://www.secrss.com/articles/94013",
+        "source": "安全内参",
+        "date": "2026-09-16",
+        "reason": "官方提醒终端杀毒软件与病毒库更新滞后带来的防护失效风险，强化日常安全运维意识与基线管理要求。",
+        "title_zh": "国家安全部警示：病毒库也有保质期",
+        "reason_zh": "官方提醒终端杀毒软件与病毒库更新滞后带来的防护失效风险，强化日常安全运维意识与基线管理要求。",
+        "title_en": "Ministry of State Security Warning: Virus Definitions Also Have Expiration Dates",
+        "reason_en": "Official Reminder on Protection Failure Risks Caused by Lagging Updates of Endpoint Antivirus Software and Virus Databases, Strengthening Daily Security Operations Awareness and Baseline Management Requirements"
+      }
+    ]
+  },
+  "summary": "本批次聚焦AI代理安全、移动端零日漏洞及云基础设施风险，涵盖最新CVE利用、威胁组织动向与安全工具更新。",
+  "summary_zh": "本批次聚焦AI代理安全、移动端零日漏洞及云基础设施风险，涵盖最新CVE利用、威胁组织动向与安全工具更新。",
+  "summary_en": "This Batch Focuses on AI Agent Security, Mobile Zero-Day Vulnerabilities, and Cloud Infrastructure Risks, Covering Latest CVE Exploitations, Threat Actor Movements, and Security Tool Updates"
+}
