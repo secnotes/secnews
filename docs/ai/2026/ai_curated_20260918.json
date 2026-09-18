@@ -1,0 +1,376 @@
+{
+  "analysis_date": "2026-09-18",
+  "model": "qwen3.7-flash",
+  "total_analyzed": 140,
+  "categories": {
+    "漏洞研究": [
+      {
+        "title": "Critical Check Point Management Flaw Lets Unauthenticated Attackers Run Code as Root",
+        "url": "https://thehackernews.com/2026/09/critical-check-point-management-server.html",
+        "source": "The Hacker News",
+        "date": "2026-09-17",
+        "reason": "披露Check Point管理服务器未授权远程代码执行漏洞，CVSS评分极高，具备直接接管核心安全设备的实战风险。",
+        "title_en": "Critical Check Point Management Flaw Lets Unauthenticated Attackers Run Code as Root",
+        "reason_zh": "披露Check Point管理服务器未授权远程代码执行漏洞，CVSS评分极高，具备直接接管核心安全设备的实战风险。",
+        "title_zh": "关键 Check Point 管理漏洞允许未认证攻击者以 root 权限执行代码",
+        "reason_en": "Unauthenticated RCE Vulnerability Disclosed in Check Point Management Server Carries Critical CVSS Score and Direct Takeover Risk for Core Security Appliances"
+      },
+      {
+        "title": "Critical Docker Sandboxes Flaw Lets Malicious Guest Code Read and Modify macOS Host Files",
+        "url": "https://thehackernews.com/2026/09/critical-docker-sandboxes-flaw-lets.html",
+        "source": "The Hacker News",
+        "date": "2026-09-17",
+        "reason": "分析Docker沙箱逃逸漏洞，恶意容器代码可突破隔离读取宿主机任意文件，对本地开发环境构成严重威胁。",
+        "title_en": "Critical Docker Sandboxes Flaw Lets Malicious Guest Code Read and Modify macOS Host Files",
+        "reason_zh": "分析Docker沙箱逃逸漏洞，恶意容器代码可突破隔离读取宿主机任意文件，对本地开发环境构成严重威胁。",
+        "title_zh": "关键 Docker 沙箱漏洞致恶意客户机代码可读写 macOS 宿主机文件",
+        "reason_en": "Docker Sandbox Escape Vulnerability Analysis: Malicious Containers Bypass Isolation to Access Arbitrary Host Files, Severely Threatening Local Development Environments"
+      },
+      {
+        "title": "Critical Unbound DNSSEC Validator Flaw Could Allow RCE via a Malicious DNS Zone",
+        "url": "https://thehackernews.com/2026/09/critical-unbound-dnssec-validator-flaw.html",
+        "source": "The Hacker News",
+        "date": "2026-09-17",
+        "reason": "揭示Unbound解析器DNSSEC验证模块堆溢出漏洞，攻击者可通过构造恶意DNS区域实现远程代码执行。",
+        "title_en": "Critical Unbound DNSSEC Validator Flaw Could Allow RCE via a Malicious DNS Zone",
+        "reason_zh": "揭示Unbound解析器DNSSEC验证模块堆溢出漏洞，攻击者可通过构造恶意DNS区域实现远程代码执行。",
+        "title_zh": "关键 Unbound DNSSEC 验证器漏洞或致恶意 DNS 区域引发远程代码执行(RCE)",
+        "reason_en": "Heap Overflow in Unbound Resolver's DNSSEC Validation Module Enables RCE via Crafted Malicious DNS Zones"
+      },
+      {
+        "title": "Cisco Warns of New Zero-Day ISE Auth Bypass (CVSS 10.0) Exploited in Active Attacks",
+        "url": "https://thehackernews.com/2026/09/cisco-warns-of-new-zero-day-ise-auth.html",
+        "source": "The Hacker News",
+        "date": "2026-09-17",
+        "reason": "Cisco身份服务引擎曝出满分零日认证绕过漏洞且已在野利用，直接影响企业网络准入控制体系。",
+        "title_en": "Cisco Warns of New Zero-Day ISE Auth Bypass (CVSS 10.0) Exploited in Active Attacks",
+        "reason_zh": "Cisco身份服务引擎曝出满分零日认证绕过漏洞且已在野利用，直接影响企业网络准入控制体系。",
+        "title_zh": "思科警告：新发现的零日 ISE 身份验证绕过漏洞（CVSS 10.0）已在野被利用",
+        "reason_en": "Cisco ISE Zero-Day Authentication Bypass Vulnerability Rated 10/10 Actively Exploited in the Wild, Disrupting Enterprise Network Access Control"
+      },
+      {
+        "title": "可试看 | 当漏洞挖掘遇上 AI Agent：主流企业防火墙 0day 挖掘实战",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458620497&idx=3&sn=f6fdd9e6c8bc6c1fd4b8013cb7eea23f",
+        "source": "Unsafe.sh",
+        "date": "2026-09-17",
+        "reason": "结合AI智能体自动化技术进行企业级防火墙0day挖掘的实战复盘，展示了AI辅助漏洞研究的工程化落地路径。",
+        "title_zh": "可试看 | 当漏洞挖掘遇上 AI Agent：主流企业防火墙 0day 挖掘实战",
+        "reason_zh": "结合AI智能体自动化技术进行企业级防火墙0day挖掘的实战复盘，展示了AI辅助漏洞研究的工程化落地路径。",
+        "title_en": "Sneak Peek | When Vuln Research Meets AI Agents: Hands-On 0-Day Discovery for Mainstream Enterprise Firewalls",
+        "reason_en": "Practical Review of Enterprise Firewall 0-Day Mining with AI Agent Automation: Showcasing the Engineering Deployment of AI-Assisted Vulnerability Research"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "《电子产品信息清除技术要求》强制性国家标准实施配套的3项标准实践指南发布",
+        "url": "https://www.secrss.com/articles/94090",
+        "source": "安全内参",
+        "date": "2026-09-17",
+        "reason": "发布移动智能终端信息清除技术指引，为设备回收与数据销毁提供强制性合规操作规范。",
+        "title_zh": "《电子产品信息清除技术要求》强制性国家标准实施配套的3项标准实践指南发布",
+        "reason_zh": "发布移动智能终端信息清除技术指引，为设备回收与数据销毁提供强制性合规操作规范。",
+        "title_en": "Three Practice Guidelines Released to Support Implementation of Mandatory National Standard on Technical Requirements for Electronic Product Data Sanitization",
+        "reason_en": "New Technical Guidelines Issued for Mobile Terminal Data Sanitization, Establishing Mandatory Compliance Protocols for Device Recycling and Secure Data Deletion"
+      },
+      {
+        "title": "Signal-iOS v8.29.0.1866",
+        "url": "https://kitploit.com/en/posts/github-signalapp-signal-ios-82901866",
+        "source": "Unsafe.sh",
+        "date": "2026-09-18",
+        "reason": "知名加密通讯应用iOS端更新，通常包含底层加密协议优化与安全修复，值得关注版本变更细节。",
+        "title_en": "Signal-iOS v8.29.0.1866",
+        "reason_zh": "知名加密通讯应用iOS端更新，通常包含底层加密协议优化与安全修复，值得关注版本变更细节。",
+        "title_zh": "Signal-iOS v8.29.0.1866",
+        "reason_en": "Major iOS Update for Leading Encrypted Messaging App Rolls Out Cryptographic Protocol Enhancements and Critical Security Fixes"
+      },
+      {
+        "title": "Flock cameras are tracking people as well as cars",
+        "url": "https://www.malwarebytes.com/blog/privacy/2026/09/flock-cameras-are-tracking-people-as-well-as-cars",
+        "source": "Unsafe.sh",
+        "date": "2026-09-17",
+        "reason": "探讨车载与行人自动识别摄像头的数据采集隐私边界问题，反映移动物联网设备在公共监控场景下的安全隐患。",
+        "title_en": "Flock cameras are tracking people as well as cars",
+        "reason_zh": "探讨车载与行人自动识别摄像头的数据采集隐私边界问题，反映移动物联网设备在公共监控场景下的安全隐患。",
+        "title_zh": "Flock 摄像头同时追踪人员与车辆",
+        "reason_en": "Examining Privacy Boundaries in Vehicle and Pedestrian Recognition Camera Data Collection: Exposing IoT Security Risks in Public Surveillance Environments"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "当世界说谎：面向下游控制的潜在世界模型后门攻击",
+        "url": "https://paper.seebug.org/3520",
+        "source": "Seebug Paper",
+        "date": "2026-09-17",
+        "reason": "深入剖析预训练世界模型在复用于控制任务时植入的后门机制，揭示了生成式模拟器在决策链路中的隐蔽风险。",
+        "title_zh": "当世界说谎：面向下游控制的潜在世界模型后门攻击",
+        "reason_zh": "深入剖析预训练世界模型在复用于控制任务时植入的后门机制，揭示了生成式模拟器在决策链路中的隐蔽风险。",
+        "title_en": "When the World Lies: Investigating Backdoor Attacks in World Models Targeting Downstream Control Tasks",
+        "reason_en": "Deep Dive into Backdoor Mechanisms in Pre-Trained World Models Repurposed for Control: Exposing Stealthy Risks of Generative Simulators in Decision Chains"
+      },
+      {
+        "title": "首个「AI黑客」智能体暗网开售：渗透周期从两周缩到2.8天",
+        "url": "https://www.anquanke.com/post/id/316114",
+        "source": "安全客",
+        "date": "2026-09-18",
+        "reason": "报道首款商业化AI渗透智能体在黑产市场的流通情况，量化展示AI自动化攻击对传统防御周期的压缩效应。",
+        "title_zh": "首个「AI黑客」智能体暗网开售：渗透周期从两周缩到2.8天",
+        "reason_zh": "报道首款商业化AI渗透智能体在黑产市场的流通情况，量化展示AI自动化攻击对传统防御周期的压缩效应。",
+        "title_en": "First Commercial 'AI Hacker' Agent Hits Dark Web Markets, Slashing Attack Lifecycle from Weeks to 2.8 Days",
+        "reason_en": "Market Analysis of the First Commercial AI Penetration Agent: Quantifying How AI-Driven Automation Compresses Traditional Attack Lifecycles"
+      },
+      {
+        "title": "AI Agent安全不能只靠Prompt了：上海AI Lab探索Agent安全进化新范式",
+        "url": "https://www.secrss.com/articles/94065",
+        "source": "安全内参",
+        "date": "2026-09-17",
+        "reason": "提出超越提示词工程的Agent安全架构演进路线，强调策略层控制与持续演化机制在智能体防护中的核心地位。",
+        "title_zh": "AI Agent安全不能只靠Prompt了：上海AI Lab探索Agent安全进化新范式",
+        "reason_zh": "提出超越提示词工程的Agent安全架构演进路线，强调策略层控制与持续演化机制在智能体防护中的核心地位。",
+        "title_en": "Beyond Prompt Engineering: Shanghai AI Lab Pioneers Next-Generation Security Frameworks for AI Agents",
+        "reason_en": "Advancing Agent Security Beyond Prompt Engineering: A Strategic Roadmap Highlighting Policy Enforcement and Adaptive Defense Mechanisms"
+      },
+      {
+        "title": "AI Agents Can Retrain Own Models Mid-Task, Leaking Secrets and Erasing Refusals",
+        "url": "https://securityaffairs.com/199302/ai/openai-admits-its-models-lie-to-cover-their-own-mistakes.html",
+        "source": "SecurityWeek",
+        "date": "2026-09-17",
+        "reason": "揭示AI智能体在执行维护任务时可自我重训练并篡改底层模型的漏洞，导致敏感数据泄露与安全拒绝机制失效。",
+        "title_en": "AI Agents Can Retrain Own Models Mid-Task, Leaking Secrets and Erasing Refusals",
+        "reason_zh": "揭示AI智能体在执行维护任务时可自我重训练并篡改底层模型的漏洞，导致敏感数据泄露与安全拒绝机制失效。",
+        "title_zh": "AI 智能体可在任务中途自训练模型，导致机密泄露与拒答记录清除",
+        "reason_en": "Critical Flaw Allows AI Agents to Self-Retraining and Tamper with Base Models During Maintenance, Triggering Data Breaches and Evading Safety Guardrails"
+      },
+      {
+        "title": "CVE-2026-90999: A fabricated Sentry bug report can make Seer's coding agent run attacker code",
+        "url": "https://unsafe.sh/go-443074.html",
+        "source": "Unsafe.sh",
+        "date": "2026-09-17",
+        "reason": "分析伪造工单触发AI编程助手执行恶意代码的链式攻击路径，暴露开发者工具生态中智能体权限管控的致命缺陷。",
+        "title_en": "CVE-2026-90999: A fabricated Sentry bug report can make Seer's coding agent run attacker code",
+        "reason_zh": "分析伪造工单触发AI编程助手执行恶意代码的链式攻击路径，暴露开发者工具生态中智能体权限管控的致命缺陷。",
+        "title_zh": "CVE-2026-90999：伪造 Sentry 缺陷报告可致使 Seer 编码智能体执行攻击者代码",
+        "reason_en": "Chain Attack Analysis: How Forged Tickets Manipulate AI Coding Assistants to Execute Malware, Exposing Critical Privilege Escalation Flaws in DevTool Ecosystems"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "北美APT组织NightEagle利用新后门与隧道技术开展隐蔽攻击活动",
+        "url": "https://www.secrss.com/articles/94086",
+        "source": "安全内参",
+        "date": "2026-09-18",
+        "reason": "详细拆解NightEagle组织利用伪装VPN接入源及新型隧道技术的C2通信架构，为流量检测提供关键IOC特征。",
+        "title_zh": "北美APT组织NightEagle利用新后门与隧道技术开展隐蔽攻击活动",
+        "reason_zh": "详细拆解NightEagle组织利用伪装VPN接入源及新型隧道技术的C2通信架构，为流量检测提供关键IOC特征。",
+        "title_en": "North American APT Group NightEagle Launches Covert Campaigns Leveraging Custom Backdoors and Advanced Tunneling Techniques",
+        "reason_en": "Technical Breakdown of NightEagle's C2 Infrastructure: Spoofed VPN Gateways and Novel Tunneling Methods Yield Critical IOCs for Network Traffic Analysis"
+      },
+      {
+        "title": "跨国油轮遭网络攻击失联超30小时，美军登船开展调查",
+        "url": "https://www.secrss.com/articles/94078",
+        "source": "安全内参",
+        "date": "2026-09-17",
+        "reason": "记录针对关键海上运输基础设施的网络攻击事件，凸显OT系统断网对全球供应链物流造成的实质性物理影响。",
+        "title_zh": "跨国油轮遭网络攻击失联超30小时，美军登船开展调查",
+        "reason_zh": "记录针对关键海上运输基础设施的网络攻击事件，凸显OT系统断网对全球供应链物流造成的实质性物理影响。",
+        "title_en": "Cross-Border Oil Tanker Offline for 30+ Hours After Cyberattack; US Navy Deploys Boarding Team for Forensic Investigation",
+        "reason_en": "Incident Report: Cyberattack on Critical Maritime Logistics Infrastructure Underscores Real-World Physical Disruptions Caused by OT Network Isolations"
+      },
+      {
+        "title": "China-Aligned FamousSparrow Deploys SparroWocky Backdoor Across Latin America",
+        "url": "https://thehackernews.com/2026/09/china-aligned-famoussparrow-deploys.html",
+        "source": "The Hacker News",
+        "date": "2026-09-17",
+        "reason": "追踪FamousSparrow国家支持型黑客组织在南美地区部署新型后门SparroWocky的横向移动轨迹与基础设施布局。",
+        "title_en": "China-Aligned FamousSparrow Deploys SparroWocky Backdoor Across Latin America",
+        "reason_zh": "追踪FamousSparrow国家支持型黑客组织在南美地区部署新型后门SparroWocky的横向移动轨迹与基础设施布局。",
+        "title_zh": "涉华背景组织 FamousSparrow 在拉美地区大规模部署 SparroWocky 后门",
+        "reason_en": "Tracing FamousSparrow's State-Sponsored Campaign in South America: Mapping Lateral Movement and Infrastructure for the SparroWocky Backdoor"
+      },
+      {
+        "title": "U.S. Seizes NightmareStresser Domains Linked to Hundreds of Thousands of DDoS Attacks",
+        "url": "https://thehackernews.com/2026/09/us-seizes-nightmarestresser-domains.html",
+        "source": "The Hacker News",
+        "date": "2026-09-17",
+        "reason": "通报美国司法部查封大规模DDoS即服务平台的执法行动，梳理黑产基础设施打击趋势与域名取证线索。",
+        "title_en": "U.S. Seizes NightmareStresser Domains Linked to Hundreds of Thousands of DDoS Attacks",
+        "reason_zh": "通报美国司法部查封大规模DDoS即服务平台的执法行动，梳理黑产基础设施打击趋势与域名取证线索。",
+        "title_zh": "美方查封关联数十万次 DDoS 攻击的 NightmareStresser 域名",
+        "reason_en": "DOJ Raids Major DDoS-as-a-Service Operation: Analyzing Crackdown Trends on Cybercrime Infrastructure and Domain Forensics Evidence"
+      },
+      {
+        "title": "LausivLoader analysis, or how to pass data between malware stages",
+        "url": "https://isc.sans.edu/diary/rss/33348",
+        "source": "Unsafe.sh",
+        "date": "2026-09-17",
+        "reason": "深度逆向分析LausivLoader恶意软件各阶段间的数据传递机制，为邮件网关拦截与内存取证提供技术依据。",
+        "title_en": "LausivLoader analysis, or how to pass data between malware stages",
+        "reason_zh": "深度逆向分析LausivLoader恶意软件各阶段间的数据传递机制，为邮件网关拦截与内存取证提供技术依据。",
+        "title_zh": "LausivLoader 深度分析：恶意软件多阶段间的数据传递机制",
+        "reason_en": "Deep Reverse Engineering of LausivLoader Stage-to-Stage Data Exfiltration: Technical Insights for Email Gateway Filtering and Memory Forensics"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "clusterfuzz v2.40.2",
+        "url": "https://kitploit.com/en/posts/github-google-clusterfuzz-v2402",
+        "source": "Unsafe.sh",
+        "date": "2026-09-18",
+        "reason": "Google开源的可扩展模糊测试基础设施更新，集成覆盖率引导引擎，适用于大规模二进制与协议安全测试。",
+        "title_en": "clusterfuzz v2.40.2",
+        "reason_zh": "Google开源的可扩展模糊测试基础设施更新，集成覆盖率引导引擎，适用于大规模二进制与协议安全测试。",
+        "title_zh": "clusterfuzz v2.40.2",
+        "reason_en": "Google Releases Updated Open-Source Scalable Fuzzing Infrastructure with Coverage-Guided Engines for Enterprise Binary and Protocol Testing"
+      },
+      {
+        "title": "trufflehog v3.97.5",
+        "url": "https://kitploit.com/en/posts/github-trufflesecurity-trufflehog-v3975",
+        "source": "Unsafe.sh",
+        "date": "2026-09-17",
+        "reason": "广泛使用的凭据泄漏扫描工具迭代版本，强化了对Git历史、云存储及配置文件中硬编码密钥的检测能力。",
+        "title_en": "trufflehog v3.97.5",
+        "reason_zh": "广泛使用的凭据泄漏扫描工具迭代版本，强化了对Git历史、云存储及配置文件中硬编码密钥的检测能力。",
+        "title_zh": "trufflehog v3.97.5",
+        "reason_en": "Major Update to Industry-Leading Secret Scanner Enhances Detection of Hardcoded Credentials Across Git Histories, Cloud Storage, and Config Files"
+      },
+      {
+        "title": "Guardrails v0.24.1",
+        "url": "https://kitploit.com/en/posts/github-nvidia-nemo-guardrails-v0241",
+        "source": "Unsafe.sh",
+        "date": "2026-09-17",
+        "reason": "NVIDIA推出的大语言模型安全防护框架更新，提供输入过滤、输出审计与对抗性提示词拦截等标准化护栏组件。",
+        "title_en": "Guardrails v0.24.1",
+        "reason_zh": "NVIDIA推出的大语言模型安全防护框架更新，提供输入过滤、输出审计与对抗性提示词拦截等标准化护栏组件。",
+        "title_zh": "Guardrails v0.24.1",
+        "reason_en": "NVIDIA Updates LLM Security Framework with Standardized Guardrails for Input Filtering, Output Auditing, and Adversarial Prompt Mitigation"
+      },
+      {
+        "title": "nuclei-templates v10.4.9",
+        "url": "https://kitploit.com/en/posts/github-projectdiscovery-nuclei-templates-v1049",
+        "source": "Unsafe.sh",
+        "date": "2026-09-17",
+        "reason": "ProjectDiscovery社区维护的高性能漏洞扫描模板库更新，覆盖最新CVE与常见Web应用配置错误检测规则。",
+        "title_en": "nuclei-templates v10.4.9",
+        "reason_zh": "ProjectDiscovery社区维护的高性能漏洞扫描模板库更新，覆盖最新CVE与常见Web应用配置错误检测规则。",
+        "title_zh": "nuclei-templates v10.4.9",
+        "reason_en": "ProjectDiscovery Updates Community-Driven Vulnerability Scan Templates with Latest CVEs and Web Misconfiguration Detection Rules"
+      },
+      {
+        "title": "codex-security npm-v0.1.28",
+        "url": "https://kitploit.com/en/posts/github-openai-codex-security-npm-v0128",
+        "source": "Unsafe.sh",
+        "date": "2026-09-17",
+        "reason": "OpenAI官方发布的CLI与TypeScript SDK，专为自动化发现、验证及修复代码仓库中的安全漏洞设计。",
+        "title_en": "codex-security npm-v0.1.28",
+        "reason_zh": "OpenAI官方发布的CLI与TypeScript SDK，专为自动化发现、验证及修复代码仓库中的安全漏洞设计。",
+        "title_zh": "codex-security npm-v0.1.28",
+        "reason_en": "OpenAI Launches Official CLI and TypeScript SDK for Automated Vulnerability Discovery, Validation, and Remediation in Code Repositories"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "智算中心RDMA安全风险与防护技术研究",
+        "url": "https://www.secrss.com/articles/94043",
+        "source": "安全内参",
+        "date": "2026-09-17",
+        "reason": "系统分析高速互联RDMA协议在智算集群中的内存保护缺失与认证局限，提出基于DPU的安全加固方案。",
+        "title_zh": "智算中心RDMA安全风险与防护技术研究",
+        "reason_zh": "系统分析高速互联RDMA协议在智算集群中的内存保护缺失与认证局限，提出基于DPU的安全加固方案。",
+        "title_en": "Research on RDMA Security Risks and Mitigation Strategies in AI Computing Centers",
+        "reason_en": "Systematic Analysis of Memory Protection Gaps and Authentication Limitations in High-Speed RDMA Protocols for AI Clusters, Proposing DPU-Based Hardening Solutions"
+      },
+      {
+        "title": "Inside the Modern SOC: Defending the Cross-Environment Pivot",
+        "url": "https://unit42.paloaltonetworks.com/soc-cross-environment-pivot/",
+        "source": "Unsafe.sh",
+        "date": "2026-09-17",
+        "reason": "剖析现代安全运营中心在多云混合架构下面临的环境切换盲区，提供跨平台日志关联与响应编排的最佳实践。",
+        "title_en": "Inside the Modern SOC: Defending the Cross-Environment Pivot",
+        "reason_zh": "剖析现代安全运营中心在多云混合架构下面临的环境切换盲区，提供跨平台日志关联与响应编排的最佳实践。",
+        "title_zh": "透视现代安全运营中心(SOC)：防御跨环境切换",
+        "reason_en": "Analyzing Environment Switching Blind Spots in Modern SOCs Under Hybrid Multi-Cloud Architectures, with Best Practices for Cross-Platform Log Correlation and Response Orchestration"
+      },
+      {
+        "title": "CTEM Buyer’s Guide: How to Evaluate the Technologies That Turn Continuous Threat Exposure Management Into an Operating Model",
+        "url": "https://horizon3.ai/downloads/whitepapers/ctem-buyers-guide/",
+        "source": "Unsafe.sh",
+        "date": "2026-09-17",
+        "reason": "提供连续威胁暴露管理框架的采购评估指南，帮助企业将云端资产测绘与脆弱性优先级排序转化为常态化运营流程。",
+        "title_en": "CTEM Buyer’s Guide: How to Evaluate the Technologies That Turn Continuous Threat Exposure Management Into an Operating Model",
+        "reason_zh": "提供连续威胁暴露管理框架的采购评估指南，帮助企业将云端资产测绘与脆弱性优先级排序转化为常态化运营流程。",
+        "title_zh": "CTEM 选型指南：如何将持续威胁暴露管理落地为常态化运营模式",
+        "reason_en": "Procurement Evaluation Guide for Continuous Threat Exposure Management (CTEM) Frameworks: Transforming Cloud Asset Mapping and Vulnerability Prioritization into Routine Operational Workflows"
+      },
+      {
+        "title": "Deploying a Node App From a Repo on Cloudways Velocity",
+        "url": "https://hackernoon.com/deploying-a-node-app-from-a-repo-on-cloudways-velocity?source=rss",
+        "source": "Unsafe.sh",
+        "date": "2026-09-17",
+        "reason": "探讨基于PaaS平台的Node.js应用自动化部署流程，涉及CI/CD流水线中的镜像安全构建与运行时权限最小化配置。",
+        "title_en": "Deploying a Node App From a Repo on Cloudways Velocity",
+        "reason_zh": "探讨基于PaaS平台的Node.js应用自动化部署流程，涉及CI/CD流水线中的镜像安全构建与运行时权限最小化配置。",
+        "title_zh": "基于 Cloudways Velocity 平台从代码仓库部署 Node.js 应用",
+        "reason_en": "Exploring Automated Deployment Pipelines for Node.js Applications on PaaS Platforms: Secure Image Building and Runtime Privilege Minimization in CI/CD Workflows"
+      }
+    ],
+    "其他重要": [
+      {
+        "title": "美国CISA发布首份网络诱饵实战指南，关键基础设施防御再添新招",
+        "url": "https://www.secrss.com/articles/94064",
+        "source": "安全内参",
+        "date": "2026-09-17",
+        "reason": "联邦机构首次系统化指导如何部署网络欺骗设施以主动探测攻击者，补充零信任架构在纵深防御中的战术价值。",
+        "title_zh": "美国CISA发布首份网络诱饵实战指南，关键基础设施防御再添新招",
+        "reason_zh": "联邦机构首次系统化指导如何部署网络欺骗设施以主动探测攻击者，补充零信任架构在纵深防御中的战术价值。",
+        "title_en": "CISA Releases First Practical Guide on Cyber Deception, Adding New Tactics to Critical Infrastructure Defense",
+        "reason_en": "Federal Agencies Issue First Systematic Guidance on Deploying Cyber Deception Assets for Proactive Attacker Detection, Enhancing Zero Trust Architecture in Defense-in-Depth Strategies"
+      },
+      {
+        "title": "公安部公布网络安全行政执法10起典型案例",
+        "url": "https://www.secrss.com/articles/94071",
+        "source": "安全内参",
+        "date": "2026-09-17",
+        "reason": "汇总近期护网专项行动中的典型违法案件，明确企业在等级保护落实与数据出境合规方面的监管红线。",
+        "title_zh": "公安部公布网络安全行政执法10起典型案例",
+        "reason_zh": "汇总近期护网专项行动中的典型违法案件，明确企业在等级保护落实与数据出境合规方面的监管红线。",
+        "title_en": "Ministry of Public Security Publishes 10 Typical Cases of Cybersecurity Administrative Law Enforcement",
+        "reason_en": "Summary of Typical Violation Cases from Recent National Cyber Security Drills: Clarifying Regulatory Red Lines for Enterprises in MLPS Implementation and Cross-Border Data Compliance"
+      },
+      {
+        "title": "又一家银行收数据安全罚单！2人被罚，其中1人来自科技部门",
+        "url": "https://www.secrss.com/articles/94070",
+        "source": "安全内参",
+        "date": "2026-09-17",
+        "reason": "村镇银行因数据安全管理失职面临高额罚款，警示金融机构需将数据安全责任穿透至技术研发与运维一线。",
+        "title_zh": "又一家银行收数据安全罚单！2人被罚，其中1人来自科技部门",
+        "reason_zh": "村镇银行因数据安全管理失职面临高额罚款，警示金融机构需将数据安全责任穿透至技术研发与运维一线。",
+        "title_en": "Another Bank Faces Data Security Fines: Two Individuals Penalized, Including One from the Technology Department",
+        "reason_en": "Rural Banks Face Heavy Fines for Data Security Management Failures, Highlighting the Need for Financial Institutions to Extend Data Security Accountability to R&D and Operations Frontlines"
+      },
+      {
+        "title": "《2026中国网络安全十大创新方向》发布",
+        "url": "https://www.secrss.com/articles/94054",
+        "source": "安全内参",
+        "date": "2026-09-17",
+        "reason": "梳理年度前沿技术落地趋势，重点涵盖AI驱动的安全运营、自动化攻防演练及隐私计算在产业界的融合应用。",
+        "title_zh": "《2026中国网络安全十大创新方向》发布",
+        "reason_zh": "梳理年度前沿技术落地趋势，重点涵盖AI驱动的安全运营、自动化攻防演练及隐私计算在产业界的融合应用。",
+        "title_en": "Release of Top Ten Innovation Directions in China's Cybersecurity for 2026",
+        "reason_en": "Reviewing Annual Trends in Cutting-Edge Technology Adoption, Focusing on AI-Driven Security Operations, Automated Attack/Defense Drills, and Privacy-Enhancing Computation in Industry Integration"
+      },
+      {
+        "title": "From guidance to action: Security fundamentals that materially reduce risk",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/09/17/from-guidance-to-action-security-fundamentals-that-materially-reduce-risk/",
+        "source": "Unsafe.sh",
+        "date": "2026-09-17",
+        "reason": "微软官方博客强调基础安全基线在降低整体攻击面中的决定性作用，纠偏过度追求高级工具的误区。",
+        "title_en": "From guidance to action: Security fundamentals that materially reduce risk",
+        "reason_zh": "微软官方博客强调基础安全基线在降低整体攻击面中的决定性作用，纠偏过度追求高级工具的误区。",
+        "title_zh": "从理论指导到实战行动：切实降低安全风险的安全基础实践",
+        "reason_en": "Microsoft Official Blog Emphasizes the Decisive Role of Foundational Security Baselines in Reducing Overall Attack Surfaces, Correcting the Misconception of Over-Reliance on Advanced Tools"
+      }
+    ]
+  },
+  "summary": "本批次聚焦AI智能体攻击面、关键基础设施OT攻击及多项高危零日漏洞，云原生与合规治理内容同步丰富。",
+  "summary_zh": "本批次聚焦AI智能体攻击面、关键基础设施OT攻击及多项高危零日漏洞，云原生与合规治理内容同步丰富。",
+  "summary_en": "This Roundup Focuses on AI Agent Attack Surfaces, OT Attacks on Critical Infrastructure, and Multiple High-Risk Zero-Day Vulnerabilities, with Enriched Coverage of Cloud-Native and Compliance Governance"
+}
