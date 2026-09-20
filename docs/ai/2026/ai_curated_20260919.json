@@ -3,15 +3,244 @@
   "model": "qwen3.7-flash",
   "total_analyzed": 127,
   "categories": {
-    "漏洞研究": [],
-    "移动安全": [],
-    "AI安全": [],
-    "威胁情报": [],
-    "安全工具": [],
-    "云安全": [],
-    "其他重要": []
+    "漏洞研究": [
+      {
+        "title": "CrossFit：基于上下文链接分析与定向模糊测试的虚拟机回调漏洞自动化发现",
+        "url": "https://nebelwelt.net/blog/2026/0916-crossfit.html",
+        "source": "腾讯安全",
+        "date": "2026-09-18",
+        "reason": "结合静态分析与定向模糊测试，自动发现跨语言交互内存安全漏洞，技术路径清晰且实战价值高。"
+      },
+      {
+        "title": "Public Exploits Released for Four Linux Kernel Flaws That Enable Local Root",
+        "url": "https://thehackernews.com/2026/09/public-exploits-released-for-four-linux.html",
+        "source": "The Hacker News",
+        "date": "2026-09-18",
+        "reason": "公开了四个可提权的Linux内核漏洞利用代码，对系统管理员和防御者具有直接警示作用。"
+      },
+      {
+        "title": "New WordPress Click2Shell Flaw Forces Theme Installs, Can Chain to Code Execution",
+        "url": "https://thehackernews.com/2026/09/new-wordpress-click2shell-flaw-forces.html",
+        "source": "The Hacker News",
+        "date": "2026-09-18",
+        "reason": "揭示了可通过构造链接强制安装主题并链式触发代码执行的高危漏洞，影响广泛。"
+      },
+      {
+        "title": "像素之外：现代 Web 框架共享原生图片处理链的攻击面拆解",
+        "url": "https://www.cnpanda.net/sec/web-rce-native-image-pipelines.html",
+        "source": "Unsafe.sh",
+        "date": "2026-09-18",
+        "reason": "深入剖析图片输入如何穿透框架抽象层在底层编解码器中触发RCE，具备较强的攻防技术深度。"
+      },
+      {
+        "title": "AI 智能体打穿沙箱！Docker 曝 9.4 分逃逸漏洞：穿透虚拟机读写宿主",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;mid=2247497174&amp;idx=1&amp;sn=f573fda0930936118a001a7d0985e466",
+        "source": "Unsafe.sh",
+        "date": "2026-09-18",
+        "reason": "披露了高分Docker逃逸漏洞，展示了AI智能体突破容器隔离直接读写宿主的危险能力。"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "RatHat Android Malware Abuses ADB to Retain Shell Access After Uninstall",
+        "url": "https://thehackernews.com/2026/09/rathat-android-malware-abuses-adb-to.html",
+        "source": "The Hacker News",
+        "date": "2026-09-18",
+        "reason": "详细分析了利用ADB权限在卸载后维持Shell访问的新型安卓恶意软件，揭示了移动端持久化驻留的新手法。"
+      },
+      {
+        "title": "Flock Safety camera teardown: 53 hardcoded credentials, Android 8.1 with June 2018 patches, encryption key stored in plaintext on the same partition, root access via button sequence on the back. These cameras process 20B vehicle scans/month for 5,000 police departments.",
+        "url": "https://unsafe.sh/go-443409.html",
+        "source": "Unsafe.sh",
+        "date": "2026-09-18",
+        "reason": "硬件拆解报告暴露了严重的硬编码凭证与明文密钥存储问题，对物联网设备物理安全具有重要参考价值。"
+      },
+      {
+        "title": "New Android malware uses AI to steal bank logins and PINs",
+        "url": "https://www.malwarebytes.com/blog/news/2026/09/new-android-malware-uses-ai-to-steal-bank-logins-and-pins",
+        "source": "Unsafe.sh",
+        "date": "2026-09-18",
+        "reason": "报道了结合AI自动化技术窃取银行凭证的安卓特洛伊木马，展现了移动端金融诈骗的技术演进。"
+      },
+      {
+        "title": "AI 控机还杀不死！新型安卓木马曝光：卸载仍常驻 Shell",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;mid=2247497174&amp;idx=2&amp;sn=1de45fa1e0c1b7f0ce3601436604bef",
+        "source": "Unsafe.sh",
+        "date": "2026-09-18",
+        "reason": "中文源头的同类深度分析，进一步验证了利用系统组件实现反卸载与持久化的移动端高级对抗技巧。"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "3000 美元、3 个人、72 小时：AI 把 OpenAI 的论坛打穿了",
+        "url": "https://www.anquanke.com/post/id/316124",
+        "source": "安全客",
+        "date": "2026-09-19",
+        "reason": "记录了低成本AI智能体快速攻破大型平台论坛的实战案例，凸显了AI代理在应用层的安全风险。"
+      },
+      {
+        "title": "一个月 68 个 CVE、91.8% 没有 OAuth：你的 AI 工具层正在裸奔",
+        "url": "https://www.anquanke.com/post/id/316121",
+        "source": "安全客",
+        "date": "2026-09-19",
+        "reason": "数据驱动地揭示了AI工具层普遍缺乏OAuth鉴权的问题，为AI应用供应链安全提供了关键预警。"
+      },
+      {
+        "title": "首个\"AI黑客\"智能体暗网开售：渗透周期从两周缩到2.8天",
+        "url": "https://www.anquanke.com/post/id/316114",
+        "source": "安全客",
+        "date": "2026-09-18",
+        "reason": "报道了商业化AI黑产工具的落地，量化了AI辅助渗透对传统安全防御周期的压缩效应。"
+      },
+      {
+        "title": "Plugin4Shell Lets Repository Owners Swap Pinned Plugin Code Across Four AI Coding Agents",
+        "url": "https://thehackernews.com/2026/09/plugin4shell-lets-repository-owners.html",
+        "source": "The Hacker News",
+        "date": "2026-09-18",
+        "reason": "揭示了AI编程代理插件供应链替换漏洞，指出了锁定机制被绕过导致的远程代码执行风险。"
+      },
+      {
+        "title": "AI-Built Exploit and Sign-In Flaw Opened Path to Internal OpenAI Code",
+        "url": "https://www.securityweek.com/ai-built-exploit-and-sign-in-flaw-opened-path-to-internal-openai-code/",
+        "source": "SecurityWeek",
+        "date": "2026-09-18",
+        "reason": "展示了AI构建漏洞与登录缺陷组合拳入侵核心企业内网的完整攻击链，极具实战借鉴意义。"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "北美APT组织NightEagle利用新后门与隧道技术开展隐蔽攻击活动",
+        "url": "https://www.secrss.com/articles/94086",
+        "source": "安全内参",
+        "date": "2026-09-18",
+        "reason": "详细追踪了使用伪装VPN与隧道技术的APT攻击基础设施，为网络流量检测提供了新的IOC特征。"
+      },
+      {
+        "title": "Transparent Tribe Deploys New Rust Backdoor Using Private GitHub Repositories for C2",
+        "url": "https://thehackernews.com/2026/09/transparent-tribe-deploys-new-rust.html",
+        "source": "The Hacker News",
+        "date": "2026-09-18",
+        "reason": "分析了APT组织利用私有仓库托管Rust后门进行C2通信的新战术，丰富了开源供应链威胁情报库。"
+      },
+      {
+        "title": "Brevo Supply Chain Attack Injects Malware Into 100,000 Websites",
+        "url": "https://www.securityweek.com/brevo-supply-chain-attack-injects-malware-into-100000-websites/",
+        "source": "SecurityWeek",
+        "date": "2026-09-18",
+        "reason": "报道了通过泄露API密钥注入Cloudflare Worker的大规模供应链攻击，影响了十万级网站。"
+      },
+      {
+        "title": "North Korean hackers infect thousands of devices across 100 countries as part of ‘WaterPlum’ campaign",
+        "url": "https://therecord.media/north-korean-hackers-infect-thousands-of-devices-waterplum-scheme",
+        "source": "Unsafe.sh",
+        "date": "2026-09-18",
+        "reason": "汇总了朝鲜黑客针对求职者的跨国恶意软件活动，明确了其资金窃取动机与全球影响范围。"
+      },
+      {
+        "title": "Don’t Call Us, We’ll Call Your APIs | TraderTraitor Backdoors Resurface on Victim With No Crypto Ties",
+        "url": "https://www.sentinelone.com/labs/dont-call-us-well-call-your-apis-tradertraitor-backdoors-resurface-on-victim-with-no-crypto-ties/",
+        "source": "Unsafe.sh",
+        "date": "2026-09-18",
+        "reason": "追踪了知名后门家族在非加密领域的复活与横向移动，更新了该威胁组织的TTP画像。"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "js-x-ray @nodesecure/[email protected]",
+        "url": "https://kitploit.com/en/posts/github-nodesecure-js-x-ray-nodesecurejs-x-ray1610",
+        "source": "Unsafe.sh",
+        "date": "2026-09-19",
+        "reason": "专为JavaScript与TypeScript设计的依赖项扫描工具，有助于快速识别前端供应链中的恶意包。"
+      },
+      {
+        "title": "sslscan v2.2.3",
+        "url": "https://kitploit.com/en/posts/github-rbsec-sslscan-223",
+        "source": "Unsafe.sh",
+        "date": "2026-09-19",
+        "reason": "后端扫描代码重大重写后的版本，提升了TLS与SSL配置审计的效率与准确性。"
+      },
+      {
+        "title": "faraday v5.24.2",
+        "url": "https://kitploit.com/en/posts/github-infobyte-faraday-v5242",
+        "source": "Unsafe.sh",
+        "date": "2026-09-19",
+        "reason": "开源漏洞管理平台的更新，整合了多源扫描结果并提供集中化安全管理界面。"
+      },
+      {
+        "title": "syft v1.52.0",
+        "url": "https://kitploit.com/en/posts/github-anchore-syft-v1520",
+        "source": "Unsafe.sh",
+        "date": "2026-09-18",
+        "reason": "用于生成容器镜像与文件系统软件物料清单的CLI工具，符合现代DevSecOps合规要求。"
+      },
+      {
+        "title": "grype v0.119.0",
+        "url": "https://kitploit.com/en/posts/github-anchore-grype-v01190",
+        "source": "Unsafe.sh",
+        "date": "2026-09-18",
+        "reason": "专注于容器镜像和文件系统的漏洞扫描器，支持快速匹配已知CVE，适合CI与CD流水线集成。"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "Bit2Watt：一种利用 GPU 负载破坏电力与计算基础设施的网 - 物融合漏洞",
+        "url": "https://tches.iacr.org/index.php/TCHES/article/view/13237",
+        "source": "腾讯安全",
+        "date": "2026-09-18",
+        "reason": "实证了GPU计算负载与电网电力波动的跨层耦合风险，为云数据中心基础设施防御提供了新视角。"
+      },
+      {
+        "title": "Microsoft Patches CVSS 10.0 Azure AI Foundry Flaw Enabling Unauthorized Privilege Escalation",
+        "url": "https://thehackernews.com/2026/09/microsoft-patches-cvss-100-azure-ai.html",
+        "source": "The Hacker News",
+        "date": "2026-09-18",
+        "reason": "修复了Azure AI Foundry的最高严重性提权漏洞，直接影响云原生AI服务的身份认证安全。"
+      },
+      {
+        "title": "An Abandoned CDN Domain Was Re-Registered. Thousands of Sites Still Call It.",
+        "url": "https://thehackernews.com/2026/09/an-abandoned-cdn-domain-was-re.html",
+        "source": "The Hacker News",
+        "date": "2026-09-18",
+        "reason": "分析了废弃CDN域名重新注册引发的劫持风险，提醒云架构师重视DNS生命周期管理与依赖清理。"
+      },
+      {
+        "title": "Microsoft Patches 18 Vulnerabilities in AI, Cloud Products",
+        "url": "https://www.securityweek.com/microsoft-patches-18-vulnerabilities-in-ai-cloud-products/",
+        "source": "SecurityWeek",
+        "date": "2026-09-18",
+        "reason": "批量修复了Azure及相关云产品的提权与远程执行漏洞，是云厂商定期安全维护的重要参考。"
+      }
+    ],
+    "其他重要": [
+      {
+        "title": "《网络安全标准实践指南——智能体系统开发安全指南》公开征求意见",
+        "url": "https://www.secrss.com/articles/94097",
+        "source": "安全内参",
+        "date": "2026-09-18",
+        "reason": "国家层面发布的AI智能体开发生命周期安全规范，将深刻影响后续AI产品合规设计。"
+      },
+      {
+        "title": "CNCERT发布网络安全能力共享平台",
+        "url": "https://www.secrss.com/articles/94095",
+        "source": "安全内参",
+        "date": "2026-09-18",
+        "reason": "集中亮相安全DNS、恶意样本检测等四项核心能力，标志着国家级威胁情报与检测资源的开放共享。"
+      },
+      {
+        "title": "美国联邦公报网站一度使用阿里通义千问模型提供AI搜索服务",
+        "url": "https://www.secrss.com/articles/94087",
+        "source": "安全内参",
+        "date": "2026-09-18",
+        "reason": "政府机构误用外部大模型引发舆情并紧急下线，凸显了政务AI部署中的数据主权与合规隐患。"
+      },
+      {
+        "title": "MFA Won't Save You From OAuth Consent Abuse",
+        "url": "https://www.darkreading.com/vulnerabilities-threats/mfa-oauth-consent-abuse",
+        "source": "Dark Reading",
+        "date": "2026-09-18",
+        "reason": "明确指出多因素认证无法替代OAuth治理，为云身份认证架构的权限最小化设计提供了关键指导。"
+      }
+    ]
   },
-  "summary": "AI分析完成，已筛选重要文章并分类",
-  "summary_zh": "AI分析完成，已筛选重要文章并分类",
-  "summary_en": "AI Analysis Complete: Important Articles Filtered and Categorized"
+  "summary": "本批次聚焦AI智能体攻击链、云端高危漏洞及新型APT战术，技术深度突出，实战预警价值显著。"
 }

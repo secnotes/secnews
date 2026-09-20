@@ -85,6 +85,11 @@ class AIProvider:
         if not self.base_url:
             self.base_url = self._infer_base_url(self.model)
 
+        # JSON mode (response_format) is enabled until the provider rejects
+        # it — see analyze(). Flipped off per instance so an unsupported
+        # provider doesn't pay a failed call on every batch.
+        self._json_mode_enabled = True
+
         logger.info(f"AI Provider initialized: model={self.model}, base_url={self.base_url}")
 
     def _infer_base_url(self, model: str) -> str:
@@ -103,6 +108,7 @@ class AIProvider:
         system_prompt: Optional[str] = None,
         max_tokens: int = 16384,
         temperature: float = 0.3,
+        json_mode: bool = True,
     ) -> str:
         """
         Send prompt to AI and get response
@@ -112,6 +118,10 @@ class AIProvider:
             system_prompt: System prompt (optional)
             max_tokens: Max tokens in response
             temperature: Temperature for randomness
+            json_mode: Request JSON mode (response_format) so the provider's
+                grammar-constrained decoding guarantees valid JSON. If the
+                provider rejects the parameter, the call is retried once
+                without it and JSON mode is disabled for this instance.
 
         Returns:
             AI response text
@@ -141,12 +151,32 @@ class AIProvider:
 
         logger.info(f"Sending AI request with {len(prompt)} chars prompt...")
 
-        response = client.chat.completions.create(
-            model=self.model,
-            messages=messages,
-            max_tokens=max_tokens,
-            temperature=temperature,
-        )
+        create_kwargs: Dict[str, Any] = {
+            'model': self.model,
+            'messages': messages,
+            'max_tokens': max_tokens,
+            'temperature': temperature,
+        }
+        if json_mode and self._json_mode_enabled:
+            create_kwargs['response_format'] = {'type': 'json_object'}
+
+        try:
+            response = client.chat.completions.create(**create_kwargs)
+        except Exception as e:
+            # Some OpenAI-compatible providers reject response_format with a
+            # 4xx. Connection/timeout errors carry no status_code and are
+            # re-raised untouched — only a provider rejection of the JSON
+            # mode parameter triggers the fallback retry.
+            if 'response_format' in create_kwargs and getattr(e, 'status_code', None) in (400, 404):
+                self._json_mode_enabled = False
+                logger.warning(
+                    f"Provider rejected response_format (HTTP {getattr(e, 'status_code')}); "
+                    "retrying without JSON mode"
+                )
+                del create_kwargs['response_format']
+                response = client.chat.completions.create(**create_kwargs)
+            else:
+                raise
 
         result = response.choices[0].message.content
         logger.info(f"AI response received: {len(result)} chars")
@@ -317,122 +347,19 @@ class AIProvider:
 
         return "\n".join(lines)
 
-    def _clean_json_text(self, text: str) -> str:
-        """
-        Clean and fix common JSON formatting issues in AI responses.
-        Main issues handled:
-        1. Invalid lines that are not key-value pairs (delete them)
-        2. Duplicate keys (keep the last occurrence)
-        3. Single-line compact JSON: AI models (e.g., MiniMax-M3, GPT-4) often
-           return one-line JSON. The regex patterns below assume one key per
-           line, so a multi-thousand-char single-line JSON would be dropped
-           entirely. Detect and short-circuit before line-by-line processing.
-
-        Strategy: First, scan for any line that is itself a complete JSON
-        object (starts with '{', ends with '}', length >= 50 chars). If found
-        and parses, return it as-is. Otherwise, fall back to line-by-line
-        cleanup.
-        """
-        import re
-        import json as _json
-
-        # Single-line compact JSON detection.
-        # Without this short-circuit, a 9000+ char one-line JSON would be
-        # dropped entirely by the line-by-line regex matcher below (no single
-        # line matches "one key per line" patterns when the JSON is compact).
-        for line in text.split('\n'):
-            stripped = line.strip()
-            if stripped.startswith('{') and stripped.endswith('}') and len(stripped) >= 50:
-                try:
-                    _json.loads(stripped)
-                    logger.debug(
-                        f"Single-line JSON detected ({len(stripped)} chars); "
-                        "returning as-is"
-                    )
-                    return stripped
-                except _json.JSONDecodeError:
-                    # Candidate isn't actually valid JSON (e.g., contains
-                    # unescaped quotes from model output). Keep scanning.
-                    continue
-
-        lines = text.split('\n')
-        result_lines = []
-        # Track keys in current object scope
-        object_keys = {}
-        brace_depth = 0
-        array_depth = 0
-
-        # Patterns for valid JSON lines
-        # 1. "key": "value" (quoted string)
-        # 2. "key": number or boolean (unquoted value)
-        # 3. "key": { or "key": [
-        # 4. { } [ ] (brackets)
-        valid_patterns = [
-            r'^\s*"\w+":\s*"[^"]*"[,\}]?\s*$',        # "key": "value"
-            r'^\s*"\w+":\s*\d+[,}\}]?\s*$',           # "key": number
-            r'^\s*"\w+":\s*(true|false|null)[,\}]?\s*$',  # "key": boolean/null
-            r'^\s*"\w+":\s*[\[{]\s*$',                # "key": { or "key": [
-            r'^\s*[{}\[\]]\s*$',                     # { } [ ]
-            r'^\s*[}\]],?\s*$',                      # } }, ] ],
-        ]
-
-        def is_valid_json_line(line: str) -> bool:
-            """Check if a line matches valid JSON patterns"""
-            stripped = line.strip()
-            # Empty lines are valid
-            if not stripped:
-                return True
-            # Check against patterns
-            for pattern in valid_patterns:
-                if re.match(pattern, stripped):
-                    return True
-            return False
-
-        for i, line in enumerate(lines):
-            stripped = line.strip()
-
-            # Track brace/bracket depth
-            brace_depth += stripped.count('{') - stripped.count('}')
-            array_depth += stripped.count('[') - stripped.count(']')
-
-            # Check if line is valid JSON
-            if not is_valid_json_line(line):
-                logger.debug(f"Removed invalid line {i + 1}: {stripped[:50]}...")
-                # Skip this line (delete invalid lines)
-                continue
-
-            # Check for duplicate keys
-            key_match = re.match(r'^\s*"([^"]+)":', stripped)
-            if key_match and brace_depth == 1:
-                key = key_match.group(1)
-                if key in object_keys:
-                    # Remove previous occurrence
-                    prev_line_idx = object_keys[key]
-                    logger.debug(f"Removed duplicate key '{key}' at line {prev_line_idx + 1}")
-                    result_lines[prev_line_idx] = None  # Mark for deletion
-                object_keys[key] = len(result_lines)
-
-            # Reset object_keys when exiting object
-            if brace_depth == 0:
-                object_keys.clear()
-
-            result_lines.append(line)
-
-        # Filter out None values (deleted lines)
-        result_lines = [line for line in result_lines if line is not None]
-
-        return '\n'.join(result_lines)
-
     def _parse_json_response(self, response: str) -> Dict[str, Any]:
-        """Parse JSON from AI response, handling markdown code blocks and common errors
+        """Parse a JSON object from an AI response.
 
-        Strategy: try increasingly invasive recovery steps so most well-formed
-        responses are parsed unmodified.
-        1. Strip ```json fences and parse directly.
-        2. If the model wrapped JSON in prose, slice between first '{' and last '}'.
-        3. As a last resort, run the line-by-line cleaner (lossy) and try again.
+        analyze() requests JSON mode (response_format), so the provider's
+        grammar-constrained decoding guarantees valid JSON and no repair is
+        attempted. Two cheap allowances are kept for providers that reject
+        JSON mode and fall back to plain completions: markdown ``` fences
+        are stripped, and a JSON object wrapped in prose is sliced out
+        between braces.
+
+        Raises ValueError when the response is not parseable, so callers
+        log a real error instead of silently continuing with empty data.
         """
-        # Step 1 — strip markdown code fences if present
         text = response.strip()
         if text.startswith('```json'):
             text = text[7:]
@@ -442,56 +369,31 @@ class AIProvider:
             text = text[:-3]
         text = text.strip()
 
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        debug_file = os.path.join(script_dir, 'ai_response_debug.txt')
-
-        def _save_debug(reason, raw, stripped, cleaned):
-            with open(debug_file, 'w', encoding='utf-8') as f:
-                f.write(f"{reason}\n\n")
-                f.write(f"--- Raw AI Response (length={len(raw)}) ---\n")
-                f.write(raw)
-                f.write(f"\n\n--- After Markdown Strip (length={len(stripped)}) ---\n")
-                f.write(stripped)
-                if cleaned is not None:
-                    f.write(f"\n\n--- After Clean (length={len(cleaned)}) ---\n")
-                    f.write(cleaned)
+        candidates = [text]
+        first_brace, last_brace = text.find('{'), text.rfind('}')
+        if first_brace != -1 and last_brace > first_brace:
+            candidates.append(text[first_brace:last_brace + 1])
 
         last_error = None
-
-        # Try 1 — direct parse of markdown-stripped text (preserves everything)
-        try:
-            return json.loads(text)
-        except json.JSONDecodeError as e:
-            last_error = e
-            logger.debug(f"Direct parse failed: {e}")
-
-        # Try 2 — extract JSON object embedded in surrounding prose
-        first_brace = text.find('{')
-        last_brace = text.rfind('}')
-        if first_brace != -1 and last_brace > first_brace:
-            candidate = text[first_brace:last_brace + 1]
+        for candidate in candidates:
             try:
                 return json.loads(candidate)
             except json.JSONDecodeError as e:
                 last_error = e
-                logger.debug(f"Brace-slice parse failed: {e}")
 
-        # Try 3 — aggressive line-by-line cleanup (lossy)
-        cleaned = self._clean_json_text(text)
+        # Unparseable: dump the raw response for offline debugging and
+        # raise — analyze_articles() logs the failed batch.
+        debug_file = os.path.join(
+            os.path.dirname(os.path.abspath(__file__)), 'ai_response_debug.txt')
         try:
-            return json.loads(cleaned)
-        except json.JSONDecodeError as e:
-            last_error = e
-            logger.error(f"Failed to parse AI response as JSON: {e}")
-            _save_debug(f"JSON Parse Error: {e}", response, text, cleaned)
-            logger.info(f"Raw and cleaned responses saved to {debug_file} for debugging")
-            return {
-                "analysis_date": "",
-                "total_analyzed": 0,
-                "categories": {},
-                "summary": "",
-                "error": str(e),
-            }
+            with open(debug_file, 'w', encoding='utf-8') as f:
+                f.write(f"JSON Parse Error: {last_error}\n\n")
+                f.write(f"--- Raw AI Response (length={len(response)}) ---\n")
+                f.write(response)
+            logger.info(f"Raw response saved to {debug_file} for debugging")
+        except OSError as e:
+            logger.warning(f"Could not write debug file {debug_file}: {e}")
+        raise ValueError(f"AI response is not valid JSON: {last_error}")
 
 
 def get_ai_provider(
