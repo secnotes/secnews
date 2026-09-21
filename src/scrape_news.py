@@ -2604,11 +2604,10 @@ def generate_html(articles, output_file=None, ai_curated=None):
                     var grid = document.getElementById('articles-grid');
                     if (grid) grid.innerHTML = '<div class="grid-message">' + t('⚠️ 资讯数据加载失败，请通过 HTTP 访问本页后刷新', '⚠️ Failed to load data. Serve this page over HTTP and refresh.') + '</div>';
                 }
-                var sel = document.getElementById('news-date-select');
-                if (sel) {
-                    sel.value = currentNewsDate;
-                    sel.classList.add('load-error');
-                    setTimeout(function() { sel.classList.remove('load-error'); }, 1500);
+                var btn = document.getElementById('news-date-btn');
+                if (btn) {
+                    btn.classList.add('load-error');
+                    setTimeout(function() { btn.classList.remove('load-error'); }, 1500);
                 }
                 return false;
             });
@@ -2617,9 +2616,90 @@ def generate_html(articles, output_file=None, ai_curated=None):
         function switchNewsDate(v) { loadNewsDate(v); }
 
         function setNewsDateSelect() {
-            var sel = document.getElementById('news-date-select');
-            if (sel) sel.value = currentNewsDate;
+            var btn = document.getElementById('news-date-btn');
+            if (btn) btn.textContent = currentNewsDate;
+            // Rebuild so the newly selected date's month expands and gets
+            // the .current highlight
+            buildDatePanel(newsDates);
         }
+
+        // Build the date dropdown panel: months (newest first) as
+        // collapsible sections, only the current month expanded by default
+        // so a year-plus archive stays scannable — every other month is a
+        // single header row until clicked.
+        function buildDatePanel(dates) {
+            var panel = document.getElementById('news-date-panel');
+            if (!panel) return;
+            var groups = [], month = null, days = [];
+            dates.forEach(function(d) {
+                var m = d.slice(0, 7);   // YYYY-MM
+                if (m !== month) {
+                    if (month !== null) groups.push({ month: month, days: days });
+                    month = m;
+                    days = [];
+                }
+                days.push(d);
+            });
+            if (month !== null) groups.push({ month: month, days: days });
+
+            var curMonth = (currentNewsDate || '').slice(0, 7);
+            panel.innerHTML = groups.map(function(g) {
+                var open = g.month === curMonth ? ' open' : '';
+                var items = g.days.map(function(d) {
+                    return '<button type="button" class="day-item' + (d === currentNewsDate ? ' current' : '') +
+                           '" data-date="' + d + '">' + d + '</button>';
+                }).join('');
+                return '<div class="month' + open + '"><button type="button" class="month-head">' + g.month +
+                       '<span class="month-count">' + g.days.length + t(' 天', ' days') + '</span></button>' +
+                       '<div class="days">' + items + '</div></div>';
+            }).join('');
+        }
+
+        function toggleDatePanel(e) {
+            if (e) e.stopPropagation();
+            var panel = document.getElementById('news-date-panel');
+            if (!panel) return;
+            var open = panel.classList.toggle('show');
+            var wrap = panel.parentNode;
+            if (wrap) wrap.classList.toggle('panel-open', open);
+            var btn = document.getElementById('news-date-btn');
+            if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+
+        function closeDatePanel() {
+            var panel = document.getElementById('news-date-panel');
+            if (!panel || !panel.classList.contains('show')) return;
+            panel.classList.remove('show');
+            var wrap = panel.parentNode;
+            if (wrap) wrap.classList.remove('panel-open');
+            var btn = document.getElementById('news-date-btn');
+            if (btn) btn.setAttribute('aria-expanded', 'false');
+        }
+
+        // Panel interactions via delegation: month heads toggle their
+        // section, day items switch the date (and close the panel)
+        document.addEventListener('click', function(e) {
+            var panel = document.getElementById('news-date-panel');
+            if (!panel) return;
+            var head = e.target.closest('.month-head');
+            if (head && panel.contains(head)) {
+                head.parentNode.classList.toggle('open');
+                return;
+            }
+            var day = e.target.closest('.day-item');
+            if (day && panel.contains(day)) {
+                closeDatePanel();
+                switchNewsDate(day.getAttribute('data-date'));
+                return;
+            }
+            // Click anywhere else closes an open panel
+            if (panel.classList.contains('show') && !panel.parentNode.contains(e.target)) {
+                closeDatePanel();
+            }
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeDatePanel();
+        });
 
         // Browser back/forward between visited dates
         window.addEventListener('hashchange', function() {
@@ -2703,10 +2783,12 @@ def generate_html(articles, output_file=None, ai_curated=None):
         body.theme-dark .theme-icon-sun { display: inline; }
 
         /* GitHub corner ribbon (top-left) — the standard top-right ribbon
-           SVG mirrored into the top-left corner, same as dailycve */
+           SVG mirrored into the top-left corner, same as dailycve.
+           Filled with the theme accent (X blue) so it matches the page;
+           --accent/--accent-on tokens adapt it to both themes. */
         .github-corner-svg {
-            fill: #24292e;
-            color: #ffffff;
+            fill: var(--accent);
+            color: var(--accent-on);
             position: fixed;
             top: 0;
             left: 0;
@@ -2715,10 +2797,6 @@ def generate_html(articles, output_file=None, ai_curated=None):
             transform-origin: 0 0;
             z-index: 1000;
             transition: fill 0.3s ease;
-        }
-        body.theme-dark .github-corner-svg {
-            fill: #d1d5db;
-            color: #1f2937;
         }
         .github-corner:hover .octo-arm { animation: octocat-wave 560ms ease-in-out; }
         @keyframes octocat-wave {
@@ -2731,12 +2809,13 @@ def generate_html(articles, output_file=None, ai_curated=None):
             .github-corner .octo-arm { animation: octocat-wave 560ms ease-in-out; }
         }
 
-        /* Subtitle date picker: a light accent-tinted chip so the date
-           reads as a clickable control rather than plain inline text.
-           Dark theme adapts via the --accent tokens. appearance:none
-           strips the native box; the chevron is drawn on
-           .title-date::after so its color tracks --accent-text in both
-           themes (a background-image arrow couldn't). */
+        /* Subtitle date picker: a light accent-tinted chip that opens a
+           custom dropdown panel. A native <select> can't collapse its
+           <optgroup>s, and the archive now spans enough months that a flat
+           list gets unwieldy — the panel shows months as collapsible
+           sections (only the current month expanded by default). The
+           chevron is drawn on .title-date::after so its color tracks
+           --accent-text in both themes (a background-image arrow couldn't). */
         .subtitle .title-date {
             position: relative;
             display: inline-block;
@@ -2752,12 +2831,13 @@ def generate_html(articles, output_file=None, ai_curated=None):
             border-right: 1.5px solid var(--accent-text);
             border-bottom: 1.5px solid var(--accent-text);
             transform: translateY(-65%) rotate(45deg);
+            transition: transform 0.2s ease;
             pointer-events: none;
         }
-        .subtitle #news-date-select {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
+        .subtitle .title-date.panel-open::after {
+            transform: translateY(-65%) rotate(225deg);
+        }
+        .subtitle #news-date-btn {
             font-size: inherit;
             font-family: inherit;
             font-weight: 600;
@@ -2773,13 +2853,13 @@ def generate_html(articles, output_file=None, ai_curated=None):
             cursor: pointer;
             transition: background-color 0.2s ease, color 0.2s ease;
         }
-        .subtitle #news-date-select:hover,
-        .subtitle #news-date-select:focus {
+        .subtitle #news-date-btn:hover,
+        .subtitle #news-date-btn:focus {
             background-color: color-mix(in srgb, var(--accent) 20%, transparent);
             color: var(--accent-hover);
             outline: none;
         }
-        .subtitle #news-date-select.load-error {
+        .subtitle #news-date-btn.load-error {
             background-color: color-mix(in srgb, var(--danger) 14%, transparent);
             color: var(--danger);
         }
@@ -2788,14 +2868,109 @@ def generate_html(articles, output_file=None, ai_curated=None):
            blue-grey — too close to the浅蓝 accent-text, so the date is
            illegible. Use an opaque dark fill (slightly lifted from the page
            bg) so the chip reads as a solid block; the accent-tinted text
-           stays readable against it. The option list is native-rendered,
-           so this only styles the closed chip. */
-        body.theme-dark .subtitle #news-date-select {
+           stays readable against it. */
+        body.theme-dark .subtitle #news-date-btn {
             background-color: var(--border-weak);
         }
-        body.theme-dark .subtitle #news-date-select:hover,
-        body.theme-dark .subtitle #news-date-select:focus {
+        body.theme-dark .subtitle #news-date-btn:hover,
+        body.theme-dark .subtitle #news-date-btn:focus {
             background-color: var(--border-strong);
+        }
+
+        /* Date dropdown panel: months as collapsible sections. Everything
+           rides the design tokens so both themes work without overrides
+           (except the day hover, see below). */
+        .date-panel {
+            display: none;
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            min-width: 200px;
+            max-height: 340px;
+            overflow-y: auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-weak);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+            padding: 4px;
+            /* above cards and the corner ribbon; below the mobile sidebar */
+            z-index: 1200;
+            text-align: left;
+        }
+        .date-panel.show {
+            display: block;
+        }
+        .date-panel .month-head {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            width: 100%;
+            padding: 6px 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: inherit;
+            color: var(--text-2);
+            background: none;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-align: left;
+        }
+        .date-panel .month-head:hover {
+            background: var(--fill-subtle);
+        }
+        /* Fold arrow: a CSS chevron, rotated from "right" (collapsed) to
+           "down" (expanded) */
+        .date-panel .month-head::before {
+            content: "";
+            flex: none;
+            width: 6px;
+            height: 6px;
+            border-right: 1.5px solid var(--text-3);
+            border-bottom: 1.5px solid var(--text-3);
+            transform: rotate(-45deg);
+            transition: transform 0.15s ease;
+        }
+        .date-panel .month.open .month-head::before {
+            transform: rotate(45deg);
+        }
+        .date-panel .month-count {
+            margin-left: auto;
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: var(--text-3);
+        }
+        .date-panel .month .days {
+            display: none;
+        }
+        .date-panel .month.open .days {
+            display: block;
+        }
+        .date-panel .day-item {
+            display: block;
+            width: 100%;
+            padding: 5px 8px 5px 22px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            color: var(--text-2);
+            background: none;
+            border: none;
+            border-radius: 6px;
+            text-align: left;
+            cursor: pointer;
+        }
+        .date-panel .day-item:hover {
+            background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+            color: var(--accent-hover);
+        }
+        .date-panel .day-item.current {
+            color: var(--accent-text);
+            font-weight: 700;
+        }
+        /* Same dark-theme color-mix muddiness as the chip: use an opaque
+           subtle fill for day hover in dark mode */
+        body.theme-dark .date-panel .day-item:hover {
+            background-color: var(--fill-subtle);
         }
 
         /* Mobile: sidebar becomes a slide-in drawer opened by the ☰ button */
@@ -3568,7 +3743,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         <main class="main-content">
             <header>
                 <h1>🛡️ {T('网络安全资讯聚合', 'Cybersecurity News')}</h1>
-                <div class="subtitle">{T('每日更新 · ', 'Updated daily · ')}<span class="title-date"><select id="news-date-select" onchange="switchNewsDate(this.value)" aria-label="报告日期 / Report date"></select></span></div>
+                <div class="subtitle">{T('每日更新 · ', 'Updated daily · ')}<span class="title-date"><button type="button" id="news-date-btn" onclick="toggleDatePanel(event)" aria-haspopup="listbox" aria-expanded="false" aria-label="报告日期 / Report date"></button><div id="news-date-panel" class="date-panel"></div></span></div>
             </header>
 
             <!-- View Toggle Buttons -->
@@ -3712,8 +3887,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
             // 数据 —— 当天也一样走 loadNewsDate() fetch 渲染。
             fetch('data/index.json').then(function(r) {{ return r.ok ? r.json() : null; }}).then(function(m) {{
                 newsDates = (m && m.dates && m.dates.length) ? m.dates : [window.NEWS_CURRENT_DATE];
-                var sel = document.getElementById('news-date-select');
-                if (sel) sel.innerHTML = newsDates.map(function(d) {{ return '<option value="' + d + '">' + d + '</option>'; }}).join('');
+                buildDatePanel(newsDates);
                 setNewsDateSelect();
                 var hash = decodeURIComponent(location.hash.replace(/^#/, ''));
                 loadNewsDate(newsDates.includes(hash) ? hash : currentNewsDate);
