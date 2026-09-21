@@ -1,30 +1,39 @@
 /**
- * secnews — X (Twitter) profile fetch proxy
+ * secnews — fetch proxy for sources that block datacenter IPs
+ * (Cloudflare Worker)
  *
- * Why this exists: since ~2026-08-30 x.com rejects logged-out profile
- * fetches from datacenter IP ranges (GitHub Actions runners on Azure get
- * an instant HTTP 403), while Cloudflare's egress IPs are still allowed.
- * This Worker forwards a locked-down GET to x.com so the CI scraper can
- * reach it. Deploy steps: see README.md in this folder.
+ * Why this exists: some sources reject requests from datacenter IP
+ * ranges — x.com since ~2026-08-30 (GitHub Actions runners on Azure get
+ * an instant HTTP 403 on logged-out profile fetches) and freebuf.com
+ * similarly blocks the CI runner on its /feed endpoint — while
+ * Cloudflare's egress IPs are still allowed. This Worker forwards
+ * locked-down GETs so the CI scraper can reach them. Deploy steps: see
+ * README.md in this folder.
  *
  * Usage:
  *   GET /?token=<PROXY_TOKEN>&url=https://x.com/<handle>
+ *   GET /?token=<PROXY_TOKEN>&url=https://www.freebuf.com/feed
  *
  * Constraints baked in on purpose:
  *   - GET only
- *   - https://x.com host only
- *   - profile paths (/<handle>) and tweet permalinks (/<handle>/status/<id>) only
+ *   - https hosts listed in ALLOWED_HOSTS only, each limited to the
+ *     exact path shapes its scraper needs
  *   - shared-secret token required (set PROXY_TOKEN, deny-all while unset)
  */
 
-const ALLOWED_HOST = 'x.com';
-
-// Locked down to the two path shapes the scraper actually needs, so a
-// leaked token cannot turn this Worker into a general-purpose proxy.
-const ALLOWED_PATHS = [
-  /^\/[A-Za-z0-9_]{1,15}$/,
-  /^\/[A-Za-z0-9_]{1,15}\/status\/\d+$/,
-];
+// Per-host allowlist: each entry maps a host to the path shapes its
+// scraper actually fetches, so a leaked token cannot turn this Worker
+// into a general-purpose proxy — only x.com profile/tweet pages and the
+// freebuf.com RSS feed are reachable.
+const ALLOWED_HOSTS = {
+  'x.com': [
+    /^\/[A-Za-z0-9_]{1,15}$/,
+    /^\/[A-Za-z0-9_]{1,15}\/status\/\d+$/,
+  ],
+  'www.freebuf.com': [
+    /^\/feed$/,
+  ],
+};
 
 // Same identity the scraper sends on direct fetches, so the upstream
 // HTML (and thus the parsing in scrape_news.py) is identical either way.
@@ -69,10 +78,14 @@ export default {
     } catch {
       return deny(400, 'bad url');
     }
-    if (targetUrl.protocol !== 'https:' || targetUrl.hostname !== ALLOWED_HOST) {
+    if (targetUrl.protocol !== 'https:') {
+      return deny(400, 'protocol not allowed');
+    }
+    const allowedPaths = ALLOWED_HOSTS[targetUrl.hostname];
+    if (!allowedPaths) {
       return deny(400, 'host not allowed');
     }
-    if (!ALLOWED_PATHS.some((re) => re.test(targetUrl.pathname))) {
+    if (!allowedPaths.some((re) => re.test(targetUrl.pathname))) {
       return deny(400, 'path not allowed');
     }
 

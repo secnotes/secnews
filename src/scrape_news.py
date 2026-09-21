@@ -122,6 +122,25 @@ def _docs_dir():
     return os.path.join(os.path.dirname(script_dir), 'docs')
 
 
+def _worker_proxy_url(target_url):
+    """Cloudflare Worker proxy URL for fetching target_url, or None when
+    no worker is configured (X_PROXY_BASE unset).
+
+    The worker (x-proxy-worker/) forwards locked-down GETs for sources
+    that block datacenter IPs — CI runners on Azure — while its own
+    Cloudflare egress is still allowed. Shared by every scraper that
+    needs it; see x-proxy-worker/README.md for deployment.
+    """
+    base = (os.environ.get('X_PROXY_BASE') or '').rstrip('/')
+    if not base:
+        return None
+    params = {'url': target_url}
+    token = os.environ.get('X_PROXY_TOKEN') or ''
+    if token:
+        params['token'] = token
+    return f"{base}/?{urlencode(params)}"
+
+
 def _dated_archive_path(kind, filename_prefix, date=None):
     """Dated archive path mirroring the dailycve layout:
     docs/data/2026/articles_20260821.json
@@ -959,18 +978,61 @@ class SecurityNewsAggregator:
         except Exception as e:
             logger.error(f"Error scraping Anquanke: {str(e)}")
 
+    def _fetch_url_candidates(self, direct_url):
+        """(label, url) fetch candidates for one target: direct first, then
+        the Cloudflare Worker proxy when configured.
+
+        Mirrors _x_profile_urls() but with the opposite priority — used by
+        sources that only block datacenter IPs (GitHub CI runners) but
+        answer residential/local IPs fine, so the direct fetch stays
+        primary and the Worker is a CI-only fallback.
+        """
+        candidates = [('direct', direct_url)]
+        proxied = _worker_proxy_url(direct_url)
+        if proxied:
+            candidates.append(('worker', proxied))
+        return candidates
+
+    def _fetch_first_success(self, candidates, log_name, headers=None, timeout=20):
+        """Fetch each (label, url) candidate in order, return the first
+        200 response's body. Logs (never raises) per-candidate failures
+        against log_name (the target site, not the worker host); returns
+        None when none succeed, so callers decide how to degrade.
+        """
+        for label, url in candidates:
+            try:
+                response = session.get(url, headers=headers,
+                                       proxies=get_proxies(), timeout=timeout)
+            except Exception as e:
+                logger.warning(f"Error fetching {log_name} via {label}: {e}")
+                continue
+            if response.status_code == 200:
+                return response.content
+            logger.warning(f"Failed to fetch {log_name} via {label}: "
+                           f"HTTP {response.status_code}")
+        return None
+
     def scrape_freebuf(self):
-        """Scrape https://www.freebuf.com/feed RSS feed for security news"""
+        """Scrape https://www.freebuf.com/feed RSS feed for security news.
+
+        freebuf.com blocks datacenter IPs (the GitHub CI runner gets
+        denied), so the feed is fetched direct-first with the Cloudflare
+        Worker as fallback — the mirror image of the X scraper's order.
+        """
         logger.info("Scraping FreeBuf RSS feed...")
         try:
             import xml.etree.ElementTree as ET
 
-            # Fetch RSS feed
-            response = session.get('https://www.freebuf.com/feed', proxies=get_proxies(), timeout=20)
-            response.raise_for_status()
+            content = self._fetch_first_success(
+                self._fetch_url_candidates('https://www.freebuf.com/feed'),
+                log_name='freebuf.com/feed')
+            if content is None:
+                logger.error("Error scraping FreeBuf: feed unreachable "
+                             "(direct and worker both failed)")
+                return
 
             # Parse XML
-            root = ET.fromstring(response.content)
+            root = ET.fromstring(content)
 
             # RSS namespace
             namespaces = {'rss': 'http://purl.org/rss/1.0/modules/content/'}
@@ -1744,13 +1806,9 @@ class SecurityNewsAggregator:
         so it's visible which path broke.
         """
         urls = []
-        base = (os.environ.get('X_PROXY_BASE') or '').rstrip('/')
-        if base:
-            params = {'url': f'https://x.com/{screen_name}'}
-            token = os.environ.get('X_PROXY_TOKEN') or ''
-            if token:
-                params['token'] = token
-            urls.append(('worker', f"{base}/?{urlencode(params)}"))
+        proxied = _worker_proxy_url(f'https://x.com/{screen_name}')
+        if proxied:
+            urls.append(('worker', proxied))
         urls.append(('direct', f'https://x.com/{screen_name}'))
         return urls
 
