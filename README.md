@@ -21,6 +21,7 @@
 [![The Hacker News](https://img.shields.io/badge/The_Hacker_News-555?style=flat-square)](https://thehackernews.com/)
 [![Dark Reading](https://img.shields.io/badge/Dark_Reading-555?style=flat-square)](https://www.darkreading.com/)
 [![看雪论坛](https://img.shields.io/badge/看雪论坛-555?style=flat-square)](https://bbs.kanxue.com/)
+[![Cybersecurity News](https://img.shields.io/badge/Cybersecurity_News-555?style=flat-square)](https://cybersecuritynews.com/)
 [![X](https://img.shields.io/badge/X-1d9bf0?style=flat-square&logo=x&logoColor=white)](https://x.com)
 
 一个自动化的安全资讯聚合平台，每日自动收集来自各大安全社区的技术文章和新闻资讯，并通过AI智能筛选和分类重要内容。

@@ -175,6 +175,7 @@ SOURCE_LOG_NAMES = {
     'The Hacker News': 'The Hacker News',
     'SecurityWeek': 'SecurityWeek',
     'Dark Reading': 'Dark Reading',
+    'Cybersecurity News': 'Cybersecurity News',
     'Unsafe.sh': 'Unsafe.sh',
 }
 
@@ -1595,36 +1596,42 @@ class SecurityNewsAggregator:
 
         return None
 
-    def scrape_security_week(self):
-        """Scrape https://www.securityweek.com/feed (RSS) for security news"""
-        logger.info("Scraping SecurityWeek RSS feed...")
+    def _fetch_with_browser(self, url, log_name):
+        """Fetch a URL with a real Chromium via Playwright and return the
+        page's text content (for RSS feeds the browser renders the XML in a
+        <pre> tag, whose inner text is returned).
 
-        from email.utils import parsedate_to_datetime
+        Used for sources behind aggressive Cloudflare bot management that
+        rejects even browser-headered plain requests at the TLS layer
+        (securityweek.com, cybersecuritynews.com) - only a genuine browser
+        fingerprint passes. Prefers system Google Chrome, falls back to the
+        bundled Playwright Chromium (e.g. minimal CI runners), and relaunches
+        with --proxy-server when HTTPS_PROXY/HTTP_PROXY is set.
 
-        try:
-            # Use Playwright to bypass Cloudflare
-            from playwright.sync_api import sync_playwright
-            import time
+        Returns None (never raises) when the fetch fails; failures are
+        logged against log_name (the target site). ImportError for a missing
+        playwright package propagates so callers can log it once.
+        """
+        from playwright.sync_api import sync_playwright
 
-            with sync_playwright() as p:
-                # Prefer system Google Chrome (no bundled-Chromium download required when installed);
-                # fall back to bundled Chromium if Chrome is not present (e.g. minimal CI runners).
-                def _launch_browser(extra_args=None):
-                    args = ['--disable-blink-features=AutomationControlled']
-                    if extra_args:
-                        args.extend(extra_args)
-                    try:
-                        browser = p.chromium.launch(headless=True, channel='chrome', args=args)
-                        logger.info("SecurityWeek: using system Google Chrome")
-                        return browser
-                    except Exception as e:
-                        logger.info(
-                            f"SecurityWeek: system Chrome unavailable ({type(e).__name__}: {e}), "
-                            f"falling back to bundled Chromium"
-                        )
-                        return p.chromium.launch(headless=True, args=args)
+        with sync_playwright() as p:
+            def _launch_browser(extra_args=None):
+                args = ['--disable-blink-features=AutomationControlled']
+                if extra_args:
+                    args.extend(extra_args)
+                try:
+                    browser = p.chromium.launch(headless=True, channel='chrome', args=args)
+                    logger.info(f"{log_name}: using system Google Chrome")
+                    return browser
+                except Exception as e:
+                    logger.info(
+                        f"{log_name}: system Chrome unavailable ({type(e).__name__}: {e}), "
+                        f"falling back to bundled Chromium"
+                    )
+                    return p.chromium.launch(headless=True, args=args)
 
-                browser = _launch_browser()
+            browser = _launch_browser()
+            try:
                 context = browser.new_context(
                     user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
                     viewport={'width': 1280, 'height': 720}
@@ -1636,7 +1643,7 @@ class SecurityNewsAggregator:
                 proxies = get_proxies()
                 if proxies:
                     proxy_server = PROXY_URL.replace('https://', '').replace('http://', '')
-                    logger.info(f"Using proxy for SecurityWeek: {proxy_server}")
+                    logger.info(f"Using proxy for {log_name}: {proxy_server}")
                     # Relaunch with proxy
                     browser.close()
                     browser = _launch_browser(extra_args=[f'--proxy-server={proxy_server}'])
@@ -1647,18 +1654,36 @@ class SecurityNewsAggregator:
                     page = context.new_page()
                     page.add_init_script('Object.defineProperty(navigator, "webdriver", { get: () => undefined });')
 
-                # Navigate to RSS feed
-                page.goto('https://www.securityweek.com/feed', timeout=60000)
+                page.goto(url, timeout=60000)
                 time.sleep(2)
 
-                # Get page content (RSS XML)
-                # The browser renders RSS as text inside a <pre> tag, so we need to extract the inner text
+                # The browser renders RSS as text inside a <pre> tag, so we
+                # need to extract the inner text; HTML pages fall back to
+                # the full markup.
                 pre_element = page.query_selector('pre')
-                if pre_element:
-                    content = pre_element.inner_text()
-                else:
-                    content = page.content()
+                return pre_element.inner_text() if pre_element else page.content()
+            except Exception as e:
+                logger.error(f"Error fetching {log_name} with browser: {str(e)}")
+                return None
+            finally:
                 browser.close()
+
+    def scrape_security_week(self):
+        """Scrape https://www.securityweek.com/feed (RSS) for security news.
+
+        The feed sits behind Cloudflare bot management, so it is fetched
+        with a real browser via _fetch_with_browser().
+        """
+        logger.info("Scraping SecurityWeek RSS feed...")
+
+        from email.utils import parsedate_to_datetime
+
+        try:
+            content = self._fetch_with_browser('https://www.securityweek.com/feed',
+                                               log_name='SecurityWeek')
+            if content is None:
+                logger.error("Error scraping SecurityWeek: feed unreachable via browser")
+                return
 
             # Parse RSS XML
             soup = BeautifulSoup(content, 'xml')
@@ -1791,6 +1816,108 @@ class SecurityNewsAggregator:
 
         except Exception as e:
             logger.error(f"Error scraping Dark Reading: {str(e)}")
+
+    def scrape_cybersecuritynews(self, max_age_days=MAX_ARTICLE_AGE_DAYS):
+        """Scrape https://cybersecuritynews.com/feed/ (RSS) for security news.
+
+        The site rejects non-browser clients at Cloudflare's edge - plain
+        requests and cloudscraper fail with a TLS handshake alert or 403 -
+        so the feed is fetched with a real browser via _fetch_with_browser(),
+        the same approach as SecurityWeek. The WordPress RSS 2.0 feed
+        renders in a <pre> tag, which the helper already extracts.
+
+        The feed holds only 10 items per page while the site publishes far
+        more per day, so pages are walked (/?paged=N) until one comes back
+        with no article newer than the freshness cutoff: feeds are
+        reverse-chronological, so page N+1 is older still and fetching it
+        would be wasted. max_age_days mirrors filter_to_recent_days(), so
+        pagination stops exactly where the freshness filter would drop
+        everything anyway; an unparseable pubDate counts as fresh (its
+        item defaults to today's date, like everywhere else).
+        """
+        logger.info("Scraping Cybersecurity News RSS feed...")
+
+        from email.utils import parsedate_to_datetime
+
+        cutoff = (datetime.now() - timedelta(days=max_age_days)).strftime('%Y-%m-%d')
+        max_pages = 10  # hard cap: 10 items/page => at most 100 posts per run
+        fetched = 0
+
+        try:
+            for page_num in range(1, max_pages + 1):
+                # WordPress serves page 1 as the plain feed URL
+                url = 'https://cybersecuritynews.com/feed/' if page_num == 1 \
+                    else f'https://cybersecuritynews.com/feed/?paged={page_num}'
+                content = self._fetch_with_browser(url,
+                                                  log_name='Cybersecurity News')
+                if content is None:
+                    # Keep whatever earlier pages yielded; only a page-1
+                    # failure means zero articles
+                    logger.error(f"Error scraping Cybersecurity News: feed "
+                                 f"unreachable via browser (page {page_num})")
+                    break
+
+                soup = BeautifulSoup(content, 'xml')
+                items = soup.find_all('item')
+                fetched += len(items)
+
+                fresh_on_page = 0
+                for item in items:
+                    try:
+                        title_elem = item.find('title')
+                        link_elem = item.find('link')
+                        desc_elem = item.find('description')
+                        pub_date_elem = item.find('pubDate')
+
+                        if not title_elem or not link_elem:
+                            continue
+
+                        title = self.decode_html_entities(title_elem.text.strip())
+                        url = link_elem.text.strip()
+
+                        # Description carries HTML; strip tags for the card
+                        description = ''
+                        if desc_elem is not None and desc_elem.text:
+                            desc_soup = BeautifulSoup(desc_elem.text, 'html.parser')
+                            desc_text = desc_soup.get_text(strip=True)
+                            description = desc_text[:200] + '...' if len(desc_text) > 200 else desc_text
+
+                        # pubDate is RFC 822 ("Fri, 09 Oct 2026 06:35:28 +0000")
+                        date = datetime.now().strftime('%Y-%m-%d')
+                        if pub_date_elem is not None and pub_date_elem.text:
+                            try:
+                                parsed_date = parsedate_to_datetime(pub_date_elem.text.strip())
+                                date = parsed_date.strftime('%Y-%m-%d')
+                            except Exception:
+                                pass
+
+                        if date >= cutoff:
+                            fresh_on_page += 1
+                            article = {
+                                'title': title,
+                                'url': url,
+                                'source': 'Cybersecurity News',
+                                'description': self.decode_html_entities(description),
+                                'date': date,
+                                'category': 'web'
+                            }
+                            self.articles['web'].append(article)
+
+                    except Exception as e:
+                        logger.warning(f"Error processing Cybersecurity News RSS item: {str(e)}")
+                        continue
+
+                if not items or fresh_on_page == 0:
+                    logger.info(f"Cybersecurity News page {page_num}: no articles "
+                                f"dated >= {cutoff}, stopping pagination")
+                    break
+
+            self._log_found('Cybersecurity News', 'web', fetched=fetched)
+
+        except ImportError:
+            logger.warning("Playwright not available, skipping Cybersecurity News")
+        except Exception as e:
+            logger.error(f"Error scraping Cybersecurity News: {str(e)}")
 
     def _x_profile_urls(self, screen_name):
         """Candidate URLs for fetching one X profile, in try order.
@@ -2071,6 +2198,7 @@ class SecurityNewsAggregator:
         self.scrape_the_hacker_news()
         self.scrape_security_week()
         self.scrape_dark_reading()
+        self.scrape_cybersecuritynews()
 
         # X (Twitter) accounts configured via x_accounts.txt
         self.scrape_x()
