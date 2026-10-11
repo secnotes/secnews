@@ -1907,9 +1907,18 @@ class SecurityNewsAggregator:
                         logger.warning(f"Error processing Cybersecurity News RSS item: {str(e)}")
                         continue
 
-                if not items or fresh_on_page == 0:
-                    logger.info(f"Cybersecurity News page {page_num}: no articles "
-                                f"dated >= {cutoff}, stopping pagination")
+                if not items:
+                    # The fetch returned something that is not the RSS feed
+                    # (e.g. the site's 403 block page rendered as HTML) - a
+                    # fetch failure, not a freshness stop. Only a page-1
+                    # miss means zero articles, so it logs as an error.
+                    log = logger.error if page_num == 1 else logger.warning
+                    log(f"Cybersecurity News page {page_num}: 0 items parsed, "
+                        f"response is not the RSS feed (fetch blocked?)")
+                    break
+                if fresh_on_page == 0:
+                    logger.info(f"Cybersecurity News page {page_num}: {len(items)} items, "
+                                f"none dated >= {cutoff}, stopping pagination")
                     break
 
             self._log_found('Cybersecurity News', 'web', fetched=fetched)
