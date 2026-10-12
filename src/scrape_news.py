@@ -21,6 +21,9 @@ import sys
 # category and source names)
 from translator import translate_all, CATEGORY_EN, SOURCE_EN
 
+# RSS feed generation (writes docs/feed.xml and docs/ai/feed.xml)
+from rss_generator import generate_rss_feeds
+
 # Import brotli support to enable automatic decompression
 try:
     import brotli
@@ -3258,6 +3261,10 @@ def generate_html(articles, output_file=None, ai_curated=None):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>网络安全资讯聚合 - Cybersecurity News Aggregator</title>
+    <link rel="alternate" type="application/rss+xml" title="All articles RSS (English)" hreflang="en" href="feed.xml">
+    <link rel="alternate" type="application/rss+xml" title="全部文章 RSS（中文）" hreflang="zh-CN" href="feed_zh.xml">
+    <link rel="alternate" type="application/rss+xml" title="AI curated RSS (English)" hreflang="en" href="ai/feed.xml">
+    <link rel="alternate" type="application/rss+xml" title="AI精选 RSS（中文）" hreflang="zh-CN" href="ai/feed_zh.xml">
     <style>
         /* Design tokens: one palette, two themes. Light values on :root,
            dark values flipped by body.theme-dark - rules below reference
@@ -3573,22 +3580,55 @@ def generate_html(articles, output_file=None, ai_curated=None):
         .footer a {{
             color: var(--accent-text);
             text-decoration: none;
+            /* Keep icons/emoji vertically centered with the label and with
+               the "|" separators: every link becomes a flex row whose box
+               matches the separator's line box, so cross-axis centering in
+               the parent <p> aligns all of them */
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }}
 
         .footer a:hover {{
             text-decoration: underline;
         }}
 
-        .footer .github-icon {{
+        .footer p {{
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }}
+
+        .github-link {{
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }}
+
+        /* Inline SVG icons inside footer anchors; spacing comes from the
+           anchor's gap, no vertical-align/margin hacks (flex centers them) */
+        .footer .github-icon,
+        .footer .feed-icon {{
             width: 16px;
             height: 16px;
-            vertical-align: -0.15em;
-            margin-right: 4px;
+            flex: 0 0 auto;
         }}
 
         .footer .separator {{
-            margin: 0 8px;
+            color: var(--text-3);
         }}
+
+        /* Language-paired footer entries (RSS subscribe): the footer
+           anchors are inline-flex above, which outranks the global
+           .lang-en/.lang-zh display rules, so the visibility toggle is
+           restated here at anchor specificity. Chinese by default; EN
+           mode swaps which one is shown */
+        .footer a.lang-en {{ display: none; }}
+        body.lang-mode-en .footer a.lang-zh {{ display: none; }}
+        body.lang-mode-en .footer a.lang-en {{ display: inline-flex; }}
 
         @media (max-width: 1100px) {{
             .container {{
@@ -4025,15 +4065,32 @@ def generate_html(articles, output_file=None, ai_curated=None):
             <p>
                 © 2026 <a href="https://github.com/secnotes" target="_blank">Security Notes</a>
                 <span class="separator">|</span>
-                <a href="https://github.com/secnotes/secnews" target="_blank">
-                    <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.938 9.9 9.207 11.387.68.113.893-.261.893-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.218.694.825.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                <a href="https://github.com/secnotes/secnews" target="_blank" class="github-link">
+                    <svg class="github-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
                     </svg>
                     Star on GitHub
                 </a>
                 <span class="separator">|</span>
                 <a href="https://github.com/secnotes/secnews/tree/main/docs/data" target="_blank">
-                    📄 Json data
+                    📊 {T('原始数据 (JSON)', 'Raw Data (JSON)')}
+                </a>
+                <span class="separator">|</span>
+                <!-- One visible subscribe entry per UI language: the
+                     lang-en/lang-zh display rules show exactly one anchor -->
+                <a href="ai/feed.xml" target="_blank" rel="noopener noreferrer" class="lang-en">
+                    <svg class="feed-icon" viewBox="0 0 24 24" aria-hidden="true" role="img">
+                        <rect width="24" height="24" rx="5" fill="#F26522"></rect>
+                        <path fill="#fff" transform="translate(2.2 2.2) scale(0.817)" d="M6.18 17.36a2.82 2.82 0 1 1-5.638-.002 2.82 2.82 0 0 1 5.639 0zM1.803 8.697v4.132c5.06 0 9.17 4.11 9.17 9.171h4.13c0-7.333-5.965-13.303-13.3-13.303zM1.823.002v4.132c9.933 0 18.012 8.07 18.012 18.004h4.14c0-12.23-9.93-22.136-22.152-22.136z"></path>
+                    </svg>
+                    Subscribe RSS
+                </a>
+                <a href="ai/feed_zh.xml" target="_blank" rel="noopener noreferrer" class="lang-zh">
+                    <svg class="feed-icon" viewBox="0 0 24 24" aria-hidden="true" role="img">
+                        <rect width="24" height="24" rx="5" fill="#F26522"></rect>
+                        <path fill="#fff" transform="translate(2.2 2.2) scale(0.817)" d="M6.18 17.36a2.82 2.82 0 1 1-5.638-.002 2.82 2.82 0 0 1 5.639 0zM1.803 8.697v4.132c5.06 0 9.17 4.11 9.17 9.171h4.13c0-7.333-5.965-13.303-13.3-13.303zM1.823.002v4.132c9.933 0 18.012 8.07 18.012 18.004h4.14c0-12.23-9.93-22.136-22.152-22.136z"></path>
+                    </svg>
+                    订阅 RSS
                 </a>
             </p>
             <p>{T('安全资讯聚合平台', 'Security News Aggregator')} | {T('更新时间', 'Updated')}: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
@@ -4252,6 +4309,10 @@ def main():
             if ai_curated:
                 aggregator.save_ai_curated_json(ai_curated)
 
+    # Static RSS feeds: daily digests rewritten from this run's data only
+    # (after translation so bilingual fields are already filled in)
+    generate_rss_feeds(aggregator.articles, curated=ai_curated)
+
     # Generate HTML page (this will go to project root docs directory)
     generate_html(aggregator.articles, ai_curated=ai_curated)
 
@@ -4263,6 +4324,9 @@ def main():
         print(f"- AI精选: {total_curated} 篇")
     if translated:
         print("- 双语翻译: 已启用 (网页支持 中文/English 切换)")
+    print("- RSS 订阅: docs/feed.xml + feed_zh.xml (全部文章, 英/中)")
+    if ai_curated:
+        print("- RSS 订阅: docs/ai/feed.xml + feed_zh.xml (AI精选, 英/中)")
     print(f"已生成 docs/index.html 文件")
     now = datetime.now()
     print(f"数据存档: docs/data/{now.year}/articles_{now.strftime('%Y%m%d')}.json")

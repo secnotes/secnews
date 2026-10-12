@@ -47,6 +47,17 @@ An automated security news aggregation platform that collects technical articles
 
 The project uses GitHub Actions to run daily at 00:00 UTC, refreshing the latest security news and generating AI-curated content.
 
+## RSS Feeds
+
+Each run generates four static RSS feeds from that day's data, split by language (each feed is monolingual, falling back to the original text when a translation is missing; daily coverage, and readers dedupe by link so items never show twice):
+
+| | English | Chinese |
+|---|---|---|
+| **All articles** | `https://secnotes.github.io/secnews/feed.xml` | `https://secnotes.github.io/secnews/feed_zh.xml` |
+| **AI curated** | `https://secnotes.github.io/secnews/ai/feed.xml` | `https://secnotes.github.io/secnews/ai/feed_zh.xml` |
+
+The page `<head>` carries autodiscovery tags (with `hreflang`), so major RSS readers can find the feeds directly. On a run where AI curation fails, the AI feeds keep their previous content unchanged. Without an AI key configured there are no translation fields, so the English and Chinese feeds share the original text.
+
 ## Installation & Usage
 
 1. Install Python 3.9+

@@ -47,6 +47,17 @@
 
 项目配置了GitHub Actions，每日凌晨0点（UTC时间）自动运行，更新最新的安全资讯并生成AI精选内容。
 
+## RSS 订阅
+
+每次运行会从当天数据生成四个静态 RSS 源，按语言分开（每个源只含单一语言，字段缺失时回退原文；每日覆盖当天内容，阅读器按链接去重不会重复显示）：
+
+| | 英文 | 中文 |
+|---|---|---|
+| **全部文章** | `https://secnotes.github.io/secnews/feed.xml` | `https://secnotes.github.io/secnews/feed_zh.xml` |
+| **AI精选** | `https://secnotes.github.io/secnews/ai/feed.xml` | `https://secnotes.github.io/secnews/ai/feed_zh.xml` |
+
+网页 `<head>` 中已包含自动发现标签（带 `hreflang`），主流 RSS 阅读器可直接发现订阅地址。某次运行 AI 精选失败时，AI 精选源保留上一次内容不变。未配置 AI 密钥时没有翻译字段，中英文源内容相同（均为原文）。
+
 ## 安装与运行
 
 1. 安装Python 3.9+
