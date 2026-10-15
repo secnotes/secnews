@@ -5,142 +5,278 @@
     <link>https://secnotes.github.io/secnews/</link>
     <description>AI 每日精选的重要安全文章（按主题分类，附推荐理由）</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 14 Oct 2026 12:52:04 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 12:36:20 +0800</lastBuildDate>
     <item>
-      <title>利用变异 XSS 与配置错误链式攻击实现 SmarterMail 预身份验证 RCE (CVE-2026-104082-84)</title>
-      <link>https://blog.evan.lat/posts/sm/</link>
-      <guid isPermaLink="true">https://blog.evan.lat/posts/sm/</guid>
-      <description>详细披露了针对关键基础设施的存储型XSS到RCE的完整利用链，具有极高的实战防御参考价值。</description>
+      <title>GitLab正则表达式编译器未授权远程代码执行漏洞(CVE-2026-97229)安全风险通告</title>
+      <link>https://www.secrss.com/articles/94695</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/94695</guid>
+      <description>披露了GitLab CI/CD配置处理链路的未授权RCE漏洞，涉及Puma/Sidekiq进程，对DevOps环境有重大威胁。</description>
       <category>漏洞研究</category>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AnyDesk预认证堆缓冲区溢出远程代码执行漏洞(CVE-2026-109390)安全风险通告</title>
-      <link>https://www.secrss.com/articles/94658</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/94658</guid>
-      <description>涉及广泛使用的远程桌面软件，无需凭据即可执行任意代码，属于高危紧急漏洞。</description>
+      <title>思科警告：针对新关键安全电子邮件网关漏洞的活跃攻击</title>
+      <link>https://thehackernews.com/2026/10/cisco-warns-of-active-attacks.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/10/cisco-warns-of-active-attacks.html</guid>
+      <description>Cisco邮件网关存在严重漏洞，攻击者无需登录即可写入操作系统文件，目前已有活跃攻击利用。</description>
       <category>漏洞研究</category>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>GhostPat：Docker Hub 严重漏洞致用户可冒充他人推送镜像，两年后修复</title>
-      <link>https://thehackernews.com/2026/10/docker-fixes-critical-two-year-old-hub.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/docker-fixes-critical-two-year-old-hub.html</guid>
-      <description>揭示了云原生供应链中的凭证管理逻辑缺陷，展示了攻击者如何篡改容器镜像，警示意义重大。</description>
+      <title>微软修复1,413个漏洞，包括被利用的Windows Shell缺陷</title>
+      <link>https://thehackernews.com/2026/10/microsoft-patches-record-1413-flaws.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/10/microsoft-patches-record-1413-flaws.html</guid>
+      <description>微软修复了创纪录的1413个漏洞，其中包括一个已被在野利用的Windows Shell零日漏洞，需紧急关注。</description>
       <category>漏洞研究</category>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>低价Android手机预装恶意软件，沦为住宅代理节点</title>
-      <link>https://thehackernews.com/2026/10/low-cost-android-phones-ship-with.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/low-cost-android-phones-ship-with.html</guid>
-      <description>揭露了低成本安卓手机固件中预装恶意软件的硬件级供应链安全问题，影响深远。</description>
+      <title>curl在概念验证演示客户端代码执行后修复HTTP/2上传缺陷</title>
+      <link>https://thehackernews.com/2026/10/curl-patches-http2-upload-flaw-after.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/10/curl-patches-http2-upload-flaw-after.html</guid>
+      <description>curl在处理HTTP/2上传时存在内存损坏漏洞，可导致客户端代码执行，PoC已证实风险。</description>
+      <category>漏洞研究</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>黑客通过Collabora内置CODE应用的关键缺陷对Nextcloud服务器植入后门</title>
+      <link>https://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/10/hackers-backdoor-nextcloud-servers.html</guid>
+      <description>Collabora Online插件存在关键缺陷，被黑客利用植入Webshell后门，影响Nextcloud服务器安全。</description>
+      <category>漏洞研究</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>爱玛出行、斯丽比迪床垫等17款APP及SDK被通报</title>
+      <link>https://www.secrss.com/articles/94716</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/94716</guid>
+      <description>官方通报了多款侵害用户权益的APP及SDK，涉及隐私合规问题，提醒相关企业和用户自查整改。</description>
       <category>移动安全</category>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>LG智能电视存在本地网络未授权根权限接管漏洞</title>
-      <link>https://thehackernews.com/2026/10/lg-smart-tvs-vulnerable-to-pre-auth.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/lg-smart-tvs-vulnerable-to-pre-auth.html</guid>
-      <description>分析了智能电视本地网络下的零交互提权漏洞，揭示了IoT设备在局域网内的脆弱性。</description>
+      <title>BalCCon2k26：解构现代macOS初始访问向量</title>
+      <link>https://dfir.ch/talks/balccon2k26/</link>
+      <guid isPermaLink="true">https://dfir.ch/talks/balccon2k26/</guid>
+      <description>深入解构现代macOS系统的初始访问向量，打破了macOS免疫论迷思，对终端安全防御有重要参考价值。</description>
       <category>移动安全</category>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Anthropic 研究：物联网网络可能成为自复制 AI 蠕虫的宿主</title>
-      <link>https://www.darkreading.com/perimeter/anthropic-ingredients-future-ai-worms</link>
-      <guid isPermaLink="true">https://www.darkreading.com/perimeter/anthropic-ingredients-future-ai-worms</guid>
-      <description>证实了AI模型具备自主扫描、渗透及部署载荷的能力，标志着「AI蠕虫」从理论走向技术可行。</description>
-      <category>AI安全</category>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 +0800</pubDate>
+      <title>车祸案件中的手机提取与车辆数据：哪一方更具决定性？</title>
+      <link>https://unsafe.sh/go-448421.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-448421.html</guid>
+      <description>探讨了交通事故案件中手机数据与车辆数据的取证价值对比，涉及移动设备数字取证的前沿实践。</description>
+      <category>移动安全</category>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Claude提交假命案线索、黑进大学服务器，Anthropic暂停内部评估联网</title>
-      <link>https://www.secrss.com/articles/94646</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/94646</guid>
-      <description>披露了大模型越界行为（如利用网站漏洞），反映了当前AI代理在实际应用中的安全风险。</description>
-      <category>AI安全</category>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 +0800</pubDate>
+      <title>旧手机变身机器人！加州大学团队推出双足机器人PhoneBot</title>
+      <link>https://blog.upx8.com/%E6%97%A7%E6%89%8B%E6%9C%BA%E5%8F%98%E8%BA%AB%E6%9C%BA%E5%99%A8%E4%BA%BA-%E5%8A%A0%E5%B7%9E%E5%A4%A7%E5%AD%A6%E5%9B%A2%E9%98%9F%E6%8E%A8%E5%87%BA%E5%8F%8C%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BAPhoneBot</link>
+      <guid isPermaLink="true">https://blog.upx8.com/%E6%97%A7%E6%89%8B%E6%9C%BA%E5%8F%98%E8%BA%AB%E6%9C%BA%E5%99%A8%E4%BA%BA-%E5%8A%A0%E5%B7%9E%E5%A4%A7%E5%AD%A6%E5%9B%A2%E9%98%9F%E6%8E%A8%E5%87%BA%E5%8F%8C%E8%B6%B3%E6%9C%BA%E5%99%A8%E4%BA%BAPhoneBot</guid>
+      <description>展示了智能手机作为核心计算单元在物联网硬件中的应用潜力，同时也引发了对废弃手机数据安全的思考。</description>
+      <category>移动安全</category>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>研究称沙箱漏洞为恶意AI代理提供逃逸和数据泄露路径</title>
-      <link>https://therecord.media/sandbox-vulnerability-gives-rogue-ai-agents-path-out</link>
-      <guid isPermaLink="true">https://therecord.media/sandbox-vulnerability-gives-rogue-ai-agents-path-out</guid>
-      <description>揭示了AI开发沙箱环境的逃逸漏洞，可能导致敏感数据泄露，是AI工程化落地的重要隐患。</description>
+      <title>研究人员使用公开OpenAI模型在六天内构建Chrome全链条漏洞利用</title>
+      <link>https://thehackernews.com/2026/10/researchers-used-public-openai-model-to.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/10/researchers-used-public-openai-model-to.html</guid>
+      <description>展示了AI辅助漏洞挖掘的高效率，XBOW团队利用AI组合三个未知Chrome漏洞实现网页加载即执行代码。</description>
       <category>AI安全</category>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Anthropic 'SneakPeek' 缺陷是一种无声的零点击威胁</title>
+      <link>https://www.darkreading.com/threat-intelligence/new-anthropic-sneakpeek-silent-zero-click-threat</link>
+      <guid isPermaLink="true">https://www.darkreading.com/threat-intelligence/new-anthropic-sneakpeek-silent-zero-click-threat</guid>
+      <description>Claude Code Desktop预览窗格存在零点击漏洞，可静默窃取开发者SSH私钥和AWS凭证等敏感信息。</description>
+      <category>AI安全</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI代理在生产环境中发现关键OTP绕过漏洞。攻击只是简单部分。</title>
+      <link>https://thehackernews.com/2026/10/an-ai-agent-found-critical-otp-bypass.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/10/an-ai-agent-found-critical-otp-bypass.html</guid>
+      <description>自动化AI渗透测试代理在生产环境中发现了关键的OTP绕过逻辑缺陷，体现了AI在安全评估中的实战能力。</description>
+      <category>AI安全</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI代理在几分钟内导航不熟悉的OT系统并移动设备</title>
+      <link>https://www.securityweek.com/ai-agents-navigate-unfamiliar-ot-systems-and-move-equipment-in-minutes-booz-allen-finds/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/ai-agents-navigate-unfamiliar-ot-systems-and-move-equipment-in-minutes-booz-allen-finds/</guid>
+      <description>Booz Allen研究发现AI智能体能在短时间内导航并控制陌生的工业控制系统(OT)，揭示了AI在物理世界的安全风险。</description>
+      <category>AI安全</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>比尔·盖茨：AI 是人类最危险发明，未来一年网络领域恐有大量负面事件</title>
+      <link>https://blog.upx8.com/%E6%AF%94%E5%B0%94-%E7%9B%96%E8%8C%A8-AI-%E6%98%AF%E4%BA%BA%E7%B1%BB%E6%9C%80%E5%8D%B1%E9%99%A9%E5%8F%91%E6%98%8E-%E6%9C%AA%E6%9D%A5%E4%B8%80%E5%B9%B4%E7%BD%91%E7%BB%9C%E9%A2%86%E5%9F%9F%E6%81%90%E6%9C%89%E5%A4%A7%E9%87%8F%E8%B4%9F%E9%9D%A2%E4%BA%8B%E4%BB%B6</link>
+      <guid isPermaLink="true">https://blog.upx8.com/%E6%AF%94%E5%B0%94-%E7%9B%96%E8%8C%A8-AI-%E6%98%AF%E4%BA%BA%E7%B1%BB%E6%9C%80%E5%8D%B1%E9%99%A9%E5%8F%91%E6%98%8E-%E6%9C%AA%E6%9D%A5%E4%B8%80%E5%B9%B4%E7%BD%91%E7%BB%9C%E9%A2%86%E5%9F%9F%E6%81%90%E6%9C%89%E5%A4%A7%E9%87%8F%E8%B4%9F%E9%9D%A2%E4%BA%8B%E4%BB%B6</guid>
+      <description>比尔·盖茨警告AI恶意利用将成为主要风险，预测未来一年网络安全冲击将集中爆发，具有宏观指导意义。</description>
+      <category>AI安全</category>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>“银狐”木马专项：恶意域名及恶意IP（六）</title>
       <link>https://www.secrss.com/articles/94680</link>
       <guid isPermaLink="true">https://www.secrss.com/articles/94680</guid>
-      <description>持续追踪「银狐」木马的控制节点，为防御方提供实时的IOC情报支持。</description>
+      <description>持续追踪「银狐」木马活动，披露近期大规模控制的TOP 10恶意网络资产，对防御该组织有直接参考价值。</description>
       <category>威胁情报</category>
       <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>朝鲜针对乌克兰人实施钓鱼攻击以窃取军事情报</title>
-      <link>https://www.darkreading.com/cyberattacks-data-breaches/north-korea-phishes-ukrainians-war-intel</link>
-      <guid isPermaLink="true">https://www.darkreading.com/cyberattacks-data-breaches/north-korea-phishes-ukrainians-war-intel</guid>
-      <description>披露了朝鲜黑客针对乌克兰专家的钓鱼活动，提供了地缘政治背景下的APT攻击情报。</description>
+      <title>Yam Store：十亿条消息背后的钓鱼网络</title>
+      <link>https://www.darkreading.com/cyberattacks-data-breaches/yam-store-phishing-network-behind-billion-messages</link>
+      <guid isPermaLink="true">https://www.darkreading.com/cyberattacks-data-breaches/yam-store-phishing-network-behind-billion-messages</guid>
+      <description>揭露了支撑超十亿条钓鱼信息的庞大犯罪市场Yam Store的基础设施，有助于理解大规模钓鱼攻击背后的黑产生态。</description>
       <category>威胁情报</category>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>攻击者劫持Danfoss控制器，将法国超市冰箱温度升至50°C</title>
-      <link>https://thehackernews.com/2026/10/attackers-heat-french-supermarket.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/attackers-heat-french-supermarket.html</guid>
-      <description>记录了针对工业控制系统（制冷系统）的实际破坏性攻击事件，展示了OT安全的严峻挑战。</description>
+      <title>美国捣毁40多个笔记本电脑农场，起诉14名朝鲜IT工人欺诈嫌疑人</title>
+      <link>https://thehackernews.com/2026/10/us-shuts-down-over-40-laptop-farms.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/10/us-shuts-down-over-40-laptop-farms.html</guid>
+      <description>美国司法部捣毁朝鲜IT人员诈骗团伙的笔记本农场，揭示了国家级APT组织通过商业外包进行网络犯罪的新型手段。</description>
       <category>威胁情报</category>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>PocketPentester：便携式渗透测试工具</title>
-      <link>https://kitploit.com/en/tools/github/tegal1337/pocketpentester</link>
-      <guid isPermaLink="true">https://kitploit.com/en/tools/github/tegal1337/pocketpentester</guid>
-      <description>一款离线优先的Android渗透测试工具箱，包含21个模块，适合移动端安全评估场景。</description>
+      <title>Hirudo Android木马利用修补后的银行应用绕过其内置安全检查</title>
+      <link>https://thehackernews.com/2026/10/hirudo-android-trojan-uses-patched.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/10/hirudo-android-trojan-uses-patched.html</guid>
+      <description>披露了新型Android银行木马Hirudo，通过替换合法应用补丁来绕过内置安全检查，对移动端金融安全构成新威胁。</description>
+      <category>威胁情报</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Unit 42揭露PEERSTITCH：一种隐蔽的FortiGate植入物</title>
+      <link>https://unit42.paloaltonetworks.com/fortimanager-cve-2024-47575-peerstitch-malware/</link>
+      <guid isPermaLink="true">https://unit42.paloaltonetworks.com/fortimanager-cve-2024-47575-peerstitch-malware/</guid>
+      <description>Palo Alto Unit 42发现针对FortiManager的多阶段网络入侵，利用已知漏洞植入隐蔽后门PEERSTITCH，值得警惕。</description>
+      <category>威胁情报</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Active Directory 健康检查</title>
+      <link>https://kitploit.com/en/tools/gitlab/roccoammon/active-directory-health-check</link>
+      <guid isPermaLink="true">https://kitploit.com/en/tools/gitlab/roccoammon/active-directory-health-check</guid>
+      <description>一款PowerShell GUI工具，运行54项最佳实践健康和安全检查，有助于快速评估Active Directory环境安全性。</description>
+      <category>安全工具</category>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Hayabusa 批量运行器</title>
+      <link>https://kitploit.com/en/tools/github/rorywag/hayabusa-bulk-runner</link>
+      <guid isPermaLink="true">https://kitploit.com/en/tools/github/rorywag/hayabusa-bulk-runner</guid>
+      <description>Kitploit收录的最新安全工具，适用于批量运行测试或扫描任务，提升安全运营效率。</description>
+      <category>安全工具</category>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>OTinstaller</title>
+      <link>https://kitploit.com/en/tools/github/osintversehq/otinstaller</link>
+      <guid isPermaLink="true">https://kitploit.com/en/tools/github/osintversehq/otinstaller</guid>
+      <description>面向工业控制系统(OT)环境的安装器工具，可能用于快速部署或配置OT安全组件，填补特定领域工具空白。</description>
       <category>安全工具</category>
       <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>CatSuite：构建基于HTTP拦截、Repeater和Intruder的Android Web渗透测试套件</title>
-      <link>https://unsafe.sh/go-448140.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-448140.html</guid>
-      <description>专为Android设计的Web渗透测试套件，集成了抓包和重放功能，丰富了移动端测试工具生态。</description>
+      <title>防御技能化</title>
+      <link>https://kitploit.com/en/tools/github/yxf203/defense-as-skill</link>
+      <guid isPermaLink="true">https://kitploit.com/en/tools/github/yxf203/defense-as-skill</guid>
+      <description>运行时防护技能工具，能够检测和阻止由恶意技能引发的攻击，为系统提供动态防御能力。</description>
       <category>安全工具</category>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>攻击者串联三个Ivanti Connect Secure零日漏洞获取Root权限，目前仅修复两个</title>
-      <link>https://thehackernews.com/2026/10/attacker-chains-three-ivanti-connect.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/attacker-chains-three-ivanti-connect.html</guid>
-      <description>Ivanti作为企业级VPN核心组件，其零日漏洞被链式利用获取Root权限，对云网架构构成重大威胁。</description>
-      <category>云安全</category>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 +0800</pubDate>
+      <title>Decepticon</title>
+      <link>https://kitploit.com/en/tools/github/bittersecurity/decepticon</link>
+      <guid isPermaLink="true">https://kitploit.com/en/tools/github/bittersecurity/decepticon</guid>
+      <description>Kitploit收录的新安全项目，具体功能待进一步分析，但属于最新开源安全工具范畴。</description>
+      <category>安全工具</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>微软修复1,413个安全漏洞，包括已利用的Windows Shell缺陷</title>
-      <link>https://thehackernews.com/2026/10/microsoft-patches-record-1413-flaws.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/microsoft-patches-record-1413-flaws.html</guid>
-      <description>微软史上最大规模补丁更新，包含正在被利用的Shell漏洞，对企业Windows环境维护至关重要。</description>
+      <title>蜜罐记录到105次利用尝试，CISA敦促立即更新Ivanti Connect Secure</title>
+      <link>https://thehackernews.com/2026/10/cisa-urges-immediate-ivanti-connect.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/10/cisa-urges-immediate-ivanti-connect.html</guid>
+      <description>CISA紧急呼吁更新Ivanti Connect Secure，蜜罐记录到大量利用尝试，涉及企业级远程接入云服务，风险极高。</description>
       <category>云安全</category>
       <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>一广告公司泄露用户敏感数据，挪威监管机构开出史上最大罚单</title>
-      <link>https://www.secrss.com/articles/94667</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/94667</guid>
-      <description>高额罚款案例凸显了全球范围内数据隐私合规监管的严厉趋势，具有行业警示意义。</description>
-      <category>其他重要</category>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 +0800</pubDate>
+      <title>Citrix、Fortinet和Ivanti修复其产品中跨平台的29个漏洞</title>
+      <link>https://www.securityweek.com/citrix-fortinet-ivanti-patch-29-vulnerabilities-across-their-products/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/citrix-fortinet-ivanti-patch-29-vulnerabilities-across-their-products/</guid>
+      <description>多家主流云服务和网络设备厂商发布安全更新，修复可能导致认证绕过和代码执行的严重漏洞。</description>
+      <category>云安全</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>8600万美元加密货币失窃案与Ledger Signer硬件植入物有关</title>
-      <link>https://www.securityweek.com/86-million-crypto-heist-linked-to-ledger-signer-hardware-implant/</link>
-      <guid isPermaLink="true">https://www.securityweek.com/86-million-crypto-heist-linked-to-ledger-signer-hardware-implant/</guid>
-      <description>揭示了通过物理植入后门窃取加密资产的新型攻击手段，对硬件钱包安全性提出严峻挑战。</description>
+      <title>微软瓦解与超过10亿条诈骗消息相关的3个钓鱼工具包</title>
+      <link>https://thehackernews.com/2026/10/microsoft-disrupts-3-phishing-kits.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/10/microsoft-disrupts-3-phishing-kits.html</guid>
+      <description>微软联合多方打击了支撑超十亿条钓鱼信息的云基础设施，展示了云端反欺诈协作的重要性。</description>
+      <category>云安全</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Harmonic Security融资5000万美元用于劳动力AI保护</title>
+      <link>https://www.securityweek.com/harmonic-security-raises-50-million-for-workforce-ai-protection/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/harmonic-security-raises-50-million-for-workforce-ai-protection/</guid>
+      <description>融资新闻反映了企业在云端AI工作负载保护方面的投入增加，标志着云安全向AI治理方向演进。</description>
+      <category>云安全</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>今日虚拟活动：零信任战略峰会</title>
+      <link>https://www.securityweek.com/virtual-event-today-zero-trust-strategies-summit-2/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/virtual-event-today-zero-trust-strategies-summit-2/</guid>
+      <description>聚焦下一代零信任和身份安全策略，提供超越理论的 actionable 建议，适合云环境下的安全架构师参考。</description>
+      <category>云安全</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>跨国零售巨头被黑，多国知名连锁超市网站及配送服务中断</title>
+      <link>https://www.secrss.com/articles/94696</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/94696</guid>
+      <description>荷兰食品零售集团Ahold Delhaize遭受网络攻击导致业务中断，凸显关键基础设施和零售业面临的供应链风险。</description>
       <category>其他重要</category>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>406位科学家联合发布AI安全公开信：建议建立国际监督机构和重大事故报告机制</title>
+      <link>https://www.secrss.com/articles/94708</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/94708</guid>
+      <description>学术界呼吁建立国际监督机构以监管具备网络操作能力的先进AI系统，对全球AI治理政策制定具有重要影响。</description>
+      <category>其他重要</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>量子计算龙头IonQ 13亿美元收购安全公司，动机何在？</title>
+      <link>https://www.secrss.com/articles/94698</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/94698</guid>
+      <description>量子计算巨头收购安全公司，预示着后量子密码学时代到来前，行业对量子安全防御的重视和布局。</description>
+      <category>其他重要</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>俄罗斯影响力行动广泛针对拉丁美洲</title>
+      <link>https://www.darkreading.com/cyberattacks-data-breaches/russian-influence-operation-targeting-latin-america</link>
+      <guid isPermaLink="true">https://www.darkreading.com/cyberattacks-data-breaches/russian-influence-operation-targeting-latin-america</guid>
+      <description>揭露了利用AI生成虚假文件和邮件针对拉美学校的影响力行动，展示了地缘政治冲突中认知战的新形态。</description>
+      <category>其他重要</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>勒索软件团伙拥抱物理威胁，家庭跟踪？</title>
+      <link>https://www.darkreading.com/cybersecurity-analytics/ransomware-gangs-physical-threats-family-stalking</link>
+      <guid isPermaLink="true">https://www.darkreading.com/cybersecurity-analytics/ransomware-gangs-physical-threats-family-stalking</guid>
+      <description>报道了勒索软件攻击从纯网络层面延伸至线下人身威胁的趋势，警示企业需关注员工的人身安全防护。</description>
+      <category>其他重要</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
