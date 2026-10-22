@@ -2825,6 +2825,28 @@ def generate_html(articles, output_file=None, ai_curated=None):
             // Rebuild so the newly selected date's month expands and gets
             // the .current highlight
             buildDatePanel(newsDates);
+            updateNavButtons();
+        }
+
+        // Prev/next pill arrows step between consecutive *available* dates
+        // (newsDates is newest-first, index 0 = latest). dir=+1 → earlier
+        // day (‹), dir=-1 → later day (›); clamped at both ends.
+        function shiftNewsDate(dir) {
+            var idx = newsDates.indexOf(currentNewsDate);
+            if (idx === -1) return;
+            var next = idx + dir;
+            if (next < 0 || next >= newsDates.length) return;
+            closeDatePanel();
+            loadNewsDate(newsDates[next]);
+        }
+
+        // Disable the arrow that would step past the oldest/newest date.
+        function updateNavButtons() {
+            var idx = newsDates.indexOf(currentNewsDate);
+            var prev = document.getElementById('date-prev');  // ‹ earlier
+            var next = document.getElementById('date-next');  // › later
+            if (prev) prev.disabled = idx === -1 || idx >= newsDates.length - 1;
+            if (next) next.disabled = idx === -1 || idx <= 0;
         }
 
         // Build the date dropdown panel: months (newest first) as
@@ -3013,47 +3035,37 @@ def generate_html(articles, output_file=None, ai_curated=None):
             .github-corner .octo-arm { animation: octocat-wave 560ms ease-in-out; }
         }
 
-        /* Subtitle date picker: a light accent-tinted chip that opens a
-           custom dropdown panel. A native <select> can't collapse its
-           <optgroup>s, and the archive now spans enough months that a flat
-           list gets unwieldy — the panel shows months as collapsible
-           sections (only the current month expanded by default). The
-           chevron is drawn on .title-date::after so its color tracks
-           --accent-text in both themes (a background-image arrow couldn't). */
+        /* Subtitle date picker: a pill-shaped chip with prev/next arrow
+           buttons flanking the date label. The label still opens the
+           collapsible-month dropdown panel (for jumping to far dates);
+           the arrows step between consecutive *available* dates one at a
+           time (newsDates is newest-first, gaps skipped). */
         .subtitle .title-date {
             position: relative;
             display: inline-block;
             white-space: nowrap;
         }
-        .subtitle .title-date::after {
-            content: "";
-            position: absolute;
-            right: 8px;
-            top: 50%;
-            width: 7px;
-            height: 7px;
-            border-right: 1.5px solid var(--accent-text);
-            border-bottom: 1.5px solid var(--accent-text);
-            transform: translateY(-65%) rotate(45deg);
-            transition: transform 0.2s ease;
-            pointer-events: none;
-        }
-        .subtitle .title-date.panel-open::after {
-            transform: translateY(-65%) rotate(225deg);
+        .subtitle .date-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 1px;
+            background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+            border-radius: 999px;
+            padding: 2px 3px;
+            margin: 0 0 0 2px;
+            line-height: inherit;
+            vertical-align: baseline;
         }
         .subtitle #news-date-btn {
             font-size: inherit;
             font-family: inherit;
             font-weight: 600;
             color: var(--accent-text);
-            background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+            background: none;
             border: none;
-            border-radius: 6px;
-            /* right padding reserves room for the ::after chevron */
-            padding: 2px 26px 2px 8px;
-            margin: 0 0 0 2px;
+            border-radius: 999px;
+            padding: 1px 6px;
             line-height: inherit;
-            vertical-align: baseline;
             cursor: pointer;
             transition: background-color 0.2s ease, color 0.2s ease;
         }
@@ -3067,17 +3079,46 @@ def generate_html(articles, output_file=None, ai_curated=None):
             background-color: color-mix(in srgb, var(--danger) 14%, transparent);
             color: var(--danger);
         }
-        /* Dark theme fix: color-mix with transparent yields a *translucent*
-           accent that, composited over the dark page bg, becomes a muddy
-           blue-grey — too close to the浅蓝 accent-text, so the date is
-           illegible. Use an opaque dark fill (slightly lifted from the page
-           bg) so the chip reads as a solid block; the accent-tinted text
-           stays readable against it. */
-        body.theme-dark .subtitle #news-date-btn {
+        /* Prev/next round arrow buttons inside the pill */
+        .subtitle .date-nav {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            line-height: 1;
+            color: var(--accent-text);
+            background: none;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.2s ease, opacity 0.2s ease;
+        }
+        .subtitle .date-nav:hover,
+        .subtitle .date-nav:focus {
+            background-color: color-mix(in srgb, var(--accent) 22%, transparent);
+            color: var(--accent-hover);
+            outline: none;
+        }
+        .subtitle .date-nav:disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
+        .subtitle .date-nav:disabled:hover {
+            background: none;
+            color: var(--accent-text);
+        }
+        /* Dark theme: color-mix with transparent composites to a muddy
+           translucent accent over the dark bg — use an opaque fill (slightly
+           lifted from the page bg) so the pill reads as a solid block and the
+           accent-tinted text stays legible. */
+        body.theme-dark .subtitle .date-chip {
             background-color: var(--border-weak);
         }
-        body.theme-dark .subtitle #news-date-btn:hover,
-        body.theme-dark .subtitle #news-date-btn:focus {
+        body.theme-dark .subtitle .date-nav:hover,
+        body.theme-dark .subtitle .date-nav:focus {
             background-color: var(--border-strong);
         }
 
@@ -3984,7 +4025,7 @@ def generate_html(articles, output_file=None, ai_curated=None):
         <main class="main-content">
             <header>
                 <h1>🛡️ {T('网络安全资讯聚合', 'Cybersecurity News')}</h1>
-                <div class="subtitle">{T('每日更新 · ', 'Updated daily · ')}<span class="title-date"><button type="button" id="news-date-btn" onclick="toggleDatePanel(event)" aria-haspopup="listbox" aria-expanded="false" aria-label="报告日期 / Report date"></button><div id="news-date-panel" class="date-panel"></div></span></div>
+                <div class="subtitle">{T('每日更新 · ', 'Updated daily · ')}<span class="title-date"><span class="date-chip"><button type="button" class="date-nav" id="date-prev" onclick="shiftNewsDate(1)" aria-label="前一天 / Previous day">‹</button><button type="button" id="news-date-btn" onclick="toggleDatePanel(event)" aria-haspopup="listbox" aria-expanded="false" aria-label="报告日期 / Report date"></button><button type="button" class="date-nav" id="date-next" onclick="shiftNewsDate(-1)" aria-label="后一天 / Next day">›</button></span><div id="news-date-panel" class="date-panel"></div></span></div>
             </header>
 
             <!-- View Toggle Buttons -->
