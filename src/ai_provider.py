@@ -109,6 +109,7 @@ class AIProvider:
         max_tokens: int = 16384,
         temperature: float = 0.3,
         json_mode: bool = True,
+        frequency_penalty: float = 0.3,
     ) -> str:
         """
         Send prompt to AI and get response
@@ -122,6 +123,11 @@ class AIProvider:
                 grammar-constrained decoding guarantees valid JSON. If the
                 provider rejects the parameter, the call is retried once
                 without it and JSON mode is disabled for this instance.
+            frequency_penalty: Penalizes tokens already generated (0.0–2.0).
+                Non-zero to prevent repetition loops where the model emits a
+                single character (e.g. tab) thousands of times until
+                max_tokens terminates the run — observed on lightweight
+                models (qwen-flash etc.) during long structured JSON output.
 
         Returns:
             AI response text
@@ -156,6 +162,7 @@ class AIProvider:
             'messages': messages,
             'max_tokens': max_tokens,
             'temperature': temperature,
+            'frequency_penalty': frequency_penalty,
         }
         if json_mode and self._json_mode_enabled:
             create_kwargs['response_format'] = {'type': 'json_object'}
@@ -178,8 +185,27 @@ class AIProvider:
             else:
                 raise
 
-        result = response.choices[0].message.content
-        logger.info(f"AI response received: {len(result)} chars")
+        result = response.choices[0].message.content or ''
+        finish_reason = response.choices[0].finish_reason
+        logger.info(
+            f"AI response received: {len(result)} chars, finish_reason={finish_reason}"
+        )
+
+        # Detect repetition degeneration: the model gets stuck emitting a
+        # single character (tab/space/etc.) thousands of times — a known
+        # failure mode of lightweight models on long structured output.
+        # finish_reason == 'length' alone is ambiguous (could be a genuinely
+        # long valid response), so check the actual content for a repetition
+        # signature before treating it as degenerate.
+        if finish_reason == 'length' and self._is_degenerate(result):
+            logger.warning(
+                "AI response degenerated into repetition (finish_reason=length, "
+                "high single-char repetition); treating as parse failure"
+            )
+            raise ValueError(
+                "AI response degenerated into a repetition loop before "
+                "completing the JSON; retry with higher frequency_penalty"
+            )
 
         return result
 
@@ -188,7 +214,7 @@ class AIProvider:
         articles: List[Dict[str, Any]],
         categories: Optional[List[str]] = None,
         batch_size: int = 200,
-    ) -> Dict[str, Any]:
+    ) -> Optional[Dict[str, Any]]:
         """
         Analyze security articles and categorize important ones
         Uses batch processing to handle large article lists
@@ -266,14 +292,40 @@ class AIProvider:
 
 请开始分析并返回 JSON 结果。"""
 
-            try:
-                response_text = self.analyze(prompt, system_prompt)
-                batch_result = self._parse_json_response(response_text)
-                all_results.append(batch_result)
-                logger.info(f"Batch {batch_num + 1} completed successfully")
-            except Exception as e:
-                logger.error(f"Error processing batch {batch_num + 1}: {str(e)}")
-                continue
+            # First attempt with default frequency_penalty (0.3). On
+            # degeneration or parse failure, retry once with a stronger
+            # penalty to break the repetition loop before giving up on
+            # the batch.
+            for attempt, freq_penalty in enumerate(
+                (0.3, 0.8), start=1
+            ):
+                try:
+                    response_text = self.analyze(
+                        prompt, system_prompt, frequency_penalty=freq_penalty
+                    )
+                    batch_result = self._parse_json_response(response_text)
+                    all_results.append(batch_result)
+                    logger.info(
+                        f"Batch {batch_num + 1} completed successfully"
+                        + (f" (retry {attempt - 1}, freq_penalty={freq_penalty})"
+                           if attempt > 1 else "")
+                    )
+                    break
+                except Exception as e:
+                    if attempt == 1:
+                        logger.warning(
+                            f"Batch {batch_num + 1} attempt 1 failed "
+                            f"({str(e)[:120]}); retrying with higher "
+                            "frequency_penalty"
+                        )
+                        continue
+                    logger.error(
+                        f"Error processing batch {batch_num + 1} after retry: "
+                        f"{str(e)}"
+                    )
+                    # Both attempts failed: the for-loop ends naturally and
+                    # execution falls through to the next batch (all_results
+                    # simply lacks this batch's entry).
 
         # Merge all batch results
         merged_result = self._merge_batch_results(all_results, articles, categories)
@@ -285,8 +337,21 @@ class AIProvider:
         batch_results: List[Dict[str, Any]],
         original_articles: List[Dict[str, Any]],
         categories: List[str],
-    ) -> Dict[str, Any]:
-        """Merge results from multiple batches into a single result"""
+    ) -> Optional[Dict[str, Any]]:
+        """Merge results from multiple batches into a single result.
+
+        Returns None when no batch produced usable results, so callers can
+        distinguish "AI curation ran but everything failed" from "curation
+        produced a valid (possibly small) result" — the RSS layer relies on
+        this to avoid overwriting a good previous feed with an empty one.
+        """
+        if not batch_results:
+            logger.warning(
+                "All AI batches failed; returning None so downstream does "
+                "not treat an empty result as valid curated data"
+            )
+            return None
+
         merged = {
             "analysis_date": datetime.now().strftime('%Y-%m-%d'),
             "model": self.model,
@@ -347,6 +412,23 @@ class AIProvider:
 
         return "\n".join(lines)
 
+    @staticmethod
+    def _is_degenerate(text: str, threshold: float = 0.5) -> bool:
+        """Detect repetition-loop degeneration in an AI response.
+
+        Lightweight models (qwen-flash etc.) can get stuck emitting a single
+        whitespace character (tab, space, newline) thousands of times until
+        max_tokens terminates the run, leaving a huge response that is almost
+        entirely one repeated character. Returns True when the most frequent
+        character accounts for more than ``threshold`` (default 50%) of the
+        response — real JSON never approaches that ratio.
+        """
+        if not text or len(text) < 200:
+            return False
+        from collections import Counter
+        most_common_count = Counter(text).most_common(1)[0][1]
+        return most_common_count / len(text) > threshold
+
     def _parse_json_response(self, response: str) -> Dict[str, Any]:
         """Parse a JSON object from an AI response.
 
@@ -382,10 +464,16 @@ class AIProvider:
                 last_error = e
 
         # Unparseable: dump the raw response for offline debugging and
-        # raise — analyze_articles() logs the failed batch.
-        debug_file = os.path.join(
-            os.path.dirname(os.path.abspath(__file__)), 'ai_response_debug.txt')
+        # raise — analyze_articles() logs the failed batch. Written under
+        # docs/ai/ (the AI data directory) rather than src/ so it sits next
+        # to the curated archives it relates to and is carried back from CI
+        # runs via the daily commit. Not gitignored on purpose: seeing CI
+        # failures' raw responses in-repo is the point of keeping it.
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        docs_ai_dir = os.path.join(os.path.dirname(script_dir), 'docs', 'ai')
+        debug_file = os.path.join(docs_ai_dir, 'ai_response_debug.txt')
         try:
+            os.makedirs(docs_ai_dir, exist_ok=True)
             with open(debug_file, 'w', encoding='utf-8') as f:
                 f.write(f"JSON Parse Error: {last_error}\n\n")
                 f.write(f"--- Raw AI Response (length={len(response)}) ---\n")

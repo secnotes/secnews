@@ -2316,7 +2316,13 @@ class SecurityNewsAggregator:
             # Analyze articles
             curated_result = ai_provider.analyze_articles(recent_articles)
 
-            logger.info(f"AI analysis completed: categorized articles into {len(curated_result.get('categories', {}))} categories")
+            if curated_result is None:
+                logger.warning("AI analysis produced no usable results (all batches failed)")
+                return None
+
+            cat_count = len(curated_result.get('categories', {}))
+            total_curated = sum(len(v) for v in curated_result.get('categories', {}).values())
+            logger.info(f"AI analysis completed: {total_curated} articles across {cat_count} categories")
 
             return curated_result
 

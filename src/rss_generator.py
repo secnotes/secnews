@@ -204,9 +204,16 @@ def generate_rss_feeds(articles_data: Dict[str, Any],
     for lang in ('en', 'zh'):
         generate_articles_feed(articles_data, docs_dir, lang)
 
-    if curated:
+    # A failed AI run can return a non-None dict whose categories are all
+    # empty lists — that is truthy and would slip past a plain `if curated:`,
+    # overwriting the previous day's good AI feed with an empty one. Only
+    # write the AI feeds when curation actually produced articles.
+    has_curated_articles = bool(curated) and any(
+        cat for cat in curated.get('categories', {}).values()
+    )
+    if has_curated_articles:
         for lang in ('en', 'zh'):
             generate_ai_curated_feed(curated, docs_dir, lang)
     else:
-        logger.info("AI curated feeds skipped: no curated data in this run "
+        logger.info("AI curated feeds skipped: no curated articles in this run "
                     "(previous feeds, if any, left untouched)")
