@@ -9,68 +9,322 @@
         "url": "https://xz.aliyun.com/news/92963",
         "source": "先知社区",
         "date": "2026-10-23",
-        "reason": "详细分析了TurboFan引擎中Wasm调用点内联的底层二进制安全缺陷，具有极高的技术深度。",
+        "reason": "深入分析了V8引擎TurboFan编译器中Wasm调用内联的内存安全缺陷，具有极高的二进制安全研究价值。",
         "title_zh": "CVE-2026-6307：漏掉一次签名比较，Wasm 返回类型错乱",
-        "reason_zh": "详细分析了TurboFan引擎中Wasm调用点内联的底层二进制安全缺陷，具有极高的技术深度。",
-        "title_en": "CVE-2026-6307: Omitted Signature Comparison Causes Wasm Return Type Mismatch",
-        "reason_en": "In-depth Analysis of Low-level Binary Security Flaws in Wasm Call Site Inlining within the TurboFan Engine"
+        "reason_zh": "深入分析了V8引擎TurboFan编译器中Wasm调用内联的内存安全缺陷，具有极高的二进制安全研究价值。",
+        "title_en": "CVE-2026-6307: Missed Signature Comparison Causes Wasm Return Type Confusion",
+        "reason_en": "In-depth Analysis of Memory Safety Vulnerabilities in Wasm Call Inlining within V8 Engine's TurboFan Compiler"
       },
       {
         "title": "CNCERT：关于PHP远程代码执行漏洞分析及修复建议的安全公告",
         "url": "https://www.secrss.com/articles/94969",
         "source": "安全内参",
         "date": "2026-10-22",
-        "reason": "针对近期爆发的PHP超危RCE漏洞（PHP2Shell），提供了官方权威的技术分析与修复指导。",
+        "reason": "针对影响全球近70%网站的PHP内核超危漏洞（PHP2Shell）发布官方分析与修复指南，实战防御意义重大。",
         "title_zh": "CNCERT：关于PHP远程代码执行漏洞分析及修复建议的安全公告",
-        "reason_zh": "针对近期爆发的PHP超危RCE漏洞（PHP2Shell），提供了官方权威的技术分析与修复指导。",
-        "title_en": "CNCERT Security Advisory: Analysis and Remediation Recommendations for PHP Remote Code Execution Vulnerability",
-        "reason_en": "Official Technical Analysis and Remediation Guidance for the Critical PHP RCE Vulnerability (PHP2Shell)"
+        "reason_zh": "针对影响全球近70%网站的PHP内核超危漏洞（PHP2Shell）发布官方分析与修复指南，实战防御意义重大。",
+        "title_en": "CNCERT Security Advisory: Analysis and Remediation of PHP Remote Code Execution Vulnerability",
+        "reason_en": "Official Analysis and Fix Guide for Critical PHP Kernel Vulnerability (PHP2Shell) Affecting Nearly 70% of Global Websites"
       },
       {
         "title": "Arista Warns of Critical VeloCloud SQL Injection Zero-Day Exploited in Attacks",
         "url": "https://thehackernews.com/2026/10/arista-warns-of-critical-velocloud-sql.html",
         "source": "The Hacker News",
         "date": "2026-10-22",
-        "reason": "报道了SD-WAN核心管理系统的SQL注入零日漏洞在野利用情况，涉及关键基础设施组件。",
+        "reason": "报道了SD-WAN核心管理系统VeloCloud Orchestrator中被在野利用的SQL注入零日漏洞，涉及关键基础设施。",
         "title_en": "Arista Warns of Critical VeloCloud SQL Injection Zero-Day Exploited in Attacks",
-        "reason_zh": "报道了SD-WAN核心管理系统的SQL注入零日漏洞在野利用情况，涉及关键基础设施组件。",
-        "title_zh": "Arista警告：VeloCloud存在被利用的SQL注入零日漏洞",
-        "reason_en": "Zero-day SQL Injection Exploitation in SD-WAN Core Management System Targets Critical Infrastructure Components"
+        "reason_zh": "报道了SD-WAN核心管理系统VeloCloud Orchestrator中被在野利用的SQL注入零日漏洞，涉及关键基础设施。",
+        "title_zh": "Arista 警告：VeloCloud SQL注入零日漏洞遭攻击利用",
+        "reason_en": "Report on Zero-Day SQL Injection in SD-WAN Core Management System VeloCloud Orchestrator Exploited in the Wild"
+      },
+      {
+        "title": "Two CVSS 9.0 Linux KSMBD RCE Flaws Disclosed on Public Mailing Lists Before Kernel Fixes",
+        "url": "https://thehackernews.com/2026/10/two-cvss-90-linux-ksmbd-rce-flaws.html",
+        "source": "The Hacker News",
+        "date": "2026-10-22",
+        "reason": "Linux内核内置SMB服务器存在未修补的高危RCE漏洞，且披露过程异常，对服务器安全构成直接威胁。",
+        "title_en": "Two CVSS 9.0 Linux KSMBD RCE Flaws Disclosed on Public Mailing Lists Before Kernel Fixes",
+        "reason_zh": "Linux内核内置SMB服务器存在未修补的高危RCE漏洞，且披露过程异常，对服务器安全构成直接威胁。",
+        "title_zh": "两个CVSS 9.0 Linux KSMBD远程执行代码漏洞在内核修复前于公共邮件列表披露",
+        "reason_en": "Unpatched High-Severity RCE Vulnerability in Linux Kernel Built-in SMB Server Poses Direct Threat to Server Security"
       },
       {
         "title": "Node.js Brotli Decoder Bug Could Allow Remote Code Execution in All Supported Versions",
         "url": "https://thehackernews.com/2026/10/nodejs-brotli-decoder-bug-could-allow.html",
         "source": "The Hacker News",
         "date": "2026-10-22",
-        "reason": "揭示了Node.js核心模块Brotli解码器的内存破坏漏洞，影响所有受支持版本。",
+        "reason": "Node.js底层Brotli解压缩代码存在导致RCE的严重缺陷，影响所有受支持版本，技术细节清晰。",
         "title_en": "Node.js Brotli Decoder Bug Could Allow Remote Code Execution in All Supported Versions",
-        "reason_zh": "揭示了Node.js核心模块Brotli解码器的内存破坏漏洞，影响所有受支持版本。",
-        "title_zh": "Node.js Brotli解码器缺陷可能导致所有受支持版本远程代码执行",
-        "reason_en": "Memory Corruption Vulnerability Revealed in Node.js Core Brotli Decoder Affects All Supported Versions"
+        "reason_zh": "Node.js底层Brotli解压缩代码存在导致RCE的严重缺陷，影响所有受支持版本，技术细节清晰。",
+        "title_zh": "Node.js Brotli解码器缺陷可能导致所有受支持版本发生远程代码执行",
+        "reason_en": "Critical Flaw in Node.js Underlying Brotli Decompression Code Leads to RCE, Affecting All Supported Versions"
       }
     ],
-    "移动安全": [],
+    "移动安全": [
+      {
+        "title": "linux/android 利用shadow内存无痕hook方法",
+        "url": "http://bbs.kanxue.com/thread-290304.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-10-22",
+        "reason": "介绍了基于ARM64架构Shadow分页机制的高级Hook技术，实现了完全透明的代码修改，适合移动端逆向分析。",
+        "title_zh": "linux/android 利用shadow内存无痕hook方法",
+        "reason_zh": "介绍了基于ARM64架构Shadow分页机制的高级Hook技术，实现了完全透明的代码修改，适合移动端逆向分析。",
+        "title_en": "Stealthy Hooking Method Using Shadow Memory in Linux/Android",
+        "reason_en": "Advanced Hooking Technology Based on ARM64 Shadow Paging Mechanism for Fully Transparent Code Modification"
+      },
+      {
+        "title": "Signal Vulnerability Lets Malicious Callers Block Hang-Ups",
+        "url": "https://www.securityweek.com/signal-vulnerability-lets-malicious-callers-block-hang-ups/",
+        "source": "SecurityWeek",
+        "date": "2026-10-22",
+        "reason": "揭示了开源通讯软件Signal底层库RingRTC中的通话控制缺陷，攻击者可阻止用户挂断，影响隐私安全。",
+        "title_en": "Signal Vulnerability Lets Malicious Callers Block Hang-Ups",
+        "reason_zh": "揭示了开源通讯软件Signal底层库RingRTC中的通话控制缺陷，攻击者可阻止用户挂断，影响隐私安全。",
+        "title_zh": "Signal漏洞使恶意呼叫者能够阻止挂断操作",
+        "reason_en": "Call Control Defect Revealed in RingRTC Library of Open Communication Software Signal"
+      },
+      {
+        "title": "[RESEARCH] SM-F956B (Z Fold 6) Bit-4: OEM-Unlock Flag Ignored by Bootloader + Bootchain Bug-Hunt & Temp-Root Status",
+        "url": "https://unsafe.sh/go-450201.html",
+        "source": "Unsafe.sh",
+        "date": "2026-10-22",
+        "reason": "详细分析了三星Galaxy Z Fold 6的Bootloader与启动链安全机制，探讨了OEM解锁标志被忽略及临时Root的技术路径。",
+        "title_en": "[RESEARCH] SM-F956B (Z Fold 6) Bit-4: OEM-Unlock Flag Ignored by Bootloader + Bootchain Bug-Hunt & Temp-Root Status",
+        "reason_zh": "详细分析了三星Galaxy Z Fold 6的Bootloader与启动链安全机制，探讨了OEM解锁标志被忽略及临时Root的技术路径。",
+        "title_zh": "[研究] SM-F956B (Z Fold 6) Bit-4：引导加载程序忽略OEM解锁标志 + Bootchain漏洞挖掘与临时Root状态",
+        "reason_en": "Detailed Analysis of Bootloader and Boot Chain Security Mechanisms in Samsung Galaxy Z Fold 6"
+      }
+    ],
     "AI安全": [
       {
-        "title": "[RESEARCH] SM-F956B (Z Fold 6) Bit-4: OEM-Unlock Flag Ignored by Bootloader + Bootchain Bug-Hunt & Temp-Root Status ",
-        "url": "https://unsafe.sh/go-450201.html ",
-        "source ": "Unsafe.sh ",
-        "description ": "",
-        "url ": "",
-        "title ": "",
-        "name ": "",
-        "title_en": "[RESEARCH] SM-F956B (Z Fold 6) Bit-4: OEM-Unlock Flag Ignored by Bootloader + Bootchain Bug-Hunt & Temp-Root Status ",
-        "title_zh": "[研究] SM-F956B (Z Fold 6) Bit-4: Bootloader忽略OEM解锁标志 + Bootchain漏洞挖掘与临时Root状态"
+        "title": "MAS-Guard：从单体智能体到多智能体 LLM 系统的统一防护栏",
+        "url": "https://paper.seebug.org/3527",
+        "source": "Seebug Paper",
+        "date": "2026-10-22",
+        "reason": "提出了面向Agentic AI系统的统一安全防护框架，解决了多智能体协作场景下的复杂安全边界问题。",
+        "title_zh": "MAS-Guard：从单体智能体到多智能体 LLM 系统的统一防护栏",
+        "reason_zh": "提出了面向Agentic AI系统的统一安全防护框架，解决了多智能体协作场景下的复杂安全边界问题。",
+        "title_en": "MAS-Guard: Unified Guardrails from Single-Agent to Multi-Agent LLM Systems",
+        "reason_en": "Unified Security Protection Framework for Agentic AI Systems Addressing Complex Security Boundaries in Multi-Agent Collaboration"
+      },
+      {
+        "title": "你的对手不是人了：Claude+Grok组队，400家金融机构被AI全自动攻破",
+        "url": "https://www.anquanke.com/post/id/316272",
+        "source": "安全客",
+        "date": "2026-10-22",
+        "reason": "记录了利用多个大模型协同进行自动化网络攻击的真实案例，展示了AI赋能下的高级持续性威胁新形态。",
+        "title_zh": "你的对手不是人了：Claude+Grok组队，400家金融机构被AI全自动攻破",
+        "reason_zh": "记录了利用多个大模型协同进行自动化网络攻击的真实案例，展示了AI赋能下的高级持续性威胁新形态。",
+        "title_en": "Your Opponent Is No Longer Human: Claude and Grok Team Up to Automate Attacks on 400 Financial Institutions",
+        "reason_en": "Real-World Case of Automated Cyber Attacks Using Collaborative Large Models, Showcasing New Forms of APTs Empowered by AI"
+      },
+      {
+        "title": "OpenCode Flaw Lets Malicious MCP Servers Execute Code During Sign-In on Windows and WSL",
+        "url": "https://thehackernews.com/2026/10/opencode-flaw-lets-malicious-mcp.html",
+        "source": "The Hacker News",
+        "date": "2026-10-22",
+        "reason": "分析了AI编程助手OpenCode中MCP协议实现的安全缺陷，恶意服务器可在登录阶段执行任意代码，风险极高。",
+        "title_en": "OpenCode Flaw Lets Malicious MCP Servers Execute Code During Sign-In on Windows and WSL",
+        "reason_zh": "分析了AI编程助手OpenCode中MCP协议实现的安全缺陷，恶意服务器可在登录阶段执行任意代码，风险极高。",
+        "title_zh": "OpenCode缺陷允许恶意MCP服务器在Windows和WSL登录期间执行代码",
+        "reason_en": "Security Flaws in MCP Protocol Implementation of AI Coding Assistant OpenCode Allow Arbitrary Code Execution by Malicious Servers"
+      },
+      {
+        "title": "Memory-injection",
+        "url": "https://kitploit.com/en/tools/github/pedrobarcha/memory-injection",
+        "source": "Unsafe.sh",
+        "date": "2026-10-23",
+        "reason": "提供了针对Claude和Gemini等大模型通过内存特性进行持久化提示注入的研究工具，揭示了新型AI对抗手段。",
+        "title_en": "Memory-injection",
+        "reason_zh": "提供了针对Claude和Gemini等大模型通过内存特性进行持久化提示注入的研究工具，揭示了新型AI对抗手段。",
+        "title_zh": "内存注入",
+        "reason_en": "Research Tool for Persistent Prompt Injection via Memory Characteristics in Large Models like Claude and Gemini"
+      },
+      {
+        "title": "Markdown Is the New Executable: Attackers Are Dropping Agent Instructions Into Your Downloads Folder From the Web",
+        "url": "https://unsafe.sh/go-450174.html",
+        "source": "Unsafe.sh",
+        "date": "2026-10-22",
+        "reason": "揭示了利用Markdown文件作为载体向本地AI代理投递恶意指令的新型攻击向量，拓展了社会工程学边界。",
+        "title_en": "Markdown Is the New Executable: Attackers Are Dropping Agent Instructions Into Your Downloads Folder From the Web",
+        "reason_zh": "揭示了利用Markdown文件作为载体向本地AI代理投递恶意指令的新型攻击向量，拓展了社会工程学边界。",
+        "title_zh": "Markdown成为新的可执行文件：攻击者正从网络向你的下载文件夹投放Agent指令",
+        "reason_en": "New Attack Vector: Delivering Malicious Instructions to Local AI Agents via Markdown Files"
       }
     ],
-    "威胁情报": [],
-    "安全工具": [],
-    "云安全": [],
-    "其他重要": [],
-    "description ": [],
-    "url ": [],
-    "title ": [],
-    "name ": []
+    "威胁情报": [
+      {
+        "title": "China-Linked Hackers Use ARTEX AI Agents in ConnectWise Supply Chain Attack",
+        "url": "https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html",
+        "source": "The Hacker News",
+        "date": "2026-10-22",
+        "reason": "微软披露中国关联APT组织Storm-0940利用AI渗透测试工具ARTEX发动大规模供应链攻击，具有重要情报价值。",
+        "title_en": "China-Linked Hackers Use ARTEX AI Agents in ConnectWise Supply Chain Attack",
+        "reason_zh": "微软披露中国关联APT组织Storm-0940利用AI渗透测试工具ARTEX发动大规模供应链攻击，具有重要情报价值。",
+        "title_zh": "与中国有关联的黑客在ConnectWise供应链攻击中使用ARTEX AI代理",
+        "reason_en": "Microsoft Discloses China-Linked APT Group Storm-0940 Launching Large-Scale Supply Chain Attacks Using AI Penetration Testing Tool ARTEX"
+      },
+      {
+        "title": "Iran’s Prince of Persia APT Hosts C&C in US for First Time Since 2016",
+        "url": "https://www.securityweek.com/irans-prince-of-persia-apt-hosts-cc-in-us-for-first-time-since-2016/",
+        "source": "SecurityWeek",
+        "date": "2026-10-23",
+        "reason": "伊朗APT组织Prince of Persia时隔十年再次在美国境内部署命令与控制服务器，标志着其战术升级。",
+        "title_en": "Iran’s Prince of Persia APT Hosts C&C in US for First Time Since 2016",
+        "reason_zh": "伊朗APT组织Prince of Persia时隔十年再次在美国境内部署命令与控制服务器，标志着其战术升级。",
+        "title_zh": "伊朗“波斯王子”APT组织自2016年以来首次在美国托管C&C服务器",
+        "reason_en": "Iranian APT Group Prince of Persia Deploys C2 Servers in the US After a Decade, Marking Tactical Upgrade"
+      },
+      {
+        "title": "MITRE ATT&CK v20更新：AI攻击、MFA绕过及工控威胁全面扩展",
+        "url": "https://www.secrss.com/articles/94945",
+        "source": "安全内参",
+        "date": "2026-10-22",
+        "reason": "发布了ATT&CK框架最新版本，新增多项针对AI攻击、MFA绕过及工业控制系统的具体检测策略与分析规则。",
+        "title_zh": "MITRE ATT&CK v20更新：AI攻击、MFA绕过及工控威胁全面扩展",
+        "reason_zh": "发布了ATT&CK框架最新版本，新增多项针对AI攻击、MFA绕过及工业控制系统的具体检测策略与分析规则。",
+        "title_en": "MITRE ATT&CK v20 Update: Comprehensive Expansion of AI Attacks, MFA Bypasses, and ICS Threats",
+        "reason_en": "Release of Latest ATT&CK Framework Version with New Detection Strategies and Analysis Rules for AI Attacks, MFA Bypasses, and Industrial Control Systems"
+      },
+      {
+        "title": "俄背景APT组织Swallowtail瞄准北约成员国展开攻击活动",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzI0MTE4ODY3Nw==&mid=2247493002&idx=1&sn=63fd52a23348d49ee82417f9afaddbaa",
+        "source": "Unsafe.sh",
+        "date": "2026-10-23",
+        "reason": "分析了俄罗斯背景APT组织Swallowtail针对北约成员国的最新网络攻击活动，地缘政治安全风险显著。",
+        "title_zh": "俄背景APT组织Swallowtail瞄准北约成员国展开攻击活动",
+        "reason_zh": "分析了俄罗斯背景APT组织Swallowtail针对北约成员国的最新网络攻击活动，地缘政治安全风险显著。",
+        "title_en": "Russia-Backed APT Group Swallowtail Targets NATO Member States in Cyber Attacks",
+        "reason_en": "Analysis of Latest Cyber Attacks by Russia-Backed APT Group Swallowtail Against NATO Members Highlights Geopolitical Security Risks"
+      },
+      {
+        "title": "INTERPOL Arrests 1,462 Suspects, Disrupts 10,909 Cybercrime Networks in Global Crackdown",
+        "url": "https://thehackernews.com/2026/10/interpol-arrests-1462-suspects-disrupts.html",
+        "source": "The Hacker News",
+        "date": "2026-10-22",
+        "reason": "国际刑警组织全球联合行动捣毁近1.1万个网络犯罪网络并追回巨额资金，反映了当前黑产生态的重大变化。",
+        "title_en": "INTERPOL Arrests 1,462 Suspects, Disrupts 10,909 Cybercrime Networks in Global Crackdown",
+        "reason_zh": "国际刑警组织全球联合行动捣毁近1.1万个网络犯罪网络并追回巨额资金，反映了当前黑产生态的重大变化。",
+        "title_zh": "国际刑警组织在全球打击行动中逮捕1,462名嫌疑人，摧毁10,909个网络犯罪网络",
+        "reason_en": "INTERPOL Global Joint Operation Dismantles Nearly 11,000 Cybercrime Networks and Recovers Massive Funds"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "ConfluenceC2",
+        "url": "https://kitploit.com/en/tools/github/dagowda/confluencec2",
+        "source": "Unsafe.sh",
+        "date": "2026-10-23",
+        "reason": "一款利用Confluence平台作为命令与控制信道的红队工具，展示了企业常用办公软件在攻防中的滥用潜力。",
+        "title_en": "ConfluenceC2",
+        "reason_zh": "一款利用Confluence平台作为命令与控制信道的红队工具，展示了企业常用办公软件在攻防中的滥用潜力。",
+        "title_zh": "ConfluenceC2",
+        "reason_en": "Red Team Tool Leveraging Confluence Platform as Command and Control Channel Demonstrates Abuse Potential of Enterprise Software"
+      },
+      {
+        "title": "mitmproxy v12.3.0",
+        "url": "https://kitploit.com/en/posts/mitmproxy-78d8425c453ccaf9",
+        "source": "Unsafe.sh",
+        "date": "2026-10-22",
+        "reason": "知名交互式SSL/TLS拦截代理工具的更新版本，支持更高效的流量分析与调试，是安全测试的基础设施。",
+        "title_en": "mitmproxy v12.3.0",
+        "reason_zh": "知名交互式SSL/TLS拦截代理工具的更新版本，支持更高效的流量分析与调试，是安全测试的基础设施。",
+        "title_zh": "mitmproxy v12.3.0",
+        "reason_en": "Updated Version of Popular Interactive SSL/TLS Interception Proxy Tool Supports More Efficient Traffic Analysis and Debugging"
+      },
+      {
+        "title": "yara-rules",
+        "url": "https://kitploit.com/en/tools/github/inquest/yara-rules",
+        "source": "Unsafe.sh",
+        "date": "2026-10-23",
+        "reason": "提供了一套YARA规则集合，有助于快速识别和分类恶意软件样本，提升威胁检测效率。",
+        "title_en": "yara-rules",
+        "reason_zh": "提供了一套YARA规则集合，有助于快速识别和分类恶意软件样本，提升威胁检测效率。",
+        "title_zh": "yara-rules",
+        "reason_en": "Comprehensive YARA Rule Set for Rapid Identification and Classification of Malware Samples to Enhance Threat Detection Efficiency"
+      },
+      {
+        "title": "SuperGhidra",
+        "url": "https://kitploit.com/en/tools/github/yuatemycat/superghidra",
+        "source": "Unsafe.sh",
+        "date": "2026-10-22",
+        "reason": "增强型Ghidra插件或工具集，旨在提升逆向工程的自动化程度与分析能力，适合高级二进制分析人员。",
+        "title_en": "SuperGhidra",
+        "reason_zh": "增强型Ghidra插件或工具集，旨在提升逆向工程的自动化程度与分析能力，适合高级二进制分析人员。",
+        "title_zh": "SuperGhidra",
+        "reason_en": "Enhanced Ghidra Plugin or Toolkit Aims to Improve Automation and Analysis Capabilities in Reverse Engineering"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "Railway Says Intruder May Have Accessed Customer Secrets, Urges Credential Rotation",
+        "url": "https://thehackernews.com/2026/10/railway-says-intruder-may-have-accessed.html",
+        "source": "The Hacker News",
+        "date": "2026-10-22",
+        "reason": "PaaS提供商Railway披露潜在的数据泄露事件，提醒开发者轮换机密信息，凸显云平台供应链安全风险。",
+        "title_en": "Railway Says Intruder May Have Accessed Customer Secrets, Urges Credential Rotation",
+        "reason_zh": "PaaS提供商Railway披露潜在的数据泄露事件，提醒开发者轮换机密信息，凸显云平台供应链安全风险。",
+        "title_zh": "Railway称入侵者可能已访问客户密钥，敦促轮换凭证",
+        "reason_en": "PaaS Provider Railway Discloses Potential Data Breach, Urging Developers to Rotate Secrets and Highlighting Cloud Supply Chain Risks"
+      },
+      {
+        "title": "LiteLLM Suspects GitHub Token Leak in AI Gateway Logs Behind Malicious Package Release",
+        "url": "https://thehackernews.com/2026/10/litellm-suspects-github-token-leak-in.html",
+        "source": "The Hacker News",
+        "date": "2026-10-22",
+        "reason": "分析了AI网关项目LiteLLM因GitHub令牌泄露导致恶意包发布的事故，揭示了CI/CD流水线中的凭证管理漏洞。",
+        "title_en": "LiteLLM Suspects GitHub Token Leak in AI Gateway Logs Behind Malicious Package Release",
+        "reason_zh": "分析了AI网关项目LiteLLM因GitHub令牌泄露导致恶意包发布的事故，揭示了CI/CD流水线中的凭证管理漏洞。",
+        "title_zh": "LiteLLM怀疑AI网关日志中的GitHub令牌泄露导致恶意软件包发布",
+        "reason_en": "Analysis of LiteLLM Incident: Malicious Package Publication Due to GitHub Token Leakage Exposes CI/CD Credential Management Vulnerabilities"
+      },
+      {
+        "title": "eMudhra to Exit Global SSL/TLS Business After 8 Intermediate CA Keys Found Easily Guessable",
+        "url": "https://thehackernews.com/2026/10/emudhra-to-exit-global-ssltls-business.html",
+        "source": "The Hacker News",
+        "date": "2026-10-22",
+        "reason": "印度证书颁发机构eMudhra因中间CA密钥可被轻易猜测而退出业务，引发了对PKI体系信任根安全的广泛担忧。",
+        "title_en": "eMudhra to Exit Global SSL/TLS Business After 8 Intermediate CA Keys Found Easily Guessable",
+        "reason_zh": "印度证书颁发机构eMudhra因中间CA密钥可被轻易猜测而退出业务，引发了对PKI体系信任根安全的广泛担忧。",
+        "title_zh": "eMudhra退出全球SSL/TLS业务，因发现8个中间CA密钥易被猜测",
+        "reason_en": "Indian CA eMudhra Exits Business Amid Concerns Over Guessable Intermediate CA Keys, Sparking Widespread Trust Root Security Worries in PKI"
+      }
+    ],
+    "其他重要": [
+      {
+        "title": "美国拟扩大对华AI投资禁令，覆盖各类AI系统开发",
+        "url": "https://www.secrss.com/articles/94977",
+        "source": "安全内参",
+        "date": "2026-10-23",
+        "reason": "报道了美国拟扩大对华AI投资限制的政策动向，反映了科技领域地缘政治博弈对行业发展的深远影响。",
+        "title_zh": "美国拟扩大对华AI投资禁令，覆盖各类AI系统开发",
+        "reason_zh": "报道了美国拟扩大对华AI投资限制的政策动向，反映了科技领域地缘政治博弈对行业发展的深远影响。",
+        "title_en": "US Plans to Expand AI Investment Ban on China, Covering All Types of AI System Development",
+        "reason_en": "Report on US Policy to Expand AI Investment Restrictions on China Reflects Profound Impact of Geopolitical Tech Rivalry on Industry Development"
+      },
+      {
+        "title": "Meta因“剑桥分析”案被判罚史上最高罚款",
+        "url": "https://www.secrss.com/articles/94958",
+        "source": "安全内参",
+        "date": "2026-10-22",
+        "reason": "Meta因数据隐私违规面临250亿美元巨额罚款，确立了数据隐私合规的高压红线，具有法律警示意义。",
+        "title_zh": "Meta因“剑桥分析”案被判罚史上最高罚款",
+        "reason_zh": "Meta因数据隐私违规面临250亿美元巨额罚款，确立了数据隐私合规的高压红线，具有法律警示意义。",
+        "title_en": "Meta Faced with Record-High Fine for 'Cambridge Analytica' Scandal",
+        "reason_en": "Meta Faces $25 Billion Penalty for Data Privacy Violations, Establishing Strict Compliance Red Lines with Legal Warning Significance"
+      },
+      {
+        "title": "Capcom 确认数据泄露影响 1,170 万个账户",
+        "url": "http://0.0.0.0:8080/post/64822",
+        "source": "Unsafe.sh",
+        "date": "2026-10-23",
+        "reason": "知名游戏厂商卡普空确认发生大规模数据泄露，涉及大量敏感个人信息，凸显娱乐行业数据安全短板。",
+        "title_zh": "Capcom 确认数据泄露影响 1,170 万个账户",
+        "reason_zh": "知名游戏厂商卡普空确认发生大规模数据泄露，涉及大量敏感个人信息，凸显娱乐行业数据安全短板。",
+        "title_en": "Capcom Confirms Data Breach Affects 11.7 Million Accounts",
+        "reason_en": "Renowned Game Developer Capcom Confirms Major Data Breach Involving Sensitive Personal Information, Highlighting Data Security Shortcomings in the Entertainment Industry"
+      }
+    ]
   },
   "summary": "AI分析完成，已筛选重要文章并分类",
   "summary_zh": "AI分析完成，已筛选重要文章并分类",

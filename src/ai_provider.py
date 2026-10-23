@@ -109,7 +109,7 @@ class AIProvider:
         max_tokens: int = 16384,
         temperature: float = 0.3,
         json_mode: bool = True,
-        frequency_penalty: float = 0.3,
+        frequency_penalty: float = 0.0,
     ) -> str:
         """
         Send prompt to AI and get response
@@ -128,6 +128,14 @@ class AIProvider:
                 single character (e.g. tab) thousands of times until
                 max_tokens terminates the run — observed on lightweight
                 models (qwen-flash etc.) during long structured JSON output.
+
+                Keep the default at 0.0: a non-zero value also penalizes the
+                legitimately-repeated structural JSON keys ("title", "url",
+                "reason", ...) in long outputs, inflating token usage and
+                truncating curation before all categories complete (regression
+                seen on qwen3.7-flash: 28 articles/7 cats -> 6/2). It is only
+                applied as a stronger nudge (0.8) on the retry path after a
+                detected degeneration, never on the first attempt.
 
         Returns:
             AI response text
@@ -292,12 +300,16 @@ class AIProvider:
 
 请开始分析并返回 JSON 结果。"""
 
-            # First attempt with default frequency_penalty (0.3). On
-            # degeneration or parse failure, retry once with a stronger
-            # penalty to break the repetition loop before giving up on
-            # the batch.
+            # First attempt with no frequency_penalty (0.0) — the same path
+            # that reliably produced full results before the repetition-loop
+            # fix. On degeneration or parse failure, retry once with a
+            # stronger penalty (0.8) to break the repetition loop before
+            # giving up on the batch. A non-zero default was reverted because
+            # it also penalizes legitimately-repeated structural JSON keys
+            # ("title", "url", "reason", ...) and truncates curation on
+            # lightweight models.
             for attempt, freq_penalty in enumerate(
-                (0.3, 0.8), start=1
+                (0.0, 0.8), start=1
             ):
                 try:
                     response_text = self.analyze(
@@ -316,7 +328,7 @@ class AIProvider:
                         logger.warning(
                             f"Batch {batch_num + 1} attempt 1 failed "
                             f"({str(e)[:120]}); retrying with higher "
-                            "frequency_penalty"
+                            "frequency_penalty to break a repetition loop"
                         )
                         continue
                     logger.error(
