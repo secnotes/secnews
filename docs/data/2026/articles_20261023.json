@@ -1,6 +1,18 @@
 {
   "web": [
     {
+      "title": "CVE-2026-6307：漏掉一次签名比较，Wasm 返回类型错乱",
+      "url": "https://xz.aliyun.com/news/92963",
+      "source": "先知社区",
+      "description": "CVE-2026-6307：漏掉一次签名比较，Wasm 返回类型错乱TurboFan 把两条返回类型不同的 JS→Wasm 调用点内联进同一个函数时，帧状态判等函数漏掉了 Wasm 签名的比较，两份帧状态被判成同一份；一次惰性反优化之后，返回值按错误的类型物化——对象地址被读成整数，整数被当成对象指针。二进制安全野指针发表于 上海原创 · 842浏览 · 2026-10-23 05:28",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "CVE-2026-6307：漏掉一次签名比较，Wasm 返回类型错乱",
+      "description_zh": "CVE-2026-6307：漏掉一次签名比较，Wasm 返回类型错乱TurboFan 把两条返回类型不同的 JS→Wasm 调用点内联进同一个函数时，帧状态判等函数漏掉了 Wasm 签名的比较，两份帧状态被判成同一份；一次惰性反优化之后，返回值按错误的类型物化——对象地址被读成整数，整数被当成对象指针。二进制安全野指针发表于 上海原创 · 842浏览 · 2026-10-23 05:28",
+      "title_en": "CVE-2026-6307: Missing Signature Comparison Causes Wasm Return Type Corruption",
+      "description_en": "When TurboFan inlines two JS-to-Wasm call sites with different return types into the same function, the frame state equality check omits a comparison of Wasm signatures, causing two distinct frame states to be treated as identical. Following an inline deoptimization, return values are materialized using incorrect types—object addresses are read as integers, and integers are interpreted as object pointers."
+    },
+    {
       "title": "MAS-Guard：从单体智能体到多智能体 LLM 系统的统一防护栏",
       "url": "https://paper.seebug.org/3527",
       "source": "Seebug Paper",
@@ -10,7 +22,19 @@
       "title_zh": "MAS-Guard：从单体智能体到多智能体 LLM 系统的统一防护栏",
       "description_zh": "智能体 AI（Agentic AI）将大语言模型（L...",
       "title_en": "MAS-Guard: A Unified Guardrail for Multi-Agent LLM Systems from Monolithic Agents",
-      "description_en": "Agentic AI leverages Large Language Models (LL..."
+      "description_en": "Agentic AI is evolving large language models (LL..."
+    },
+    {
+      "title": "ROP（Return-Oriented Programming）返回导向编程 · 游戏安全相关技术边界探索【2】",
+      "url": "http://bbs.kanxue.com/thread-293304.htm?style=1",
+      "source": "看雪论坛",
+      "description": "ROP（Return-Oriented Programming）返回导向编程 · 游戏安全相关技术边界探索【2】\r\n系列目录（共四篇）\r\n\r\nROP 是什么，原理，初步认识 ROP\r\n初步探索 — 基于ROP技术弹个MessageBox & 安全退出（本文）\r\n深入探索 — 挖掘RO ...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "ROP（Return-Oriented Programming）返回导向编程 · 游戏安全相关技术边界探索【2】",
+      "description_zh": "ROP（Return-Oriented Programming）返回导向编程 · 游戏安全相关技术边界探索【2】\r\n系列目录（共四篇）\r\n\r\nROP 是什么，原理，初步认识 ROP\r\n初步探索 — 基于ROP技术弹个MessageBox & 安全退出（本文）\r\n深入探索 — 挖掘RO ...",
+      "title_en": "ROP (Return-Oriented Programming) Exploring Technical Boundaries in Game Security [Part 2]",
+      "description_en": "Series Directory (4 parts total)\n\nWhat is ROP? Principles and Initial Understanding.\nInitial Exploration - Triggering a MessageBox via ROP and Secure Exit (This Article).\nDeep Dive - Mining RO..."
     },
     {
       "title": "linux/android 利用shadow内存无痕hook方法",
@@ -21,8 +45,8 @@
       "category": "web",
       "title_zh": "linux/android 利用shadow内存无痕hook方法",
       "description_zh": "R^X 分页：在 ARM64 上实现对进程完全透明的代码修改全新的hook内存隐藏方法传统hook方案很成熟——找到目标函数入口，把前几个字节改成一条跳转指令，跳到你的 hook 函数里。处理完之后再跳回去执行原始逻辑。这就是 inline hook，几乎所有 hook 框架的基本套路。你写好了 h ...",
-      "title_en": "Shadow Memory-Based Stealth Hooking Method for Linux/Android",
-      "description_en": "R^X Paging: Achieving Fully Transparent Code Modification on ARM64. A new method for hiding hooks in memory. Traditional hook schemes are mature—locate the target function entry point, replace the first few bytes with a jump instruction to your hook function, and jump back after processing to execute the original logic. This is inline hooking, the basic routine of almost all hook frameworks. You write h ..."
+      "title_en": "Stealth Hooking Method for Linux/Android Using Shadow Memory",
+      "description_en": "R^X Paging: Achieving Fully Transparent Code Modification on ARM64. A new method for hiding hooks in memory. Traditional hook schemes are mature—locate the target function entry point, overwrite the first few bytes with a jump instruction to your hook function. After processing, jump back to execute the original logic. This is inline hooking, the basic pattern for almost all hook frameworks. You write h..."
     },
     {
       "title": "你的对手不是人了：Claude+Grok组队，400家金融机构被AI全自动攻破",
@@ -33,7 +57,7 @@
       "category": "web",
       "title_zh": "你的对手不是人了：Claude+Grok组队，400家金融机构被AI全自动攻破",
       "description_zh": "",
-      "title_en": "Your Opponent Is No Longer Human: Claude and Grok Team Up to Auto-Compromise 400 Financial Institutions with AI",
+      "title_en": "Your Opponent Is No Longer Human: Claude and Grok Team Up to Auto-Breach 400 Financial Institutions with AI",
       "description_en": ""
     },
     {
@@ -45,8 +69,8 @@
       "category": "web",
       "title_zh": "美国拟扩大对华AI投资禁令，覆盖各类AI系统开发",
       "description_zh": "AI投资全面脱钩。",
-      "title_en": "US Plans to Expand AI Investment Ban on China, Covering All Types of AI System Development",
-      "description_en": "Comprehensive decoupling of AI investment."
+      "title_en": "US Plans to Expand AI Investment Ban on China to Cover All Types of AI System Development",
+      "description_en": "Complete decoupling of AI investments."
     },
     {
       "title": "CNCERT：关于PHP远程代码执行漏洞分析及修复建议的安全公告",
@@ -57,8 +81,8 @@
       "category": "web",
       "title_zh": "CNCERT：关于PHP远程代码执行漏洞分析及修复建议的安全公告",
       "description_zh": "未经身份验证的远程攻击者，可构造恶意HTTP请求触发内存错误，并在特定条件下实现对目标服务器的拒绝服务攻击、敏感数据窃取、远程代码执行。",
-      "title_en": "CNCERT Security Advisory: Analysis and Remediation Recommendations for PHP Remote Code Execution Vulnerability",
-      "description_en": "Unauthenticated remote attackers can construct malicious HTTP requests to trigger memory errors and, under specific conditions, achieve denial-of-service attacks against target servers, sensitive data theft, or remote code execution."
+      "title_en": "[CNCERT Advisory] Analysis and Remediation Recommendations for PHP Remote Code Execution Vulnerability",
+      "description_en": "Unauthenticated remote attackers can trigger memory errors by crafting malicious HTTP requests, potentially leading to denial-of-service attacks against target servers, sensitive data theft, or remote code execution under specific conditions."
     },
     {
       "title": "从Anthropic到HoneyRoute：大模型安全路由如何走向主动防御？",
@@ -69,8 +93,8 @@
       "category": "web",
       "title_zh": "从Anthropic到HoneyRoute：大模型安全路由如何走向主动防御？",
       "description_zh": "从内容过滤走向推理资源治理。",
-      "title_en": "From Anthropic to HoneyRoute: How Can Large Model Security Routing Move Towards Proactive Defense?",
-      "description_en": "Moving from content filtering to inference resource governance."
+      "title_en": "From Anthropic to HoneyRoute: How Large Model Security Routing Moves Towards Active Defense?",
+      "description_en": "Shifting from content filtering to inference resource governance."
     },
     {
       "title": "知名上市公司因泄露用户数据将赔偿5.3亿元",
@@ -81,8 +105,8 @@
       "category": "web",
       "title_zh": "知名上市公司因泄露用户数据将赔偿5.3亿元",
       "description_zh": "因泄露约6220万用户的个人身份和健康信息，美国知名业务外包厂商Conduent遭遇集体诉讼并于日前提出和解方案，...",
-      "title_en": "Well-Known Public Company Faces $750 Million Compensation for User Data Breach",
-      "description_en": "Due to the leakage of personal identity and health information of approximately 62.2 million users, US-based business process outsourcing vendor Conduent faced a class-action lawsuit and recently proposed a settlement plan..."
+      "title_en": "[Settlement] Well-Known Listed Company Faces $750 Million Compensation for User Data Leak",
+      "description_en": "因泄露约6220万用户的个人身份和健康信息，美国知名业务外包厂商Conduent遭遇集体诉讼并于日前提出和解方案，..."
     },
     {
       "title": "美军网络部队加速发展AI赋能进攻性网络作战能力",
@@ -93,8 +117,20 @@
       "category": "web",
       "title_zh": "美军网络部队加速发展AI赋能进攻性网络作战能力",
       "description_zh": "美军推进网络攻防能力建设与AI自主网络武器研发。",
-      "title_en": "US Military Cyber Forces Accelerate Development of AI-Empowered Offensive Cyber Operations Capabilities",
-      "description_en": "\"The US military is advancing cyber offense and defense capability construction and researching autonomous cyber weapons powered by AI.\""
+      "title_en": "US Military Cyber Command Accelerates AI-Empowered Offensive Cyber Operations",
+      "description_en": "The US military is advancing cyber offense and defense capabilities and developing autonomous AI cyber weapons."
+    },
+    {
+      "title": "补丁未至，攻击先行：PHP2Shell在野攻击全记录",
+      "url": "https://www.secrss.com/articles/94957",
+      "source": "安全内参",
+      "description": "​两个潜伏约 14 年的 PHP 内核内存安全漏洞，在协调披露前夕被泄露——补丁落地前后数小时内，攻击尝试即进入规...",
+      "date": "2026-10-22",
+      "category": "web",
+      "title_zh": "补丁未至，攻击先行：PHP2Shell在野攻击全记录",
+      "description_zh": "​两个潜伏约 14 年的 PHP 内核内存安全漏洞，在协调披露前夕被泄露——补丁落地前后数小时内，攻击尝试即进入规...",
+      "title_en": "Patches Not Yet Arrived, Attacks Strike First: Full Record of PHP2Shell Exploitation in the Wild",
+      "description_en": "Two PHP kernel memory safety vulnerabilities, dormant for approximately 14 years, were leaked just before coordinated disclosure. Within hours of patch availability, attack attempts surged..."
     },
     {
       "title": "MITRE ATT&CK v20更新：AI攻击、MFA绕过及工控威胁全面扩展",
@@ -105,8 +141,8 @@
       "category": "web",
       "title_zh": "MITRE ATT&CK v20更新：AI攻击、MFA绕过及工控威胁全面扩展",
       "description_zh": "防御人员新增 15 项检测策略，其中企业环境 6 项、工业控制系统（ICS）环境 9 项，并由 38 项分析规则提供支...",
-      "title_en": "MITRE ATT&CK v20 Update: Comprehensive Expansion of AI Attacks, MFA Bypasses, and ICS Threats",
-      "description_en": "Defenders have added 15 new detection strategies, including 6 for enterprise environments and 9 for Industrial Control Systems (ICS), supported by 38 analytical rules..."
+      "title_en": "MITRE ATT&CK v20 Update: Comprehensive Expansion Covering AI Attacks, MFA Bypasses, and ICS Threats",
+      "description_en": "Defenders have added 15 new detection strategies (6 for enterprise environments and 9 for Industrial Control Systems), supported by 38 analytical rules..."
     },
     {
       "title": "工信部通报：这些APP涉诈情况突出",
@@ -117,8 +153,8 @@
       "category": "web",
       "title_zh": "工信部通报：这些APP涉诈情况突出",
       "description_zh": "对于整改不到位、涉诈情况仍然突出的，主管部门将依法依规予以处理。",
-      "title_en": "MIIT Bulletin: Several Apps Highlighted for Prominent Fraud Activities",
-      "description_en": "For those that fail to rectify issues adequately or continue to exhibit prominent fraud-related activities, competent authorities will take handling measures in accordance with laws and regulations."
+      "title_en": "MIIT Bulletin: These Apps Exhibit Prominent Fraudulent Activities",
+      "description_en": "For apps that fail to rectify issues adequately or continue to exhibit prominent fraudulent activities, competent authorities will take legal actions in accordance with regulations."
     },
     {
       "title": "工信部漏洞平台：关于防范PHP远程代码执行超危漏洞的风险提示",
@@ -129,8 +165,8 @@
       "category": "web",
       "title_zh": "工信部漏洞平台：关于防范PHP远程代码执行超危漏洞的风险提示",
       "description_zh": "PHP存在两个远程代码执行超危漏洞，危害严重。",
-      "title_en": "MIIT Vulnerability Platform: Risk Advisory on Critical PHP Remote Code Execution Vulnerabilities",
-      "description_en": "PHP contains two critical remote code execution vulnerabilities with severe consequences."
+      "title_en": "[Risk Advisory] MIIT Vulnerability Platform: Warning on Critical PHP Remote Code Execution Vulnerabilities",
+      "description_en": "PHP contains two critical remote code execution vulnerabilities posing severe risks."
     },
     {
       "title": "《广播电视和网络视听“十五五”规划》印发",
@@ -141,8 +177,8 @@
       "category": "web",
       "title_zh": "《广播电视和网络视听“十五五”规划》印发",
       "description_zh": "把握意识形态、公共服务、技术产业三大属性，统筹广播电视网、交互式网络电视（IPTV）、互联网电视（OTT）和公众互联网四个业务层次。",
-      "title_en": "Issuance of the '15th Five-Year Plan' for Radio, Television, and Online Audio-Visual Services",
-      "description_en": "Grasping the three major attributes of ideology, public service, and technology industry, coordinating four business levels: radio/television networks, Interactive TV (IPTV), Internet TV (OTT), and public internet."
+      "title_en": "\"15th Five-Year Plan\" for Radio and Television and Online Audio-Visual Services Issued",
+      "description_en": "Focusing on ideological security, public services, and technological industries, the plan coordinates four business layers: radio/television networks, IPTV, OTT TV, and the public internet."
     },
     {
       "title": "Gartner：AI风险的上升速度快于AI价值的增长",
@@ -153,8 +189,8 @@
       "category": "web",
       "title_zh": "Gartner：AI风险的上升速度快于AI价值的增长",
       "description_zh": "Gartner分析师分享了CIO可采用的三项措施，以主动管理AI价值与风险。",
-      "title_en": "Gartner: The Rise in AI Risks Outpaces the Growth of AI Value",
-      "description_en": "Gartner analysts share three measures CIOs can adopt to proactively manage AI value and risks."
+      "title_en": "[Gartner Report] The Rise of AI Risks Outpaces the Growth of AI Value",
+      "description_en": "[Gartner analysts share three measures CIOs can adopt to proactively manage AI value versus risk.]"
     },
     {
       "title": "CNCERT：关于对PHP2Shell漏洞开展修复的风险提示",
@@ -165,8 +201,8 @@
       "category": "web",
       "title_zh": "CNCERT：关于对PHP2Shell漏洞开展修复的风险提示",
       "description_zh": "可实现对目标服务器的拒绝服务攻击、敏感数据窃取、远程代码执行。",
-      "title_en": "CNCERT: Risk Advisory on Remediation of PHP2Shell Vulnerability",
-      "description_en": "This vulnerability enables denial-of-service attacks against target servers, sensitive data theft, and remote code execution."
+      "title_en": "CNCERT：关于对PHP2Shell漏洞开展修复的风险提示",
+      "description_en": "可实现对目标服务器的拒绝服务攻击、敏感数据窃取、远程代码执行。"
     },
     {
       "title": "工信部等八部门印发《产业基础能力提升“十五五”规划》",
@@ -177,8 +213,8 @@
       "category": "web",
       "title_zh": "工信部等八部门印发《产业基础能力提升“十五五”规划》",
       "description_zh": "加快提升产业基础能力，推进产业基础高级化。",
-      "title_en": "MIIT and Eight Other Departments Issue the '15th Five-Year Plan' for Enhancing Industrial Foundation Capabilities",
-      "description_en": "Accelerate the enhancement of industrial foundation capabilities and promote the advancement of industrial foundations."
+      "title_en": "工信部等八部门印发《产业基础能力提升“十五五”规划》",
+      "description_en": "加快提升产业基础能力，推进产业基础高级化。"
     },
     {
       "title": "国家漏洞库CNNVD：关于PHP 资源管理错误漏洞的通报",
@@ -189,8 +225,8 @@
       "category": "web",
       "title_zh": "国家漏洞库CNNVD：关于PHP 资源管理错误漏洞的通报",
       "description_zh": "可通过构造恶意 HTTP 请求实现内存泄露，进而远程执行代码。",
-      "title_en": "CNNVD Notification on PHP Resource Management Error Vulnerability",
-      "description_en": "Memory leaks can be achieved by constructing malicious HTTP requests, leading to remote code execution."
+      "title_en": "国家漏洞库CNNVD：关于PHP 资源管理错误漏洞的通报",
+      "description_en": "可通过构造恶意 HTTP 请求实现内存泄露，进而远程执行代码。"
     },
     {
       "title": "关于“Weaxor”勒索病毒网络攻击活动持续活跃的预警报告",
@@ -201,8 +237,8 @@
       "category": "web",
       "title_zh": "关于“Weaxor”勒索病毒网络攻击活动持续活跃的预警报告",
       "description_zh": "我国境内发现多起我国用户遭遇“Weaxor”勒索病毒攻击事件。",
-      "title_en": "Warning Report on Continued Active Network Attacks by 'Weaxor' Ransomware",
-      "description_en": "Multiple incidents involving Chinese users being attacked by 'Weaxor' ransomware have been discovered within China."
+      "title_en": "关于“Weaxor”勒索病毒网络攻击活动持续活跃的预警报告",
+      "description_en": "我国境内发现多起我国用户遭遇“Weaxor”勒索病毒攻击事件。"
     },
     {
       "title": "Meta因“剑桥分析”案被判罚史上最高罚款",
@@ -213,8 +249,8 @@
       "category": "web",
       "title_zh": "Meta因“剑桥分析”案被判罚史上最高罚款",
       "description_zh": "须向州政府支付250亿美元（约合人民币1780亿元）民事罚款。",
-      "title_en": "Meta Ordered to Pay Record Fine in 'Cambridge Analytica' Case",
-      "description_en": "Must pay a civil fine of $25 billion (approximately RMB 178 billion) to the state government."
+      "title_en": "Meta因“剑桥分析”案被判罚史上最高罚款",
+      "description_en": "须向州政府支付250亿美元（约合人民币1780亿元）民事罚款。"
     },
     {
       "title": "OpenAI发现PHP重大安全漏洞，成为影响力最大的漏洞之一",
@@ -237,8 +273,8 @@
       "category": "web",
       "title_en": "The AI Agent Nobody Owns: Watch Expert Webinar On Your Newest Insider Threat",
       "description_en": "Right now, there is probably an AI agent running on a laptop somewhere in your network. It stores API keys and database passwords, can access your internal systems, and works without anyone watching.   Nobody reviewed its access. Nobody owns it.   If an employee had that much reach with that little oversight, you would call it an insider risk. So why do we still call the agent a productivity tool?   Most of the conversation about AI security is about what threat actors are doing with it. But the bigger threat may already be inside your organization.",
-      "title_zh": "无人认领的 AI 代理：观看专家网络研讨会，了解你最新的内部威胁",
-      "description_zh": "目前，你的网络中某台笔记本电脑上可能正运行着一个 AI 代理。它存储 API 密钥和数据库密码，可以访问你的内部系统，且无人监管。没有人审查过它的访问权限，也没有人对其负责。如果员工拥有如此广泛的权限却缺乏..."
+      "title_zh": "无人拥有的 AI 代理：关注专家网络研讨会，洞察最新内部威胁",
+      "description_zh": "目前，您的网络中某台笔记本电脑上可能正运行着一个 AI 代理。它存储 API 密钥和数据库密码，能够访问您的内部系统，且无人监管。没有人审查过它的访问权限，也没有人对其负责。如果员工拥有如此广泛的访问权限却缺乏监督..."
     },
     {
       "title": "Arista Warns of Critical VeloCloud SQL Injection Zero-Day Exploited in Attacks",
@@ -250,7 +286,7 @@
       "title_en": "Arista Warns of Critical VeloCloud SQL Injection Zero-Day Exploited in Attacks",
       "description_en": "Attackers are exploiting a zero-day SQL injection flaw in Arista's VeloCloud Orchestrator (VCO), the  central management system  for VeloCloud SD-WAN networks, the company said in an  advisory  on October 22.   The flaw lets anyone who can log in to the orchestrator, even with a read-only customer account, gain operator privileges, the top level of control over it.   For on-premises orchestrators, the fix is in VCO 5.2.3.18, 6.1.3.10, and 6.4.2.12, while Hosted and Dedicated orchestrators have already been patched.   The flaw is tracked as CVE-2026-114625  and rated 9.9 on the CVSS scale. Orchestrators running the releases that fixed the VCO flaws exploited in July and September are still affected, because those releases are older than the new fixes.   Arista bought the VeloCloud SD-WAN product line from Broadcom, announcing the deal in July 2025. The products were earlier known as VMware SD-WAN by VeloCloud.   To exploit the flaw, an attacker needs network acc...",
       "title_zh": "Arista 警告称 VeloCloud SQL 注入零日漏洞已在攻击中被利用",
-      "description_zh": "Arista 在 10 月 22 日发布的安全公告中表示，攻击者正在利用 Arista VeloCloud Orchestrator (VCO)——VeloCloud SD-WAN 网络的中央管理系统——中的一个零日 SQL 注入漏洞。该漏洞允许任何能够登录编排器的人（即使是只读客户）..."
+      "description_zh": "Arista 在 10 月 22 日的公告中表示，攻击者正在利用 Arista VeloCloud Orchestrator (VCO)——即 VeloCloud SD-WAN 网络的中央管理系统——中的零日 SQL 注入漏洞。该漏洞允许任何能够登录编排器的人（即使是只读客户）..."
     },
     {
       "title": "eMudhra to Exit Global SSL/TLS Business After 8 Intermediate CA Keys Found Easily Guessable",
@@ -261,8 +297,8 @@
       "category": "web",
       "title_en": "eMudhra to Exit Global SSL/TLS Business After 8 Intermediate CA Keys Found Easily Guessable",
       "description_en": "eMudhra , an Indian certificate authority (CA), will withdraw from its global SSL/TLS certificate business,  its board decided on Thursday . The decision came five days after a researcher  reported recovering the private keys  of eight of its intermediate CA certificates.   eMudhra said it will replace affected customers' certificates with free ones from partners, though its announcement did not name the partners or provide a date for the exit.   Six of those eight were for website (TLS) certificates. Chrome will stop trusting the eMudhra root certificate above them, emSign ECC Root CA - G3. The change is expected to reach users on the morning of October 27, Pacific time.   On October 20, Mozilla decided to stop trusting the same root in Firefox. Removing a root from a browser also cuts off legitimate certificates issued beneath it.   About 30,800 unexpired certificates chained to that root as of October 21,  by Chrome's count  of public Certificate Transparenc...",
-      "title_zh": "eMudhra 因发现中间 CA 私钥易被猜测而退出全球 SSL/TLS 业务",
-      "description_zh": "印度证书颁发机构 eMudhra 周四宣布董事会决定退出其全球 SSL/TLS 证书业务。这一决定是在一名研究人员报告恢复其中八个中间 CA 证书的私钥五天后做出的。eMudhra 表示它将重新..."
+      "title_zh": "eMudhra 因发现8个中间 CA 私钥易被猜测而退出全球 SSL/TLS 业务",
+      "description_zh": "印度证书颁发机构 eMudhra 的董事会于周四决定退出其全球 SSL/TLS 证书业务。这一决定是在一名研究人员报告恢复其八个中间 CA 证书的私钥后五天作出的。eMudhra表示将重新规划..."
     },
     {
       "title": "ThreatsDay: AI Secrets Leak, PingCAP Source Theft, Signal Hang-Up Flaw, Laravel Auth Bypass + 21 More",
@@ -273,8 +309,8 @@
       "category": "web",
       "title_en": "ThreatsDay: AI Secrets Leak, PingCAP Source Theft, Signal Hang-Up Flaw, Laravel Auth Bypass + 21 More",
       "description_en": "This week has already been rough for cybersecurity. Critical PHP  and GitLab RCE  flaws, serious Linux security bugs , compromised eMudhra certificates , a Node.js RCE flaw , a hacked LiteLLM  release, and hundreds of hijacked Tor relays . That's a lot to deal with in just a few days. And the week isn't even over yet.   But those big headlines are only half the story. Stolen passwords, exposed databases, broken login checks, and trusted tools being turned against their users are causing trouble too. Some attacks are clever. Others work because someone left a simple security gap open.   This ThreatsDay, we're digging into the stories that didn't make as much noise but still deserve attention. Some are strange, some are serious, and a few might surprise you. Here's everything else you shouldn't miss this week.     The threats change every week. Subscribe, and we’ll alert you  when each new ThreatsDay Bulletin is out.",
-      "title_zh": "ThreatsDay：AI 机密泄露、PingCAP 源代码被盗、Signal挂断缺陷、Laravel身份验证绕过等21起事件",
-      "description_zh": "本周对网络安全领域来说已经相当艰难。关键的 PHP和 GitLab远程代码执行(RCE)漏洞、严重的 Linux安全错误、受损的 eMudhra证书、Node.js RCE漏洞、被黑客入侵的 LiteLLM发布包以及数百个被劫持的 Tor中继节点。仅仅几天内就要处理这么多问题，而这周还..."
+      "title_zh": "威胁日报：AI 密钥泄露、PingCAP源代码被盗、Signal挂断缺陷、Laravel认证绕过等21起事件",
+      "description_zh": "本周对网络安全领域来说已经相当艰难。关键的 PHP和 GitLab远程代码执行(RCE)漏洞、严重的 Linux安全漏洞、受污染的 eMudhra证书、Node.js RCE漏洞、被黑客入侵的 LiteLLM发布包以及数百个被劫持的 Tor中继节点。短短几天内就要处理这么多问题，而这周才刚刚开始..."
     },
     {
       "title": "Two CVSS 9.0 Linux KSMBD RCE Flaws Disclosed on Public Mailing Lists Before Kernel Fixes",
@@ -285,8 +321,8 @@
       "category": "web",
       "title_en": "Two CVSS 9.0 Linux KSMBD RCE Flaws Disclosed on Public Mailing Lists Before Kernel Fixes",
       "description_en": "Linux servers running KSMBD, the kernel's built-in SMB server, are exposed to two publicly reported remote code execution flaws rated 9.0 by  Trend Micro's Zero Day Initiative , with no fix yet in the mainline kernel.   One of them, ZDI-CAN-33774, can be triggered before any network authentication. The other, ZDI-CAN-33549, requires the SMB Direct transport and an RDMA-capable network interface.   ZDI-CAN-33549  is an integer underflow in KSMBD's SMB Direct path. A client can supply RDMA buffer descriptors in which the first is longer than the declared payload, causing the server's size counter to wrap and allowing a subsequent memory copy to overrun the end of an allocated buffer.   It requires three things: an RDMA-capable interface (hardware or the rxe software driver), a writable KSMBD share, and a client negotiating SMB Direct.   ZDI-CAN-33774  requires no authentication, exposing any server running KSMBD on port 445. The flaw is a race in how KSMBD assign...",
-      "title_zh": "两个 CVSS评分为9.0的 Linux KSMBD RCE漏洞在内核修复前已在公共邮件列表披露",
-      "description_zh": "运行 KSMBD（内核内置 SMB服务器）的 Linux服务器面临两个公开报告的远程代码执行漏洞风险，Trend Micro Zero Day Initiative将其评级为9.0，但主线内核尚无修复补丁。其中一个漏洞 ZDI-CAN-33774可在任何网络身份验证之前触发。"
+      "title_zh": "两个 CVSS评分9.0的 Linux KSMBD RCE漏洞在内核修复前已在公共邮件列表披露",
+      "description_zh": "运行内核内置 SMB服务器 KSMBD的 Linux服务器面临两个公开报告的远程代码执行(RCE)漏洞风险，Trend Micro Zero Day Initiative将其评级为9.0，但主线内核尚无修复方案。其中一个漏洞 ZDI-CAN-33774可在任何网络身份验证之前触发..."
     },
     {
       "title": "Meta Ordered to Pay $25 Billion After Court Finds 43 Million Privacy Violations",
@@ -297,8 +333,8 @@
       "category": "web",
       "title_en": "Meta Ordered to Pay $25 Billion After Court Finds 43 Million Privacy Violations",
       "description_en": "Social media giant Meta was ordered to pay 25 billion in penalties by a New Mexico court on Wednesday as part of a data privacy lawsuit that sprang from the company's Cambridge Analytica data scandal , which came to light in 2018.   According to multiple reports from the Associated Press , the New York Times , Reuters , and the Wall Street Journal , state District Court Judge Francis J. Mathew called out Meta and Facebook for making misleading statements about the privacy of consumers in the state.   \"Facebook promised users that they (the users) controlled their data,\" Mathew wrote in his ruling. \"This was false.\"   The penalty relates to more than 43 million violations of the state's unfair practices law. The case, filed in 2021, was filed in the aftermath of revelations that Cambridge Analytica, a British political consulting firm, obtained data belonging to millions of Facebook users without their consent to build psychographic profiles.   The data was ...",
-      "title_zh": "法院认定 Meta侵犯4300万用户隐私，责令其支付250亿美元罚款",
-      "description_zh": "周三，新墨西哥州一家法院下令社交媒体巨头 Meta支付250亿美元的罚款，这是作为一起数据隐私诉讼的一部分提出的，该诉讼源于该公司在2018年曝光的剑桥分析(Cambridge Analytica)数据丑闻。根据美联社的多份报道，《纽约...》指出..."
+      "title_zh": "法院认定存在4300万次隐私违规，责令 Meta支付250亿美元罚款",
+      "description_zh": "周三，新墨西哥州一家法院下令社交媒体巨头 Meta支付250亿美元的罚款，这是作为一起数据隐私诉讼的一部分提出的，该诉讼源于该公司在2018年曝光的剑桥分析(Cambridge Analytica)数据丑闻。据多家美联社报道，《纽约时报》..."
     },
     {
       "title": "INTERPOL Arrests 1,462 Suspects, Disrupts 10,909 Cybercrime Networks in Global Crackdown",
@@ -310,7 +346,7 @@
       "title_en": "INTERPOL Arrests 1,462 Suspects, Disrupts 10,909 Cybercrime Networks in Global Crackdown",
       "description_en": "INTERPOL on Thursday announced that a coordinated law enforcement action has disrupted 10,909 malicious networks and recovered more than $105 million in illicit funds.   In tandem, the effort saw law enforcement agencies from 21 countries arrest 1,462 suspects. Codenamed Operation Serengeti III , the cybercrime crackdown took place between June 29 and August 31, 2026.   \"Authorities identified 65,929 victims targeted by cybercriminal networks, underscoring the scale and sophistication of today's digital threats,\" INTERPOL said  in a statement. \"Financial investigations linked criminal activity to losses exceeding USD 385 million.\"",
       "title_zh": "国际刑警组织在全球打击行动中逮捕1462名嫌疑人，破坏10909个网络犯罪网络",
-      "description_zh": "国际刑警组织周四宣布，一次协调一致的执法行动破坏了10909个恶意网络并追回超过1.05亿美元的非法资金。与此同时，来自21个国家的执法机构逮捕了1462名嫌疑人。此次行动代号为“塞伦盖蒂III”(Operation Serengeti III)，..."
+      "description_zh": "国际刑警组织周四宣布，一次协调一致的执法行动破坏了10909个恶意网络并追回超过1.05亿美元的非法资金。与此同时，来自21个国家的执法机构逮捕了1462名嫌疑人。代号为“塞伦盖蒂III号”(Operation Serengeti III)的行动..."
     },
     {
       "title": "Railway Says Intruder May Have Accessed Customer Secrets, Urges Credential Rotation",
@@ -321,8 +357,8 @@
       "category": "web",
       "title_en": "Railway Says Intruder May Have Accessed Customer Secrets, Urges Credential Rotation",
       "description_en": "Platform-as-a-Service (PaaS) provider Railway on Wednesday disclosed  \"anomalous activity\" related to systems that store customer environment variables.   Upon further investigation, the company found that an unauthorized third party may have gained access to encrypted environment variables, and, in some cases, obtained the decrypted contents. The impact, it said, is limited to a \"subset of users,\" although it did not disclose an exact number.   Environment variables  refer to user-defined key-value pairs that are used to store sensitive data like API keys, database credentials, or feature flags. They are configured at the operating system or container environment level instead of hard-coding the values directly into a program's source code.   Railway said the incident is likely part of a series of attacks designed to target platform companies with the ultimate goal of compromising artificial intelligence (AI) inference providers. The company also said it has n...",
-      "title_zh": "Railway Says Intruder May Have Accessed Customer Secrets, Urges Credential Rotation",
-      "description_zh": "Platform-as-a-Service (PaaS) provider Railway on Wednesday disclosed  \"anomalous activity\" related to systems that store customer environment variables.   Upon further investigation, the company found that an unauthorized third party may have gained access to encrypted environment variables, and, in some cases, obtained the decrypted contents. The impact, it said, is limited to a \"subset of users,\" although it did not disclose an exact number.   Environment variables  refer to user-defined key-value pairs that are used to store sensitive data like API keys, database credentials, or feature flags. They are configured at the operating system or container environment level instead of hard-coding the values directly into a program's source code.   Railway said the incident is likely part of a series of attacks designed to target platform companies with the ultimate goal of compromising artificial intelligence (AI) inference providers. The company also said it has n..."
+      "title_zh": "Railway称入侵者可能已访问客户密钥，敦促轮换凭证",
+      "description_zh": "平台即服务(PaaS)提供商 Railway周三披露了与存储客户环境变量系统相关的“异常活动”。经过进一步调查，该公司发现未经授权的第三方可能已获取加密环境变量的访问权限，并在..."
     },
     {
       "title": "OpenCode Flaw Lets Malicious MCP Servers Execute Code During Sign-In on Windows and WSL",
@@ -333,8 +369,8 @@
       "category": "web",
       "title_en": "OpenCode Flaw Lets Malicious MCP Servers Execute Code During Sign-In on Windows and WSL",
       "description_en": "A flaw in the OpenCode AI coding agent allowed a malicious or hijacked MCP server to run code on a developer's Windows or WSL machine when the developer signed in. OpenCode connects to MCP (Model Context Protocol) servers to add outside tools, and such code would run with the developer's own access.   Anomaly , the company behind OpenCode, fixed the flaw in  version 1.18.33  on September 28. It did not request a CVE or publish a security advisory, so vulnerability scanners will not flag the builds still at risk: 1.0.137 through 1.18.32.   During that sign-in, the server itself supplies the web address the user is sent to, an OAuth \"authorization endpoint.\" On Windows and WSL, OpenCode handed that address to a helper that opens it in a browser. The helper built a PowerShell command around the address without escaping it, so an address written to carry a PowerShell command would run that command.   The browser step runs only when a developer starts the sign-in, by ru...",
-      "title_zh": "OpenCode Flaw Lets Malicious MCP Servers Execute Code During Sign-In on Windows and WSL",
-      "description_zh": "A flaw in the OpenCode AI coding agent allowed a malicious or hijacked MCP server to run code on a developer's Windows or WSL machine when the developer signed in. OpenCode connects to MCP (Model Context Protocol) servers to add outside tools, and such code would run with the developer's own access.   Anomaly , the company behind OpenCode, fixed the flaw in  version 1.18.33  on September 28. It did not request a CVE or publish a security advisory, so vulnerability scanners will not flag the builds still at risk: 1.0.137 through 1.18.32.   During that sign-in, the server itself supplies the web address the user is sent to, an OAuth \"authorization endpoint.\" On Windows and WSL, OpenCode handed that address to a helper that opens it in a browser. The helper built a PowerShell command around the address without escaping it, so an address written to carry a PowerShell command would run that command.   The browser step runs only when a developer starts the sign-in, by ru..."
+      "title_zh": "OpenCode 缺陷致使恶意 MCP 服务器在 Windows 和 WSL 登录期间执行代码",
+      "description_zh": "OpenCode AI 编码代理存在一个缺陷，允许恶意或劫持的 MCP 服务器在开发者登录时在其 Windows 或 WSL 机器上运行代码。OpenCode 连接到 MCP（模型上下文协议）服务器以添加外部工具，此类代码将以开发者的权限运行。"
     },
     {
       "title": "LiteLLM Suspects GitHub Token Leak in AI Gateway Logs Behind Malicious Package Release",
@@ -345,8 +381,8 @@
       "category": "web",
       "title_en": "LiteLLM Suspects GitHub Token Leak in AI Gateway Logs Behind Malicious Package Release",
       "description_en": "LiteLLM on Wednesday disclosed  that threat actors compromised \"multiple independent security controls\" to push a malicious version of the Python package  containing a credential stealer and a backdoor.   On October 21, 2026, LiteLLM's release pipeline was compromised  to push 1.107.0 to the Docker Hub registry and the Python Package Index (PyPI) repository. The incident took place around 4:00 a.m. PST. The following compromised versions were published -      LiteLLM v1.107.0 (PyPI)    v1.107.0, latest, main-latest, and main-stable (Docker)    v1.107.0, latest, main-latest, and main-stable (GHCR)   Users who downloaded an unpinned version of LiteLLM between 11:39 a.m. and 1:23 p.m. UTC via pip or used the Docker image v1.107.0, latest, main-latest, or main-stable between 11:46 a.m. and 2:20 p.m. UTC are impacted.   The poisoned version incorporated  code to harvest credentials and keys, and run arbitrary code from a remote server every hour, turning it into a remote acce...",
-      "title_zh": "LiteLLM Suspects GitHub Token Leak in AI Gateway Logs Behind Malicious Package Release",
-      "description_zh": "LiteLLM on Wednesday disclosed  that threat actors compromised \"multiple independent security controls\" to push a malicious version of the Python package  containing a credential stealer and a backdoor.   On October 21, 2026, LiteLLM's release pipeline was compromised  to push 1.107.0 to the Docker Hub registry and the Python Package Index (PyPI) repository. The incident took place around 4:00 a.m. PST. The following compromised versions were published -      LiteLLM v1.107.0 (PyPI)    v1.107.0, latest, main-latest, and main-stable (Docker)    v1.107.0, latest, main-latest, and main-stable (GHCR)   Users who downloaded an unpinned version of LiteLLM between 11:39 a.m. and 1:23 p.m. UTC via pip or used the Docker image v1.107.0, latest, main-latest, or main-stable between 11:46 a.m. and 2:20 p.m. UTC are impacted.   The poisoned version incorporated  code to harvest credentials and keys, and run arbitrary code from a remote server every hour, turning it into a remote acce..."
+      "title_zh": "LiteLLM 怀疑 GitHub Token 泄露导致恶意软件包发布背后的 AI 网关日志问题",
+      "description_zh": "LiteLLM 周三披露，威胁行为者破坏了“多个独立的安全控制措施”，推送了一个包含凭证窃取器和后门的 Python 包的恶意版本。2026年10月21日，LiteLLM 的发布管道被攻破，向 Docker Hub 推送了版本 1.107.0。"
     },
     {
       "title": "Node.js Brotli Decoder Bug Could Allow Remote Code Execution in All Supported Versions",
@@ -357,8 +393,8 @@
       "category": "web",
       "title_en": "Node.js Brotli Decoder Bug Could Allow Remote Code Execution in All Supported Versions",
       "description_en": "Node.js released  security updates  on October 21 for its three supported release lines, 22.x, 24.x and 26.x, fixing 10 flaws. The most serious is a bug in the Brotli decompression code that Node.js bundles, which the project says can allow remote code execution, meaning an attacker could run code of their choosing on the affected system.   Each supported line has one fixed version:  22.23.4  and  24.22.1  on the long-term support lines, and  26.12.1  on the current line. Node.js 20.x and earlier have  reached end of life  and will not receive the fix, so they should be moved to a supported line.   The Brotli flaw is in code Node.js bundles, not in a user's own program. Node.js runs that code whenever it decompresses Brotli data, either directly through the  node:zlib  module or automatically when code calls fetch() on a response sent with Brotli compression.   An application is exposed where it decompresses Brotli data an att...",
-      "title_zh": "Node.js Brotli Decoder Bug Could Allow Remote Code Execution in All Supported Versions",
-      "description_zh": "Node.js released  security updates  on October 21 for its three supported release lines, 22.x, 24.x and 26.x, fixing 10 flaws. The most serious is a bug in the Brotli decompression code that Node.js bundles, which the project says can allow remote code execution, meaning an attacker could run code of their choosing on the affected system.   Each supported line has one fixed version:  22.23.4  and  24.22.1  on the long-term support lines, and  26.12.1  on the current line. Node.js 20.x and earlier have  reached end of life  and will not receive the fix, so they should be moved to a supported line.   The Brotli flaw is in code Node.js bundles, not in a user's own program. Node.js runs that code whenever it decompresses Brotli data, either directly through the  node:zlib  module or automatically when code calls fetch() on a response sent with Brotli compression.   An application is exposed where it decompresses Brotli data an att..."
+      "title_zh": "Node.js Brotli 解码器漏洞可能导致所有受支持版本的远程代码执行",
+      "description_zh": "Node.js于10月21日为三个受支持的发布分支（22.x、24.x和26.x）发布了安全更新，修复了10个缺陷。其中最严重的是 Node.js捆绑的Brotli解压缩代码中的错误，该项目表示该错误可导致远程代码执行，意味着攻击者可以运行代码。"
     },
     {
       "title": "New QPACK Flaws Can Crash HTTP/3 Servers, Trigger Up to 4,000-Fold Memory Amplification",
@@ -369,8 +405,8 @@
       "category": "web",
       "title_en": "New QPACK Flaws Can Crash HTTP/3 Servers, Trigger Up to 4,000-Fold Memory Amplification",
       "description_en": "A remote attacker who has not logged in can crash many HTTP/3 web servers with a single connection, security firm FoxIO  disclosed , releasing working proof-of-concept code.   By sending a small batch of compressed HTTP headers that expands in memory to a much larger set, the attacker can force the server to use thousands of times more memory than it received, enough to run a default server out of memory.   The flaws cause only denial-of-service attacks, with no evidence of data theft or code execution and no public reports of attacks in the wild. Fixes are out for quic-go, Cloudflare quiche, lsquic and Wireshark, but Bun, the h3 Rust library and aioquic were still unpatched at disclosure.   FoxIO found the same class of flaw in seven of ten HTTP/3 stacks it tested. The common cause is in QPACK, the scheme HTTP/3 uses to compress request headers so repeated fields travel as a short code instead of the full text.   A server is supposed to cap the size of the headers after it unpack...",
-      "title_zh": "New QPACK Flaws Can Crash HTTP/3 Servers, Trigger Up to 4,000-Fold Memory Amplification",
-      "description_zh": "A remote attacker who has not logged in can crash many HTTP/3 web servers with a single connection, security firm FoxIO  disclosed , releasing working proof-of-concept code.   By sending a small batch of compressed HTTP headers that expands in memory to a much larger set, the attacker can force the server to use thousands of times more memory than it received, enough to run a default server out of memory.   The flaws cause only denial-of-service attacks, with no evidence of data theft or code execution and no public reports of attacks in the wild. Fixes are out for quic-go, Cloudflare quiche, lsquic and Wireshark, but Bun, the h3 Rust library and aioquic were still unpatched at disclosure.   FoxIO found the same class of flaw in seven of ten HTTP/3 stacks it tested. The common cause is in QPACK, the scheme HTTP/3 uses to compress request headers so repeated fields travel as a short code instead of the full text.   A server is supposed to cap the size of the headers after it unpack..."
+      "title_zh": "新的 QPACK 缺陷可崩溃 HTTP/3 服务器并引发高达4000倍的内存放大效应",
+      "description_zh": "未登录的远程攻击者只需一次连接即可使许多 HTTP/3 Web服务器崩溃，安全公司 FoxIO披露并发出了有效的概念验证代码。通过发送一批压缩的HTTP头部信息，这些信息在内存中扩展为更大的一组数据，攻击者可以强制系统消耗过多内存。"
     },
     {
       "title": "Someone Tried to Exploit PHP2Shell 4 Days Before the Vulnerabilities Were Publicly Disclosed",
@@ -381,8 +417,8 @@
       "category": "web",
       "title_en": "Someone Tried to Exploit PHP2Shell 4 Days Before the Vulnerabilities Were Publicly Disclosed",
       "description_en": "Amazon's Threat Intelligence team on Wednesday said it detected an attempt to exploit the newly disclosed PHP2Shell  vulnerabilities dating back to October 17, 2026, against its MadPot  honeypot service, as the flaws come under broad exploitation in the wild following the release of the patches.   \"The exploit attempt originated from an IP address associated with a commercial anonymization network,\" CJ Moses, CISO of Amazon Integrated Security, said  in a post shared with The Hacker News.   \"While the vulnerability was under embargo, the targeting of a honeypot from an anonymized IP address suggests the activity was conducted by a threat actor, though it remains unclear how the actor acquired exploit information prior to disclosure.\"   The attempt, Amazon said, was recorded from \" 103.216.220[.]92 ,\" an IP address geolocated to Australia. An Amazon spokesperson told The Hacker News that the activity was largely a one-off probe.   The activity relates ...",
-      "title_zh": "Someone Tried to Exploit PHP2Shell 4 Days Before the Vulnerabilities Were Publicly Disclosed",
-      "description_zh": "Amazon's Threat Intelligence team on Wednesday said it detected an attempt to exploit the newly disclosed PHP2Shell  vulnerabilities dating back to October 17, 2026, against its MadPot  honeypot service, as the flaws come under broad exploitation in the wild following the release of the patches.   \"The exploit attempt originated from an IP address associated with a commercial anonymization network,\" CJ Moses, CISO of Amazon Integrated Security, said  in a post shared with The Hacker News.   \"While the vulnerability was under embargo, the targeting of a honeypot from an anonymized IP address suggests the activity was conducted by a threat actor, though it remains unclear how the actor acquired exploit information prior to disclosure.\"   The attempt, Amazon said, was recorded from \" 103.216.220[.]92 ,\" an IP address geolocated to Australia. An Amazon spokesperson told The Hacker News that the activity was largely a one-off probe.   The activity relates ..."
+      "title_zh": "有人在漏洞公开披露前4天尝试利用 PHP2Shell",
+      "description_zh": "亚马逊威胁情报团队周三表示，检测到其 MadPot蜜罐服务遭到针对新披露的 PHP2Shell漏洞的攻击尝试，这些漏洞可追溯至2026年10月17日。随着补丁发布后野外广泛利用的开始，“..."
     },
     {
       "title": "China-Linked Hackers Use ARTEX AI Agents in ConnectWise Supply Chain Attack",
@@ -393,8 +429,20 @@
       "category": "web",
       "title_en": "China-Linked Hackers Use ARTEX AI Agents in ConnectWise Supply Chain Attack",
       "description_en": "Microsoft on Wednesday disclosed that a China state-aligned actor dubbed Storm-0940  was behind the recent supply chain compromise  of the ConnectWise Cloud Backup application.   During the incident, Storm-0940 used ARTEX , a Go-based agentic AI penetration testing framework that was made closed-source in the wake of its abuse in cyber attacks targeting South Korean financial institutions, to speed up scanning and reconnaissance, password spraying, and OAuth application abuse at downstream victims.   The tech giant said the threat actor used the AI tool at \"machine speed\" to automate attacks targeting hundreds of organizations across the world spanning a broad range of sectors since September 2026. Targets include aerospace and defense, automotive, chemicals, energy, financial services, government, legal, manufacturing, media, military, semiconductor, software, technology, and think tanks and non-profits.   \"Storm-0940's use of ARTEX accelerated the speed of comprom...",
-      "title_zh": "China-Linked Hackers Use ARTEX AI Agents in ConnectWise Supply Chain Attack",
-      "description_zh": "Microsoft on Wednesday disclosed that a China state-aligned actor dubbed Storm-0940  was behind the recent supply chain compromise  of the ConnectWise Cloud Backup application.   During the incident, Storm-0940 used ARTEX , a Go-based agentic AI penetration testing framework that was made closed-source in the wake of its abuse in cyber attacks targeting South Korean financial institutions, to speed up scanning and reconnaissance, password spraying, and OAuth application abuse at downstream victims.   The tech giant said the threat actor used the AI tool at \"machine speed\" to automate attacks targeting hundreds of organizations across the world spanning a broad range of sectors since September 2026. Targets include aerospace and defense, automotive, chemicals, energy, financial services, government, legal, manufacturing, media, military, semiconductor, software, technology, and think tanks and non-profits.   \"Storm-0940's use of ARTEX accelerated the speed of comprom..."
+      "title_zh": "与中国有关联的黑客在 ConnectWise供应链攻击中使用 ARTEX AI智能体",
+      "description_zh": "微软周三披露，代号为 Storm-0940的中国国家背景行为者是近期 ConnectWise Cloud Backup应用程序供应链妥协事件的幕后黑手。在此期间，Storm-0940使用了 ARTEX——一种基于 Go语言的智能体渗透测试框架，该框架此前已转为闭源。"
+    },
+    {
+      "title": "Iran’s Prince of Persia APT Hosts C&C in US for First Time Since 2016",
+      "url": "https://www.securityweek.com/irans-prince-of-persia-apt-hosts-cc-in-us-for-first-time-since-2016/",
+      "source": "SecurityWeek",
+      "description": "After a three-month lull, Prince of Persia hid a Tornado C&C server on US shared hosting, its first US-based server since 2016.The postIran’s Prince of Persia APT Hosts C&C in US for First Time Since ...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_en": "Iran’s Prince of Persia APT Hosts C&C in US for First Time Since 2016",
+      "description_en": "After a three-month lull, Prince of Persia hid a Tornado C&C server on US shared hosting, its first US-based server since 2016.The postIran’s Prince of Persia APT Hosts C&C in US for First Time Since ...",
+      "title_zh": "Iran’s Prince of Persia APT Hosts C&C in US for First Time Since 2016",
+      "description_zh": "After a three-month lull, Prince of Persia hid a Tornado C&C server on US shared hosting, its first US-based server since 2016.The postIran’s Prince of Persia APT Hosts C&C in US for First Time Since ..."
     },
     {
       "title": "Hacker Conversations: Corey Thuen and the Evil Bit",
@@ -565,6 +613,174 @@
       "description_zh": "The United Arab Emirates says it's creating a foundation of security and safety as it transforms its public service footprint."
     },
     {
+      "title": "Vidar-Stealer-Chrome-Injection-Malicious-JS-Targeting-Google-Reddit-Sessions-Analysis",
+      "url": "https://kitploit.com/en/tools/github/kaandemir993/vidar-stealer-chrome-injection-malicious-js-targeting-google-reddit-sessions-analysis",
+      "source": "Unsafe.sh",
+      "description": "Vidar-Stealer-Chrome-Injection-Malicious-JS-Targeting-Google-Reddit-Sessions-Analysis — Reverse engi...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_en": "Vidar-Stealer-Chrome-Injection-Malicious-JS-Targeting-Google-Reddit-Sessions-Analysis",
+      "description_en": "Vidar-Stealer-Chrome-Injection-Malicious-JS-Targeting-Google-Reddit-Sessions-Analysis — Reverse engi...",
+      "title_zh": "Vidar-Stealer-Chrome-Injection-Malicious-JS-Targeting-Google-Reddit-Sessions-Analysis",
+      "description_zh": "Vidar-Stealer-Chrome-Injection-Malicious-JS-Targeting-Google-Reddit-Sessions-Analysis — Reverse engi..."
+    },
+    {
+      "title": "INTERPOL Operation Serengeti III Nets 1,462 Arrests and Recovers $105 Million in Cybercrime Crackdown",
+      "url": "https://securityaffairs.com/201500/cyber-crime/interpol-operation-serengeti-iii-nets-1462-arrests-and-recovers-105-million-in-cybercrime-crackdown.html",
+      "source": "Unsafe.sh",
+      "description": "INTERPOL Operation Serengeti III Nets 1,462 Arrests and Recovers $105 Million in Cybe...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_en": "INTERPOL Operation Serengeti III Nets 1,462 Arrests and Recovers $105 Million in Cybercrime Crackdown",
+      "description_en": "INTERPOL Operation Serengeti III Nets 1,462 Arrests and Recovers $105 Million in Cybe...",
+      "title_zh": "国际刑警组织“塞伦盖蒂III”行动：逮捕1462人，追回1.05亿美元网络犯罪赃款",
+      "description_zh": "国际刑警组织“塞伦盖蒂III”行动在打击网络犯罪方面取得重大成果，共逮捕1462名嫌疑人并追回价值1.05亿美元的资产..."
+    },
+    {
+      "title": "KeePassXC 2.8.0 释出",
+      "url": "https://www.solidot.org/story?sid=85690",
+      "source": "Unsafe.sh",
+      "description": "开源密码管理器项目 KeePassXC 释出了 v2.8.0。KeePassXC 代表 KeePass Cross-Platform Community Edition，是 KeePass...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "KeePassXC 2.8.0 释出",
+      "description_zh": "开源密码管理器项目 KeePassXC 释出了 v2.8.0。KeePassXC 代表 KeePass Cross-Platform Community Edition，是 KeePass...",
+      "title_en": "KeePassXC 2.8.0 释出",
+      "description_en": "开源密码管理器项目 KeePassXC 释出了 v2.8.0。KeePassXC 代表 KeePass Cross-Platform Community Edition，是 KeePass..."
+    },
+    {
+      "title": "技能制造技能的skill",
+      "url": "https://blog.upx8.com/skill",
+      "source": "Unsafe.sh",
+      "description": "你在 GitHub 上看到一个超级好玩的开源项目，想让 AI 帮你改改代码或者跑起来，结果发现：代码太多 AI 读不过来？配置太乱 AI 搞不定？手动复制粘贴累到手抽...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "技能制造技能的skill",
+      "description_zh": "你在 GitHub 上看到一个超级好玩的开源项目，想让 AI 帮你改改代码或者跑起来，结果发现：代码太多 AI 读不过来？配置太乱 AI 搞不定？手动复制粘贴累到手抽...",
+      "title_en": "技能制造技能的skill",
+      "description_en": "你在 GitHub 上看到一个超级好玩的开源项目，想让 AI 帮你改改代码或者跑起来，结果发现：代码太多 AI 读不过来？配置太乱 AI 搞不定？手动复制粘贴累到手抽..."
+    },
+    {
+      "title": "C盘清理神器 (Skills)",
+      "url": "https://blog.upx8.com/C-Skills",
+      "source": "Unsafe.sh",
+      "description": "给小白的省流介绍:电脑卡顿？C盘爆红？不知道怎么清理垃圾？别担心，这个 Skill 就是专门为你准备的 \"数字清洁工\"。只需一句话，它就会自动帮你把电脑打扫得干干净...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "C盘清理神器 (Skills)",
+      "description_zh": "给小白的省流介绍:电脑卡顿？C盘爆红？不知道怎么清理垃圾？别担心，这个 Skill 就是专门为你准备的 \"数字清洁工\"。只需一句话，它就会自动帮你把电脑打扫得干干净...",
+      "title_en": "C盘清理神器 (Skills)",
+      "description_en": "给小白的省流介绍:电脑卡顿？C盘爆红？不知道怎么清理垃圾？别担心，这个 Skill 就是专门为你准备的 \"数字清洁工\"。只需一句话，它就会自动帮你把电脑打扫得干干净..."
+    },
+    {
+      "title": "亚马逊AWS部署的蜜罐在PHP2Shell漏洞公布前4天就记录到攻击尝试",
+      "url": "https://www.landian.news/archives/127585.html",
+      "source": "Unsafe.sh",
+      "description": "2026年10月23日 13:00安全资讯, 科技资讯00.13K...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "亚马逊AWS部署的蜜罐在PHP2Shell漏洞公布前4天就记录到攻击尝试",
+      "description_zh": "2026年10月23日 13:00安全资讯, 科技资讯00.13K...",
+      "title_en": "亚马逊AWS部署的蜜罐在PHP2Shell漏洞公布前4天就记录到攻击尝试",
+      "description_en": "2026年10月23日 13:00安全资讯, 科技资讯00.13K..."
+    },
+    {
+      "title": "执法机构在非洲捣毁近 11,000 个网络犯罪网络",
+      "url": "http://0.0.0.0:8080/post/64824",
+      "source": "Unsafe.sh",
+      "description": "执法机构在非洲捣毁近 11,000 个网络犯罪网络",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "执法机构在非洲捣毁近 11,000 个网络犯罪网络",
+      "description_zh": "执法机构在非洲捣毁近 11,000 个网络犯罪网络",
+      "title_en": "执法机构在非洲捣毁近 11,000 个网络犯罪网络",
+      "description_en": "执法机构在非洲捣毁近 11,000 个网络犯罪网络"
+    },
+    {
+      "title": "Railway 在潜在泄露后警告开发者轮换机密",
+      "url": "http://0.0.0.0:8080/post/64823",
+      "source": "Unsafe.sh",
+      "description": "Railway 在潜在泄露后警告开发者轮换机密",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "Railway 在潜在泄露后警告开发者轮换机密",
+      "description_zh": "Railway 在潜在泄露后警告开发者轮换机密",
+      "title_en": "Railway 在潜在泄露后警告开发者轮换机密",
+      "description_en": "Railway 在潜在泄露后警告开发者轮换机密"
+    },
+    {
+      "title": "ConfluenceC2",
+      "url": "https://kitploit.com/en/tools/github/dagowda/confluencec2",
+      "source": "Unsafe.sh",
+      "description": "Kitploit is a directory of hacking, cybersecurity, and pentesting tools. Discover the latest project...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_en": "ConfluenceC2",
+      "description_en": "Kitploit is a directory of hacking, cybersecurity, and pentesting tools. Discover the latest project...",
+      "description_zh": "Kitploit 是一个黑客技术、网络安全和渗透测试工具的目录。发现最新项目...",
+      "title_zh": "ConfluenceC2"
+    },
+    {
+      "title": "PHP2Shell,milioni di siti Web a rischio e la disclosure diventa un caso",
+      "url": "https://www.securityinfo.it/2026/10/23/php2shellrischio-milioni-di-siti-web-a-rischio-e-la-disclosure-diventa-un-caso/",
+      "source": "Unsafe.sh",
+      "description": "PHP2Shell,milioni di siti Web a rischio e la disclosure diventa un caso",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_en": "PHP2Shell,milioni di siti Web a rischio e la disclosure diventa un caso",
+      "description_en": "PHP2Shell,milioni di siti Web a rischio e la disclosure diventa un caso",
+      "title_zh": "PHP2Shell：数百万网站面临风险，漏洞披露引发热议",
+      "description_zh": "PHP2Shell：数百万网站面临风险，漏洞披露引发热议"
+    },
+    {
+      "title": "Testing Hubble Network’s Bluetooth-to-Satellite Link from Budapest",
+      "url": "https://www.rtl-sdr.com/testing-hubble-networks-bluetooth-to-satellite-link-from-budapest/",
+      "source": "Unsafe.sh",
+      "description": "October 23, 2026Thank y...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_en": "Testing Hubble Network’s Bluetooth-to-Satellite Link from Budapest",
+      "description_en": "October 23, 2026Thank y...",
+      "title_zh": "从布达佩斯测试Hubble网络的蓝牙到卫星链路",
+      "description_zh": "2026年10月23日感谢您的..."
+    },
+    {
+      "title": "同一个 AI Agent，凭什么既能查张三的工资又能看李四的订单？——OAuth 令牌在 AI 时代的三个致命缺口",
+      "url": "https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;mid=2651143034&amp;idx=1&amp;sn=6cf52dd249de2583a8f7f3eeb3241cbc",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "同一个 AI Agent，凭什么既能查张三的工资又能看李四的订单？——OAuth 令牌在 AI 时代的三个致命缺口",
+      "description_zh": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "title_en": "同一个 AI Agent，凭什么既能查张三的工资又能看李四的订单？——OAuth 令牌在 AI 时代的三个致命缺口",
+      "description_en": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证..."
+    },
+    {
+      "title": "【调研启动】《医疗行业数据安全能力建设应用指南（2026版）》",
+      "url": "https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;mid=2651143034&amp;idx=2&amp;sn=41e8b1810a9ab695f39839bb309177e0",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "【调研启动】《医疗行业数据安全能力建设应用指南（2026版）》",
+      "description_zh": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "title_en": "【调研启动】《医疗行业数据安全能力建设应用指南（2026版）》",
+      "description_en": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证..."
+    },
+    {
+      "title": "任天堂Switch 2出现首个公开软件越狱 可运行自制软件/修改游戏/备份存档等",
+      "url": "https://www.landian.news/archives/127584.html",
+      "source": "Unsafe.sh",
+      "description": "2026年10月23日 12:00游戏资讯01.06K...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "任天堂Switch 2出现首个公开软件越狱 可运行自制软件/修改游戏/备份存档等",
+      "description_zh": "2026年10月23日 12:00游戏资讯01.06K...",
+      "title_en": "Nintendo Switch 2 Faces First Public Jailbreak: Homebrew, Game Mods, and Save Backups Enabled",
+      "description_en": "2026年10月23日 12:00游戏资讯01.06K..."
+    },
+    {
       "title": "PdfCraft，开源PDF工作台，支持压缩PDF功能",
       "url": "https://meta.appinn.net/t/topic/94258",
       "source": "Unsafe.sh",
@@ -573,7 +789,7 @@
       "category": "web",
       "title_zh": "PdfCraft，开源PDF工作台，支持压缩PDF功能",
       "description_zh": "t35t...",
-      "title_en": "PdfCraft，开源PDF工作台，支持压缩PDF功能",
+      "title_en": "PdfCraft: Open-Source PDF Workstation with Compression Support",
       "description_en": "t35t..."
     },
     {
@@ -585,8 +801,8 @@
       "category": "web",
       "title_en": "Mobile-Whip: A Compact Battery Powered Mini-Whip Style Active HF Antenna for Handhelds and SDRs",
       "description_en": "October 23, 2026Thank y...",
-      "title_zh": "Mobile-Whip: A Compact Battery Powered Mini-Whip Style Active HF Antenna for Handhelds and SDRs",
-      "description_zh": "October 23, 2026Thank y..."
+      "title_zh": "Mobile-Whip：一款为手持设备和SDR设计的紧凑型电池供电迷你 whip 式有源高频天线",
+      "description_zh": "2026年10月23日感谢您的..."
     },
     {
       "title": "Deep-Live-Cam v2.8",
@@ -597,8 +813,128 @@
       "category": "web",
       "title_en": "Deep-Live-Cam v2.8",
       "description_en": "Real-time face swap and video deepfake with a single click and only a single image.  Dis...",
-      "title_zh": "Deep-Live-Cam v2.8",
-      "description_zh": "Real-time face swap and video deepfake with a single click and only a single image.  Dis..."
+      "description_zh": "只需单击一次并使用单张图片即可实现实时换脸和视频深度伪造。Dis...",
+      "title_zh": "Deep-Live-Cam v2.8"
+    },
+    {
+      "title": "eMudhra 退出全球 CA 业务",
+      "url": "https://www.solidot.org/story?sid=85689",
+      "source": "Unsafe.sh",
+      "description": "在曝出惊人丑闻之后，印度公司 eMudhra  宣布退出全球 CA 业务，将专注于核心企业解决方案和信任服务而非 SSL/TLS 相关业务。它是印度唯一一个被主流浏览器信任的 Root C...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "eMudhra 退出全球 CA 业务",
+      "description_zh": "在曝出惊人丑闻之后，印度公司 eMudhra  宣布退出全球 CA 业务，将专注于核心企业解决方案和信任服务而非 SSL/TLS 相关业务。它是印度唯一一个被主流浏览器信任的 Root C...",
+      "title_en": "eMudhra Exits Global CA Business Amidst Scandal",
+      "description_en": "Following a shocking scandal, Indian company eMudhra announced its exit from the global Certificate Authority (CA) business. The company will now focus on core enterprise solutions and trust services rather than SSL/TLS-related businesses. It was the only Root C..."
+    },
+    {
+      "title": "趋势科技在公开的内核邮件列表上披露内核漏洞",
+      "url": "https://www.solidot.org/story?sid=85688",
+      "source": "Unsafe.sh",
+      "description": "趋势科技的安全团队 Zero Day Initiative 向人人可访问的内核邮件列表上递交了一系列新发现的内核漏洞。按照惯例，漏洞应该递交到不对外公开的安全邮件列表。递交的部分漏洞没有补...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "趋势科技在公开的内核邮件列表上披露内核漏洞",
+      "description_zh": "趋势科技的安全团队 Zero Day Initiative 向人人可访问的内核邮件列表上递交了一系列新发现的内核漏洞。按照惯例，漏洞应该递交到不对外公开的安全邮件列表。递交的部分漏洞没有补...",
+      "title_en": "Trend Micro Discloses Kernel Vulnerabilities on Public Mailing List",
+      "description_en": "Trend Micro's security team, Zero Day Initiative, submitted a series of newly discovered kernel vulnerabilities to an accessible public kernel mailing list. By convention, such vulnerabilities should be reported to private security mailing lists. Some of the disclosed vulnerabilities lack patches..."
+    },
+    {
+      "title": "密码管理器1Password推出AI智能体登录功能 智能体提交申请由用户批准后登录网站",
+      "url": "https://www.landian.news/archives/127583.html",
+      "source": "Unsafe.sh",
+      "description": "2026年10月23日 11:30软件资讯00.92K...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "密码管理器1Password推出AI智能体登录功能 智能体提交申请由用户批准后登录网站",
+      "description_zh": "2026年10月23日 11:30软件资讯00.92K...",
+      "title_en": "1Password Launches AI Agent Login Feature: Users Approve Agent Submissions Before Website Access",
+      "description_en": "2026年10月23日 11:30软件资讯00.92K..."
+    },
+    {
+      "title": "科学家揭示低温延缓衰老的机制",
+      "url": "https://www.solidot.org/story?sid=85687",
+      "source": "Unsafe.sh",
+      "description": "适度低温已被证明能有效延长动物寿命，延缓与衰老相关的机能衰退。但低温延缓衰老的分子机制是什么？研究人员利用秀丽隐杆线虫（Caenorhabditis elegans ）发现，低温会触发代谢...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "科学家揭示低温延缓衰老的机制",
+      "description_zh": "适度低温已被证明能有效延长动物寿命，延缓与衰老相关的机能衰退。但低温延缓衰老的分子机制是什么？研究人员利用秀丽隐杆线虫（Caenorhabditis elegans ）发现，低温会触发代谢...",
+      "title_en": "Scientists Reveal Mechanism Behind Cold Temperature Slowing Aging",
+      "description_en": "Moderate cold temperatures have been proven to effectively extend animal lifespans and delay age-related functional decline. But what is the molecular mechanism behind this? Researchers using Caenorhabditis elegans found that low temperatures trigger metabolic changes..."
+    },
+    {
+      "title": "逾半数美国人认为 AI 对社会有害",
+      "url": "https://www.solidot.org/story?sid=85686",
+      "source": "Unsafe.sh",
+      "description": "根据 ABC News/Washington Post/Ipsos 的调查，57%的美国人认为 AI 对社会有害，42%的人认为它对社会有益。仅有 2% 的人认为它对社会极其有益，17%...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "逾半数美国人认为 AI 对社会有害",
+      "description_zh": "根据 ABC News/Washington Post/Ipsos 的调查，57%的美国人认为 AI 对社会有害，42%的人认为它对社会有益。仅有 2% 的人认为它对社会极其有益，17%...",
+      "title_en": "Over Half of Americans Believe AI Harms Society",
+      "description_en": "According to an ABC News/Washington Post/Ipsos poll, 57% of Americans believe AI is harmful to society, while 42% believe it is beneficial. Only 2% consider it extremely beneficial, and 17%..."
+    },
+    {
+      "title": "研究识别出第一位企业心理病态者",
+      "url": "https://www.solidot.org/story?sid=85685",
+      "source": "Unsafe.sh",
+      "description": "一项新研究指出，有毒企业领导人身上所见的性格特征可追溯到一位 400 年前的荷兰东印度公司的企业官员。该公司的商户部经理 Jeronimus Cornelisz 可能是最早有文献记录的企业...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "研究识别出第一位企业心理病态者",
+      "description_zh": "一项新研究指出，有毒企业领导人身上所见的性格特征可追溯到一位 400 年前的荷兰东印度公司的企业官员。该公司的商户部经理 Jeronimus Cornelisz 可能是最早有文献记录的企业...",
+      "title_en": "Study Identifies First Corporate Psychopath in Historical Records",
+      "description_en": "A new study suggests that personality traits seen in toxic corporate leaders can be traced back to a Dutch East India Company official from 400 years ago. Jeronimus Cornelisz, manager of the company's merchant department, may be the earliest documented corporate psychopath..."
+    },
+    {
+      "title": "Capcom 确认数据泄露影响 1,170 万个账户",
+      "url": "http://0.0.0.0:8080/post/64822",
+      "source": "Unsafe.sh",
+      "description": "Capcom 确认数据泄露影响 1,170 万个账户",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "Capcom 确认数据泄露影响 1,170 万个账户",
+      "description_zh": "Capcom 确认数据泄露影响 1,170 万个账户",
+      "title_en": "Capcom 确认数据泄露影响 1,170 万个账户",
+      "description_en": "Capcom 确认数据泄露影响 1,170 万个账户"
+    },
+    {
+      "title": "毅力号行使距离超机遇号刷新历史记录",
+      "url": "https://www.solidot.org/story?sid=85684",
+      "source": "Unsafe.sh",
+      "description": "毅力号火星车创下新的世界纪录——它在地外天体表面的行驶里程，超过了此前所有探测器。10月11日，它的里程表读数达到28.10英里（45.22公里），超越了此前由机遇号保持的28.06英里（...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "毅力号行使距离超机遇号刷新历史记录",
+      "description_zh": "毅力号火星车创下新的世界纪录——它在地外天体表面的行驶里程，超过了此前所有探测器。10月11日，它的里程表读数达到28.10英里（45.22公里），超越了此前由机遇号保持的28.06英里（...",
+      "title_en": "毅力号行使距离超机遇号刷新历史记录",
+      "description_en": "毅力号火星车创下新的世界纪录——它在地外天体表面的行驶里程，超过了此前所有探测器。10月11日，它的里程表读数达到28.10英里（45.22公里），超越了此前由机遇号保持的28.06英里（..."
+    },
+    {
+      "title": "因加州考虑征收亿万富翁税扎克伯格有意离开",
+      "url": "https://www.solidot.org/story?sid=85683",
+      "source": "Unsafe.sh",
+      "description": "Meta 周三警告，如果加州通过亿万富翁税，公司 CEO 扎克伯格（Mark Zuckerberg）可能会离开加州迁往他处。扎克伯格已向公司特别委员会告知了这一可能性。据 Meta 在监管...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "因加州考虑征收亿万富翁税扎克伯格有意离开",
+      "description_zh": "Meta 周三警告，如果加州通过亿万富翁税，公司 CEO 扎克伯格（Mark Zuckerberg）可能会离开加州迁往他处。扎克伯格已向公司特别委员会告知了这一可能性。据 Meta 在监管...",
+      "title_en": "因加州考虑征收亿万富翁税扎克伯格有意离开",
+      "description_en": "Meta 周三警告，如果加州通过亿万富翁税，公司 CEO 扎克伯格（Mark Zuckerberg）可能会离开加州迁往他处。扎克伯格已向公司特别委员会告知了这一可能性。据 Meta 在监管..."
+    },
+    {
+      "title": "Arista 警告 VeloCloud 严重 SQL 注入零日漏洞已被利用攻击",
+      "url": "http://0.0.0.0:8080/post/64821",
+      "source": "Unsafe.sh",
+      "description": "Arista 警告 VeloCloud 严重 SQL 注入零日漏洞已被利用攻击",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "Arista 警告 VeloCloud 严重 SQL 注入零日漏洞已被利用攻击",
+      "description_zh": "Arista 警告 VeloCloud 严重 SQL 注入零日漏洞已被利用攻击",
+      "title_en": "Arista 警告 VeloCloud 严重 SQL 注入零日漏洞已被利用攻击",
+      "description_en": "Arista 警告 VeloCloud 严重 SQL 注入零日漏洞已被利用攻击"
     },
     {
       "title": "Switch 2 Jailbreak",
@@ -609,8 +945,32 @@
       "category": "web",
       "title_en": "Switch 2 Jailbreak",
       "description_en": "Switch 2 Jailbreak",
-      "title_zh": "Switch 2 越狱",
-      "description_zh": "Switch 2 Jailbreak"
+      "title_zh": "Switch 2越狱",
+      "description_zh": "Switch 2越狱"
+    },
+    {
+      "title": "破与立：设计视角下的 iPhone Duo",
+      "url": "https://sspai.com/post/116979",
+      "source": "Unsafe.sh",
+      "description": "Matrix 首页推荐Matrix 是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选 Matrix 最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "破与立：设计视角下的 iPhone Duo",
+      "description_zh": "Matrix 首页推荐Matrix 是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选 Matrix 最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者...",
+      "title_en": "破与立：设计视角下的 iPhone Duo",
+      "description_en": "Matrix 首页推荐Matrix 是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选 Matrix 最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者..."
+    },
+    {
+      "title": "日本游戏公司卡普空确认数据库泄露 涉及全球1177万条用户记录 包括各种敏感信息",
+      "url": "https://www.landian.news/archives/127582.html",
+      "source": "Unsafe.sh",
+      "description": "2026年10月23日 11:01安全资讯, 科技资讯01.04K...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "日本游戏公司卡普空确认数据库泄露 涉及全球1177万条用户记录 包括各种敏感信息",
+      "description_zh": "2026年10月23日 11:01安全资讯, 科技资讯01.04K...",
+      "title_en": "日本游戏公司卡普空确认数据库泄露 涉及全球1177万条用户记录 包括各种敏感信息",
+      "description_en": "2026年10月23日 11:01安全资讯, 科技资讯01.04K..."
     },
     {
       "title": "yara-rules",
@@ -621,8 +981,8 @@
       "category": "web",
       "title_en": "yara-rules",
       "description_en": "Kitploit is a directory of hacking, cybersecurity, and pentesting tools. Discover the latest project...",
-      "title_zh": "yara-rules",
-      "description_zh": "Kitploit 是一个黑客技术、网络安全和渗透测试工具的目录。发现最新项目..."
+      "description_zh": "Kitploit 是一个黑客技术、网络安全和渗透测试工具的目录。发现最新项目...",
+      "title_zh": "yara-rules"
     },
     {
       "title": "趋势科技不慎将多个未修复的Linux Kernel漏洞公开 疑似发邮件时出现操作失误",
@@ -657,8 +1017,8 @@
       "category": "web",
       "title_en": "New to Tor Need a Guide to the Deep and Dark Web",
       "description_en": "New to Tor Need a Guide to the Deep and Dark Web",
-      "title_zh": "新手入门 Tor：深度与暗网指南",
-      "description_zh": "New to Tor Need a Guide to the Deep and Dark Web"
+      "title_zh": "新手入门Tor：深网与暗网指南",
+      "description_zh": "新手入门Tor：深网与暗网指南"
     },
     {
       "title": "PHP远程代码执行漏洞（CVE-2026-109618/CVE-2026-109619）通告",
@@ -681,7 +1041,7 @@
       "category": "web",
       "title_zh": "前端在 AI Coding 的应用实践：把 AI 用成日常编码搭档",
       "description_zh": "阅读： 6引言：AI 是...",
-      "title_en": "前端在 AI Coding 的应用实践：把 AI 用成日常编码搭档",
+      "title_en": "Frontend AI Coding Practices: Leveraging AI as a Daily Coding Partner",
       "description_en": "阅读： 6引言：AI 是..."
     },
     {
@@ -693,8 +1053,20 @@
       "category": "web",
       "title_en": "Memory-injection",
       "description_en": "Memory-injection — Research on persistent prompt injections via memory features in Claude, Gemini, a...",
-      "title_zh": "内存注入",
-      "description_zh": "内存注入——关于通过 Claude、Gemini 等模型中的内存特性实现持久化提示词注入的研究..."
+      "title_zh": "Memory-injection（内存注入）",
+      "description_zh": "Memory-injection — 针对 Claude、Gemini 等模型中通过内存特性进行持久化提示注入的研究..."
+    },
+    {
+      "title": "俄背景APT组织Swallowtail瞄准北约成员国展开攻击活动",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI0MTE4ODY3Nw==&amp;mid=2247493002&amp;idx=1&amp;sn=63fd52a23348d49ee82417f9afaddbaa",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "俄背景APT组织Swallowtail瞄准北约成员国展开攻击活动",
+      "description_zh": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "title_en": "Russia-Linked APT Group Swallowtail Targets NATO Member States in Cyber Attacks",
+      "description_en": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证..."
     },
     {
       "title": "October: Bad Software Month",
@@ -706,7 +1078,7 @@
       "title_en": "October: Bad Software Month",
       "description_en": "October: Bad Software Month",
       "title_zh": "十月：糟糕软件月",
-      "description_zh": "October: Bad Software Month"
+      "description_zh": "十月：糟糕软件月"
     },
     {
       "title": "October: Bad Software Month",
@@ -718,7 +1090,19 @@
       "title_en": "October: Bad Software Month",
       "description_en": "October: Bad Software Month",
       "title_zh": "十月：糟糕软件月",
-      "description_zh": "October: Bad Software Month"
+      "description_zh": "十月：糟糕软件月"
+    },
+    {
+      "title": "DeepSeek 据悉完成 1000 亿元新一轮融资；特斯拉三季度利润大跌 43%；微信称已完成适配 iPhone Duo | 极客早知道",
+      "url": "https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;mid=2653115337&amp;idx=1&amp;sn=babf9df6bcdac4c459bdeb99074adc3e",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "DeepSeek 据悉完成 1000 亿元新一轮融资；特斯拉三季度利润大跌 43%；微信称已完成适配 iPhone Duo | 极客早知道",
+      "description_zh": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "title_en": "DeepSeek Raises 100 Billion RMB in New Funding; Tesla Q3 Profit Plunges 43%; WeChat Adapts to iPhone Duo | Geek Morning Brief",
+      "description_en": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证..."
     },
     {
       "title": "GitHub - 1llu50ry/mcp-gamehacking: MCP (Model Context Protocol) server for game hacking & reverse engineering. A structured knowledge base of 4,100+ skills with full source code archives, specialized agents, and workflow tools.",
@@ -729,8 +1113,20 @@
       "category": "web",
       "title_en": "GitHub - 1llu50ry/mcp-gamehacking: MCP (Model Context Protocol) server for game hacking & reverse engineering. A structured knowledge base of 4,100+ skills with full source code archives, specialized agents, and workflow tools.",
       "description_en": "GitHub - 1llu50ry/mcp-gamehacking: MCP (Model Context Protocol) server for game hacking & reverse en...",
-      "title_zh": "GitHub - 1llu50ry/mcp-gamehacking: MCP (Model Context Protocol) 游戏破解与逆向工程服务器。包含4100+技能的结构化知识库，附带完整源代码归档、专用智能体及工作流工具。",
-      "description_zh": "GitHub - 1llu50ry/mcp-gamehacking: MCP (Model Context Protocol) server for game hacking & reverse en..."
+      "title_zh": "GitHub - 1llu50ry/mcp-gamehacking: MCP (Model Context Protocol) 游戏破解与逆向工程服务器。包含4,100+技能的结构化知识库及完整源代码归档、专用智能体和工作流工具。",
+      "description_zh": "GitHub - 1llu50ry/mcp-gamehacking: MCP (Model Context Protocol) 游戏破解与逆向工程服..."
+    },
+    {
+      "title": "你的对手不是人了：Claude+Grok组队，400家金融机构被AI全自动攻破",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&amp;mid=2649790612&amp;idx=1&amp;sn=bd189312c5882e6f90847903ad4866d7",
+      "source": "Unsafe.sh",
+      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "date": "2026-10-23",
+      "category": "web",
+      "title_zh": "你的对手不是人了：Claude+Grok组队，400家金融机构被AI全自动攻破",
+      "description_zh": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
+      "title_en": "Your Opponent Is No Longer Human: Claude and Grok Team Up to Fully Automate Breaches of 400 Financial Institutions with AI",
+      "description_en": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证..."
     },
     {
       "title": "派早报：Insta360 发布 Insta360 Mic，Anthropic 推出 Claude Duet 等",
@@ -741,7 +1137,7 @@
       "category": "web",
       "title_zh": "派早报：Insta360 发布 Insta360 Mic，Anthropic 推出 Claude Duet 等",
       "description_zh": "Insta360 发布 Insta360 Mic10 月 22 日，Insta360 发布 Insta360 Mic 无线麦克风。Insta360 Mic 定位介于 Mic Pro 与 Mic Air...",
-      "title_en": "派早报：Insta360 发布 Insta360 Mic，Anthropic 推出 Claude Duet 等",
+      "title_en": "Pai Early News: Insta360 Launches Insta360 Mic, Anthropic Unveils Claude Duet, and More",
       "description_en": "Insta360 发布 Insta360 Mic10 月 22 日，Insta360 发布 Insta360 Mic 无线麦克风。Insta360 Mic 定位介于 Mic Pro 与 Mic Air..."
     },
     {
@@ -753,7 +1149,7 @@
       "category": "web",
       "title_zh": "科技爱好者周刊（第 416 期）：编程已经面目全非",
       "description_zh": "科技爱好者周刊（第 416 期）：编程已经面目全非",
-      "title_en": "科技爱好者周刊（第 416 期）：编程已经面目全非",
+      "title_en": "Tech Enthusiast Weekly (Issue 416): Programming Has Been Transformed Beyond Recognition",
       "description_en": "科技爱好者周刊（第 416 期）：编程已经面目全非"
     },
     {
@@ -765,7 +1161,7 @@
       "category": "web",
       "title_zh": "从泵站到调度，威努特四层防护筑牢城市排水工控安全防线",
       "description_zh": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
-      "title_en": "从泵站到调度，威努特四层防护筑牢城市排水工控安全防线",
+      "title_en": "From Pump Stations to Dispatching: Winut's Four-Layer Defense Fortifies Urban Drainage ICS Security",
       "description_en": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证..."
     },
     {
@@ -777,8 +1173,8 @@
       "category": "web",
       "title_en": "balcony-jailbreaking",
       "description_en": "Kitploit is a directory of hacking, cybersecurity, and pentesting tools. Discover the latest project...",
-      "title_zh": "balcony-jailbreaking",
-      "description_zh": "Kitploit is a directory of hacking, cybersecurity, and pentesting tools. Discover the latest project..."
+      "title_zh": "balcony-jailbreaking（阳台越狱）",
+      "description_zh": "Kitploit 是一个黑客技术、网络安全和渗透测试工具的目录。发现最新项目..."
     },
     {
       "title": "2026-10-22: Seven days of scans and probes and web traffic hitting my web server",
@@ -789,8 +1185,8 @@
       "category": "web",
       "title_en": "2026-10-22: Seven days of scans and probes and web traffic hitting my web server",
       "description_en": "2026-10-22: Seven days of scans and probes and web traffic hitting my web server",
-      "title_zh": "2026-10-22: Seven days of scans and probes and web traffic hitting my web server",
-      "description_zh": "2026-10-22: Seven days of scans and probes and web traffic hitting my web server"
+      "title_zh": "2026-10-22：我的Web服务器遭受为期七天的扫描、探测和网络流量攻击记录",
+      "description_zh": "2026-10-22：我的Web服务器遭受为期七天的扫描、探测和网络流量攻击记录"
     },
     {
       "title": "2026-10-16: Coruna-like iOS exploit kit traffic",
@@ -801,8 +1197,8 @@
       "category": "web",
       "title_en": "2026-10-16: Coruna-like iOS exploit kit traffic",
       "description_en": "2026-10-16: Coruna-like iOS exploit kit traffic",
-      "title_zh": "2026-10-16: Coruna-like iOS exploit kit traffic",
-      "description_zh": "2026-10-16: Coruna-like iOS exploit kit traffic"
+      "title_zh": "2026-10-16：类Coruna iOS漏洞利用包流量分析",
+      "description_zh": "2026-10-16：类Coruna iOS漏洞利用包流量分析"
     },
     {
       "title": "2026-10-09: Pcap of infection from Macfinger Clickfix activity",
@@ -813,8 +1209,8 @@
       "category": "web",
       "title_en": "2026-10-09: Pcap of infection from Macfinger Clickfix activity",
       "description_en": "2026-10-09: Pcap of infection from Macfinger Clickfix activity",
-      "title_zh": "2026-10-09: Pcap of infection from Macfinger Clickfix activity",
-      "description_zh": "2026-10-09: Pcap of infection from Macfinger Clickfix activity"
+      "title_zh": "2026-10-09：Macfinger Clickfix活动感染PCAP数据包分析",
+      "description_zh": "2026-10-09：Macfinger Clickfix活动感染PCAP数据包分析"
     },
     {
       "title": "Free CIDR/subnet calculator that shows the steps",
@@ -885,8 +1281,8 @@
       "category": "web",
       "title_en": "\"Ohhh, It Was Made by AI! I Knew It!\"... Or Do You?",
       "description_en": "Editorial Note: The article contained quite transparent AI disclosure at the end, which we decided t...",
-      "title_zh": "\"Ohhh, It Was Made by AI! I Knew It!\"... Or Do You?",
-      "description_zh": "Editorial Note: The article contained quite transparent AI disclosure at the end, which we decided t..."
+      "title_zh": "\"哦，这是AI做的！我早就知道了！\"……还是说你以为是这样？",
+      "description_zh": "编辑注：文章末尾包含了相当明显的AI披露声明，我们决定..."
     },
     {
       "title": "How Airflow Handles Dynamic Task Executions with Immutable Dynamic Regions",
@@ -897,8 +1293,8 @@
       "category": "web",
       "title_en": "How Airflow Handles Dynamic Task Executions with Immutable Dynamic Regions",
       "description_en": "Understanding Dynamic Task Executions in Apache AirflowApache Airflow is a powerful platform for or...",
-      "title_zh": "How Airflow Handles Dynamic Task Executions with Immutable Dynamic Regions",
-      "description_zh": "Understanding Dynamic Task Executions in Apache AirflowApache Airflow is a powerful platform for or..."
+      "title_zh": "Airflow如何利用不可变动态区域处理动态任务执行",
+      "description_zh": "理解Apache Airflow中的动态任务执行Apache Airflow是一个强大的编排平台..."
     },
     {
       "title": "Railway warns devs to rotate secrets after potential breach",
@@ -909,7 +1305,7 @@
       "category": "web",
       "title_en": "Railway warns devs to rotate secrets after potential breach",
       "description_en": "Railway warns devs to rotate secrets after potential breach",
-      "title_zh": "Railway warns devs to rotate secrets after potential breach",
+      "title_zh": "Railway警告开发人员在潜在泄露后轮换密钥",
       "description_zh": "Railway warns devs to rotate secrets after potential breach"
     },
     {
@@ -921,8 +1317,8 @@
       "category": "web",
       "title_en": "Toronto crime tips org freezes operations after details of data breach come to light",
       "description_en": "A Toronto crime prevention program that long promised witnesses a safe space to anonymously report...",
-      "title_zh": "Toronto crime tips org freezes operations after details of data breach come to light",
-      "description_zh": "A Toronto crime prevention program that long promised witnesses a safe space to anonymously report..."
+      "title_zh": "多伦多犯罪举报组织在数据泄露细节曝光后冻结运营",
+      "description_zh": "一个长期承诺为目击者提供匿名安全举报空间的多伦多犯罪预防项目..."
     },
     {
       "title": "PHP2Hell - Joshua Wright - PSW #949",
@@ -934,7 +1330,7 @@
       "title_en": "PHP2Hell - Joshua Wright - PSW #949",
       "description_en": "Oct 22, 2026Special guest Joshua Wright joins us for a timelyincident-response discussion!Then, in...",
       "title_zh": "PHP2Hell - Joshua Wright - PSW #949",
-      "description_zh": "Oct 22, 2026Special guest Joshua Wright joins us for a timelyincident-response discussion!Then, in..."
+      "description_zh": "2026年10月22日特邀嘉宾Joshua Wright加入我们要进行一场及时的应急响应讨论！随后，在..."
     },
     {
       "title": "Will That Sofa Fit? Validate Your Furniture Layout With JavaScript Rectangles",
@@ -945,8 +1341,8 @@
       "category": "web",
       "title_en": "Will That Sofa Fit? Validate Your Furniture Layout With JavaScript Rectangles",
       "description_en": "A room sketch can answer a small programming question: do two furniture footprints overlap, and does...",
-      "title_zh": "Will That Sofa Fit? Validate Your Furniture Layout With JavaScript Rectangles",
-      "description_zh": "A room sketch can answer a small programming question: do two furniture footprints overlap, and does..."
+      "title_zh": "那张沙发放得下吗？用JavaScript矩形验证家具布局",
+      "description_zh": "房间草图可以回答一个小的编程问题：两个家具的占地面积是否重叠，以及..."
     },
     {
       "title": "Microsoft Links ConnectWise Breach to China-Linked Group Using AI Pentesting Tool ARTEX",
@@ -957,7 +1353,7 @@
       "category": "web",
       "title_en": "Microsoft Links ConnectWise Breach to China-Linked Group Using AI Pentesting Tool ARTEX",
       "description_en": "Microsoft Links ConnectWise Breach to China-Linked Group Using AI Pentesting Tool ART...",
-      "title_zh": "Microsoft Links ConnectWise Breach to China-Linked Group Using AI Pentesting Tool ARTEX",
+      "title_zh": "微软将ConnectWise泄露事件归咎于使用ARTEX AI渗透测试工具的中国关联组织",
       "description_zh": "Microsoft Links ConnectWise Breach to China-Linked Group Using AI Pentesting Tool ART..."
     },
     {
@@ -981,7 +1377,7 @@
       "category": "web",
       "title_en": "Preparing for 2027: Five Trends Shaping Enterprise Threat Intelligence",
       "description_en": "Cyber Threat IntelligencePreparin...",
-      "title_zh": "Preparing for 2027: Five Trends Shaping Enterprise Threat Intelligence",
+      "title_zh": "备战2027：塑造企业威胁情报的五大趋势",
       "description_zh": "Cyber Threat IntelligencePreparin..."
     },
     {
@@ -993,7 +1389,7 @@
       "category": "web",
       "title_en": "Capcom confirms data breach affecting 11.7 million accounts",
       "description_en": "Capcom confirms data breach affecting 11.7 million accounts",
-      "title_zh": "Capcom confirms data breach affecting 11.7 million accounts",
+      "title_zh": "Capcom确认发生数据泄露，影响1170万账户",
       "description_zh": "Capcom confirms data breach affecting 11.7 million accounts"
     },
     {
@@ -1005,7 +1401,7 @@
       "category": "web",
       "title_en": "CVE-2026-76268 | Splunk Enterprise Patroni REST API Missing Authentication Vulnerability",
       "description_en": "Splunk Enterprise Patroni REST API Missing Authentication VulnerabilityCVE-2026-76268 is a...",
-      "title_zh": "CVE-2026-76268 | Splunk Enterprise Patroni REST API Missing Authentication Vulnerability",
+      "title_zh": "CVE-2026-76268 | Splunk Enterprise Patroni REST API 缺少身份验证漏洞",
       "description_zh": "Splunk Enterprise Patroni REST API Missing Authentication VulnerabilityCVE-2026-76268 is a..."
     },
     {
@@ -1017,7 +1413,7 @@
       "category": "web",
       "title_en": "[RESEARCH] SM-F956B (Z Fold 6) Bit-4: OEM-Unlock Flag Ignored by Bootloader + Bootchain Bug-Hunt & Temp-Root Status",
       "description_en": "[RESEARCH] SM-F956B (Z Fold 6) Bit-4: OEM-Unlock Flag Ignored by Bootloader + Bootchain Bug-Hunt & T...",
-      "title_zh": "[RESEARCH] SM-F956B (Z Fold 6) Bit-4: OEM-Unlock Flag Ignored by Bootloader + Bootchain Bug-Hunt & Temp-Root Status",
+      "title_zh": "[研究] SM-F956B (Z Fold 6) Bit-4：引导加载程序忽略OEM解锁标志 + Bootchain漏洞挖掘与临时Root状态",
       "description_zh": "[RESEARCH] SM-F956B (Z Fold 6) Bit-4: OEM-Unlock Flag Ignored by Bootloader + Bootchain Bug-Hunt & T..."
     },
     {
@@ -1029,7 +1425,7 @@
       "category": "web",
       "title_en": "500 Blog Posts To Learn About Hackernoon Top Story",
       "description_en": "Let's learn about Hackernoon Top Story via these 500 free blog posts. They are ordered by HackerNoon...",
-      "title_zh": "500 Blog Posts To Learn About Hackernoon Top Story",
+      "title_zh": "通过500篇博文了解Hackernoon热门故事",
       "description_zh": "Let's learn about Hackernoon Top Story via these 500 free blog posts. They are ordered by HackerNoon..."
     },
     {
@@ -1041,7 +1437,7 @@
       "category": "web",
       "title_en": "A stranger disassembled my mouse’s official app, fixed my checksum, and by accident gave me the idea for USB cable support",
       "description_en": "A stranger disassembled my mouse’s official app, fixed my checksum, and by accident gave me the idea...",
-      "title_zh": "A stranger disassembled my mouse’s official app, fixed my checksum, and by accident gave me the idea for USB cable support",
+      "title_zh": "陌生人反编译了我的鼠标官方应用，修复了校验和，并意外给了我USB线缆支持的想法",
       "description_zh": "A stranger disassembled my mouse’s official app, fixed my checksum, and by accident gave me the idea..."
     },
     {
@@ -1054,7 +1450,7 @@
       "title_en": "The Trap Of Endless Upskilling",
       "description_en": "How To Choose What Actually Matters For Your CareerToday’s professional world sits at a strange and...",
       "title_zh": "无尽技能提升的陷阱",
-      "description_zh": "如何为职业生涯选择真正重要的内容。当今的专业世界处于一种奇怪且..."
+      "description_zh": "How To Choose What Actually Matters For Your CareerToday’s professional world sits at a strange and..."
     },
     {
       "title": "Hello everyone,It's Aditya from India. I am working on a project where I use machine code to make my own ultra photorealistic graphics game engine while using math.So if anyone is interested to talk about this, I would like to discuss with you",
@@ -1065,8 +1461,8 @@
       "category": "web",
       "title_en": "Hello everyone,It's Aditya from India. I am working on a project where I use machine code to make my own ultra photorealistic graphics game engine while using math.So if anyone is interested to talk about this, I would like to discuss with you",
       "description_en": "Hello everyone,It's Aditya from India. I am working on a project where I use machine code to make my...",
-      "title_zh": "大家好，我是来自印度的 Aditya。我正在开发一个项目，使用机器码和数学构建超写实图形游戏引擎。如果有人对此感兴趣，我想与您讨论",
-      "description_zh": "大家好，我是来自印度的 Aditya。我正在开发一个项目，使用机器码构建我的..."
+      "title_zh": "Hello everyone,It's Aditya from India. I am working on a project where I use machine code to make my own ultra photorealistic graphics game engine while using math.So if anyone is interested to talk about this, I would like to discuss with you",
+      "description_zh": "Hello everyone,It's Aditya from India. I am working on a project where I use machine code to make my..."
     },
     {
       "title": "LiteLLM release pipeline hacked to distribute info-stealer malware",
@@ -1077,8 +1473,8 @@
       "category": "web",
       "title_en": "LiteLLM release pipeline hacked to distribute info-stealer malware",
       "description_en": "LiteLLM release pipeline hacked to distribute info-stealer malware",
-      "title_zh": "LiteLLM 发布管道遭黑客攻击以分发信息窃取恶意软件",
-      "description_zh": "LiteLLM 发布管道遭黑客攻击以分发信息窃取恶意软件"
+      "title_zh": "LiteLLM release pipeline hacked to distribute info-stealer malware",
+      "description_zh": "LiteLLM release pipeline hacked to distribute info-stealer malware"
     },
     {
       "title": "Travala Introduces AVA Buyback Multiplier, Scaling Buybacks Up to 4x Member Rewards",
@@ -1089,8 +1485,8 @@
       "category": "web",
       "title_en": "Travala Introduces AVA Buyback Multiplier, Scaling Buybacks Up to 4x Member Rewards",
       "description_en": "Singapore, Singapore, October 22nd, 2026/Chainwire/--Travala, the Binance-backed crypto travel booki...",
-      "title_zh": "Travala 推出 AVA 回购乘数机制，将回购额度提升至会员奖励的4倍",
-      "description_zh": "新加坡，2026年10月22日/Chainwire/--由币安支持的加密旅行预订平台 Travala..."
+      "title_zh": "Travala Introduces AVA Buyback Multiplier, Scaling Buybacks Up to 4x Member Rewards",
+      "description_zh": "Singapore, Singapore, October 22nd, 2026/Chainwire/--Travala, the Binance-backed crypto travel booki..."
     },
     {
       "title": "Indian tech company eMudhra announces withdrawal from certificate business after security incident",
@@ -1101,8 +1497,8 @@
       "category": "web",
       "title_en": "Indian tech company eMudhra announces withdrawal from certificate business after security incident",
       "description_en": "One of the only Indian root certificate authorities trusted by major web browsers said it is withdr...",
-      "title_zh": "印度科技公司 eMudhra 在发生安全事件后宣布退出证书业务",
-      "description_zh": "一家仅存的被主流网页浏览器信任的印度根证书颁发机构表示，它正在撤出..."
+      "title_zh": "Indian tech company eMudhra announces withdrawal from certificate business after security incident",
+      "description_zh": "One of the only Indian root certificate authorities trusted by major web browsers said it is withdr..."
     },
     {
       "title": "PHP2Shell Exposure Depends on More Than Whether You Use PHP",
@@ -1113,8 +1509,8 @@
       "category": "web",
       "title_en": "PHP2Shell Exposure Depends on More Than Whether You Use PHP",
       "description_en": "Disclaimer: This article is not a primer on how the CVEs (CVE-2026-109618/CVE-2026-109619) work. Fo...",
-      "title_zh": "PHP2Shell漏洞的影响不仅取决于你是否使用 PHP",
-      "description_zh": "免责声明：本文并非关于 CVE（CVE-2026-109618/CVE-2026-109619）工作原理的入门指南。对于..."
+      "title_zh": "PHP2Shell Exposure Depends on More Than Whether You Use PHP",
+      "description_zh": "Disclaimer: This article is not a primer on how the CVEs (CVE-2026-109618/CVE-2026-109619) work. Fo..."
     },
     {
       "title": "Unvetted AI agents are accessing U.S. bank accounts",
@@ -1125,8 +1521,8 @@
       "category": "web",
       "title_en": "Unvetted AI agents are accessing U.S. bank accounts",
       "description_en": "Unvetted AI agents are accessing U.S. bank accounts",
-      "title_zh": "未经审核的 AI Agent正在访问美国银行账户",
-      "description_zh": "未经审核的 AI Agent正在访问美国银行账户"
+      "title_zh": "Unvetted AI agents are accessing U.S. bank accounts",
+      "description_zh": "Unvetted AI agents are accessing U.S. bank accounts"
     },
     {
       "title": "Gcore Makes Enterprise Security Bundle Free for Public Agencies Until End of the Year",
@@ -1137,8 +1533,8 @@
       "category": "web",
       "title_en": "Gcore Makes Enterprise Security Bundle Free for Public Agencies Until End of the Year",
       "description_en": "Contern, Luxembourg, October 22nd, 2026/CyberNewswire/--Gcore is offering its WAAP Enterprise plan f...",
-      "title_zh": "[注: Gcore] Gcore向公共机构免费开放企业安全套件至年底",
-      "description_zh": "康特恩，卢森堡，2026年10月22日/CyberNewswire/--Gcore正为其WAAP企业计划提供..."
+      "title_zh": "Gcore Makes Enterprise Security Bundle Free for Public Agencies Until End of the Year",
+      "description_zh": "Contern, Luxembourg, October 22nd, 2026/CyberNewswire/--Gcore is offering its WAAP Enterprise plan f..."
     },
     {
       "title": "mitmproxy v12.3.0",
@@ -1161,8 +1557,8 @@
       "category": "web",
       "title_en": "Chain of Custody: Teaching an AI Detection Engineer to Prove Its Work",
       "description_en": "Detection engineering has a credibility problem: a rule that compiles a...",
-      "title_zh": "证据链：训练AI检测工程师证明其工作成果",
-      "description_zh": "检测工程面临可信度问题：一条规则编译通过..."
+      "title_zh": "Chain of Custody: Teaching an AI Detection Engineer to Prove Its Work",
+      "description_zh": "Detection engineering has a credibility problem: a rule that compiles a..."
     },
     {
       "title": "Building End-to-End Cypress Tests Across Browser, API, and Worker Boundaries",
@@ -1173,8 +1569,8 @@
       "category": "web",
       "title_en": "Building End-to-End Cypress Tests Across Browser, API, and Worker Boundaries",
       "description_en": "A React support console displays Refund approved. The Cypress test sees the banner and passes.The cu...",
-      "title_zh": "构建跨越浏览器、API和Worker边端的端到端Cypress测试",
-      "description_zh": "React支持控制台显示退款已批准。Cypress测试看到横幅并通过。用户..."
+      "title_zh": "Building End-to-End Cypress Tests Across Browser, API, and Worker Boundaries",
+      "description_zh": "A React support console displays Refund approved. The Cypress test sees the banner and passes.The cu..."
     },
     {
       "title": "Signal Vulnerability Could Keep Calls Alive After Users Hang Up",
@@ -1185,7 +1581,7 @@
       "category": "web",
       "title_en": "Signal Vulnerability Could Keep Calls Alive After Users Hang Up",
       "description_en": "Signal Vulnerability Could Keep Calls Alive After Users Hang Up...",
-      "title_zh": "Signal漏洞可能导致用户在挂断后通话仍保持活跃",
+      "title_zh": "Signal Vulnerability Could Keep Calls Alive After Users Hang Up",
       "description_zh": "Signal Vulnerability Could Keep Calls Alive After Users Hang Up..."
     },
     {
@@ -1197,7 +1593,7 @@
       "category": "web",
       "title_en": "I had plans for that second",
       "description_en": "Thursday, October 22,...",
-      "title_zh": "我原本计划了那一秒",
+      "title_zh": "I had plans for that second",
       "description_zh": "Thursday, October 22,..."
     },
     {
@@ -1209,7 +1605,7 @@
       "category": "web",
       "title_en": "Exclusive: FoxIO researcher says Bun never answered its May report of a server-crashing HTTP/3 flaw",
       "description_en": "Exclusive: FoxIO researcher says Bun never answered its May report of a server-crashing HTTP/3 flaw",
-      "title_zh": "[独家] FoxIO研究员称Bun从未回应其5月报告的导致服务器崩溃的HTTP/3缺陷",
+      "title_zh": "Exclusive: FoxIO researcher says Bun never answered its May report of a server-crashing HTTP/3 flaw",
       "description_zh": "Exclusive: FoxIO researcher says Bun never answered its May report of a server-crashing HTTP/3 flaw"
     },
     {
@@ -1245,7 +1641,7 @@
       "category": "web",
       "title_en": "EMudhra Intermediate CA Certificates Compromised",
       "description_en": "Executive SummaryEight intermediate certificate authority (CA) private keys belong...",
-      "title_zh": "EMudhra中间CA证书遭泄露",
+      "title_zh": "EMudhra Intermediate CA Certificates Compromised",
       "description_zh": "Executive SummaryEight intermediate certificate authority (CA) private keys belong..."
     },
     {
@@ -1257,7 +1653,7 @@
       "category": "web",
       "title_en": "The Current Landscape of OAuth Attacks",
       "description_en": "As enterprises continue to roll out multi-factor authentication (MFA), attackers ha...",
-      "title_zh": "OAuth攻击现状",
+      "title_zh": "The Current Landscape of OAuth Attacks",
       "description_zh": "As enterprises continue to roll out multi-factor authentication (MFA), attackers ha..."
     },
     {
@@ -1269,7 +1665,7 @@
       "category": "web",
       "title_en": "Facebook’s misleading privacy claims land Meta a $25 billion penalty",
       "description_en": "Facebook’s Cambridge Analytica scandal may feel like very old news. But the consequences are s...",
-      "title_zh": "Facebook误导性隐私声明致Meta被罚250亿美元",
+      "title_zh": "Facebook’s misleading privacy claims land Meta a $25 billion penalty",
       "description_zh": "Facebook’s Cambridge Analytica scandal may feel like very old news. But the consequences are s..."
     },
     {
@@ -1281,7 +1677,7 @@
       "category": "web",
       "title_en": "how do patients notice when PTs push unnecessary visits",
       "description_en": "how do patients notice when PTs push unnecessary visits",
-      "title_zh": "患者如何察觉物理治疗师推销不必要的就诊次数",
+      "title_zh": "how do patients notice when PTs push unnecessary visits",
       "description_zh": "how do patients notice when PTs push unnecessary visits"
     },
     {
@@ -1293,7 +1689,7 @@
       "category": "web",
       "title_en": "CVE-2026-94300: Concurrent GSS-TSIG messages corrupt memory",
       "description_en": "CVE-2026-94300: Concurrent GSS-TSIG messages corrupt memory",
-      "title_zh": "CVE-2026-94300:并发GSS-TSIG消息导致内存损坏",
+      "title_zh": "CVE-2026-94300: Concurrent GSS-TSIG messages corrupt memory",
       "description_zh": "CVE-2026-94300: Concurrent GSS-TSIG messages corrupt memory"
     },
     {
@@ -1305,7 +1701,7 @@
       "category": "web",
       "title_en": "AgentCorruption: AWS Tightened AgentCore's Default Role, Not Yours",
       "description_en": "AgentCorruption: AWS Tightened AgentCore's Default Role, Not Yours",
-      "title_zh": "AgentCorruption：AWS收紧了AgentCore的默认角色，而非你的角色",
+      "title_zh": "AgentCorruption: AWS Tightened AgentCore's Default Role, Not Yours",
       "description_zh": "AgentCorruption: AWS Tightened AgentCore's Default Role, Not Yours"
     },
     {
@@ -1317,7 +1713,7 @@
       "category": "web",
       "title_en": "Microsoft blames ConnectWise attacks on Chinese state hacker using ARTEX AI agents",
       "description_en": "A Chinese government-aligned hacking group used automated tools to carry out the recent supply chai...",
-      "title_zh": "微软将ConnectWise攻击归咎于使用ARTEX AI代理的中国国家黑客组织",
+      "title_zh": "Microsoft blames ConnectWise attacks on Chinese state hacker using ARTEX AI agents",
       "description_zh": "A Chinese government-aligned hacking group used automated tools to carry out the recent supply chai..."
     },
     {
@@ -1330,7 +1726,7 @@
       "title_en": "AI-security-literacy",
       "description_en": "AI-security-literacy — Reproducible Colab pipeline that grounds six AI Security Literacy competency...",
       "title_zh": "AI安全素养",
-      "description_zh": "AI-security-literacy — Reproducible Colab pipeline that grounds six AI Security Literacy competency..."
+      "description_zh": "AI安全素养——可复现的Colab流水线，旨在奠定六项AI安全素养能力的基础..."
     },
     {
       "title": "Markdown Is the New Executable: Attackers Are Dropping Agent Instructions Into Your Downloads Folder From the Web",
@@ -1341,320 +1737,8 @@
       "category": "web",
       "title_en": "Markdown Is the New Executable: Attackers Are Dropping Agent Instructions Into Your Downloads Folder From the Web",
       "description_en": "Markdown Is the New Executable: Attackers Are Dropping Agent Instructions Into Your Downloads Folder...",
-      "title_zh": "Markdown成为新的可执行文件：攻击者正从网络向你的下载文件夹投放Agent指令",
-      "description_zh": "Markdown Is the New Executable: Attackers Are Dropping Agent Instructions Into Your Downloads Folder..."
-    },
-    {
-      "title": "NDR e Network Traffic Analysis per la difesa di rete",
-      "url": "https://www.cybersecurity360.it/soluzioni-aziendali/ndr-e-network-traffic-analysis-per-la-difesa-di-rete/",
-      "source": "Unsafe.sh",
-      "description": "Le reti aziendali non hanno più un perimetro netto. Cloud ibrido, lavoro da remoto, dispositivi IoT...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "NDR e Network Traffic Analysis per la difesa di rete",
-      "description_en": "Le reti aziendali non hanno più un perimetro netto. Cloud ibrido, lavoro da remoto, dispositivi IoT...",
-      "title_zh": "NDR与网络流量分析以进行网络防御",
-      "description_zh": "Le reti aziendali non hanno più un perimetro netto. Cloud ibrido, lavoro da remoto, dispositivi IoT..."
-    },
-    {
-      "title": "NSA Says Patch PHP or Go Offline as AI-Found PHP2Shell Flaws Reach ~70% of the Web",
-      "url": "https://hackernoon.com/nsa-says-patch-or-go-offline-as-ai-found-php2shell-flaws-reach-70percent-of-the-web?source=rss",
-      "source": "Unsafe.sh",
-      "description": "How much of the web PHP2Shell touchesPHP2Shell reaches most of the web because it lives in PHP itse...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "NSA Says Patch PHP or Go Offline as AI-Found PHP2Shell Flaws Reach ~70% of the Web",
-      "description_en": "How much of the web PHP2Shell touchesPHP2Shell reaches most of the web because it lives in PHP itse...",
-      "title_zh": "NSA称若不修补PHP将面临离线风险，因AI发现的PHP2Shell漏洞影响约70%的网站",
-      "description_zh": "How much of the web PHP2Shell touchesPHP2Shell reaches most of the web because it lives in PHP itse..."
-    },
-    {
-      "title": "Banche sotto attacco dall’AI, l’allarme è globale",
-      "url": "https://www.cybersecurity360.it/nuove-minacce/banche-sotto-attacco-dallai-lallarme-e-globale/",
-      "source": "Unsafe.sh",
-      "description": "Intelligenza artificialeUsati agenti basati su Claude e Grok contro oltre 400 bersagli finanziari in...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "Banche sotto attacco dall’AI, l’allarme è globale",
-      "description_en": "Intelligenza artificialeUsati agenti basati su Claude e Grok contro oltre 400 bersagli finanziari in...",
-      "title_zh": "银行遭受AI攻击，警报全球响起",
-      "description_zh": "Intelligenza artificialeUsati agenti basati su Claude e Grok contro oltre 400 bersagli finanziari in..."
-    },
-    {
-      "title": "How to Get More Value From a Hackathon Partnership",
-      "url": "https://hackernoon.com/how-to-get-more-value-from-a-hackathon-partnership?source=rss",
-      "source": "Unsafe.sh",
-      "description": "Hackathons give developers a reason to experiment with new technologies and build working projects,...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "How to Get More Value From a Hackathon Partnership",
-      "description_en": "Hackathons give developers a reason to experiment with new technologies and build working projects,...",
-      "title_zh": "如何从黑客松合作中获取更多价值",
-      "description_zh": "Hackathons give developers a reason to experiment with new technologies and build working projects,..."
-    },
-    {
-      "title": "SecWiki News 2026-10-22 Review",
-      "url": "http://www.sec-wiki.com/?2026-10-22",
-      "source": "Unsafe.sh",
-      "description": "SecWiki News 2026-10-22 Review",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "SecWiki News 2026-10-22 Review",
-      "description_en": "SecWiki News 2026-10-22 Review",
-      "title_zh": "SecWiki新闻2026-10-22回顾",
-      "description_zh": "SecWiki News 2026-10-22 Review"
-    },
-    {
-      "title": "I reverse engineered Black & White with Astra and added LLM + voice support on top of the game's original AI. The environment is exposed to the LLM's context and the creature can select tools to inspect and interact with the world or answer questions about it.",
-      "url": "https://unsafe.sh/go-450132.html",
-      "source": "Unsafe.sh",
-      "description": "I reverse engineered Black & White with Astra and added LLM + voice support on top of the game's ori...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "I reverse engineered Black & White with Astra and added LLM + voice support on top of the game's original AI. The environment is exposed to the LLM's context and the creature can select tools to inspect and interact with the world or answer questions about it.",
-      "description_en": "I reverse engineered Black & White with Astra and added LLM + voice support on top of the game's ori...",
-      "title_zh": "我使用 Astra 对《黑与白》进行了逆向工程，并在游戏原有 AI 基础上添加了 LLM 和语音支持",
-      "description_zh": "我使用 Astra 对《黑与白》进行了逆向工程，并在游戏原有的 AI 之上添加了大语言模型（LLM）及语音支持。环境暴露于 LLM 的上下文之中，生物体可以选择工具来检查并与世界互动，或回答关于该世界的问题。"
-    },
-    {
-      "title": "潜伏两月突然发难：Tor 近10%出口中继被黑客控制",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&amp;mid=2451189455&amp;idx=1&amp;sn=2f3400ec37331f83da856c18d442fcca",
-      "source": "Unsafe.sh",
-      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_zh": "潜伏两月突然发难：Tor 近10%出口中继被黑客控制",
-      "description_zh": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
-      "title_en": "潜伏两月突然发难：Tor 近10%出口中继被黑客控制",
-      "description_en": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证..."
-    },
-    {
-      "title": "The Optimization Integrity Framework for Product Experiments",
-      "url": "https://hackernoon.com/the-optimization-integrity-framework-for-product-experiments?source=rss",
-      "source": "Unsafe.sh",
-      "description": "Product teams are usually good at defining what they want to improve: paid conversion, engagement, c...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "The Optimization Integrity Framework for Product Experiments",
-      "description_en": "Product teams are usually good at defining what they want to improve: paid conversion, engagement, c...",
-      "title_zh": "产品实验的优化完整性框架",
-      "description_zh": "产品团队通常擅长定义他们希望改进的目标：付费转化率、用户参与度等..."
-    },
-    {
-      "title": "Lazarus usa già la crittografia post-quantistica nei malware: come cambia la sfida cyber",
-      "url": "https://www.cybersecurity360.it/nuove-minacce/lazarus-usa-gia-la-crittografia-post-quantistica-nei-malware-come-cambia-la-sfida-cyber/",
-      "source": "Unsafe.sh",
-      "description": "Il gruppo Lazarus sfrutta l’intelligenza artificiale e la crittografia post-quantistica per sferrare...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "Lazarus usa già la crittografia post-quantistica nei malware: come cambia la sfida cyber",
-      "description_en": "Il gruppo Lazarus sfrutta l’intelligenza artificiale e la crittografia post-quantistica per sferrare...",
-      "title_zh": "Lazarus 已在恶意软件中使用后量子加密：网络挑战如何演变",
-      "description_zh": "Lazarus 组织利用人工智能和后量子加密发起攻击..."
-    },
-    {
-      "title": "PHP2Shell: strumenti per verificare l’esposizione alle vulnerabilità critiche",
-      "url": "https://cert-agid.gov.it/news/php2shell-strumenti-per-verificare-lesposizione-alle-vulnerabilita-critiche/",
-      "source": "Unsafe.sh",
-      "description": "A seguito della pubblicazione delle vulnerabilità critiche CVE-2026-109618 e CVE-2026-109619, il...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "PHP2Shell: strumenti per verificare l’esposizione alle vulnerabilità critiche",
-      "description_en": "A seguito della pubblicazione delle vulnerabilità critiche CVE-2026-109618 e CVE-2026-109619, il...",
-      "title_zh": "PHP2Shell：用于验证关键漏洞暴露情况的工具",
-      "description_zh": "在 CVE-2026-109618 和 CVE-2026-109619 两个关键漏洞公布后，..."
-    },
-    {
-      "title": "AI e cyber security, come cambiano le minacce e le strategie di difesa",
-      "url": "https://www.cybersecurity360.it/soluzioni-aziendali/ai-e-cyber-security-come-cambiano-le-minacce-e-le-strategie-di-difesa/",
-      "source": "Unsafe.sh",
-      "description": "L’intelligenza artificiale sta ridefinendo il panorama della cyber security, modificando le capacità...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "AI e cyber security, come cambiano le minacce e le strategie di difesa",
-      "description_en": "L’intelligenza artificiale sta ridefinendo il panorama della cyber security, modificando le capacità...",
-      "title_zh": "AI 与网络安全：威胁与防御策略的变革",
-      "description_zh": "人工智能正在重塑网络安全格局，改变其能力..."
-    },
-    {
-      "title": "多个 Linux 内核高危漏洞疑似被误公开：最高评分 9.0，部分尚未修复",
-      "url": "https://www.appinn.com/linux-kernel-vulnerabilities-accidentally-disclosed/",
-      "source": "Unsafe.sh",
-      "description": "多个 Linux 内核高危漏洞疑似被误公开：最高评分 9.0，部分尚未修复",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_zh": "多个 Linux 内核高危漏洞疑似被误公开：最高评分 9.0，部分尚未修复",
-      "description_zh": "多个 Linux 内核高危漏洞疑似被误公开：最高评分 9.0，部分尚未修复",
-      "title_en": "多个 Linux 内核高危漏洞疑似被误公开：最高评分 9.0，部分尚未修复",
-      "description_en": "多个 Linux 内核高危漏洞疑似被误公开：最高评分 9.0，部分尚未修复"
-    },
-    {
-      "title": "PHP2Shell Attacks Started Four Days Before Public Disclosure, AWS Reports",
-      "url": "https://securityaffairs.com/201479/hacking/php2shell-attacks-started-four-days-before-public-disclosure-aws-reports.html",
-      "source": "Unsafe.sh",
-      "description": "PHP2Shell Attacks Started Four Days Before Public Disclosure, AWS Reports...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "PHP2Shell Attacks Started Four Days Before Public Disclosure, AWS Reports",
-      "description_en": "PHP2Shell Attacks Started Four Days Before Public Disclosure, AWS Reports...",
-      "title_zh": "AWS报告：PHP2Shell攻击在公开披露前四天已开始",
-      "description_zh": "AWS报告称，PHP2Shell攻击在公开披露前四天即已启动..."
-    },
-    {
-      "title": "Claude Designed 211 Proteins in Two Days. The Memes-in-Slack Phase Took Two Months",
-      "url": "https://hackernoon.com/claude-designed-211-proteins-in-two-days-the-memes-in-slack-phase-took-two-months?source=rss",
-      "source": "Unsafe.sh",
-      "description": "Citrini Research has no lab, no biologists, and no drug discovery experience. It flew to Anthropic's...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "Claude Designed 211 Proteins in Two Days. The Memes-in-Slack Phase Took Two Months",
-      "description_en": "Citrini Research has no lab, no biologists, and no drug discovery experience. It flew to Anthropic's...",
-      "title_zh": "Claude两天内设计了211种蛋白质。Slack上的梗图阶段耗时两个月",
-      "description_zh": "Citrini Research没有实验室、没有生物学家，也没有药物研发经验。它飞往Anthropic的..."
-    },
-    {
-      "title": "ghidra Ghidra_12.2_build",
-      "url": "https://kitploit.com/en/posts/ghidra-30c9d74a4f927bf1",
-      "source": "Unsafe.sh",
-      "description": "BuildFrom the root directory of your Ghidra release, run the following command../docker/build-doc...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "ghidra Ghidra_12.2_build",
-      "description_en": "BuildFrom the root directory of your Ghidra release, run the following command../docker/build-doc...",
-      "title_zh": "ghidra Ghidra_12.2_build",
-      "description_zh": "BuildFrom the root directory of your Ghidra release, run the following command../docker/build-doc..."
-    },
-    {
-      "title": "AI Act, sistemi ad alto rischio: come ridurre drasticamente oneri e rischi",
-      "url": "https://www.cybersecurity360.it/legal/ai-act-sistemi-ad-alto-rischio-come-ridurre-drasticamente-oneri-e-rischi/",
-      "source": "Unsafe.sh",
-      "description": "Ha acquisito un master in Gestione aziendale e Sviluppo Organizzativo presso il MIP Politecnico di M...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "AI Act, sistemi ad alto rischio: come ridurre drasticamente oneri e rischi",
-      "description_en": "Ha acquisito un master in Gestione aziendale e Sviluppo Organizzativo presso il MIP Politecnico di M...",
-      "title_zh": "《人工智能法案》，高风险系统：如何大幅减轻负担和风险",
-      "description_zh": "Ha acquisito un master in Gestione aziendale e Sviluppo Organizzativo presso il MIP Politecnico di M..."
-    },
-    {
-      "title": "Machine speed attacks require machine speed detection and response",
-      "url": "https://www.bleepingcomputer.com/news/security/machine-speed-attacks-require-machine-speed-detection-and-response/",
-      "source": "Unsafe.sh",
-      "description": "Machine speed attacks require machine speed detection and response",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "Machine speed attacks require machine speed detection and response",
-      "description_en": "Machine speed attacks require machine speed detection and response",
-      "title_zh": "Machine speed attacks require machine speed detection and response",
-      "description_zh": "Machine speed attacks require machine speed detection and response"
-    },
-    {
-      "title": "讲解一下这次PHP核弹级别漏洞的原理",
-      "url": "https://govuln.com/news/url/0PEL",
-      "source": "Unsafe.sh",
-      "description": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_zh": "讲解一下这次PHP核弹级别漏洞的原理",
-      "description_zh": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...",
-      "title_en": "讲解一下这次PHP核弹级别漏洞的原理",
-      "description_en": "环境异常        当前环境异常，完成验证后即可继续访问。                      去验证..."
-    },
-    {
-      "title": "Scammers are finding new ways to target your phone. Here are 5 ways to protect yourself",
-      "url": "https://www.malwarebytes.com/blog/scams/2026/10/scammers-are-finding-new-ways-to-target-your-phone-here-are-5-ways-to-protect-yourself",
-      "source": "Unsafe.sh",
-      "description": "The warnings are everywhere these days. Don’t click this. Don’t open that. Don’t scan this. Do...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "Scammers are finding new ways to target your phone. Here are 5 ways to protect yourself",
-      "description_en": "The warnings are everywhere these days. Don’t click this. Don’t open that. Don’t scan this. Do...",
-      "title_zh": "Scammers are finding new ways to target your phone. Here are 5 ways to protect yourself",
-      "description_zh": "The warnings are everywhere these days. Don’t click this. Don’t open that. Don’t scan this. Do..."
-    },
-    {
-      "title": "这家印度草台公司宣布退出CA业务 此前8张中级证书被系统和浏览器行业集体封锁",
-      "url": "https://www.landian.news/archives/127579.html",
-      "source": "Unsafe.sh",
-      "description": "2026年10月22日 22:11科技资讯, 行业资讯01.36K...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_zh": "这家印度草台公司宣布退出CA业务 此前8张中级证书被系统和浏览器行业集体封锁",
-      "description_zh": "2026年10月22日 22:11科技资讯, 行业资讯01.36K...",
-      "title_en": "Indian CA Operator Exits Market After Revocation of Eight Intermediate Certificates by Browsers and Systems",
-      "description_en": "October 22, 2026 22:11 Tech News, Industry News 01.36K..."
-    },
-    {
-      "title": "500 Blog Posts To Learn About Hackernoon Ru",
-      "url": "https://hackernoon.com/500-blog-posts-to-learn-about-hackernoon-ru?source=rss",
-      "source": "Unsafe.sh",
-      "description": "Let's learn about Hackernoon Ru via these 500 free blog posts. They are ordered by HackerNoon reader...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "500 Blog Posts To Learn About Hackernoon Ru",
-      "description_en": "Let's learn about Hackernoon Ru via these 500 free blog posts. They are ordered by HackerNoon reader...",
-      "title_zh": "500 Blog Posts To Learn About Hackernoon Ru",
-      "description_zh": "Let's learn about Hackernoon Ru via these 500 free blog posts. They are ordered by HackerNoon reader..."
-    },
-    {
-      "title": "The TechBeat: GPT-6 Astra: How to Write Better Prompts and Skills (10/22/2026)",
-      "url": "https://hackernoon.com/10-22-2026-techbeat?source=rss",
-      "source": "Unsafe.sh",
-      "description": "The TechBeat: GPT-6 Astra: How to Write Better Prompts and Skills (10/22/2026)",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "The TechBeat: GPT-6 Astra: How to Write Better Prompts and Skills (10/22/2026)",
-      "description_en": "The TechBeat: GPT-6 Astra: How to Write Better Prompts and Skills (10/22/2026)",
-      "title_zh": "The TechBeat: GPT-6 Astra: How to Write Better Prompts and Skills (10/22/2026)",
-      "description_zh": "The TechBeat: GPT-6 Astra: How to Write Better Prompts and Skills (10/22/2026)"
-    },
-    {
-      "title": "Certificati TLS, la falla che mette in discussione la catena di fiducia di Internet",
-      "url": "https://www.cybersecurity360.it/nuove-minacce/certificati-tls-la-falla-che-mette-in-discussione-la-catena-di-fiducia-di-internet/",
-      "source": "Unsafe.sh",
-      "description": "l'analisiOtto certificati intermedi della Certification Authority eMudhra usavano chiavi private ric...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "Certificati TLS, la falla che mette in discussione la catena di fiducia di Internet",
-      "description_en": "l'analisiOtto certificati intermedi della Certification Authority eMudhra usavano chiavi private ric...",
-      "title_zh": "Certificati TLS, la falla che mette in discussione la catena di fiducia di Internet",
-      "description_zh": "l'analisiOtto certificati intermedi della Certification Authority eMudhra usavano chiavi private ric..."
-    },
-    {
-      "title": "Cybercrime crackdown across Africa leads to 1,462 arrests, $105 million seized",
-      "url": "https://therecord.media/africa-cybercrime-interpol-arrests",
-      "source": "Unsafe.sh",
-      "description": "More than 1,400 suspected cybercriminals were arrested across Africa this summer as part of an annu...",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "Cybercrime crackdown across Africa leads to 1,462 arrests, $105 million seized",
-      "description_en": "More than 1,400 suspected cybercriminals were arrested across Africa this summer as part of an annu...",
-      "title_zh": "Cybercrime crackdown across Africa leads to 1,462 arrests, $105 million seized",
-      "description_zh": "More than 1,400 suspected cybercriminals were arrested across Africa this summer as part of an annu..."
-    },
-    {
-      "title": "how do i get someones email through their phone number",
-      "url": "https://unsafe.sh/go-450104.html",
-      "source": "Unsafe.sh",
-      "description": "how do i get someones email through their phone number",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_en": "how do i get someones email through their phone number",
-      "description_en": "how do i get someones email through their phone number",
-      "title_zh": "如何通过手机号获取他人邮箱",
-      "description_zh": "how do i get someones email through their phone number"
-    },
-    {
-      "title": "CloudCone 再次开启50%赠送：充值 5.1 美元，送 2.55 美元",
-      "url": "https://www.appinn.com/cloudcone-50p-26/",
-      "source": "Unsafe.sh",
-      "description": "CloudCone 再次开启50%赠送：充值 5.1 美元，送 2.55 美元",
-      "date": "2026-10-22",
-      "category": "web",
-      "title_zh": "CloudCone 再次开启50%赠送：充值 5.1 美元，送 2.55 美元",
-      "description_zh": "CloudCone 再次开启50%赠送：充值 5.1 美元，送 2.55 美元",
-      "title_en": "CloudCone Re-launches 50% Bonus Offer: Deposit $5.10 to Receive $2.55 Free",
-      "description_en": "CloudCone Re-launches 50% Bonus Offer: Deposit $5.10 to Receive $2.55 Free"
+      "title_zh": "Markdown即新可执行文件：攻击者正从网络向你的下载文件夹投放Agent指令",
+      "description_zh": "Markdown即新可执行文件：攻击者正将Agent指令投放到你的下载文件夹……"
     }
   ],
   "x": [
@@ -1670,8 +1754,8 @@
       "author_avatar": "https://pbs.twimg.com/profile_images/1257388503358373888/Zo7Knnrq_normal.jpg",
       "title_en": "⚠️ We issued 19 🆕 & 1 updated public #ICS Advisories. These advisories provide i…",
       "description_en": "⚠️ We issued 19 🆕 & 1 updated public #ICS Advisories. These advisories provide info about current security issues, vulnerabilities, & exploits surrounding ICS. More at go.dhs.gov/iEv",
-      "title_zh": "⚠️ 我们发布了19份全新及1份更新的公开ICS安全公告。这些公告提供了关于当前围绕工业控制系统（ICS）的安全问题、漏洞及利用技术的详细信息……",
-      "description_zh": "⚠️ 我们发布了19份全新及1份更新的公开ICS安全公告。这些公告提供了关于当前围绕工业控制系统（ICS）的安全问题、漏洞及利用技术的详细信息。更多信息请访问 go.dhs.gov/iEv"
+      "title_zh": "⚠️ 我们发布了19份全新及1份更新的公开ICS安全公告。这些公告提供了关于当前涉及工业控制系统（ICS）的安全问题、漏洞及利用技术的详细信息……",
+      "description_zh": "⚠️ 我们发布了19份全新及1份更新的公开#ICS安全公告。这些公告提供了有关当前围绕工业控制系统（ICS）的安全问题、漏洞和利用技术的信息。更多信息请访问 go.dhs.gov/iEv"
     },
     {
       "title": "SI token usage can impact cost & performance if not managed effectively. Our new…",
@@ -1685,8 +1769,8 @@
       "author_avatar": "https://pbs.twimg.com/profile_images/1257388503358373888/Zo7Knnrq_normal.jpg",
       "title_en": "SI token usage can impact cost & performance if not managed effectively. Our new…",
       "description_en": "SI token usage can impact cost & performance if not managed effectively. Our new joint guidance outlines strategies for #CriticialInfrastructure orgs to mitigate risks associated with token consumption & strengthen operational resilience. Learn more go.dhs.gov/5Hq",
-      "title_zh": "若管理不当，SI令牌的使用可能会影响成本与性能。我们的新联合指南概述了关键基础设施组织降低令牌消耗相关风险并增强运营韧性的策略……",
-      "description_zh": "若管理不当，服务实例（SI）令牌的使用可能会影响成本与性能。我们的新联合指南概述了关键基础设施组织降低令牌消耗相关风险并增强运营韧性的策略。了解更多请访问 go.dhs.gov/5Hq"
+      "title_zh": "若管理不当，SI令牌的使用可能会影响成本与性能。我们的最新联合指南为关键基础设施组织概述了降低令牌消耗相关风险并增强运营韧性的策略……",
+      "description_zh": "若管理不当，SI令牌的使用可能会影响成本与性能。我们的最新联合指南为#CriticialInfrastructure组织概述了缓解与令牌消耗相关的风险并加强运营韧性的策略。了解更多请访问 go.dhs.gov/5Hq"
     },
     {
       "title": "We’ve been checking our PHP2SHELL detection coverage at Nextron and extending th…",
@@ -1700,8 +1784,8 @@
       "author_avatar": "https://pbs.twimg.com/profile_images/2014368871243722752/i8FO694i_normal.jpg",
       "title_en": "We’ve been checking our PHP2SHELL detection coverage at Nextron and extending th…",
       "description_en": "We’ve been checking our PHP2SHELL detection coverage at Nextron and extending the rule set based on the published PoCs\n\nAfter successful exploitation, we expect familiar activity: webshell drops, reverse shells, suspicious child processes, new user accounts… Our generic Show more",
-      "title_zh": "Nextron团队正在检查PHP2SHELL检测覆盖率并基于已公开的PoC扩展规则集……",
-      "description_zh": "Nextron团队正在检查我们的PHP2SHELL检测覆盖率，并基于已公开的Proof of Concept (PoC) 扩展规则集。\n\n成功利用后，我们预期会出现熟悉的攻击活动：Webshell文件释放、反向Shell连接、可疑的子进程以及新建的用户账户……"
+      "title_zh": "Nextron团队一直在检查PHP2SHELL检测覆盖率，并根据已发布的概念验证（PoC）扩展规则集……",
+      "description_zh": "Nextron团队一直在检查我们的PHP2SHELL检测覆盖率，并根据已发布的PoC扩展规则集。\n\n成功利用后，我们预期会出现熟悉的迹象：Webshell植入、反向Shell连接、可疑的子进程、新建用户账户等……显示更多"
     },
     {
       "title": "The BlackLotus bootkit has returned – in a new guise.\n\nOur experts have discover…",
@@ -1715,8 +1799,8 @@
       "author_avatar": "https://pbs.twimg.com/profile_images/1274957058635333632/slyj2E16_normal.jpg",
       "title_en": "The BlackLotus bootkit has returned – in a new guise.\n\nOur experts have discover…",
       "description_en": "The BlackLotus bootkit has returned – in a new guise.\n\nOur experts have discovered a UEFI bootkit, dubbed \"BlackX\", used in attacks targeting diplomatic entities in Central Asia.\n\nThe vulnerability exploited by the bootkit was patched back in 2023, and the victims had all the Show more",
-      "title_zh": "BlackLotus引导加载程序以新面貌回归——\n\n我们的专家发现了……",
-      "description_zh": "BlackLotus引导加载程序以新面貌回归。\n\n我们的专家发现了一种名为“BlackX”的UEFI引导加载程序，该工具被用于针对中亚地区外交实体的攻击。\n\n该引导加载程序利用的漏洞早在2023年就已修补，且受害者均具备相应的防护条件……"
+      "title_zh": "BlackLotus引导加载程序套件卷土重来——以新的伪装出现。\n\n我们的专家发现了……",
+      "description_zh": "BlackLotus引导加载程序套件卷土重来——以新的伪装出现。\n\n我们的专家发现了一种名为“BlackX”的UEFI引导加载程序套件，该套件被用于针对中亚外交实体的攻击。\n\n该引导加载程序套件利用的漏洞早在2023年就已修补，且受害者均具备Show more条件"
     },
     {
       "title": "An extensive study by our Security Services team examines how secure a modern wa…",
@@ -1730,8 +1814,8 @@
       "author_avatar": "https://pbs.twimg.com/profile_images/1274957058635333632/slyj2E16_normal.jpg",
       "title_en": "An extensive study by our Security Services team examines how secure a modern wa…",
       "description_en": "An extensive study by our Security Services team examines how secure a modern warehouse is from an attacker’s perspective. It explores how a warehouse can be compromised via a barcode scanner, a mobile printer, or even a power outlet behind a storage rack. It also explains why Show more",
-      "title_zh": "我们的安全服务团队进行的一项广泛研究考察了现代仓库从攻击者视角的安全性……",
-      "description_zh": "我们的安全服务团队进行了一项广泛研究，从攻击者视角考察现代仓库的安全性。研究探讨了仓库如何通过条码扫描器、移动打印机甚至货架后的电源插座遭到入侵。此外还解释了为何……"
+      "title_zh": "我们的安全服务团队进行的一项广泛研究考察了现代仓库在攻击者视角下的安全性如何……",
+      "description_zh": "我们的安全服务团队进行了一项广泛研究，从攻击者的角度审视现代仓库的安全性。它探讨了仓库如何通过条码扫描仪、移动打印机甚至存储架后面的电源插座遭到入侵。它还解释了为什么显示更多"
     },
     {
       "title": "Check out what we’ve uncovered about the high-profile PHP vulnerabilities that a…",
@@ -1745,8 +1829,8 @@
       "author_avatar": "https://pbs.twimg.com/profile_images/1274957058635333632/slyj2E16_normal.jpg",
       "title_en": "Check out what we’ve uncovered about the high-profile PHP vulnerabilities that a…",
       "description_en": "Check out what we’ve uncovered about the high-profile PHP vulnerabilities that are making rounds all over the internet, and how we detect malicious activity associated with them. For the record, our products and services are not affected by these vulnerabilities: Show more",
-      "title_zh": "查看我们对近期在互联网上广泛传播的高关注度PHP漏洞的调查成果及其恶意活动检测方法……",
-      "description_zh": "查看我们对近期在互联网上广泛传播的高关注度PHP漏洞的调查成果，以及我们如何检测与之相关的恶意活动。需说明的是，我们的产品与服务不受这些漏洞影响："
+      "title_zh": "查看我们对近期在互联网上广泛传播的高关注度PHP漏洞的发现，以及我们如何检测与之相关的恶意活动……",
+      "description_zh": "查看我们对近期在互联网上广泛传播的高关注度PHP漏洞的发现，以及我们如何检测与之相关的恶意活动。特此声明，我们的产品与服务不受这些漏洞影响：显示更多"
     }
   ]
 }

@@ -5,7 +5,15 @@
     <link>https://secnotes.github.io/secnews/</link>
     <description>每日自动聚合的网络安全资讯文章</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 23 Oct 2026 12:55:52 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2026 15:56:54 +0800</lastBuildDate>
+    <item>
+      <title>CVE-2026-6307：漏掉一次签名比较，Wasm 返回类型错乱</title>
+      <link>https://xz.aliyun.com/news/92963</link>
+      <guid isPermaLink="true">https://xz.aliyun.com/news/92963</guid>
+      <description>CVE-2026-6307：漏掉一次签名比较，Wasm 返回类型错乱TurboFan 把两条返回类型不同的 JS→Wasm 调用点内联进同一个函数时，帧状态判等函数漏掉了 Wasm 签名的比较，两份帧状态被判成同一份；一次惰性反优化之后，返回值按错误的类型物化——对象地址被读成整数，整数被当成对象指针。二进制安全野指针发表于 上海原创 · 842浏览 · 2026-10-23 05:28</description>
+      <category>先知社区</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
     <item>
       <title>MAS-Guard：从单体智能体到多智能体 LLM 系统的统一防护栏</title>
       <link>https://paper.seebug.org/3527</link>
@@ -13,6 +21,19 @@
       <description>智能体 AI（Agentic AI）将大语言模型（L...</description>
       <category>Seebug Paper</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>ROP（Return-Oriented Programming）返回导向编程 · 游戏安全相关技术边界探索【2】</title>
+      <link>http://bbs.kanxue.com/thread-293304.htm?style=1</link>
+      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293304.htm?style=1</guid>
+      <description>ROP（Return-Oriented Programming）返回导向编程 · 游戏安全相关技术边界探索【2】
+系列目录（共四篇）
+
+ROP 是什么，原理，初步认识 ROP
+初步探索 — 基于ROP技术弹个MessageBox &amp; 安全退出（本文）
+深入探索 — 挖掘RO ...</description>
+      <category>看雪论坛</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>linux/android 利用shadow内存无痕hook方法</title>
@@ -67,6 +88,14 @@
       <link>https://www.secrss.com/articles/94959</link>
       <guid isPermaLink="true">https://www.secrss.com/articles/94959</guid>
       <description>美军推进网络攻防能力建设与AI自主网络武器研发。</description>
+      <category>安全内参</category>
+      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>补丁未至，攻击先行：PHP2Shell在野攻击全记录</title>
+      <link>https://www.secrss.com/articles/94957</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/94957</guid>
+      <description>​两个潜伏约 14 年的 PHP 内核内存安全漏洞，在协调披露前夕被泄露——补丁落地前后数小时内，攻击尝试即进入规...</description>
       <category>安全内参</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
@@ -159,10 +188,10 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>无人认领的 AI 代理：观看专家网络研讨会，了解你最新的内部威胁</title>
+      <title>无人拥有的 AI 代理：关注专家网络研讨会，洞察最新内部威胁</title>
       <link>https://thehackernews.com/2026/10/the-ai-agent-nobody-owns-watch-expert.html</link>
       <guid isPermaLink="true">https://thehackernews.com/2026/10/the-ai-agent-nobody-owns-watch-expert.html</guid>
-      <description>目前，你的网络中某台笔记本电脑上可能正运行着一个 AI 代理。它存储 API 密钥和数据库密码，可以访问你的内部系统，且无人监管。没有人审查过它的访问权限，也没有人对其负责。如果员工拥有如此广泛的权限却缺乏...</description>
+      <description>目前，您的网络中某台笔记本电脑上可能正运行着一个 AI 代理。它存储 API 密钥和数据库密码，能够访问您的内部系统，且无人监管。没有人审查过它的访问权限，也没有人对其负责。如果员工拥有如此广泛的访问权限却缺乏监督...</description>
       <category>The Hacker News</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
@@ -170,39 +199,39 @@
       <title>Arista 警告称 VeloCloud SQL 注入零日漏洞已在攻击中被利用</title>
       <link>https://thehackernews.com/2026/10/arista-warns-of-critical-velocloud-sql.html</link>
       <guid isPermaLink="true">https://thehackernews.com/2026/10/arista-warns-of-critical-velocloud-sql.html</guid>
-      <description>Arista 在 10 月 22 日发布的安全公告中表示，攻击者正在利用 Arista VeloCloud Orchestrator (VCO)——VeloCloud SD-WAN 网络的中央管理系统——中的一个零日 SQL 注入漏洞。该漏洞允许任何能够登录编排器的人（即使是只读客户）...</description>
+      <description>Arista 在 10 月 22 日的公告中表示，攻击者正在利用 Arista VeloCloud Orchestrator (VCO)——即 VeloCloud SD-WAN 网络的中央管理系统——中的零日 SQL 注入漏洞。该漏洞允许任何能够登录编排器的人（即使是只读客户）...</description>
       <category>The Hacker News</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>eMudhra 因发现中间 CA 私钥易被猜测而退出全球 SSL/TLS 业务</title>
+      <title>eMudhra 因发现8个中间 CA 私钥易被猜测而退出全球 SSL/TLS 业务</title>
       <link>https://thehackernews.com/2026/10/emudhra-to-exit-global-ssltls-business.html</link>
       <guid isPermaLink="true">https://thehackernews.com/2026/10/emudhra-to-exit-global-ssltls-business.html</guid>
-      <description>印度证书颁发机构 eMudhra 周四宣布董事会决定退出其全球 SSL/TLS 证书业务。这一决定是在一名研究人员报告恢复其中八个中间 CA 证书的私钥五天后做出的。eMudhra 表示它将重新...</description>
+      <description>印度证书颁发机构 eMudhra 的董事会于周四决定退出其全球 SSL/TLS 证书业务。这一决定是在一名研究人员报告恢复其八个中间 CA 证书的私钥后五天作出的。eMudhra表示将重新规划...</description>
       <category>The Hacker News</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>ThreatsDay：AI 机密泄露、PingCAP 源代码被盗、Signal挂断缺陷、Laravel身份验证绕过等21起事件</title>
+      <title>威胁日报：AI 密钥泄露、PingCAP源代码被盗、Signal挂断缺陷、Laravel认证绕过等21起事件</title>
       <link>https://thehackernews.com/2026/10/threatsday-ai-secrets-leak-pingcap.html</link>
       <guid isPermaLink="true">https://thehackernews.com/2026/10/threatsday-ai-secrets-leak-pingcap.html</guid>
-      <description>本周对网络安全领域来说已经相当艰难。关键的 PHP和 GitLab远程代码执行(RCE)漏洞、严重的 Linux安全错误、受损的 eMudhra证书、Node.js RCE漏洞、被黑客入侵的 LiteLLM发布包以及数百个被劫持的 Tor中继节点。仅仅几天内就要处理这么多问题，而这周还...</description>
+      <description>本周对网络安全领域来说已经相当艰难。关键的 PHP和 GitLab远程代码执行(RCE)漏洞、严重的 Linux安全漏洞、受污染的 eMudhra证书、Node.js RCE漏洞、被黑客入侵的 LiteLLM发布包以及数百个被劫持的 Tor中继节点。短短几天内就要处理这么多问题，而这周才刚刚开始...</description>
       <category>The Hacker News</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>两个 CVSS评分为9.0的 Linux KSMBD RCE漏洞在内核修复前已在公共邮件列表披露</title>
+      <title>两个 CVSS评分9.0的 Linux KSMBD RCE漏洞在内核修复前已在公共邮件列表披露</title>
       <link>https://thehackernews.com/2026/10/two-cvss-90-linux-ksmbd-rce-flaws.html</link>
       <guid isPermaLink="true">https://thehackernews.com/2026/10/two-cvss-90-linux-ksmbd-rce-flaws.html</guid>
-      <description>运行 KSMBD（内核内置 SMB服务器）的 Linux服务器面临两个公开报告的远程代码执行漏洞风险，Trend Micro Zero Day Initiative将其评级为9.0，但主线内核尚无修复补丁。其中一个漏洞 ZDI-CAN-33774可在任何网络身份验证之前触发。</description>
+      <description>运行内核内置 SMB服务器 KSMBD的 Linux服务器面临两个公开报告的远程代码执行(RCE)漏洞风险，Trend Micro Zero Day Initiative将其评级为9.0，但主线内核尚无修复方案。其中一个漏洞 ZDI-CAN-33774可在任何网络身份验证之前触发...</description>
       <category>The Hacker News</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>法院认定 Meta侵犯4300万用户隐私，责令其支付250亿美元罚款</title>
+      <title>法院认定存在4300万次隐私违规，责令 Meta支付250亿美元罚款</title>
       <link>https://thehackernews.com/2026/10/meta-ordered-to-pay-25-billion-after.html</link>
       <guid isPermaLink="true">https://thehackernews.com/2026/10/meta-ordered-to-pay-25-billion-after.html</guid>
-      <description>周三，新墨西哥州一家法院下令社交媒体巨头 Meta支付250亿美元的罚款，这是作为一起数据隐私诉讼的一部分提出的，该诉讼源于该公司在2018年曝光的剑桥分析(Cambridge Analytica)数据丑闻。根据美联社的多份报道，《纽约...》指出...</description>
+      <description>周三，新墨西哥州一家法院下令社交媒体巨头 Meta支付250亿美元的罚款，这是作为一起数据隐私诉讼的一部分提出的，该诉讼源于该公司在2018年曝光的剑桥分析(Cambridge Analytica)数据丑闻。据多家美联社报道，《纽约时报》...</description>
       <category>The Hacker News</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
@@ -210,65 +239,73 @@
       <title>国际刑警组织在全球打击行动中逮捕1462名嫌疑人，破坏10909个网络犯罪网络</title>
       <link>https://thehackernews.com/2026/10/interpol-arrests-1462-suspects-disrupts.html</link>
       <guid isPermaLink="true">https://thehackernews.com/2026/10/interpol-arrests-1462-suspects-disrupts.html</guid>
-      <description>国际刑警组织周四宣布，一次协调一致的执法行动破坏了10909个恶意网络并追回超过1.05亿美元的非法资金。与此同时，来自21个国家的执法机构逮捕了1462名嫌疑人。此次行动代号为“塞伦盖蒂III”(Operation Serengeti III)，...</description>
+      <description>国际刑警组织周四宣布，一次协调一致的执法行动破坏了10909个恶意网络并追回超过1.05亿美元的非法资金。与此同时，来自21个国家的执法机构逮捕了1462名嫌疑人。代号为“塞伦盖蒂III号”(Operation Serengeti III)的行动...</description>
       <category>The Hacker News</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Railway Says Intruder May Have Accessed Customer Secrets, Urges Credential Rotation</title>
+      <title>Railway称入侵者可能已访问客户密钥，敦促轮换凭证</title>
       <link>https://thehackernews.com/2026/10/railway-says-intruder-may-have-accessed.html</link>
       <guid isPermaLink="true">https://thehackernews.com/2026/10/railway-says-intruder-may-have-accessed.html</guid>
-      <description>Platform-as-a-Service (PaaS) provider Railway on Wednesday disclosed  "anomalous activity" related to systems that store customer environment variables.   Upon further investigation, the company found that an unauthorized third party may have gained access to encrypted environment variables, and, in some cases, obtained the decrypted contents. The impact, it said, is limited to a "subset of users," although it did not disclose an exact number.   Environment variables  refer to user-defined key-value pairs that are used to store sensitive data like API keys, database credentials, or feature flags. They are configured at the operating system or container environment level instead of hard-coding the values directly into a program's source code.   Railway said the incident is likely part of a series of attacks designed to target platform companies with the ultimate goal of compromising artificial intelligence (AI) inference providers. The company also said it has n...</description>
+      <description>平台即服务(PaaS)提供商 Railway周三披露了与存储客户环境变量系统相关的“异常活动”。经过进一步调查，该公司发现未经授权的第三方可能已获取加密环境变量的访问权限，并在...</description>
       <category>The Hacker News</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>OpenCode Flaw Lets Malicious MCP Servers Execute Code During Sign-In on Windows and WSL</title>
+      <title>OpenCode 缺陷致使恶意 MCP 服务器在 Windows 和 WSL 登录期间执行代码</title>
       <link>https://thehackernews.com/2026/10/opencode-flaw-lets-malicious-mcp.html</link>
       <guid isPermaLink="true">https://thehackernews.com/2026/10/opencode-flaw-lets-malicious-mcp.html</guid>
-      <description>A flaw in the OpenCode AI coding agent allowed a malicious or hijacked MCP server to run code on a developer's Windows or WSL machine when the developer signed in. OpenCode connects to MCP (Model Context Protocol) servers to add outside tools, and such code would run with the developer's own access.   Anomaly , the company behind OpenCode, fixed the flaw in  version 1.18.33  on September 28. It did not request a CVE or publish a security advisory, so vulnerability scanners will not flag the builds still at risk: 1.0.137 through 1.18.32.   During that sign-in, the server itself supplies the web address the user is sent to, an OAuth "authorization endpoint." On Windows and WSL, OpenCode handed that address to a helper that opens it in a browser. The helper built a PowerShell command around the address without escaping it, so an address written to carry a PowerShell command would run that command.   The browser step runs only when a developer starts the sign-in, by ru...</description>
+      <description>OpenCode AI 编码代理存在一个缺陷，允许恶意或劫持的 MCP 服务器在开发者登录时在其 Windows 或 WSL 机器上运行代码。OpenCode 连接到 MCP（模型上下文协议）服务器以添加外部工具，此类代码将以开发者的权限运行。</description>
       <category>The Hacker News</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>LiteLLM Suspects GitHub Token Leak in AI Gateway Logs Behind Malicious Package Release</title>
+      <title>LiteLLM 怀疑 GitHub Token 泄露导致恶意软件包发布背后的 AI 网关日志问题</title>
       <link>https://thehackernews.com/2026/10/litellm-suspects-github-token-leak-in.html</link>
       <guid isPermaLink="true">https://thehackernews.com/2026/10/litellm-suspects-github-token-leak-in.html</guid>
-      <description>LiteLLM on Wednesday disclosed  that threat actors compromised "multiple independent security controls" to push a malicious version of the Python package  containing a credential stealer and a backdoor.   On October 21, 2026, LiteLLM's release pipeline was compromised  to push 1.107.0 to the Docker Hub registry and the Python Package Index (PyPI) repository. The incident took place around 4:00 a.m. PST. The following compromised versions were published -      LiteLLM v1.107.0 (PyPI)    v1.107.0, latest, main-latest, and main-stable (Docker)    v1.107.0, latest, main-latest, and main-stable (GHCR)   Users who downloaded an unpinned version of LiteLLM between 11:39 a.m. and 1:23 p.m. UTC via pip or used the Docker image v1.107.0, latest, main-latest, or main-stable between 11:46 a.m. and 2:20 p.m. UTC are impacted.   The poisoned version incorporated  code to harvest credentials and keys, and run arbitrary code from a remote server every hour, turning it into a remote acce...</description>
+      <description>LiteLLM 周三披露，威胁行为者破坏了“多个独立的安全控制措施”，推送了一个包含凭证窃取器和后门的 Python 包的恶意版本。2026年10月21日，LiteLLM 的发布管道被攻破，向 Docker Hub 推送了版本 1.107.0。</description>
       <category>The Hacker News</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Node.js Brotli Decoder Bug Could Allow Remote Code Execution in All Supported Versions</title>
+      <title>Node.js Brotli 解码器漏洞可能导致所有受支持版本的远程代码执行</title>
       <link>https://thehackernews.com/2026/10/nodejs-brotli-decoder-bug-could-allow.html</link>
       <guid isPermaLink="true">https://thehackernews.com/2026/10/nodejs-brotli-decoder-bug-could-allow.html</guid>
-      <description>Node.js released  security updates  on October 21 for its three supported release lines, 22.x, 24.x and 26.x, fixing 10 flaws. The most serious is a bug in the Brotli decompression code that Node.js bundles, which the project says can allow remote code execution, meaning an attacker could run code of their choosing on the affected system.   Each supported line has one fixed version:  22.23.4  and  24.22.1  on the long-term support lines, and  26.12.1  on the current line. Node.js 20.x and earlier have  reached end of life  and will not receive the fix, so they should be moved to a supported line.   The Brotli flaw is in code Node.js bundles, not in a user's own program. Node.js runs that code whenever it decompresses Brotli data, either directly through the  node:zlib  module or automatically when code calls fetch() on a response sent with Brotli compression.   An application is exposed where it decompresses Brotli data an att...</description>
+      <description>Node.js于10月21日为三个受支持的发布分支（22.x、24.x和26.x）发布了安全更新，修复了10个缺陷。其中最严重的是 Node.js捆绑的Brotli解压缩代码中的错误，该项目表示该错误可导致远程代码执行，意味着攻击者可以运行代码。</description>
       <category>The Hacker News</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>New QPACK Flaws Can Crash HTTP/3 Servers, Trigger Up to 4,000-Fold Memory Amplification</title>
+      <title>新的 QPACK 缺陷可崩溃 HTTP/3 服务器并引发高达4000倍的内存放大效应</title>
       <link>https://thehackernews.com/2026/10/new-qpack-flaws-can-crash-http3-servers.html</link>
       <guid isPermaLink="true">https://thehackernews.com/2026/10/new-qpack-flaws-can-crash-http3-servers.html</guid>
-      <description>A remote attacker who has not logged in can crash many HTTP/3 web servers with a single connection, security firm FoxIO  disclosed , releasing working proof-of-concept code.   By sending a small batch of compressed HTTP headers that expands in memory to a much larger set, the attacker can force the server to use thousands of times more memory than it received, enough to run a default server out of memory.   The flaws cause only denial-of-service attacks, with no evidence of data theft or code execution and no public reports of attacks in the wild. Fixes are out for quic-go, Cloudflare quiche, lsquic and Wireshark, but Bun, the h3 Rust library and aioquic were still unpatched at disclosure.   FoxIO found the same class of flaw in seven of ten HTTP/3 stacks it tested. The common cause is in QPACK, the scheme HTTP/3 uses to compress request headers so repeated fields travel as a short code instead of the full text.   A server is supposed to cap the size of the headers after it unpack...</description>
+      <description>未登录的远程攻击者只需一次连接即可使许多 HTTP/3 Web服务器崩溃，安全公司 FoxIO披露并发出了有效的概念验证代码。通过发送一批压缩的HTTP头部信息，这些信息在内存中扩展为更大的一组数据，攻击者可以强制系统消耗过多内存。</description>
       <category>The Hacker News</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Someone Tried to Exploit PHP2Shell 4 Days Before the Vulnerabilities Were Publicly Disclosed</title>
+      <title>有人在漏洞公开披露前4天尝试利用 PHP2Shell</title>
       <link>https://thehackernews.com/2026/10/someone-tried-to-exploit-php2shell-4.html</link>
       <guid isPermaLink="true">https://thehackernews.com/2026/10/someone-tried-to-exploit-php2shell-4.html</guid>
-      <description>Amazon's Threat Intelligence team on Wednesday said it detected an attempt to exploit the newly disclosed PHP2Shell  vulnerabilities dating back to October 17, 2026, against its MadPot  honeypot service, as the flaws come under broad exploitation in the wild following the release of the patches.   "The exploit attempt originated from an IP address associated with a commercial anonymization network," CJ Moses, CISO of Amazon Integrated Security, said  in a post shared with The Hacker News.   "While the vulnerability was under embargo, the targeting of a honeypot from an anonymized IP address suggests the activity was conducted by a threat actor, though it remains unclear how the actor acquired exploit information prior to disclosure."   The attempt, Amazon said, was recorded from " 103.216.220[.]92 ," an IP address geolocated to Australia. An Amazon spokesperson told The Hacker News that the activity was largely a one-off probe.   The activity relates ...</description>
+      <description>亚马逊威胁情报团队周三表示，检测到其 MadPot蜜罐服务遭到针对新披露的 PHP2Shell漏洞的攻击尝试，这些漏洞可追溯至2026年10月17日。随着补丁发布后野外广泛利用的开始，“...</description>
       <category>The Hacker News</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>China-Linked Hackers Use ARTEX AI Agents in ConnectWise Supply Chain Attack</title>
+      <title>与中国有关联的黑客在 ConnectWise供应链攻击中使用 ARTEX AI智能体</title>
       <link>https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html</link>
       <guid isPermaLink="true">https://thehackernews.com/2026/10/china-linked-hackers-use-artex-ai.html</guid>
-      <description>Microsoft on Wednesday disclosed that a China state-aligned actor dubbed Storm-0940  was behind the recent supply chain compromise  of the ConnectWise Cloud Backup application.   During the incident, Storm-0940 used ARTEX , a Go-based agentic AI penetration testing framework that was made closed-source in the wake of its abuse in cyber attacks targeting South Korean financial institutions, to speed up scanning and reconnaissance, password spraying, and OAuth application abuse at downstream victims.   The tech giant said the threat actor used the AI tool at "machine speed" to automate attacks targeting hundreds of organizations across the world spanning a broad range of sectors since September 2026. Targets include aerospace and defense, automotive, chemicals, energy, financial services, government, legal, manufacturing, media, military, semiconductor, software, technology, and think tanks and non-profits.   "Storm-0940's use of ARTEX accelerated the speed of comprom...</description>
+      <description>微软周三披露，代号为 Storm-0940的中国国家背景行为者是近期 ConnectWise Cloud Backup应用程序供应链妥协事件的幕后黑手。在此期间，Storm-0940使用了 ARTEX——一种基于 Go语言的智能体渗透测试框架，该框架此前已转为闭源。</description>
       <category>The Hacker News</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Iran’s Prince of Persia APT Hosts C&amp;C in US for First Time Since 2016</title>
+      <link>https://www.securityweek.com/irans-prince-of-persia-apt-hosts-cc-in-us-for-first-time-since-2016/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/irans-prince-of-persia-apt-hosts-cc-in-us-for-first-time-since-2016/</guid>
+      <description>After a three-month lull, Prince of Persia hid a Tornado C&amp;C server on US shared hosting, its first US-based server since 2016.The postIran’s Prince of Persia APT Hosts C&amp;C in US for First Time Since ...</description>
+      <category>SecurityWeek</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>Hacker Conversations: Corey Thuen and the Evil Bit</title>
@@ -383,6 +420,118 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
+      <title>Vidar-Stealer-Chrome-Injection-Malicious-JS-Targeting-Google-Reddit-Sessions-Analysis</title>
+      <link>https://kitploit.com/en/tools/github/kaandemir993/vidar-stealer-chrome-injection-malicious-js-targeting-google-reddit-sessions-analysis</link>
+      <guid isPermaLink="true">https://kitploit.com/en/tools/github/kaandemir993/vidar-stealer-chrome-injection-malicious-js-targeting-google-reddit-sessions-analysis</guid>
+      <description>Vidar-Stealer-Chrome-Injection-Malicious-JS-Targeting-Google-Reddit-Sessions-Analysis — Reverse engi...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>国际刑警组织“塞伦盖蒂III”行动：逮捕1462人，追回1.05亿美元网络犯罪赃款</title>
+      <link>https://securityaffairs.com/201500/cyber-crime/interpol-operation-serengeti-iii-nets-1462-arrests-and-recovers-105-million-in-cybercrime-crackdown.html</link>
+      <guid isPermaLink="true">https://securityaffairs.com/201500/cyber-crime/interpol-operation-serengeti-iii-nets-1462-arrests-and-recovers-105-million-in-cybercrime-crackdown.html</guid>
+      <description>国际刑警组织“塞伦盖蒂III”行动在打击网络犯罪方面取得重大成果，共逮捕1462名嫌疑人并追回价值1.05亿美元的资产...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>KeePassXC 2.8.0 释出</title>
+      <link>https://www.solidot.org/story?sid=85690</link>
+      <guid isPermaLink="true">https://www.solidot.org/story?sid=85690</guid>
+      <description>开源密码管理器项目 KeePassXC 释出了 v2.8.0。KeePassXC 代表 KeePass Cross-Platform Community Edition，是 KeePass...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>技能制造技能的skill</title>
+      <link>https://blog.upx8.com/skill</link>
+      <guid isPermaLink="true">https://blog.upx8.com/skill</guid>
+      <description>你在 GitHub 上看到一个超级好玩的开源项目，想让 AI 帮你改改代码或者跑起来，结果发现：代码太多 AI 读不过来？配置太乱 AI 搞不定？手动复制粘贴累到手抽...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>C盘清理神器 (Skills)</title>
+      <link>https://blog.upx8.com/C-Skills</link>
+      <guid isPermaLink="true">https://blog.upx8.com/C-Skills</guid>
+      <description>给小白的省流介绍:电脑卡顿？C盘爆红？不知道怎么清理垃圾？别担心，这个 Skill 就是专门为你准备的 "数字清洁工"。只需一句话，它就会自动帮你把电脑打扫得干干净...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>亚马逊AWS部署的蜜罐在PHP2Shell漏洞公布前4天就记录到攻击尝试</title>
+      <link>https://www.landian.news/archives/127585.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/127585.html</guid>
+      <description>2026年10月23日 13:00安全资讯, 科技资讯00.13K...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>执法机构在非洲捣毁近 11,000 个网络犯罪网络</title>
+      <link>http://0.0.0.0:8080/post/64824</link>
+      <guid isPermaLink="true">http://0.0.0.0:8080/post/64824</guid>
+      <description>执法机构在非洲捣毁近 11,000 个网络犯罪网络</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Railway 在潜在泄露后警告开发者轮换机密</title>
+      <link>http://0.0.0.0:8080/post/64823</link>
+      <guid isPermaLink="true">http://0.0.0.0:8080/post/64823</guid>
+      <description>Railway 在潜在泄露后警告开发者轮换机密</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>ConfluenceC2</title>
+      <link>https://kitploit.com/en/tools/github/dagowda/confluencec2</link>
+      <guid isPermaLink="true">https://kitploit.com/en/tools/github/dagowda/confluencec2</guid>
+      <description>Kitploit 是一个黑客技术、网络安全和渗透测试工具的目录。发现最新项目...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>PHP2Shell：数百万网站面临风险，漏洞披露引发热议</title>
+      <link>https://www.securityinfo.it/2026/10/23/php2shellrischio-milioni-di-siti-web-a-rischio-e-la-disclosure-diventa-un-caso/</link>
+      <guid isPermaLink="true">https://www.securityinfo.it/2026/10/23/php2shellrischio-milioni-di-siti-web-a-rischio-e-la-disclosure-diventa-un-caso/</guid>
+      <description>PHP2Shell：数百万网站面临风险，漏洞披露引发热议</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>从布达佩斯测试Hubble网络的蓝牙到卫星链路</title>
+      <link>https://www.rtl-sdr.com/testing-hubble-networks-bluetooth-to-satellite-link-from-budapest/</link>
+      <guid isPermaLink="true">https://www.rtl-sdr.com/testing-hubble-networks-bluetooth-to-satellite-link-from-budapest/</guid>
+      <description>2026年10月23日感谢您的...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>同一个 AI Agent，凭什么既能查张三的工资又能看李四的订单？——OAuth 令牌在 AI 时代的三个致命缺口</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143034&amp;amp;idx=1&amp;amp;sn=6cf52dd249de2583a8f7f3eeb3241cbc</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143034&amp;amp;idx=1&amp;amp;sn=6cf52dd249de2583a8f7f3eeb3241cbc</guid>
+      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>【调研启动】《医疗行业数据安全能力建设应用指南（2026版）》</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143034&amp;amp;idx=2&amp;amp;sn=41e8b1810a9ab695f39839bb309177e0</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143034&amp;amp;idx=2&amp;amp;sn=41e8b1810a9ab695f39839bb309177e0</guid>
+      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>任天堂Switch 2出现首个公开软件越狱 可运行自制软件/修改游戏/备份存档等</title>
+      <link>https://www.landian.news/archives/127584.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/127584.html</guid>
+      <description>2026年10月23日 12:00游戏资讯01.06K...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
       <title>PdfCraft，开源PDF工作台，支持压缩PDF功能</title>
       <link>https://meta.appinn.net/t/topic/94258</link>
       <guid isPermaLink="true">https://meta.appinn.net/t/topic/94258</guid>
@@ -391,10 +540,10 @@
       <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Mobile-Whip: A Compact Battery Powered Mini-Whip Style Active HF Antenna for Handhelds and SDRs</title>
+      <title>Mobile-Whip：一款为手持设备和SDR设计的紧凑型电池供电迷你 whip 式有源高频天线</title>
       <link>https://www.rtl-sdr.com/mobile-whip-a-compact-battery-powered-mini-whip-style-active-hf-antenna-for-handhelds-and-sdrs/</link>
       <guid isPermaLink="true">https://www.rtl-sdr.com/mobile-whip-a-compact-battery-powered-mini-whip-style-active-hf-antenna-for-handhelds-and-sdrs/</guid>
-      <description>October 23, 2026Thank y...</description>
+      <description>2026年10月23日感谢您的...</description>
       <category>Unsafe.sh</category>
       <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
     </item>
@@ -402,15 +551,111 @@
       <title>Deep-Live-Cam v2.8</title>
       <link>https://kitploit.com/en/posts/deep-live-cam-3564eb2b9f771466</link>
       <guid isPermaLink="true">https://kitploit.com/en/posts/deep-live-cam-3564eb2b9f771466</guid>
-      <description>Real-time face swap and video deepfake with a single click and only a single image.  Dis...</description>
+      <description>只需单击一次并使用单张图片即可实现实时换脸和视频深度伪造。Dis...</description>
       <category>Unsafe.sh</category>
       <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Switch 2 越狱</title>
+      <title>eMudhra 退出全球 CA 业务</title>
+      <link>https://www.solidot.org/story?sid=85689</link>
+      <guid isPermaLink="true">https://www.solidot.org/story?sid=85689</guid>
+      <description>在曝出惊人丑闻之后，印度公司 eMudhra  宣布退出全球 CA 业务，将专注于核心企业解决方案和信任服务而非 SSL/TLS 相关业务。它是印度唯一一个被主流浏览器信任的 Root C...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>趋势科技在公开的内核邮件列表上披露内核漏洞</title>
+      <link>https://www.solidot.org/story?sid=85688</link>
+      <guid isPermaLink="true">https://www.solidot.org/story?sid=85688</guid>
+      <description>趋势科技的安全团队 Zero Day Initiative 向人人可访问的内核邮件列表上递交了一系列新发现的内核漏洞。按照惯例，漏洞应该递交到不对外公开的安全邮件列表。递交的部分漏洞没有补...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>密码管理器1Password推出AI智能体登录功能 智能体提交申请由用户批准后登录网站</title>
+      <link>https://www.landian.news/archives/127583.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/127583.html</guid>
+      <description>2026年10月23日 11:30软件资讯00.92K...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>科学家揭示低温延缓衰老的机制</title>
+      <link>https://www.solidot.org/story?sid=85687</link>
+      <guid isPermaLink="true">https://www.solidot.org/story?sid=85687</guid>
+      <description>适度低温已被证明能有效延长动物寿命，延缓与衰老相关的机能衰退。但低温延缓衰老的分子机制是什么？研究人员利用秀丽隐杆线虫（Caenorhabditis elegans ）发现，低温会触发代谢...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>逾半数美国人认为 AI 对社会有害</title>
+      <link>https://www.solidot.org/story?sid=85686</link>
+      <guid isPermaLink="true">https://www.solidot.org/story?sid=85686</guid>
+      <description>根据 ABC News/Washington Post/Ipsos 的调查，57%的美国人认为 AI 对社会有害，42%的人认为它对社会有益。仅有 2% 的人认为它对社会极其有益，17%...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>研究识别出第一位企业心理病态者</title>
+      <link>https://www.solidot.org/story?sid=85685</link>
+      <guid isPermaLink="true">https://www.solidot.org/story?sid=85685</guid>
+      <description>一项新研究指出，有毒企业领导人身上所见的性格特征可追溯到一位 400 年前的荷兰东印度公司的企业官员。该公司的商户部经理 Jeronimus Cornelisz 可能是最早有文献记录的企业...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Capcom 确认数据泄露影响 1,170 万个账户</title>
+      <link>http://0.0.0.0:8080/post/64822</link>
+      <guid isPermaLink="true">http://0.0.0.0:8080/post/64822</guid>
+      <description>Capcom 确认数据泄露影响 1,170 万个账户</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>毅力号行使距离超机遇号刷新历史记录</title>
+      <link>https://www.solidot.org/story?sid=85684</link>
+      <guid isPermaLink="true">https://www.solidot.org/story?sid=85684</guid>
+      <description>毅力号火星车创下新的世界纪录——它在地外天体表面的行驶里程，超过了此前所有探测器。10月11日，它的里程表读数达到28.10英里（45.22公里），超越了此前由机遇号保持的28.06英里（...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>因加州考虑征收亿万富翁税扎克伯格有意离开</title>
+      <link>https://www.solidot.org/story?sid=85683</link>
+      <guid isPermaLink="true">https://www.solidot.org/story?sid=85683</guid>
+      <description>Meta 周三警告，如果加州通过亿万富翁税，公司 CEO 扎克伯格（Mark Zuckerberg）可能会离开加州迁往他处。扎克伯格已向公司特别委员会告知了这一可能性。据 Meta 在监管...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Arista 警告 VeloCloud 严重 SQL 注入零日漏洞已被利用攻击</title>
+      <link>http://0.0.0.0:8080/post/64821</link>
+      <guid isPermaLink="true">http://0.0.0.0:8080/post/64821</guid>
+      <description>Arista 警告 VeloCloud 严重 SQL 注入零日漏洞已被利用攻击</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Switch 2越狱</title>
       <link>https://unsafe.sh/go-450250.html</link>
       <guid isPermaLink="true">https://unsafe.sh/go-450250.html</guid>
-      <description>Switch 2 Jailbreak</description>
+      <description>Switch 2越狱</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>破与立：设计视角下的 iPhone Duo</title>
+      <link>https://sspai.com/post/116979</link>
+      <guid isPermaLink="true">https://sspai.com/post/116979</guid>
+      <description>Matrix 首页推荐Matrix 是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选 Matrix 最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>日本游戏公司卡普空确认数据库泄露 涉及全球1177万条用户记录 包括各种敏感信息</title>
+      <link>https://www.landian.news/archives/127582.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/127582.html</guid>
+      <description>2026年10月23日 11:01安全资讯, 科技资讯01.04K...</description>
       <category>Unsafe.sh</category>
       <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
     </item>
@@ -439,10 +684,10 @@
       <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>新手入门 Tor：深度与暗网指南</title>
+      <title>新手入门Tor：深网与暗网指南</title>
       <link>https://unsafe.sh/go-450254.html</link>
       <guid isPermaLink="true">https://unsafe.sh/go-450254.html</guid>
-      <description>New to Tor Need a Guide to the Deep and Dark Web</description>
+      <description>新手入门Tor：深网与暗网指南</description>
       <category>Unsafe.sh</category>
       <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
     </item>
@@ -463,10 +708,18 @@
       <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>内存注入</title>
+      <title>Memory-injection（内存注入）</title>
       <link>https://kitploit.com/en/tools/github/pedrobarcha/memory-injection</link>
       <guid isPermaLink="true">https://kitploit.com/en/tools/github/pedrobarcha/memory-injection</guid>
-      <description>内存注入——关于通过 Claude、Gemini 等模型中的内存特性实现持久化提示词注入的研究...</description>
+      <description>Memory-injection — 针对 Claude、Gemini 等模型中通过内存特性进行持久化提示注入的研究...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>俄背景APT组织Swallowtail瞄准北约成员国展开攻击活动</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzI0MTE4ODY3Nw==&amp;amp;mid=2247493002&amp;amp;idx=1&amp;amp;sn=63fd52a23348d49ee82417f9afaddbaa</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzI0MTE4ODY3Nw==&amp;amp;mid=2247493002&amp;amp;idx=1&amp;amp;sn=63fd52a23348d49ee82417f9afaddbaa</guid>
+      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
       <category>Unsafe.sh</category>
       <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
     </item>
@@ -474,7 +727,7 @@
       <title>十月：糟糕软件月</title>
       <link>https://unsafe.sh/go-450236.html</link>
       <guid isPermaLink="true">https://unsafe.sh/go-450236.html</guid>
-      <description>October: Bad Software Month</description>
+      <description>十月：糟糕软件月</description>
       <category>Unsafe.sh</category>
       <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
     </item>
@@ -482,15 +735,31 @@
       <title>十月：糟糕软件月</title>
       <link>https://unsafe.sh/go-450241.html</link>
       <guid isPermaLink="true">https://unsafe.sh/go-450241.html</guid>
-      <description>October: Bad Software Month</description>
+      <description>十月：糟糕软件月</description>
       <category>Unsafe.sh</category>
       <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>GitHub - 1llu50ry/mcp-gamehacking: MCP (Model Context Protocol) 游戏破解与逆向工程服务器。包含4100+技能的结构化知识库，附带完整源代码归档、专用智能体及工作流工具。</title>
+      <title>DeepSeek 据悉完成 1000 亿元新一轮融资；特斯拉三季度利润大跌 43%；微信称已完成适配 iPhone Duo | 极客早知道</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;amp;mid=2653115337&amp;amp;idx=1&amp;amp;sn=babf9df6bcdac4c459bdeb99074adc3e</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;amp;mid=2653115337&amp;amp;idx=1&amp;amp;sn=babf9df6bcdac4c459bdeb99074adc3e</guid>
+      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>GitHub - 1llu50ry/mcp-gamehacking: MCP (Model Context Protocol) 游戏破解与逆向工程服务器。包含4,100+技能的结构化知识库及完整源代码归档、专用智能体和工作流工具。</title>
       <link>https://unsafe.sh/go-450235.html</link>
       <guid isPermaLink="true">https://unsafe.sh/go-450235.html</guid>
-      <description>GitHub - 1llu50ry/mcp-gamehacking: MCP (Model Context Protocol) server for game hacking &amp; reverse en...</description>
+      <description>GitHub - 1llu50ry/mcp-gamehacking: MCP (Model Context Protocol) 游戏破解与逆向工程服...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>你的对手不是人了：Claude+Grok组队，400家金融机构被AI全自动攻破</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&amp;amp;mid=2649790612&amp;amp;idx=1&amp;amp;sn=bd189312c5882e6f90847903ad4866d7</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&amp;amp;mid=2649790612&amp;amp;idx=1&amp;amp;sn=bd189312c5882e6f90847903ad4866d7</guid>
+      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
       <category>Unsafe.sh</category>
       <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
     </item>
@@ -519,34 +788,34 @@
       <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>balcony-jailbreaking</title>
+      <title>balcony-jailbreaking（阳台越狱）</title>
       <link>https://kitploit.com/en/tools/github/lassnajmuldeen/balcony-jailbreaking</link>
       <guid isPermaLink="true">https://kitploit.com/en/tools/github/lassnajmuldeen/balcony-jailbreaking</guid>
-      <description>Kitploit is a directory of hacking, cybersecurity, and pentesting tools. Discover the latest project...</description>
+      <description>Kitploit 是一个黑客技术、网络安全和渗透测试工具的目录。发现最新项目...</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>2026-10-22: Seven days of scans and probes and web traffic hitting my web server</title>
+      <title>2026-10-22：我的Web服务器遭受为期七天的扫描、探测和网络流量攻击记录</title>
       <link>https://www.malware-traffic-analysis.net/2026/10/22/index.html</link>
       <guid isPermaLink="true">https://www.malware-traffic-analysis.net/2026/10/22/index.html</guid>
-      <description>2026-10-22: Seven days of scans and probes and web traffic hitting my web server</description>
+      <description>2026-10-22：我的Web服务器遭受为期七天的扫描、探测和网络流量攻击记录</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>2026-10-16: Coruna-like iOS exploit kit traffic</title>
+      <title>2026-10-16：类Coruna iOS漏洞利用包流量分析</title>
       <link>https://www.malware-traffic-analysis.net/2026/10/16/index.html</link>
       <guid isPermaLink="true">https://www.malware-traffic-analysis.net/2026/10/16/index.html</guid>
-      <description>2026-10-16: Coruna-like iOS exploit kit traffic</description>
+      <description>2026-10-16：类Coruna iOS漏洞利用包流量分析</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>2026-10-09: Pcap of infection from Macfinger Clickfix activity</title>
+      <title>2026-10-09：Macfinger Clickfix活动感染PCAP数据包分析</title>
       <link>https://www.malware-traffic-analysis.net/2026/10/09/index.html</link>
       <guid isPermaLink="true">https://www.malware-traffic-analysis.net/2026/10/09/index.html</guid>
-      <description>2026-10-09: Pcap of infection from Macfinger Clickfix activity</description>
+      <description>2026-10-09：Macfinger Clickfix活动感染PCAP数据包分析</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
@@ -591,23 +860,23 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>"Ohhh, It Was Made by AI! I Knew It!"... Or Do You?</title>
+      <title>"哦，这是AI做的！我早就知道了！"……还是说你以为是这样？</title>
       <link>https://hackernoon.com/ohhh-it-was-made-by-ai-i-knew-it-or-do-you?source=rss</link>
       <guid isPermaLink="true">https://hackernoon.com/ohhh-it-was-made-by-ai-i-knew-it-or-do-you?source=rss</guid>
-      <description>Editorial Note: The article contained quite transparent AI disclosure at the end, which we decided t...</description>
+      <description>编辑注：文章末尾包含了相当明显的AI披露声明，我们决定...</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>How Airflow Handles Dynamic Task Executions with Immutable Dynamic Regions</title>
+      <title>Airflow如何利用不可变动态区域处理动态任务执行</title>
       <link>https://hackernoon.com/how-airflow-handles-dynamic-task-executions-with-immutable-dynamic-regions?source=rss</link>
       <guid isPermaLink="true">https://hackernoon.com/how-airflow-handles-dynamic-task-executions-with-immutable-dynamic-regions?source=rss</guid>
-      <description>Understanding Dynamic Task Executions in Apache AirflowApache Airflow is a powerful platform for or...</description>
+      <description>理解Apache Airflow中的动态任务执行Apache Airflow是一个强大的编排平台...</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Railway warns devs to rotate secrets after potential breach</title>
+      <title>Railway警告开发人员在潜在泄露后轮换密钥</title>
       <link>https://www.bleepingcomputer.com/news/security/railway-warns-devs-to-rotate-secrets-after-potential-breach/</link>
       <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/railway-warns-devs-to-rotate-secrets-after-potential-breach/</guid>
       <description>Railway warns devs to rotate secrets after potential breach</description>
@@ -615,10 +884,10 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Toronto crime tips org freezes operations after details of data breach come to light</title>
+      <title>多伦多犯罪举报组织在数据泄露细节曝光后冻结运营</title>
       <link>https://therecord.media/toronto-crime-tips-org-freezes-ops-after-breach</link>
       <guid isPermaLink="true">https://therecord.media/toronto-crime-tips-org-freezes-ops-after-breach</guid>
-      <description>A Toronto crime prevention program that long promised witnesses a safe space to anonymously report...</description>
+      <description>一个长期承诺为目击者提供匿名安全举报空间的多伦多犯罪预防项目...</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
@@ -626,20 +895,20 @@
       <title>PHP2Hell - Joshua Wright - PSW #949</title>
       <link>http://sites.libsyn.com/18678/php2hell-joshua-wright-psw-949</link>
       <guid isPermaLink="true">http://sites.libsyn.com/18678/php2hell-joshua-wright-psw-949</guid>
-      <description>Oct 22, 2026Special guest Joshua Wright joins us for a timelyincident-response discussion!Then, in...</description>
+      <description>2026年10月22日特邀嘉宾Joshua Wright加入我们要进行一场及时的应急响应讨论！随后，在...</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Will That Sofa Fit? Validate Your Furniture Layout With JavaScript Rectangles</title>
+      <title>那张沙发放得下吗？用JavaScript矩形验证家具布局</title>
       <link>https://hackernoon.com/will-that-sofa-fit-validate-your-furniture-layout-with-javascript-rectangles?source=rss</link>
       <guid isPermaLink="true">https://hackernoon.com/will-that-sofa-fit-validate-your-furniture-layout-with-javascript-rectangles?source=rss</guid>
-      <description>A room sketch can answer a small programming question: do two furniture footprints overlap, and does...</description>
+      <description>房间草图可以回答一个小的编程问题：两个家具的占地面积是否重叠，以及...</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Microsoft Links ConnectWise Breach to China-Linked Group Using AI Pentesting Tool ARTEX</title>
+      <title>微软将ConnectWise泄露事件归咎于使用ARTEX AI渗透测试工具的中国关联组织</title>
       <link>https://securityaffairs.com/201501/apt/microsoft-links-connectwise-breach-to-china-linked-group-using-ai-pentesting-tool-artex.html</link>
       <guid isPermaLink="true">https://securityaffairs.com/201501/apt/microsoft-links-connectwise-breach-to-china-linked-group-using-ai-pentesting-tool-artex.html</guid>
       <description>Microsoft Links ConnectWise Breach to China-Linked Group Using AI Pentesting Tool ART...</description>
@@ -655,7 +924,7 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Preparing for 2027: Five Trends Shaping Enterprise Threat Intelligence</title>
+      <title>备战2027：塑造企业威胁情报的五大趋势</title>
       <link>https://flashpoint.io/blog/preparing-for-2027-five-trends-shaping-enterprise-threat-intelligence/</link>
       <guid isPermaLink="true">https://flashpoint.io/blog/preparing-for-2027-five-trends-shaping-enterprise-threat-intelligence/</guid>
       <description>Cyber Threat IntelligencePreparin...</description>
@@ -663,7 +932,7 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Capcom confirms data breach affecting 11.7 million accounts</title>
+      <title>Capcom确认发生数据泄露，影响1170万账户</title>
       <link>https://www.bleepingcomputer.com/news/security/capcom-confirms-data-breach-affecting-117-million-accounts/</link>
       <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/capcom-confirms-data-breach-affecting-117-million-accounts/</guid>
       <description>Capcom confirms data breach affecting 11.7 million accounts</description>
@@ -671,7 +940,7 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>CVE-2026-76268 | Splunk Enterprise Patroni REST API Missing Authentication Vulnerability</title>
+      <title>CVE-2026-76268 | Splunk Enterprise Patroni REST API 缺少身份验证漏洞</title>
       <link>https://horizon3.ai/attack-research/vulnerabilities/cve-2026-76268/</link>
       <guid isPermaLink="true">https://horizon3.ai/attack-research/vulnerabilities/cve-2026-76268/</guid>
       <description>Splunk Enterprise Patroni REST API Missing Authentication VulnerabilityCVE-2026-76268 is a...</description>
@@ -679,7 +948,7 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>[RESEARCH] SM-F956B (Z Fold 6) Bit-4: OEM-Unlock Flag Ignored by Bootloader + Bootchain Bug-Hunt &amp; Temp-Root Status</title>
+      <title>[研究] SM-F956B (Z Fold 6) Bit-4：引导加载程序忽略OEM解锁标志 + Bootchain漏洞挖掘与临时Root状态</title>
       <link>https://unsafe.sh/go-450201.html</link>
       <guid isPermaLink="true">https://unsafe.sh/go-450201.html</guid>
       <description>[RESEARCH] SM-F956B (Z Fold 6) Bit-4: OEM-Unlock Flag Ignored by Bootloader + Bootchain Bug-Hunt &amp; T...</description>
@@ -687,7 +956,7 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>500 Blog Posts To Learn About Hackernoon Top Story</title>
+      <title>通过500篇博文了解Hackernoon热门故事</title>
       <link>https://hackernoon.com/500-blog-posts-to-learn-about-hackernoon-top-story?source=rss</link>
       <guid isPermaLink="true">https://hackernoon.com/500-blog-posts-to-learn-about-hackernoon-top-story?source=rss</guid>
       <description>Let's learn about Hackernoon Top Story via these 500 free blog posts. They are ordered by HackerNoon...</description>
@@ -695,7 +964,7 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>A stranger disassembled my mouse’s official app, fixed my checksum, and by accident gave me the idea for USB cable support</title>
+      <title>陌生人反编译了我的鼠标官方应用，修复了校验和，并意外给了我USB线缆支持的想法</title>
       <link>https://unsafe.sh/go-450200.html</link>
       <guid isPermaLink="true">https://unsafe.sh/go-450200.html</guid>
       <description>A stranger disassembled my mouse’s official app, fixed my checksum, and by accident gave me the idea...</description>
@@ -706,63 +975,63 @@
       <title>无尽技能提升的陷阱</title>
       <link>https://hackernoon.com/the-trap-of-endless-upskilling?source=rss</link>
       <guid isPermaLink="true">https://hackernoon.com/the-trap-of-endless-upskilling?source=rss</guid>
-      <description>如何为职业生涯选择真正重要的内容。当今的专业世界处于一种奇怪且...</description>
+      <description>How To Choose What Actually Matters For Your CareerToday’s professional world sits at a strange and...</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>大家好，我是来自印度的 Aditya。我正在开发一个项目，使用机器码和数学构建超写实图形游戏引擎。如果有人对此感兴趣，我想与您讨论</title>
+      <title>Hello everyone,It's Aditya from India. I am working on a project where I use machine code to make my own ultra photorealistic graphics game engine while using math.So if anyone is interested to talk about this, I would like to discuss with you</title>
       <link>https://unsafe.sh/go-450202.html</link>
       <guid isPermaLink="true">https://unsafe.sh/go-450202.html</guid>
-      <description>大家好，我是来自印度的 Aditya。我正在开发一个项目，使用机器码构建我的...</description>
+      <description>Hello everyone,It's Aditya from India. I am working on a project where I use machine code to make my...</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>LiteLLM 发布管道遭黑客攻击以分发信息窃取恶意软件</title>
+      <title>LiteLLM release pipeline hacked to distribute info-stealer malware</title>
       <link>https://www.bleepingcomputer.com/news/security/litellm-release-pipeline-hacked-to-distribute-info-stealer-malware/</link>
       <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/litellm-release-pipeline-hacked-to-distribute-info-stealer-malware/</guid>
-      <description>LiteLLM 发布管道遭黑客攻击以分发信息窃取恶意软件</description>
+      <description>LiteLLM release pipeline hacked to distribute info-stealer malware</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Travala 推出 AVA 回购乘数机制，将回购额度提升至会员奖励的4倍</title>
+      <title>Travala Introduces AVA Buyback Multiplier, Scaling Buybacks Up to 4x Member Rewards</title>
       <link>https://hackernoon.com/travala-introduces-ava-buyback-multiplier-scaling-buybacks-up-to-4x-member-rewards?source=rss</link>
       <guid isPermaLink="true">https://hackernoon.com/travala-introduces-ava-buyback-multiplier-scaling-buybacks-up-to-4x-member-rewards?source=rss</guid>
-      <description>新加坡，2026年10月22日/Chainwire/--由币安支持的加密旅行预订平台 Travala...</description>
+      <description>Singapore, Singapore, October 22nd, 2026/Chainwire/--Travala, the Binance-backed crypto travel booki...</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>印度科技公司 eMudhra 在发生安全事件后宣布退出证书业务</title>
+      <title>Indian tech company eMudhra announces withdrawal from certificate business after security incident</title>
       <link>https://therecord.media/indian-tech-company-announces-withdrawal-certificate-business-incident</link>
       <guid isPermaLink="true">https://therecord.media/indian-tech-company-announces-withdrawal-certificate-business-incident</guid>
-      <description>一家仅存的被主流网页浏览器信任的印度根证书颁发机构表示，它正在撤出...</description>
+      <description>One of the only Indian root certificate authorities trusted by major web browsers said it is withdr...</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>PHP2Shell漏洞的影响不仅取决于你是否使用 PHP</title>
+      <title>PHP2Shell Exposure Depends on More Than Whether You Use PHP</title>
       <link>https://horizon3.ai/attack-research/attack-blogs/php2shell-exposure-exploitability/</link>
       <guid isPermaLink="true">https://horizon3.ai/attack-research/attack-blogs/php2shell-exposure-exploitability/</guid>
-      <description>免责声明：本文并非关于 CVE（CVE-2026-109618/CVE-2026-109619）工作原理的入门指南。对于...</description>
+      <description>Disclaimer: This article is not a primer on how the CVEs (CVE-2026-109618/CVE-2026-109619) work. Fo...</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>未经审核的 AI Agent正在访问美国银行账户</title>
+      <title>Unvetted AI agents are accessing U.S. bank accounts</title>
       <link>https://unsafe.sh/go-450206.html</link>
       <guid isPermaLink="true">https://unsafe.sh/go-450206.html</guid>
-      <description>未经审核的 AI Agent正在访问美国银行账户</description>
+      <description>Unvetted AI agents are accessing U.S. bank accounts</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>[注: Gcore] Gcore向公共机构免费开放企业安全套件至年底</title>
+      <title>Gcore Makes Enterprise Security Bundle Free for Public Agencies Until End of the Year</title>
       <link>https://hackernoon.com/gcore-makes-enterprise-security-bundle-free-for-public-agencies-until-end-of-the-year?source=rss</link>
       <guid isPermaLink="true">https://hackernoon.com/gcore-makes-enterprise-security-bundle-free-for-public-agencies-until-end-of-the-year?source=rss</guid>
-      <description>康特恩，卢森堡，2026年10月22日/CyberNewswire/--Gcore正为其WAAP企业计划提供...</description>
+      <description>Contern, Luxembourg, October 22nd, 2026/CyberNewswire/--Gcore is offering its WAAP Enterprise plan f...</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
@@ -775,23 +1044,23 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>证据链：训练AI检测工程师证明其工作成果</title>
+      <title>Chain of Custody: Teaching an AI Detection Engineer to Prove Its Work</title>
       <link>https://binarydefense.com/resources/blog/chain-of-custody-teaching-an-ai-detection-engineer-to-prove-its-work</link>
       <guid isPermaLink="true">https://binarydefense.com/resources/blog/chain-of-custody-teaching-an-ai-detection-engineer-to-prove-its-work</guid>
-      <description>检测工程面临可信度问题：一条规则编译通过...</description>
+      <description>Detection engineering has a credibility problem: a rule that compiles a...</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>构建跨越浏览器、API和Worker边端的端到端Cypress测试</title>
+      <title>Building End-to-End Cypress Tests Across Browser, API, and Worker Boundaries</title>
       <link>https://hackernoon.com/building-end-to-end-cypress-tests-across-browser-api-and-worker-boundaries?source=rss</link>
       <guid isPermaLink="true">https://hackernoon.com/building-end-to-end-cypress-tests-across-browser-api-and-worker-boundaries?source=rss</guid>
-      <description>React支持控制台显示退款已批准。Cypress测试看到横幅并通过。用户...</description>
+      <description>A React support console displays Refund approved. The Cypress test sees the banner and passes.The cu...</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Signal漏洞可能导致用户在挂断后通话仍保持活跃</title>
+      <title>Signal Vulnerability Could Keep Calls Alive After Users Hang Up</title>
       <link>https://securityaffairs.com/201490/security/signal-vulnerability-could-keep-calls-alive-after-users-hang-up.html</link>
       <guid isPermaLink="true">https://securityaffairs.com/201490/security/signal-vulnerability-could-keep-calls-alive-after-users-hang-up.html</guid>
       <description>Signal Vulnerability Could Keep Calls Alive After Users Hang Up...</description>
@@ -799,7 +1068,7 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>我原本计划了那一秒</title>
+      <title>I had plans for that second</title>
       <link>https://blog.talosintelligence.com/i-had-plans-for-that-second/</link>
       <guid isPermaLink="true">https://blog.talosintelligence.com/i-had-plans-for-that-second/</guid>
       <description>Thursday, October 22,...</description>
@@ -807,7 +1076,7 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>[独家] FoxIO研究员称Bun从未回应其5月报告的导致服务器崩溃的HTTP/3缺陷</title>
+      <title>Exclusive: FoxIO researcher says Bun never answered its May report of a server-crashing HTTP/3 flaw</title>
       <link>https://unsafe.sh/go-450176.html</link>
       <guid isPermaLink="true">https://unsafe.sh/go-450176.html</guid>
       <description>Exclusive: FoxIO researcher says Bun never answered its May report of a server-crashing HTTP/3 flaw</description>
@@ -831,7 +1100,7 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>EMudhra中间CA证书遭泄露</title>
+      <title>EMudhra Intermediate CA Certificates Compromised</title>
       <link>https://unit42.paloaltonetworks.com/emudhra-certificate-compromise/</link>
       <guid isPermaLink="true">https://unit42.paloaltonetworks.com/emudhra-certificate-compromise/</guid>
       <description>Executive SummaryEight intermediate certificate authority (CA) private keys belong...</description>
@@ -839,7 +1108,7 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>OAuth攻击现状</title>
+      <title>The Current Landscape of OAuth Attacks</title>
       <link>https://unit42.paloaltonetworks.com/current-landscape-oauth-attacks/</link>
       <guid isPermaLink="true">https://unit42.paloaltonetworks.com/current-landscape-oauth-attacks/</guid>
       <description>As enterprises continue to roll out multi-factor authentication (MFA), attackers ha...</description>
@@ -847,7 +1116,7 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Facebook误导性隐私声明致Meta被罚250亿美元</title>
+      <title>Facebook’s misleading privacy claims land Meta a $25 billion penalty</title>
       <link>https://www.malwarebytes.com/blog/news/2026/10/facebooks-misleading-privacy-claims-land-meta-a-25-billion-penalty</link>
       <guid isPermaLink="true">https://www.malwarebytes.com/blog/news/2026/10/facebooks-misleading-privacy-claims-land-meta-a-25-billion-penalty</guid>
       <description>Facebook’s Cambridge Analytica scandal may feel like very old news. But the consequences are s...</description>
@@ -855,7 +1124,7 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>患者如何察觉物理治疗师推销不必要的就诊次数</title>
+      <title>how do patients notice when PTs push unnecessary visits</title>
       <link>https://unsafe.sh/go-450177.html</link>
       <guid isPermaLink="true">https://unsafe.sh/go-450177.html</guid>
       <description>how do patients notice when PTs push unnecessary visits</description>
@@ -863,7 +1132,7 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>CVE-2026-94300:并发GSS-TSIG消息导致内存损坏</title>
+      <title>CVE-2026-94300: Concurrent GSS-TSIG messages corrupt memory</title>
       <link>https://unsafe.sh/go-450175.html</link>
       <guid isPermaLink="true">https://unsafe.sh/go-450175.html</guid>
       <description>CVE-2026-94300: Concurrent GSS-TSIG messages corrupt memory</description>
@@ -871,7 +1140,7 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AgentCorruption：AWS收紧了AgentCore的默认角色，而非你的角色</title>
+      <title>AgentCorruption: AWS Tightened AgentCore's Default Role, Not Yours</title>
       <link>https://unsafe.sh/go-450184.html</link>
       <guid isPermaLink="true">https://unsafe.sh/go-450184.html</guid>
       <description>AgentCorruption: AWS Tightened AgentCore's Default Role, Not Yours</description>
@@ -879,7 +1148,7 @@
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>微软将ConnectWise攻击归咎于使用ARTEX AI代理的中国国家黑客组织</title>
+      <title>Microsoft blames ConnectWise attacks on Chinese state hacker using ARTEX AI agents</title>
       <link>https://therecord.media/china-cyber-connectwise-ai</link>
       <guid isPermaLink="true">https://therecord.media/china-cyber-connectwise-ai</guid>
       <description>A Chinese government-aligned hacking group used automated tools to carry out the recent supply chai...</description>
@@ -890,279 +1159,71 @@
       <title>AI安全素养</title>
       <link>https://kitploit.com/en/tools/github/ericyoc/ai-security-literacy</link>
       <guid isPermaLink="true">https://kitploit.com/en/tools/github/ericyoc/ai-security-literacy</guid>
-      <description>AI-security-literacy — Reproducible Colab pipeline that grounds six AI Security Literacy competency...</description>
+      <description>AI安全素养——可复现的Colab流水线，旨在奠定六项AI安全素养能力的基础...</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Markdown成为新的可执行文件：攻击者正从网络向你的下载文件夹投放Agent指令</title>
+      <title>Markdown即新可执行文件：攻击者正从网络向你的下载文件夹投放Agent指令</title>
       <link>https://unsafe.sh/go-450174.html</link>
       <guid isPermaLink="true">https://unsafe.sh/go-450174.html</guid>
-      <description>Markdown Is the New Executable: Attackers Are Dropping Agent Instructions Into Your Downloads Folder...</description>
+      <description>Markdown即新可执行文件：攻击者正将Agent指令投放到你的下载文件夹……</description>
       <category>Unsafe.sh</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>NDR与网络流量分析以进行网络防御</title>
-      <link>https://www.cybersecurity360.it/soluzioni-aziendali/ndr-e-network-traffic-analysis-per-la-difesa-di-rete/</link>
-      <guid isPermaLink="true">https://www.cybersecurity360.it/soluzioni-aziendali/ndr-e-network-traffic-analysis-per-la-difesa-di-rete/</guid>
-      <description>Le reti aziendali non hanno più un perimetro netto. Cloud ibrido, lavoro da remoto, dispositivi IoT...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>NSA称若不修补PHP将面临离线风险，因AI发现的PHP2Shell漏洞影响约70%的网站</title>
-      <link>https://hackernoon.com/nsa-says-patch-or-go-offline-as-ai-found-php2shell-flaws-reach-70percent-of-the-web?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/nsa-says-patch-or-go-offline-as-ai-found-php2shell-flaws-reach-70percent-of-the-web?source=rss</guid>
-      <description>How much of the web PHP2Shell touchesPHP2Shell reaches most of the web because it lives in PHP itse...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>银行遭受AI攻击，警报全球响起</title>
-      <link>https://www.cybersecurity360.it/nuove-minacce/banche-sotto-attacco-dallai-lallarme-e-globale/</link>
-      <guid isPermaLink="true">https://www.cybersecurity360.it/nuove-minacce/banche-sotto-attacco-dallai-lallarme-e-globale/</guid>
-      <description>Intelligenza artificialeUsati agenti basati su Claude e Grok contro oltre 400 bersagli finanziari in...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>如何从黑客松合作中获取更多价值</title>
-      <link>https://hackernoon.com/how-to-get-more-value-from-a-hackathon-partnership?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/how-to-get-more-value-from-a-hackathon-partnership?source=rss</guid>
-      <description>Hackathons give developers a reason to experiment with new technologies and build working projects,...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>SecWiki新闻2026-10-22回顾</title>
-      <link>http://www.sec-wiki.com/?2026-10-22</link>
-      <guid isPermaLink="true">http://www.sec-wiki.com/?2026-10-22</guid>
-      <description>SecWiki News 2026-10-22 Review</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>我使用 Astra 对《黑与白》进行了逆向工程，并在游戏原有 AI 基础上添加了 LLM 和语音支持</title>
-      <link>https://unsafe.sh/go-450132.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-450132.html</guid>
-      <description>我使用 Astra 对《黑与白》进行了逆向工程，并在游戏原有的 AI 之上添加了大语言模型（LLM）及语音支持。环境暴露于 LLM 的上下文之中，生物体可以选择工具来检查并与世界互动，或回答关于该世界的问题。</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>潜伏两月突然发难：Tor 近10%出口中继被黑客控制</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&amp;amp;mid=2451189455&amp;amp;idx=1&amp;amp;sn=2f3400ec37331f83da856c18d442fcca</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&amp;amp;mid=2451189455&amp;amp;idx=1&amp;amp;sn=2f3400ec37331f83da856c18d442fcca</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>产品实验的优化完整性框架</title>
-      <link>https://hackernoon.com/the-optimization-integrity-framework-for-product-experiments?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/the-optimization-integrity-framework-for-product-experiments?source=rss</guid>
-      <description>产品团队通常擅长定义他们希望改进的目标：付费转化率、用户参与度等...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Lazarus 已在恶意软件中使用后量子加密：网络挑战如何演变</title>
-      <link>https://www.cybersecurity360.it/nuove-minacce/lazarus-usa-gia-la-crittografia-post-quantistica-nei-malware-come-cambia-la-sfida-cyber/</link>
-      <guid isPermaLink="true">https://www.cybersecurity360.it/nuove-minacce/lazarus-usa-gia-la-crittografia-post-quantistica-nei-malware-come-cambia-la-sfida-cyber/</guid>
-      <description>Lazarus 组织利用人工智能和后量子加密发起攻击...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>PHP2Shell：用于验证关键漏洞暴露情况的工具</title>
-      <link>https://cert-agid.gov.it/news/php2shell-strumenti-per-verificare-lesposizione-alle-vulnerabilita-critiche/</link>
-      <guid isPermaLink="true">https://cert-agid.gov.it/news/php2shell-strumenti-per-verificare-lesposizione-alle-vulnerabilita-critiche/</guid>
-      <description>在 CVE-2026-109618 和 CVE-2026-109619 两个关键漏洞公布后，...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI 与网络安全：威胁与防御策略的变革</title>
-      <link>https://www.cybersecurity360.it/soluzioni-aziendali/ai-e-cyber-security-come-cambiano-le-minacce-e-le-strategie-di-difesa/</link>
-      <guid isPermaLink="true">https://www.cybersecurity360.it/soluzioni-aziendali/ai-e-cyber-security-come-cambiano-le-minacce-e-le-strategie-di-difesa/</guid>
-      <description>人工智能正在重塑网络安全格局，改变其能力...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>多个 Linux 内核高危漏洞疑似被误公开：最高评分 9.0，部分尚未修复</title>
-      <link>https://www.appinn.com/linux-kernel-vulnerabilities-accidentally-disclosed/</link>
-      <guid isPermaLink="true">https://www.appinn.com/linux-kernel-vulnerabilities-accidentally-disclosed/</guid>
-      <description>多个 Linux 内核高危漏洞疑似被误公开：最高评分 9.0，部分尚未修复</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AWS报告：PHP2Shell攻击在公开披露前四天已开始</title>
-      <link>https://securityaffairs.com/201479/hacking/php2shell-attacks-started-four-days-before-public-disclosure-aws-reports.html</link>
-      <guid isPermaLink="true">https://securityaffairs.com/201479/hacking/php2shell-attacks-started-four-days-before-public-disclosure-aws-reports.html</guid>
-      <description>AWS报告称，PHP2Shell攻击在公开披露前四天即已启动...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Claude两天内设计了211种蛋白质。Slack上的梗图阶段耗时两个月</title>
-      <link>https://hackernoon.com/claude-designed-211-proteins-in-two-days-the-memes-in-slack-phase-took-two-months?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/claude-designed-211-proteins-in-two-days-the-memes-in-slack-phase-took-two-months?source=rss</guid>
-      <description>Citrini Research没有实验室、没有生物学家，也没有药物研发经验。它飞往Anthropic的...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>ghidra Ghidra_12.2_build</title>
-      <link>https://kitploit.com/en/posts/ghidra-30c9d74a4f927bf1</link>
-      <guid isPermaLink="true">https://kitploit.com/en/posts/ghidra-30c9d74a4f927bf1</guid>
-      <description>BuildFrom the root directory of your Ghidra release, run the following command../docker/build-doc...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>《人工智能法案》，高风险系统：如何大幅减轻负担和风险</title>
-      <link>https://www.cybersecurity360.it/legal/ai-act-sistemi-ad-alto-rischio-come-ridurre-drasticamente-oneri-e-rischi/</link>
-      <guid isPermaLink="true">https://www.cybersecurity360.it/legal/ai-act-sistemi-ad-alto-rischio-come-ridurre-drasticamente-oneri-e-rischi/</guid>
-      <description>Ha acquisito un master in Gestione aziendale e Sviluppo Organizzativo presso il MIP Politecnico di M...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Machine speed attacks require machine speed detection and response</title>
-      <link>https://www.bleepingcomputer.com/news/security/machine-speed-attacks-require-machine-speed-detection-and-response/</link>
-      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/machine-speed-attacks-require-machine-speed-detection-and-response/</guid>
-      <description>Machine speed attacks require machine speed detection and response</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>讲解一下这次PHP核弹级别漏洞的原理</title>
-      <link>https://govuln.com/news/url/0PEL</link>
-      <guid isPermaLink="true">https://govuln.com/news/url/0PEL</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Scammers are finding new ways to target your phone. Here are 5 ways to protect yourself</title>
-      <link>https://www.malwarebytes.com/blog/scams/2026/10/scammers-are-finding-new-ways-to-target-your-phone-here-are-5-ways-to-protect-yourself</link>
-      <guid isPermaLink="true">https://www.malwarebytes.com/blog/scams/2026/10/scammers-are-finding-new-ways-to-target-your-phone-here-are-5-ways-to-protect-yourself</guid>
-      <description>The warnings are everywhere these days. Don’t click this. Don’t open that. Don’t scan this. Do...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>这家印度草台公司宣布退出CA业务 此前8张中级证书被系统和浏览器行业集体封锁</title>
-      <link>https://www.landian.news/archives/127579.html</link>
-      <guid isPermaLink="true">https://www.landian.news/archives/127579.html</guid>
-      <description>2026年10月22日 22:11科技资讯, 行业资讯01.36K...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>500 Blog Posts To Learn About Hackernoon Ru</title>
-      <link>https://hackernoon.com/500-blog-posts-to-learn-about-hackernoon-ru?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/500-blog-posts-to-learn-about-hackernoon-ru?source=rss</guid>
-      <description>Let's learn about Hackernoon Ru via these 500 free blog posts. They are ordered by HackerNoon reader...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>The TechBeat: GPT-6 Astra: How to Write Better Prompts and Skills (10/22/2026)</title>
-      <link>https://hackernoon.com/10-22-2026-techbeat?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/10-22-2026-techbeat?source=rss</guid>
-      <description>The TechBeat: GPT-6 Astra: How to Write Better Prompts and Skills (10/22/2026)</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Certificati TLS, la falla che mette in discussione la catena di fiducia di Internet</title>
-      <link>https://www.cybersecurity360.it/nuove-minacce/certificati-tls-la-falla-che-mette-in-discussione-la-catena-di-fiducia-di-internet/</link>
-      <guid isPermaLink="true">https://www.cybersecurity360.it/nuove-minacce/certificati-tls-la-falla-che-mette-in-discussione-la-catena-di-fiducia-di-internet/</guid>
-      <description>l'analisiOtto certificati intermedi della Certification Authority eMudhra usavano chiavi private ric...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Cybercrime crackdown across Africa leads to 1,462 arrests, $105 million seized</title>
-      <link>https://therecord.media/africa-cybercrime-interpol-arrests</link>
-      <guid isPermaLink="true">https://therecord.media/africa-cybercrime-interpol-arrests</guid>
-      <description>More than 1,400 suspected cybercriminals were arrested across Africa this summer as part of an annu...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>如何通过手机号获取他人邮箱</title>
-      <link>https://unsafe.sh/go-450104.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-450104.html</guid>
-      <description>how do i get someones email through their phone number</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>CloudCone 再次开启50%赠送：充值 5.1 美元，送 2.55 美元</title>
-      <link>https://www.appinn.com/cloudcone-50p-26/</link>
-      <guid isPermaLink="true">https://www.appinn.com/cloudcone-50p-26/</guid>
-      <description>CloudCone 再次开启50%赠送：充值 5.1 美元，送 2.55 美元</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>⚠️ 我们发布了19份全新及1份更新的公开ICS安全公告。这些公告提供了关于当前围绕工业控制系统（ICS）的安全问题、漏洞及利用技术的详细信息……</title>
+      <title>⚠️ 我们发布了19份全新及1份更新的公开ICS安全公告。这些公告提供了关于当前涉及工业控制系统（ICS）的安全问题、漏洞及利用技术的详细信息……</title>
       <link>https://x.com/CISACyber/status/2113343865058918848</link>
       <guid isPermaLink="true">https://x.com/CISACyber/status/2113343865058918848</guid>
-      <description>⚠️ 我们发布了19份全新及1份更新的公开ICS安全公告。这些公告提供了关于当前围绕工业控制系统（ICS）的安全问题、漏洞及利用技术的详细信息。更多信息请访问 go.dhs.gov/iEv</description>
+      <description>⚠️ 我们发布了19份全新及1份更新的公开#ICS安全公告。这些公告提供了有关当前围绕工业控制系统（ICS）的安全问题、漏洞和利用技术的信息。更多信息请访问 go.dhs.gov/iEv</description>
       <category>X (@CISACyber)</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>若管理不当，SI令牌的使用可能会影响成本与性能。我们的新联合指南概述了关键基础设施组织降低令牌消耗相关风险并增强运营韧性的策略……</title>
+      <title>若管理不当，SI令牌的使用可能会影响成本与性能。我们的最新联合指南为关键基础设施组织概述了降低令牌消耗相关风险并增强运营韧性的策略……</title>
       <link>https://x.com/CISACyber/status/2113287856651227361</link>
       <guid isPermaLink="true">https://x.com/CISACyber/status/2113287856651227361</guid>
-      <description>若管理不当，服务实例（SI）令牌的使用可能会影响成本与性能。我们的新联合指南概述了关键基础设施组织降低令牌消耗相关风险并增强运营韧性的策略。了解更多请访问 go.dhs.gov/5Hq</description>
+      <description>若管理不当，SI令牌的使用可能会影响成本与性能。我们的最新联合指南为#CriticialInfrastructure组织概述了缓解与令牌消耗相关的风险并加强运营韧性的策略。了解更多请访问 go.dhs.gov/5Hq</description>
       <category>X (@CISACyber)</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Nextron团队正在检查PHP2SHELL检测覆盖率并基于已公开的PoC扩展规则集……</title>
+      <title>Nextron团队一直在检查PHP2SHELL检测覆盖率，并根据已发布的概念验证（PoC）扩展规则集……</title>
       <link>https://x.com/nextronresearch/status/2113279112567497142</link>
       <guid isPermaLink="true">https://x.com/nextronresearch/status/2113279112567497142</guid>
-      <description>Nextron团队正在检查我们的PHP2SHELL检测覆盖率，并基于已公开的Proof of Concept (PoC) 扩展规则集。
+      <description>Nextron团队一直在检查我们的PHP2SHELL检测覆盖率，并根据已发布的PoC扩展规则集。
 
-成功利用后，我们预期会出现熟悉的攻击活动：Webshell文件释放、反向Shell连接、可疑的子进程以及新建的用户账户……</description>
+成功利用后，我们预期会出现熟悉的迹象：Webshell植入、反向Shell连接、可疑的子进程、新建用户账户等……显示更多</description>
       <category>X (@nextronresearch)</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>BlackLotus引导加载程序以新面貌回归——
+      <title>BlackLotus引导加载程序套件卷土重来——以新的伪装出现。
 
 我们的专家发现了……</title>
       <link>https://x.com/e_kaspersky/status/2113238566847320275</link>
       <guid isPermaLink="true">https://x.com/e_kaspersky/status/2113238566847320275</guid>
-      <description>BlackLotus引导加载程序以新面貌回归。
+      <description>BlackLotus引导加载程序套件卷土重来——以新的伪装出现。
 
-我们的专家发现了一种名为“BlackX”的UEFI引导加载程序，该工具被用于针对中亚地区外交实体的攻击。
+我们的专家发现了一种名为“BlackX”的UEFI引导加载程序套件，该套件被用于针对中亚外交实体的攻击。
 
-该引导加载程序利用的漏洞早在2023年就已修补，且受害者均具备相应的防护条件……</description>
+该引导加载程序套件利用的漏洞早在2023年就已修补，且受害者均具备Show more条件</description>
       <category>X (@e_kaspersky)</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>我们的安全服务团队进行的一项广泛研究考察了现代仓库从攻击者视角的安全性……</title>
+      <title>我们的安全服务团队进行的一项广泛研究考察了现代仓库在攻击者视角下的安全性如何……</title>
       <link>https://x.com/e_kaspersky/status/2113221116210696411</link>
       <guid isPermaLink="true">https://x.com/e_kaspersky/status/2113221116210696411</guid>
-      <description>我们的安全服务团队进行了一项广泛研究，从攻击者视角考察现代仓库的安全性。研究探讨了仓库如何通过条码扫描器、移动打印机甚至货架后的电源插座遭到入侵。此外还解释了为何……</description>
+      <description>我们的安全服务团队进行了一项广泛研究，从攻击者的角度审视现代仓库的安全性。它探讨了仓库如何通过条码扫描仪、移动打印机甚至存储架后面的电源插座遭到入侵。它还解释了为什么显示更多</description>
       <category>X (@e_kaspersky)</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>查看我们对近期在互联网上广泛传播的高关注度PHP漏洞的调查成果及其恶意活动检测方法……</title>
+      <title>查看我们对近期在互联网上广泛传播的高关注度PHP漏洞的发现，以及我们如何检测与之相关的恶意活动……</title>
       <link>https://x.com/e_kaspersky/status/2113192107124965669</link>
       <guid isPermaLink="true">https://x.com/e_kaspersky/status/2113192107124965669</guid>
-      <description>查看我们对近期在互联网上广泛传播的高关注度PHP漏洞的调查成果，以及我们如何检测与之相关的恶意活动。需说明的是，我们的产品与服务不受这些漏洞影响：</description>
+      <description>查看我们对近期在互联网上广泛传播的高关注度PHP漏洞的发现，以及我们如何检测与之相关的恶意活动。特此声明，我们的产品与服务不受这些漏洞影响：显示更多</description>
       <category>X (@e_kaspersky)</category>
       <pubDate>Thu, 22 Oct 2026 00:00:00 +0800</pubDate>
     </item>
