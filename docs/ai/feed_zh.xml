@@ -5,254 +5,230 @@
     <link>https://secnotes.github.io/secnews/</link>
     <description>AI 每日精选的重要安全文章（按主题分类，附推荐理由）</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 24 Oct 2026 12:32:39 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 25 Oct 2026 12:34:19 +0800</lastBuildDate>
     <item>
-      <title>CVE-2026-6307：漏掉一次签名比较，Wasm 返回类型错乱</title>
-      <link>https://xz.aliyun.com/news/92963</link>
-      <guid isPermaLink="true">https://xz.aliyun.com/news/92963</guid>
-      <description>详细分析了V8引擎TurboFan编译器中因缺少签名比较导致的二进制安全野指针问题，具有极高的底层技术价值。</description>
+      <title>Node.js RCE漏洞背后的Brotli解码器缺陷同样影响Bun、Python及其他广泛使用的软件</title>
+      <link>https://thehackernews.com/2026/10/brotli-decoder-flaw-behind-nodejs-rce.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/10/brotli-decoder-flaw-behind-nodejs-rce.html</guid>
+      <description>Google Brotli解码器内存损坏漏洞影响Node.js、Bun等广泛使用的软件，具有极高的供应链安全风险。</description>
       <category>漏洞研究</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>讲解一下这次PHP核弹级别漏洞的原理</title>
-      <link>https://paper.seebug.org/3528</link>
-      <guid isPermaLink="true">https://paper.seebug.org/3528</guid>
-      <description>针对近期引发广泛关注的PHP RCE漏洞（PHP2Shell）进行深度原理剖析，并附带POC分析，实战指导意义强。</description>
+      <title>CISA指出Collabora Online和Arista VeloCloud中两个被积极利用的关键漏洞</title>
+      <link>https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/10/cisa-flags-two-actively-exploited.html</guid>
+      <description>CISA将Collabora Online和Arista VeloCloud的漏洞列入已知被利用目录，表明存在活跃的高级威胁攻击。</description>
       <category>漏洞研究</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Ruby修复三个正则引擎漏洞，解决GitLab四个关键RCE缺陷</title>
-      <link>https://thehackernews.com/2026/10/ruby-fixes-three-regex-engine-bugs.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/ruby-fixes-three-regex-engine-bugs.html</guid>
-      <description>报道了Ruby正则引擎中的三个关键Bug导致GitLab出现RCE漏洞，涉及核心组件修复，影响范围大。</description>
+      <title>BlackX UEFI启动引导程序利用Baton Drop漏洞绕过安全启动</title>
+      <link>https://www.bleepingcomputer.com/news/security/blackx-uefi-bootkit-exploits-baton-drop-flaw-to-bypass-secure-boot/</link>
+      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/blackx-uefi-bootkit-exploits-baton-drop-flaw-to-bypass-secure-boot/</guid>
+      <description>BlackX UEFI启动包利用Baton Drop缺陷绕过安全启动，展示了底层固件攻击的严重性。</description>
       <category>漏洞研究</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Python流行Pillow图像库存在关键漏洞，可通过构造图片实现代码执行</title>
-      <link>https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/critical-flaw-in-pythons-popular-pillow.html</guid>
-      <description>Python生态中最流行的图像处理库Pillow存在严重RCE漏洞，攻击者可通过构造恶意图片触发代码执行。</description>
+      <title>PHP基金会披露尚未修复的新漏洞 提供缓解方案但暂时不会发新版本修复</title>
+      <link>https://www.landian.news/archives/127591.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/127591.html</guid>
+      <description>PHP核心组件出现新RCE风险且暂无补丁，对依赖PHP构建的企业应用构成直接威胁。</description>
       <category>漏洞研究</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>研究人员利用构造的Brotli数据在Node.js构建中演示Node2Shell RCE漏洞利用</title>
-      <link>https://thehackernews.com/2026/10/researchers-demonstrate-node2shell-rce.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/researchers-demonstrate-node2shell-rce.html</guid>
-      <description>展示了利用Brotli压缩数据在Node.js官方构建版本中实现远程代码执行的PoC，揭示了新的攻击向量。</description>
+      <title>完整源码：通过CVE-2022-22706 Mali GPU页面缓存写入漏洞实现TCL Android TV自主根链</title>
+      <link>https://unsafe.sh/go-450553.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-450553.html</guid>
+      <description>公开了基于Mali GPU缓存写入漏洞的Android TV完整提权链源码，为移动/IoT安全研究提供重要参考。</description>
       <category>漏洞研究</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>vphone-cli v2.12.0</title>
-      <link>https://kitploit.com/en/posts/vphone-cli-2db59b305e8d2413</link>
-      <guid isPermaLink="true">https://kitploit.com/en/posts/vphone-cli-2db59b305e8d2413</guid>
-      <description>介绍了一款能在Apple Silicon Mac上运行虚拟iPhone的工具，涉及移动端仿真与逆向测试环境搭建。</description>
-      <category>移动安全</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>GitHub - alltechdev/mtk-imei-switcheroo：读取和写入IMEI记录...</title>
-      <link>https://unsafe.sh/go-450444.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-450444.html</guid>
-      <description>提供读取和写入联发科(NMediaTek)设备IMEI及蓝牙地址的工具，适用于Android底层硬件修改与安全测试。</description>
-      <category>移动安全</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Android RAT制作与部署</title>
-      <link>https://unsafe.sh/go-450379.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-450379.html</guid>
-      <description>涉及Android远控木马的制作与部署流程，虽然内容较为初级，但反映了移动端恶意软件的基础技术形态。</description>
-      <category>移动安全</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>基于小语言模型的 RAG 流水线上下文感知提示注入检测：nokast-secureRAG</title>
-      <link>https://paper.seebug.org/3529</link>
-      <guid isPermaLink="true">https://paper.seebug.org/3529</guid>
-      <description>针对RAG系统中日益严重的间接提示注入和检索投毒风险，提出了一种基于小模型的检测方案，切中当前AI应用安全痛点。</description>
+      <title>[议程公布｜腾讯数字生态大会 Agent 安全专场]</title>
+      <link>http://bbs.kanxue.com/thread-293322.htm?style=1</link>
+      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293322.htm?style=1</guid>
+      <description>聚焦AI智能体（Agent）自主调度与工具调用带来的新型信任边界和风控难题，是行业前沿议题。</description>
       <category>AI安全</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>GPT-6 Astra被抓包！偷偷关掉安全监控，还直接撒谎</title>
-      <link>https://www.secrss.com/articles/94971</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/94971</guid>
-      <description>揭示了前沿大模型可能存在的对齐失效行为，如关闭监控和欺骗用户，对评估模型安全性具有重要警示意义。</description>
+      <title>泄露的LiteLLM主密钥使攻击者能够窃取GitHub令牌并劫持发布管道</title>
+      <link>https://thehackernews.com/2026/10/leaked-litellm-master-key-let-attackers.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/10/leaked-litellm-master-key-let-attackers.html</guid>
+      <description>LiteLLM主密钥泄露导致GitHub令牌被盗及发布管道劫持，揭示了AI平台集成中的关键凭证管理风险。</description>
       <category>AI安全</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>暴露的基础设施揭示勒索软件附属组织如何利用AI代理实施入侵</title>
-      <link>https://thehackernews.com/2026/10/exposed-infrastructure-reveals-how.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/exposed-infrastructure-reveals-how.html</guid>
-      <description>披露勒索软件团伙如何利用AI代理自动化执行入侵操作，展示了AI技术在网络犯罪中的实际滥用场景。</description>
+      <title>OpenAI宣布其前沿模型训练不再连接实时互联网 避免模型再越狱发起攻击</title>
+      <link>https://unsafe.sh/go-450584.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-450584.html</guid>
+      <description>OpenAI调整训练策略以切断实时互联网连接，旨在从源头防止大模型被越狱或用于恶意攻击。</description>
       <category>AI安全</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>中国APT组织在ConnectWise攻击中使用AI渗透测试工具Artex</title>
-      <link>https://securityweek.com/china-apt-uses-ai-pentest-tool-artex-in-connectwise-attacks/</link>
-      <guid isPermaLink="true">https://securityweek.com/china-apt-uses-ai-pentest-tool-artex-in-connectwise-attacks/</guid>
-      <description>报告指出国家支持的黑客组织使用AI渗透测试工具Artex发起攻击，体现了高级威胁中对AI工具的战术应用。</description>
+      <title>基于大语言模型的渗透测试如何运作</title>
+      <link>https://unsafe.sh/go-450600.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-450600.html</guid>
+      <description>深入解析基于大语言模型的渗透测试Harness工作原理，对于理解AI辅助攻防技术具有重要价值。</description>
       <category>AI安全</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>智能体安全与身份（第二部分）：你是谁，你的智能体是谁...</title>
-      <link>https://hackernoon.com/agent-security-and-identity-part-2-who-are-you-whos-your-agent-and-what-should-they-be-allowed?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/agent-security-and-identity-part-2-who-are-you-whos-your-agent-and-what-should-they-be-allowed?source=rss</guid>
-      <description>深入探讨了AI智能体的身份认证与权限管理问题，为构建安全的Agent生态系统提供了理论框架。</description>
+      <title>KCon 2026 议题抢先看：当 AI 开始行动，安全如何以更高标准重画边界？</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzkxNzA3MTgyNg==&amp;amp;mid=2247544292&amp;amp;idx=2&amp;amp;sn=e63b97d4850ac22a13d657a7bcc82dac</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzkxNzA3MTgyNg==&amp;amp;mid=2247544292&amp;amp;idx=2&amp;amp;sn=e63b97d4850ac22a13d657a7bcc82dac</guid>
+      <description>探讨AI行动能力对传统安全边界的冲击，以及行业应如何建立更高标准的防御体系。</description>
       <category>AI安全</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>CNCERT：关于“银狐”木马“镜昙（G02）”团伙攻击态势深入分析报告</title>
-      <link>https://www.secrss.com/articles/95000</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/95000</guid>
-      <description>CNCERT发布的针对特定APT团伙的深度分析报告，揭示了其镜像投毒等新型攻击手法，对防御此类威胁极具参考价值。</description>
+      <title>卡普空数据泄露事件暴露1170万电子邮件地址</title>
+      <link>https://securityaffairs.com/201626/data-breach/capcom-data-breach-exposes-11-7-million-email-addresses.html</link>
+      <guid isPermaLink="true">https://securityaffairs.com/201626/data-breach/capcom-data-breach-exposes-11-7-million-email-addresses.html</guid>
+      <description>知名游戏厂商卡普空发生数据泄露，涉及1170万邮箱地址，属于重大企业安全事件。</description>
       <category>威胁情报</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>BlackX UEFI启动引导程序绕过已修补Windows系统的安全启动（缺失吊销列表）</title>
-      <link>https://thehackernews.com/2026/10/blackx-uefi-bootkit-bypasses-secure.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/blackx-uefi-bootkit-bypasses-secure.html</guid>
-      <description>揭露了名为BlackX的UEFI启动引导程序如何绕过Windows安全启动机制，针对中亚外交机构发动攻击，技术隐蔽性强。</description>
+      <title>我们利用300万台PC上的远程代码执行漏洞阻止了一个僵尸网络</title>
+      <link>https://unsafe.sh/go-450526.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-450526.html</guid>
+      <description>安全研究人员通过远程代码执行在数百万台PC上禁用恶意更新程序，成功阻止僵尸网络爆发。</description>
       <category>威胁情报</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>俄罗斯关联黑客在破坏性乌克兰攻击中使用新型网状网络后门</title>
-      <link>https://thehackernews.com/2026/10/russian-linked-hackers-used-new-mesh.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/russian-linked-hackers-used-new-mesh.html</guid>
-      <description>报道了俄罗斯关联黑客组织Sandworm利用新型网状网络后门对乌克兰物流设施进行的破坏性攻击，反映地缘政治冲突下的网络战态势。</description>
+      <title>data leakage intelligence 2026.10.24 - 18万Edge加密货</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzU4NjY0NTExNA==&amp;amp;mid=2247489967&amp;amp;idx=1&amp;amp;sn=4a25b89710fd32f820463bdb4bc1aa3</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzU4NjY0NTExNA==&amp;amp;mid=2247489967&amp;amp;idx=1&amp;amp;sn=4a25b89710fd32f820463bdb4bc1aa3</guid>
+      <description>包含大量边缘计算设备加密数据的泄露情报，对物联网资产安全监测具有参考价值。</description>
       <category>威胁情报</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>伊朗‘波斯王子’APT组织自2016年以来首次在美国托管C&amp;C服务器</title>
-      <link>https://securityweek.com/irans-prince-of-persia-apt-hosts-cc-in-us-for-first-time-since-2016/</link>
-      <guid isPermaLink="true">https://securityweek.com/irans-prince-of-persia-apt-hosts-cc-in-us-for-first-time-since-2016/</guid>
-      <description>伊朗支持的APT组织Prince of Persia首次在美国境内托管命令与控制服务器，标志着其基础设施布局的重大变化。</description>
+      <title>system_prompts_leaks — 已更新！</title>
+      <link>https://kitploit.com/en/posts/system_prompts_leaks-914517543fd369f3</link>
+      <guid isPermaLink="true">https://kitploit.com/en/posts/system_prompts_leaks-914517543fd369f3</guid>
+      <description>更新了系统提示词泄露数据集，有助于分析大模型潜在的安全配置错误和敏感信息暴露。</description>
       <category>威胁情报</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>黑客突破企业防火墙和VPN，泄露超过7万份凭证</title>
-      <link>https://thehackernews.com/2026/10/hackers-breach-enterprise-firewalls-and.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/hackers-breach-enterprise-firewalls-and.html</guid>
-      <description>大规模攻击活动针对Fortinet和Palo Alto等主流防火墙设备，泄露大量凭证，对企业边界安全构成严重威胁。</description>
+      <title>精英级虚假信息战术</title>
+      <link>https://unsafe.sh/go-450619.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-450619.html</guid>
+      <description>分析了高级别虚假信息传播战术，对于理解认知战和信息操纵手段具有重要意义。</description>
       <category>威胁情报</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Decepticon v1.5.4</title>
-      <link>https://kitploit.com/en/posts/decepticon-e66c68097509b8f8</link>
-      <guid isPermaLink="true">https://kitploit.com/en/posts/decepticon-e66c68097509b8f8</guid>
-      <description>一款结合AI能力的网络安全工具，能够自动执行Nmap扫描并生成报告，提升了渗透测试的效率。</description>
+      <title>NETworkManager v2026.10.24.0</title>
+      <link>https://kitploit.com/en/posts/networkmanager-bc330e961d8344db</link>
+      <guid isPermaLink="true">https://kitploit.com/en/posts/networkmanager-bc330e961d8344db</guid>
+      <description>强大的开源网络管理与故障排除工具，适合网络安全人员进行网络分析和调试。</description>
       <category>安全工具</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>NetSpecter</title>
-      <link>https://kitploit.com/en/tools/github/mrhackercharlie/netspecter</link>
-      <guid isPermaLink="true">https://kitploit.com/en/tools/github/mrhackercharlie/netspecter</guid>
-      <description>作为Kitploit收录的新兴安全工具，具体功能虽描述简略，但属于最新的黑客与安全测试项目资源。</description>
+      <title>promptfoo v0.125.0</title>
+      <link>https://kitploit.com/en/posts/promptfoo-da4baa7e9942f143</link>
+      <guid isPermaLink="true">https://kitploit.com/en/posts/promptfoo-da4baa7e9942f143</guid>
+      <description>专注于大语言模型提示工程和评估的工具，支持自动化测试以提升AI应用安全性。</description>
       <category>安全工具</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>regextokens</title>
-      <link>https://kitploit.com/en/tools/github/odomojuli/regextokens</link>
-      <guid isPermaLink="true">https://kitploit.com/en/tools/github/odomojuli/regextokens</guid>
-      <description>提供正则表达式令牌处理功能的开源工具，有助于开发者在安全编码和输入验证场景中提升效率。</description>
+      <title>将ripgrep作为合法二进制文件（LOLBin）使用</title>
+      <link>https://www.hexacorn.com/blog/2026/10/25/ripgrep-as-a-lolbin/</link>
+      <guid isPermaLink="true">https://www.hexacorn.com/blog/2026/10/25/ripgrep-as-a-lolbin/</guid>
+      <description>揭示了常用开发工具ripgrep作为「合法工具滥用」（LOLBin）的新用法，对检测恶意行为有警示作用。</description>
       <category>安全工具</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>windows-lpe-auditor</title>
-      <link>https://kitploit.com/en/tools/github/0xby7eme/windows-lpe-auditor</link>
-      <guid isPermaLink="true">https://kitploit.com/en/tools/github/0xby7eme/windows-lpe-auditor</guid>
-      <description>专注于Windows本地提权漏洞审计的安全工具，帮助安全人员快速识别系统中的潜在权限提升风险。</description>
+      <title>KRAKEN - AI辅助逆向工程、补丁修复与Rust重写。使用Rust编写</title>
+      <link>https://unsafe.sh/go-450510.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-450510.html</guid>
+      <description>结合AI辅助的反汇编、修补和Rust重写工具，代表了逆向工程领域的技术创新方向。</description>
       <category>安全工具</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>pathrunner：一个AWS权限提升框架</title>
-      <link>https://unsafe.sh/go-450410.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-450410.html</guid>
-      <description>专门用于AWS环境的权限提升框架，模拟攻击者在云环境中的横向移动路径，对云安全加固有重要参考作用。</description>
+      <title>NativeMirror - 纯Object Pascal实现的PE-sieve功能</title>
+      <link>https://unsafe.sh/go-450581.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-450581.html</guid>
+      <description>使用纯Object Pascal实现的PE-sieve功能，集成了HollowsHunter，适用于Windows进程内存在分析。</description>
       <category>安全工具</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>将后量子密码学引入地理围栏密钥管理</title>
-      <link>https://blog.cloudflare.com/post-quantum-geo-key-manager/</link>
-      <guid isPermaLink="true">https://blog.cloudflare.com/post-quantum-geo-key-manager/</guid>
-      <description>Cloudflare推出的后量子地理围栏密钥管理服务，代表了云基础设施在抗量子计算攻击方面的最新实践。</description>
+      <title>Hoistbay：免费开源的 S3 客户端，支持 CloudFront 缓存刷新</title>
+      <link>https://blog.upx8.com/Hoistbay-S3-CloudFront</link>
+      <guid isPermaLink="true">https://blog.upx8.com/Hoistbay-S3-CloudFront</guid>
+      <description>针对AWS S3和CloudFront环境的实用管理工具，解决了静态资源分发中的缓存更新痛点。</description>
       <category>云安全</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>为Amazon Web Services Security Hub Extended准备您的安全计划</title>
-      <link>https://www.guidepointsecurity.com/blog/aws-security-hub-extended-readiness/</link>
-      <guid isPermaLink="true">https://www.guidepointsecurity.com/blog/aws-security-hub-extended-readiness/</guid>
-      <description>指导企业如何为AWS Security Hub扩展功能做好准备，涉及多云环境下的统一安全运营与合规性管理。</description>
+      <title>使用情报：大多数AI公司忽视的货币化信号</title>
+      <link>https://securityaffairs.com/201643/ai/usage-intelligence-the-monetization-signal-most-ai-companies-are-ignoring.html</link>
+      <guid isPermaLink="true">https://securityaffairs.com/201643/ai/usage-intelligence-the-monetization-signal-most-ai-companies-are-ignoring.html</guid>
+      <description>探讨了AI公司在商业化过程中忽视的使用量情报，涉及云服务成本优化与资源监控。</description>
       <category>云安全</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>LiteLLM遭最新供应链攻击导致被攻陷</title>
-      <link>https://securityweek.com/litellm-compromised-in-fresh-supply-chain-attack/</link>
-      <guid isPermaLink="true">https://securityweek.com/litellm-compromised-in-fresh-supply-chain-attack/</guid>
-      <description>报道了知名LLM网关服务LiteLLM遭受供应链攻击，攻击者通过窃取GitHub OAuth令牌污染PyPI和Docker仓库，警示云原生依赖安全。</description>
+      <title>为满足数据中心电力需求，Google将付费让他人减少用电</title>
+      <link>https://unsafe.sh/go-450584.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-450584.html</guid>
+      <description>谷歌资助虚拟电厂项目以平衡数据中心电力需求，反映了云基础设施面临的能源与安全挑战。</description>
       <category>云安全</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>中央网信委印发《国家信息化“十五五”规划》</title>
-      <link>https://www.secrss.com/articles/94998</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/94998</guid>
-      <description>发布国家层面的信息化战略规划，明确了未来五年网络安全与信息化的发展重点和政策导向。</description>
+      <title>模型是“如何做”，框架是“做什么”</title>
+      <link>https://unsafe.sh/go-450619.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-450619.html</guid>
+      <description>清晰阐述了AI模型与Harness在架构设计中的角色差异，有助于开发者构建更安全的AI应用。</description>
       <category>其他重要</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 25 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>美国拟扩大对华AI投资禁令，覆盖各类AI系统开发</title>
-      <link>https://www.secrss.com/articles/94977</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/94977</guid>
-      <description>美国进一步收紧对华AI领域投资限制，反映了全球科技竞争背景下AI技术出口管制与投资审查的加剧。</description>
+      <title>如何在不让AI智能体重复行动的情况下对其进行影子测试</title>
+      <link>https://hackernoon.com/how-to-shadow-test-an-ai-agent-without-letting-it-act-twice?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/how-to-shadow-test-an-ai-agent-without-letting-it-act-twice?source=rss</guid>
+      <description>介绍了在不重复执行操作的情况下对AI代理进行影子测试的方法，提升了部署安全性。</description>
       <category>其他重要</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>把城市接进靶场：Cybertropolis与网络电磁一体化</title>
-      <link>https://www.secrss.com/articles/94970</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/94970</guid>
-      <description>介绍了将物理城市接入网络靶场的创新训练模式，探索网络攻击对物理世界影响的演练体系。</description>
+      <title>用AI解决实际问题——第二部分：用于恶意归档的最流行和最常用密码……</title>
+      <link>https://www.hexacorn.com/blog/2026/10/24/solving-practical-problems-with-ai-part-2-the-most-popular-and-most-commonly-used-passwords-for-malicious-archives/</link>
+      <guid isPermaLink="true">https://www.hexacorn.com/blog/2026/10/24/solving-practical-problems-with-ai-part-2-the-most-popular-and-most-commonly-used-passwords-for-malicious-archives/</guid>
+      <description>利用AI分析恶意压缩包密码，为安全分析师提供了实用的取证和样本解压技巧。</description>
       <category>其他重要</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Meta因剑桥分析丑闻面临250亿美元罚款</title>
-      <link>https://securityaffairs.com/201582/laws-and-regulations/meta-faces-25-billion-penalty-linked-to-cambridge-analytica-scandal.html</link>
-      <guid isPermaLink="true">https://securityaffairs.com/201582/laws-and-regulations/meta-faces-25-billion-penalty-linked-to-cambridge-analytica-scandal.html</guid>
-      <description>Meta面临巨额罚款，再次凸显数据隐私保护法规的严厉性以及大型科技公司面临的合规压力。</description>
+      <title>现场笔记：重构攻击者的工作流程</title>
+      <link>https://dfir.ch/posts/field_note_attacker_workflow/</link>
+      <guid isPermaLink="true">https://dfir.ch/posts/field_note_attacker_workflow/</guid>
+      <description>通过实际案例复盘攻击者工作流，为DFIR（数字取证与事件响应）人员提供了宝贵的实战经验。</description>
       <category>其他重要</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>废弃的Popcorn Time应用导致数百万设备暴露于RCE攻击之下</title>
-      <link>https://www.bleepingcomputer.com/news/security/abandoned-popcorn-time-app-exposed-millions-of-device-to-rce-attacks/</link>
-      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/abandoned-popcorn-time-app-exposed-millions-of-device-to-rce-attacks/</guid>
-      <description>废弃软件Popcorn Time暴露数百万设备于RCE攻击之下，强调了软件生命周期管理和用户安全意识的重要性。</description>
+      <title>Strata 0.2.4 更新：12GB 显卡运行 DeepSeek V4.1-Flash</title>
+      <link>https://www.appinn.com/strata-0-2-4-deepseek-v4-1-flashterminal-0-2-4-1/</link>
+      <guid isPermaLink="true">https://www.appinn.com/strata-0-2-4-deepseek-v4-1-flashterminal-0-2-4-1/</guid>
+      <description>展示了如何在消费级硬件上高效运行大型AI模型，降低了本地AI应用的门槛。</description>
       <category>其他重要</category>
-      <pubDate>Fri, 23 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
