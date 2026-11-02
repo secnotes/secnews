@@ -5,849 +5,905 @@
     <link>https://secnotes.github.io/secnews/</link>
     <description>每日自动聚合的网络安全资讯文章</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 01 Nov 2026 13:57:24 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2026 13:56:19 +0800</lastBuildDate>
     <item>
-      <title>记一次完整的 Zelix KlassMaster 本体逆向与源码级反混淆实战</title>
-      <link>http://bbs.kanxue.com/thread-293335.htm?style=1</link>
-      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293335.htm?style=1</guid>
-      <description>【原创及合著说明】 本文由我（对应原博客署名：Inkarro）与团队成员共同完成，首发于第一作者个人博客（https://cubk.cn/articles/obliterating-zelix-klass-master）。原博客文末已添加本帖链接以及我的看雪 ID 作为原作者身份证明。
-源码已发布 ...</description>
+      <title>闲来无事,逆向一个银狐病毒</title>
+      <link>http://bbs.kanxue.com/thread-293124.htm?style=1</link>
+      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293124.htm?style=1</guid>
+      <description>闲来无事,逆向一个银狐病毒
+
+样本：chat-deepseek.exe，2,085,620 字节，x64，无签名。样本下载在最后面。SHA256 68ae0cabadce8467534f8a41e9ca139b4b9a066aa20d154254793bb4eb9a6b17分两段：先在宿主机上纯 ...</description>
       <category>看雪论坛</category>
       <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>给大模型装上固件审计员的骨架：一个 IoT 固件漏洞挖掘 Skill 的设计与实现</title>
-      <link>http://bbs.kanxue.com/thread-293350.htm?style=1</link>
-      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293350.htm?style=1</guid>
-      <description>给大模型装上固件审计员的骨架：一个 IoT 固件漏洞挖掘 Skill 的设计与实现
-作者：记忆里的纯真
-摘要：固件漏洞挖掘的瓶颈不在于「模型看不懂汇编」，而在于没有一套可执行、可复核的工作流。本文介绍一个开源的 IoT 固件审计 Skill：它把资深审计员的工作骨架——流水线、资源分配、证据标准 ...</description>
-      <category>看雪论坛</category>
-      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>从零手写 ARM64 VMP</title>
-      <link>http://bbs.kanxue.com/thread-293353.htm?style=1</link>
-      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293353.htm?style=1</guid>
-      <description>从零手写ARM64_VMP
-前言
-VMP（Virtual Machine Protection，虚拟机保护）简单说就是把.so中的关键代码转换成自定义的虚拟指令，交给程序内置的虚拟机执行，以此来增加逆向分析的难度。这里的VMP泛指代码虚拟化保护。
-程序在正常情况下的执行顺序是，ARM64原生指 ...</description>
-      <category>看雪论坛</category>
-      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>吉他能听见你的话吗？——某无线吉他拾音器空中协议逆向（一）射频与扰码</title>
-      <link>http://bbs.kanxue.com/thread-293366.htm?style=1</link>
-      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293366.htm?style=1</guid>
+      <title>七神分析之还原篇</title>
+      <link>http://bbs.kanxue.com/thread-293130.htm?style=1</link>
+      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293130.htm?style=1</guid>
       <description>前言
-无线音频的传输安全性，长久以来都是个人隐私保护的一个关键议题。当我们看到“无线音频安全”这个词的时候，我们可能想到的是蓝牙耳机，可能是智能家居的音箱设备，乃至特工电影里一些发着红光的小圆柱体。然而在不依赖用户失误或厂商为节约成本做到极致的情况下，想要正面攻击这些链路（它们通常在标准实现下也配 ...</description>
+内容和思路可以看看，有一点点概念就好，也可能还是我对VMP的思考太浅显了，道可道非常道的感觉吧
+上文：七神VMP真正的分析与还原
+
+作者： 人生导师日期： 2026 年 9 月 28 日注意： 这篇风格属于从头到尾开始写的，我是从创建项目时候就开了这个文档，所以一些踩坑思路就没有删除， ...</description>
       <category>看雪论坛</category>
       <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>逆向已死2：AI直接操作电脑逆向，无差别替代所有真人</title>
-      <link>http://bbs.kanxue.com/thread-293369.htm?style=1</link>
-      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293369.htm?style=1</guid>
-      <description>逆向已死2：AI直接操作电脑逆向，无差别替代所有真人
-
-环境说明：本文全部操作基于 Windows 10 x64，命令默认在 Windows 原生 PowerShell 中执行；手机端使用 Pixel 2 XL / Android 10。下文的路径、安装步骤与桌面操作均按这一环境记录。
-
-逆 ...</description>
+      <title>某网站瑞数6反爬逆向：从 412 拦截到借道浏览器会话，一次性翻完全部页列表</title>
+      <link>http://bbs.kanxue.com/thread-293131.htm?style=1</link>
+      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293131.htm?style=1</guid>
+      <description>起因：一个「看着很简单」的列表爬取
+需求是抓某网站「公告」频道的列表，自动翻页，把标题、链接、发布日期全量收下来。
+这种站点，列表页一眼看过去就是普通的 &lt;ul&gt;&lt;li&gt; 结构，第一反应是 requests   BeautifulSoup  ...</description>
       <category>看雪论坛</category>
       <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>PHP2Shell（CVE-2026-109618）UAF 路径分析与隔离环境复现记录</title>
-      <link>http://bbs.kanxue.com/thread-293373.htm?style=1</link>
-      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293373.htm?style=1</guid>
-      <description>PHP2Shell（CVE-2026-109618）UAF 路径分析与隔离环境复现记录【测试声明】（1）本文全部验证均在本地隔离环境完成（127.0.0.1，Docker 单机靶场，与生产网络物理隔离），未对任何第三方系统发起请求；（2）文中出现的脚本调用均指向官方公开仓库中的验证脚本，仅用于确认脆 ...</description>
+      <title>某记账APP的永久VIP功能和签名绕过等</title>
+      <link>http://bbs.kanxue.com/thread-293133.htm?style=1</link>
+      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293133.htm?style=1</guid>
+      <description>直接应用商场下载，MT看了下没加固
+
+打开提示要更新，而且没有关闭键，是强制更新，这不得看看啥逻辑
+
+绕过强制更新
+因为弹窗在app启动就检测了，通过了才加载主页，那基本上就是启动开始阶段就去调用了，现在看到的页面已经是检测完的弹窗。那这时候的思路可以是
+1、定位当前弹窗，定位弹窗调用的 ...</description>
       <category>看雪论坛</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Chainalysis确认内部工具遭入侵及客户身份数据泄露</title>
-      <link>https://thehackernews.com/2026/10/chainalysis-confirms-intrusion-into.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/chainalysis-confirms-intrusion-into.html</guid>
-      <description>美国区块链分析公司Chainalysis表示，其成为一起网络安全事件的目标，外部攻击者访问了非敏感的客户数据。然而，该公司指出，此次漏洞并未导致对其调查内容或认证凭据的未授权访问。</description>
+      <title>基于 VMProtect授权锁架构的RSA算法另类Bypass思路</title>
+      <link>http://bbs.kanxue.com/thread-293138.htm?style=1</link>
+      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293138.htm?style=1</guid>
+      <description>由于笔者非科班出身，在本领域的全部知识都为自行学习，故本篇提到的一些"术语"可能并不标准，见谅VMProtect (下面简称VMP) 提供的授权锁机制，本质上是一种基于 RSA 算法的代码级授权绑定保护手段。具体而言：在未加壳的原始程序中，被打上授权锁标记（如 V ...</description>
+      <category>看雪论坛</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>CVE-2010-2883漏洞分析报告</title>
+      <link>http://bbs.kanxue.com/thread-293150.htm?style=1</link>
+      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293150.htm?style=1</guid>
+      <description>分析这个漏洞的过程中发现，网上大部分相关文章对其栈结构的理解都有偏差——把 strcat 的写入起点当成了上一帧的 saved ebp。实际上漏洞函数是 FPO 变体帧：写入起点是本帧局部变量区，往上  0x104 是 /GS cookie、 0x108 才是 saved ebp、 0x10C 是返 ...</description>
+      <category>看雪论坛</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>从黑盒到可交互画面：极域 V6.0 连续投屏与远程操控协议逆向</title>
+      <link>http://bbs.kanxue.com/thread-293148.htm?style=1</link>
+      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293148.htm?style=1</guid>
+      <description>从黑盒到可交互画面：极域 V6.0 连续投屏与远程操控协议逆向
+
+本文记录 2026.07.31 研究预览版中连续屏幕观看与远程操控链路的逆向过程。结论来自 IDA Pro 静态分析、官方教师端/学生端真实流量对照、逐字节重放和运行日志验证。本文只讨论隔离实验环境中的协议研究，不应被用于未经授权 ...</description>
+      <category>看雪论坛</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>银狐木马深度剖析（二）：动调追踪 C2 通信链，拆解杀软对抗的“四种命”</title>
+      <link>http://bbs.kanxue.com/thread-293151.htm?style=1</link>
+      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293151.htm?style=1</guid>
+      <description>动调
+重新加载了一下这个程序，x64dbg的基址变了（不影响），所以我们在继续往下执行，F8进入jmp这个时候需要对照着payload_C2_v2.bin这个文件看汇编，用ida打开
+函数D47D是UAC提权的弹窗（因为我这里尝试过很多此调试，都没法绕过UAC弹窗），所以我打算直接把他nop掉， ...</description>
+      <category>看雪论坛</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>浅谈ios的风控检测与对抗</title>
+      <link>http://bbs.kanxue.com/thread-293154.htm?style=1</link>
+      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293154.htm?style=1</guid>
+      <description>浅谈ios的风控检测与对抗
+开始分析一个 iOS 应用时，最先遇到的往往不是复杂算法，而是几件很具体的事：进程能不能正常启动，Frida 能不能附加，脚本执行以后，业务还能不能继续。
+接着，问题会变得有些反直觉。
+越狱路径已经查不到，为什么环境判断还会异常？Frida 的名字已经藏起来，为什么 ...</description>
+      <category>看雪论坛</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>python纯协议实现亿级短视频app的直播间弹幕采集</title>
+      <link>http://bbs.kanxue.com/thread-293161.htm?style=1</link>
+      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293161.htm?style=1</guid>
+      <description>背景
+版本：20260923，40.6.0
+测试需求：纯协议获取直播间弹幕等信息
+最终效果
+随机抓包找的10个直播间id，随机注册10台设备信息监控上并且持续接收弹幕等信息
+从直播间 X-Cylons 到6神设备注册的逆向分析
+最开始，我想做的事情很简单：输入一个直播间 ID，在电脑上建 ...</description>
+      <category>看雪论坛</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>《信息通信行业发展“十五五”规划》要求、机遇与挑战分析</title>
+      <link>https://www.secrss.com/articles/95236</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/95236</guid>
+      <description>本文通过解读规划总体要求和主要特征，梳理重点推进方向、吃透政策要求、明晰风险底数，为把握“十五五”时期行...</description>
+      <category>安全内参</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>LocalAlign：通过近目标对抗训练提升提示注入防御泛化能力</title>
+      <link>https://www.secrss.com/articles/95243</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/95243</guid>
+      <description>LocalAlign 从输入侧与目标侧两个维度审视提示注入防御的泛化不足，并提出从攻击目标一侧高效构造对抗训练样...</description>
+      <category>安全内参</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>CVSS 10.0 LXD、MicroCloud漏洞允许攻击者在无私钥情况下冒充受信任客户端</title>
+      <link>https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/11/critical-lxd-and-microcloud-flaw-cvss.html</guid>
+      <description>Canonical的LXD和MicroCloud存在一个关键漏洞，允许攻击者在未持有该客户端私钥的情况下以受信任客户端身份登录。为此，攻击者必须通过网络访问其HTTPS API并拥有受信任客户端的公钥证书。一旦进入，攻击者将充当该客户端执行操作...</description>
       <category>The Hacker News</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>攻击者串联三个Ivanti Connect Secure漏洞以获取未认证的Root权限</title>
-      <link>https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/attackers-chain-three-ivanti-connect.html</guid>
-      <description>美国网络空间安全与基础设施安全局（CISA）于周五将两个影响Ivanti Connect Secure (ICS) 的安全漏洞加入其已知被利用漏洞（KEV）目录，原因是这些漏洞已在野外被积极利用。漏洞列表如下：CVE-2026-111357</description>
+      <title>黑客通过劫持DebugBear脚本从Polymarket交易者处窃取约270万美元</title>
+      <link>https://thehackernews.com/2026/11/hackers-steal-about-27-million-from.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/11/hackers-steal-about-27-million-from.html</guid>
+      <description>10月29日，预测市场Polymarket网站上的恶意代码出售了一些已登录交易者的头寸，并将资金转移给黑客。该代码替换了网站从外部公司加载的一个页面速度优化脚本。Polymarket表示正在向72名受害者退还约270万美元...</description>
       <category>The Hacker News</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>共享ChatGPT链接可在你的会话中运行攻击者代码并读取私密聊天</title>
-      <link>https://thehackernews.com/2026/10/a-shared-chatgpt-link-could-run.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/a-shared-chatgpt-link-could-run.html</guid>
-      <description>安全公司Parameter的研究人员展示，恶意的ChatGPT分享链接可以在任何打开它的已登录会话中运行攻击者的代码，从而允许其读取用户的私密对话。研究人员已于10月18日通过OpenAI的漏洞赏金计划报告了此缺陷。</description>
+      <title>FBI将朝鲜TraderTraitor组织与创纪录的64.3亿美元Binance加密盗窃案联系起来</title>
+      <link>https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/11/fbi-links-north-koreas-tradertraitor-to.html</guid>
+      <description>美国联邦调查局（FBI）已将超过60亿美元的虚拟资产被盗事件正式归咎于TraderTraitor，这是一个与朝鲜结盟的精英黑客组织，也被追踪为Jade Sleet、Pressure Chollima、PUKCHONG、Slow Pisces和UNC4899。FBI与美国...</description>
       <category>The Hacker News</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Cloudflare报告第三季度发生1820万次网络层DDoS攻击，同比增长38%</title>
-      <link>https://thehackernews.com/2026/10/cloudflare-reports-182-million-network.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/10/cloudflare-reports-182-million-network.html</guid>
-      <description>Cloudflare周四透露，威胁行为体每小时发起约8,226次网络层分布式拒绝服务（DDoS）攻击。这家Web基础设施和安全公司表示，它自主缓解了1820万次网络层（L3）DDoS攻击和14.4万亿次HTTP DDoS请求。</description>
+      <title>NetamLoader恶意软件通过.NET注入针对亚洲政府Windows 10系统</title>
+      <link>https://thehackernews.com/2026/11/netamloader-malware-targets-government.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/11/netamloader-malware-targets-government.html</guid>
+      <description>网络安全研究人员披露了一种被称为“高度复杂的感染链”的细节，该感染链针对亚洲的政府机构。卡巴斯基本周详细描述了这一活动，它专门针对亚洲政府实体独家使用的定制Windows 10构建版本...</description>
       <category>The Hacker News</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>叙利亚黑客在美国潜逃十余年后获刑</title>
-      <link>https://www.securityweek.com/syrian-hacker-gets-prison-time-in-us-after-over-a-decade-on-the-run/</link>
-      <guid isPermaLink="true">https://www.securityweek.com/syrian-hacker-gets-prison-time-in-us-after-over-a-decade-on-the-run/</guid>
-      <description>美国法院判处叙利亚黑客Ahmad Umar Agha入狱42个月，罪名是针对媒体、企业和政府实体发动的亲阿萨德攻击。</description>
+      <title>Northstar Security结束隐身模式，融资700万美元以揭示有毒风险组合</title>
+      <link>https://www.securityweek.com/northstar-security-exits-stealth-with-7m-to-expose-toxic-risk-combinations/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/northstar-security-exits-stealth-with-7m-to-expose-toxic-risk-combinations/</guid>
+      <description>这家初创公司绘制了身份、资产和漏洞之间的连接方式，并使用AI智能体来发现并修复有风险的问题组合。</description>
       <category>SecurityWeek</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>joern v4.0.669</title>
-      <link>https://kitploit.com/en/posts/joern-035a7729d33e3e40</link>
-      <guid isPermaLink="true">https://kitploit.com/en/posts/joern-035a7729d33e3e40</guid>
-      <description>这是开源代码分析平台 Joern 的核心查询数据库。它具有两个主要用途...</description>
+      <title>给编码 Agent 装一张嘴：DSH 语音 AI 女友完整搭建教程</title>
+      <link>https://blog.upx8.com/Agent-DSH-AI</link>
+      <guid isPermaLink="true">https://blog.upx8.com/Agent-DSH-AI</guid>
+      <description>开源项目：beiyege-01/dsh-voice-ai-girlfriend 技术栈：React 插件 / AudioWorklet / FastAPI / F...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>SweepSA：一种用于Pluto风格AD936x SDR和HackRF的快速扫频频谱分析仪</title>
+      <link>https://www.rtl-sdr.com/sweepsa-a-fast-swept-spectrum-analyzer-for-pluto-style-ad936x-sdrs-and-the-hackrf/</link>
+      <guid isPermaLink="true">https://www.rtl-sdr.com/sweepsa-a-fast-swept-spectrum-analyzer-for-pluto-style-ad936x-sdrs-and-the-hackrf/</guid>
+      <description>November 2, 2026Thank y...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>信息安全任务集</title>
+      <link>https://kitploit.com/en/tools/github/bb1nfosec/information-security-tasks</link>
+      <guid isPermaLink="true">https://kitploit.com/en/tools/github/bb1nfosec/information-security-tasks</guid>
+      <description>信息安全任务集——经过策划的信息安全知识库，包含从业者笔记、方法论等...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Chainalysis 披露因 "攻击性智能体技术" 导致的数据泄露</title>
+      <link>http://0.0.0.0:8080/post/64861</link>
+      <guid isPermaLink="true">http://0.0.0.0:8080/post/64861</guid>
+      <description>Chainalysis 披露因 "攻击性智能体技术" 导致的数据泄露</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>新型 Android "死亡短信"漏洞利用可远程使未修补手机崩溃</title>
+      <link>http://0.0.0.0:8080/post/64860</link>
+      <guid isPermaLink="true">http://0.0.0.0:8080/post/64860</guid>
+      <description>新型 Android "死亡短信"漏洞利用可远程使未修补手机崩溃</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Northflank 安全漏洞导致客户 AI API 密钥被滥用</title>
+      <link>http://0.0.0.0:8080/post/64859</link>
+      <guid isPermaLink="true">http://0.0.0.0:8080/post/64859</guid>
+      <description>Northflank 安全漏洞导致客户 AI API 密钥被滥用</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Alpine Linux 在遭遇 RCE 攻击未遂后重建 GitLab</title>
+      <link>http://0.0.0.0:8080/post/64858</link>
+      <guid isPermaLink="true">http://0.0.0.0:8080/post/64858</guid>
+      <description>Alpine Linux 在遭遇 RCE 攻击未遂后重建 GitLab</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>网络安全招聘风向变了！AI技能需求一年翻倍，安全工程师必须掌握哪些新能力？</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143120&amp;amp;idx=1&amp;amp;sn=93cc23c0f59461be7c692dae539277d4</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143120&amp;amp;idx=1&amp;amp;sn=93cc23c0f59461be7c692dae539277d4</guid>
+      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>CNCERT发布VeilDHT僵尸网络风险提示：4万余台设备受感染；ChatGPT共享链接成攻击入口：跨域消息验证缺陷可导致账户会话劫持| 牛览</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143120&amp;amp;idx=2&amp;amp;sn=8d1925f1898febd498e40896df118ae4</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143120&amp;amp;idx=2&amp;amp;sn=8d1925f1898febd498e40896df118ae4</guid>
+      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Xnip 十周年：长截图的新生，也是新的起点</title>
+      <link>https://sspai.com/post/115662</link>
+      <guid isPermaLink="true">https://sspai.com/post/115662</guid>
+      <description>Matrix 首页推荐Matrix 是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选 Matrix 最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>frida v17.25.1</title>
+      <link>https://kitploit.com/en/posts/frida-787ecf0893c06912</link>
+      <guid isPermaLink="true">https://kitploit.com/en/posts/frida-787ecf0893c06912</guid>
+      <description>面向开发者、逆向工程师和安全研究人员动态插桩工具包。了解更多...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>FBI 将 63 亿美元 Binance 加密货币盗窃案归因于朝鲜黑客</title>
+      <link>http://0.0.0.0:8080/post/64857</link>
+      <guid isPermaLink="true">http://0.0.0.0:8080/post/64857</guid>
+      <description>FBI 将 63 亿美元 Binance 加密货币盗窃案归因于朝鲜黑客</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>150+ 款正版软件爆降：PixPin / Typora / UPDF / Bandizip 等……</title>
+      <link>https://www.iplaysoft.com/news/6638</link>
+      <guid isPermaLink="true">https://www.iplaysoft.com/news/6638</guid>
+      <description>双11优惠汇总 | VIP 好价监控 | 百度网盘 | 哔哩+京东 | 腾讯视频 | 夸克网盘 | 网易云音乐爱奇艺+京东PLUS | WPS+京东 | 喜马拉雅...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>消息称英伟达RTX 5080 24GB版最快12月上市 或接替中国市场现有高端型号</title>
+      <link>https://www.landian.news/archives/127858.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/127858.html</guid>
+      <description>消息称英伟达RTX 5080 24GB版最快12月上市 或接替中国市场现有高端型号</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>消息称AMD计划在11月再次上调显卡套料价格 原因是GDDR6显存成本持续上涨</title>
+      <link>https://www.landian.news/archives/127857.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/127857.html</guid>
+      <description>消息称AMD计划在11月再次上调显卡套料价格 原因是GDDR6显存成本持续上涨</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>ISC Stormcast 2026年11月2日星期一 https://isc.sans.edu/podcastdetail/10160, (Mon, Nov 2nd)</title>
+      <link>https://isc.sans.edu/diary/rss/33480</link>
+      <guid isPermaLink="true">https://isc.sans.edu/diary/rss/33480</guid>
+      <description>ISC Stormcast 2026年11月2日星期一 https://isc.sans.edu/podcastdetail/10160, (Mon, Nov 2nd...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>发现频道：10款大家发现的好评软件[2026年第44期]</title>
+      <link>https://www.appinn.com/faxian-top10-2644/</link>
+      <guid isPermaLink="true">https://www.appinn.com/faxian-top10-2644/</guid>
+      <description>发现频道：10款大家发现的好评软件[2026年第44期]</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>潜伏16年的UEFI漏洞：开机那几秒，你的所有防线都还没上线</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&amp;amp;mid=2649790661&amp;amp;idx=1&amp;amp;sn=1385c2dfcbcaf38e00737143ad75a02d</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&amp;amp;mid=2649790661&amp;amp;idx=1&amp;amp;sn=1385c2dfcbcaf38e00737143ad75a02d</guid>
+      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>没顶住！用Mac开个视频会议，币被偷完了</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzI5NjA0NjI5MQ==&amp;amp;mid=2650188592&amp;amp;idx=1&amp;amp;sn=3fe48fa62cc4964cd188e4519c8e1b31</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzI5NjA0NjI5MQ==&amp;amp;mid=2650188592&amp;amp;idx=1&amp;amp;sn=3fe48fa62cc4964cd188e4519c8e1b31</guid>
+      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>我在Rust中构建了一个类似IDM的下载管理器（egui）：支持分片下载、队列、调度器和浏览器插件</title>
+      <link>https://unsafe.sh/go-452162.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452162.html</guid>
+      <description>我在Rust中构建了一个类似IDM的下载管理器（egui）：支持分片下载、队列、调度器和浏览器插件...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>把你的电脑变成远程助理：手机发条消息，WinClaw来办</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzAwNTgyODU3NQ==&amp;amp;mid=2651144919&amp;amp;idx=1&amp;amp;sn=b87b90d2c3c10a045f445df9d5366480</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzAwNTgyODU3NQ==&amp;amp;mid=2651144919&amp;amp;idx=1&amp;amp;sn=b87b90d2c3c10a045f445df9d5366480</guid>
+      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>heretic v2.0.0</title>
+      <link>https://kitploit.com/en/posts/heretic-6332baf2f55331f0</link>
+      <guid isPermaLink="true">https://kitploit.com/en/posts/heretic-6332baf2f55331f0</guid>
+      <description>无需训练的模型修改方法：移除审查、抑制低质输出、减少阿谀奉承，以及...</description>
       <category>Unsafe.sh</category>
       <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>币安：已补回90%被盗资产 计划周日恢复提现</title>
-      <link>https://blog.upx8.com/%E5%B8%81%E5%AE%89-%E5%B7%B2%E8%A1%A5%E5%9B%9E90-%E8%A2%AB%E7%9B%97%E8%B5%84%E4%BA%A7-%E8%AE%A1%E5%88%92%E5%91%A8%E6%97%A5%E6%81%A2%E5%A4%8D%E6%8F%90%E7%8E%B0</link>
-      <guid isPermaLink="true">https://blog.upx8.com/%E5%B8%81%E5%AE%89-%E5%B7%B2%E8%A1%A5%E5%9B%9E90-%E8%A2%AB%E7%9B%97%E8%B5%84%E4%BA%A7-%E8%AE%A1%E5%88%92%E5%91%A8%E6%97%A5%E6%81%A2%E5%A4%8D%E6%8F%90%E7%8E%B0</guid>
-      <description>币安于本周六更新了其热钱包安全事件的赔付进展。针对10月30日凌晨发生的、涉案金额约63亿美元的未授权提现事件，币安联席CEO邓伟政（Richard Teng）与何一...</description>
+      <title>你能‘黑’回一个旧的360账号吗？或者找到它绑定的邮箱</title>
+      <link>https://www.reddit.com/r/HowToHack/comments/1xlhzjt/can_you_hack_back_an_old_360_account_or_find_what/</link>
+      <guid isPermaLink="true">https://www.reddit.com/r/HowToHack/comments/1xlhzjt/can_you_hack_back_an_old_360_account_or_find_what/</guid>
+      <description>你能‘黑’回一个旧的360账号吗？或者找到它绑定的邮箱</description>
       <category>Unsafe.sh</category>
       <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>十月发布内容概览</title>
-      <link>https://blog.didierstevens.com/2026/11/01/overview-of-content-published-in-october-12/</link>
-      <guid isPermaLink="true">https://blog.didierstevens.com/2026/11/01/overview-of-content-published-in-october-12/</guid>
-      <description>十月发布内容概览。归类于：公告 — Didier Stevens @ 0:...</description>
+      <title>派早报：Apple 智能将随 iOS 27.3 登陆中国</title>
+      <link>https://sspai.com/post/118191</link>
+      <guid isPermaLink="true">https://sspai.com/post/118191</guid>
+      <description>Apple 智能将随 iOS 27.3 登陆中国10 月 31 日，苹果宣布，首批 Apple 智能（Apple Intelligence）的核心功能即将在中国推出。这涵盖系统全局的写作工具、照片 a...</description>
       <category>Unsafe.sh</category>
       <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>scanopy v0.19.5</title>
-      <link>https://kitploit.com/en/posts/scanopy-c5e0872b3fe25a73</link>
-      <guid isPermaLink="true">https://kitploit.com/en/posts/scanopy-c5e0872b3fe25a73</guid>
-      <description>2026年10月31日发布的新版本：自动更新的网络拓扑图。再也不用手动维护另一份网络...</description>
+      <title>HX3302B / “X9S儿童相机”：逆向工程、SDK和Doom游戏移植</title>
+      <link>https://unsafe.sh/go-452159.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452159.html</guid>
+      <description>HX3302B / “X9S儿童相机”：逆向工程、SDK和Doom游戏移植</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>基于Web的Fender FUSE，复活2013年停产的电吉他音箱</title>
-      <link>https://unsafe.sh/go-452063.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-452063.html</guid>
-      <description>基于Web的Fender FUSE，复活2013年停产的电吉他音箱</description>
+      <title>有人遇到登录他们常用的Deep Market的问题吗</title>
+      <link>https://unsafe.sh/go-452149.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452149.html</guid>
+      <description>有人遇到登录他们常用的Deep Market的问题吗</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>BogusMips 2026-10-31（首个版本）发布：Android应用的集成反汇编和网络嗅探</title>
-      <link>https://unsafe.sh/go-452064.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-452064.html</guid>
-      <description>BogusMips 2026-10-31（首个版本）发布：Android应用的集成反汇编和网络嗅探...</description>
+      <title>币安恢复提现后遭遇小高峰：净流出36.4亿美元</title>
+      <link>https://blog.upx8.com/%E5%B8%81%E5%AE%89%E6%81%A2%E5%A4%8D%E6%8F%90%E7%8E%B0%E5%90%8E%E9%81%AD%E9%81%87%E5%B0%8F%E9%AB%98%E5%B3%B0-%E5%87%80%E6%B5%81%E5%87%BA36-4%E4%BA%BF%E7%BE%8E%E5%85%83</link>
+      <guid isPermaLink="true">https://blog.upx8.com/%E5%B8%81%E5%AE%89%E6%81%A2%E5%A4%8D%E6%8F%90%E7%8E%B0%E5%90%8E%E9%81%AD%E9%81%87%E5%B0%8F%E9%AB%98%E5%B3%B0-%E5%87%80%E6%B5%81%E5%87%BA36-4%E4%BA%BF%E7%BE%8E%E5%85%83</guid>
+      <description>资讯...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>93篇关于直播的博客文章</title>
-      <link>https://hackernoon.com/93-blog-posts-to-learn-about-live-streaming?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/93-blog-posts-to-learn-about-live-streaming?source=rss</guid>
-      <description>让我们通过这些93篇免费博客文章了解直播。它们按HackerNoon读者的...</description>
+      <title>我的邮箱和Discord被黑了</title>
+      <link>https://unsafe.sh/go-452155.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452155.html</guid>
+      <description>我的邮箱和Discord被黑了</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>美国CISA将Ivanti Connect Secure漏洞列入已知被利用漏洞目录</title>
-      <link>https://securityaffairs.com/202175/security/u-s-cisa-adds-ivanti-connect-secure-flaws-to-its-known-exploited-vulnerabilities-catalog.html</link>
-      <guid isPermaLink="true">https://securityaffairs.com/202175/security/u-s-cisa-adds-ivanti-connect-secure-flaws-to-its-known-exploited-vulnerabilities-catalog.html</guid>
-      <description>美国CISA将Ivanti Connect Secure漏洞列入已知被利用漏洞目...</description>
+      <title>滥用Linux fanotify进行反取证</title>
+      <link>https://dfir.ch/posts/infoguard_labs_fanotify_rewritten/</link>
+      <guid isPermaLink="true">https://dfir.ch/posts/infoguard_labs_fanotify_rewritten/</guid>
+      <description>执行摘要可疑文件不必隐藏即可逃避检查....</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>版主：更新受损/不可信的AutoMod链接</title>
-      <link>https://unsafe.sh/go-452053.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-452053.html</guid>
-      <description>版主：更新受损/不可信的AutoMod链接</description>
+      <title>现代认证，遗留问题</title>
+      <link>https://dfir.ch/posts/field_note_mha/</link>
+      <guid isPermaLink="true">https://dfir.ch/posts/field_note_mha/</guid>
+      <description>简介在最近的一次事件响应调查中，我们遇到了一个int...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>我逆向工程了RuneScape的2007年7月版本</title>
-      <link>https://unsafe.sh/go-452065.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-452065.html</guid>
-      <description>我逆向工程了RuneScape的2007年7月版本。</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Northflank安全漏洞导致客户AI API密钥被滥用</title>
-      <link>https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/</link>
-      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/northflank-security-breach-leads-to-abuse-of-customers-ai-api-keys/</guid>
-      <description>Northflank安全漏洞导致客户AI API密钥被滥用</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>runjs的替代方案？桌面版？</title>
-      <link>https://unsafe.sh/go-452066.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-452066.html</guid>
-      <description>runjs的替代方案？桌面版？</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>我为基于Fedora的发行版构建了anonsurf的替代方案</title>
-      <link>https://unsafe.sh/go-452062.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-452062.html</guid>
-      <description>我为基于Fedora的发行版构建了anonsurf的替代方案</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>push-guard</title>
-      <link>https://kitploit.com/en/tools/github/dragon-lady/push-guard</link>
-      <guid isPermaLink="true">https://kitploit.com/en/tools/github/dragon-lady/push-guard</guid>
-      <description>push-guard</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>币安因自身签名机损失63亿美元</title>
-      <link>https://hackernoon.com/binance-lost-$63-billion-to-its-own-signing-machine?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/binance-lost-$63-billion-to-its-own-signing-machine?source=rss</guid>
-      <description>10月29日周四晚间，Tron链上的一个币安热钱包发送了6.127亿USDT和4640万...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>帮助设计面向儿童/青少年的数字素养和心理免疫讲座</title>
-      <link>https://unsafe.sh/go-452068.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-452068.html</guid>
-      <description>帮助设计面向儿童/青少年的数字素养和心理免疫讲座。</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>当有人讲了一个你认为不得体的笑话时该怎么办</title>
-      <link>https://unsafe.sh/go-452069.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-452069.html</guid>
-      <description>当有人讲了一个你认为不得体的笑话时该怎么办。</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>让人产生信任感的手势正是骗子首先使用的那个</title>
-      <link>https://unsafe.sh/go-452067.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-452067.html</guid>
-      <description>让人产生信任感的手势正是骗子首先使用的那个。</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>DeFi中的抢先交易攻击类型</title>
-      <link>http://darkwhite666.blogspot.com/2026/10/tipi-di-attacchi-front-running-in-defi.html</link>
-      <guid isPermaLink="true">http://darkwhite666.blogspot.com/2026/10/tipi-di-attacchi-front-running-in-defi.html</guid>
-      <description>DeFi中的抢先交易攻击利用了区块链的公开性质，其中交易...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI泡沫记分牌</title>
-      <link>https://hackernoon.com/the-ai-bubble-scorecard?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/the-ai-bubble-scorecard?source=rss</guid>
-      <description>截至2026年10月23日，“AI泡沫”经历了今年最喧嚣的一周之一。CoreWeave股价跌至...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>为什么你的十六进制转换器在欺骗你：补码、53位墙与基数魔法</title>
-      <link>https://hackernoon.com/why-your-hex-converter-lies-to-you-twos-complement-the-53-bit-wall-and-radix-magic?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/why-your-hex-converter-lies-to-you-twos-complement-the-53-bit-wall-and-radix-magic?source=rss</guid>
-      <description>每个程序员最终都会在深夜调试期间遇到那种安静的困惑时刻...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>议题分享： ZeroMDASH：领域自适应的Agent-Native 通用漏洞挖掘工程</title>
-      <link>https://bestwing.me/zeromdash-agent-native-vulnerability-mining.html</link>
-      <guid isPermaLink="true">https://bestwing.me/zeromdash-agent-native-vulnerability-mining.html</guid>
-      <description>// RESEARCH_TRANSMISSION      ID: ZEROMDASH_AGENT_NATIVE_VUL...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>SecWiki新闻2026-10-31回顾</title>
-      <link>http://www.sec-wiki.com/?2026-10-31</link>
-      <guid isPermaLink="true">http://www.sec-wiki.com/?2026-10-31</guid>
-      <description>SecWiki新闻2026-10-31回顾</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>新型Android“短信致死”漏洞可远程崩溃未打补丁的手机</title>
-      <link>https://www.bleepingcomputer.com/news/security/new-android-sms-of-death-exploit-can-remotely-crash-unpatched-phones/</link>
-      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/new-android-sms-of-death-exploit-can-remotely-crash-unpatched-phones/</guid>
-      <description>新型Android“短信致死”漏洞可远程崩溃未打补丁的手机</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>LocModel：越狱大模型、AI 绘图、视频生成和 Agent 都装进本地电脑</title>
-      <link>https://blog.upx8.com/LocModel-AI-Agent</link>
-      <guid isPermaLink="true">https://blog.upx8.com/LocModel-AI-Agent</guid>
-      <description>在线 AI 好用，但额度、排队、内容限制和素材上传，始终是绕不开的问题。LocModel 给出的思路很直接：把开源模型下载到自己的电脑，推理也在本机完成。它不是又一个...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>ipsw v3.1.740</title>
-      <link>https://kitploit.com/en/posts/ipsw-a7a2246f609a486a</link>
-      <guid isPermaLink="true">https://kitploit.com/en/posts/ipsw-a7a2246f609a486a</guid>
-      <description>iOS/macOS 研究瑞士军刀...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>偷完密码还让AI写报告：新型木马用大模型给受害者排优先级</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&amp;amp;mid=2451189628&amp;amp;idx=1&amp;amp;sn=b49456e51d703ba1b3c56860d9a0fb87</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&amp;amp;mid=2451189628&amp;amp;idx=1&amp;amp;sn=b49456e51d703ba1b3c56860d9a0fb87</guid>
+      <title>ShadowScan：让 AI 参与判定的影子端点扫描器</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzI3Njk2OTIzOQ==&amp;amp;mid=2247488183&amp;amp;idx=1&amp;amp;sn=e5cdf7d011e0810660d2c9bd06ce62b6</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzI3Njk2OTIzOQ==&amp;amp;mid=2247488183&amp;amp;idx=1&amp;amp;sn=e5cdf7d011e0810660d2c9bd06ce62b6</guid>
       <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>我将我的应用免费赠送——这差点毁了它</title>
-      <link>https://hackernoon.com/i-gave-my-app-away-for-free-and-it-almost-killed-it?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/i-gave-my-app-away-for-free-and-it-almost-killed-it?source=rss</guid>
-      <description>慷慨是一种营销策略。单位经济学是一种生存策略。这是我的“创始人...</description>
+      <title>内容分发与内容创作同样重要</title>
+      <link>https://hackernoon.com/content-distribution-matters-as-much-as-content-creation?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/content-distribution-matters-as-much-as-content-creation?source=rss</guid>
+      <description>内容的力量是巨大且无与伦比的，因为它在原始层面上打动人心。但是为了...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>netward-standalone</title>
-      <link>https://kitploit.com/en/tools/github/dragon-lady/netward-standalone</link>
-      <guid isPermaLink="true">https://kitploit.com/en/tools/github/dragon-lady/netward-standalone</guid>
-      <description>Kitploit 是一个黑客技术、网络安全和渗透测试工具的目录。发现最新项目...</description>
+      <title>从错误报告到生产环境：我如何用AI修复Bug</title>
+      <link>https://hackernoon.com/from-bug-report-to-production-how-i-fix-bugs-with-ai?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/from-bug-report-to-production-how-i-fix-bugs-with-ai?source=rss</guid>
+      <description>你好！我是Tim，inDrive的QA工程师。不久前，当我更新新端点的测试时，一个...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>2026云暴露指数：映射出484,142个开放存储桶</title>
-      <link>https://unsafe.sh/go-452006.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-452006.html</guid>
-      <description>2026云暴露指数：映射出484,142个开放存储桶</description>
+      <title>大家好！有什么方法可以获得真实的Instagram浏览量，让别人看不出是假的吗</title>
+      <link>https://unsafe.sh/go-452179.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452179.html</guid>
+      <description>大家好！有什么方法可以获得真实的Instagram浏览量，让别人看不出是假的吗</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Reddit将要求登录以访问内容，打击网络爬虫</title>
-      <link>https://www.bleepingcomputer.com/news/security/reddit-to-lock-content-behind-logins-to-fight-scrapers/</link>
-      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/reddit-to-lock-content-behind-logins-to-fight-scrapers/</guid>
-      <description>Reddit将要求登录以访问内容，打击网络爬虫</description>
+      <title>83篇关于指标学习的博客文章</title>
+      <link>https://hackernoon.com/83-blog-posts-to-learn-about-metrics?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/83-blog-posts-to-learn-about-metrics?source=rss</guid>
+      <description>让我们通过这些83篇免费博客文章学习指标。它们按HackerNoon读者的参与度排序...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>我发现了一台涂鸦智能（Tuya Smart Inc）设备</title>
-      <link>https://unsafe.sh/go-452055.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-452055.html</guid>
-      <description>我发现了一台涂鸦智能（Tuya Smart Inc）设备。</description>
+      <title>FBI将63亿美元Binance加密盗窃案与朝鲜黑客联系起来</title>
+      <link>https://www.bleepingcomputer.com/news/security/fbi-links-63-billion-binance-crypto-heist-to-north-korean-hackers/</link>
+      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/fbi-links-63-billion-binance-crypto-heist-to-north-korean-hackers/</guid>
+      <description>FBI将63亿美元Binance加密盗窃案与朝鲜黑客联系起来</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>TechBeat：深入Jev——决策模型如何用类型化、校准的答案交换文本生成 (2026/10/31)</title>
-      <link>https://hackernoon.com/10-31-2026-techbeat?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/10-31-2026-techbeat?source=rss</guid>
-      <description>TechBeat：深入Jev——决策模型如何用类型化、校准的答案交换文本生成 (2...</description>
+      <title>后AI时代的安全底线</title>
+      <link>https://danielmiessler.com/blog/post-ai-security-floor?utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=website</link>
+      <guid isPermaLink="true">https://danielmiessler.com/blog/post-ai-security-floor?utm_source=rss&amp;amp;utm_medium=feed&amp;amp;utm_campaign=website</guid>
+      <description>在“The Hackening”期间首先锁定什么2026年11月1日“The Hackening”期间的网络安全建议...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>500篇关于文学的博客文章</title>
-      <link>https://hackernoon.com/500-blog-posts-to-learn-about-literature?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/500-blog-posts-to-learn-about-literature?source=rss</guid>
-      <description>让我们通过这些500篇免费博客文章来了解文学。它们按HackerNoon读者的...排序。</description>
+      <title>PEASS-ng v20261101-db78fb84</title>
+      <link>https://kitploit.com/en/posts/peass-ng-44179c316621a9da</link>
+      <guid isPermaLink="true">https://kitploit.com/en/posts/peass-ng-44179c316621a9da</guid>
+      <description>Linux权限提升官方课程，掌握LinPEAS。查看 https://hacktricks-training.com/courses/l...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Agent委派链与责任追踪</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&amp;amp;mid=2247497335&amp;amp;idx=1&amp;amp;sn=87ec54e7f27ab5aea3527f067ffb303e</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&amp;amp;mid=2247497335&amp;amp;idx=1&amp;amp;sn=87ec54e7f27ab5aea3527f067ffb303e</guid>
+      <title>FBI指责朝鲜实施60亿美元Binance加密货币盗窃案</title>
+      <link>https://securityaffairs.com/202221/apt/fbi-blames-north-korea-for-6-billion-binance-crypto-theft.html</link>
+      <guid isPermaLink="true">https://securityaffairs.com/202221/apt/fbi-blames-north-korea-for-6-billion-binance-crypto-theft.html</guid>
+      <description>FBI指责朝鲜实施60亿美元Binance加密货币盗窃案 Pier...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>评估冗余配电系统中的共模故障</title>
+      <link>https://hackernoon.com/assessing-common-mode-failures-in-redundant-power-distribution-systems?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/assessing-common-mode-failures-in-redundant-power-distribution-systems?source=rss</guid>
+      <description>2011年8月，达拉斯的一个数据中心停电约五小时。该设施通常具有...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>dragon-tales</title>
+      <link>https://kitploit.com/en/tools/github/fare9/dragon-tales</link>
+      <guid isPermaLink="true">https://kitploit.com/en/tools/github/fare9/dragon-tales</guid>
+      <description>dragon-tales</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>如何使用FFmpeg、Godot、Unity和Web Audio将AI生成的音轨转化为无缝游戏循环</title>
+      <link>https://hackernoon.com/how-to-turn-an-ai-generated-track-into-a-seamless-game-loop-with-ffmpeg-godot-unity-and-web-audio?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/how-to-turn-an-ai-generated-track-into-a-seamless-game-loop-with-ffmpeg-godot-unity-and-web-audio?source=rss</guid>
+      <description>简短版本：生成的音轨几乎永远不会自行循环。要解决这个问题，请生成一个稳定的i...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>当有人问到你不知道如何回答的问题时该怎么办</title>
+      <link>https://unsafe.sh/go-452166.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452166.html</guid>
+      <description>当有人问到你不知道如何回答的问题时该怎么办</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>ph4ntom-ida-bridge：IDA Pro 9.x的本地REST API和MCP控制层（54个工具、AST ctree、微码IR、实时调试器）</title>
+      <link>https://unsafe.sh/go-452161.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452161.html</guid>
+      <description>ph4ntom-ida-bridge：IDA Pro 9.x的本地REST API和MCP控制层（54个工具、AST ctree、Mic...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>SECURITY AFFAIRS AI-网络安全通讯第6期</title>
+      <link>https://securityaffairs.com/202216/ai/security-affairs-ai-cybersecurity-newsletter-round-6.html</link>
+      <guid isPermaLink="true">https://securityaffairs.com/202216/ai/security-affairs-ai-cybersecurity-newsletter-round-6.html</guid>
+      <description>SECURITY AFFAIRS AI-网络安全通讯第6期 Pierluigi...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>从软件开发者到黑客：如何实现这一转型？</title>
+      <link>https://unsafe.sh/go-452153.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452153.html</guid>
+      <description>从软件开发者到黑客：如何实现这一转型？</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>识别网络诈骗的几点黑客技巧</title>
+      <link>https://unsafe.sh/go-452156.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452156.html</guid>
+      <description>识别网络诈骗的几点黑客技巧</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>SECURITY AFFAIRS 恶意软件通讯第121期</title>
+      <link>https://securityaffairs.com/202209/malware/security-affairs-malware-newsletter-round-121.html</link>
+      <guid isPermaLink="true">https://securityaffairs.com/202209/malware/security-affairs-malware-newsletter-round-121.html</guid>
+      <description>我们使用Cookie来记住您的偏好，从而为您提供最相关的网站体验...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>/r/netsec 2026年第四季度信息安全招聘帖</title>
+      <link>https://unsafe.sh/go-452164.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452164.html</guid>
+      <description>/r/netsec 2026年第四季度信息安全招聘帖</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>有趣的工具</title>
+      <link>https://unsafe.sh/go-452160.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452160.html</guid>
+      <description>有趣的工具</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Google AI Mode 未给网站带来流量</title>
+      <link>https://www.solidot.org/story?sid=85767</link>
+      <guid isPermaLink="true">https://www.solidot.org/story?sid=85767</guid>
+      <description>Reddit 的最新财报证实了众多网站的抱怨：Google AI Mode 未给网站带来流量。AI Mode 通过生成总结的方式响应用户的查询，而不是传统搜索的提供网站链接以及简要摘要。硅...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>SecWiki 2026-11-01 新闻回顾</title>
+      <link>http://www.sec-wiki.com/?2026-11-01</link>
+      <guid isPermaLink="true">http://www.sec-wiki.com/?2026-11-01</guid>
+      <description>SecWiki 2026-11-01 新闻回顾</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI速度悖论：代码更快，规范漂移更多</title>
+      <link>https://hackernoon.com/the-ai-velocity-paradox-faster-code-more-specification-drift?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/the-ai-velocity-paradox-faster-code-more-specification-drift?source=rss</guid>
+      <description>软件工程始终是一个由两种相互竞争的要素之间的持续张力所定义的学科...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>可验证的AI需要凭证，而非置信度评分</title>
+      <link>https://hackernoon.com/verifiable-ai-needs-receipts-not-confidence-scores?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/verifiable-ai-needs-receipts-not-confidence-scores?source=rss</guid>
+      <description>询问一个AI代理是否金库真的回购了其价值5000万美元的代币，你会得到一个流畅的“是”...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>为什么你的Python缓存会重复做同样的工作（附言：GIL救不了你）</title>
+      <link>https://hackernoon.com/why-your-python-cache-does-the-same-work-twice-ps-gil-wont-save-you?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/why-your-python-cache-does-the-same-work-twice-ps-gil-wont-save-you?source=rss</guid>
+      <description>你添加了一个缓存，以便每个键只运行一次昂贵的函数。然后你计算它实际运行的次数...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Alpine Linux在遭遇RCE攻击尝试后重建GitLab</title>
+      <link>https://www.bleepingcomputer.com/news/security/alpine-linux-rebuilds-gitlab-after-attempted-rce-attack/</link>
+      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/alpine-linux-rebuilds-gitlab-after-attempted-rce-attack/</guid>
+      <description>Alpine Linux在遭遇RCE攻击尝试后重建GitLab</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>afrog v3.5.10</title>
+      <link>https://kitploit.com/en/posts/afrog-d8cb8bdc4271709b</link>
+      <guid isPermaLink="true">https://kitploit.com/en/posts/afrog-d8cb8bdc4271709b</guid>
+      <description>afrog v3.5.10</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>yesbaby.js - 利用你自己的管理员会话创建流氓管理员</title>
+      <link>https://lukeleal.com/research/posts/yesbaby-js-wp-admin-creator/</link>
+      <guid isPermaLink="true">https://lukeleal.com/research/posts/yesbaby-js-wp-admin-creator/</guid>
+      <description>大多数针对WordPress站点的JavaScript注入旨在通过重定向、垃圾邮件或跳过...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>query.php中的一行代码让index.php和.htaccess死而复生</title>
+      <link>https://lukeleal.com/research/posts/query-php-reinfection-watchdog/</link>
+      <guid isPermaLink="true">https://lukeleal.com/research/posts/query-php-reinfection-watchdog/</guid>
+      <description>query.php中的一行代码让index.php和.htaccess死而复生</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>假冒Imunify360投放器从公共GitHub仓库加载SEO垃圾安装程序</title>
+      <link>https://lukeleal.com/research/posts/fake-imunify360-github-seo-spam-dropper/</link>
+      <guid isPermaLink="true">https://lukeleal.com/research/posts/fake-imunify360-github-seo-spam-dropper/</guid>
+      <description>这个投放器以真实的托管安全产品Imunify360命名，许多共享主机...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>pluggable.php 登录窃取器 - 假许可证密钥中的XOR加密密码</title>
+      <link>https://lukeleal.com/research/posts/pluggable-php-wp-authenticate-stealer/</link>
+      <guid isPermaLink="true">https://lukeleal.com/research/posts/pluggable-php-wp-authenticate-stealer/</guid>
+      <description>在我之前的wp-login.php键盘记录器文章中，注入点位于登录页面本身。这个样本更进一步...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>r/netsec 月度讨论与工具帖</title>
+      <link>https://unsafe.sh/go-452163.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452163.html</guid>
+      <description>r/netsec 月度讨论与工具帖</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>能力令牌与最小权限即时发放</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&amp;amp;mid=2247497336&amp;amp;idx=1&amp;amp;sn=ee2bd5fa25eefecbba7ff5fb9ab14c1e</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&amp;amp;mid=2247497336&amp;amp;idx=1&amp;amp;sn=ee2bd5fa25eefecbba7ff5fb9ab14c1e</guid>
       <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>从新手到漏洞猎人：AI时代的网络安全学习之路</title>
-      <link>https://www.bleepingcomputer.com/news/security/from-beginner-to-bug-hunter-learning-cybersecurity-in-the-ai-era/</link>
-      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/from-beginner-to-bug-hunter-learning-cybersecurity-in-the-ai-era/</guid>
-      <description>从新手到漏洞猎人：AI时代的网络安全学习之路。</description>
+      <title>Pierluigi Paganini撰写的Security Affairs通讯第602期 - 国际版</title>
+      <link>https://securityaffairs.com/202200/breaking-news/security-affairs-newsletter-round-602-by-pierluigi-paganini-international-edition.html</link>
+      <guid isPermaLink="true">https://securityaffairs.com/202200/breaking-news/security-affairs-newsletter-round-602-by-pierluigi-paganini-international-edition.html</guid>
+      <description>我们使用Cookie来记住您的偏好，从而为您提供最相关的网站体验...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Chainalysis披露因“进攻性代理技术”导致的数据泄露事件</title>
-      <link>https://www.bleepingcomputer.com/news/security/chainalysis-discloses-data-breach-from-offensive-agentic-techniques/</link>
-      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/chainalysis-discloses-data-breach-from-offensive-agentic-techniques/</guid>
-      <description>Chainalysis披露因“进攻性代理技术”导致的数据泄露事件</description>
+      <title>[双11活动] 腾讯云各种服务器资源新购和续费优惠 美国VPS低至99元/年</title>
+      <link>https://www.landian.news/archives/127856.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/127856.html</guid>
+      <description>2026年11月1日 21:14云计算, 科技资讯01.83K...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>思科给予一名 27 岁工程师无限 tokens 去重写陈旧代码</title>
-      <link>https://www.solidot.org/story?sid=85764</link>
-      <guid isPermaLink="true">https://www.solidot.org/story?sid=85764</guid>
-      <description>思科总裁兼首席产品官 Jeetu Patel 在接受《财富》杂志采访时称，该公司给予一名 27 岁工程师无限 tokens 去重写遗留代码（legacy code）。27 岁的 Padma...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Sam Altman 认为 PC 内存闲置太糟糕</title>
-      <link>https://www.solidot.org/story?sid=85763</link>
-      <guid isPermaLink="true">https://www.solidot.org/story?sid=85763</guid>
-      <description>OpenAI CEO Sam Altman 接受 YouTube 主播 Cheeky Pint 采访时谈到了 AI 行业目前所面临的全球算力供应问题。当话题不可避免转向内存时，Altman...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>一文读懂Agent安全测试：传统思路下的测试边界重构</title>
-      <link>https://mp.weixin.qq.com/s?__biz=Mzg4Nzk3MTg3MA==&amp;amp;mid=2247488818&amp;amp;idx=1&amp;amp;sn=2a1f282e9257e9eaa4ff9d90d375f7d8</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=Mzg4Nzk3MTg3MA==&amp;amp;mid=2247488818&amp;amp;idx=1&amp;amp;sn=2a1f282e9257e9eaa4ff9d90d375f7d8</guid>
+      <title>网络研究院学生团队RedbudAI战队获GEEKCON 2026安全极客大赛“AI黑客极限挑战赛”赛道冠军</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzUxMTEwOTA3OA==&amp;amp;mid=2247485872&amp;amp;idx=1&amp;amp;sn=de7ea9f0e45eb67a1bdd30cef997f6a7</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzUxMTEwOTA3OA==&amp;amp;mid=2247485872&amp;amp;idx=1&amp;amp;sn=de7ea9f0e45eb67a1bdd30cef997f6a7</guid>
       <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>中国首次载人登月计划由三人组成其中两人将着陆月球表面</title>
-      <link>https://www.solidot.org/story?sid=85762</link>
-      <guid isPermaLink="true">https://www.solidot.org/story?sid=85762</guid>
-      <description>第七届载人航天学术大会星期六（10月31日）在北京航空航天大学举行。中国载人航天工程副总设计师兼月球探测工程总设计师王翔在会上介绍了中国首次载人月球探测任务乘组计划。中国计划在 2030...</description>
+      <title>招聘黑客</title>
+      <link>https://www.reddit.com/r/deepweb/comments/1xl1wvz/hiring_hacker/</link>
+      <guid isPermaLink="true">https://www.reddit.com/r/deepweb/comments/1xl1wvz/hiring_hacker/</guid>
+      <description>招聘黑客</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>黑客仅用 20 分钟就从币安盗取了 63 亿美元加密货币</title>
-      <link>https://www.solidot.org/story?sid=85761</link>
-      <guid isPermaLink="true">https://www.solidot.org/story?sid=85761</guid>
-      <description>在一场被称为史上规模最大的加密货币窃案中，黑客仅用 20 分钟就从币安盗取了价值 63 亿美元的加密货币。币安随后暂停了提款和提现。约一半的被盗资金——全部是稳定币，稳定币发行方能通过智能...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI评估：VOLTA信息窃取器中的模型驱动受害者优先级排序</title>
-      <link>https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/</link>
-      <guid isPermaLink="true">https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/</guid>
-      <description>AI评估：VOLTA信息窃取器中的模型驱动受害者优先级排序</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>快速发布：WT20焊接电极与辐射</title>
-      <link>https://blog.didierstevens.com/2026/10/31/quickpost-wt20-welding-electrodes-radiation/</link>
-      <guid isPermaLink="true">https://blog.didierstevens.com/2026/10/31/quickpost-wt20-welding-electrodes-radiation/</guid>
-      <description>页面关于Didier Stevens套件链接我的Python模板我的软件职业...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>【安全圈】Gitee 725 万个公开仓库被扫出 26400 个有效凭证，9473 个是阿里云密钥</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;amp;mid=2652079646&amp;amp;idx=1&amp;amp;sn=b67092a6e295dc9135d4f0304a210caa</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;amp;mid=2652079646&amp;amp;idx=1&amp;amp;sn=b67092a6e295dc9135d4f0304a210caa</guid>
+      <title>某WordPress付费插件严重漏洞在野攻击分析以及漏洞复现</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzIwODIxMjc4MQ==&amp;amp;mid=2651005955&amp;amp;idx=1&amp;amp;sn=6a0155af6d69a89217fee6d888a1eede</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzIwODIxMjc4MQ==&amp;amp;mid=2651005955&amp;amp;idx=1&amp;amp;sn=6a0155af6d69a89217fee6d888a1eede</guid>
       <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>【安全圈】无印良品遭黑客入侵，约 2726万条客户信息外泄</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;amp;mid=2652079646&amp;amp;idx=2&amp;amp;sn=cb164b43f8161ed86d04fc5f85f660b7</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;amp;mid=2652079646&amp;amp;idx=2&amp;amp;sn=cb164b43f8161ed86d04fc5f85f660b7</guid>
+      <title>寻找创新的AI驱动网络安全项目创意？</title>
+      <link>https://unsafe.sh/go-452178.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452178.html</guid>
+      <description>寻找创新的AI驱动网络安全项目创意？</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>死亡短信：Android遭受攻击，隐形短信可阻止通话和紧急服务</title>
+      <link>https://securityaffairs.com/202184/security/sms-of-death-android-under-attack-an-invisible-sms-can-block-calls-and-emergency-services.html</link>
+      <guid isPermaLink="true">https://securityaffairs.com/202184/security/sms-of-death-android-under-attack-an-invisible-sms-can-block-calls-and-emergency-services.html</guid>
+      <description>死亡短信：Android遭受攻击，隐形短信可阻止通话和紧急服务...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>数据中心抵消了过去 15 年美国的减排努力</title>
+      <link>https://www.solidot.org/story?sid=85766</link>
+      <guid isPermaLink="true">https://www.solidot.org/story?sid=85766</guid>
+      <description>Sierra Club 的分析显示，到 2030 年美国电力行业的二氧化碳排放量可能达到 21 亿公吨，比 2025 年的水平高出约 42%。这一预计增幅将抵消过去 15 年电力行业在减排...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>海军情报官员Mr.Osei-bonsu的女儿Amber</title>
+      <link>https://unsafe.sh/go-452150.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452150.html</guid>
+      <description>海军情报官员Mr.Osei-bonsu的女儿Amber</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>NASA 征询拯救哈勃望远镜的方案</title>
+      <link>https://www.solidot.org/story?sid=85765</link>
+      <guid isPermaLink="true">https://www.solidot.org/story?sid=85765</guid>
+      <description>哈勃望远镜在轨运行 36 年之后仍然极具价值，但它的轨道高度已经大幅下降，如果不采取行动它将于 2030 年代中期前重返大气层。NASA 本周公布了一份 Request For Infor...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>光明会网络官方访问代码</title>
+      <link>https://unsafe.sh/go-452151.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452151.html</guid>
+      <description>光明会网络官方访问代码</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>能否制止AI垃圾内容接管本子版块？绝大多数帖子违反了规则2。</title>
+      <link>https://unsafe.sh/go-452158.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452158.html</guid>
+      <description>能否制止AI垃圾内容接管本子版块？绝大多数帖子违反了规则2。</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>【安全圈】24小时内超6万次攻击针对WordPress RCE漏洞，更新过程无需登录就可以利用</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;amp;mid=2652079657&amp;amp;idx=1&amp;amp;sn=0e7f6a51f91ae4c6aadcb6d7ca13c2b3</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;amp;mid=2652079657&amp;amp;idx=1&amp;amp;sn=0e7f6a51f91ae4c6aadcb6d7ca13c2b3</guid>
       <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>【安全圈】Hugging Face 恶意软件活动卷土重来，劫持 GPU 进行加密货币挖矿</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;amp;mid=2652079646&amp;amp;idx=3&amp;amp;sn=d482d796b6a983027c050b0687351a7c</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;amp;mid=2652079646&amp;amp;idx=3&amp;amp;sn=d482d796b6a983027c050b0687351a7c</guid>
+      <title>【安全圈】日本航空遭遇第三方数据泄露，暴露乘客信息</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;amp;mid=2652079657&amp;amp;idx=2&amp;amp;sn=0312f3c3c447b408d319b55721289b3e</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;amp;mid=2652079657&amp;amp;idx=2&amp;amp;sn=0312f3c3c447b408d319b55721289b3e</guid>
       <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Kogui 族人谈 AI</title>
-      <link>https://www.solidot.org/story?sid=85760</link>
-      <guid isPermaLink="true">https://www.solidot.org/story?sid=85760</guid>
-      <description>生活在南美哥伦比亚圣玛尔塔内华达山脉的原居民 Kogui 族人信仰 Aluna——即万物之母 Gaulčováng。Kogui 族人认为地球是有生命的，人类是地球之子。他们认为，人类为获取...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Win11Debloat v2026.10.30</title>
-      <link>https://kitploit.com/en/posts/win11debloat-9fa369b921e00fcd</link>
-      <guid isPermaLink="true">https://kitploit.com/en/posts/win11debloat-9fa369b921e00fcd</guid>
-      <description>Win11Debloat 是一个轻量级且易于使用的 PowerShell 脚本，允许您快速清理 Windows 11 系统...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Wireshark 5.0.0rc1 发布 (周六, 10月31日)</title>
-      <link>https://isc.sans.edu/diary/rss/33476</link>
-      <guid isPermaLink="true">https://isc.sans.edu/diary/rss/33476</guid>
-      <description>已发布：</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>YARA-X 1.22.1 发布 (周六, 10月31日)</title>
-      <link>https://isc.sans.edu/diary/rss/33474</link>
-      <guid isPermaLink="true">https://isc.sans.edu/diary/rss/33474</guid>
-      <description>已发布：</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>仿冒 CCleaner 投递 GhostDesk 木马</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;amp;mid=2458623401&amp;amp;idx=1&amp;amp;sn=783b121c96da8431137b5457726a994e</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;amp;mid=2458623401&amp;amp;idx=1&amp;amp;sn=783b121c96da8431137b5457726a994e</guid>
+      <title>【安全圈】黑客利用 Cisco SD-WAN 漏洞部署定制的 KeyDrift 恶意软件</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;amp;mid=2652079657&amp;amp;idx=3&amp;amp;sn=62b5b110843a42aca0265bbe72c31840</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzIzMzE4NDU1OQ==&amp;amp;mid=2652079657&amp;amp;idx=3&amp;amp;sn=62b5b110843a42aca0265bbe72c31840</guid>
       <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>当漏洞挖掘遇上 AI Agent：主流企业防火墙 0day 挖掘实战</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;amp;mid=2458623401&amp;amp;idx=2&amp;amp;sn=ef36c392f2014060a978488063d324e0</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&amp;amp;mid=2458623401&amp;amp;idx=2&amp;amp;sn=ef36c392f2014060a978488063d324e0</guid>
+      <title>Agent-Reach v1.6.1</title>
+      <link>https://kitploit.com/en/posts/agent-reach-d4689275fbd30dc1</link>
+      <guid isPermaLink="true">https://kitploit.com/en/posts/agent-reach-d4689275fbd30dc1</guid>
+      <description>Agent-Reach v1.6.1</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Mirage2FA通过AiTM代理绕过MFA窃取了4,561个M365会话Cookie（CVE-2026-69836 CVSS 10.0）：检测规则和WHfB/Cloud Kerberos Trust加固指南</title>
+      <link>https://unsafe.sh/go-452165.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452165.html</guid>
+      <description>Mirage2FA通过AiTM代理绕过MFA窃取了4,561个M365会话Cookie（CVE-2026-69836 CVSS 10.0）：检...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>OneNote文件提取（周日，11月1日）</title>
+      <link>https://isc.sans.edu/diary/rss/33478</link>
+      <guid isPermaLink="true">https://isc.sans.edu/diary/rss/33478</guid>
+      <description>最近，我必须从一组OneNote文件（扩展名为.one）中提取嵌入的文件。我的onedump...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>成人机器人查看我的IG故事，还是有人付费监视并收集我的帖子？</title>
+      <link>https://unsafe.sh/go-452092.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452092.html</guid>
+      <description>成人机器人查看我的IG故事，还是有人付费监视并收集我的帖子？</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI正在改变初级开发者的职业路径。计算机系学生该如何适应</title>
+      <link>https://hackernoon.com/ai-is-changing-the-junior-developer-career-path-heres-how-cs-students-can-adapt?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/ai-is-changing-the-junior-developer-career-path-heres-how-cs-students-can-adapt?source=rss</guid>
+      <description>十年前，给计算机科学学生的标准建议很简单：学习一门语言，构建...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>有人知道如何从Jeilin JL2380A相机中提取固件吗？我有一个通用的DSC-W610，想对其固件进行实验，主要是更改启动标志和声音。我想把它变成DOORS扫描仪哈哈。有什么工具或建议吗？</title>
+      <link>https://unsafe.sh/go-452093.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452093.html</guid>
+      <description>有人知道如何从Jeilin JL2380A相机中提取固件吗？我有一个通用的DSC-W610，想对其固件进行实...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>不开玩笑，在安卓手机上安装 iOS 系统：小米 8、Pixel 6 已成功</title>
+      <link>https://www.appinn.com/android-run-ios-xnu/</link>
+      <guid isPermaLink="true">https://www.appinn.com/android-run-ios-xnu/</guid>
+      <description>不开玩笑，在安卓手机上安装 iOS 系统：小米 8、Pixel 6 已成功</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>深入了解社交游戏与基于证据的影响力构建</title>
+      <link>https://unsafe.sh/go-452094.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452094.html</guid>
+      <description>旨在理解社交游戏及基于证据的影响力构建</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>尝试使用 Codex + REA 破解尼康 COOLPIX S3700 固件——寻求建议</title>
+      <link>https://unsafe.sh/go-452091.html</link>
+      <guid isPermaLink="true">https://unsafe.sh/go-452091.html</guid>
+      <description>尝试使用 Codex + REA 破解我的尼康 COOLPIX S3700 固件——需要建议</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>第528期周报：解读 AI 生成代码与太阳能经济学</title>
+      <link>https://www.troyhunt.com/weekly-update-528/</link>
+      <guid isPermaLink="true">https://www.troyhunt.com/weekly-update-528/</guid>
+      <description>纯属巧合，Proton CEO 的 AI @ Proton、工程...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>小众软件发现频道全量开放 .md 格式内容，可让 AI Agent 直接访问</title>
+      <link>https://www.appinn.com/appinn-faxian-channel-markdown-ai-agent/</link>
+      <guid isPermaLink="true">https://www.appinn.com/appinn-faxian-channel-markdown-ai-agent/</guid>
+      <description>小众软件发现频道全量开放 .md 格式内容，可让 AI Agent 直接访问</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>将客户问题转化为市场营销调研体系</title>
+      <link>https://hackernoon.com/turn-customer-questions-into-a-marketing-research-system?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/turn-customer-questions-into-a-marketing-research-system?source=rss</guid>
+      <description>封面图：为本文章原创的 AI 辅助插图。销售团队反复回答相同的...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>混合战争时代下的航空防御</title>
+      <link>https://guerredirete.substack.com/p/difendere-gli-aerei-al-tempo-della</link>
+      <guid isPermaLink="true">https://guerredirete.substack.com/p/difendere-gli-aerei-al-tempo-della</guid>
+      <description>作者：Cesare Alemanni。2024年4月，芬兰航空公司 Finnair 暂停了为期一个月的运营...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>南洋理工大学、武汉大学 | LocalAlign：通过近目标对抗训练提升提示注入防御泛化能力</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzU5MTM5MTQ2MA==&amp;amp;mid=2247496099&amp;amp;idx=1&amp;amp;sn=a6329de40b80d57f4a1f8f8a33a2279e</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzU5MTM5MTQ2MA==&amp;amp;mid=2247496099&amp;amp;idx=1&amp;amp;sn=a6329de40b80d57f4a1f8f8a33a2279e</guid>
       <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>RSSHub 公共实例整理与自建教程</title>
-      <link>https://blog.upx8.com/RSSHub</link>
-      <guid isPermaLink="true">https://blog.upx8.com/RSSHub</guid>
-      <description>简介RSSHub 是一个开源的 RSS 生成器,能给本身没有 RSS 的网站(B 站、微博、GitHub Trending、Telegram 频道等)生成订阅源。不想...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>双启动还是虚拟机？黑客攻击的最佳选择？</title>
-      <link>https://unsafe.sh/go-452054.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-452054.html</guid>
-      <description>双启动还是虚拟机？黑客攻击的最佳选择？</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Strata 0.2.9 发布：本地大模型 Prefill 最高提速 88%，还支持 1 比特 DeepSeek</title>
-      <link>https://www.appinn.com/strata-0-2-9/</link>
-      <guid isPermaLink="true">https://www.appinn.com/strata-0-2-9/</guid>
-      <description>Strata 0.2.9 发布：本地大模型 Prefill 最高提速 88%，还支持 1 比特 DeepSeek</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>攻击者利用Drupal Commerce Core关键漏洞CVE-2026-118539</title>
-      <link>https://securityaffairs.com/202162/security/attackers-exploit-critical-drupal-commerce-core-vulnerability-cve-2026-118539.html</link>
-      <guid isPermaLink="true">https://securityaffairs.com/202162/security/attackers-exploit-critical-drupal-commerce-core-vulnerability-cve-2026-118539.html</guid>
-      <description>攻击者利用Drupal Commerce Core关键漏洞CVE-2026-118539...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>反AI逆向方法论-LLVM-Pass落地</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzU3MDc0MTY1MA==&amp;amp;mid=2247484157&amp;amp;idx=1&amp;amp;sn=56c7196f7474951cbbe5ea7dc7eddf66</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzU3MDc0MTY1MA==&amp;amp;mid=2247484157&amp;amp;idx=1&amp;amp;sn=56c7196f7474951cbbe5ea7dc7eddf66</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>workbuddy一键完成所有任务（多账户）</title>
-      <link>https://blog.upx8.com/workbuddy</link>
-      <guid isPermaLink="true">https://blog.upx8.com/workbuddy</guid>
-      <description>资源...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>现场笔记之一个月，两个爬虫</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzAxNzYyNzMyNg==&amp;amp;mid=2664232903&amp;amp;idx=1&amp;amp;sn=50b5f83a4a635eff21dd84c6631d36e9</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzAxNzYyNzMyNg==&amp;amp;mid=2664232903&amp;amp;idx=1&amp;amp;sn=50b5f83a4a635eff21dd84c6631d36e9</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>呼叫各位开发者和IT专业人士！</title>
-      <link>https://unsafe.sh/go-451967.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-451967.html</guid>
-      <description>呼叫各位开发者和IT专业人士！</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>恶意软件分析 - 反编译JavaScript .jsc文件</title>
-      <link>https://unsafe.sh/go-451959.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-451959.html</guid>
-      <description>恶意软件分析 - 反编译JavaScript .jsc文件</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>论坛·原创 | 国际冲突背景下的人工智能攻防研究</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;amp;mid=2664268179&amp;amp;idx=1&amp;amp;sn=b1ac19dcc0e3d9687f274d31cd8ca18a</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;amp;mid=2664268179&amp;amp;idx=1&amp;amp;sn=b1ac19dcc0e3d9687f274d31cd8ca18a</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>CNCERT | 关于新型僵尸网络VeilDHT大范围传播的风险提示</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;amp;mid=2664268179&amp;amp;idx=2&amp;amp;sn=ed92805315a7d05243f5f9a078c93b1d</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;amp;mid=2664268179&amp;amp;idx=2&amp;amp;sn=ed92805315a7d05243f5f9a078c93b1d</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>行业 | 腾讯发布WorkBuddy企业版安全白皮书</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;amp;mid=2664268179&amp;amp;idx=3&amp;amp;sn=ae7c5d5dd1f482e2429e7f731bdcae1b</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;amp;mid=2664268179&amp;amp;idx=3&amp;amp;sn=ae7c5d5dd1f482e2429e7f731bdcae1b</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>关注 | 公安机关公布3起不履行数据安全保护义务或网络安全保护义务案</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;amp;mid=2664268179&amp;amp;idx=4&amp;amp;sn=f6b41e47e2d2af5f5252cd58b25826ae</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzA5MzE5MDAzOA==&amp;amp;mid=2664268179&amp;amp;idx=4&amp;amp;sn=f6b41e47e2d2af5f5252cd58b25826ae</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>TFLite与ONNX对比</title>
-      <link>https://dyrnq.com/tflite-vs-onnx/</link>
-      <guid isPermaLink="true">https://dyrnq.com/tflite-vs-onnx/</guid>
-      <description>核心区别总结详细对比1. 用途和适用场景2. 模型转换和兼容性3. 性能对比4. 生态和社区（2026年趋势）快速选择指南选TFLite的情况：选ONNX...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>个人灵光 2.0 实测：个人 AI 助理的机会和门槛｜AI 上新</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;amp;mid=2653115761&amp;amp;idx=1&amp;amp;sn=58624dc451e8d995fddf0cdd7c31ae23</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;amp;mid=2653115761&amp;amp;idx=1&amp;amp;sn=58624dc451e8d995fddf0cdd7c31ae23</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>我逆向工程了Attack Shark X6的软件以获取合适的Linux配置工具，并希望人们测试它</title>
-      <link>https://unsafe.sh/go-451960.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-451960.html</guid>
-      <description>我逆向工程了Attack Shark X6的软件以获取合适的Linux配置工具，并希望人们测...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>thingsboard v4.4.0.2</title>
-      <link>https://kitploit.com/en/posts/thingsboard-f663f29678c54280</link>
-      <guid isPermaLink="true">https://kitploit.com/en/posts/thingsboard-f663f29678c54280</guid>
-      <description>thingsboard v4.4.0.2</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>倒计时1天 | 弈智破局，善用智能 —— KCon 2026 明天见！</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzIzOTAwNzc1OQ==&amp;amp;mid=2651138402&amp;amp;idx=1&amp;amp;sn=47be5fb914975a627a56144b3418e7d8</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzIzOTAwNzc1OQ==&amp;amp;mid=2651138402&amp;amp;idx=1&amp;amp;sn=47be5fb914975a627a56144b3418e7d8</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>群晖（Synology）NAS设备遭遇L0CK3D勒索软件攻击</title>
-      <link>https://unsafe.sh/go-451961.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-451961.html</guid>
-      <description>群晖（Synology）NAS设备遭遇L0CK3D勒索软件攻击</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Lab-RATS-v1.6</title>
-      <link>https://kitploit.com/en/tools/github/k4n3co/lab-rats-v1.6</link>
-      <guid isPermaLink="true">https://kitploit.com/en/tools/github/k4n3co/lab-rats-v1.6</guid>
-      <description>Lab-RATS-v1.6 — Lab-RATS 是一款功能强大且轻量级的 Android 远程管理工具，包含丰富的特性...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>数据泄露情报2026.10.31 - 400G巴西证券交</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzU4NjY0NTExNA==&amp;amp;mid=2247490103&amp;amp;idx=1&amp;amp;sn=2d1eb19398df66b1228eea540b973064</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzU4NjY0NTExNA==&amp;amp;mid=2247490103&amp;amp;idx=1&amp;amp;sn=2d1eb19398df66b1228eea540b973064</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>什么是EIP-7702？以太坊智能账户功能解析及安全建议</title>
-      <link>https://hackernoon.com/what-is-eip-7702-ethereums-smart-account-feature-explained-and-how-to-stay-safe?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/what-is-eip-7702-ethereums-smart-account-feature-explained-and-how-to-stay-safe?source=rss</guid>
-      <description>2026年10月29日，一个属于币安（Binance）的以太坊热钱包在一次交易中...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>在SAP BTP上使用CAPM设计云原生扩展：清洁核心架构的模式</title>
-      <link>https://hackernoon.com/designing-cloud-native-extensions-on-sap-btp-with-capm-patterns-for-clean-core-architectures?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/designing-cloud-native-extensions-on-sap-btp-with-capm-patterns-for-clean-core-architectures?source=rss</guid>
-      <description>关键要点● 清洁核心可扩展性是指我们作为设计选择决定以此方式行事，根据...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>数据泄露情报2026.10.31 - 400G巴西证券交易所官方授权分销商资料</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzU4NjY0NTExNA==&amp;amp;mid=2247490093&amp;amp;idx=1&amp;amp;sn=70f2489d35eb62b456a1511a6a1a326b</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzU4NjY0NTExNA==&amp;amp;mid=2247490093&amp;amp;idx=1&amp;amp;sn=70f2489d35eb62b456a1511a6a1a326b</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>本月玩什么｜影之刃零、战争机器：事变日等</title>
-      <link>https://sspai.com/post/117960</link>
-      <guid isPermaLink="true">https://sspai.com/post/117960</guid>
-      <description>前言欢迎来到「本月玩什么」，本栏目将从作者个人角度出发，独立挑选一些本月新发售的游戏作品/内容做简要介绍、评论，不保证收录覆盖面，且并非每一款都是笔者推荐游玩的，主要涵盖 PlayStation、Xb...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Ubuntu LXD 爆出满分 10.0 高危漏洞，无需密码即可接管虚拟机｜CVE-2026-112816</title>
-      <link>https://www.appinn.com/cve-2026-112816/</link>
-      <guid isPermaLink="true">https://www.appinn.com/cve-2026-112816/</guid>
-      <description>Ubuntu LXD 爆出满分 10.0 高危漏洞，无需密码即可接管虚拟机｜CVE-2026-112816</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>claude-code后门检查</title>
-      <link>https://kitploit.com/en/tools/github/happyhackingspace/claude-code-backdoor-check</link>
-      <guid isPermaLink="true">https://kitploit.com/en/tools/github/happyhackingspace/claude-code-backdoor-check</guid>
-      <description>claude-code后门检查</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>活动回顾 | 第四期复旦白泽青年学者论坛</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzU4NzUxOTI0OQ==&amp;amp;mid=2247500146&amp;amp;idx=1&amp;amp;sn=beddce5a36f6af973cb348006dcd4568</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzU4NzUxOTI0OQ==&amp;amp;mid=2247500146&amp;amp;idx=1&amp;amp;sn=beddce5a36f6af973cb348006dcd4568</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>法国AI战略：将模型、算力和公共投资转化为国家能力</title>
-      <link>https://hackernoon.com/frances-ai-strategy-turning-models-compute-and-public-investment-into-national-capability?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/frances-ai-strategy-turning-models-compute-and-public-investment-into-national-capability?source=rss</guid>
-      <description>法国在AI领域的潜在作用取决于其组织能力链的能力。模型开发...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>DuckDB与Polars对比</title>
-      <link>https://dyrnq.com/duckdb-vs-polars/</link>
-      <guid isPermaLink="true">https://dyrnq.com/duckdb-vs-polars/</guid>
-      <description>DuckDB与Polars对比性能对比具体数据记忆使用编程范式对比DuckDB（SQL优先）Polars（DataFrame优先）使用场景推荐Polar...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>美国公布2026财年情报预算：国家情报计划拨款781亿美元，军事情报计划309亿美元</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzU0MzgyMzM2Nw==&amp;amp;mid=2247487304&amp;amp;idx=1&amp;amp;sn=4d0a7e388f4d09b5e32742f5a3dfd47e</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzU0MzgyMzM2Nw==&amp;amp;mid=2247487304&amp;amp;idx=1&amp;amp;sn=4d0a7e388f4d09b5e32742f5a3dfd47e</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Apple 智能 11 月 4 日登陆中国，iPhone 15 Pro 起可用，部分功能接入千问，新版 Siri AI 缺席</title>
-      <link>https://www.appinn.com/apple-intelligence-china-november-4-qwen/</link>
-      <guid isPermaLink="true">https://www.appinn.com/apple-intelligence-china-november-4-qwen/</guid>
-      <description>Apple 智能 11 月 4 日登陆中国，iPhone 15 Pro 起可用，部分功能接入千问，新版 Siri AI 缺席</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>vulnerpocalypse-containment</title>
-      <link>https://kitploit.com/en/tools/github/clearhandreview/vulnerpocalypse-containment</link>
-      <guid isPermaLink="true">https://kitploit.com/en/tools/github/clearhandreview/vulnerpocalypse-containment</guid>
-      <description>Kitploit 是一个黑客技术、网络安全和渗透测试工具的目录。发现最新项目...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>如果AI分享你的记忆和价值观，你还是原来的你吗？</title>
-      <link>https://hackernoon.com/if-ai-shares-your-memories-and-values-are-you-still-the-original?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/if-ai-shares-your-memories-and-values-are-you-still-the-original?source=rss</guid>
-      <description>《超级第二大脑》第七章，由Hanul Lee翻译自韩国白皮书。生成式AI...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>希腊AI战略：DAEDALUS和PHAROS如何塑造其未来</title>
-      <link>https://hackernoon.com/greeces-ai-strategy-how-daedalus-and-pharos-could-shape-its-future?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/greeces-ai-strategy-how-daedalus-and-pharos-could-shape-its-future?source=rss</guid>
-      <description>2026年10月19日，DAEDALUS在拉夫里翁（Lavrion）的开幕将希腊的即时AI政策问题带...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>一图流 | 一张图看懂中国版 Apple 智能</title>
-      <link>https://sspai.com/post/117953</link>
-      <guid isPermaLink="true">https://sspai.com/post/117953</guid>
-      <description>一图流 | 一张图看懂中国版 Apple 智能</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>如何查找电话号码所有者的姓名？</title>
-      <link>https://unsafe.sh/go-451951.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-451951.html</guid>
-      <description>如何查找电话号码所有者的姓名？</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>如何让实验室PC在开箱时彻底“报废”？终极低科技手段揭秘</title>
-      <link>https://unsafe.sh/go-451953.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-451953.html</guid>
-      <description>What’s the ultimate low-tech way to make a lab PC look completely dead on arrival so people pick a d...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>字里行间的隐患：如何安全阅读电子书？</title>
-      <link>https://x.com/e_kaspersky/status/2116463617822646596</link>
-      <guid isPermaLink="true">https://x.com/e_kaspersky/status/2116463617822646596</guid>
-      <description>我们深入解析如何安全使用电子书，以及在在线搜索书籍时应遵循哪些规则，以避免成为诈骗分子的受害者 👉 kas.pr/e87b</description>
-      <category>X (@e_kaspersky)</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>eMudhra证书事件：私钥为何竟等于4？仅靠浏览器更新无法防御漏洞证书</title>
-      <link>https://x.com/e_kaspersky/status/2116463453833662684</link>
-      <guid isPermaLink="true">https://x.com/e_kaspersky/status/2116463453833662684</guid>
-      <description>eMudhra证书事件：一张证书的私钥为何最终等于4？为什么仅靠浏览器更新无法保护你免受漏洞证书的攻击？更重要的是：组织应如何防范此类威胁？ 👉 kas.pr/7dag</description>
-      <category>X (@e_kaspersky)</category>
-      <pubDate>Sat, 31 Oct 2026 00:00:00 +0800</pubDate>
+      <pubDate>Sun, 01 Nov 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
