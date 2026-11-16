@@ -181,12 +181,19 @@ class AIProvider:
             'max_tokens': max_tokens,
             'temperature': temperature,
             'frequency_penalty': frequency_penalty,
+            # Always stream: a large curation prompt keeps reasoning models
+            # thinking well past 60s before the first byte of a non-streaming
+            # reply, and provider gateways (e.g. Aliyun MaaS) close idle
+            # connections at ~60s (observed as RemoteDisconnected at exactly
+            # 61s). Streaming keeps bytes flowing, so the same request
+            # completes (verified: 28k-char prompt, 80s total, valid JSON).
+            'stream': True,
         }
         if json_mode and self._json_mode_enabled:
             create_kwargs['response_format'] = {'type': 'json_object'}
 
         try:
-            response = client.chat.completions.create(**create_kwargs)
+            stream = client.chat.completions.create(**create_kwargs)
         except Exception as e:
             # Some OpenAI-compatible providers reject response_format with a
             # 4xx. Connection/timeout errors carry no status_code and are
@@ -199,12 +206,25 @@ class AIProvider:
                     "retrying without JSON mode"
                 )
                 del create_kwargs['response_format']
-                response = client.chat.completions.create(**create_kwargs)
+                stream = client.chat.completions.create(**create_kwargs)
             else:
                 raise
 
-        result = response.choices[0].message.content or ''
-        finish_reason = response.choices[0].finish_reason
+        # Accumulate streamed content deltas. Some providers append a final
+        # usage-only chunk with no choices, and reasoning models interleave
+        # reasoning_content deltas — both must be skipped, not treated as
+        # errors.
+        result = ''
+        finish_reason: Optional[str] = None
+        for chunk in stream:
+            choices = getattr(chunk, 'choices', None) or []
+            if not choices:
+                continue
+            delta = getattr(choices[0], 'delta', None)
+            if delta is not None and delta.content:
+                result += delta.content
+            if choices[0].finish_reason:
+                finish_reason = choices[0].finish_reason
         logger.info(
             f"AI response received: {len(result)} chars, finish_reason={finish_reason}"
         )
