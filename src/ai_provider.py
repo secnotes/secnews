@@ -142,9 +142,19 @@ class AIProvider:
         """
         try:
             from openai import OpenAI
-            import httpx
+        except ImportError as e:
+            raise ImportError(
+                f"openai package is required. Install with: pip install openai ({e})"
+            )
+
+        # openai >= 3 swapped its httpx dependency for the httpx2 fork, and
+        # the SDK rejects a client from the other major version. Use whichever
+        # transport the installed SDK itself uses: httpx2 first (openai 3.x),
+        # falling back to httpx (openai 1.x/2.x, which depends on it directly).
+        try:
+            import httpx2 as httpx
         except ImportError:
-            raise ImportError("openai package is required. Install with: pip install openai")
+            import httpx
 
         # Create custom http client with longer timeout for large prompts
         http_client = httpx.Client(
