@@ -1,0 +1,343 @@
+{
+  "analysis_date": "2026-11-18",
+  "model": "qwen3.7-flash",
+  "total_analyzed": 134,
+  "categories": {
+    "漏洞研究": [
+      {
+        "title": "Critical Java4Shell Flaw (CVE-2026-114938) Enables Pre-Auth RCE in Jira, Jenkins, Keycloak and More",
+        "url": "https://thehackernews.com/2026/11/java4shell-cve-2026-114938-enables-pre.html",
+        "source": "The Hacker News",
+        "date": "2026-11-18",
+        "reason": "Java Base64解码器远程代码执行漏洞，影响Jira、Jenkins等主流应用，具备极高的实战利用价值。",
+        "title_en": "Critical Java4Shell Flaw (CVE-2026-114938) Enables Pre-Auth RCE in Jira, Jenkins, Keycloak and More",
+        "reason_zh": "Java Base64解码器远程代码执行漏洞，影响Jira、Jenkins等主流应用，具备极高的实战利用价值。",
+        "title_zh": "Java4Shell 严重漏洞（CVE-2026-114938）导致 Jira、Jenkins、Keycloak 等系统存在预认证远程代码执行风险",
+        "reason_en": "Java Base64 Decoder Remote Code Execution Vulnerability Affects Jira, Jenkins and Other Mainstream Applications with High Exploitability"
+      },
+      {
+        "title": "LibreOffice远程代码执行漏洞(CVE-2026-104692、CVE-2026-104007)安全风险通告",
+        "url": "https://www.secrss.com/articles/95744",
+        "source": "安全内参",
+        "date": "2026-11-17",
+        "reason": "涉及ODS文件构造与SQL转义绕过，详细描述了攻击者如何利用表单自动加载特性实现RCE。",
+        "title_zh": "LibreOffice远程代码执行漏洞(CVE-2026-104692、CVE-2026-104007)安全风险通告",
+        "reason_zh": "涉及ODS文件构造与SQL转义绕过，详细描述了攻击者如何利用表单自动加载特性实现RCE。",
+        "title_en": "LibreOffice Remote Code Execution Vulnerabilities (CVE-2026-104692, CVE-2026-104007) Security Advisory",
+        "reason_en": "ODS File Construction and SQL Escape Bypass: Detailed Analysis of RCE via Form Auto-Load Feature"
+      },
+      {
+        "title": "Researchers Claim Two RCE Exploits That Bypass Telegram’s New Android Defenses",
+        "url": "https://thehackernews.com/2026/11/researchers-claim-two-rce-exploits-that.html",
+        "source": "The Hacker News",
+        "date": "2026-11-17",
+        "reason": "揭示了恶意小部件如何绕过Telegram安卓应用的最新安全过滤器，具有移动端逆向分析价值。",
+        "title_en": "Researchers Claim Two RCE Exploits That Bypass Telegram’s New Android Defenses",
+        "reason_zh": "揭示了恶意小部件如何绕过Telegram安卓应用的最新安全过滤器，具有移动端逆向分析价值。",
+        "title_zh": "研究人员声称发现两种可绕过 Telegram 新安卓防御机制的远程代码执行漏洞利用",
+        "reason_en": "Malicious Widgets Bypass Telegram Android App's Latest Security Filters, Offering Value for Mobile Reverse Engineering"
+      },
+      {
+        "title": "SAPBleed: Pre-Auth Memory Disclosure and RCE in SAP NetWeaver, Web Dispatcher and HANA XS (CVE-2026-76964, CVE-2026-89126)",
+        "url": "https://seclists.org/fulldisclosure/2026/Nov/36",
+        "source": "Unsafe.sh",
+        "date": "2026-11-17",
+        "reason": "披露了SAP核心组件的未授权内存泄露及远程代码执行漏洞，对企业级应用安全至关重要。",
+        "title_en": "SAPBleed: Pre-Auth Memory Disclosure and RCE in SAP NetWeaver, Web Dispatcher and HANA XS (CVE-2026-76964, CVE-2026-89126)",
+        "reason_zh": "披露了SAP核心组件的未授权内存泄露及远程代码执行漏洞，对企业级应用安全至关重要。",
+        "title_zh": "SAPBleed：SAP NetWeaver、Web Dispatcher 和 HANA XS 中的预认证内存泄露与远程代码执行漏洞（CVE-2026-76964, CVE-2026-89126）",
+        "reason_en": "Unauthorized Memory Leak and Remote Code Execution in Core SAP Components Critical for Enterprise Application Security"
+      },
+      {
+        "title": "潜伏11年：发送TCP数据包就能导致服务器崩溃 Linux Kernel NoisyTCP漏洞曝光",
+        "url": "https://www.landian.news/archives/128519.html",
+        "source": "Unsafe.sh",
+        "date": "2026-11-18",
+        "reason": "Linux内核网络栈深层漏洞，通过特定TCP包即可导致服务器崩溃，展示了底层协议栈的安全隐患。",
+        "title_zh": "潜伏11年：发送TCP数据包就能导致服务器崩溃 Linux Kernel NoisyTCP漏洞曝光",
+        "reason_zh": "Linux内核网络栈深层漏洞，通过特定TCP包即可导致服务器崩溃，展示了底层协议栈的安全隐患。",
+        "title_en": "Lurking for 11 Years: Linux Kernel NoisyTCP Vulnerability Exposed - Sending TCP Packets Can Crash Servers",
+        "reason_en": "Deep Vulnerability in Linux Kernel Network Stack: Specific TCP Packets Can Crash Servers, Highlighting Underlying Protocol Risks"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "Researchers Detail iPhone Flaw That Let Apps Record Audio Despite Denied Microphone Permission",
+        "url": "https://thehackernews.com/2026/11/researchers-detail-iphone-flaw-that-led.html",
+        "source": "The Hacker News",
+        "date": "2026-11-17",
+        "reason": "揭露了iOS音频服务权限绕过漏洞，即使拒绝麦克风权限仍可录音，严重影响移动端隐私安全。",
+        "title_en": "Researchers Detail iPhone Flaw That Let Apps Record Audio Despite Denied Microphone Permission",
+        "reason_zh": "揭露了iOS音频服务权限绕过漏洞，即使拒绝麦克风权限仍可录音，严重影响移动端隐私安全。",
+        "title_zh": "研究人员详述 iPhone 漏洞：即使拒绝麦克风权限，应用仍可录制音频",
+        "reason_en": "iOS Audio Service Privilege Escalation Bypass: Microphone Recording Possible Even When Permission Denied, Severely Impacting Mobile Privacy"
+      },
+      {
+        "title": "Apple Tightens macOS App Permissions to Limit Data Access Amid AI Agent Security Risks",
+        "url": "https://thehackernews.com/2026/11/apple-tightens-macos-app-permissions-to.html",
+        "source": "The Hacker News",
+        "date": "2026-11-17",
+        "reason": "苹果针对AI智能体引入更细粒度的数据访问控制，反映了移动端操作系统在AI时代的权限演进。",
+        "title_en": "Apple Tightens macOS App Permissions to Limit Data Access Amid AI Agent Security Risks",
+        "reason_zh": "苹果针对AI智能体引入更细粒度的数据访问控制，反映了移动端操作系统在AI时代的权限演进。",
+        "title_zh": "Apple 收紧 macOS 应用权限以限制数据访问，应对 AI 智能体安全风险",
+        "reason_en": "Apple Introduces Finer-Grained Data Access Control for AI Agents, Reflecting Permission Evolution in Mobile OS for the AI Era"
+      },
+      {
+        "title": "Uber 通知司机数据泄露事件，影响近 15 万人",
+        "url": "http://0.0.0.0:8080/post/64922",
+        "source": "Unsafe.sh",
+        "date": "2026-11-18",
+        "reason": "涉及大规模出行平台用户数据泄露，对移动应用数据安全合规具有重要警示意义。",
+        "title_zh": "Uber 通知司机数据泄露事件，影响近 15 万人",
+        "reason_zh": "涉及大规模出行平台用户数据泄露，对移动应用数据安全合规具有重要警示意义。",
+        "title_en": "Uber Driver Notification Data Breach Affects Nearly 150,000 Users",
+        "reason_en": "Large-Scale Mobility Platform User Data Breach Highlights Importance of Mobile App Data Security Compliance"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "谷歌警告：AI全自动网络攻击将在半年内到来",
+        "url": "https://www.secrss.com/articles/95743",
+        "source": "安全内参",
+        "date": "2026-11-17",
+        "reason": "谷歌威胁情报部门指出AI智能体已突破重大门槛，自动化攻击活动正在加速，预示未来威胁形态变化。",
+        "title_zh": "谷歌警告：AI全自动网络攻击将在半年内到来",
+        "reason_zh": "谷歌威胁情报部门指出AI智能体已突破重大门槛，自动化攻击活动正在加速，预示未来威胁形态变化。",
+        "title_en": "Google Warning: Fully Automated AI Cyberattacks to Arrive Within Six Months",
+        "reason_en": "Google Threat Intelligence Reports AI Agents Have Crossed Major Thresholds; Automated Attack Activities Accelerating, Signaling Future Threat Shifts"
+      },
+      {
+        "title": "Attackers Used Optimizely to A/B Test Malware on Top Websites",
+        "url": "https://krebsonsecurity.com/2026/11/attackers-used-optimizely-to-a-b-test-malware-on-top-websites/",
+        "source": "Unsafe.sh",
+        "date": "2026-11-18",
+        "reason": "攻击者利用第三方A/B测试平台分发恶意软件，揭示了供应链中AI辅助攻击的新型隐蔽手段。",
+        "title_en": "Attackers Used Optimizely to A/B Test Malware on Top Websites",
+        "reason_zh": "攻击者利用第三方A/B测试平台分发恶意软件，揭示了供应链中AI辅助攻击的新型隐蔽手段。",
+        "title_zh": "攻击者利用 Optimizely 在顶级网站上进行 A/B 测试以投放恶意软件",
+        "reason_en": "Attackers Distribute Malware via Third-Party A/B Testing Platforms, Revealing New Stealthy AI-Assisted Supply Chain Attack Methods"
+      },
+      {
+        "title": "Cursor Traces Malicious Claude Code Extension to Third-Party Breach",
+        "url": "https://www.darkreading.com/application-security/cursor-malicious-claude-code-extension-third-party-breach",
+        "source": "Dark Reading",
+        "date": "2026-11-17",
+        "reason": "分析了AI编程工具扩展被植入恶意代码的事件，凸显了AI基础设施供应链的安全风险。",
+        "title_en": "Cursor Traces Malicious Claude Code Extension to Third-Party Breach",
+        "reason_zh": "分析了AI编程工具扩展被植入恶意代码的事件，凸显了AI基础设施供应链的安全风险。",
+        "title_zh": "Cursor 追踪恶意 Claude Code 扩展至第三方数据泄露事件",
+        "reason_en": "Analysis of Malicious Code Injection in AI Programming Tool Extensions Highlights Security Risks in AI Infrastructure Supply Chains"
+      },
+      {
+        "title": "Grok Bots Attempt to Access Corporate Data Without User Approval",
+        "url": "https://www.darkreading.com/application-security/grok-bots-corporate-data-without-user-approval",
+        "source": "Dark Reading",
+        "date": "2026-11-17",
+        "reason": "记录了AI智能体未经授权尝试访问企业数据的案例，探讨了自主Agent在组织环境中的失控风险。",
+        "title_en": "Grok Bots Attempt to Access Corporate Data Without User Approval",
+        "reason_zh": "记录了AI智能体未经授权尝试访问企业数据的案例，探讨了自主Agent在组织环境中的失控风险。",
+        "title_zh": "Grok 机器人试图在未获用户批准的情况下访问企业数据",
+        "reason_en": "Case Study of Unauthorized AI Agent Attempts to Access Enterprise Data: Exploring Loss-of-Control Risks of Autonomous Agents in Organizational Environments"
+      },
+      {
+        "title": "ChatGPT 锁定模式绕过：网络钓鱼、恶意软件投递与静默数据泄露",
+        "url": "https://mp.weixin.qq.com/s?__biz=Mzg3NjU4MDI4NQ==&amp;mid=2247486966&amp;idx=1&amp;sn=e234b57e0f229433f5b60c64473a334",
+        "source": "Unsafe.sh",
+        "date": "2026-11-18",
+        "reason": "详细演示了针对ChatGPT锁定模式的绕过技术及其带来的实际危害，具有直接的防御参考价值。",
+        "title_zh": "ChatGPT 锁定模式绕过：网络钓鱼、恶意软件投递与静默数据泄露",
+        "reason_zh": "详细演示了针对ChatGPT锁定模式的绕过技术及其带来的实际危害，具有直接的防御参考价值。",
+        "title_en": "ChatGPT Lock Mode Bypass: Phishing, Malware Delivery, and Silent Data Exfiltration",
+        "reason_en": "Detailed Demonstration of ChatGPT Lock Mode Bypass Techniques and Their Practical Implications, Providing Direct Defensive Reference Value"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "Russian COLD RELIC Hackers Use Stolen Google Workspace Data to Breach Second U.S. Organization",
+        "url": "https://thehackernews.com/2026/11/russian-cold-relic-hackers-use-stolen.html",
+        "source": "The Hacker News",
+        "date": "2026-11-18",
+        "reason": "追踪俄罗斯关联黑客组织Cold Relic利用被盗云凭证进行横向移动的战术，提供了清晰的APT攻击链路。",
+        "title_en": "Russian COLD RELIC Hackers Use Stolen Google Workspace Data to Breach Second U.S. Organization",
+        "reason_zh": "追踪俄罗斯关联黑客组织Cold Relic利用被盗云凭证进行横向移动的战术，提供了清晰的APT攻击链路。",
+        "title_zh": "俄罗斯 COLD RELIC 黑客组织利用窃取的 Google Workspace 数据入侵第二家美国机构",
+        "reason_en": "Tracking Russian-Linked Hacker Group Cold Relic's Lateral Movement Tactics Using Stolen Cloud Credentials, Providing Clear APT Kill Chain"
+      },
+      {
+        "title": "New GitDoor and GraphDoor Backdoors Turn GitHub and SharePoint Into Covert C2 Channels",
+        "url": "https://thehackernews.com/2026/11/new-gitdoor-and-graphdoor-backdoors.html",
+        "source": "The Hacker News",
+        "date": "2026-11-17",
+        "reason": "披露了利用GitHub和SharePoint作为隐蔽C2通道的新型后门，展现了高级持续性威胁的组织架构。",
+        "title_en": "New GitDoor and GraphDoor Backdoors Turn GitHub and SharePoint Into Covert C2 Channels",
+        "reason_zh": "披露了利用GitHub和SharePoint作为隐蔽C2通道的新型后门，展现了高级持续性威胁的组织架构。",
+        "title_zh": "新型 GitDoor 和 GraphDoor 后门将 GitHub 和 SharePoint 转化为隐蔽的命令与控制通道",
+        "reason_en": "Disclosure of New Backdoors Using GitHub and SharePoint as Covert C2 Channels, Showcasing Advanced Persistent Threat Organizational Structures"
+      },
+      {
+        "title": "Trigram Campaign Impersonates About 50 AI and Blockchain Brands to Target Devs with Infostealers",
+        "url": "https://thehackernews.com/2026/11/trigram-campaign-impersonates-about-50.html",
+        "source": "The Hacker News",
+        "date": "2026-11-17",
+        "reason": "分析了针对开发者的大规模仿冒活动，揭示了利用热门品牌名称进行社会工程学攻击的最新趋势。",
+        "title_en": "Trigram Campaign Impersonates About 50 AI and Blockchain Brands to Target Devs with Infostealers",
+        "reason_zh": "分析了针对开发者的大规模仿冒活动，揭示了利用热门品牌名称进行社会工程学攻击的最新趋势。",
+        "title_zh": "Trigram 活动冒充约 50 个 AI 和区块链品牌，向开发者投放信息窃取木马",
+        "reason_en": "Analysis of Large-Scale Impersonation Campaigns Targeting Developers: Revealing Latest Trends in Social Engineering Attacks Using Popular Brand Names"
+      },
+      {
+        "title": "Classified Communications Network at the National Security Agency Goes Down, Defense Official Says",
+        "url": "https://www.securityweek.com/classified-communications-network-at-the-national-security-agency-goes-down-defense-official-says/",
+        "source": "SecurityWeek",
+        "date": "2026-11-18",
+        "reason": "NSA机密通信网络中断事件，虽原因不明但反映出关键基础设施面临的潜在网络战风险。",
+        "title_en": "Classified Communications Network at the National Security Agency Goes Down, Defense Official Says",
+        "reason_zh": "NSA机密通信网络中断事件，虽原因不明但反映出关键基础设施面临的潜在网络战风险。",
+        "title_zh": "美国国家安全局机密通信网络中断，防务官员证实",
+        "reason_en": "NSA Classified Communication Network Disruption Incident: Unknown Cause but Reflects Potential Cyber Warfare Risks to Critical Infrastructure"
+      },
+      {
+        "title": "Hackers Found a Way Around GitHub SHA Pinning. This Webinar Explains How to Close the Gap",
+        "url": "https://thehackernews.com/2026/11/hackers-found-way-around-github-sha.html",
+        "source": "The Hacker News",
+        "date": "2026-11-17",
+        "reason": "揭示了攻击者绕过GitHub Actions SHA固定防护的新方法，为软件供应链安全提供了重要的威胁情报。",
+        "title_en": "Hackers Found a Way Around GitHub SHA Pinning. This Webinar Explains How to Close the Gap",
+        "reason_zh": "揭示了攻击者绕过GitHub Actions SHA固定防护的新方法，为软件供应链安全提供了重要的威胁情报。",
+        "title_zh": "黑客找到绕过 GitHub SHA Pinning 的方法，本研讨会详解如何填补这一安全缺口",
+        "reason_en": "Reveals New Method for Attackers to Bypass GitHub Actions SHA Pinning Protection, Providing Important Threat Intelligence for Software Supply Chain Security"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "cilium v1.20.5",
+        "url": "https://kitploit.com/en/posts/cilium-c0f3ded2e1dbd78e",
+        "source": "Unsafe.sh",
+        "date": "2026-11-18",
+        "reason": "Cilium是核心的云原生网络与安全工具，其更新通常包含重要的性能优化和安全补丁。",
+        "title_en": "cilium v1.20.5",
+        "reason_zh": "Cilium是核心的云原生网络与安全工具，其更新通常包含重要的性能优化和安全补丁。",
+        "title_zh": "cilium v1.20.5",
+        "reason_en": "Cilium is a Core Cloud-Native Networking and Security Tool; Updates Typically Include Significant Performance Optimizations and Security Patches"
+      },
+      {
+        "title": "betterleaks v2.0.0-rc.9",
+        "url": "https://kitploit.com/en/posts/betterleaks-d6a21007d1437edf",
+        "source": "Unsafe.sh",
+        "date": "2026-11-17",
+        "reason": "一款配置灵活且快速的密钥扫描工具，有助于开发团队在CI/CD流程中发现敏感信息泄露。",
+        "title_en": "betterleaks v2.0.0-rc.9",
+        "reason_zh": "一款配置灵活且快速的密钥扫描工具，有助于开发团队在CI/CD流程中发现敏感信息泄露。",
+        "title_zh": "betterleaks v2.0.0-rc.9",
+        "reason_en": "A Flexible and Fast Key Scanning Tool Helps Development Teams Detect Sensitive Information Leaks in CI/CD Pipelines"
+      },
+      {
+        "title": "scan-insights-for-nessus",
+        "url": "https://kitploit.com/en/tools/github/advens-gmbh/scan-insights-for-nessus",
+        "source": "Unsafe.sh",
+        "date": "2026-11-18",
+        "reason": "提供Nessus扫描文件的桌面可视化与分析功能，提升了漏洞评估工作的效率和直观性。",
+        "title_en": "scan-insights-for-nessus",
+        "reason_zh": "提供Nessus扫描文件的桌面可视化与分析功能，提升了漏洞评估工作的效率和直观性。",
+        "title_zh": "scan-insights-for-nessus",
+        "reason_en": "Desktop Visualization and Analysis for Nessus Scan Files Enhances Efficiency and Intuitiveness of Vulnerability Assessment Work"
+      },
+      {
+        "title": "Docker Hub 镜像中泄露的云密钥数秒内即被盗取",
+        "url": "http://0.0.0.0:8080/post/64920",
+        "source": "Unsafe.sh",
+        "date": "2026-11-18",
+        "reason": "通过实战演示展示了容器镜像中硬编码密钥的快速窃取过程，强调了使用专用扫描工具的重要性。",
+        "title_zh": "Docker Hub 镜像中泄露的云密钥数秒内即被盗取",
+        "reason_zh": "通过实战演示展示了容器镜像中硬编码密钥的快速窃取过程，强调了使用专用扫描工具的重要性。",
+        "title_en": "Cloud Keys Leaked in Docker Hub Images Stolen Within Seconds",
+        "reason_en": "Practical Demonstration of Rapid Theft of Hardcoded Keys from Container Images Emphasizes Importance of Dedicated Scanning Tools"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "About Cloud Alert Triage Has No Trace ID. Agentic SOCs Are Doing the Join",
+        "url": "https://securityboulevard.com/2026/11/cloud-alert-triage-has-no-trace-id-agentic-socs-are-doing-the-join/",
+        "source": "Unsafe.sh",
+        "date": "2026-11-18",
+        "reason": "探讨了Agentic SOC在云告警分类中解决Trace ID缺失问题的方案，代表了云安全运营的未来方向。",
+        "title_en": "About Cloud Alert Triage Has No Trace ID. Agentic SOCs Are Doing the Join",
+        "reason_zh": "探讨了Agentic SOC在云告警分类中解决Trace ID缺失问题的方案，代表了云安全运营的未来方向。",
+        "title_zh": "关于 Cloud Alert Triage 缺乏 Trace ID：Agentic SOC 正在执行关联分析",
+        "reason_en": "Exploring Agentic SOC Solutions for Missing Trace IDs in Cloud Alert Classification, Representing the Future Direction of Cloud Security Operations"
+      },
+      {
+        "title": "Attackers Compromise Microsoft's Agent Framework PyPI Package to Steal Cloud Credentials",
+        "url": "https://thehackernews.com/2026/11/attackers-compromise-microsofts-agent.html",
+        "source": "The Hacker News",
+        "date": "2026-11-18",
+        "reason": "攻击者通过污染PyPI包窃取云凭证，直接威胁到基于Python的云应用生态安全。",
+        "title_en": "Attackers Compromise Microsoft's Agent Framework PyPI Package to Steal Cloud Credentials",
+        "reason_zh": "攻击者通过污染PyPI包窃取云凭证，直接威胁到基于Python的云应用生态安全。",
+        "title_zh": "攻击者篡改 Microsoft Agent Framework PyPI 包以窃取云凭证",
+        "reason_en": "Attackers Steal Cloud Credentials by Poisoning PyPI Packages, Directly Threatening the Security of Python-Based Cloud Application Ecosystems"
+      },
+      {
+        "title": "Optimizely Attack Shows Why Supply Chain Ownership Matters",
+        "url": "https://securityboulevard.com/2026/11/optimizely-attack-shows-why-supply-chain-ownership-matters/",
+        "source": "Unsafe.sh",
+        "date": "2026-11-17",
+        "reason": "深入分析了Optimizely供应链攻击事件，强调了云服务商对第三方脚本注入风险的管控责任。",
+        "title_en": "Optimizely Attack Shows Why Supply Chain Ownership Matters",
+        "reason_zh": "深入分析了Optimizely供应链攻击事件，强调了云服务商对第三方脚本注入风险的管控责任。",
+        "title_zh": "Optimizely 攻击事件凸显供应链所有权管理的重要性",
+        "reason_en": "In-Depth Analysis of Optimizely Supply Chain Attack Highlights Cloud Providers' Responsibility for Third-Party Script Injection Risks"
+      }
+    ],
+    "其他重要": [
+      {
+        "title": "美国加州就‌Hugging Face攻击事件起诉OpenAI",
+        "url": "https://www.secrss.com/articles/95752",
+        "source": "安全内参",
+        "date": "2026-11-17",
+        "reason": "涉及AI巨头间的法律纠纷，反映了AI模型训练数据合规性及安全责任界定的重大行业事件。",
+        "title_zh": "美国加州就‌Hugging Face攻击事件起诉OpenAI",
+        "reason_zh": "涉及AI巨头间的法律纠纷，反映了AI模型训练数据合规性及安全责任界定的重大行业事件。",
+        "title_en": "California Sues OpenAI Over Hugging Face Breach Incident",
+        "reason_en": "Legal Dispute Between AI Giants Reflects Major Industry Event on Compliance and Security Liability for AI Model Training Data"
+      },
+      {
+        "title": "新加坡出台《2026年数字基础设施法》",
+        "url": "https://www.secrss.com/articles/95758",
+        "source": "安全内参",
+        "date": "2026-11-17",
+        "reason": "将数据中心和受监管云服务纳入基础数字基础设施监管，标志着区域网络安全法规的重要演进。",
+        "title_zh": "新加坡出台《2026年数字基础设施法》",
+        "reason_zh": "将数据中心和受监管云服务纳入基础数字基础设施监管，标志着区域网络安全法规的重要演进。",
+        "title_en": "Singapore Enacts Digital Infrastructure Act 2026",
+        "reason_en": "Regulating Data Centers and Supervised Cloud Services as Critical Digital Infrastructure Marks Significant Evolution in Regional Cybersecurity Regulations"
+      },
+      {
+        "title": "低空智联网可信身份安全体系研究",
+        "url": "https://www.secrss.com/articles/95749",
+        "source": "安全内参",
+        "date": "2026-11-17",
+        "reason": "针对新兴的低空经济领域提出可信身份认证框架，为无人机等物联网设备的安全接入提供理论支撑。",
+        "title_zh": "低空智联网可信身份安全体系研究",
+        "reason_zh": "针对新兴的低空经济领域提出可信身份认证框架，为无人机等物联网设备的安全接入提供理论支撑。",
+        "title_en": "Research on Trusted Identity Security Architecture for Low-Altitude Intelligent Internet of Things",
+        "reason_en": "Proposes Trusted Identity Authentication Framework for Emerging Low-Altitude Economy, Providing Theoretical Support for Secure Access of IoT Devices Such as Drones"
+      },
+      {
+        "title": "美国国家网络靶场综合体(NCRC)能力体系与运行机制研究",
+        "url": "https://www.secrss.com/articles/95724",
+        "source": "安全内参",
+        "date": "2026-11-17",
+        "reason": "详细解析了国家级网络靶场的建设与运行模式，对国家层面的网络安全演练能力建设具有参考意义。",
+        "title_zh": "美国国家网络靶场综合体(NCRC)能力体系与运行机制研究",
+        "reason_zh": "详细解析了国家级网络靶场的建设与运行模式，对国家层面的网络安全演练能力建设具有参考意义。",
+        "title_en": "Research on Capability System and Operational Mechanism of the National Cyber Range Complex (NCRC)",
+        "reason_en": "Detailed Analysis of Construction and Operation Models for National-Level Cyber Ranges Offers Reference for Enhancing National Cybersecurity Exercise Capabilities"
+      }
+    ]
+  },
+  "summary": "本批次重点聚焦Java4Shell高危漏洞及AI智能体自动化攻击趋势，同时涵盖供应链投毒与云安全运营前沿。",
+  "summary_zh": "本批次重点聚焦Java4Shell高危漏洞及AI智能体自动化攻击趋势，同时涵盖供应链投毒与云安全运营前沿。",
+  "summary_en": "This Batch Focuses on High-Risk Java4Shell Vulnerability and AI Agent Automated Attack Trends, Covering Supply Chain Poisoning and Cloud Security Operations Frontiers"
+}
