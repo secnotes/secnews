@@ -1,0 +1,232 @@
+{
+  "analysis_date": "2026-11-23",
+  "model": "qwen3.7-flash",
+  "total_analyzed": 105,
+  "categories": {
+    "漏洞研究": [
+      {
+        "title": "Artifex Ghostscript -dSAFER沙箱绕过漏洞(CVE-2026-125396)安全风险通告",
+        "url": "https://www.secrss.com/articles/95875",
+        "source": "安全内参",
+        "date": "2026-11-22",
+        "reason": "详细披露了利用save/restore机制进行释放后使用攻击以绕过沙箱的技术细节，具有极高的实战参考价值。",
+        "title_zh": "Artifex Ghostscript -dSAFER沙箱绕过漏洞(CVE-2026-125396)安全风险通告",
+        "reason_zh": "详细披露了利用save/restore机制进行释放后使用攻击以绕过沙箱的技术细节，具有极高的实战参考价值。",
+        "title_en": "Artifex Ghostscript -dSAFER Sandbox Bypass Vulnerability (CVE-2026-125396) Security Advisory",
+        "reason_en": "Detailed Disclosure of Use-After-Free Attacks to Bypass Sandboxes via Save/Restore Mechanisms: High Practical Reference Value"
+      },
+      {
+        "title": "【已复现】无需凭据获取管理员会话——VMware vCenter 认证绕过漏洞（CVE-2026-123890）",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIwMDk1MjMyMg==&mid=2247493574&idx=2&sn=fa6556997dc76f69e9fe5503d753a9fe",
+        "source": "Unsafe.sh",
+        "date": "2026-11-22",
+        "reason": "针对广泛使用的虚拟化平台提供了无凭据提权的具体复现过程，对运维安全有直接警示意义。",
+        "title_zh": "【已复现】无需凭据获取管理员会话——VMware vCenter 认证绕过漏洞（CVE-2026-123890）",
+        "reason_zh": "针对广泛使用的虚拟化平台提供了无凭据提权的具体复现过程，对运维安全有直接警示意义。",
+        "title_en": "[Reproduced] Credential-Free Administrator Session Acquisition via VMware vCenter Authentication Bypass Vulnerability (CVE-2026-123890)",
+        "reason_en": "Credential-Free Privilege Escalation Reproduction on Widely Used Virtualization Platform: Direct Warning for Operations Security"
+      },
+      {
+        "title": "【已复现】帆软 FineReport FVS 插件复用资源导入未授权远程代码执行漏洞",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzIwMDk1MjMyMg==&mid=2247493574&idx=1&sn=c30ca613b32361daac820495c188a69c",
+        "source": "Unsafe.sh",
+        "date": "2026-11-22",
+        "reason": "揭示了常见BI软件中因插件复用逻辑缺陷导致的RCE风险，适合企业排查同类隐患。",
+        "title_zh": "【已复现】帆软 FineReport FVS 插件复用资源导入未授权远程代码执行漏洞",
+        "reason_zh": "揭示了常见BI软件中因插件复用逻辑缺陷导致的RCE风险，适合企业排查同类隐患。",
+        "title_en": "[Reproduced] FineReport FVS Plugin Resource Reuse Unauthenticated Remote Code Execution Vulnerability",
+        "reason_en": "RCE Risks in Common BI Software Due to Plugin Reuse Logic Flaws: Suitable for Enterprise Hazard排查"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "Signal Is Blocking AI Agents From Reading Your Screen",
+        "url": "https://securityaffairs.com/203742/ai/signal-is-blocking-ai-agents-from-reading-your-screen.html",
+        "source": "Unsafe.sh",
+        "date": "2026-11-22",
+        "reason": "分析了移动端AI助手权限滥用风险及Signal的防御机制，反映了移动生态中隐私保护的新动态。",
+        "title_en": "Signal Is Blocking AI Agents From Reading Your Screen",
+        "reason_zh": "分析了移动端AI助手权限滥用风险及Signal的防御机制，反映了移动生态中隐私保护的新动态。",
+        "title_zh": "Signal 阻止 AI 智能体读取你的屏幕",
+        "reason_en": "Analysis of Mobile AI Assistant Permission Abuse Risks and Signal's Defense Mechanisms: New Dynamics in Mobile Ecosystem Privacy Protection"
+      },
+      {
+        "title": "开源系统GrapheneOS指控谷歌向安卓OEM施压 厂商可能阻止用户解锁BL",
+        "url": "https://www.landian.news/archives/128708.html",
+        "source": "Unsafe.sh",
+        "date": "2026-11-23",
+        "reason": "涉及Android底层安全机制（Bootloader解锁）的政策变动，直接影响移动设备的安全可控性。",
+        "title_zh": "开源系统GrapheneOS指控谷歌向安卓OEM施压 厂商可能阻止用户解锁BL",
+        "reason_zh": "涉及Android底层安全机制（Bootloader解锁）的政策变动，直接影响移动设备的安全可控性。",
+        "title_en": "Open Source System GrapheneOS Accuses Google of Pressuring Android OEMs; Manufacturers May Block User Bootloader Unlocking",
+        "reason_en": "Policy Changes Involving Android Low-Level Security Mechanisms (Bootloader Unlocking): Direct Impact on Mobile Device Security Controllability"
+      },
+      {
+        "title": "黑客利用 GL.iNet 云漏洞感染路由器与 KVM 设备",
+        "url": "http://0.0.0.0:8080/post/64935",
+        "source": "Unsafe.sh",
+        "date": "2026-11-23",
+        "reason": "展示了针对物联网网关设备的云端漏洞利用链，提醒关注边缘计算设备的安全防护。",
+        "title_zh": "黑客利用 GL.iNet 云漏洞感染路由器与 KVM 设备",
+        "reason_zh": "展示了针对物联网网关设备的云端漏洞利用链，提醒关注边缘计算设备的安全防护。",
+        "title_en": "Hackers Exploit GL.iNet Cloud Vulnerabilities to Infect Routers and KVM Devices",
+        "reason_en": "Cloud Vulnerability Exploitation Chain Targeting IoT Gateway Devices: Reminder to Focus on Edge Computing Device Security"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "OpenRouter Drops 3 Providers After Researchers Catch Months of Prompt Theft at AI Hosting Firms",
+        "url": "https://thehackernews.com/2026/11/openrouter-drops-3-providers-after.html",
+        "source": "The Hacker News",
+        "date": "2026-11-22",
+        "reason": "曝光了AI推理提供商长期遭受提示词窃取的重大数据泄露事件，凸显AI供应链安全风险。",
+        "title_en": "OpenRouter Drops 3 Providers After Researchers Catch Months of Prompt Theft at AI Hosting Firms",
+        "reason_zh": "曝光了AI推理提供商长期遭受提示词窃取的重大数据泄露事件，凸显AI供应链安全风险。",
+        "title_zh": "OpenRouter 在研究人员发现数月提示词窃取后下架三家提供商",
+        "reason_en": "Exposure of Major Data Leak Event Where AI Inference Provider Suffered Long-Term Prompt Stealing: Highlighting AI Supply Chain Security Risks"
+      },
+      {
+        "title": "FBI Warning: ARTEX and the Scaling of AI-Assisted Intrusion Tooling",
+        "url": "https://securityboulevard.com/2026/11/fbi-warning-artex-and-the-scaling-of-ai-assisted-intrusion-tooling/",
+        "source": "Unsafe.sh",
+        "date": "2026-11-23",
+        "reason": "官方警告AI辅助入侵工具的规模化威胁，为研判新型自动化攻击手段提供权威情报。",
+        "title_en": "FBI Warning: ARTEX and the Scaling of AI-Assisted Intrusion Tooling",
+        "reason_zh": "官方警告AI辅助入侵工具的规模化威胁，为研判新型自动化攻击手段提供权威情报。",
+        "title_zh": "FBI 警告：ARTEX 与 AI 辅助入侵工具的规模化",
+        "reason_en": "Official Warning on the Scalable Threat of AI-Assisted Intrusion Tools: Authoritative Intelligence for Assessing New Automated Attack Methods"
+      },
+      {
+        "title": "你发给AI的数据不存在保密说法：研究员向AI服务发送近200万条诱饵提示词后发现泄露情况",
+        "url": "https://www.landian.news/archives/128705.html",
+        "source": "Unsafe.sh",
+        "date": "2026-11-23",
+        "reason": "通过大规模实证研究揭示了AI服务中的数据泄露现状，对企业数据合规具有重要指导意义。",
+        "title_zh": "你发给AI的数据不存在保密说法：研究员向AI服务发送近200万条诱饵提示词后发现泄露情况",
+        "reason_zh": "通过大规模实证研究揭示了AI服务中的数据泄露现状，对企业数据合规具有重要指导意义。",
+        "title_en": "No Such Thing as Confidentiality for Data Sent to AI: Researchers Discover Leaks After Sending Nearly 2 Million Decoy Prompts to AI Services",
+        "reason_en": "Large-Scale Empirical Study Reveals Current State of Data Leaks in AI Services: Important Guidance for Enterprise Data Compliance"
+      },
+      {
+        "title": "跨域间接提示注入形式化建模",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzA4ODEyODA3MQ==&mid=2247497355&idx=1&sn=ddfb08256c271d8101aa6b540ff17472",
+        "source": "Unsafe.sh",
+        "date": "2026-11-22",
+        "reason": "从理论层面形式化建模跨域提示注入问题，具有较高的学术研究价值和技术深度。",
+        "title_zh": "跨域间接提示注入形式化建模",
+        "reason_zh": "从理论层面形式化建模跨域提示注入问题，具有较高的学术研究价值和技术深度。",
+        "title_en": "Formal Modeling of Cross-Domain Indirect Prompt Injection",
+        "reason_en": "Theoretical Formal Modeling of Cross-Domain Prompt Injection Issues: High Academic Research Value and Technical Depth"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "全球第九的超算被黑，丢的是 4224 把 SSH 私钥",
+        "url": "https://www.anquanke.com/post/id/316533",
+        "source": "安全客",
+        "date": "2026-11-23",
+        "reason": "重大基础设施被攻破事件，SSH私钥泄露可能导致广泛的横向移动和持久化威胁。",
+        "title_zh": "全球第九的超算被黑，丢的是 4224 把 SSH 私钥",
+        "reason_zh": "重大基础设施被攻破事件，SSH私钥泄露可能导致广泛的横向移动和持久化威胁。",
+        "title_en": "World's Ninth Supercomputer Hacked, Losing 4,224 SSH Private Keys",
+        "reason_en": "Major Infrastructure Breach Event: SSH Private Key Leakage May Lead to Widespread Lateral Movement and Persistence Threats"
+      },
+      {
+        "title": "FBI Investigating Apparent Hack of Its Key National Criminal Justice Database, AP Source Says",
+        "url": "https://www.securityweek.com/fbi-investigating-apparent-hack-of-its-key-national-criminal-justice-database-ap-source-says/",
+        "source": "SecurityWeek",
+        "date": "2026-11-22",
+        "reason": "执法机构核心数据库遭入侵，属于高敏感度的国家级安全事件，影响深远。",
+        "title_en": "FBI Investigating Apparent Hack of Its Key National Criminal Justice Database, AP Source Says",
+        "reason_zh": "执法机构核心数据库遭入侵，属于高敏感度的国家级安全事件，影响深远。",
+        "title_zh": "据美联社消息，FBI 正在调查其关键国家刑事司法数据库遭黑客攻击事件",
+        "reason_en": "Core Database of Law Enforcement Agencies Compromised: High-Sensitivity National Security Incident with Far-Reaching Impacts"
+      },
+      {
+        "title": "Cleverbridge 警告黑客在数据泄露中窃取信用卡号与 CVV 码",
+        "url": "http://0.0.0.0:8080/post/64936",
+        "source": "Unsafe.sh",
+        "date": "2026-11-23",
+        "reason": "涉及支付数据的严重泄露事件，需警惕后续的黑产利用和欺诈活动。",
+        "title_zh": "Cleverbridge 警告黑客在数据泄露中窃取信用卡号与 CVV 码",
+        "reason_zh": "涉及支付数据的严重泄露事件，需警惕后续的黑产利用和欺诈活动。",
+        "title_en": "Cleverbridge Warns of Hackers Stealing Credit Card Numbers and CVV Codes in Data Breach",
+        "reason_en": "Serious Data Breach Involving Payment Data: Vigilance Required Against Subsequent Cybercrime Exploitation and Fraud Activities"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "DOMPurify v3.5.0",
+        "url": "https://kitploit.com/en/posts/dompurify-721b4794b586386a",
+        "source": "Unsafe.sh",
+        "date": "2026-11-22",
+        "reason": "主流XSS过滤库更新，开发者应关注版本升级以修复潜在的安全缺陷。",
+        "title_en": "DOMPurify v3.5.0",
+        "reason_zh": "主流XSS过滤库更新，开发者应关注版本升级以修复潜在的安全缺陷。",
+        "title_zh": "DOMPurify v3.5.0",
+        "reason_en": "Mainstream XSS Filtering Library Updated: Developers Should Monitor Version Upgrades to Fix Potential Security Defects"
+      },
+      {
+        "title": "bettercap v2.42.0",
+        "url": "https://kitploit.com/en/posts/bettercap-539ee050edfeff80",
+        "source": "Unsafe.sh",
+        "date": "2026-11-22",
+        "reason": "经典网络嗅探与中间人攻击工具更新，安全人员可借此了解最新的攻击向量。",
+        "title_en": "bettercap v2.42.0",
+        "reason_zh": "经典网络嗅探与中间人攻击工具更新，安全人员可借此了解最新的攻击向量。",
+        "title_zh": "bettercap v2.42.0",
+        "reason_en": "Classic Network Sniffing and Man-in-the-Middle Attack Tool Updates: Security Personnel Can Use This to Understand Latest Attack Vectors"
+      },
+      {
+        "title": "awesome-game-security — Updated!",
+        "url": "https://kitploit.com/en/posts/awesome-game-security-41e7945da10acb59",
+        "source": "Unsafe.sh",
+        "date": "2026-11-22",
+        "reason": "收录了反作弊内部机制、DMA攻击等游戏安全研究资源，丰富了垂直领域的情报库。",
+        "title_en": "awesome-game-security — Updated!",
+        "reason_zh": "收录了反作弊内部机制、DMA攻击等游戏安全研究资源，丰富了垂直领域的情报库。",
+        "title_zh": "awesome-game-security — 已更新！",
+        "reason_en": "Collection of Game Security Research Resources Including Anti-Cheat Internal Mechanisms and DMA Attacks: Enriching Vertical Domain Intelligence Library"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "关于云限制规则的一些讨论和思考",
+        "url": "https://www.secrss.com/articles/95887",
+        "source": "安全内参",
+        "date": "2026-11-23",
+        "reason": "探讨了算力限制新规对产业的影响，涉及云基础设施层面的政策与安全博弈。",
+        "title_zh": "关于云限制规则的一些讨论和思考",
+        "reason_zh": "探讨了算力限制新规对产业的影响，涉及云基础设施层面的政策与安全博弈。",
+        "title_en": "Discussions and Reflections on Some Cloud Restriction Rules",
+        "reason_en": "Exploring the Impact of New Compute Power Restriction Regulations on the Industry: Policy and Security Game at the Cloud Infrastructure Level"
+      },
+      {
+        "title": "Taking SSH Off the Internet With Cloudflare Tunnel and Access - Pt1",
+        "url": "https://unsafe.sh/go-456650.html",
+        "source": "Unsafe.sh",
+        "date": "2026-11-22",
+        "reason": "系列教程详解如何利用零信任架构隐藏SSH服务，是云原生环境下的最佳实践指南。",
+        "title_en": "Taking SSH Off the Internet With Cloudflare Tunnel and Access - Pt1",
+        "reason_zh": "系列教程详解如何利用零信任架构隐藏SSH服务，是云原生环境下的最佳实践指南。",
+        "title_zh": "利用 Cloudflare Tunnel 和 Access 将 SSH 移出互联网 - 第一部分",
+        "reason_en": "Series Tutorial Details How to Hide SSH Services Using Zero Trust Architecture: Best Practice Guide for Cloud-Native Environments"
+      },
+      {
+        "title": "私有云超融合平台从0到1建设指南：实施要点与避坑清单",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzAwNTgyODU3NQ==&mid=2651145212&idx=1&sn=3f8418bd8e494032acfb92056e5026",
+        "source": "Unsafe.sh",
+        "date": "2026-11-23",
+        "reason": "提供了私有云建设的实操经验，有助于企业在构建云环境时规避常见的安全与管理陷阱。",
+        "title_zh": "私有云超融合平台从0到1建设指南：实施要点与避坑清单",
+        "reason_zh": "提供了私有云建设的实操经验，有助于企业在构建云环境时规避常见的安全与管理陷阱。",
+        "title_en": "Private Cloud Hyper-Converged Platform Construction Guide from Scratch: Implementation Key Points and Pitfall Avoidance Checklist",
+        "reason_en": "Practical Experience in Private Cloud Construction: Helps Enterprises Avoid Common Security and Management Traps When Building Cloud Environments"
+      }
+    ],
+    "其他重要": []
+  },
+  "summary": "本批次重点分析Ghostscript沙箱绕过、VMware认证绕过等高危漏洞，以及超算失窃、AI提示词窃取等重大安全事件。",
+  "summary_zh": "本批次重点分析Ghostscript沙箱绕过、VMware认证绕过等高危漏洞，以及超算失窃、AI提示词窃取等重大安全事件。",
+  "summary_en": "Key Analysis of High-Risk Vulnerabilities: Ghostscript Sandbox Escape, VMware Authentication Bypass, and Major Security Incidents Including Supercomputing Theft and AI Prompt Injection"
+}
