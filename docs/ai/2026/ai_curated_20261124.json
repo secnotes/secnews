@@ -1,0 +1,409 @@
+{
+  "analysis_date": "2026-11-24",
+  "model": "qwen3.7-flash",
+  "total_analyzed": 145,
+  "categories": {
+    "漏洞研究": [
+      {
+        "title": "Ghostscript 远程代码执行漏洞 (CVE-2026-125396)：利用 Use-After-Free 绕过 -dSAFER 沙箱影响 Roundcube 与 WordPress",
+        "url": "https://securityonline.info/ghostscript-rce-cve-2026-125396-poc/",
+        "source": "腾讯安全",
+        "date": "2026-11-23",
+        "reason": "揭示了通过图片上传触发的 Ghostscript RCE 漏洞，成功绕过沙箱机制，对广泛生态构成供应链威胁。",
+        "title_zh": "Ghostscript 远程代码执行漏洞 (CVE-2026-125396)：利用 Use-After-Free 绕过 -dSAFER 沙箱影响 Roundcube 与 WordPress",
+        "reason_zh": "揭示了通过图片上传触发的 Ghostscript RCE 漏洞，成功绕过沙箱机制，对广泛生态构成供应链威胁。",
+        "title_en": "Ghostscript Remote Code Execution Vulnerability (CVE-2026-125396): Exploiting Use-After-Free to Bypass -dSAFER Sandbox Affecting Roundcube and WordPress",
+        "reason_en": "Revealing Ghostscript RCE Triggered via Image Upload: Successful Sandbox Bypass Poses Supply Chain Threat to Wide Ecosystems"
+      },
+      {
+        "title": "Windows Remote Access API本地权限提升漏洞(CVE-2026-119853)安全风险通告",
+        "url": "https://www.secrss.com/articles/95946",
+        "source": "安全内参",
+        "date": "2026-11-24",
+        "reason": "涉及 Windows 系统核心 API 的本地提权漏洞，可导致完整系统控制权丧失，具有极高的实战危害性。",
+        "title_zh": "Windows Remote Access API本地权限提升漏洞(CVE-2026-119853)安全风险通告",
+        "reason_zh": "涉及 Windows 系统核心 API 的本地提权漏洞，可导致完整系统控制权丧失，具有极高的实战危害性。",
+        "title_en": "Windows Remote Access API Local Privilege Escalation Vulnerability (CVE-2026-119853) Security Advisory",
+        "reason_en": "Local Privilege Escalation Vulnerability in Core Windows System APIs Leading to Full System Compromise with High Practical Impact"
+      },
+      {
+        "title": "工信部漏洞平台：关于防范NGINX堆缓冲区溢出高危漏洞的风险提示",
+        "url": "https://www.secrss.com/articles/95940",
+        "source": "安全内参",
+        "date": "2026-11-24",
+        "reason": "针对主流 Web 服务器 NGINX 的堆溢出漏洞预警，攻击者可借此实现内存破坏或远程代码执行。",
+        "title_zh": "工信部漏洞平台：关于防范NGINX堆缓冲区溢出高危漏洞的风险提示",
+        "reason_zh": "针对主流 Web 服务器 NGINX 的堆溢出漏洞预警，攻击者可借此实现内存破坏或远程代码执行。",
+        "title_en": "MIIT Vulnerability Platform: Risk Alert Regarding Critical Stack Buffer Overflow Vulnerability in NGINX",
+        "reason_en": "Stack Overflow Vulnerability Warning for Mainstream Web Server NGINX: Attackers Can Achieve Memory Corruption or Remote Code Execution"
+      },
+      {
+        "title": "CVE-2026-31720复现与修复",
+        "url": "http://bbs.kanxue.com/thread-293587.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-11-23",
+        "reason": "详细记录了摄像头固件内核中 memcpy 栈溢出漏洞的复现过程与修复方案，具备嵌入式安全参考价值。",
+        "title_zh": "CVE-2026-31720复现与修复",
+        "reason_zh": "详细记录了摄像头固件内核中 memcpy 栈溢出漏洞的复现过程与修复方案，具备嵌入式安全参考价值。",
+        "title_en": "CVE-2026-31720 Reproduction and Remediation",
+        "reason_en": "Detailed Record of Reproducing memcpy Stack Overflow Vulnerability in Camera Firmware Kernel and Remediation Solutions with Reference Value for Embedded Security"
+      },
+      {
+        "title": "Hackers Exploit Critical ScreenConnect Flaw to Hijack MSP Technician PCs Without Warning",
+        "url": "https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html",
+        "source": "The Hacker News",
+        "date": "2026-11-23",
+        "reason": "披露了被广泛利用的 ScreenConnect 零日漏洞（CVSS 9.9），攻击者可直接劫持运维终端，影响范围大。",
+        "title_en": "Hackers Exploit Critical ScreenConnect Flaw to Hijack MSP Technician PCs Without Warning",
+        "reason_zh": "披露了被广泛利用的 ScreenConnect 零日漏洞（CVSS 9.9），攻击者可直接劫持运维终端，影响范围大。",
+        "title_zh": "黑客利用ScreenConnect关键漏洞劫持MSP技术人员PC，事前毫无预警",
+        "reason_en": "Disclosure of Widely Exploited ScreenConnect Zero-Day Vulnerability (CVSS 9.9): Attackers Can Directly Hijack Operations Terminals with Broad Impact"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "某热门手游作弊样本（高端内部）技术分析报告",
+        "url": "http://bbs.kanxue.com/thread-293580.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-11-23",
+        "reason": "深入分析了高端手游作弊软件的内核模块功能与授权关系，揭示了反作弊对抗中的底层技术细节。",
+        "title_zh": "某热门手游作弊样本（高端内部）技术分析报告",
+        "reason_zh": "深入分析了高端手游作弊软件的内核模块功能与授权关系，揭示了反作弊对抗中的底层技术细节。",
+        "title_en": "Technical Analysis Report on Cheating Samples from a Popular Mobile Game (High-End Internal)",
+        "reason_en": "In-depth Analysis of Kernel Module Functions and Licensing Relationships in High-End Mobile Game Cheating Software, Revealing Underlying Technical Details in Anti-Cheat Countermeasures"
+      },
+      {
+        "title": "某 K 歌社交客户端逆向",
+        "url": "http://bbs.kanxue.com/thread-293616.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-11-23",
+        "reason": "提供了 APK 逆向、DEX 分析及 Hook 检测机制的研究思路，对移动端应用安全测试具有指导意义。",
+        "title_zh": "某 K 歌社交客户端逆向",
+        "reason_zh": "提供了 APK 逆向、DEX 分析及 Hook 检测机制的研究思路，对移动端应用安全测试具有指导意义。",
+        "title_en": "Reverse Engineering of a Karaoke Social Client Application",
+        "reason_en": "Research Approaches for APK Reverse Engineering, DEX Analysis, and Hook Detection Mechanisms, Providing Guidance for Mobile Application Security Testing"
+      },
+      {
+        "title": "二次元手游之魔改il2cpp分析",
+        "url": "http://bbs.kanxue.com/thread-293642.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-11-23",
+        "reason": "分析了 Unity 引擎 IL2CPP 的深度魔改加固技术，展示了针对特定游戏保护机制的逆向突破方法。",
+        "title_zh": "二次元手游之魔改il2cpp分析",
+        "reason_zh": "分析了 Unity 引擎 IL2CPP 的深度魔改加固技术，展示了针对特定游戏保护机制的逆向突破方法。",
+        "title_en": "Analysis of Modified il2cpp in Anime-style Mobile Games",
+        "reason_en": "Analysis of Deep Modification and Hardening Techniques for Unity Engine IL2CPP, Demonstrating Reverse Engineering Breakthrough Methods Against Specific Game Protection Mechanisms"
+      },
+      {
+        "title": "Hangzhou Hikvision Digital Technology Co., Ltd. EZVIZ CS-C6N cloud snapshot improper certificate validation vulnerability",
+        "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2026-2452",
+        "source": "Unsafe.sh",
+        "date": "2026-11-23",
+        "reason": "指出了海康威视智能摄像头的证书验证缺陷，属于典型的 IoT 设备移动应用场景下的安全隐患。",
+        "title_en": "Hangzhou Hikvision Digital Technology Co., Ltd. EZVIZ CS-C6N cloud snapshot improper certificate validation vulnerability",
+        "reason_zh": "指出了海康威视智能摄像头的证书验证缺陷，属于典型的 IoT 设备移动应用场景下的安全隐患。",
+        "title_zh": "杭州海康威视数字科技股份有限公司EZVIZ CS-C6N云快照证书验证不当漏洞",
+        "reason_en": "Identifying Certificate Verification Flaws in Hikvision Smart Cameras, Representing Typical Security Risks in IoT Device Mobile Application Scenarios"
+      },
+      {
+        "title": "Hangzhou Hikvision Digital Technology Co., Ltd. EZVIZ CS-C6N MQTT authentication bypass vulnerability",
+        "url": "https://talosintelligence.com/vulnerability_reports/TALOS-2026-2451",
+        "source": "Unsafe.sh",
+        "date": "2026-11-23",
+        "reason": "揭示了智能摄像头 MQTT 通信中的认证绕过漏洞，可能导致未授权访问和隐私泄露。",
+        "title_en": "Hangzhou Hikvision Digital Technology Co., Ltd. EZVIZ CS-C6N MQTT authentication bypass vulnerability",
+        "reason_zh": "揭示了智能摄像头 MQTT 通信中的认证绕过漏洞，可能导致未授权访问和隐私泄露。",
+        "title_zh": "杭州海康威视数字科技股份有限公司EZVIZ CS-C6N MQTT认证绕过漏洞",
+        "reason_en": "Revealing Authentication Bypass Vulnerabilities in Smart Camera MQTT Communications, Potentially Leading to Unauthorized Access and Privacy Leaks"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "Chrome 给智能体造了个镜像宇宙：不碰真实网络，也能测浏览器代理",
+        "url": "https://cn-sec.com/archives/5602804.html",
+        "source": "腾讯安全",
+        "date": "2026-11-23",
+        "reason": "提出了通过合成网络解决 AI 代理评估感知陷阱的工程方案，为 AI 红队演练设立了新标杆。",
+        "title_zh": "Chrome 给智能体造了个镜像宇宙：不碰真实网络，也能测浏览器代理",
+        "reason_zh": "提出了通过合成网络解决 AI 代理评估感知陷阱的工程方案，为 AI 红队演练设立了新标杆。",
+        "title_en": "Chrome Creates an Mirror Universe for Agents: Testing Browser Proxies Without Touching the Real Network",
+        "reason_en": "Proposing an Engineering Solution Using Synthetic Networks to Solve AI Agent Evaluation Perception Traps, Setting a New Benchmark for AI Red Teaming"
+      },
+      {
+        "title": "AI Agents Zip From Flaw Discovery to Root Access in 11 Minutes",
+        "url": "https://darkreading.com/cyberattacks-data-breaches/ai-agents-flaw-discovery-root-access-11-minutes",
+        "source": "Dark Reading",
+        "date": "2026-11-23",
+        "reason": "展示了中国关联黑客利用 AI 工具在极短时间内完成漏洞发现并获取最高权限的攻击案例，警示自动化攻击风险。",
+        "title_en": "AI Agents Zip From Flaw Discovery to Root Access in 11 Minutes",
+        "reason_zh": "展示了中国关联黑客利用 AI 工具在极短时间内完成漏洞发现并获取最高权限的攻击案例，警示自动化攻击风险。",
+        "title_zh": "AI智能体在11分钟内从发现漏洞到获取Root权限",
+        "reason_en": "Showcasing China-Linked Hackers Utilizing AI Tools to Discover Vulnerabilities and Gain Highest Privileges in Extremely Short Timeframes, Warning of Automated Attack Risks"
+      },
+      {
+        "title": "OpenAI and Cisco Unveil AI-Assisted Linux Security Tool to Block Exploits Before Patching",
+        "url": "https://thehackernews.com/2026/11/openai-and-cisco-unveil-ai-assisted.html",
+        "source": "The Hacker News",
+        "date": "2026-11-24",
+        "reason": "介绍了 OpenAI 与 Cisco 合作推出的 AI 辅助运行时防御工具，展示了利用 AI 进行实时漏洞阻断的技术实践。",
+        "title_en": "OpenAI and Cisco Unveil AI-Assisted Linux Security Tool to Block Exploits Before Patching",
+        "reason_zh": "介绍了 OpenAI 与 Cisco 合作推出的 AI 辅助运行时防御工具，展示了利用 AI 进行实时漏洞阻断的技术实践。",
+        "title_zh": "OpenAI与思科发布AI辅助Linux安全工具，在打补丁前阻断漏洞利用",
+        "reason_en": "Introduction to OpenAI and Cisco's Collaborative AI-Assisted Runtime Defense Tool, Demonstrating Technical Practices for Real-Time Vulnerability Blocking Using AI"
+      },
+      {
+        "title": "德国把网络威胁拉到最高档，理由就四个字：智能体 AI",
+        "url": "https://www.anquanke.com/post/id/316536",
+        "source": "安全客",
+        "date": "2026-11-23",
+        "reason": "报道了德国因 AI 智能体引发的网络威胁升级而提高警戒级别，反映了全球对自主化 AI 攻击的严峻关注。",
+        "title_zh": "德国把网络威胁拉到最高档，理由就四个字：智能体 AI",
+        "reason_zh": "报道了德国因 AI 智能体引发的网络威胁升级而提高警戒级别，反映了全球对自主化 AI 攻击的严峻关注。",
+        "title_en": "Germany Raises Cyber Threat Level to Maximum Due to Four Words: Agent AI",
+        "reason_en": "Report on Germany Elevating Alert Levels Due to Cyber Threat Escalation Caused by AI Agents, Reflecting Global Concern Over Autonomous AI Attacks"
+      },
+      {
+        "title": "AI Inference Providers Failed to Detect Hacking and Prompt Theft, Says Dragos",
+        "url": "https://www.securityweek.com/ai-inference-providers-failed-to-detect-hacking-and-prompt-theft-says-dragos/",
+        "source": "SecurityWeek",
+        "date": "2026-11-23",
+        "reason": "揭露了 AI 推理提供商未能检测到入侵和提示词窃取的问题，凸显了 AI 基础设施层面的安全盲区。",
+        "title_en": "AI Inference Providers Failed to Detect Hacking and Prompt Theft, Says Dragos",
+        "reason_zh": "揭露了 AI 推理提供商未能检测到入侵和提示词窃取的问题，凸显了 AI 基础设施层面的安全盲区。",
+        "title_zh": "Dragos称AI推理提供商未能检测到黑客攻击和提示窃取行为",
+        "reason_en": "Exposing Failures of AI Inference Providers to Detect Intrusions and Prompt Stealing, Highlighting Security Blind Spots at the AI Infrastructure Level"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "某银狐木马伪装成agent的动态解密与杀毒对抗",
+        "url": "http://bbs.kanxue.com/thread-293622.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-11-23",
+        "reason": "详细分析了银狐木马利用高仿网页传播及动态解密对抗杀毒软件的最新手法，具有极高的实战防御价值。",
+        "title_zh": "某银狐木马伪装成agent的动态解密与杀毒对抗",
+        "reason_zh": "详细分析了银狐木马利用高仿网页传播及动态解密对抗杀毒软件的最新手法，具有极高的实战防御价值。",
+        "title_en": "Dynamic Decryption and Antivirus Evasion Tactics of Yinhu Trojan Disguised as an Agent",
+        "reason_en": "Detailed Analysis of Yinhu Trojan's Latest Tactics: Dissemination via Highly Imitated Webpages and Dynamic Decryption to Evade Antivirus Software, Offering High Practical Defense Value"
+      },
+      {
+        "title": "Webworm Suspected of Modifying SoftEther VPN to Evade Detection and Hide Remote Access",
+        "url": "https://thehackernews.com/2026/11/webworm-suspected-of-modifying.html",
+        "source": "The Hacker News",
+        "date": "2026-11-23",
+        "reason": "追踪了中国关联黑客组织 Webworm 修改开源 VPN 以逃避检测的活动，揭示了其隐蔽持久化的战术。",
+        "title_en": "Webworm Suspected of Modifying SoftEther VPN to Evade Detection and Hide Remote Access",
+        "reason_zh": "追踪了中国关联黑客组织 Webworm 修改开源 VPN 以逃避检测的活动，揭示了其隐蔽持久化的战术。",
+        "title_zh": "疑似Webworm蠕虫修改SoftEther VPN以逃避检测并隐藏远程访问",
+        "reason_en": "Tracking China-Linked Hacker Group Webworm's Activities Modifying Open Source VPNs to Evade Detection, Revealing Their Stealthy Persistence Tactics"
+      },
+      {
+        "title": "全球第九的超算被黑，丢的是 4224 把 SSH 私钥",
+        "url": "https://www.anquanke.com/post/id/316533",
+        "source": "安全客",
+        "date": "2026-11-23",
+        "reason": "报道了顶级超算设施遭受重大数据泄露事件，涉及大量敏感密钥丢失，对关键基础设施安全敲响警钟。",
+        "title_zh": "全球第九的超算被黑，丢的是 4224 把 SSH 私钥",
+        "reason_zh": "报道了顶级超算设施遭受重大数据泄露事件，涉及大量敏感密钥丢失，对关键基础设施安全敲响警钟。",
+        "title_en": "World's Ninth Supercomputer Hacked, Losing 4,224 SSH Private Keys",
+        "reason_en": "Report on Major Data Breach at Top-Tier Supercomputing Facility Involving Loss of Numerous Sensitive Keys, Sounding Alarm for Critical Infrastructure Security"
+      },
+      {
+        "title": "FBI史诗级数据泄露：全球通缉数据库疑遭窃取",
+        "url": "https://www.secrss.com/articles/95924",
+        "source": "安全内参",
+        "date": "2026-11-23",
+        "reason": "美国 FBI 国家犯罪信息中心数据库疑似被攻破，涉及海量执法敏感数据，属于重大国家级安全事件。",
+        "title_zh": "FBI史诗级数据泄露：全球通缉数据库疑遭窃取",
+        "reason_zh": "美国 FBI 国家犯罪信息中心数据库疑似被攻破，涉及海量执法敏感数据，属于重大国家级安全事件。",
+        "title_en": "FBI Epic Data Breach: Global Wanted Database Suspected to be Stolen",
+        "reason_en": "Suspected Breach of FBI NCIC Database: Massive Law Enforcement Data Compromised in Major National Security Incident"
+      },
+      {
+        "title": "韩国电力巨头 KEPCO 确认数据泄露影响 150 万人",
+        "url": "http://0.0.0.0:8080/post/64942",
+        "source": "Unsafe.sh",
+        "date": "2026-11-24",
+        "reason": "韩国能源巨头发生大规模数据泄露，影响了 150 万用户，突显了关键行业面临的持续攻击风险。",
+        "title_zh": "韩国电力巨头 KEPCO 确认数据泄露影响 150 万人",
+        "reason_zh": "韩国能源巨头发生大规模数据泄露，影响了 150 万用户，突显了关键行业面临的持续攻击风险。",
+        "title_en": "South Korean Power Giant KEPCO Confirms Data Breach Affecting 1.5 Million Users",
+        "reason_en": "Major Data Leak at South Korean Energy Giant Impacts 1.5 Million Users, Highlighting Persistent Attack Risks in Critical Industries"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "VirtualBox Process Hardening on Windows 2026 Edition: What's a Single Bit Between Friends?",
+        "url": "https://projectzero.google/2026/11/virtualbox-process-hardening.html",
+        "source": "Project Zero",
+        "date": "2026-11-23",
+        "reason": "Google Project Zero 深度剖析 VirtualBox 进程硬化机制的安全缺陷，为虚拟化安全防护提供重要参考。",
+        "title_en": "VirtualBox Process Hardening on Windows 2026 Edition: What's a Single Bit Between Friends?",
+        "reason_zh": "Google Project Zero 深度剖析 VirtualBox 进程硬化机制的安全缺陷，为虚拟化安全防护提供重要参考。",
+        "title_zh": "Windows Server 2026上的VirtualBox进程加固：朋友间何必计较区区一位？",
+        "reason_en": "Google Project Zero Deep Dive into VirtualBox Process Hardening Vulnerabilities: Key Insights for Virtualization Security"
+      },
+      {
+        "title": "metasploit-framework — Updated!",
+        "url": "https://kitploit.com/en/posts/metasploit-framework-ca6da7d1f167acb7",
+        "source": "Unsafe.sh",
+        "date": "2026-11-24",
+        "reason": "知名渗透测试框架 Metasploit 更新，包含新的模块和功能改进，是安全从业者必备工具的动态。",
+        "title_en": "metasploit-framework — Updated!",
+        "reason_zh": "知名渗透测试框架 Metasploit 更新，包含新的模块和功能改进，是安全从业者必备工具的动态。",
+        "title_zh": "metasploit-framework — 已更新！",
+        "reason_en": "Metasploit Framework Update: New Modules and Enhancements for Essential Security Practitioners"
+      },
+      {
+        "title": "Ghidra – Install, Analyse and Decompile with NSA’s Reverse Engineering Suite",
+        "url": "https://www.darknet.org.uk/2026/11/ghidra-nsa-reverse-engineering-decompiler/",
+        "source": "Unsafe.sh",
+        "date": "2026-11-23",
+        "reason": "介绍如何使用 NSA 开发的 Ghidra 进行逆向工程和解编译，是二进制分析和恶意软件研究的强力工具指南。",
+        "title_en": "Ghidra – Install, Analyse and Decompile with NSA’s Reverse Engineering Suite",
+        "reason_zh": "介绍如何使用 NSA 开发的 Ghidra 进行逆向工程和解编译，是二进制分析和恶意软件研究的强力工具指南。",
+        "title_zh": "Ghidra：使用NSA逆向工程套件进行安装、分析与反编译",
+        "reason_en": "Guide to Reverse Engineering and Decompiling with NSA's Ghidra: A Powerful Tool for Binary Analysis and Malware Research"
+      },
+      {
+        "title": "AdGuardHome v1.1.0-b.1",
+        "url": "https://kitploit.com/en/posts/adguardhome-a60e9906af3037c3",
+        "source": "Unsafe.sh",
+        "date": "2026-11-24",
+        "reason": "网络级广告拦截工具 AdGuardHome 更新，增强了隐私保护和设备防护能力，适合家庭和企业网络部署。",
+        "title_en": "AdGuardHome v1.1.0-b.1",
+        "reason_zh": "网络级广告拦截工具 AdGuardHome 更新，增强了隐私保护和设备防护能力，适合家庭和企业网络部署。",
+        "title_zh": "AdGuardHome v1.1.0-b.1",
+        "reason_en": "AdGuardHome Network-Level Ad Blocker Update: Enhanced Privacy Protection and Device Security for Home and Enterprise Networks"
+      },
+      {
+        "title": "DeepfakeBench-MM",
+        "url": "https://kitploit.com/en/tools/github/sclbd/deepfakebench-mm",
+        "source": "Unsafe.sh",
+        "date": "2026-11-23",
+        "reason": "发布了一个用于多模态音频视觉深度伪造检测的模块化基准测试工具，有助于评估和提升 AI 内容鉴别能力。",
+        "title_en": "DeepfakeBench-MM",
+        "reason_zh": "发布了一个用于多模态音频视觉深度伪造检测的模块化基准测试工具，有助于评估和提升 AI 内容鉴别能力。",
+        "title_zh": "DeepfakeBench-MM",
+        "reason_en": "Modular Benchmark Tool Released for Multimodal Audio-Visual Deepfake Detection to Evaluate and Improve AI Content Verification"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "Azure Flaw Exploited to Target Secrets at Norwegian Energy Firms",
+        "url": "https://www.securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms/",
+        "source": "SecurityWeek",
+        "date": "2026-11-23",
+        "reason": "微软 Azure API Management 存在缺陷导致挪威能源公司机密泄露，暴露了云平台配置与管理的安全隐患。",
+        "title_en": "Azure Flaw Exploited to Target Secrets at Norwegian Energy Firms",
+        "reason_zh": "微软 Azure API Management 存在缺陷导致挪威能源公司机密泄露，暴露了云平台配置与管理的安全隐患。",
+        "title_zh": "Azure漏洞被利用以针对挪威能源公司的机密信息",
+        "reason_en": "Microsoft Azure API Management Flaw Leads to Confidential Data Leak at Norwegian Energy Firm, Exposing Cloud Configuration Risks"
+      },
+      {
+        "title": "Nasty AMD Linux KVM Flaw Worries Cloud Users",
+        "url": "https://securityboulevard.com/2026/11/nasty-amd-linux-kvm-flaw-worries-cloud-users/",
+        "source": "Unsafe.sh",
+        "date": "2026-11-23",
+        "reason": "AMD Linux KVM 存在的严重漏洞可能危及云端用户数据安全，引发了对虚拟化底层架构安全的担忧。",
+        "title_en": "Nasty AMD Linux KVM Flaw Worries Cloud Users",
+        "reason_zh": "AMD Linux KVM 存在的严重漏洞可能危及云端用户数据安全，引发了对虚拟化底层架构安全的担忧。",
+        "title_zh": "AMD Linux KVM严重漏洞令云用户担忧",
+        "reason_en": "Critical AMD Linux KVM Vulnerability Threatens Cloud User Data Security, Raising Concerns Over Virtualization Architecture"
+      },
+      {
+        "title": "Building Cyber Resilience Across Your AWS Environment",
+        "url": "https://securityboulevard.com/2026/11/building-cyber-resilience-across-your-aws-environment/",
+        "source": "Unsafe.sh",
+        "date": "2026-11-23",
+        "reason": "提供了构建 AWS 环境网络韧性的策略与方法，帮助企业在云原生环境中提升整体防御能力。",
+        "title_en": "Building Cyber Resilience Across Your AWS Environment",
+        "reason_zh": "提供了构建 AWS 环境网络韧性的策略与方法，帮助企业在云原生环境中提升整体防御能力。",
+        "title_zh": "构建AWS环境的全方位网络弹性",
+        "reason_en": "Strategies and Methods for Building Network Resilience in AWS Environments to Enhance Overall Defense Capabilities in Cloud-Native Settings"
+      },
+      {
+        "title": "CrowdStrike to Acquire Zscaler in $43.9 Billion Deal",
+        "url": "https://www.securityweek.com/crowdstrike-to-acquire-zscaler-in-43-9-billion-deal/",
+        "source": "SecurityWeek",
+        "date": "2026-11-23",
+        "reason": "网络安全巨头 CrowdStrike 收购 Zscaler 的重大并购案，将重塑端点保护与零信任云安全的市场格局。",
+        "title_en": "CrowdStrike to Acquire Zscaler in $43.9 Billion Deal",
+        "reason_zh": "网络安全巨头 CrowdStrike 收购 Zscaler 的重大并购案，将重塑端点保护与零信任云安全的市场格局。",
+        "title_zh": "CrowdStrike以439亿美元收购Zscaler",
+        "reason_en": "Cybersecurity Giant CrowdStrike's Major Acquisition of Zscaler to Reshape Endpoint Protection and Zero Trust Cloud Security Landscape"
+      },
+      {
+        "title": "GL.iNet Routers, KVMs Compromised via Remote Management Service Flaw",
+        "url": "https://www.securityweek.com/gl-inet-routers-kvms-compromised-via-remote-management-service-flaw/",
+        "source": "SecurityWeek",
+        "date": "2026-11-23",
+        "reason": "广联智通路由器远程管理服务存在缺陷，导致设备被植入恶意软件，反映了 IoT 云服务侧的安全风险。",
+        "title_en": "GL.iNet Routers, KVMs Compromised via Remote Management Service Flaw",
+        "reason_zh": "广联智通路由器远程管理服务存在缺陷，导致设备被植入恶意软件，反映了 IoT 云服务侧的安全风险。",
+        "title_zh": "GL.iNet路由器和KVM通过远程管理服务漏洞遭入侵",
+        "reason_en": "Vulnerability in Glantrum Router Remote Management Service Leads to Malware Infection, Reflecting IoT Cloud Service Risks"
+      }
+    ],
+    "其他重要": [
+      {
+        "title": "试分析 ReadProcessMemory的实现原理（用户态到内核）",
+        "url": "http://bbs.kanxue.com/thread-293581.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-11-23",
+        "reason": "从底层原理角度分析了 Windows 系统调用 ReadProcessMemory 的执行路径，有助于理解进程间内存操作机制。",
+        "title_zh": "试分析 ReadProcessMemory的实现原理（用户态到内核）",
+        "reason_zh": "从底层原理角度分析了 Windows 系统调用 ReadProcessMemory 的执行路径，有助于理解进程间内存操作机制。",
+        "title_en": "Analysis of ReadProcessMemory Implementation Principles (User Mode to Kernel)",
+        "reason_en": "Analyzing the Execution Path of Windows System Call ReadProcessMemory from a Bottom-Up Perspective to Understand Inter-Process Memory Operations"
+      },
+      {
+        "title": "Windows DLL 加载异常检测（一）",
+        "url": "http://bbs.kanxue.com/thread-293618.htm?style=1",
+        "source": "看雪论坛",
+        "date": "2026-11-23",
+        "reason": "深入探讨了 Windows DLL 加载过程中的逻辑缺陷与异常检测问题，为开发更可靠的防劫持机制提供思路。",
+        "title_zh": "Windows DLL 加载异常检测（一）",
+        "reason_zh": "深入探讨了 Windows DLL 加载过程中的逻辑缺陷与异常检测问题，为开发更可靠的防劫持机制提供思路。",
+        "title_en": "Windows DLL Loading Anomaly Detection (Part I)",
+        "reason_en": "In-Depth Exploration of Logical Flaws and Anomaly Detection in Windows DLL Loading to Inform Robust Hijacking Prevention Mechanisms"
+      },
+      {
+        "title": "科技云报到：Agent 上生产，七成的账不在模型上",
+        "url": "https://www.anquanke.com/post/id/316523",
+        "source": "安全客",
+        "date": "2026-11-23",
+        "reason": "探讨了 AI 智能体在生产环境落地时的非技术性挑战，如数据治理和流程合规，视角独特。",
+        "title_zh": "科技云报到：Agent 上生产，七成的账不在模型上",
+        "reason_zh": "探讨了 AI 智能体在生产环境落地时的非技术性挑战，如数据治理和流程合规，视角独特。",
+        "title_en": "Tech Cloud Report: Agents in Production - 70% of the Challenges Lie Beyond the Model",
+        "reason_en": "Exploring Non-Technical Challenges in Deploying AI Agents in Production Environments, Such as Data Governance and Process Compliance"
+      },
+      {
+        "title": "从工具嵌入到体系合规：企业人工智能赋能业务八大合规痛点解析",
+        "url": "https://www.secrss.com/articles/95925",
+        "source": "安全内参",
+        "date": "2026-11-23",
+        "reason": "系统梳理了企业在引入 AI 过程中面临的合规痛点，包括供应商尽调和数据安全等关键领域。",
+        "title_zh": "从工具嵌入到体系合规：企业人工智能赋能业务八大合规痛点解析",
+        "reason_zh": "系统梳理了企业在引入 AI 过程中面临的合规痛点，包括供应商尽调和数据安全等关键领域。",
+        "title_en": "From Tool Integration to Systemic Compliance: Analysis of Eight Key Compliance Pain Points in Enterprise AI Empowerment",
+        "reason_en": "Comprehensive Review of Compliance Pain Points in Enterprise AI Adoption, Including Vendor Due Diligence and Data Security"
+      },
+      {
+        "title": "工信部漏洞平台：关于防范OpenJDK缓冲区溢出高危漏洞的风险提示",
+        "url": "https://www.secrss.com/articles/95914",
+        "source": "安全内参",
+        "date": "2026-11-23",
+        "reason": "针对 Java 生态核心组件 OpenJDK 的缓冲区溢出漏洞进行风险提示，影响范围广，需及时排查。",
+        "title_zh": "工信部漏洞平台：关于防范OpenJDK缓冲区溢出高危漏洞的风险提示",
+        "reason_zh": "针对 Java 生态核心组件 OpenJDK 的缓冲区溢出漏洞进行风险提示，影响范围广，需及时排查。",
+        "title_en": "MIIT Vulnerability Platform: Risk Advisory on Preventing High-Risk OpenJDK Buffer Overflow Vulnerabilities",
+        "reason_en": "Risk Advisory on Buffer Overflow Vulnerability in Core Java Component OpenJDK: Wide Impact Requires Immediate Investigation"
+      }
+    ]
+  },
+  "summary": "本批次重点聚焦 AI 智能体攻防演进、Ghostscript 及 Windows 核心漏洞、以及大型云安全并购案。",
+  "summary_zh": "本批次重点聚焦 AI 智能体攻防演进、Ghostscript 及 Windows 核心漏洞、以及大型云安全并购案。",
+  "summary_en": "This Batch Focuses on AI Agent Attack/Defense Evolution, Ghostscript and Windows Core Vulnerabilities, and Major Cloud Security M&A Deals"
+}
