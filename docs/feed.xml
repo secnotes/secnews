@@ -5,138 +5,89 @@
     <link>https://secnotes.github.io/secnews/</link>
     <description>Daily aggregated cybersecurity news articles</description>
     <language>en</language>
-    <lastBuildDate>Tue, 24 Nov 2026 17:52:35 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 16:23:07 +0800</lastBuildDate>
     <item>
-      <title>Chrome Builds a Mirror Universe for Agents: Testing Browser Proxies Without Touching the Real Network | CN-SEC</title>
-      <link>https://cn-sec.com/archives/5602804.html</link>
-      <guid isPermaLink="true">https://cn-sec.com/archives/5602804.html</guid>
-      <description>This article reveals the 'Mirror Dimension' synthetic network constructed by the Chrome Security Team. By leveraging dynamic certificate forgery and multi-agent collaboration generation, it successfully addresses the evaluation challenges of browser agents in real networks, such as non-reproducibility, uncontrollability, and exposure of testing intentions. This solution not only enables high-fidelity automated red team exercises but also critically overcomes the model's 'evaluation awareness' trap, setting a new engineering benchmark for the secure iteration of AI agents.</description>
-      <category>Tencent Security</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Ghostscript Remote Code Execution Vulnerability (CVE-2026-125396): Bypassing -dSAFER Sandbox via Use-After-Free Affects Roundcube and WordPress</title>
-      <link>https://securityonline.info/ghostscript-rce-cve-2026-125396-poc/</link>
-      <guid isPermaLink="true">https://securityonline.info/ghostscript-rce-cve-2026-125396-poc/</guid>
-      <description>The core highlight of this article is the revelation of a remote code execution vulnerability (CVE-2026-125396) in Ghostscript that can be triggered through ordinary image uploads. It successfully bypasses the -dSAFER sandbox by exploiting a use-after-free defect in the Type 1 font loader. The article not only provides complete proof-of-concept code but also profoundly points out that this vulnerability has evolved into a supply-chain-level threat affecting a wide ecosystem including WordPress, CUPS, and Google services, forcing security teams to immediately investigate unpatched components in containers and bundles...</description>
-      <category>Tencent Security</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>VirtualBox Process Hardening on Windows 2026 Edition: What's a Single Bit Between Friends?</title>
-      <link>https://projectzero.google/2026/11/virtualbox-process-hardening.html</link>
-      <guid isPermaLink="true">https://projectzero.google/2026/11/virtualbox-process-hardening.html</guid>
-      <description>Back in 2017 I did some research into Oracle VirtualBox on Windows. Specifically I focussed on their mechanism to protect their VM processes from the user on the host. The protection was to gate who could open the kernel driver, which might allow for privilege escalation due to the way it was designed. At the time I found 3 ways of bypassing the protection, with an additional issue in COM’s runtime I reported in 2020. These issues were all written up in this post.</description>
-      <category>Project Zero</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Technical Analysis Report on Cheating Samples from a Popular Mobile Game (High-End Internal)</title>
-      <link>http://bbs.kanxue.com/thread-293580.htm?style=1</link>
-      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293580.htm?style=1</guid>
-      <description>Technical analysis report on cheating samples from a popular mobile game.
-Sample: 118 / 118fu.xpak · Execution Flow, Authorization Relationships, and Kernel Module Functions
-Compilation Date: 2026-11-17.
-1. Report Scope and Reading Instructions
-This report is based on existing raw project analysis, offline execution evidence, and kernel module topics. The entire analysis and writing process was conducted by AI (6.1 sol). Due to the absence of real network packet captures (high...</description>
+      <title>[Technical Notes] Preliminary Reverse Engineering Analysis of Huawei 10G ONT HN8145X6N (Part 1): Defense-in-Depth Breakdown, Pseudo-Shell Penetration, and Privilege Distribution Chain</title>
+      <link>http://bbs.kanxue.com/thread-293634.htm?style=1</link>
+      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293634.htm?style=1</guid>
+      <description>[Technical Notes] Preliminary Reverse Engineering Analysis of Huawei 10G ONT HN8145X6N (Part 1): Defense-in-Depth Breakdown, Pseudo-Shell Penetration, and Privilege Distribution Chain Author: Hajimi Target Device: Huawei OptiXstar HN8145X6N (Telecom Customized 10G-EPON Gateway) Core Hardware: HiSilicon SD5182H Dual-Core ARMv7-A Processor Firmware Baseline: Dopra Lin ...</description>
       <category>Kanxue Forum</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Analyzing the Implementation Principles of ReadProcessMemory (User Mode to Kernel Mode)</title>
-      <link>http://bbs.kanxue.com/thread-293581.htm?style=1</link>
-      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293581.htm?style=1</guid>
-      <description>A simple analysis of the implementation principles and SYSCALL of ReadProcessMemory, ignoring many details. Assisted by AI analysis, there are numerous errors or lack of rigor.
-In Windows systems, the complete execution path of ReadProcessMemory is roughly as follows:
-[Ring 3] Application
-  └── Kernel32.dll / ...</description>
-      <category>Kanxue Forum</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Reproduction and Fix of CVE-2026-31720</title>
-      <link>http://bbs.kanxue.com/thread-293587.htm?style=1</link>
-      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293587.htm?style=1</guid>
-      <description>Preface
-Recently, I have been researching kernel vulnerabilities in camera device firmware. The vulnerable firmware version is 1.0.0, and the patched version is 1.0.1.
-In the usb_f_uac1.ko shipped with version 1.0.0, f_audio_complete directly passes the length provided by the host to memcpy, where the target buffer is only 4 bytes on the stack. We extracted these instructions exactly as they are and placed them in QE...</description>
-      <category>Kanxue Forum</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Reverse Engineering a Karaoke Social Client</title>
-      <link>http://bbs.kanxue.com/thread-293616.htm?style=1</link>
-      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293616.htm?style=1</guid>
-      <description>Reverse engineering a karaoke social client. Decompiling the APK to extract files, starting from two directions: dex strings and native libraries, analyzing external entry points and interfaces, deep link callback chains, and emulator/hook detection mechanisms. Uncertain how far the reverse engineering line can go, but basic levels should be achievable. Might fail, but feels like winning.
-Analysis proceeds in four steps. First, unpack the APK using jadx...</description>
-      <category>Kanxue Forum</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Yinhu Trojan Disguised as an Agent: Dynamic Decryption and Antivirus Evasion</title>
-      <link>http://bbs.kanxue.com/thread-293622.htm?style=1</link>
-      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293622.htm?style=1</guid>
-      <description>Sample Version: 3.71.1.426
-Runtime Environment: Win10 x64
-Sample MD5: 23ccc10da0e27c7969e2d9896766b91f
-
-Preface:
-This is a Yinhu Trojan disguised as an official website, with a high degree of fidelity. When users engage in web conversations, it redirects to the official conversation page. Ordinary users find it difficult to identify, which is currently the mainstream distribution method for Yinhu Trojans. Its workflow is as follows...</description>
-      <category>Kanxue Forum</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Analysis of Modified IL2CPP in Anime-style Mobile Games</title>
-      <link>http://bbs.kanxue.com/thread-293642.htm?style=1</link>
-      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293642.htm?style=1</guid>
-      <description>Analysis of modified IL2CPP and global-metadata.dat in an anime-style game.
-Years ago, it was heard that an anime-style game called 'Certain God' was developed using the Unity engine, which underwent deep modification, making il2cppDumper ineffective. Having seen many instances of IL2CPP hardening and global-metadata.dat modifications, few engines are modified from the ground up like 'Certain God'...</description>
-      <category>Kanxue Forum</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Windows DLL Load Anomaly Detection (Part 1)</title>
-      <link>http://bbs.kanxue.com/thread-293618.htm?style=1</link>
-      <guid isPermaLink="true">http://bbs.kanxue.com/thread-293618.htm?style=1</guid>
-      <description>Windows DLL Load Anomaly Detection (Part 1): Was the check really performed after the DLL was queued?
-The startup enumeration sent plugins into the verification queue. When worker threads retrieved them, they skipped them directly because 'this path has already been registered.' Looking down AntiHijackDlls.cpp, the problem lies in the usage of the same set in two places. Enumeration uses it to record seen paths, while worker threads use it to decide whether further checks are needed.</description>
-      <category>Kanxue Forum</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Tech Cloud Report: Agents in Production, 70% of the Accounts Are Not on the Model</title>
-      <link>https://www.anquanke.com/post/id/316523</link>
-      <guid isPermaLink="true">https://www.anquanke.com/post/id/316523</guid>
+      <title>AI Breaches Security Vendors: The Blame Lies in an Unrevoked Key</title>
+      <link>https://www.anquanke.com/post/id/316541</link>
+      <guid isPermaLink="true">https://www.anquanke.com/post/id/316541</guid>
       <description></description>
       <category>Anquanke</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Germany Raises Cyber Threat Level to Maximum, Citing Four Words: Agent AI</title>
-      <link>https://www.anquanke.com/post/id/316536</link>
-      <guid isPermaLink="true">https://www.anquanke.com/post/id/316536</guid>
-      <description></description>
-      <category>Anquanke</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <title>Latest Developments in US Congressional Push for Chip/Cloud Control Legislation</title>
+      <link>https://www.secrss.com/articles/95979</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/95979</guid>
+      <description>The biggest uncertainty is no longer whether several chip control bills will be included in the FY 2027 National Defense Authorization Act (NDAA).</description>
+      <category>SecRSS</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>World's Ninth Supercomputer Hacked, 4,224 SSH Private Keys Lost</title>
-      <link>https://www.anquanke.com/post/id/316533</link>
-      <guid isPermaLink="true">https://www.anquanke.com/post/id/316533</guid>
-      <description></description>
-      <category>Anquanke</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Domestic Router Infected with Malware Remotely, Official Advice to Investigate Promptly</title>
-      <link>https://www.secrss.com/articles/95958</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/95958</guid>
-      <description>The cloud platform of GL.iNet, a popular domestic OpenWRT router brand, was attacked. Attackers used the update channel to push malware to user routers...</description>
+      <title>PerMIT: Two-Layer Secure Memory Architecture for Agents</title>
+      <link>https://www.secrss.com/articles/95967</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/95967</guid>
+      <description>Memory can be stored and retrieved, but it does not automatically grant authority to influence Agent behavior simply by being remembered.</description>
       <category>SecRSS</category>
       <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Security Risk Advisory for Windows Remote Access API Local Privilege Escalation Vulnerability (CVE-2026-119853)</title>
+      <title>US Controls 'Inflow', China Controls 'Outflow': Legal Logic Behind New Remote Computing Regulations and AI Technology Export Catalog Adjustments</title>
+      <link>https://www.secrss.com/articles/95960</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/95960</guid>
+      <description>China and the US make simultaneous moves: The US restricts computing power 'inflow', while China manages technology 'outflow'. For AI enterprises going global, key words have shifted from cost and speed to identity and boundaries.</description>
+      <category>SecRSS</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Microsoft Warns of More Global Software Failures: Because AI Is Too Powerful</title>
+      <link>https://www.secrss.com/articles/95980</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/95980</guid>
+      <description>Technical disruptions will become more common in the coming months as the world's information infrastructure undergoes upgrades right now.</description>
+      <category>SecRSS</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Honeypot Exploitation by Deception-Aware AI Penetration Testing Agents</title>
+      <link>https://www.secrss.com/articles/95973</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/95973</guid>
+      <description>This article addresses two questions. First, if fingerprinting knowledge is supplied to attackers, how much effectiveness remains for deception? Second, fingerprint literature typically treats 'identifying honeypots' as...</description>
+      <category>SecRSS</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Domestic Router Infected with Malware Remotely; Official Advice Urges Prompt Investigation</title>
+      <link>https://www.secrss.com/articles/95958</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/95958</guid>
+      <description>The cloud platform of GL.iNet, a popular domestic OpenWRT router brand, was attacked. Attackers used the update channel to push malware to users' routers...</description>
+      <category>SecRSS</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>FanRuan FineReport FineVis (FVS) Plugin Unauthorized Remote Code Execution Vulnerability Risk Advisory</title>
+      <link>https://www.secrss.com/articles/95947</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/95947</guid>
+      <description>May lead to complete server compromise, leakage of report business data and database connection credentials, and can serve as a pivot for further internal network penetration.</description>
+      <category>SecRSS</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>French Hackers Use AI Agents for 'AI-Enhanced' Cyber Attacks</title>
+      <link>https://www.secrss.com/articles/95945</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/95945</guid>
+      <description>This attack pattern of 'low-capability actors wielding high-capability tools' is spreading. AI agents are substantially lowering the barrier to cybercrime, challenging traditional views based on attacker technical skills...</description>
+      <category>SecRSS</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Windows Remote Access API Local Privilege Escalation Vulnerability (CVE-2026-119853) Risk Advisory</title>
       <link>https://www.secrss.com/articles/95946</link>
       <guid isPermaLink="true">https://www.secrss.com/articles/95946</guid>
       <description>Attackers can exploit this vulnerability to gain full system control, including modifying system files, installing persistent backdoors, lateral movement, or further attacking network resources.</description>
@@ -147,7 +98,15 @@ The startup enumeration sent plugins into the verification queue. When worker th
       <title>MIIT Vulnerability Platform: Risk Warning Regarding High-Risk NGINX Heap Buffer Overflow Vulnerability</title>
       <link>https://www.secrss.com/articles/95940</link>
       <guid isPermaLink="true">https://www.secrss.com/articles/95940</guid>
-      <description>Attackers can cause heap buffer overflow by sending specially crafted traffic to servers enabling HTTP/2, potentially leading to service crashes, memory corruption, or remote...</description>
+      <description>Attackers can cause heap buffer overflow by sending crafted traffic to servers enabling HTTP/2, potentially leading to service crashes, memory corruption, or remote code execution.</description>
+      <category>SecRSS</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>CNCERT: Risk Warning Regarding Widespread Propagation of New Cling Ransomware Variant</title>
+      <link>https://www.secrss.com/articles/95935</link>
+      <guid isPermaLink="true">https://www.secrss.com/articles/95935</guid>
+      <description>New variants of the Cling botnet family are spreading widely, primarily targeting Linux servers and IoT devices.</description>
       <category>SecRSS</category>
       <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
@@ -160,68 +119,84 @@ The startup enumeration sent plugins into the verification queue. When worker th
       <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>From Tool Embedding to System Compliance: Analysis of Eight Major Compliance Pain Points in Enterprise AI Empowerment</title>
-      <link>https://www.secrss.com/articles/95925</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/95925</guid>
-      <description>AI compliance is a systematic task involving service classification, access assessment, supplier due diligence, license review, agreement arrangements, data security, commercial...</description>
-      <category>SecRSS</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <title>Hackers Compromise 24 Check Point Management Servers in Suspected AI-Driven Attack Campaign</title>
+      <link>https://thehackernews.com/2026/11/hackers-compromise-24-check-point.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/11/hackers-compromise-24-check-point.html</guid>
+      <description>An unknown threat actor has been using artificial intelligence (AI)-driven offensive tooling in a campaign targeting Check Point Security Management servers, impacting 22 distinct organizations across the world.   The intrusion activity, tracked  by GreyNoise under the moniker GreyNoise Threat 13  (GT13), is assessed to have targeted organizations in the financial services, energy, government, transportation, mining, engineering, and manufacturing sectors across the U.K., Ireland, France, Netherlands, Greece, Germany, Austria, Bulgaria, Poland, India, Thailand, Vietnam, South Korea, Hong Kong, China, Australia, and the U.S.   Confirmed attack activity has been recorded between October 17 and November 2, 2026, with the threat actor using 99 IP addresses to conduct scanning, exploitation, and control. Most of these IP addresses are associated with disposable network infrastructure.   The campaign has not been attributed to any known threat actor or group. It's suspected that the att...</description>
+      <category>The Hacker News</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>FBI Epic Data Leak: Global Wanted Database Suspected of Being Stolen</title>
-      <link>https://www.secrss.com/articles/95924</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/95924</guid>
-      <description>The FBI's National Crime Information Center is suspected of being cyber-attacked. This database stores criminal records, fugitives, wanted persons, stolen financial data, etc., for all US law enforcement agencies...</description>
-      <category>SecRSS</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <title>Com-Affiliated Hackers Hijack Cloud Accounts via Vishing for Data Theft and Extortion</title>
+      <link>https://thehackernews.com/2026/11/com-affiliated-hackers-hijack-cloud.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/11/com-affiliated-hackers-hijack-cloud.html</guid>
+      <description>Palo Alto Networks Unit 42 has disclosed that it's tracking and has responded to "numerous waves of vishing attacks" orchestrated by Com-affiliated threat actors since August 2026 that have led to data theft and extortion attempts.   The attacks have targeted financial services, healthcare, and legal services located in the U.S., the U.K., and Australia. Other targets include construction, high-technology, transportation, manufacturing, pharmaceuticals, insurance, and real estate sectors.   "The victims share a common profile: they hold large volumes of high-impact corporate data where exposure carries severe regulatory, legal, or market consequences," Unit 42 said . "These attackers targeted financial services organizations about twice as often as healthcare organizations in August 2026, but healthcare overtook financial services in September."   The activity has been attributed to a number of threat clusters , including -      Bling Libra (aka Shiny...</description>
+      <category>The Hacker News</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>MIIT Vulnerability Platform: Risk Warning Regarding High-Risk OpenJDK Buffer Overflow Vulnerability</title>
-      <link>https://www.secrss.com/articles/95914</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/95914</guid>
-      <description>Attackers can damage memory by sending malicious data, causing sensitive information leaks or remote arbitrary code execution. Affected products include OpenJDK and Oracle Java SE, Oracle GraalVM for JDK, Oracle GraalVM Enterpri...</description>
-      <category>SecRSS</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <title>WordPress Blocks Six Backdoored WP Connect Plugins Before Malicious Releases Go Live</title>
+      <link>https://thehackernews.com/2026/11/wordpress-blocks-six-backdoored-wp.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/11/wordpress-blocks-six-backdoored-wp.html</guid>
+      <description>WordPress has removed six WordPress plugins developed by WP Connect after they were backdoored on November 22, 2026, to enable arbitrary code execution on sites that have them installed, following a suspected compromise of the developer's account.   The WordPress plugins team has independently detected and blocked the threat before it could be officially released. Visiting each plugin listing now serves the message: "This plugin has been closed as of November 22, 2026, and is not available for download. This closure is permanent."   The names of the affected plugins and the malicious versions are listed below -      Air WP Sync – Airtable to WordPress  (2.9.1 – 2.9.4)    WP Sync for Notion – Notion to WordPress  (1.7.4)    Add-on Brevo for Gravity Forms  (2.6.3)    Add-On for Contact Form 7 to Airtable  (2.5.4)    Add-On for Contact Form 7 to Notion  (1.6.4)    Orders Sync to Airtable for WooCommerce  (1.0.2)   These plugins have been collectively installed on more than ...</description>
+      <category>The Hacker News</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>UK Cyber Forces Commander Admits to Offensive Cyber Operations Against Foreign Adversaries for the First Time</title>
-      <link>https://www.secrss.com/articles/95898</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/95898</guid>
-      <description>The UK confirmed it is conducting offensive cyber operations against Russia, China, Iran, and North Korea.</description>
-      <category>SecRSS</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <title>Iran-Aligned Volant Manticore Uses IPFS-Based KuboShell Backdoor in Espionage Campaigns</title>
+      <link>https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/11/iran-aligned-volant-manticore-uses-ipfs.html</guid>
+      <description>A previously undocumented Iran-aligned cyber espionage group called Volant Manticore  has targeted telecommunications companies, airlines, and critical infrastructure in Cyprus.   Central to the group's operations  is a backdoor called KuboShell that uses the InterPlanetary File System ( IPFS ) for command-and-control (C2) and deploys Homa, a post-compromise framework that's a reimplementation of MuddyWater's MuddyC2Go . Evidence indicates that the threat actor has been operational since late August 2025.   Also delivered alongside these tools are Remote Monitoring and Management (RMM) programs like MeshCentral and NetLock RMM. In tandem, the group has been observed orchestrating credential harvesting campaigns to collect email and corporate credentials of some of the impersonated organizations.   The use of legitimate RMM tools for persistent access has been a hallmark of the MuddyWater group , although the adversary has since also increasingly  deployed its own malware  ...</description>
+      <category>The Hacker News</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>FCC Proposes Ban on Chinese Telecom Operators Directly Accessing US Phone Numbers; China Urges Immediate Reversal</title>
-      <link>https://www.secrss.com/articles/95901</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/95901</guid>
-      <description>China's Ministry of Commerce spokesperson clearly stated strong opposition on the 22nd and urged the US side to immediately revoke the relevant measures.</description>
-      <category>SecRSS</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <title>VMware vCenter Hit by Another Critical 9.8-Rated Auth Bypass Flaw After Zero-Day Exploitation</title>
+      <link>https://thehackernews.com/2026/11/vmware-vcenter-hit-by-another-critical.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/11/vmware-vcenter-hit-by-another-critical.html</guid>
+      <description>Broadcom has shipped patches to address 23 vulnerabilities impacting VMware ESX, vCenter, Workstation, Fusion, and Avi Load Balancer, including one critical bug that could be abused to bypass authentication.   The critical vulnerability, tracked as CVE-2026-123903 , is rated 9.8 out of 10.0 on the CVSS scoring system. It resides in the VMware Directory Service ("vmdir").   "A malicious actor with network access to vCenter may exploit this issue to bypass authentication and gain unauthorized access to the system," Broadcom said  in an advisory released today.   The company credited sglab of QiAnXin, Qi Qin (@LeoQ7_) of depthfirst, and VulTeam and XGTP from ThreatBook for independently reporting the flaw.   Also patched in vCenter are four high-severity flaws, including an arbitrary file write vulnerability while processing certain archives that could be exploited to achieve code execution on the appliance (CVE-2026-123904, CVSS score: 7.5).   The remaining three vul...</description>
+      <category>The Hacker News</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Key Legal Compliance Risks of AI Transit Services</title>
-      <link>https://www.secrss.com/articles/95896</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/95896</guid>
-      <description>Quickly grasp the legal compliance risks of AI transit services.</description>
-      <category>SecRSS</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <title>Okta Links ShinyHunters-Associated Vishing Group to New INCEPTION Data Leak Site</title>
+      <link>https://thehackernews.com/2026/11/okta-links-shinyhunters-associated.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/11/okta-links-shinyhunters-associated.html</guid>
+      <description>A threat cluster previously assessed to be affiliated with the ShinyHunters  extortion crew may have rebranded and continued operations under a new name called INCEPTION , according to Okta's Threat Intelligence team.   The cluster, dubbed O-UNC-053 , is characterized by the use of voice phishing  (aka vishing) attacks to trick targets into entering credentials in phishing pages and approving multi-factor authentication (MFA). Okta said it's been tracking the group since March 2026.   The identity and access management provider said targets of this cluster previously had stolen data published to the ShinyHunters data leak site (DLS). However, as of November 16, 2026, a new data leak site operating under the name INCEPTION has listed the data siphoned from O-UNC-053 targets.   "While this threat cluster has changed their brand affiliation, the operators remain active in targeting organizations with voice phishing attacks and account takeovers resulting in data theft and ex...</description>
+      <category>The Hacker News</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>23 Apps and SDKs, Including YY, Hupu, and Dongqiudi, Notified for Infringing User Rights</title>
-      <link>https://www.secrss.com/articles/95900</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/95900</guid>
-      <description>Information windows jump randomly and cannot be closed! MIIT notification.</description>
-      <category>SecRSS</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <title>Hackers Found a Way Around GitHub SHA Pinning. This Webinar Explains How to Close the Gap</title>
+      <link>https://thehackernews.com/2026/11/hackers-found-way-around-github-sha.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/11/hackers-found-way-around-github-sha.html</guid>
+      <description>Pinning GitHub Actions to an exact version of their code, known as SHA pinning, has become the go-to defense against software supply chain attacks. Attackers have already found a way around it.   In March 2026, the hackers who hijacked Trivy, a widely used open-source security scanner, planted malicious code that looked like it came from GitHub's official checkout tool. They even labeled it a security fix. Teams pinned to it would have passed every check.   The trick works because GitHub lets copies of a project, called forks, share code with the original. In May, the same technique hit the popular actions-cool/issues-helper tool, stealing credentials from the pipelines that ran it.   The lesson: pinning guarantees the code won't change, but not who wrote it.   That gap is the focus of an upcoming webinar, GitHub Actions Security Beyond SHA Pinning . If your team treats pinning as the finish line, save your seat  to learn what it actually protects you from, and what it doesn...</description>
+      <category>The Hacker News</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Discussions and Reflections on Cloud Restriction Rules</title>
-      <link>https://www.secrss.com/articles/95887</link>
-      <guid isPermaLink="true">https://www.secrss.com/articles/95887</guid>
-      <description>The US's new cloud computing power restriction rules are almost equivalent to flipping the table on China's AI industry. The impact on Sino-US relations is likely greater than last year's Entity List by 50%...</description>
-      <category>SecRSS</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <title>Google Researcher Shows How a Single Bit Change in .NET Files Bypassed Windows Code Integrity</title>
+      <link>https://thehackernews.com/2026/11/google-researcher-shows-how-single-bit.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/11/google-researcher-shows-how-single-bit.html</guid>
+      <description>A quirk in how the  .NET Framework loads a program file let a local attacker run untrusted code past two separate protections on Windows built to block it, Google Project Zero researcher James Forshaw  showed in a write-up published yesterday.   The same loading behavior bypassed Oracle VirtualBox's process hardening on Windows hosts, tracked as CVE-2026-87268 , and Windows code integrity, tracked as CVE-2026-108398 .   Oracle fixed the VirtualBox  flaw in September, and Microsoft fixed the Windows one on October 13, both before the write-up appeared.   VirtualBox on Windows monitors the system calls that load program files into its virtual machine processes, so a less-trusted user on the same computer cannot push code into them. Forshaw got past that watch through the .NET Framework.   The framework can run a .NET program file from a plain copy in memory when the normal way of loading it, as an executable image, fails. Version 4 of the framework takes that fallback on one specifi...</description>
+      <category>The Hacker News</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>2027 SOC Budget Reset: 5 Priorities to Cut Costs and Reduce Cyber Risk</title>
+      <link>https://thehackernews.com/2026/11/2027-soc-budget-reset-5-priorities-to.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/11/2027-soc-budget-reset-5-priorities-to.html</guid>
+      <description>What if your biggest SOC budget problem isn't how much you spend, but how much analyst time you lose?   According to ANY.RUN 's estimates, SOC teams could recover 450 analyst hours per 1,000 investigated alerts  through faster threat analysis and IOC research. That's a significant opportunity as manual investigations, repeated checks, and unnecessary escalations continue to drain resources.   As 2027 approaches, here are five priorities to reduce SOC costs, recover capacity, and strengthen protection against costly cyberattacks.   Why 2027 SOC Budget Planning Is Getting More Challenging   Cybersecurity spending is facing conflicting pressures. According to IANS and Artico Search, 55% of CISOs reported flat or declining budgets in 2026 . Meanwhile, PwC's 2027 Global Digital Trust Insights found that 84% of surveyed security and finance leaders expect cybersecurity budgets to increase .</description>
+      <category>The Hacker News</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Microsoft Fixes Azure API Management Classic Flaw as Actor Targets Customer Secrets</title>
+      <link>https://thehackernews.com/2026/11/microsoft-fixes-azure-api-management.html</link>
+      <guid isPermaLink="true">https://thehackernews.com/2026/11/microsoft-fixes-azure-api-management.html</guid>
+      <description>Norway's National Security Authority (NSM) has disclosed that it became aware of a security vulnerability in Microsoft's Azure API Management (APIM) that has affected multiple businesses in the country, including energy companies Equinor  and Skagerak Energi .   "An unknown actor has been actively looking for access tokens, secrets, and named values ​​in APIM," NSM said . "It is still uncertain how extensive the exploitation of the vulnerability is, and has been."   The security agency said it has so far seen no evidence that has had any impact on Norwegian businesses.   According to a non-public advisory  issued by Microsoft, the issue is said to affect the APIM classic tier. Instances on v2 tiers are not affected.   "On 18 November 2026, Microsoft identified a security issue affecting Azure API Management Classic tiers that could allow unauthorized access to certain management functionality if the service was not configured according to documented se...</description>
+      <category>The Hacker News</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
       <title>WHMCS SQL Injection Could Expose Customer Data and Admin Password Hashes without Login</title>
@@ -248,948 +223,892 @@ The startup enumeration sent plugins into the verification queue. When worker th
       <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Webworm Suspected of Modifying SoftEther VPN to Evade Detection and Hide Remote Access</title>
-      <link>https://thehackernews.com/2026/11/webworm-suspected-of-modifying.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/11/webworm-suspected-of-modifying.html</guid>
-      <description>The China-aligned threat actor known as Webworm  is suspected to be using a custom version of the open-source SoftEther VPN Bridge tool in an attempt to remove recognizable detection fingerprints, while disguising it as network-monitoring software to establish covert remote access to compromised networks.   The modified variant "implements various tricks to hide itself from security tools," Rapid7 said  in an analysis, attributing it to the adversarial collective with moderate confidence.   First publicly detailed by Broadcom-owned Symantec in September 2022, Webworm  is the name assigned to a China-aligned nation-state group that has targeted government entities, IT services, and electric power companies across Russia, Georgia, Mongolia, and several other Asian nations.   One of the tools used by the threat actor is a legitimate software called SoftEther VPN , with the bridge acting as a pathway connecting the compromised network and the attacker-controlled infrastructure...</description>
-      <category>The Hacker News</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>⚡ Weekly Recap: VMware 0-Day, Java4Shell, NGINX2Root, Ruby2Shell, and a Whole Lot of Shell Trouble</title>
-      <link>https://thehackernews.com/2026/11/weekly-recap-vmware-0-day-java4shell.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/11/weekly-recap-vmware-0-day-java4shell.html</guid>
-      <description>A stolen key. A trusted message. A routine update. None of these looks like the start of a major security problem. That's partly why they work. Attackers don't always need to break down a door. Sometimes they just use one that's already open.   This week's stories show how quickly a small opening can turn into a much bigger mess. One breach helps attackers reach another target. Tools people rely on become ways to get inside. Even features built for safety can end up helping the wrong person. And some of the latest research shows just how little effort certain attacks need.   The strange part is how normal it all looks until something goes wrong. A few attacks are clever. Others are almost embarrassingly simple. Both can do real damage. Here's what caught our attention this week.   ⚡ Threat of the Week   Threat Actor Exploits VMware vCenter Flaw as a 0-Day  — The suspected China-nexus cyber espionage group known as Armory Castle (formerly UNC5221) has been attribut...</description>
-      <category>The Hacker News</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Critical binary-parser Flaw Enables JavaScript Injection via Malicious Parser Definitions</title>
-      <link>https://thehackernews.com/2026/11/critical-binary-parser-flaw-enables.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/11/critical-binary-parser-flaw-enables.html</guid>
-      <description>A critical security flaw has been disclosed in the popular binary-parser  library that could allow an attacker who controls parser definitions to execute arbitrary code.   The vulnerability, tracked as CVE-2026-134814  (CVSS score: 9.2 / 8.1), is a case of code injection impacting binary-parser versions prior to 2.3.1.   "Binary-parser before 2.3.1 contains a code injection vulnerability that allows attackers controlling parser definitions to inject JavaScript through string-typed options passed unvalidated by Context.generateOption()," according to a description  of the flaw in the NIST National Vulnerability Database (NVD).   "Attackers can supply crafted length, lengthInBytes, key, tag, offset, or namely() alias values to execute arbitrary JavaScript in the Node.js process when the parser is compiled."   According to an advisory released by the project maintainer on November 11, 2026, the problem arose from the fact that some user-controlled string options were ...</description>
-      <category>The Hacker News</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Hackers Exploit Critical ScreenConnect Flaw to Hijack MSP Technician PCs Without Warning</title>
-      <link>https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/11/hackers-exploit-critical-screenconnect.html</guid>
-      <description>Threat actors are exploiting a now-patched security flaw in ConnectWise ScreenConnect to target managed service provider (MSP) servers.   The activity revolves around CVE-2026-84869  (CVSS score: 9.9), a critical ScreenConnect client flaw that allows a guest to transfer and execute a malicious payload on a connecting technician's host.   "On November 12, 2026, we observed one managed service provider's (MSP) technician's workstation exploited to run a guest-pushed batch file, which then reported to a Telegram bot, downloaded an installer from masterdarky[.]com, and started a rogue ScreenConnect client pointing at the attacker's own relay, all in about 9 seconds," Huntress security researcher John Hammond said .   The batch script, "update_224ac089.bat," is designed to decode a Base64 Telegram bot token and chat ID, and register the new infection. Subsequently, it downloads an MSI installer that masquerades as a Windows update ("WindowsUpdate.ms...</description>
-      <category>The Hacker News</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>N-able Discloses Critical Mail Assure Vulnerability Found During Breach Investigation</title>
-      <link>https://thehackernews.com/2026/11/n-able-discloses-critical-mail-assure.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/11/n-able-discloses-critical-mail-assure.html</guid>
-      <description>N-able yesterday disclosed a critical flaw it found while investigating the breach of its Mail Assure and SpamExperts Hosted Cloud, an email filtering service it runs for managed service providers.   The bug, tracked as CVE-2026-134624 , is a server-side request forgery (SSRF) flaw. It allowed a user with high-level API access to open connections to internal systems of the user's choosing on the platform's servers.   The company fixed the flaw and restored access to the dashboard and APIs late on Saturday, closing an outage that began last Monday. Email delivery and spam filtering kept working throughout, according to the company. It has not said whether the flaw was the attackers' way in.   The bug sat in a connection check that Mail Assure runs for LDAP synchronization when a relay is configured. Before the fixed build, nothing restricted that check's destination, so the server could be pointed at any internal host and port to see which ones answered.   "An auth...</description>
-      <category>The Hacker News</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Hackers Exploit Critical ASP.NET Anti-CSRF Library Flaw Allowing Unauthenticated RCE</title>
-      <link>https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/11/hackers-exploit-critical-aspnet-anti.html</guid>
-      <description>Cybersecurity researchers have urged users to discontinue using a legacy ASP.NET anti-CSRF library named Idunno.AntiCsrf ("Idunno.AntiCsrf.dll") following the discovery of a critical vulnerability that has been exploited in the wild.   The vulnerability, tracked as CVE-2026-131914 , carries a CVSS score of 9.3 out of 10.0. The issue affects versions 0.9.1.0 and 0.9.1 Beta, and relates to an insecure deserialization vulnerability in the Idunno.AntiCsrf.AntiCsrfModule HTTP module.   Idunno.AntiCsrf is a third-party ASP.NET IHttpModule designed to provide double-submit cookie Cross-Site Request Forgery (CSRF) protection  for ASP.NET WebForms applications. The open-source project is currently defunct and has not been updated since December 2008.   At its core, the problem stems from the fact that the module deserializes untrusted CSRF form token data using an unkeyed .NET System.Web.UI.ObjectStateFormatter instance without cryptographic MAC or signature verification when handlin...</description>
-      <category>The Hacker News</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Hackers Exploited GL.iNet Cloud Flaw to Install Malware on Routers and KVM Devices</title>
-      <link>https://thehackernews.com/2026/11/hackers-exploited-glinet-cloud-flaw-to.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/11/hackers-exploited-glinet-cloud-flaw-to.html</guid>
-      <description>Hackers exploited a vulnerability in GL.iNet 's GoodCloud remote management service to install malware on some customer routers and KVM devices, the maker of travel routers and remote-access KVM hardware said in a security notice updated today.   The company identified and fixed the flaw on Friday and blocked the access the attacker used, so devices can no longer be infected through this route. The cloud-side fix does not remove malware from devices that were already infected, so owners still need to check their hardware and install the security firmware listed today.   A KVM is a small device used to control a computer remotely as if sitting in front of it. The company is still investigating whether computers attached to infected KVMs were affected.   It has not said how many devices were infected, when the attacks began, or how its cloud service was breached. It is emailing customers it identifies as affected, but owners do not need to wait for a message to act.   A model missin...</description>
-      <category>The Hacker News</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI-Assisted Cyber Attacks Trigger Unauthorized Payments at Indian Banks and Fintech Firms</title>
-      <link>https://thehackernews.com/2026/11/ai-assisted-cyberattacks-trigger.html</link>
-      <guid isPermaLink="true">https://thehackernews.com/2026/11/ai-assisted-cyberattacks-trigger.html</guid>
-      <description>The Indian Computer Emergency Response Team (CERT-In) has warned that threat actors are carrying out artificial intelligence (AI)-assisted cyber attacks targeting information and communication technology (ICT) assets in the country.   This unsanctioned activity has resulted in unauthorized financial transactions at banking and financial services entities, as well as technology service providers supporting government-linked payments and platforms handling vendor or partner payouts.   "In the observed incidents, attackers targeted business records and approval processes to carry out unauthorized transactions through otherwise legitimate systems," CERT-In said  in an advisory last week.   The incidents have been found to include the following methods -      Abuse of business applications and service provider-operated workflows, as opposed to direct exploitation of payment-related APIs.    Modification of business records or approval relationships, followed by the use of legit...</description>
-      <category>The Hacker News</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Azure Flaw Exploited to Target Secrets at Norwegian Energy Firms</title>
-      <link>https://www.securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms/</link>
-      <guid isPermaLink="true">https://www.securityweek.com/azure-flaw-exploited-to-target-secrets-at-norwegian-energy-firms/</guid>
-      <description>Microsoft closed an Azure API Management flaw exploited to target secrets at Norwegian energy companies, with other sectors also affected.The postAzure Flaw Exploited to Target Secrets at Norwegian En...</description>
+      <title>Drupal Flaw Found by Anthropic Scanner Exploited in Attacks</title>
+      <link>https://www.securityweek.com/drupal-flaw-found-by-anthropic-scanner-exploited-in-attacks/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/drupal-flaw-found-by-anthropic-scanner-exploited-in-attacks/</guid>
+      <description>CISA has added the vulnerability to its KEV catalog and instructed federal agencies to patch it within three days.The postDrupal Flaw Found by Anthropic Scanner Exploited in Attacksappeared first onSe...</description>
       <category>SecurityWeek</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>N-able Patches Critical Flaw Discovered After Mail Assure Cyberattack</title>
-      <link>https://www.securityweek.com/n-able-patches-critical-flaw-disclosed-after-mail-assure-cyberattack/</link>
-      <guid isPermaLink="true">https://www.securityweek.com/n-able-patches-critical-flaw-disclosed-after-mail-assure-cyberattack/</guid>
-      <description>The company has restored access to the affected services and continues to monitor the affected environments.The postN-able Patches Critical Flaw Discovered After Mail Assure Cyberattackappeared first ...</description>
+      <title>An Unclassified CIA System Was Breached in a Cyberattack, AP Source Says</title>
+      <link>https://www.securityweek.com/an-unclassified-cia-system-was-breached-in-a-cyberattack-ap-source-says/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/an-unclassified-cia-system-was-breached-in-a-cyberattack-ap-source-says/</guid>
+      <description>It was not clear what specific information was compromised or who was responsible.The postAn Unclassified CIA System Was Breached in a Cyberattack, AP Source Saysappeared first onSecurityWeek.</description>
       <category>SecurityWeek</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>phpAfterShell Vulnerability Revives PHP2Shell’s Attack Path</title>
-      <link>https://www.securityweek.com/phpaftershell-vulnerability-revives-php2shells-attack-path/</link>
-      <guid isPermaLink="true">https://www.securityweek.com/phpaftershell-vulnerability-revives-php2shells-attack-path/</guid>
-      <description>If a session overwrite operation is interrupted, an attacker who controls the fresh data could trigger data deserialization and RCE.The postphpAfterShell Vulnerability Revives PHP2Shell’s Attack Patha...</description>
+      <title>VMware Updates Patch Critical ESX, vCenter Vulnerabilities</title>
+      <link>https://www.securityweek.com/vmware-updates-patch-critical-esx-vcenter-vulnerabilities/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/vmware-updates-patch-critical-esx-vcenter-vulnerabilities/</guid>
+      <description>The critical bugs include an authentication bypass in vCenter and flaws that could allow code execution on ESX hosts.The postVMware Updates Patch Critical ESX, vCenter Vulnerabilitiesappeared first on...</description>
       <category>SecurityWeek</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>GL.iNet Routers, KVMs Compromised via Remote Management Service Flaw</title>
-      <link>https://www.securityweek.com/gl-inet-routers-kvms-compromised-via-remote-management-service-flaw/</link>
-      <guid isPermaLink="true">https://www.securityweek.com/gl-inet-routers-kvms-compromised-via-remote-management-service-flaw/</guid>
-      <description>Attackers abused a flaw in the GoodCloud remote management service to push malware to devices, and cleaning them requires new firmware.The postGL.iNet Routers, KVMs Compromised via Remote Management S...</description>
+      <title>European Commission Uncovers Data Breach in Cyberattack Investigation</title>
+      <link>https://www.securityweek.com/european-commission-uncovers-data-breach-in-cyberattack-investigation/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/european-commission-uncovers-data-breach-in-cyberattack-investigation/</guid>
+      <description>Names and email addresses of EU Academy users were exposed in the AI-assisted cyberattack the European Commission detected in October.The postEuropean Commission Uncovers Data Breach in Cyberattack In...</description>
       <category>SecurityWeek</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AI Inference Providers Failed to Detect Hacking and Prompt Theft, Says Dragos</title>
-      <link>https://www.securityweek.com/ai-inference-providers-failed-to-detect-hacking-and-prompt-theft-says-dragos/</link>
-      <guid isPermaLink="true">https://www.securityweek.com/ai-inference-providers-failed-to-detect-hacking-and-prompt-theft-says-dragos/</guid>
-      <description>Dragos uncovered undetected intrusions at three AI inference providers using nearly two million prompts sent to AI services.The postAI Inference Providers Failed to Detect Hacking and Prompt Theft, Sa...</description>
+      <title>Check Point Security Management Servers Hacked in AI-Assisted Campaign</title>
+      <link>https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/check-point-security-management-servers-hacked-in-ai-assisted-campaign/</guid>
+      <description>The attacks were launched from 99 IP addresses and targeted organizations across multiple industries and countries.The postCheck Point Security Management Servers Hacked in AI-Assisted Campaignappeare...</description>
       <category>SecurityWeek</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>BadBox 3.0 Ad Fraud Operation Generating 40 Billion Daily Bid Requests Disrupted</title>
-      <link>https://www.securityweek.com/badbox-3-0-ad-fraud-operation-generating-40-billion-daily-bid-requests-disrupted/</link>
-      <guid isPermaLink="true">https://www.securityweek.com/badbox-3-0-ad-fraud-operation-generating-40-billion-daily-bid-requests-disrupted/</guid>
-      <description>Backdoors on low-cost consumer devices served modules for ad fraud and for turning devices into residential proxies.The postBadBox 3.0 Ad Fraud Operation Generating 40 Billion Daily Bid Requests Disru...</description>
+      <title>Anthropic Expands Enterprise Safeguards for Detecting AI Misuse</title>
+      <link>https://www.securityweek.com/anthropic-expands-enterprise-safeguards-for-detecting-ai-misuse/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/anthropic-expands-enterprise-safeguards-for-detecting-ai-misuse/</guid>
+      <description>EFS helps zero-retention customers spot Claude misuse spread across many requests while keeping conversation data in their own cloud.The postAnthropic Expands Enterprise Safeguards for Detecting AI Mi...</description>
       <category>SecurityWeek</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>SAP NetWeaver, Cisco Expressway Flaws Exploited in Attacks</title>
-      <link>https://www.securityweek.com/sap-netweaver-cisco-expressway-flaws-exploited-in-attacks/</link>
-      <guid isPermaLink="true">https://www.securityweek.com/sap-netweaver-cisco-expressway-flaws-exploited-in-attacks/</guid>
-      <description>Threat actors could exploit them to leak or modify server information and to execute commands as root.The postSAP NetWeaver, Cisco Expressway Flaws Exploited in Attacksappeared first onSecurityWeek.</description>
+      <title>OpenAI, Cisco Unveil Open Source Tool to Shield Unpatched Linux Systems</title>
+      <link>https://www.securityweek.com/openai-cisco-unveil-open-source-tool-to-shield-unpatched-linux-systems/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/openai-cisco-unveil-open-source-tool-to-shield-unpatched-linux-systems/</guid>
+      <description>OpenAI and Cisco’s Shirudo uses AI-generated shields to block Linux exploits while patches are prepared, but it’s not yet production-ready.The postOpenAI, Cisco Unveil Open Source Tool to Shield Unpat...</description>
       <category>SecurityWeek</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>CrowdStrike to Acquire Zscaler in $43.9 Billion Deal</title>
-      <link>https://www.securityweek.com/crowdstrike-to-acquire-zscaler-in-43-9-billion-deal/</link>
-      <guid isPermaLink="true">https://www.securityweek.com/crowdstrike-to-acquire-zscaler-in-43-9-billion-deal/</guid>
-      <description>CrowdStrike expects the combined company to have more than $10 billion in annual recurring revenue.The postCrowdStrike to Acquire Zscaler in $43.9 Billion Dealappeared first onSecurityWeek.</description>
+      <title>1.5 Million Impacted by Data Breach at South Korean Electric Company KEPCO</title>
+      <link>https://www.securityweek.com/1-5-million-impacted-by-data-breach-at-south-korean-electric-company-kepco/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/1-5-million-impacted-by-data-breach-at-south-korean-electric-company-kepco/</guid>
+      <description>Hackers stole personal information from the company’s customer portal and supplier relationship management platform.The post1.5 Million Impacted by Data Breach at South Korean Electric Company KEPCOap...</description>
       <category>SecurityWeek</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Industrial Serial Gateways Broadcast That They're Insecure</title>
-      <link>https://www.darkreading.com/ics-ot-security/industrial-serial-gateways-broadcast-insecure</link>
-      <guid isPermaLink="true">https://www.darkreading.com/ics-ot-security/industrial-serial-gateways-broadcast-insecure</guid>
-      <description>Critical OT access devices will often tell you, and anyone else, whether they're protected by authentication — and many aren't.</description>
+      <title>Elecbrakes Bluetooth Vulnerabilities Expose Trailers to Forced Braking</title>
+      <link>https://www.securityweek.com/elecbrakes-bluetooth-vulnerabilities-expose-trailers-to-forced-braking/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/elecbrakes-bluetooth-vulnerabilities-expose-trailers-to-forced-braking/</guid>
+      <description>Critical Bluetooth flaws in Elecbrakes controllers could let nearby attackers force trailer braking, potentially causing accidents.The postElecbrakes Bluetooth Vulnerabilities Expose Trailers to Force...</description>
+      <category>SecurityWeek</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Peninsula Energy Halts Trading After Cyber Incident Hits US Uranium Mine</title>
+      <link>https://www.securityweek.com/peninsula-energy-halts-trading-after-cyber-incident-hits-us-uranium-mine/</link>
+      <guid isPermaLink="true">https://www.securityweek.com/peninsula-energy-halts-trading-after-cyber-incident-hits-us-uranium-mine/</guid>
+      <description>The company told the ASX that a cybersecurity incident at its Wyoming uranium project would temporarily affect operations.The postPeninsula Energy Halts Trading After Cyber Incident Hits US Uranium Mi...</description>
+      <category>SecurityWeek</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Cyber Insurers See New Divide: AI Defense 'Haves' &amp; 'Have Nots'</title>
+      <link>https://www.darkreading.com/cybersecurity-operations/cyber-insurers-see-new-ai-divide</link>
+      <guid isPermaLink="true">https://www.darkreading.com/cybersecurity-operations/cyber-insurers-see-new-ai-divide</guid>
+      <description>Dark Reading Confidential Episode 23: Cyber insurers share their view of the AI-driven threat landscape and how mounting challenges are putting pressure on both sides of the policy, leaving the curren...</description>
       <category>Dark Reading</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>CrowdStrike Makes AI Security Push With Blockbuster Zscaler Deal</title>
-      <link>https://www.darkreading.com/endpoint-security/crowdstrike-ai-security-push-zscaler-deal</link>
-      <guid isPermaLink="true">https://www.darkreading.com/endpoint-security/crowdstrike-ai-security-push-zscaler-deal</guid>
-      <description>CrowdStrike's $44 billion acquisition of Zscaler would unite endpoint protection and zero-trust network security to obtain greater control over AI agents.</description>
+      <title>Satellites Have a Ground-Level Cybersecurity Problem</title>
+      <link>https://www.darkreading.com/cyber-risk/satellites-ground-level-cybersecurity-problem</link>
+      <guid isPermaLink="true">https://www.darkreading.com/cyber-risk/satellites-ground-level-cybersecurity-problem</guid>
+      <description>Weaknesses in the ground-based infrastructure supporting satellite services are becoming more consequential as a new space race gathers pace.</description>
       <category>Dark Reading</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>US Cyber Director Pick Signals Shift Toward Expertise</title>
-      <link>https://www.darkreading.com/cybersecurity-operations/us-cyber-director-pick-signals-shift-toward-expertise</link>
-      <guid isPermaLink="true">https://www.darkreading.com/cybersecurity-operations/us-cyber-director-pick-signals-shift-toward-expertise</guid>
-      <description>Trump named Kirsten Davies as Acting National Cyber Director, bringing greater industry experience to the role amid recent outages and rising geopolitical tensions.</description>
+      <title>Webworm APT Slithers Into Networks With Customized SoftEther VPN</title>
+      <link>https://www.darkreading.com/perimeter/webworm-slithers-customized-softether-vpn</link>
+      <guid isPermaLink="true">https://www.darkreading.com/perimeter/webworm-slithers-customized-softether-vpn</guid>
+      <description>The China-aligned espionage group rebuilt the open source VPN software from source, stripping out the artifacts that would normally expose it to defenders.</description>
       <category>Dark Reading</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Behind the Alias: How One Researcher Unmasked a Decade of Ransomware Actors</title>
-      <link>https://www.darkreading.com/cybersecurity-operations/alias-researcher-unmasked-ransomware-actors</link>
-      <guid isPermaLink="true">https://www.darkreading.com/cybersecurity-operations/alias-researcher-unmasked-ransomware-actors</guid>
-      <description>Ransomware isn't slowing down. A new framework gives security teams the edge to trace attackers back to their source.</description>
+      <title>'God Mode' Flaws Could Wreak Border-Control Havoc</title>
+      <link>https://www.darkreading.com/vulnerabilities-threats/god-mode-flaws-wreak-border-control-havoc</link>
+      <guid isPermaLink="true">https://www.darkreading.com/vulnerabilities-threats/god-mode-flaws-wreak-border-control-havoc</guid>
+      <description>Attackers could have disrupted traveler entry into Nigeria, Ethiopia, Zambia, Sri Lanka, Fiji, and Ghana via several vulnerabilities in their online visa and immigration systems.</description>
       <category>Dark Reading</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>AI Agents Zip From Flaw Discovery to Root Access in 11 Minutes</title>
-      <link>https://www.darkreading.com/cyberattacks-data-breaches/ai-agents-flaw-discovery-root-access-11-minutes</link>
-      <guid isPermaLink="true">https://www.darkreading.com/cyberattacks-data-breaches/ai-agents-flaw-discovery-root-access-11-minutes</guid>
-      <description>A China-nexus actor used the Cairn penetration testing tool in attacks against East Asian universities, exploiting a zero-day in a medical imaging app.</description>
-      <category>Dark Reading</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>[Limited-Time Offer] From Concept to Draft: Making Long-Form Writing More Organized with Miaobi</title>
-      <link>https://sspai.com/post/119035</link>
-      <guid isPermaLink="true">https://sspai.com/post/119035</guid>
-      <description>To write a short article, we might only need an editor that works right out of the box, such as Apple's most commonly used system Notes app or the well-known desktop application Microsoft Word. But as the length of the article gradually increases, some originally inconspicuous things also...</description>
-      <category>Unsafe.sh</category>
       <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>OpenAI and Cisco Launch AI-Assisted Linux Security Tool to Block Exploits Before Patching</title>
-      <link>http://0.0.0.0:8080/post/64946</link>
-      <guid isPermaLink="true">http://0.0.0.0:8080/post/64946</guid>
-      <description>OpenAI and Cisco launch an AI-assisted Linux security tool capable of blocking exploits before patches are applied.</description>
+      <title>Abolish Lock Poisoning</title>
+      <link>https://lucumr.pocoo.org/2026/11/25/poisoning/</link>
+      <guid isPermaLink="true">https://lucumr.pocoo.org/2026/11/25/poisoning/</guid>
+      <description>written on November 25, 2026    Rust has a curious feature that I don’t think the...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Hackers Exploit N-able MailAssure Vulnerability; AI Agent Exploits MONAI Label Zero-Day</title>
-      <link>http://0.0.0.0:8080/post/64945</link>
-      <guid isPermaLink="true">http://0.0.0.0:8080/post/64945</guid>
-      <description>Hackers exploit N-able MailAssure vulnerability; AI agent exploits MONAI Label zero-day.</description>
+      <title>App+1 | Yab: An Open-Source, AI-Friendly Dual-Kernel Browser for Those Who Can't Let Go of Arc</title>
+      <link>https://sspai.com/post/119310</link>
+      <guid isPermaLink="true">https://sspai.com/post/119310</guid>
+      <description>I've always liked exquisite and beautiful products, such as the iPhone Air and Mac mini. But liking them doesn't mean I can bring myself to buy them. Relying solely on aesthetic appeal doesn't work for tool-oriented products. A few years ago, when I first used Arc...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Google Applies for Patent to Tailor AI TV Channels for Users</title>
-      <link>https://www.solidot.org/story?sid=85973</link>
-      <guid isPermaLink="true">https://www.solidot.org/story?sid=85973</guid>
-      <description>Google submitted a patent application to create an AI-generated TV channel using information it holds about you. The channel will be filled with programs tailored for you: starring you personally, interspersed with personalized ads. This patent is A...</description>
+      <title>Streaming Music Platform Tidal to Delete 27 Million AI-Generated Tracks; Will Ban All Purely AI-Generated Songs Next</title>
+      <link>https://www.landian.news/archives/128867.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/128867.html</guid>
+      <description>November 25, 2026 14:30 Software News 00.49K...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Hackers Steal $70,000 Worth of Gift Cards, GlobeTopper Loses $2.5 Million</title>
-      <link>http://0.0.0.0:8080/post/64944</link>
-      <guid isPermaLink="true">http://0.0.0.0:8080/post/64944</guid>
-      <description>Hackers steal $70,000 worth of gift cards, GlobeTopper loses $2.5 million.</description>
+      <title>23 VMware Vulnerabilities Disclosed as Broadcom Flags Critical vCenter and ESX Flaws</title>
+      <link>https://thecyberexpress.com/cve-2026-123903-esx-cve-2026-123910/</link>
+      <guid isPermaLink="true">https://thecyberexpress.com/cve-2026-123903-esx-cve-2026-123910/</guid>
+      <description>Broadcom published VMSA-2026-0011 on November 24, 2026, a Critical-rated advisory covering...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Spain's LaLiga Confirms Hackers Stole Fans' Personal Data</title>
-      <link>http://0.0.0.0:8080/post/64943</link>
-      <guid isPermaLink="true">http://0.0.0.0:8080/post/64943</guid>
-      <description>Spain's LaLiga confirms hackers stole fans' personal data.</description>
+      <title>[Security Alert] Minecraft Java Edition Releases Emergency Update to Fix Remote Code Execution Vulnerability; Players Must Close Game and Restart</title>
+      <link>https://www.landian.news/archives/128866.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/128866.html</guid>
+      <description>November 25, 2026 14:00 Gaming News 00.85K...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>South Korean Power Giant KEPCO Confirms Data Breach Affects 1.5 Million People</title>
-      <link>http://0.0.0.0:8080/post/64942</link>
-      <guid isPermaLink="true">http://0.0.0.0:8080/post/64942</guid>
-      <description>South Korean power giant KEPCO confirms data breach affects 1.5 million people</description>
+      <title>Microsoft Announces Cessation of Windows 11 Bluetooth MTP Feature Development; May Remove in Future, Recommends USB Connection</title>
+      <link>https://www.landian.news/archives/128864.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/128864.html</guid>
+      <description>Microsoft announces cessation of Windows 11 Bluetooth MTP feature development; may remove in future, recommends USB connection</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Hackers May Have Breached FBI Database Used by Police Nationwide</title>
-      <link>https://securityaffairs.com/203865/cyber-crime/hackers-may-have-breached-fbi-database-used-by-police-nationwide.html</link>
-      <guid isPermaLink="true">https://securityaffairs.com/203865/cyber-crime/hackers-may-have-breached-fbi-database-used-by-police-nationwide.html</guid>
-      <description>Hackers May Have Breached FBI Database Used by Police Nationwide...</description>
+      <title>Microsoft Confirms Continued Optimization of Windows 11 New Search Box; Future Adaptation for Side/Vertical Taskbar</title>
+      <link>https://www.landian.news/archives/128863.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/128863.html</guid>
+      <description>Microsoft confirms continued optimization of Windows 11 new search box; future adaptation for side/vertical taskbar</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>OpenRouter Removes AI Suppliers Due to Prompt and Secret Leaks</title>
-      <link>http://0.0.0.0:8080/post/64941</link>
-      <guid isPermaLink="true">http://0.0.0.0:8080/post/64941</guid>
-      <description>OpenRouter removes AI suppliers due to prompt and secret leaks</description>
+      <title>Turnitin Discloses Cyber Attacks Affecting Customer-Facing Systems</title>
+      <link>http://0.0.0.0:8080/post/64950</link>
+      <guid isPermaLink="true">http://0.0.0.0:8080/post/64950</guid>
+      <description>Turnitin discloses cyber attacks affecting customer-facing systems</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>45,000 EU Companies Sign Joint Letter Demanding EU Investigation into Apple's Browser Engine Restrictions on iOS</title>
-      <link>https://www.landian.news/archives/128803.html</link>
-      <guid isPermaLink="true">https://www.landian.news/archives/128803.html</guid>
-      <description>2026-11-24 15:00 Tech News, Industry News 00.30K...</description>
+      <title>One Woman and South Korea's Most Secretive Intelligence Agency: What Kind of National Intelligence Service Does Lee Jae-myung Want to Build?</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&amp;amp;mid=2650570239&amp;amp;idx=1&amp;amp;sn=72e53b63660b5673d978fc09aa68752d</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzA3Mjc1MTkwOA==&amp;amp;mid=2650570239&amp;amp;idx=1&amp;amp;sn=72e53b63660b5673d978fc09aa68752d</guid>
+      <description>Environment Abnormal Current environment abnormal. Please complete verification to continue access. Go to verify...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>New Browser Ladybird Releases First Alpha Version</title>
-      <link>https://www.solidot.org/story?sid=85972</link>
-      <guid isPermaLink="true">https://www.solidot.org/story?sid=85972</guid>
-      <description>Andreas Kling, founder of the SerenityOS project, has led a team since 2025 to develop a brand new browser called Ladybird. Andreas Kling worked on W... while at Nokia and Apple.</description>
+      <title>Shameless! Dell/HPE/Supermicro and Other Server Vendors Demand Price Hikes Months After Contract Signing, Increases Up to 45%</title>
+      <link>https://www.landian.news/archives/128862.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/128862.html</guid>
+      <description>November 25, 2026 12:30 Tech News, Industry News 00.20K...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Preparing for the Future: Intel Driver Download Center Switches to SHA-512 Checksums, No Longer Displays SHA-256</title>
-      <link>https://www.landian.news/archives/128802.html</link>
-      <guid isPermaLink="true">https://www.landian.news/archives/128802.html</guid>
-      <description>2026-11-24 14:30 Tech News, Web Applications 00.58K...</description>
+      <title>thingsboard v4.4.1</title>
+      <link>https://kitploit.com/en/posts/thingsboard-c3172858a3794b4e</link>
+      <guid isPermaLink="true">https://kitploit.com/en/posts/thingsboard-c3172858a3794b4e</guid>
+      <description>thingsboard v4.4.1</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>RBI Guidelines On Cyber Resilience 2026: A Security Roadmap For Non-Bank Payment Operators</title>
-      <link>https://securityboulevard.com/2026/11/rbi-guidelines-on-cyber-resilience-2026-a-security-roadmap-for-non-bank-payment-operators/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/rbi-guidelines-on-cyber-resilience-2026-a-security-roadmap-for-non-bank-payment-operators/</guid>
-      <description>RBI Guidelines On Cyber Resilience 2026: A Security Roadmap For Non-Bank Payment Operators</description>
+      <title>Container Boundaries, Network Topology, and Host Privileges</title>
+      <link>https://lucifer11.xyz/knowledge/containers/</link>
+      <guid isPermaLink="true">https://lucifer11.xyz/knowledge/containers/</guid>
+      <description>Root in containers, host file systems, Docker sockets, and Kubernetes APIs represent different control planes. This chapter retains the original topology, mounts, capabilities, and process identities, reading according to actual evidence of each cross-boundary event...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>[Download] Finally Here! Open Source Browser Ladybird Begins Testing with Independently Developed Browser Engine</title>
-      <link>https://www.landian.news/archives/128801.html</link>
-      <guid isPermaLink="true">https://www.landian.news/archives/128801.html</guid>
-      <description>2026-11-24 14:00 Software News 00.99K...</description>
+      <title>Billing and Automation Management System WHMCS Releases Security Update; Attackers Can Steal Customer Data Without Login</title>
+      <link>https://www.landian.news/archives/128815.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/128815.html</guid>
+      <description>November 25, 2026 12:00 Software News 00.60K...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Next-Gen Windows 11 Search: Fast, Lag-Free, Low Memory Usage, Highly Praised by Users</title>
-      <link>https://www.appinn.com/windows-11-new-native-search/</link>
-      <guid isPermaLink="true">https://www.appinn.com/windows-11-new-native-search/</guid>
-      <description>Next-Gen Windows 11 Search: Fast, Lag-Free, Low Memory Usage, Highly Praised by Users</description>
+      <title>ESC13 Group Mapping and Multi-Stage Domain Privileges</title>
+      <link>https://lucifer11.xyz/knowledge/adcs-advanced/</link>
+      <guid isPermaLink="true">https://lucifer11.xyz/knowledge/adcs-advanced/</guid>
+      <description>The original long chain goes from Pluck, authentication requests, and Shadow Credentials to gMSA, then uses certificate policy group mapping twice. Each intermediate identity, permission rollback, certificate, and session evidence are retained in original order. View analysis process, attack steps, and complete code...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Jensen Huang Returns as NVIDIA CEO; National Security Investigation Ongoing; Google Observes First Fully Autonomous AI Cyberattack, Security Offense/Defense Crosses Key Capability Threshold | Niu Lan</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143375&amp;amp;idx=2&amp;amp;sn=062629dd9602f71a0f669867f876b82d</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143375&amp;amp;idx=2&amp;amp;sn=062629dd9602f71a0f669867f876b82d</guid>
+      <title>ADCS Templates, Certificate Mapping, and CA Privileges</title>
+      <link>https://lucifer11.xyz/knowledge/adcs/</link>
+      <guid isPermaLink="true">https://lucifer11.xyz/knowledge/adcs/</guid>
+      <description>Certificate exploitation requires checking registrants, template fields, issuance conditions, and identity mapping at the authentication end simultaneously. This chapter compares Coder, Authority, Escape, and Manager, retaining certipy, Certify, Ru...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Clients, Updaters, and Document Parsing</title>
+      <link>https://lucifer11.xyz/knowledge/client/</link>
+      <guid isPermaLink="true">https://lucifer11.xyz/knowledge/client/</guid>
+      <description>APKs, desktop updaters, image processing, and IoT management interfaces may all introduce external data into high-privilege logic. This chapter starts from original client requests and file formats, retaining static analysis, dynamic packet capture, signature judgment, and actual execution identity. Knowledge base directory research...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>AWS Simulation Environment, Request Smuggling, and Key Services</title>
+      <link>https://lucifer11.xyz/knowledge/cloud/</link>
+      <guid isPermaLink="true">https://lucifer11.xyz/knowledge/cloud/</guid>
+      <description>This chapter retains the service relationships of S3, DynamoDB, LocalStack, Secrets Manager, and KMS in the original range. Permissions, data structures, and application consumption logic explain how each segment of the chain connects better than individual API names. Check...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Drupal Entry Point and Local Privilege Linkage</title>
+      <link>https://lucifer11.xyz/knowledge/cms-drupal/</link>
+      <guid isPermaLink="true">https://lucifer11.xyz/knowledge/cms-drupal/</guid>
+      <description>1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>CMS Management Functions and Historical Execution Chains</title>
+      <link>https://lucifer11.xyz/knowledge/cms-misc/</link>
+      <guid isPermaLink="true">https://lucifer11.xyz/knowledge/cms-misc/</guid>
+      <description>Uploads, templates, command configurations, and credential resets in admin backends may connect to system execution. This chapter retains the original environments and complete branches of multiple CMSs, comparing backend identities, versions, writable paths, and subsequent local privileges. Knowledge base directory research guide download M...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>WordPress Plugin and Management Privileges</title>
+      <link>https://lucifer11.xyz/knowledge/cms-wordpress/</link>
+      <guid isPermaLink="true">https://lucifer11.xyz/knowledge/cms-wordpress/</guid>
+      <description>We’re given the domain phoenix.htb so we add it to /etc/hosts. We can register and login to an accou...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI Security Incident Case: How Did Nearly 2 Million Prompts Get Stolen by Third Parties?</title>
+      <link>https://securityboulevard.com/2026/11/ai-security-incident-case-how-did-nearly-2-million-prompts-get-stolen-by-third-parties/</link>
+      <guid isPermaLink="true">https://securityboulevard.com/2026/11/ai-security-incident-case-how-did-nearly-2-million-prompts-get-stolen-by-third-parties/</guid>
+      <description>AI Security Incident Case: How Did Nearly 2 Million Prompts Get Stolen by Third Parties?</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>New Developments in Case of Former Saudi OpenAI Engineer Spying: Prosecutors Discover More Meeting Recordings</title>
+      <link>https://www.landian.news/archives/128814.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/128814.html</guid>
+      <description>November 25, 2026 11:30 Tech News, Industry News 00.66K...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Radware Discloses Breach Exposing Customer Cloud Access Keys</title>
+      <link>http://0.0.0.0:8080/post/64949</link>
+      <guid isPermaLink="true">http://0.0.0.0:8080/post/64949</guid>
+      <description>Radware Discloses Breach Exposing Customer Cloud Access Keys</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>New Ransomware Group Inception Launches Large-Scale Vishing Campaign</title>
+      <link>http://0.0.0.0:8080/post/64948</link>
+      <guid isPermaLink="true">http://0.0.0.0:8080/post/64948</guid>
+      <description>New Ransomware Group Inception Launches Large-Scale Vishing Campaign</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>CNCERT Reports New Variant of Cling Botnet; CrowdStrike Announces $43.9 Billion All-Stock Acquisition of Zscaler, Setting Largest M&amp;A Record in Cybersecurity | Niu Lan</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143387&amp;amp;idx=2&amp;amp;sn=75af8d9be16537d53d22379b203e539a</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143387&amp;amp;idx=2&amp;amp;sn=75af8d9be16537d53d22379b203e539a</guid>
       <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Reshaping Digital Identity Trust Boundaries - Release of Report on 'Agent Identity Governance and Digital Trust System Construction'</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143375&amp;amp;idx=1&amp;amp;sn=f8579cff96a1358946399cd8351e6740</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143375&amp;amp;idx=1&amp;amp;sn=f8579cff96a1358946399cd8351e6740</guid>
+      <title>Microsoft's Official Agent Framework Poisoned for 31 Minutes: Stealing Keys is Outdated, Attackers Start 'Creating' Keys</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143387&amp;amp;idx=1&amp;amp;sn=bca8222f27fbbe159f9d28089fe80429</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MjM5Njc3NjM4MA==&amp;amp;mid=2651143387&amp;amp;idx=1&amp;amp;sn=bca8222f27fbbe159f9d28089fe80429</guid>
       <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Google Anti-Gravity Resets Quota and Brings Numerous Changes; Reset Card Feature to Be Developed Later to Allow Users to Save Resets</title>
-      <link>https://www.landian.news/archives/128800.html</link>
-      <guid isPermaLink="true">https://www.landian.news/archives/128800.html</guid>
-      <description>2026-11-24 13:30 Artificial Intelligence, Tech News 01.10K...</description>
+      <title>Rackspace Shuts Down Spot Cloud Platform Following Security Breach</title>
+      <link>http://0.0.0.0:8080/post/64947</link>
+      <guid isPermaLink="true">http://0.0.0.0:8080/post/64947</guid>
+      <description>Rackspace Shuts Down Spot Cloud Platform Following Security Breach</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Exploiting Unauthorized Tool Invocation in the MegaCorp Office Assistant (Part 4)</title>
-      <link>https://unsafe.sh/go-456982.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-456982.html</guid>
-      <description>Exploiting Unauthorized Tool Invocation in the MegaCorp Office Assistant (Part 4)</description>
+      <title>Nostalgic Notes | Palm Pre: A Phone Hiding a 'Epoch-Making' System</title>
+      <link>https://sspai.com/post/118791</link>
+      <guid isPermaLink="true">https://sspai.com/post/118791</guid>
+      <description>Matrix Featured          November 16, 2026        17 min read Matrix Home Recommendation Matrix is a writing community of少数派 (Minority). We advocate sharing authentic product experiences, practical...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Review of the CompTIA SecAI+ Exam</title>
-      <link>https://unsafe.sh/go-456983.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-456983.html</guid>
-      <description>Review of the CompTIA SecAI+ Exam</description>
+      <title>Broadcom Discloses Fixed Security Vulnerability in VMware Workstation VMs: VMs Can Gain Unauthorized Control Over Host</title>
+      <link>https://www.landian.news/archives/128813.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/128813.html</guid>
+      <description>November 25, 2026 11:00 Software News 00.96K...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>The Devil Went Down to Georgia: How I Made $60k Hacking the DHS</title>
-      <link>https://unsafe.sh/go-456972.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-456972.html</guid>
-      <description>The Devil Went Down to Georgia: How I Made $60k Hacking the DHS</description>
+      <title>DeepSeek Suddenly Stopped Chatting After Months? Move Old Conversations Away with One Trick to Continue</title>
+      <link>https://www.landian.news/archives/128865.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/128865.html</guid>
+      <description>November 25, 2026 10:56 Artificial Intelligence, Tech News 10.92K...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>The Devil Went Down to Georgia: How I Made $60k Hacking the DHS</title>
-      <link>https://unsafe.sh/go-456984.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-456984.html</guid>
-      <description>The Devil Went Down to Georgia: How I Made $60k Hacking the DHS</description>
+      <title>Kagi Mail Email Service Opens Public Beta: No Ads/Unlimited Aliases/Unlimited Custom Domains for $99/year</title>
+      <link>https://www.landian.news/archives/128812.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/128812.html</guid>
+      <description>November 25, 2026 10:30 Software News 00.94K...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Intel Inside: How a Cracked JWT Key led to Full Account Takeover on Intel and CBSE’s AI Platform</title>
-      <link>https://unsafe.sh/go-456973.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-456973.html</guid>
-      <description>Intel Inside: How a Cracked JWT Key led to Full Account Takeover on Intel and CBSE’s AI Platform</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Intel Inside: How a Cracked JWT Key led to Full Account Takeover on Intel and CBSE’s AI Platform</title>
-      <link>https://unsafe.sh/go-456985.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-456985.html</guid>
-      <description>Intel Inside: How a Cracked JWT Key led to Full Account Takeover on Intel and CBSE’s AI Platform</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Trump Pressures NVIDIA Board Members to Facilitate Jensen Huang's Return; NVIDIA Executives Were Not Notified by the Board in Advance</title>
-      <link>https://www.landian.news/archives/128799.html</link>
-      <guid isPermaLink="true">https://www.landian.news/archives/128799.html</guid>
-      <description>2026-11-24 13:00 Tech News, Industry News 01.33K...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>The Long-Term Technological Commitment of a Century-Old Beauty Company</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;amp;mid=2653117288&amp;amp;idx=1&amp;amp;sn=37047a46ea286c801ab8f1c4290c4239</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;amp;mid=2653117288&amp;amp;idx=1&amp;amp;sn=37047a46ea286c801ab8f1c4290c4239</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>German Virtual Hosting Provider netbeat Hacked; Some Customer Login Credentials Leaked, Affecting Website Data Security</title>
-      <link>https://www.landian.news/archives/128798.html</link>
-      <guid isPermaLink="true">https://www.landian.news/archives/128798.html</guid>
-      <description>2026-11-24 12:30 Security News, Tech News 00.38K...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>LittleSpec: A Pocket-Sized Battery-Powered RTL-SDR Blog V4L Receiver That Connects to iOS and Android over Bluetooth</title>
-      <link>https://www.rtl-sdr.com/littlespec-a-pocket-sized-battery-powered-rtl-sdr-blog-v4l-receiver-that-connects-to-ios-and-android-over-bluetooth/</link>
-      <guid isPermaLink="true">https://www.rtl-sdr.com/littlespec-a-pocket-sized-battery-powered-rtl-sdr-blog-v4l-receiver-that-connects-to-ios-and-android-over-bluetooth/</guid>
-      <description>November 24, 2026Thank...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>metasploit-framework — Updated!</title>
-      <link>https://kitploit.com/en/posts/metasploit-framework-ca6da7d1f167acb7</link>
-      <guid isPermaLink="true">https://kitploit.com/en/posts/metasploit-framework-ca6da7d1f167acb7</guid>
-      <description>The Metasploit Framework is an open-source tool released under a BSD-style license. For detailed li...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>[Activation] How to Activate Windows Server 2028 Public Beta? Microsoft Provides Evaluation-Specific KEY</title>
-      <link>https://www.landian.news/archives/128797.html</link>
-      <guid isPermaLink="true">https://www.landian.news/archives/128797.html</guid>
-      <description>2026-11-24 12:00 Technical Tutorials 00.65K...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Mayhem Mobile Update: Trunked Voice, HD Radio, UAT Weather, Radiosondes and Now on Google Play</title>
-      <link>https://www.rtl-sdr.com/mayhem-mobile-update-trunked-voice-hd-radio-uat-weather-radiosondes-and-now-on-google-play/</link>
-      <guid isPermaLink="true">https://www.rtl-sdr.com/mayhem-mobile-update-trunked-voice-hd-radio-uat-weather-radiosondes-and-now-on-google-play/</guid>
-      <description>November 24, 2026Back i...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>[Tips] How to Enable the New Search Box After Installing Windows 11 November Optional Update (It's Really Good)</title>
-      <link>https://www.landian.news/archives/128796.html</link>
-      <guid isPermaLink="true">https://www.landian.news/archives/128796.html</guid>
-      <description>2026-11-24 11:30 Technical Tutorials 01.17K...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>OFFgrid-SDR Update: Single HTML File SDR Receiver Adds SDRplay RSP Support, DAB+, DRM and an 8-Channel Signal Monitor</title>
-      <link>https://www.rtl-sdr.com/offgrid-sdr-update-single-html-file-sdr-receiver-adds-sdrplay-rsp-support-dab-drm-and-an-8-channel-signal-monitor/</link>
-      <guid isPermaLink="true">https://www.rtl-sdr.com/offgrid-sdr-update-single-html-file-sdr-receiver-adds-sdrplay-rsp-support-dab-drm-and-an-8-channel-signal-monitor/</guid>
-      <description>November 24, 2026Back i...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Critical Vulnerability Upload2Shell Exposed: Uploading Images Can Compromise Servers | CVE-2026-125396, CVSS 8.5</title>
-      <link>https://www.appinn.com/upload2shell-cve-2026-125396/</link>
-      <guid isPermaLink="true">https://www.appinn.com/upload2shell-cve-2026-125396/</guid>
-      <description>Critical Vulnerability Upload2Shell Exposed: Uploading Images Can Compromise Servers | CVE-2026-125396, CVSS 8.5</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Your Next Big Customer Could Expose Your Biggest Security Gap</title>
-      <link>https://securityboulevard.com/2026/11/your-next-big-customer-could-expose-your-biggest-security-gap/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/your-next-big-customer-could-expose-your-biggest-security-gap/</guid>
-      <description>Your Next Big Customer Could Expose Your Biggest Security Gap</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>After the Turmoil: A Casual Stroll Through Paris</title>
-      <link>https://unsafe.sh/go-456994.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-456994.html</guid>
-      <description>After the Turmoil: A Casual Stroll Through Paris</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Why Do Android 3D Emojis Require 6GB RAM and 10GB Storage? Google Employee Says It's Just Download Buffering</title>
-      <link>https://www.landian.news/archives/128727.html</link>
-      <guid isPermaLink="true">https://www.landian.news/archives/128727.html</guid>
-      <description>Why Do Android 3D Emojis Require 6GB RAM and 10GB Storage? Google Employee Says It's Just Download Buffering</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Scanning from Subnet 109.160.32.0/24, (Mon, Nov 23rd)</title>
-      <link>https://isc.sans.edu/diary/rss/33550</link>
-      <guid isPermaLink="true">https://isc.sans.edu/diary/rss/33550</guid>
+      <title>ISC Stormcast For Wednesday, November 25th, 2026 https://isc.sans.edu/podcastdetail/10194, (Wed, Nov 25th)</title>
+      <link>https://isc.sans.edu/diary/rss/33554</link>
+      <guid isPermaLink="true">https://isc.sans.edu/diary/rss/33554</guid>
       <description>Sorry. Your behavior (or someone else's from the same IP address) raised an alert and you are t...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>TikTok Launches Portrait Detection Feature Globally; Users Can Find and Report AI Impersonation Content</title>
-      <link>https://www.landian.news/archives/128726.html</link>
-      <guid isPermaLink="true">https://www.landian.news/archives/128726.html</guid>
-      <description>2026-11-24 10:30 Artificial Intelligence, Tech News 00.19K...</description>
+      <title>Some Older ChatGPT Team Subscriptions Increased to 5-Hour Limit; Codex Usage No Longer Limited by Weekly Caps</title>
+      <link>https://www.landian.news/archives/128811.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/128811.html</guid>
+      <description>November 25, 2026 10:00 Artificial Intelligence, Tech News 00.23K...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Checking Typos in Articles Using gptel-annotate</title>
+      <link>https://taxodium.ink/use-gptel-annotate-to-proofread-the-article-for-typos.html</link>
+      <guid isPermaLink="true">https://taxodium.ink/use-gptel-annotate-to-proofread-the-article-for-typos.html</guid>
+      <description>When writing articles, typos are inevitable. Some typos are trivial, such as when I use Cangjie Input Method, I tend to type Traditional Chinese characters, but since I don't know some Traditional characters, I use Simplified ones, resulting in a mix of Simplified and Traditional in the article. For those accustomed to reading Traditional Chinese, some Simplified characters...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Mini0com CalypsoX Lite: A Custom Motorola C139 Firmware Adding GSM Tools and IMSI Catcher Detection</title>
+      <link>https://www.rtl-sdr.com/mini0com-calypsox-lite-a-custom-motorola-c139-firmware-adding-gsm-tools-and-imsi-catcher-detection/</link>
+      <guid isPermaLink="true">https://www.rtl-sdr.com/mini0com-calypsox-lite-a-custom-motorola-c139-firmware-adding-gsm-tools-and-imsi-catcher-detection/</guid>
+      <description>November 25, 2026Thank...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>[Open Source Tool] RTX Lens: Monitors GPU Power Pin Current, Auto-Shutdown on Anomalies to Prevent GPU Burnout</title>
+      <link>https://www.landian.news/archives/128810.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/128810.html</guid>
+      <description>November 25, 2026 09:30 Software News 00.53K...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>github-ipi-in-the-wild</title>
+      <link>https://kitploit.com/en/tools/github/rdwr-gabin/github-ipi-in-the-wild</link>
+      <guid isPermaLink="true">https://kitploit.com/en/tools/github/rdwr-gabin/github-ipi-in-the-wild</guid>
+      <description>Kitploit is a directory of hacking, cybersecurity, and pentesting tools. Discover the latest project...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>The IPFire Project Has Released a New Tool That Could Come in Very Handy for Network Admins</title>
+      <link>https://securityboulevard.com/2026/11/the-ipfire-project-has-released-a-new-tool-that-could-come-in-very-handy-for-network-admins/</link>
+      <guid isPermaLink="true">https://securityboulevard.com/2026/11/the-ipfire-project-has-released-a-new-tool-that-could-come-in-very-handy-for-network-admins/</guid>
+      <description>The IPFire Project Has Released a New Tool That Could Come in Very Handy for Network Admins</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Doubao Personal AI Assistant 'Xiao Dou' Opens Public Beta; Storage Pressure Causes Xiaomi's Q3 Adjusted Net Profit to Drop Nearly 60%; Hongguo Short Dramas Launch Time Management Feature | Geek Early Morning</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;amp;mid=2653117339&amp;amp;idx=1&amp;amp;sn=3a331036558dc4991a4e06b0eb4879cf</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;amp;mid=2653117339&amp;amp;idx=1&amp;amp;sn=3a331036558dc4991a4e06b0eb4879cf</guid>
+      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>AI Breaks Through Security Vendors' Defenses: The Culprit is an Unrecalled Key</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&amp;amp;mid=2649790865&amp;amp;idx=1&amp;amp;sn=7400bf43f2e7add2e80cdfee2a7bcaca</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&amp;amp;mid=2649790865&amp;amp;idx=1&amp;amp;sn=7400bf43f2e7add2e80cdfee2a7bcaca</guid>
+      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Black Friday Change Freeze: When a Security Risk Justifies an Exception</title>
+      <link>https://horizon3.ai/intelligence/blogs/black-friday-change-freeze-security-exception/</link>
+      <guid isPermaLink="true">https://horizon3.ai/intelligence/blogs/black-friday-change-freeze-security-exception/</guid>
+      <description>A holiday change freeze is a risk decision, but most exception requests never get framed that way....</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Due to Rising Memory Costs and Supply Shortages, ASUS Considers Reducing RAM from 16GB to 8GB in Mid-to-Low End Devices</title>
+      <link>https://www.landian.news/archives/128809.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/128809.html</guid>
+      <description>November 25, 2026 09:00 Hardware Devices, Tech News 00.74K...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>What Does the First Defense System Certified by Artex Look Like?</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzI5NjA0NjI5MQ==&amp;amp;mid=2650188758&amp;amp;idx=1&amp;amp;sn=84d8db38aaf0ad5fc36daed6ff07e8be</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzI5NjA0NjI5MQ==&amp;amp;mid=2650188758&amp;amp;idx=1&amp;amp;sn=84d8db38aaf0ad5fc36daed6ff07e8be</guid>
+      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Google Chrome Releases Emergency Security Update to Fix Sandbox Escape Vulnerability: Arbitrary Code Execution Possible via Malicious Websites</title>
+      <link>https://www.landian.news/archives/128808.html</link>
+      <guid isPermaLink="true">https://www.landian.news/archives/128808.html</guid>
+      <description>November 25, 2026 08:30 Software News 00.97K...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Pai Early Report: Huawei Releases Mate X8 and MateBook Fold S; Microsoft to Launch Self-Developed Drivers, etc.</title>
+      <link>https://sspai.com/post/119527</link>
+      <guid isPermaLink="true">https://sspai.com/post/119527</guid>
+      <description>Huawei Releases Mate X8 and MateBook Fold S On November 24, Huawei released the Mate X8 and MateBook Fold S. The Mate X8 comes in Standard and Collector's Editions, offering colors like Purple Gold Brocade, Cyan Cloud Brocade, Dan...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>afrog v3.5.12</title>
+      <link>https://kitploit.com/en/posts/afrog-e0294a82447c1d59</link>
+      <guid isPermaLink="true">https://kitploit.com/en/posts/afrog-e0294a82447c1d59</guid>
+      <description>A Security Tool for Bug Bounty, Pentest and Red Teaming  English •  中文          Wha...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>Analysis of Silver Fox Sample Disguised as MuMu</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzIzMTc1MjExOQ==&amp;amp;mid=2247514567&amp;amp;idx=1&amp;amp;sn=5e9835aa43e68e3c18f1fe2beb31e43f</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzIzMTc1MjExOQ==&amp;amp;mid=2247514567&amp;amp;idx=1&amp;amp;sn=5e9835aa43e68e3c18f1fe2beb31e43f</guid>
+      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>From Alxa to Laos: Deconstructing Venustech Switch Networking Practices in Two Major Airports</title>
+      <link>https://mp.weixin.qq.com/s?__biz=MzAwNTgyODU3NQ==&amp;amp;mid=2651145264&amp;amp;idx=1&amp;amp;sn=877b98dd8f6fa4ae78d076640f910b0f</link>
+      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzAwNTgyODU3NQ==&amp;amp;mid=2651145264&amp;amp;idx=1&amp;amp;sn=877b98dd8f6fa4ae78d076640f910b0f</guid>
+      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <category>Unsafe.sh</category>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 +0800</pubDate>
+    </item>
+    <item>
+      <title>VMware patches critical vCenter authentication bypass and ESX flaws</title>
+      <link>https://securityaffairs.com/203931/security/vmware-patches-critical-vcenter-authentication-bypass-and-esx-flaws.html</link>
+      <guid isPermaLink="true">https://securityaffairs.com/203931/security/vmware-patches-critical-vcenter-authentication-bypass-and-esx-flaws.html</guid>
+      <description>VMware patches critical vCenter authentication bypass and ESX flaws...</description>
       <category>Unsafe.sh</category>
       <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>ISC Stormcast For Tuesday, November 24th, 2026 https://isc.sans.edu/podcastdetail/10192, (Tue, Nov 24th)</title>
-      <link>https://isc.sans.edu/diary/rss/33552</link>
-      <guid isPermaLink="true">https://isc.sans.edu/diary/rss/33552</guid>
-      <description>Sorry. Your behavior (or someone else's from the same IP address) raised an alert and you are t...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Oregon and Virginia Accuse Grok AI of Intentionally Allowing Users to Generate Pornographic Images to Attract Users</title>
-      <link>https://www.landian.news/archives/128725.html</link>
-      <guid isPermaLink="true">https://www.landian.news/archives/128725.html</guid>
-      <description>2026-11-24 10:00 Artificial Intelligence, Tech News 00.65K...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>GL.iNet Routers and KVM Devices Attacked; Official Emergency Security Firmware Released to Patch Vulnerabilities</title>
-      <link>https://www.landian.news/archives/128724.html</link>
-      <guid isPermaLink="true">https://www.landian.news/archives/128724.html</guid>
-      <description>2026-11-24 09:30 Security News, Tech News 00.98K...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>flyswatter</title>
-      <link>https://kitploit.com/en/tools/gitlab/acidvegas/flyswatter</link>
-      <guid isPermaLink="true">https://kitploit.com/en/tools/gitlab/acidvegas/flyswatter</guid>
+      <title>cybedefend</title>
+      <link>https://kitploit.com/en/tools/github/cybedefend/cybedefend</link>
+      <guid isPermaLink="true">https://kitploit.com/en/tools/github/cybedefend/cybedefend</guid>
       <description>Kitploit is a directory of hacking, cybersecurity, and pentesting tools. Discover the latest project...</description>
       <category>Unsafe.sh</category>
       <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Germany Raises Cyber Threat Level to Maximum, Citing Four Characters: Agent AI</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&amp;amp;mid=2649790864&amp;amp;idx=1&amp;amp;sn=b2cc0de4487cc99defd3bbcfeffab918</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzA5ODA0NDE2MA==&amp;amp;mid=2649790864&amp;amp;idx=1&amp;amp;sn=b2cc0de4487cc99defd3bbcfeffab918</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <title>NGINX HTTP/2 Use-After-Free: CVE-2026-123633</title>
+      <link>https://unit42.paloaltonetworks.com/cve-2026-123633-nginx-http2-vulnerability/</link>
+      <guid isPermaLink="true">https://unit42.paloaltonetworks.com/cve-2026-123633-nginx-http2-vulnerability/</guid>
+      <description>Executive SummaryCVE-2026-123633 is a use-after-free vulnerability in NGINX HTTP/2...</description>
       <category>Unsafe.sh</category>
       <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Apple May Launch MacBook Neo 2 Next Spring; Memory Expected to Upgrade to 12GB</title>
-      <link>https://www.landian.news/archives/128723.html</link>
-      <guid isPermaLink="true">https://www.landian.news/archives/128723.html</guid>
-      <description>2026-11-24 09:00 Hardware Devices, Tech News 00.85K...</description>
+      <title>ARTEX and the Shrinking Window Between Credential Theft and Credential Abuse</title>
+      <link>https://securityboulevard.com/2026/11/artex-and-the-shrinking-window-between-credential-theft-and-credential-abuse/</link>
+      <guid isPermaLink="true">https://securityboulevard.com/2026/11/artex-and-the-shrinking-window-between-credential-theft-and-credential-abuse/</guid>
+      <description>ARTEX and the Shrinking Window Between Credential Theft and Credential Abuse</description>
       <category>Unsafe.sh</category>
       <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Jensen Huang Returns to NVIDIA, Market Cap Rises 31.48%; Musk: AI R&amp;D Lags Behind Competitors, Renting Compute is More Profitable Than Self-Research; Next-Gen AI Models Love to 'Swear' | Geek Early News</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;amp;mid=2653117276&amp;amp;idx=1&amp;amp;sn=564511b75dd7c2b0472364c4bdda83b8</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MTMwNDMwODQ0MQ==&amp;amp;mid=2653117276&amp;amp;idx=1&amp;amp;sn=564511b75dd7c2b0472364c4bdda83b8</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <title>Rinoa Poison : The Repoisoning - SWN #636</title>
+      <link>http://sites.libsyn.com/18678/rinoa-poison-the-repoisoning-swn-636</link>
+      <guid isPermaLink="true">http://sites.libsyn.com/18678/rinoa-poison-the-repoisoning-swn-636</guid>
+      <description>Welcome to the Security Weekly Podcast Network, your all-in-one so...</description>
       <category>Unsafe.sh</category>
       <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Pai Morning Brief: Jensen Huang Returns to NVIDIA, Honor Releases Honor 700 Series New Phones, etc.</title>
-      <link>https://unsafe.sh/go-456995.html</link>
-      <guid isPermaLink="true">https://unsafe.sh/go-456995.html</guid>
-      <description>Pai Morning Brief: Jensen Huang Returns to NVIDIA, Honor Releases Honor 700 Series New Phones, etc.</description>
+      <title>AI Pentesting That Proves What Needs Fixing</title>
+      <link>https://securityboulevard.com/2026/11/ai-pentesting-that-proves-what-needs-fixing/</link>
+      <guid isPermaLink="true">https://securityboulevard.com/2026/11/ai-pentesting-that-proves-what-needs-fixing/</guid>
+      <description>About This EpisodeA penetration test only matters if it leads to change. Finding weaknesse...</description>
       <category>Unsafe.sh</category>
       <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>How to Use AI for Defense in Attack and Defense Drills</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzI5NjA0NjI5MQ==&amp;amp;mid=2650188737&amp;amp;idx=1&amp;amp;sn=543b8a5eb798a21fb09d1a1276a9e490</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzI5NjA0NjI5MQ==&amp;amp;mid=2650188737&amp;amp;idx=1&amp;amp;sn=543b8a5eb798a21fb09d1a1276a9e490</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <title>Rackspace shuts down Spot cloud platform after security breach</title>
+      <link>https://www.bleepingcomputer.com/news/security/rackspace-shuts-down-spot-cloud-platform-after-security-breach/</link>
+      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/rackspace-shuts-down-spot-cloud-platform-after-security-breach/</guid>
+      <description>Rackspace shuts down Spot cloud platform after security breach</description>
       <category>Unsafe.sh</category>
       <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>X/Twitter Mobile Starts Testing Undo Home Feed Refresh Button to Prevent Users from Losing Content After Refresh</title>
-      <link>https://www.landian.news/archives/128722.html</link>
-      <guid isPermaLink="true">https://www.landian.news/archives/128722.html</guid>
-      <description>2026-11-24 08:30 Tech News, Web Applications 01.02K...</description>
+      <title>Understanding the Root Cause of CVE-2026-119618</title>
+      <link>https://securityboulevard.com/2026/11/understanding-the-root-cause-of-cve-2026-119618/</link>
+      <guid isPermaLink="true">https://securityboulevard.com/2026/11/understanding-the-root-cause-of-cve-2026-119618/</guid>
+      <description>Understanding the Root Cause of CVE-2026-119618</description>
       <category>Unsafe.sh</category>
       <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AdGuardHome v1.1.0-b.1</title>
-      <link>https://kitploit.com/en/posts/adguardhome-a60e9906af3037c3</link>
-      <guid isPermaLink="true">https://kitploit.com/en/posts/adguardhome-a60e9906af3037c3</guid>
-      <description>Privacy protection center for you and your devices  Free and open source, pow...</description>
+      <title>Colorado says cyberattack took down myColorado app, warns 150,000 had data stolen</title>
+      <link>https://therecord.media/mycolorado-app-down-data-breach</link>
+      <guid isPermaLink="true">https://therecord.media/mycolorado-app-down-data-breach</guid>
+      <description>A critical app used by thousands of Colorado residents for state services was taken down by a cyber...</description>
       <category>Unsafe.sh</category>
       <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Good News! Winext Wins 2025 Guangdong Province Science and Technology Progress Award</title>
-      <link>https://mp.weixin.qq.com/s?__biz=MzAwNTgyODU3NQ==&amp;amp;mid=2651145260&amp;amp;idx=1&amp;amp;sn=4320564277a7dd0aa9cd97827d0efca8</link>
-      <guid isPermaLink="true">https://mp.weixin.qq.com/s?__biz=MzAwNTgyODU3NQ==&amp;amp;mid=2651145260&amp;amp;idx=1&amp;amp;sn=4320564277a7dd0aa9cd97827d0efca8</guid>
-      <description>环境异常        当前环境异常，完成验证后即可继续访问。                      去验证...</description>
+      <title>182 Blog Posts To Learn About Btc</title>
+      <link>https://hackernoon.com/182-blog-posts-to-learn-about-btc?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/182-blog-posts-to-learn-about-btc?source=rss</guid>
+      <description>Let's learn about Btc via these 182 free blog posts. They are ordered by HackerNoon reader engagemen...</description>
       <category>Unsafe.sh</category>
       <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Hangzhou Hikvision Digital Technology Co., Ltd. EZVIZ CS-C6N cloud snapshot improper certificate validation vulnerability</title>
-      <link>https://talosintelligence.com/vulnerability_reports/TALOS-2026-2452</link>
-      <guid isPermaLink="true">https://talosintelligence.com/vulnerability_reports/TALOS-2026-2452</guid>
-      <description>SummaryA improper certificate validation vulnerability exists in the cloud snapshot functionality...</description>
+      <title>Cybercrime Researcher Dancho Danchev Podcast's Introduction 1999-2026</title>
+      <link>https://ddanchev.blogspot.com/2026/11/cybercrime-researcher-dancho-danchev.html</link>
+      <guid isPermaLink="true">https://ddanchev.blogspot.com/2026/11/cybercrime-researcher-dancho-danchev.html</guid>
+      <description>In the overwhelming sea of information, access to timely, insightful and independent open-source i...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Hangzhou Hikvision Digital Technology Co., Ltd. EZVIZ CS-C6N MQTT authentication bypass vulnerability</title>
-      <link>https://talosintelligence.com/vulnerability_reports/TALOS-2026-2451</link>
-      <guid isPermaLink="true">https://talosintelligence.com/vulnerability_reports/TALOS-2026-2451</guid>
-      <description>SummaryA authentication bypass vulnerability exists in the MQTT functionality of EZVIZ CS-C6N (ver...</description>
+      <title>Microsoft Fixes Azure Flaws Exploited by Bad Actors to Steal Secrets</title>
+      <link>https://securityboulevard.com/2026/11/microsoft-fixes-azure-flaws-exploited-by-bad-actors-to-steal-secrets/</link>
+      <guid isPermaLink="true">https://securityboulevard.com/2026/11/microsoft-fixes-azure-flaws-exploited-by-bad-actors-to-steal-secrets/</guid>
+      <description>Microsoft Fixes Azure Flaws Exploited by Bad Actors to Steal Secrets</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Ghidra – Install, Analyse and Decompile with NSA’s Reverse Engineering Suite</title>
-      <link>https://www.darknet.org.uk/2026/11/ghidra-nsa-reverse-engineering-decompiler/</link>
-      <guid isPermaLink="true">https://www.darknet.org.uk/2026/11/ghidra-nsa-reverse-engineering-decompiler/</guid>
-      <description>You are here: Home / Hacking Tools / Ghidra – Install, Analyse and Decompile with NSA’s Reverse Engi...</description>
+      <title>New Inception extortion gang launches large-scale vishing campaign</title>
+      <link>https://www.bleepingcomputer.com/news/security/new-inception-extortion-gang-launches-large-scale-vishing-campaign/</link>
+      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/new-inception-extortion-gang-launches-large-scale-vishing-campaign/</guid>
+      <description>New Inception extortion gang launches large-scale vishing campaign</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Nasty AMD Linux KVM Flaw Worries Cloud Users</title>
-      <link>https://securityboulevard.com/2026/11/nasty-amd-linux-kvm-flaw-worries-cloud-users/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/nasty-amd-linux-kvm-flaw-worries-cloud-users/</guid>
-      <description>Nasty AMD Linux KVM Flaw Worries Cloud Users</description>
+      <title>EU Academy Users’ Names and Emails Exposed in EU Commission Hack</title>
+      <link>https://securityaffairs.com/203900/data-breach/eu-academy-users-names-and-emails-exposed-in-eu-commission-hack.html</link>
+      <guid isPermaLink="true">https://securityaffairs.com/203900/data-breach/eu-academy-users-names-and-emails-exposed-in-eu-commission-hack.html</guid>
+      <description>EU Academy Users’ Names and Emails Exposed in EU Commission Hack...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>More Cyberattacks Hit Government Agencies and Essential Services</title>
-      <link>https://securityboulevard.com/2026/11/more-cyberattacks-hit-government-agencies-and-essential-services/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/more-cyberattacks-hit-government-agencies-and-essential-services/</guid>
-      <description>TL;DR — Key TakeawaysThe USDA took farm loan and payment applications offline, the FBI investig...</description>
+      <title>uBlock v1.77.1b4</title>
+      <link>https://kitploit.com/en/posts/ublock-2e673702772f87ca</link>
+      <guid isPermaLink="true">https://kitploit.com/en/posts/ublock-2e673702772f87ca</guid>
+      <description>[![Badge Commits]][Commit Rate][![Badge Issues]][Issues][![Badge Localization]][Crowdin][![Badge...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>SpaceX Hit With Lawsuits Challenging Grok’s AI Safeguards</title>
-      <link>https://securityboulevard.com/2026/11/spacex-hit-with-lawsuits-challenging-groks-ai-safeguards/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/spacex-hit-with-lawsuits-challenging-groks-ai-safeguards/</guid>
-      <description>SpaceX Hit With Lawsuits Challenging Grok’s AI Safeguards</description>
+      <title>California privacy agency director Kemp to leave after two-year tenure</title>
+      <link>https://therecord.media/california-privacy-agency-kemp</link>
+      <guid isPermaLink="true">https://therecord.media/california-privacy-agency-kemp</guid>
+      <description>The director of the trailblazing California Privacy Protection Agency (CalPrivacy) on Tuesday annou...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>How Anonymized Queries and Unusual Search Patterns Distort Google Search Console Analysis</title>
-      <link>https://hackernoon.com/how-anonymized-queries-and-unusual-search-patterns-distort-google-search-console-analysis?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/how-anonymized-queries-and-unusual-search-patterns-distort-google-search-console-analysis?source=rss</guid>
-      <description>On 3 November, my site's Search Console graph did something it had never done. Impressions jumped to...</description>
+      <title>Checkmarx Predictions for 2027: The Year AppSec Has to Prove It</title>
+      <link>https://checkmarx.com/blog/checkmarx-2027-predictions-appsec-has-to-prove-it/</link>
+      <guid isPermaLink="true">https://checkmarx.com/blog/checkmarx-2027-predictions-appsec-has-to-prove-it/</guid>
+      <description>A year ago, Checkmarx leaders and experts put their predictions for 2026 on the record....</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AI Penetration Testing Frameworks Are Becoming Tools for Cybercriminals</title>
-      <link>https://flashpoint.io/blog/ai-penetration-testing-frameworks-are-becoming-tools-for-cybercriminals/</link>
-      <guid isPermaLink="true">https://flashpoint.io/blog/ai-penetration-testing-frameworks-are-becoming-tools-for-cybercriminals/</guid>
-      <description>On November 13, 2026, the FBI warned that threat actors are misusing autonomous AI penetration tes...</description>
+      <title>Survey Traces Root Cause of Many Compliance Issues to Manual Workflows</title>
+      <link>https://securityboulevard.com/2026/11/survey-traces-root-cause-of-many-compliance-issues-to-manual-workflows/</link>
+      <guid isPermaLink="true">https://securityboulevard.com/2026/11/survey-traces-root-cause-of-many-compliance-issues-to-manual-workflows/</guid>
+      <description>Survey Traces Root Cause of Many Compliance Issues to Manual Workflows</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Managing Write Ordering Across Backfill, CDC, and Live Ingestion in a 20TB Migration</title>
-      <link>https://hackernoon.com/managing-write-ordering-across-backfill-cdc-and-live-ingestion-in-a-20tb-migration?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/managing-write-ordering-across-backfill-cdc-and-live-ingestion-in-a-20tb-migration?source=rss</guid>
-      <description>Everyone expects the scary part of a big live migration to be the copy. Ours was 20TB, and the copy...</description>
+      <title>POMA-release</title>
+      <link>https://kitploit.com/en/tools/github/maple-pwn/poma-release</link>
+      <guid isPermaLink="true">https://kitploit.com/en/tools/github/maple-pwn/poma-release</guid>
+      <description>Kitploit is a directory of hacking, cybersecurity, and pentesting tools. Discover the latest project...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>South Korea’s power giant KEPCO confirms data breach impacting 1.5 million</title>
-      <link>https://www.bleepingcomputer.com/news/security/south-koreas-power-giant-kepco-confirms-data-breach-impacting-15-million/</link>
-      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/south-koreas-power-giant-kepco-confirms-data-breach-impacting-15-million/</guid>
-      <description>South Korea’s power giant KEPCO confirms data breach impacting 1.5 million</description>
+      <title>Your Lead Score May Be Learning Who Sales Already Chose to Call</title>
+      <link>https://hackernoon.com/your-lead-score-may-be-learning-who-sales-already-chose-to-call?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/your-lead-score-may-be-learning-who-sales-already-chose-to-call?source=rss</guid>
+      <description>Hero illustration. Original AI-assisted illustration created for this article.Consider a hypothetic...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>205 Blog Posts To Learn About Blockchain Top Story</title>
-      <link>https://hackernoon.com/205-blog-posts-to-learn-about-blockchain-top-story?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/205-blog-posts-to-learn-about-blockchain-top-story?source=rss</guid>
-      <description>Let's learn about Blockchain Top Story via these 205 free blog posts. They are ordered by HackerNoon...</description>
+      <title>Turnitin discloses cyberattack affecting customer-facing systems</title>
+      <link>https://www.bleepingcomputer.com/news/security/turnitin-discloses-cyberattack-affecting-customer-facing-systems/</link>
+      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/turnitin-discloses-cyberattack-affecting-customer-facing-systems/</guid>
+      <description>Turnitin discloses cyberattack affecting customer-facing systems</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>How to Evaluate Enterprise Passwordless Solutions for the Agentic Era</title>
-      <link>https://securityboulevard.com/2026/11/how-to-evaluate-enterprise-passwordless-solutions-for-the-agentic-era/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/how-to-evaluate-enterprise-passwordless-solutions-for-the-agentic-era/</guid>
-      <description>How to Evaluate Enterprise Passwordless Solutions for the Agentic Era</description>
+      <title>Tesla's Optimus Ties Optimus Prime 50-50: The 40 Most Contested Terms in Tech</title>
+      <link>https://hackernoon.com/teslas-optimus-ties-optimus-prime-50-50-the-40-most-contested-terms-in-tech?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/teslas-optimus-ties-optimus-prime-50-50-the-40-most-contested-terms-in-tech?source=rss</guid>
+      <description>These are the words still up for grabs. Neither meaning has more than 60% of the combined Wikipedia...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Lune.fi (Swap and Earn Platform) Partners with CertiK to Strengthen Security</title>
-      <link>https://hackernoon.com/lunefi-swap-and-earn-platform-partners-with-certik-to-strengthen-security?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/lunefi-swap-and-earn-platform-partners-with-certik-to-strengthen-security?source=rss</guid>
-      <description>Singapore, November 23, 2026Lune.fi, a crypto exchange aggregator and yield platform, has entered a...</description>
+      <title>U.S. Investigates Iran’s Possible Role in Cyberattacks on Energy Tankers</title>
+      <link>https://securityboulevard.com/2026/11/u-s-investigates-irans-possible-role-in-cyberattacks-on-energy-tankers/</link>
+      <guid isPermaLink="true">https://securityboulevard.com/2026/11/u-s-investigates-irans-possible-role-in-cyberattacks-on-energy-tankers/</guid>
+      <description>U.S. Investigates Iran’s Possible Role in Cyberattacks on Energy Tankers</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>How HYPR AgentPass Meets NIST’s Ten Tenets for Agent Identity</title>
-      <link>https://securityboulevard.com/2026/11/how-hypr-agentpass-meets-nists-ten-tenets-for-agent-identity/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/how-hypr-agentpass-meets-nists-ten-tenets-for-agent-identity/</guid>
-      <description>How HYPR AgentPass Meets NIST’s Ten Tenets for Agent Identity</description>
+      <title>ToolFence_v2</title>
+      <link>https://kitploit.com/en/tools/github/polyliyj/toolfence_v2</link>
+      <guid isPermaLink="true">https://kitploit.com/en/tools/github/polyliyj/toolfence_v2</guid>
+      <description>ToolFence_v2 — Capability-authorisation and transaction-ledger defence layer for tool-using LLM agen...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Building Cyber Resilience Across Your AWS Environment</title>
-      <link>https://securityboulevard.com/2026/11/building-cyber-resilience-across-your-aws-environment/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/building-cyber-resilience-across-your-aws-environment/</guid>
-      <description>Building Cyber Resilience Across Your AWS Environment</description>
+      <title>Lawmakers warn ID verification companies to bolster security after September hack</title>
+      <link>https://therecord.media/idscan-data-breach-warning-congressional-letter</link>
+      <guid isPermaLink="true">https://therecord.media/idscan-data-breach-warning-congressional-letter</guid>
+      <description>A bipartisan group of federal lawmakers on Monday sent a letter focused on security practices to se...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>How I Approach the First 20 Minutes of a Smart Contract Audit</title>
-      <link>https://hackernoon.com/how-i-approach-the-first-20-minutes-of-a-smart-contract-audit?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/how-i-approach-the-first-20-minutes-of-a-smart-contract-audit?source=rss</guid>
-      <description>Most "smart contract audit checklist" posts are a list of vulnerabilities someone else already found...</description>
+      <title>Radware discloses breach exposing customer cloud access keys</title>
+      <link>https://www.bleepingcomputer.com/news/security/radware-discloses-breach-exposing-customer-cloud-access-keys/</link>
+      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/radware-discloses-breach-exposing-customer-cloud-access-keys/</guid>
+      <description>Radware discloses breach exposing customer cloud access keys</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Name Your Stack, and ChatGPT Stops Leaking Your Bot Token</title>
-      <link>https://hackernoon.com/name-your-stack-and-chatgpt-stops-leaking-your-bot-token?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/name-your-stack-and-chatgpt-stops-leaking-your-bot-token?source=rss</guid>
-      <description>The warning was there. That's what bothered me most.I asked ChatGPT for "a simple HTML contact form...</description>
+      <title>Why Recovery Means More Than Restoring Data</title>
+      <link>https://securityboulevard.com/2026/11/why-recovery-means-more-than-restoring-data/</link>
+      <guid isPermaLink="true">https://securityboulevard.com/2026/11/why-recovery-means-more-than-restoring-data/</guid>
+      <description>To fully recover from a ransomware attack, stolen credentials, or an incident caused by a rogue...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>How I Built a Multiplayer 3D Driving World in three.js With No Bundler</title>
-      <link>https://hackernoon.com/how-i-built-a-multiplayer-3d-driving-world-in-threejs-with-no-bundler?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/how-i-built-a-multiplayer-3d-driving-world-in-threejs-with-no-bundler?source=rss</guid>
-      <description>Strike Drive is a map of a trading venue's features that you drive around. Each feature is a pad tha...</description>
+      <title>National Security Concerns Escalate as NVIDIA Reinstates CEO Jensen Huang</title>
+      <link>https://securityboulevard.com/2026/11/national-security-concerns-escalate-as-nvidia-reinstates-ceo-jensen-huang/</link>
+      <guid isPermaLink="true">https://securityboulevard.com/2026/11/national-security-concerns-escalate-as-nvidia-reinstates-ceo-jensen-huang/</guid>
+      <description>National Security Concerns Escalate as NVIDIA Reinstates CEO Jensen Huang</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Why Do My Kubernetes Pods Keep Restarting?</title>
-      <link>https://securityboulevard.com/2026/11/why-do-my-kubernetes-pods-keep-restarting/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/why-do-my-kubernetes-pods-keep-restarting/</guid>
-      <description>Why Do My Kubernetes Pods Keep Restarting?</description>
+      <title>The AI Investment Race Has More Than One Winning Strategy</title>
+      <link>https://hackernoon.com/the-ai-investment-race-has-more-than-one-winning-strategy?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/the-ai-investment-race-has-more-than-one-winning-strategy?source=rss</guid>
+      <description>By the end of October 2026, Apple's shares had gained approximately 27% for the year. [1] Its perfor...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Migrating to FIDO: A Progressive Rollout Model for Banking Authentication</title>
-      <link>https://securityboulevard.com/2026/11/migrating-to-fido-a-progressive-rollout-model-for-banking-authentication/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/migrating-to-fido-a-progressive-rollout-model-for-banking-authentication/</guid>
-      <description>Migrating to FIDO: A Progressive Rollout Model for Banking Authentication</description>
+      <title>Enabling Holistic Cyber Resilience in the Cloud</title>
+      <link>https://securityboulevard.com/2026/11/enabling-holistic-cyber-resilience-in-the-cloud/</link>
+      <guid isPermaLink="true">https://securityboulevard.com/2026/11/enabling-holistic-cyber-resilience-in-the-cloud/</guid>
+      <description>Enabling Holistic Cyber Resilience in the Cloud</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>OpenRouter drops AI providers over leaked prompts and secrets</title>
-      <link>https://www.bleepingcomputer.com/news/security/openrouter-drops-ai-providers-over-leaked-prompts-and-secrets/</link>
-      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/openrouter-drops-ai-providers-over-leaked-prompts-and-secrets/</guid>
-      <description>OpenRouter drops AI providers over leaked prompts and secrets</description>
+      <title>Before A Stolen Password Becomes An Attack: Identity Protection With Group-IB XDR</title>
+      <link>https://www.group-ib.com/blog/before-a-stolen-password-becomes-an-attack-identity-protection-with-group-ib-xdr/</link>
+      <guid isPermaLink="true">https://www.group-ib.com/blog/before-a-stolen-password-becomes-an-attack-identity-protection-with-group-ib-xdr/</guid>
+      <description>Before A Stolen Password Becomes An Attack: Identity Protection With Group-IB XDR</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>CyberStrikeAI — Updated!</title>
-      <link>https://kitploit.com/en/posts/cyberstrikeai-844aa3a888d2101d</link>
-      <guid isPermaLink="true">https://kitploit.com/en/posts/cyberstrikeai-844aa3a888d2101d</guid>
-      <description>UpdatedNov 23, 2026The system of action for AI-native cybersecurity—where intent becomes governed ex...</description>
+      <title>A 167-Year-Old Mathematical Mystery, Two Claimed Proofs, and the Role of AI</title>
+      <link>https://hackernoon.com/a-167-year-old-mathematical-mystery-two-claimed-proofs-and-the-role-of-ai?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/a-167-year-old-mathematical-mystery-two-claimed-proofs-and-the-role-of-ai?source=rss</guid>
+      <description>It’s a big week for Levent Alpöge: The mathematician saw his employer, Anthropic, become the first p...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Agent Identity Readiness Test: Score the Estate, Not the Roadmap</title>
-      <link>https://securityboulevard.com/2026/11/agent-identity-readiness-test-score-the-estate-not-the-roadmap/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/agent-identity-readiness-test-score-the-estate-not-the-roadmap/</guid>
-      <description>Agent Identity Readiness Test: Score the Estate, Not the Roadmap</description>
+      <title>A bot tested an AWS key within 8 seconds of exposure</title>
+      <link>https://www.malwarebytes.com/blog/ai/2026/11/a-bot-tested-an-aws-key-within-8-seconds-of-exposure</link>
+      <guid isPermaLink="true">https://www.malwarebytes.com/blog/ai/2026/11/a-bot-tested-an-aws-key-within-8-seconds-of-exposure</guid>
+      <description>In this articleA bot tested an AWS key just 7.86 seconds after researchers published it...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Microsoft Azure flaw exploited to steal customers' API credentials</title>
-      <link>https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/</link>
-      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/microsoft-azure-flaw-exploited-to-steal-customers-api-credentials/</guid>
-      <description>Microsoft Azure flaw exploited to steal customers' API credentials</description>
+      <title>An 8088, 640 KB of RAM and a Really Bad Idea</title>
+      <link>https://decoder.cloud/2026/11/24/an-8088-640-kb-of-ram-and-a-really-bad-idea/</link>
+      <guid isPermaLink="true">https://decoder.cloud/2026/11/24/an-8088-640-kb-of-ram-and-a-really-bad-idea/</guid>
+      <description>For years, I had a crazy idea: to build a preemptive multitasking operating system for my old 80...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>P vs NP and encryption: what the AI claims change</title>
-      <link>https://ransomnews.com/p-vs-np-encryption-ai-claims-2026/</link>
-      <guid isPermaLink="true">https://ransomnews.com/p-vs-np-encryption-ai-claims-2026/</guid>
-      <description>P vs NP is still unsolved, and neither OpenAI nor Anthropic has claimed to solve...</description>
+      <title>hosts v3.16.132</title>
+      <link>https://kitploit.com/en/posts/hosts-db884d52ca88a28c</link>
+      <guid isPermaLink="true">https://kitploit.com/en/posts/hosts-db884d52ca88a28c</guid>
+      <description>[!IMPORTANT]Cloning this repository can take a long time!You probably just want to start with the...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Cleverbridge Confirms Attackers Copied Payment Card Data From Its Platform</title>
-      <link>https://securityaffairs.com/203851/data-breach/cleverbridge-confirms-attackers-copied-payment-card-data-from-its-platform.html</link>
-      <guid isPermaLink="true">https://securityaffairs.com/203851/data-breach/cleverbridge-confirms-attackers-copied-payment-card-data-from-its-platform.html</guid>
-      <description>Cleverbridge Confirms Attackers Copied Payment Card Data From Its Platform...</description>
+      <title>Six Ways to Reduce Your Digital Footprint</title>
+      <link>https://securityboulevard.com/2026/11/six-ways-to-reduce-your-digital-footprint/</link>
+      <guid isPermaLink="true">https://securityboulevard.com/2026/11/six-ways-to-reduce-your-digital-footprint/</guid>
+      <description>Six Ways to Reduce Your Digital Footprint</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Feature Flags at Scale: Architecture, Consistency, and Reliable Rollouts</title>
-      <link>https://hackernoon.com/feature-flags-at-scale-architecture-consistency-and-reliable-rollouts?source=rss</link>
-      <guid isPermaLink="true">https://hackernoon.com/feature-flags-at-scale-architecture-consistency-and-reliable-rollouts?source=rss</guid>
-      <description>Feature flags turn deployment into a reversible control decision rather than a one way release event...</description>
+      <title>ShinyHunters claims to return after FBI arrests, uses old PGP keys as proof</title>
+      <link>https://www.bleepingcomputer.com/news/security/shinyhunters-resurfaces-after-fbi-arrests-uses-old-pgp-keys-as-proof/</link>
+      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/shinyhunters-resurfaces-after-fbi-arrests-uses-old-pgp-keys-as-proof/</guid>
+      <description>ShinyHunters claims to return after FBI arrests, uses old PGP keys as proof</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>News alert: SplitSecure launches access for people and AI agents without centralized vaults</title>
-      <link>https://securityboulevard.com/2026/11/news-alert-splitsecure-launches-access-for-people-and-ai-agents-without-centralized-vaults/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/news-alert-splitsecure-launches-access-for-people-and-ai-agents-without-centralized-vaults/</guid>
-      <description>News alert: SplitSecure launches access for people and AI agents without centralized vaults</description>
+      <title>Hackers compromise Check Point Servers in 22 organizations</title>
+      <link>https://www.bleepingcomputer.com/news/security/hackers-compromise-check-point-servers-in-22-organizations/</link>
+      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/hackers-compromise-check-point-servers-in-22-organizations/</guid>
+      <description>Hackers compromise Check Point Servers in 22 organizations</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Your Peers Are Struggling With LLM Inference on Kubernetes Too</title>
-      <link>https://securityboulevard.com/2026/11/your-peers-are-struggling-with-llm-inference-on-kubernetes-too/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/your-peers-are-struggling-with-llm-inference-on-kubernetes-too/</guid>
-      <description>Your Peers Are Struggling With LLM Inference on Kubernetes Too</description>
+      <title>European Commission confirms data theft in EU Academy breach</title>
+      <link>https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-theft-in-eu-academy-breach/</link>
+      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/european-commission-confirms-data-theft-in-eu-academy-breach/</guid>
+      <description>European Commission confirms data theft in EU Academy breach</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>FBI reportedly facing second data breach involving National Crime Information Center</title>
-      <link>https://therecord.media/fbi-cyberattack-data-breach</link>
-      <guid isPermaLink="true">https://therecord.media/fbi-cyberattack-data-breach</guid>
-      <description>The FBI is reportedly investigating a data breach involving the National Crime Information Center,...</description>
+      <title>AI Agents: A Practical Guide, and the Chapters to Read First</title>
+      <link>https://securityboulevard.com/2026/11/ai-agents-a-practical-guide-and-the-chapters-to-read-first/</link>
+      <guid isPermaLink="true">https://securityboulevard.com/2026/11/ai-agents-a-practical-guide-and-the-chapters-to-read-first/</guid>
+      <description>AI Agents: A Practical Guide, and the Chapters to Read First</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Signal blocks screenshots by Apple, Google operating systems to protect data from AI agents</title>
-      <link>https://therecord.media/signal-no-screenshots-by-apple-google-operating-systems</link>
-      <guid isPermaLink="true">https://therecord.media/signal-no-screenshots-by-apple-google-operating-systems</guid>
-      <description>The encrypted messaging platform Signal has announced it will by default stop users from taking scr...</description>
+      <title>What Building a Postgres CDC Pipeline Taught Me About Feeding Snowflake</title>
+      <link>https://hackernoon.com/what-building-a-postgres-cdc-pipeline-taught-me-about-feeding-snowflake?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/what-building-a-postgres-cdc-pipeline-taught-me-about-feeding-snowflake?source=rss</guid>
+      <description>Our warehouse used to refresh once a night. A job woke up after hours, exported every customer's dat...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>Spanish LaLiga confirms hackers stole soccer fans’ personal data</title>
-      <link>https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/</link>
-      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/spanish-laliga-confirms-hackers-stole-soccer-fans-personal-data/</guid>
-      <description>Spanish LaLiga confirms hackers stole soccer fans’ personal data</description>
+      <title>Carnegie Endowment for International Peace says third-party breach leaked donation info</title>
+      <link>https://therecord.media/carnegie-endowment-data-breach</link>
+      <guid isPermaLink="true">https://therecord.media/carnegie-endowment-data-breach</guid>
+      <description>Some donors to the Carnegie Endowment for International Peace had their information leaked due to a...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>ARTEX Is Changing the Economics of Attack. Defenders Must Change the Economics of Validation.</title>
-      <link>https://horizon3.ai/intelligence/blogs/artex-economics-of-attack-validation/</link>
-      <guid isPermaLink="true">https://horizon3.ai/intelligence/blogs/artex-economics-of-attack-validation/</guid>
-      <description>Agentic offensive frameworks make familiar attacks easier to execute persistently, in parallel, and...</description>
+      <title>AI Governance Integrations, Platform vs Stack | Kovrr</title>
+      <link>https://securityboulevard.com/2026/11/ai-governance-integrations-platform-vs-stack-kovrr/</link>
+      <guid isPermaLink="true">https://securityboulevard.com/2026/11/ai-governance-integrations-platform-vs-stack-kovrr/</guid>
+      <description>AI Governance Integrations, Platform vs Stack | Kovrr</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>DeepfakeBench-MM</title>
-      <link>https://kitploit.com/en/tools/github/sclbd/deepfakebench-mm</link>
-      <guid isPermaLink="true">https://kitploit.com/en/tools/github/sclbd/deepfakebench-mm</guid>
-      <description>DeepfakeBench-MM — Modular PyTorch benchmark for multimodal audio-visual deepfake detection, with da...</description>
+      <title>Byrrgis Opens to the Public With One-Signature Swaps Across Four Chains and No Custody</title>
+      <link>https://hackernoon.com/byrrgis-opens-to-the-public-with-one-signature-swaps-across-four-chains-and-no-custody?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/byrrgis-opens-to-the-public-with-one-signature-swaps-across-four-chains-and-no-custody?source=rss</guid>
+      <description>Thieves took $3.41 billion from crypto in 2025, with a single breach at the Bybit exchange accounted...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>CrowdStrike to purchase Zscaler for $43.9 billion</title>
-      <link>https://therecord.media/crowdstrike-zscaler</link>
-      <guid isPermaLink="true">https://therecord.media/crowdstrike-zscaler</guid>
-      <description>Cybersecurity giant CrowdStrike will acquire cloud security company Zscaler for $43.9 billion in an...</description>
+      <title>The HackerNoon Newsletter: How I Built a Multiplayer 3D Driving World in three.js With No Bundler (11/24/2026)</title>
+      <link>https://hackernoon.com/11-24-2026-newsletter?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/11-24-2026-newsletter?source=rss</guid>
+      <description>The HackerNoon Newsletter: How I Built a Multiplayer 3D Driving World in three.js With No Bundler (1...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>GlobeTopper loses $2.5 million after hackers steal $70k in gift cards</title>
-      <link>https://www.bleepingcomputer.com/news/security/globetopper-loses-25-million-after-hackers-steal-70k-in-gift-cards/</link>
-      <guid isPermaLink="true">https://www.bleepingcomputer.com/news/security/globetopper-loses-25-million-after-hackers-steal-70k-in-gift-cards/</guid>
-      <description>GlobeTopper loses $2.5 million after hackers steal $70k in gift cards</description>
+      <title>Debugging OAuth Redirect Loops Caused by Oversized HTTP Cookies</title>
+      <link>https://hackernoon.com/debugging-oauth-redirect-loops-caused-by-oversized-http-cookies?source=rss</link>
+      <guid isPermaLink="true">https://hackernoon.com/debugging-oauth-redirect-loops-caused-by-oversized-http-cookies?source=rss</guid>
+      <description>Last week, we spent almost four hours tracking down a login bug that made zero sense on paper.Our da...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>CrowdStrike to Acquire Zscaler in Record $43.9 Billion All-Stock Deal</title>
-      <link>https://securityboulevard.com/2026/11/crowdstrike-to-acquire-zscaler-in-record-43-9-billion-all-stock-deal/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/crowdstrike-to-acquire-zscaler-in-record-43-9-billion-all-stock-deal/</guid>
-      <description>CrowdStrike to Acquire Zscaler in Record $43.9 Billion All-Stock Deal</description>
+      <title>fastx32shell</title>
+      <link>https://kitploit.com/en/tools/github/bandrel/fastx32shell</link>
+      <guid isPermaLink="true">https://kitploit.com/en/tools/github/bandrel/fastx32shell</guid>
+      <description>Kitploit is a directory of hacking, cybersecurity, and pentesting tools. Discover the latest project...</description>
       <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>SplitSecure Launches New Access Control Architecture for Humans and AI Agents</title>
-      <link>https://securityboulevard.com/2026/11/splitsecure-launches-new-access-control-architecture-for-humans-and-ai-agents/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/splitsecure-launches-new-access-control-architecture-for-humans-and-ai-agents/</guid>
-      <description>SplitSecure Launches New Access Control Architecture for Humans and AI Agents</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <title>CISA Cyber</title>
+      <link>https://x.com/CISACyber/status/2125346210903126417</link>
+      <guid isPermaLink="true">https://x.com/CISACyber/status/2125346210903126417</guid>
+      <description>CISA Cyber</description>
+      <category>X (@CISACyber)</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
     <item>
-      <title>AI Regulations Are Tightening in the US. Can Your Existing AI Systems Pass a Compliance Audit?</title>
-      <link>https://securityboulevard.com/2026/11/ai-regulations-are-tightening-in-the-us-can-your-existing-ai-systems-pass-a-compliance-audit/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/ai-regulations-are-tightening-in-the-us-can-your-existing-ai-systems-pass-a-compliance-audit/</guid>
-      <description>AI Regulations Are Tightening in the US. Can Your Existing AI Systems Pass a Compliance Audit?</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>system_prompts_leaks — Updated!</title>
-      <link>https://kitploit.com/en/posts/system_prompts_leaks-21e49e8bd9e0ab40</link>
-      <guid isPermaLink="true">https://kitploit.com/en/posts/system_prompts_leaks-21e49e8bd9e0ab40</guid>
-      <description>Leaked system prompts of ChatGPT, Claude, Gemini and more. The hidden system prompt of every popul...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Hacked? The “Recovery Expert” Is the Second Scam</title>
-      <link>https://securityboulevard.com/2026/11/hacked-the-recovery-expert-is-the-second-scam/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/hacked-the-recovery-expert-is-the-second-scam/</guid>
-      <description>Hacked? The “Recovery Expert” Is the Second Scam</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Security Rating of Companies Post-WannaCry | Kovrr</title>
-      <link>https://securityboulevard.com/2026/11/security-rating-of-companies-post-wannacry-kovrr-2/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/security-rating-of-companies-post-wannacry-kovrr-2/</guid>
-      <description>Security Rating of Companies Post-WannaCry | Kovrr</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>How to Benchmark Your Cyber Risk Against Peers | Kovrr</title>
-      <link>https://securityboulevard.com/2026/11/how-to-benchmark-your-cyber-risk-against-peers-kovrr-2/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/how-to-benchmark-your-cyber-risk-against-peers-kovrr-2/</guid>
-      <description>How to Benchmark Your Cyber Risk Against Peers | Kovrr</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>OpenTelemetry and AI Governance Telemetry | Kovrr</title>
-      <link>https://securityboulevard.com/2026/11/opentelemetry-and-ai-governance-telemetry-kovrr-2/</link>
-      <guid isPermaLink="true">https://securityboulevard.com/2026/11/opentelemetry-and-ai-governance-telemetry-kovrr-2/</guid>
-      <description>OpenTelemetry and AI Governance Telemetry | Kovrr</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>From a Cracked CEO Credential to a Potential Ransomware Path</title>
-      <link>https://horizon3.ai/downloads/use-case/cracked-ceo-credential-ransomware-path/</link>
-      <guid isPermaLink="true">https://horizon3.ai/downloads/use-case/cracked-ceo-credential-ransomware-path/</guid>
-      <description>A controlled NodeZero®  test cracked one CEO credential and mapped three potential downstream impac...</description>
-      <category>Unsafe.sh</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
-    </item>
-    <item>
-      <title>Project Zero Bugs</title>
-      <link>https://x.com/ProjectZeroBugs/status/2124927885291175955</link>
-      <guid isPermaLink="true">https://x.com/ProjectZeroBugs/status/2124927885291175955</guid>
-      <description>Project Zero Bugs</description>
-      <category>X (@ProjectZeroBugs)</category>
-      <pubDate>Mon, 23 Nov 2026 00:00:00 +0800</pubDate>
+      <title>CISA Cyber</title>
+      <link>https://x.com/CISACyber/status/2125318500012961832</link>
+      <guid isPermaLink="true">https://x.com/CISACyber/status/2125318500012961832</guid>
+      <description>CISA Cyber</description>
+      <category>X (@CISACyber)</category>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 +0800</pubDate>
     </item>
   </channel>
 </rss>
