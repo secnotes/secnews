@@ -1,0 +1,299 @@
+{
+  "analysis_date": "2026-11-28",
+  "model": "qwen3.7-flash",
+  "total_analyzed": 115,
+  "categories": {
+    "漏洞研究": [
+      {
+        "title": "Cacti未授权远程代码执行漏洞安全风险通告",
+        "url": "https://www.secrss.com/articles/96052",
+        "source": "安全内参",
+        "date": "2026-11-27",
+        "reason": "公开PoC的Cacti零日漏洞，仅需4次HTTP请求即可RCE，具有极高的实战利用价值。",
+        "title_zh": "Cacti未授权远程代码执行漏洞安全风险通告",
+        "reason_zh": "公开PoC的Cacti零日漏洞，仅需4次HTTP请求即可RCE，具有极高的实战利用价值。",
+        "title_en": "Security Advisory: Unauthenticated Remote Code Execution Vulnerability in Cacti",
+        "reason_en": "Public PoC for Cacti Zero-Day Allows RCE with Only 4 HTTP Requests, High Practical Exploit Value"
+      },
+      {
+        "title": "Unpatched Cacti Zero-Day Enables RCE in Just Four HTTP Requests via Guest Access",
+        "url": "https://thehackernews.com/2026/11/unpatched-cacti-zero-day-enables-rce-in.html",
+        "source": "The Hacker News",
+        "date": "2026-11-27",
+        "reason": "详细披露了无需登录即可触发远程代码执行的漏洞细节，为防御者提供关键修复依据。",
+        "title_en": "Unpatched Cacti Zero-Day Enables RCE in Just Four HTTP Requests via Guest Access",
+        "reason_zh": "详细披露了无需登录即可触发远程代码执行的漏洞细节，为防御者提供关键修复依据。",
+        "title_zh": "未修补的 Cacti 零日漏洞可通过访客访问经四次 HTTP 请求实现远程代码执行",
+        "reason_en": "Detailed Disclosure of Unauthenticated Remote Code Execution Vulnerability Provides Key Remediation Basis for Defenders"
+      },
+      {
+        "title": "Windows Defender (MpEngine) - Arbitrary File Drop / Privilege Abuse via Symlink Racing (SigDrop / Karate)",
+        "url": "https://cxsecurity.com/issue/WLB-2026110009",
+        "source": "Unsafe.sh",
+        "date": "2026-11-27",
+        "reason": "针对Windows Defender核心组件Symlink Race攻击，揭示了绕过杀软的提权技术路径。",
+        "title_en": "Windows Defender (MpEngine) - Arbitrary File Drop / Privilege Abuse via Symlink Racing (SigDrop / Karate)",
+        "reason_zh": "针对Windows Defender核心组件Symlink Race攻击，揭示了绕过杀软的提权技术路径。",
+        "title_zh": "Windows Defender (MpEngine) - 通过符号链接竞态条件实现任意文件投放/权限滥用 (SigDrop / Karate)",
+        "reason_en": "Symlink Race Attack on Windows Defender Core Components Reveals Privilege Escalation Path to Bypass Antivirus"
+      },
+      {
+        "title": "Drupal warns of new site takeover flaw exploited in attacks",
+        "url": "https://www.bleepingcomputer.com/news/security/drupal-warns-of-new-access-bypass-flaw-exploited-in-attacks",
+        "source": "Unsafe.sh",
+        "date": "2026-11-27",
+        "reason": "Drupal网站被劫持的新漏洞正在被广泛利用，涉及访问控制绕过，影响大量Web用户。",
+        "title_en": "Drupal warns of new site takeover flaw exploited in attacks",
+        "reason_zh": "Drupal网站被劫持的新漏洞正在被广泛利用，涉及访问控制绕过，影响大量Web用户。",
+        "title_zh": "Drupal 警告存在新发现的网站接管漏洞，已在攻击中被利用",
+        "reason_en": "New Drupal Vulnerability Enabling Site Hijacking and Access Control Bypass Is Being Widely Exploited"
+      },
+      {
+        "title": "【漏洞通告】Linux内核NFS越界写入漏洞（CVE-2026-99362）",
+        "url": "https://mp.weixin.qq.com/s?__biz=Mzk0MjE3ODkxNg==&mid=2247494345&idx=1&sn=b554a32d53a53c28ab268b1425be5f53",
+        "source": "Unsafe.sh",
+        "date": "2026-11-27",
+        "reason": "Linux内核NFS模块存在越界写入漏洞，可能导致远程提权，需关注内核补丁更新。",
+        "title_zh": "【漏洞通告】Linux内核NFS越界写入漏洞（CVE-2026-99362）",
+        "reason_zh": "Linux内核NFS模块存在越界写入漏洞，可能导致远程提权，需关注内核补丁更新。",
+        "title_en": "[Vulnerability Advisory] Linux Kernel NFS Out-of-Bounds Write Vulnerability (CVE-2026-99362)",
+        "reason_en": "Out-of-Bounds Write Vulnerability in Linux Kernel NFS Module May Lead to Remote Privilege Escalation; Kernel Patch Updates Required"
+      }
+    ],
+    "移动安全": [
+      {
+        "title": "请立即更新你的 iPhone！仅打开网页就可能被入侵，恶意代码已波及全球 178 家机构的网站",
+        "url": "https://www.appinn.com/iphone-web-attacks-coruna-darksword/",
+        "source": "Unsafe.sh",
+        "date": "2026-11-28",
+        "reason": "针对iOS设备的网页端高危漏洞，无需交互即可入侵，影响范围极广，需紧急升级系统。",
+        "title_zh": "请立即更新你的 iPhone！仅打开网页就可能被入侵，恶意代码已波及全球 178 家机构的网站",
+        "reason_zh": "针对iOS设备的网页端高危漏洞，无需交互即可入侵，影响范围极广，需紧急升级系统。",
+        "title_en": "Update Your iPhone Immediately! Malicious Code Has Infected Websites of 178 Global Institutions, Compromising Users Just by Visiting Pages",
+        "reason_en": "Critical iOS Web Vulnerability Allows Non-Interactive Intrusion with Wide Impact; Urgent System Upgrade Required"
+      },
+      {
+        "title": "Tor Browser曝高危漏洞：恶意网站点击一次即可获取用户真实IP地址",
+        "url": "https://mp.weixin.qq.com/s?__biz=MjM5NTc2MDYxMw==&mid=2458624654&idx=3&sn=798a28ca968f34b34b9d1c2cffbb6689",
+        "source": "Unsafe.sh",
+        "date": "2026-11-27",
+        "reason": "Tor浏览器隐私保护机制被突破，点击即泄露真实IP，对匿名上网用户构成直接威胁。",
+        "title_zh": "Tor Browser曝高危漏洞：恶意网站点击一次即可获取用户真实IP地址",
+        "reason_zh": "Tor浏览器隐私保护机制被突破，点击即泄露真实IP，对匿名上网用户构成直接威胁。",
+        "title_en": "High-Risk Vulnerability in Tor Browser Exposes User's Real IP Address with a Single Click on Malicious Sites",
+        "reason_en": "Tor Browser Privacy Mechanism Breached; Clicking Links Leaks Real IP, Directly Threatening Anonymous Users"
+      }
+    ],
+    "AI安全": [
+      {
+        "title": "Switzerland Confirms AI-Assisted Cyberattacks Breached Critical Infrastructure Operators",
+        "url": "https://thehackernews.com/2026/11/switzerland-confirms-ai-assisted.html",
+        "source": "The Hacker News",
+        "date": "2026-11-27",
+        "reason": "瑞士确认AI智能体参与攻击关键基础设施，标志着自动化AI网络攻击进入实战阶段。",
+        "title_en": "Switzerland Confirms AI-Assisted Cyberattacks Breached Critical Infrastructure Operators",
+        "reason_zh": "瑞士确认AI智能体参与攻击关键基础设施，标志着自动化AI网络攻击进入实战阶段。",
+        "title_zh": "瑞士确认 AI 辅助网络攻击导致关键基础设施运营商遭入侵",
+        "reason_en": "Switzerland Confirms AI Agents Participated in Attacks on Critical Infrastructure, Marking the Operational Phase of Automated AI Cyberattacks"
+      },
+      {
+        "title": "3小时、200美元，AI挖出Java致命0day",
+        "url": "https://www.anquanke.com/post/id/316568",
+        "source": "安全客",
+        "date": "2026-11-27",
+        "reason": "展示了低成本AI工具在极短时间内挖掘Java零日漏洞的能力，警示AI辅助漏洞挖掘的风险。",
+        "title_zh": "3小时、200美元，AI挖出Java致命0day",
+        "reason_zh": "展示了低成本AI工具在极短时间内挖掘Java零日漏洞的能力，警示AI辅助漏洞挖掘的风险。",
+        "title_en": "AI Discovers Fatal Java Zero-Day in 3 Hours for $200",
+        "reason_en": "Low-Cost AI Tools Demonstrate Ability to Mine Java Zero-Days Quickly, Highlighting Risks of AI-Assisted Vulnerability Discovery"
+      },
+      {
+        "title": "AI安全专题周报（20261127）",
+        "url": "https://blog.netlab.360.com/aian-quan-zhuan-ti-zhuan-bao-20261127/",
+        "source": "Unsafe.sh",
+        "date": "2026-11-27",
+        "reason": "汇总本期AI安全事件，包括智能体加速入侵及模型托管平台风险，提供全面的技术视角。",
+        "title_zh": "AI安全专题周报（20261127）",
+        "reason_zh": "汇总本期AI安全事件，包括智能体加速入侵及模型托管平台风险，提供全面的技术视角。",
+        "title_en": "AI Security Weekly Report (20261127)",
+        "reason_en": "Summary of This Week's AI Security Events Including Agent-Accelerated Intrusions and Model Hosting Platform Risks, Providing Comprehensive Technical Insights"
+      },
+      {
+        "title": "Volant Manticore：伊朗关联组织利用基于 IPFS 的 KuboShell 后门攻击关键基础设施",
+        "url": "https://www.cysecurity.news/2026/11/iran-aligned-volant-manticore-uses-ipfs.html",
+        "source": "腾讯安全",
+        "date": "2026-11-27",
+        "reason": "揭示去中心化架构与AI社会工程学结合的新型间谍活动，拓展了对抗AI攻击的技术视野。",
+        "title_zh": "Volant Manticore：伊朗关联组织利用基于 IPFS 的 KuboShell 后门攻击关键基础设施",
+        "reason_zh": "揭示去中心化架构与AI社会工程学结合的新型间谍活动，拓展了对抗AI攻击的技术视野。",
+        "title_en": "Volant Manticore: Iran-Linked Group Uses IPFS-Based KuboShell Backdoor to Attack Critical Infrastructure",
+        "reason_en": "Revealing New Espionage Activities Combining Decentralized Architecture and AI Social Engineering, Expanding Technical Perspectives on Countering AI Attacks"
+      }
+    ],
+    "威胁情报": [
+      {
+        "title": "SAP Confirms Cyberattack, Source Code Reportedly Compromised",
+        "url": "https://www.securityweek.com/sap-confirms-cyberattack-source-code-reportedly-compromised/",
+        "source": "SecurityWeek",
+        "date": "2026-11-27",
+        "reason": "软件巨头SAP遭入侵导致源代码泄露，涉及供应链安全，对全球企业级软件生态影响深远。",
+        "title_en": "SAP Confirms Cyberattack, Source Code Reportedly Compromised",
+        "reason_zh": "软件巨头SAP遭入侵导致源代码泄露，涉及供应链安全，对全球企业级软件生态影响深远。",
+        "title_zh": "SAP 确认遭受网络攻击，源代码据称已泄露",
+        "reason_en": "Software Giant SAP Breached, Source Code Leaked; Supply Chain Security Incident Impacts Global Enterprise Software Ecosystem"
+      },
+      {
+        "title": "核原料矿因网络攻击停产，上市公司紧急停牌",
+        "url": "https://www.secrss.com/articles/96060",
+        "source": "安全内参",
+        "date": "2026-11-27",
+        "reason": "澳大利亚铀矿项目遭受网络攻击导致停产，反映了关键能源基础设施面临的严峻勒索软件威胁。",
+        "title_zh": "核原料矿因网络攻击停产，上市公司紧急停牌",
+        "reason_zh": "澳大利亚铀矿项目遭受网络攻击导致停产，反映了关键能源基础设施面临的严峻勒索软件威胁。",
+        "title_en": "Nuclear Fuel Mine Halts Production Due to Cyberattack; Listed Company Suspends Trading",
+        "reason_en": "Australian Uranium Project Halts Production After Cyberattack, Reflecting Severe Ransomware Threats to Critical Energy Infrastructure"
+      },
+      {
+        "title": "Microsoft Store App Found Delivering Vinci RAT Capable of Remote System Control",
+        "url": "https://thehackernews.com/2026/11/microsoft-store-app-found-delivering.html",
+        "source": "The Hacker News",
+        "date": "2026-11-27",
+        "reason": "黑客通过微软应用商店分发RAT木马，揭示了正规渠道软件供应链被投毒的最新威胁趋势。",
+        "title_en": "Microsoft Store App Found Delivering Vinci RAT Capable of Remote System Control",
+        "reason_zh": "黑客通过微软应用商店分发RAT木马，揭示了正规渠道软件供应链被投毒的最新威胁趋势。",
+        "title_zh": "Microsoft Store 应用被发现分发具备远程控制能力的 Vinci RAT",
+        "reason_en": "Hackers Distribute RAT Trojan via Microsoft Store, Revealing Latest Trend of Legitimate Channel Software Supply Chain Poisoning"
+      },
+      {
+        "title": "Hackers Trojanize Official Q-Dir and DesktopOK Downloads to Deliver Remote Access Malware",
+        "url": "https://thehackernews.com/2026/11/hackers-trojanize-official-q-dir-and.html",
+        "source": "The Hacker News",
+        "date": "2026-11-27",
+        "reason": "知名工具Q-Dir和DesktopOK官方下载被篡改，属于典型的软件供应链投毒攻击案例。",
+        "title_en": "Hackers Trojanize Official Q-Dir and DesktopOK Downloads to Deliver Remote Access Malware",
+        "reason_zh": "知名工具Q-Dir和DesktopOK官方下载被篡改，属于典型的软件供应链投毒攻击案例。",
+        "title_zh": "黑客篡改官方 Q-Dir 和 DesktopOK 下载以投递远程访问木马",
+        "reason_en": "Official Downloads of Popular Tools Q-Dir and DesktopOK Tampered With, Typical Case of Software Supply Chain Poisoning"
+      },
+      {
+        "title": "Suspected Vietnam-Linked Hackers Target Southeast Asia in South China Sea Espionage Campaign",
+        "url": "https://thehackernews.com/2026/11/suspected-vietnam-linked-hackers-target.html",
+        "source": "The Hacker News",
+        "date": "2026-11-27",
+        "reason": "越南关联黑客组织针对东南亚军事和政府机构进行间谍活动，地缘政治网络冲突加剧。",
+        "title_en": "Suspected Vietnam-Linked Hackers Target Southeast Asia in South China Sea Espionage Campaign",
+        "reason_zh": "越南关联黑客组织针对东南亚军事和政府机构进行间谍活动，地缘政治网络冲突加剧。",
+        "title_zh": "疑似与越南关联的黑客在南海间谍行动中针对东南亚地区",
+        "reason_en": "Vietnam-Linked Hacker Group Conducts Espionage Against Southeast Asian Military and Government Agencies, Intensifying Geopolitical Cyber Conflict"
+      }
+    ],
+    "安全工具": [
+      {
+        "title": "SVDB: A structured database for better vulnerability management",
+        "url": "https://positive.security/blog/svdb",
+        "source": "Unsafe.sh",
+        "date": "2026-11-27",
+        "reason": "利用LLM增强已知漏洞信息的结构化数据库，提升了漏洞管理的效率与准确性。",
+        "title_en": "SVDB: A structured database for better vulnerability management",
+        "reason_zh": "利用LLM增强已知漏洞信息的结构化数据库，提升了漏洞管理的效率与准确性。",
+        "title_zh": "SVDB：用于提升漏洞管理水平的结构化数据库",
+        "reason_en": "Enhancing Structured Databases of Known Vulnerabilities with LLMs Improves Efficiency and Accuracy of Vulnerability Management"
+      },
+      {
+        "title": "faraday v5.26.0",
+        "url": "https://kitploit.com/en/posts/faraday-bddebf6f602561cd",
+        "source": "Unsafe.sh",
+        "date": "2026-11-28",
+        "reason": "Faraday渗透测试平台的版本更新，集成了多种安全工具，有助于提升安全测试流程。",
+        "title_en": "faraday v5.26.0",
+        "reason_zh": "Faraday渗透测试平台的版本更新，集成了多种安全工具，有助于提升安全测试流程。",
+        "title_zh": "faraday v5.26.0",
+        "reason_en": "Faraday Penetration Testing Platform Update Integrates Multiple Security Tools to Enhance Security Testing Workflows"
+      },
+      {
+        "title": "thc-hydra v9.9",
+        "url": "https://kitploit.com/en/posts/thc-hydra-26a75b46bc8b375b",
+        "source": "Unsafe.sh",
+        "date": "2026-11-28",
+        "reason": "经典暴力破解工具THC-Hydra发布新版本，持续支持更多协议和算法，是红队测试常用工具。",
+        "title_en": "thc-hydra v9.9",
+        "reason_zh": "经典暴力破解工具THC-Hydra发布新版本，持续支持更多协议和算法，是红队测试常用工具。",
+        "title_zh": "thc-hydra v9.9",
+        "reason_en": "Classic Brute-Force Tool THC-Hydra Releases New Version with Expanded Protocol and Algorithm Support, Remains a Staple for Red Team Testing"
+      }
+    ],
+    "云安全": [
+      {
+        "title": "美国空军旗舰云平台Cloud One遭入侵",
+        "url": "https://mp.weixin.qq.com/s?__biz=MzAxOTM1MDQ1NA==&mid=2451190103&idx=2&sn=88f1a8cd3eba5a282d00028bfebd035c",
+        "source": "Unsafe.sh",
+        "date": "2026-11-27",
+        "reason": "美军Cloud One云平台被攻破，暴露了联邦政府云环境的安全隐患及潜在的数据泄露风险。",
+        "title_zh": "美国空军旗舰云平台Cloud One遭入侵",
+        "reason_zh": "美军Cloud One云平台被攻破，暴露了联邦政府云环境的安全隐患及潜在的数据泄露风险。",
+        "title_en": "US Air Force Flagship Cloud Platform Cloud One Breached",
+        "reason_en": "US Military Cloud One Platform Compromised, Exposing Security Flaws and Potential Data Leakage Risks in Federal Government Cloud Environments"
+      },
+      {
+        "title": "US Air Force cloud platform reportedly hacked in latest federal breach",
+        "url": "https://www.bleepingcomputer.com/news/security/us-air-force-cloud-platform-reportedly-hacked-in-latest-federal-breach/",
+        "source": "Unsafe.sh",
+        "date": "2026-11-27",
+        "reason": "美国空军云平台遭遇最新联邦级别网络入侵，迁移工作暂停，凸显云基础设施防护的重要性。",
+        "title_en": "US Air Force cloud platform reportedly hacked in latest federal breach",
+        "reason_zh": "美国空军云平台遭遇最新联邦级别网络入侵，迁移工作暂停，凸显云基础设施防护的重要性。",
+        "title_zh": "美国空军云平台据报在最新联邦数据泄露事件中被攻破",
+        "reason_en": "US Air Force Cloud Platform Suffers Latest Federal-Level Cyber Intrusion; Migration Paused, Highlighting Importance of Cloud Infrastructure Protection"
+      },
+      {
+        "title": "Your Firewall Isn't Enough: The Hidden Risk of Unmanaged VMs",
+        "url": "https://www.bleepingcomputer.com/news/security/your-firewall-isnt-enough-the-hidden-risk-of-unmanaged-vms/",
+        "source": "Unsafe.sh",
+        "date": "2026-11-27",
+        "reason": "指出防火墙无法完全覆盖未管理虚拟机带来的安全风险，为云环境纵深防御提供新思路。",
+        "title_en": "Your Firewall Isn't Enough: The Hidden Risk of Unmanaged VMs",
+        "reason_zh": "指出防火墙无法完全覆盖未管理虚拟机带来的安全风险，为云环境纵深防御提供新思路。",
+        "title_zh": "防火墙并非万全之策：未管理虚拟机的隐藏风险",
+        "reason_en": "Firewalls Cannot Fully Mitigate Security Risks from Unmanaged VMs: A New Approach to Defense-in-Depth for Cloud Environments"
+      }
+    ],
+    "其他重要": [
+      {
+        "title": "搜个DeepSeek微信没了，高仿官网正在批量投毒",
+        "url": "https://www.anquanke.com/post/id/316565",
+        "source": "安全客",
+        "date": "2026-11-27",
+        "reason": "针对热门AI产品DeepSeek的高仿官网钓鱼攻击，提醒用户注意识别官方渠道以防数据泄露。",
+        "title_zh": "搜个DeepSeek微信没了，高仿官网正在批量投毒",
+        "reason_zh": "针对热门AI产品DeepSeek的高仿官网钓鱼攻击，提醒用户注意识别官方渠道以防数据泄露。",
+        "title_en": "DeepSeek WeChat Account Compromised: Fake Official Websites Engaged in Mass Poisoning Campaigns",
+        "reason_en": "Phishing Attacks Target Popular AI Product DeepSeek via Impersonated Official Websites; Users Urged to Verify Channels to Prevent Data Breaches"
+      },
+      {
+        "title": "美国加州政府发布人工智能安全报告：建议强化前沿模型监管与紧急处置机制",
+        "url": "https://www.secrss.com/articles/96049",
+        "source": "安全内参",
+        "date": "2026-11-27",
+        "reason": "加州政府发布AI安全立法建议，涵盖标准建立与重大事件报告，反映政策层面对AI安全的重视。",
+        "title_zh": "美国加州政府发布人工智能安全报告：建议强化前沿模型监管与紧急处置机制",
+        "reason_zh": "加州政府发布AI安全立法建议，涵盖标准建立与重大事件报告，反映政策层面对AI安全的重视。",
+        "title_en": "California Government Releases AI Safety Report: Recommends Strengthening Oversight of Frontier Models and Emergency Response Mechanisms",
+        "reason_en": "California Proposes AI Safety Legislation Covering Standards Establishment and Major Incident Reporting, Highlighting Policy Focus on AI Security"
+      },
+      {
+        "title": "Fake Government App Exposes Italy’s Expanding Spyware Surveillance Industry",
+        "url": "https://securityaffairs.com/204142/intelligence/fake-government-app-exposes-italys-expanding-spyware-surveillance-industry.html",
+        "source": "Unsafe.sh",
+        "date": "2026-11-28",
+        "reason": "揭露意大利间谍软件产业的虚假政府应用伪装手段，揭示了国家行为体背后的商业监控链条。",
+        "title_en": "Fake Government App Exposes Italy’s Expanding Spyware Surveillance Industry",
+        "reason_zh": "揭露意大利间谍软件产业的虚假政府应用伪装手段，揭示了国家行为体背后的商业监控链条。",
+        "title_zh": "假冒政府应用暴露意大利日益扩张的间谍软件监控产业",
+        "reason_en": "Exposing Deceptive Tactics of Italian Spyware Industry: Fake Government Apps Reveal Commercial Surveillance Chains Behind State Actors"
+      }
+    ]
+  },
+  "summary": "本批次重点关注Cacti零日漏洞、AI辅助攻击实战及SAP等大型企业供应链入侵事件。",
+  "summary_zh": "本批次重点关注Cacti零日漏洞、AI辅助攻击实战及SAP等大型企业供应链入侵事件。",
+  "summary_en": "This Batch Highlights Cacti Zero-Day Vulnerability, AI-Assisted Attack Practicals, and Enterprise Supply Chain Intrusions Involving SAP"
+}
